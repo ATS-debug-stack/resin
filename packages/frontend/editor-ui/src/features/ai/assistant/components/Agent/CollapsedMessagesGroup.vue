@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import type { ChatUI } from '@n8n/design-system/types/assistant';
-import { isToolMessage, isThinkingGroupMessage } from '@n8n/design-system/types/assistant';
+import { useI18n } from '@resin/i18n';
+import type { ChatUI } from '@resin/design-system/types/assistant';
+import { isToolMessage, isThinkingGroupMessage } from '@resin/design-system/types/assistant';
 import type { NodeChangeEntry } from '@/features/ai/assistant/composables/useReviewChanges';
-import { N8nIcon, MessageWrapper, ThinkingMessage } from '@n8n/design-system';
+import { N8nIcon, MessageWrapper, ThinkingMessage } from '@resin/design-system';
 import { isVersionCardMessage, type VersionCardMessage } from '../../assistant.types';
 import ChatVersionCard from './ChatVersionCard.vue';
 

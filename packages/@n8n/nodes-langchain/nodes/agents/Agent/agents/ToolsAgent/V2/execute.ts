@@ -21,8 +21,8 @@ import {
 } from '@utils/output_parsers/N8nOutputParser';
 import { buildTracingMetadata, getTracingConfig } from '@utils/tracing';
 import omit from 'lodash/omit';
-import { jsonParse, NodeOperationError, sleep } from 'n8n-workflow';
-import type { IExecuteFunctions, INodeExecutionData, ISupplyDataFunctions } from 'n8n-workflow';
+import { jsonParse, NodeOperationError, sleep } from 'resin-workflow';
+import type { IExecuteFunctions, INodeExecutionData, ISupplyDataFunctions } from 'resin-workflow';
 import assert from 'node:assert';
 
 import { isExecuteFunctions } from '../../utils';

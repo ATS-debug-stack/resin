@@ -9,8 +9,8 @@ import InsightsSummary from '@/features/execution/insights/components/InsightsSu
 import { useInsightsStore } from '@/features/execution/insights/insights.store';
 import type { DateValue } from '@internationalized/date';
 import { getLocalTimeZone, today } from '@internationalized/date';
-import type { InsightsSummaryType } from '@n8n/api-types';
-import { useI18n } from '@n8n/i18n';
+import type { InsightsSummaryType } from '@resin/api-types';
+import { useI18n } from '@resin/i18n';
 import {
 	computed,
 	defineAsyncComponent,
@@ -25,7 +25,7 @@ import { INSIGHT_TYPES } from '../insights.constants';
 import { getAdjustedDateRange, getTimeRangeLabels, timeRangeMappings } from '../insights.utils';
 import InsightsDataRangePicker from './InsightsDataRangePicker.vue';
 
-import { N8nHeading, N8nSpinner } from '@n8n/design-system';
+import { N8nHeading, N8nSpinner } from '@resin/design-system';
 const InsightsPaywall = defineAsyncComponent(
 	async () => await import('@/features/execution/insights/components/InsightsPaywall.vue'),
 );

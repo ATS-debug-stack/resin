@@ -1,5 +1,5 @@
-import type { CorsOptions } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import type { CorsOptions } from '@resin/decorators';
+import { Service } from '@resin/di';
 import type { Response, Request } from 'express';
 
 @Service()

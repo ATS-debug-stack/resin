@@ -1,11 +1,11 @@
-import { Logger } from '@n8n/backend-common';
-import { Timed } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Timed } from '@resin/decorators';
+import { Container } from '@resin/di';
 
 /**
  * Decorator that warns when database queries exceed a duration threshold.
  *
- * For options, see `@n8n/decorators/src/timed.ts`.
+ * For options, see `@resin/decorators/src/timed.ts`.
  *
  * @example
  * ```ts

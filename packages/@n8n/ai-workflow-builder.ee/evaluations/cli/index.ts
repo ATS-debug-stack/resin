@@ -5,7 +5,7 @@
  * Can be run directly or used as a reference for custom setups.
  */
 
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 import pLimit from 'p-limit';
 
 import { CodeWorkflowBuilder } from '@/code-builder';

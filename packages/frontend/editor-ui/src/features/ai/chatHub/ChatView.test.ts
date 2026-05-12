@@ -1,5 +1,5 @@
 import { createComponentRenderer } from '@/__tests__/render';
-import { emptyChatModelsResponse } from '@n8n/api-types';
+import { emptyChatModelsResponse } from '@resin/api-types';
 import { within } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import { createPinia, setActivePinia } from 'pinia';

@@ -1,10 +1,10 @@
-import { ApplicationError } from '@n8n/errors';
+import { ApplicationError } from '@resin/errors';
 import type {
 	ICredentialDataDecryptedObject,
 	ICredentialType,
 	IHttpRequestOptions,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class CustomerIoApi implements ICredentialType {
 	name = 'customerIoApi';

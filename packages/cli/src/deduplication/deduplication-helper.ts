@@ -1,8 +1,8 @@
-import type { ProcessedData } from '@n8n/db';
-import { ProcessedDataRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { ProcessedData } from '@resin/db';
+import { ProcessedDataRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { createHash } from 'crypto';
-import { tryToParseDateTime } from 'n8n-workflow';
+import { tryToParseDateTime } from 'resin-workflow';
 import type {
 	IProcessedDataEntries,
 	IProcessedDataLatest,
@@ -13,7 +13,7 @@ import type {
 	DeduplicationScope,
 	DeduplicationItemTypes,
 	DeduplicationMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import * as assert from 'node:assert/strict';
 
 import { DeduplicationError } from '@/errors/deduplication.error';

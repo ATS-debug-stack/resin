@@ -4,7 +4,7 @@
 
 import type { BaseMessage } from '@langchain/core/messages';
 import { ToolMessage } from '@langchain/core/messages';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 
 import type {
 	StreamOutput,

@@ -38,7 +38,7 @@ These map to primitives (directly or through compatibility aliases), and have li
 
 ## Naming rules
 
-Naming is validated by `@n8n/css-var-naming` in `packages/@n8n/stylelint-config/src/rules/css-var-naming.ts` for files in `@n8n/design-system/src/css`.
+Naming is validated by `@resin/css-var-naming` in `packages/@n8n/stylelint-config/src/rules/css-var-naming.ts` for files in `@n8n/design-system/src/css`.
 
 ### Required format
 
@@ -85,7 +85,7 @@ This gives us:
 ## Practical guidance for contributors
 
 - Prefer updating existing semantic tokens before introducing new one-off variables.
-- If you must add a temporary exception, scope it tightly with `/* stylelint-disable @n8n/css-var-naming */` and re-enable immediately.
+- If you must add a temporary exception, scope it tightly with `/* stylelint-disable @resin/css-var-naming */` and re-enable immediately.
 - Avoid hardcoded color hex values in component styles when an existing token can express the same intent.
 
 ---

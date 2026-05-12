@@ -1,8 +1,8 @@
-import { GlobalConfig } from '@n8n/config';
-import type { EntityClass, ModuleInterface } from '@n8n/decorators';
-import { BackendModule } from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import { InstanceSettings, scanDirectoryForPackages } from 'n8n-core';
+import { GlobalConfig } from '@resin/config';
+import type { EntityClass, ModuleInterface } from '@resin/decorators';
+import { BackendModule } from '@resin/decorators';
+import { Container } from '@resin/di';
+import { InstanceSettings, scanDirectoryForPackages } from 'resin-core';
 import path from 'node:path';
 
 @BackendModule({ name: 'community-packages' })

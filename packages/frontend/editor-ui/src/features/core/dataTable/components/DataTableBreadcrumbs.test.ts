@@ -29,7 +29,7 @@ vi.mock('@/app/composables/useToast', () => ({
 	useToast: () => mockToast,
 }));
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string) => {

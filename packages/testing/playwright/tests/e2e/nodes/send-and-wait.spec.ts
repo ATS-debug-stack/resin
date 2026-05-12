@@ -1,6 +1,6 @@
 import type { Page } from '@playwright/test';
-import type { ProxyServer } from 'n8n-containers/services/proxy';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { ProxyServer } from 'resin-containers/services/proxy';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { test as base, expect } from '../../../fixtures/base';
 import type { CredentialResponse } from '../../../services/credential-api-helper';
@@ -118,7 +118,7 @@ async function clickApprovalLink(page: Page, url: string) {
 function withSlackCredential(credential: CredentialResponse) {
 	return (workflow: Partial<IWorkflowBase>) => {
 		workflow.nodes?.forEach((node) => {
-			if (node.type === 'n8n-nodes-base.slack') {
+			if (node.type === 'resin-nodes-base.slack') {
 				node.credentials = { slackApi: { id: credential.id, name: credential.name } };
 			}
 		});

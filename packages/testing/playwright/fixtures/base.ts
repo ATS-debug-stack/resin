@@ -1,9 +1,9 @@
 import type { CurrentsFixtures, CurrentsWorkerFixtures } from '@currents/playwright';
 import { fixtures as currentsFixtures } from '@currents/playwright';
 import { test as base, expect, request } from '@playwright/test';
-import type { ServiceHelpers } from 'n8n-containers/services/types';
-import type { N8NConfig, N8NStack } from 'n8n-containers/stack';
-import { createN8NStack } from 'n8n-containers/stack';
+import type { ServiceHelpers } from 'resin-containers/services/types';
+import type { N8NConfig, N8NStack } from 'resin-containers/stack';
+import { createN8NStack } from 'resin-containers/stack';
 
 import { CAPABILITIES, type Capability } from './capabilities';
 import { consoleErrorFixtures } from './console-error-monitor';

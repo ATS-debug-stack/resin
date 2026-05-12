@@ -11,7 +11,7 @@ import { useUsersStore } from '@/features/settings/users/users.store';
 const getSecuritySettings = vi.fn();
 const updateSecuritySettings = vi.fn();
 
-vi.mock('@n8n/rest-api-client/api/security-settings', () => ({
+vi.mock('@resin/rest-api-client/api/security-settings', () => ({
 	getSecuritySettings: (...args: unknown[]) => getSecuritySettings(...args),
 	updateSecuritySettings: (...args: unknown[]) => updateSecuritySettings(...args),
 }));
@@ -22,7 +22,7 @@ vi.mock('@/app/composables/useToast', () => ({
 	useToast: () => ({ showToast, showError }),
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({ restApiContext: {} }),
 }));
 

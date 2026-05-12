@@ -1,5 +1,5 @@
-import { communityPackageResponseSchema } from '@n8n/api-types';
-import type { PublicInstalledNode, PublicInstalledPackage } from 'n8n-workflow';
+import { communityPackageResponseSchema } from '@resin/api-types';
+import type { PublicInstalledNode, PublicInstalledPackage } from 'resin-workflow';
 
 function toIsoString(value: Date | string): string {
 	return value instanceof Date ? value.toISOString() : new Date(value).toISOString();

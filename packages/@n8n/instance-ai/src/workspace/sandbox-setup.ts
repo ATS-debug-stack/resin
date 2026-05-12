@@ -9,9 +9,9 @@
  *
  * Workspace layout:
  *   <workspace-root>/
- *     package.json                    # @n8n/workflow-sdk dependency
+ *     package.json                    # @resin/workflow-sdk dependency
  *     tsconfig.json                   # strict, noEmit, skipLibCheck
- *     node_modules/@n8n/workflow-sdk/ # full SDK with .d.ts types
+ *     node_modules/@resin/workflow-sdk/ # full SDK with .d.ts types
  *     workflows/                      # existing n8n workflows as JSON
  *     node-types/
  *       index.txt                     # searchable catalog: nodeType | displayName | description | version
@@ -55,7 +55,7 @@ function resolveHostDepVersion(name: string): string {
 /**
  * Versions pinned from the host's installed packages. Pinning is load-bearing
  * for two reasons:
- *   1. `npm install '@n8n/workflow-sdk': '*'` inside the sandbox resolves to
+ *   1. `npm install '@resin/workflow-sdk': '*'` inside the sandbox resolves to
  *      the dist-tag `latest`, which lags well behind the version the CLI was
  *      built against. Host-pinned versions keep the sandbox SDK in lock-step
  *      with the server that orchestrates it.
@@ -79,7 +79,7 @@ const SANDBOX_SDK_VERSION = resolveSandboxSdkVersion();
 function resolveSandboxSdkVersion(): string {
 	const linkFlag = process.env.N8N_INSTANCE_AI_SANDBOX_LINK_SDK;
 	if (linkFlag === '1' || linkFlag === 'true') return 'latest';
-	return resolveHostDepVersion('@n8n/workflow-sdk');
+	return resolveHostDepVersion('@resin/workflow-sdk');
 }
 const SANDBOX_TSX_VERSION = resolveHostDepVersion('tsx');
 
@@ -97,7 +97,7 @@ function buildPackageJson(sdkSpecifier: string | null): string {
 		tsx: SANDBOX_TSX_VERSION,
 	};
 	if (sdkSpecifier) {
-		dependencies['@n8n/workflow-sdk'] = sdkSpecifier;
+		dependencies['@resin/workflow-sdk'] = sdkSpecifier;
 	}
 
 	return JSON.stringify(
@@ -120,7 +120,7 @@ function buildPackageJson(sdkSpecifier: string | null): string {
  * Normal mode pins to the host SDK version. See `resolveHostDepVersion` for
  * why pinning matters.
  *
- * Linked-SDK mode intentionally omits @n8n/workflow-sdk from the baked image:
+ * Linked-SDK mode intentionally omits @resin/workflow-sdk from the baked image:
  * the host SDK may be ahead of npm on master, and the packed workspace tarball
  * is installed after sandbox creation.
  */
@@ -143,7 +143,7 @@ function resolveHostDepPath(name: string): string | null {
 }
 
 /**
- * Build a PACKAGE_JSON that points `@n8n/workflow-sdk` at its host-resolved
+ * Build a PACKAGE_JSON that points `@resin/workflow-sdk` at its host-resolved
  * location via `file:` — so the local provider picks up workspace SDK
  * changes after `pnpm build` without needing a publish.
  *
@@ -151,7 +151,7 @@ function resolveHostDepPath(name: string): string | null {
  * resolved on disk (e.g. a stripped-down test harness).
  */
 function buildLocalProviderPackageJson(): string {
-	const sdkPath = resolveHostDepPath('@n8n/workflow-sdk');
+	const sdkPath = resolveHostDepPath('@resin/workflow-sdk');
 	if (!sdkPath) return PACKAGE_JSON;
 	return buildPackageJson(`file:${sdkPath}`);
 }

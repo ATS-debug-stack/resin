@@ -1,4 +1,4 @@
-import { type PushMessage } from '@n8n/api-types';
+import { type PushMessage } from '@resin/api-types';
 import { mock } from 'jest-mock-extended';
 import EventEmitter from 'node:events';
 

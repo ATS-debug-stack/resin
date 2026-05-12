@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Body, Get, Post, RestController } from '@n8n/decorators';
+import { Logger } from '@resin/backend-common';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Body, Get, Post, RestController } from '@resin/decorators';
 import type { Response } from 'express';
 
 import { ApproveConsentRequestDto } from './dto/approve-consent-request.dto';

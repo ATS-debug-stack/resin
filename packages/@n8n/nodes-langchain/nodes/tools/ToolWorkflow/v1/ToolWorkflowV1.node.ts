@@ -3,8 +3,11 @@ import { DynamicStructuredTool, DynamicTool } from '@langchain/core/tools';
 import type { JSONSchema7 } from 'json-schema';
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
-import type { SetField, SetNodeOptions } from 'n8n-nodes-base/dist/nodes/Set/v2/helpers/interfaces';
-import * as manual from 'n8n-nodes-base/dist/nodes/Set/v2/manual.mode';
+import type {
+	SetField,
+	SetNodeOptions,
+} from 'resin-nodes-base/dist/nodes/Set/v2/helpers/interfaces';
+import * as manual from 'resin-nodes-base/dist/nodes/Set/v2/manual.mode';
 import type {
 	IExecuteWorkflowInfo,
 	INodeExecutionData,
@@ -19,8 +22,8 @@ import type {
 	INodeParameterResourceLocator,
 	ITaskMetadata,
 	INodeTypeBaseDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError, jsonParse } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeOperationError, jsonParse } from 'resin-workflow';
 
 import { versionDescription } from './versionDescription';
 import type { DynamicZodObject } from '../../../../types/zod.types';

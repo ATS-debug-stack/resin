@@ -1,4 +1,4 @@
-import type { INodeTypes } from 'n8n-workflow';
+import type { INodeTypes } from 'resin-workflow';
 
 import { validateWorkflow } from '../validation';
 import { workflow } from '../workflow-builder';
@@ -7,17 +7,17 @@ import { node, trigger, merge } from '../workflow-builder/node-builders/node-bui
 describe('input index validation', () => {
 	const mockNodeTypesProvider: INodeTypes = {
 		getByNameAndVersion: (type: string) => {
-			if (type === 'n8n-nodes-base.aggregate') {
+			if (type === 'resin-nodes-base.aggregate') {
 				return { description: { inputs: ['main'] } };
 			}
-			if (type === 'n8n-nodes-base.set') {
+			if (type === 'resin-nodes-base.set') {
 				return { description: { inputs: ['main'] } };
 			}
-			if (type === 'n8n-nodes-base.merge') {
+			if (type === 'resin-nodes-base.merge') {
 				// Merge uses expression-based inputs
 				return { description: { inputs: '={{$parameter.numberInputs}}' } };
 			}
-			if (type === 'n8n-nodes-base.manualTrigger') {
+			if (type === 'resin-nodes-base.manualTrigger') {
 				return { description: { inputs: [] } };
 			}
 			// Default single input
@@ -28,8 +28,8 @@ describe('input index validation', () => {
 	} as INodeTypes;
 
 	it('warns when connecting to invalid input index on single-input node', () => {
-		const myTrigger = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
-		const aggregate = node({ type: 'n8n-nodes-base.aggregate', version: 1, config: {} });
+		const myTrigger = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
+		const aggregate = node({ type: 'resin-nodes-base.aggregate', version: 1, config: {} });
 
 		// Invalid! Aggregate has only input 0
 		const wf = workflow('test-id', 'Test').add(myTrigger.to(aggregate.input(1)));
@@ -42,8 +42,8 @@ describe('input index validation', () => {
 	});
 
 	it('does not warn for valid input index', () => {
-		const myTrigger = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
-		const aggregate = node({ type: 'n8n-nodes-base.aggregate', version: 1, config: {} });
+		const myTrigger = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
+		const aggregate = node({ type: 'resin-nodes-base.aggregate', version: 1, config: {} });
 
 		// Valid - input 0 exists
 		const wf = workflow('test-id', 'Test').add(myTrigger.to(aggregate.input(0)));
@@ -54,8 +54,8 @@ describe('input index validation', () => {
 	});
 
 	it('skips validation when no provider given (backward compatible)', () => {
-		const myTrigger = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
-		const aggregate = node({ type: 'n8n-nodes-base.aggregate', version: 1, config: {} });
+		const myTrigger = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
+		const aggregate = node({ type: 'resin-nodes-base.aggregate', version: 1, config: {} });
 
 		// Would be invalid, but no provider
 		const wf = workflow('test-id', 'Test').add(myTrigger.to(aggregate.input(5)));
@@ -66,7 +66,7 @@ describe('input index validation', () => {
 	});
 
 	it('warns when a Merge input index exceeds numberInputs even though inputs are dynamic', () => {
-		const myTrigger = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+		const myTrigger = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 		const mergeNode = merge({ version: 3 });
 
 		// checkNodeInputIndices can't resolve dynamic inputs, but the Merge-specific
@@ -81,9 +81,9 @@ describe('input index validation', () => {
 	});
 
 	it('reports warning with node name and input index in message', () => {
-		const myTrigger = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+		const myTrigger = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 		const aggregate = node({
-			type: 'n8n-nodes-base.aggregate',
+			type: 'resin-nodes-base.aggregate',
 			version: 1,
 			config: { name: 'My Aggregate' },
 		});
@@ -101,17 +101,17 @@ describe('input index validation', () => {
 
 	it('warns for multiple invalid inputs to same node', () => {
 		const trigger1 = trigger({
-			type: 'n8n-nodes-base.manualTrigger',
+			type: 'resin-nodes-base.manualTrigger',
 			version: 1,
 			config: { name: 'Trigger 1' },
 		});
 		const trigger2 = trigger({
-			type: 'n8n-nodes-base.manualTrigger',
+			type: 'resin-nodes-base.manualTrigger',
 			version: 1,
 			config: { name: 'Trigger 2' },
 		});
 		const aggregate = node({
-			type: 'n8n-nodes-base.aggregate',
+			type: 'resin-nodes-base.aggregate',
 			version: 1,
 			config: { name: 'Aggregate' },
 		});
@@ -136,18 +136,18 @@ describe('merge node input-count validation', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 				},
-				{ id: 'a', name: 'A', type: 'n8n-nodes-base.set', typeVersion: 3, position: [100, 0] },
-				{ id: 'b', name: 'B', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
-				{ id: 'c', name: 'C', type: 'n8n-nodes-base.set', typeVersion: 3, position: [300, 0] },
+				{ id: 'a', name: 'A', type: 'resin-nodes-base.set', typeVersion: 3, position: [100, 0] },
+				{ id: 'b', name: 'B', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
+				{ id: 'c', name: 'C', type: 'resin-nodes-base.set', typeVersion: 3, position: [300, 0] },
 				// Merge has no parameters → numberInputs defaults to 2, but three branches connect.
 				{
 					id: 'm',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3.2,
 					position: [500, 0],
 					parameters: {},
@@ -175,13 +175,13 @@ describe('merge node input-count validation', () => {
 			id: 'test-id',
 			name: 'Test',
 			nodes: [
-				{ id: 'a', name: 'A', type: 'n8n-nodes-base.set', typeVersion: 3, position: [100, 0] },
-				{ id: 'b', name: 'B', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
-				{ id: 'c', name: 'C', type: 'n8n-nodes-base.set', typeVersion: 3, position: [300, 0] },
+				{ id: 'a', name: 'A', type: 'resin-nodes-base.set', typeVersion: 3, position: [100, 0] },
+				{ id: 'b', name: 'B', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
+				{ id: 'c', name: 'C', type: 'resin-nodes-base.set', typeVersion: 3, position: [300, 0] },
 				{
 					id: 'm',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3.2,
 					position: [500, 0],
 					parameters: { numberInputs: 3 },
@@ -205,12 +205,12 @@ describe('merge node input-count validation', () => {
 			id: 'test-id',
 			name: 'Test',
 			nodes: [
-				{ id: 'a', name: 'A', type: 'n8n-nodes-base.set', typeVersion: 3, position: [100, 0] },
-				{ id: 'b', name: 'B', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
+				{ id: 'a', name: 'A', type: 'resin-nodes-base.set', typeVersion: 3, position: [100, 0] },
+				{ id: 'b', name: 'B', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
 				{
 					id: 'm',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3.2,
 					position: [500, 0],
 					parameters: {},
@@ -233,14 +233,14 @@ describe('merge node input-count validation', () => {
 			id: 'test-id',
 			name: 'Test',
 			nodes: [
-				{ id: 'a', name: 'A', type: 'n8n-nodes-base.set', typeVersion: 3, position: [100, 0] },
-				{ id: 'b', name: 'B', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
-				{ id: 'c', name: 'C', type: 'n8n-nodes-base.set', typeVersion: 3, position: [300, 0] },
-				{ id: 'd', name: 'D', type: 'n8n-nodes-base.set', typeVersion: 3, position: [400, 0] },
+				{ id: 'a', name: 'A', type: 'resin-nodes-base.set', typeVersion: 3, position: [100, 0] },
+				{ id: 'b', name: 'B', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
+				{ id: 'c', name: 'C', type: 'resin-nodes-base.set', typeVersion: 3, position: [300, 0] },
+				{ id: 'd', name: 'D', type: 'resin-nodes-base.set', typeVersion: 3, position: [400, 0] },
 				{
 					id: 'm',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3.2,
 					position: [500, 0],
 					parameters: { numberInputs: 2 },

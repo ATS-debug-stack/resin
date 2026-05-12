@@ -7,7 +7,7 @@ import {
 	chatHubProviderSchema,
 	PROVIDER_CREDENTIAL_TYPE_MAP,
 	type ChatHubProvider,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { useLocalStorage } from '@vueuse/core';
 import { computed, ref, watch } from 'vue';
 import { isLlmProvider } from '../chat.utils';

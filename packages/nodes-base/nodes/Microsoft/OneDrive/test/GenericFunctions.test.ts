@@ -1,5 +1,5 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 
 import { microsoftApiRequest, getPath } from '../GenericFunctions';
 
@@ -16,7 +16,7 @@ describe('Microsoft OneDrive GenericFunctions', () => {
 		mockNode = {
 			id: 'test-node',
 			name: 'Test OneDrive Node',
-			type: 'n8n-nodes-base.microsoftOneDrive',
+			type: 'resin-nodes-base.microsoftOneDrive',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

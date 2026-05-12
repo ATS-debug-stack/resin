@@ -4,7 +4,7 @@ import type {
 	INodeParameterResourceLocator,
 	IWorkflowBase,
 	NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { test, expect } from '../../../../../fixtures/base';
 import { resolveFromRoot } from '../../../../../utils/path-helper';
@@ -79,7 +79,7 @@ test.describe(
 							parameters: {},
 							id: 'manual-trigger',
 							name: 'When clicking Test workflow',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
@@ -94,7 +94,7 @@ test.describe(
 							},
 							id: 'execute-workflow',
 							name: 'Execute Workflow',
-							type: 'n8n-nodes-base.executeWorkflow',
+							type: 'resin-nodes-base.executeWorkflow',
 							typeVersion: 1.1,
 							position: [200, 0],
 						},
@@ -193,7 +193,7 @@ test.describe(
 							parameters: {},
 							id: 'manual-trigger',
 							name: 'Manual Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
@@ -208,7 +208,7 @@ test.describe(
 							},
 							id: 'execute-workflow',
 							name: 'Execute Workflow',
-							type: 'n8n-nodes-base.executeWorkflow',
+							type: 'resin-nodes-base.executeWorkflow',
 							typeVersion: 1.1,
 							position: [200, 0],
 						},
@@ -251,7 +251,7 @@ test.describe(
 							},
 							id: 'webhook-trigger',
 							name: 'Webhook',
-							type: 'n8n-nodes-base.webhook',
+							type: 'resin-nodes-base.webhook',
 							typeVersion: 2.1,
 							position: [0, 0],
 							webhookId: 'self-ref-webhook-id',
@@ -267,7 +267,7 @@ test.describe(
 							},
 							id: 'execute-workflow',
 							name: 'Execute Workflow',
-							type: 'n8n-nodes-base.executeWorkflow',
+							type: 'resin-nodes-base.executeWorkflow',
 							typeVersion: 1.1,
 							position: [200, 0],
 						},

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DATA_TABLE_DETAILS } from '@/features/core/dataTable/constants';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
 import DataTableActions from '@/features/core/dataTable/components/DataTableActions.vue';
 import { useDataTableStore } from '@/features/core/dataTable/dataTable.store';
@@ -8,7 +8,7 @@ import TimeAgo from '@/app/components/TimeAgo.vue';
 import ProjectCardBadge from '@/features/collaboration/projects/components/ProjectCardBadge.vue';
 import DependencyPill from '@/app/components/DependencyPill.vue';
 
-import { N8nBadge, N8nCard, N8nIcon, N8nLink, N8nText } from '@n8n/design-system';
+import { N8nBadge, N8nCard, N8nIcon, N8nLink, N8nText } from '@resin/design-system';
 import type { DataTableResource } from '../types';
 import { ResourceType } from '@/features/collaboration/projects/projects.utils';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';

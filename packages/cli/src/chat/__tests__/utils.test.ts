@@ -1,13 +1,13 @@
-import type { IExecutionResponse } from '@n8n/db';
-import { TOOL_EXECUTOR_NODE_NAME } from '@n8n/constants';
-import type { IDataObject, IExecuteData, INode, Workflow } from 'n8n-workflow';
+import type { IExecutionResponse } from '@resin/db';
+import { TOOL_EXECUTOR_NODE_NAME } from '@resin/constants';
+import type { IDataObject, IExecuteData, INode, Workflow } from 'resin-workflow';
 import {
 	CHAT_NODE_TYPE,
 	CHAT_TOOL_NODE_TYPE,
 	CHAT_WAIT_USER_REPLY,
 	RESPOND_TO_WEBHOOK_NODE_TYPE,
 	SEND_AND_WAIT_OPERATION,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	getMessage,
@@ -503,7 +503,7 @@ describe('shouldResumeImmediately', () => {
 describe('redirectIfToolExecutor', () => {
 	const toolNode: INode = {
 		name: 'My Tool',
-		type: 'n8n-nodes-base.myTool',
+		type: 'resin-nodes-base.myTool',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -526,7 +526,7 @@ describe('redirectIfToolExecutor', () => {
 		return {
 			node: {
 				name: TOOL_EXECUTOR_NODE_NAME,
-				type: '@n8n/n8n-nodes-langchain.toolExecutor',
+				type: '@resin/n8n-nodes-langchain.toolExecutor',
 				parameters: { node: toolNodeName },
 				typeVersion: 1,
 				position: [0, 0],
@@ -750,7 +750,7 @@ describe('getLastNodeExecuted (TOOL_EXECUTOR_NODE_NAME path)', () => {
 
 		expect(result).toEqual({
 			name: TOOL_EXECUTOR_NODE_NAME,
-			type: '@n8n/n8n-nodes-langchain.toolExecutor',
+			type: '@resin/n8n-nodes-langchain.toolExecutor',
 			parameters: {},
 			id: '',
 			typeVersion: 1,

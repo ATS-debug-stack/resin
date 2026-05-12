@@ -1,6 +1,6 @@
-import { type ClientOAuth2Options } from '@n8n/client-oauth2';
-import type { INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import { type ClientOAuth2Options } from '@resin/client-oauth2';
+import type { INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { N8nOAuth2TokenCredential } from '../credentials/N8nOAuth2TokenCredential';
 import type { AzureEntraCognitiveServicesOAuth2ApiCredential } from '../types';
@@ -29,7 +29,7 @@ const { MockClientOAuth2 } = vi.hoisted(() => {
 	return { MockClientOAuth2, MockCredentialsFlow };
 });
 
-vi.mock('@n8n/client-oauth2', () => ({
+vi.mock('@resin/client-oauth2', () => ({
 	ClientOAuth2: MockClientOAuth2,
 }));
 
@@ -37,7 +37,7 @@ const mockNode: INode = {
 	id: '1',
 	name: 'Mock node',
 	typeVersion: 2,
-	type: 'n8n-nodes-base.mock',
+	type: 'resin-nodes-base.mock',
 	position: [0, 0],
 	parameters: {},
 };

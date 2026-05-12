@@ -1,5 +1,5 @@
-import type { INodeType, IWebhookFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { INodeType, IWebhookFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import type { Mock } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 

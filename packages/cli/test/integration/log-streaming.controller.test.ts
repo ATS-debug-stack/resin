@@ -1,7 +1,7 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import { GLOBAL_OWNER_ROLE, type User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import { GLOBAL_OWNER_ROLE, type User } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';
 import { ExecutionRecoveryService } from '@/executions/execution-recovery.service';

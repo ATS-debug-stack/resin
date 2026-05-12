@@ -1,4 +1,8 @@
-import type { INodeProperties, INodePropertyCollection, INodePropertyOptions } from 'n8n-workflow';
+import type {
+	INodeProperties,
+	INodePropertyCollection,
+	INodePropertyOptions,
+} from 'resin-workflow';
 
 import { appendAttributionOption } from '../../utils/descriptions';
 

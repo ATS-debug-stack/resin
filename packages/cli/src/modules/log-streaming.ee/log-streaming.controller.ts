@@ -3,17 +3,17 @@ import {
 	DeleteDestinationQueryDto,
 	GetDestinationQueryDto,
 	TestDestinationQueryDto,
-} from '@n8n/api-types';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Delete, Get, GlobalScope, Licensed, Post, Query, RestController } from '@n8n/decorators';
+} from '@resin/api-types';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Delete, Get, GlobalScope, Licensed, Post, Query, RestController } from '@resin/decorators';
 import type {
 	MessageEventBusDestinationOptions,
 	MessageEventBusDestinationSentryOptions,
 	MessageEventBusDestinationSyslogOptions,
 	MessageEventBusDestinationWebhookOptions,
-} from 'n8n-workflow';
-import { MessageEventBusDestinationTypeNames } from 'n8n-workflow';
+} from 'resin-workflow';
+import { MessageEventBusDestinationTypeNames } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';

@@ -1,6 +1,6 @@
 import { describe, test, expect, vi, beforeEach, type Mock } from 'vitest';
 import { ref, computed, nextTick, type Ref } from 'vue';
-import type { PushMessage } from '@n8n/api-types';
+import type { PushMessage } from '@resin/api-types';
 import { useEventRelay } from '../useEventRelay';
 import type { WorkflowExecutionState } from '../useExecutionPushEvents';
 

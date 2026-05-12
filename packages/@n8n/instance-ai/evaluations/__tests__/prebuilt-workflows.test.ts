@@ -108,7 +108,7 @@ describe('fetchPrebuiltBuild', () => {
 		const fakeWorkflow = {
 			id: 'W123',
 			name: 'fake',
-			nodes: [{ id: 'n1', name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' }],
+			nodes: [{ id: 'n1', name: 'Trigger', type: 'resin-nodes-base.manualTrigger' }],
 			connections: {},
 		} as unknown as WorkflowResponse;
 		const getWorkflow = jest.fn().mockResolvedValue(fakeWorkflow);

@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
 import {
 	Project,
 	SharedWorkflow,
@@ -12,9 +12,9 @@ import {
 	UserRepository,
 	GLOBAL_OWNER_ROLE,
 	PROJECT_OWNER_ROLE,
-} from '@n8n/db';
-import type { SharedCredentials, SettingsRepository } from '@n8n/db';
-import { PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
+} from '@resin/db';
+import type { SharedCredentials, SettingsRepository } from '@resin/db';
+import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
 import { mock } from 'jest-mock-extended';
 import { v4 as uuid } from 'uuid';
 

@@ -3,12 +3,12 @@ import { createComponentRenderer, type RenderOptions } from '@/__tests__/render'
 import { SETTINGS_STORE_DEFAULT_STATE } from '@/__tests__/utils';
 import * as workFlowHelpers from '@/app/composables/useWorkflowHelpers';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { createTestingPinia } from '@pinia/testing';
 import userEvent from '@testing-library/user-event';
 import { cleanup, waitFor, within } from '@testing-library/vue';
 import get from 'lodash/get';
-import type { FilterOptionsValue, FilterTypeOptions, FilterValue } from 'n8n-workflow';
+import type { FilterOptionsValue, FilterTypeOptions, FilterValue } from 'resin-workflow';
 import FilterConditions from './FilterConditions.vue';
 import { getFilterOperator } from './utils';
 import { flushPromises } from '@vue/test-utils';
@@ -33,7 +33,7 @@ const DEFAULT_SETUP = {
 			parameters: {},
 			id: 'f63efb2d-3cc5-4500-89f9-b39aab19baf5',
 			name: 'If',
-			type: 'n8n-nodes-base.if',
+			type: 'resin-nodes-base.if',
 			typeVersion: 2,
 			position: [1120, 380] as const,
 			credentials: {},

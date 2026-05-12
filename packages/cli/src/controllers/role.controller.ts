@@ -5,10 +5,10 @@ import {
 	RoleListQueryDto,
 	RoleProjectMembersResponseDto,
 	UpdateRoleDto,
-} from '@n8n/api-types';
-import type { RoleAssignmentsResponse, RoleProjectMembersResponse } from '@n8n/api-types';
-import { LICENSE_FEATURES } from '@n8n/constants';
-import { AuthenticatedRequest } from '@n8n/db';
+} from '@resin/api-types';
+import type { RoleAssignmentsResponse, RoleProjectMembersResponse } from '@resin/api-types';
+import { LICENSE_FEATURES } from '@resin/constants';
+import { AuthenticatedRequest } from '@resin/db';
 import {
 	Body,
 	Delete,
@@ -20,8 +20,8 @@ import {
 	Post,
 	Query,
 	RestController,
-} from '@n8n/decorators';
-import { Role as RoleDTO } from '@n8n/permissions';
+} from '@resin/decorators';
+import { Role as RoleDTO } from '@resin/permissions';
 
 import { EventService } from '@/events/event.service';
 import { RoleService } from '@/services/role.service';

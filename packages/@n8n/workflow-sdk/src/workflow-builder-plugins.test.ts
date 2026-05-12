@@ -55,20 +55,20 @@ describe('WorkflowBuilder plugin integration', () => {
 			const mockValidateNode = jest.fn().mockReturnValue([]);
 			const mockValidator = createMockValidator(
 				'test:mock',
-				['n8n-nodes-base.set'],
+				['resin-nodes-base.set'],
 				mockValidateNode,
 			);
 			testRegistry.registerValidator(mockValidator);
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set Data', parameters: { values: [] } },
 			});
 
 			const wf = workflow('test', 'Test', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}).to(setNode),
@@ -91,7 +91,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const wf = workflow('test', 'Test', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}),
@@ -114,7 +114,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const wf = workflow('wf-123', 'My Workflow', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}),
@@ -146,7 +146,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const wf = workflow('test', 'Test', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}),
@@ -165,7 +165,7 @@ describe('WorkflowBuilder plugin integration', () => {
 		it('skips validators that do not match node type', () => {
 			const agentValidator = createMockValidator(
 				'test:agent',
-				['@n8n/n8n-nodes-langchain.agent'],
+				['@resin/n8n-nodes-langchain.agent'],
 				() => [{ code: 'AGENT_ISSUE', message: 'Agent issue', severity: 'warning' }],
 			);
 			testRegistry.registerValidator(agentValidator);
@@ -173,7 +173,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			// Add a non-agent node
 			const wf = workflow('test', 'Test', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}),
@@ -192,12 +192,12 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const wf = workflow('test', 'Test', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}).to(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: { name: 'Set' },
 					}),
@@ -217,7 +217,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const wf = workflow('wf-1', 'Test', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}),
@@ -246,7 +246,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const wf = workflow('test', 'My Flow', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}),
@@ -276,7 +276,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const wf = workflow('test', 'Test', { registry: customRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}),
@@ -317,12 +317,12 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			// Create an IfElseComposite using the ifElse builder
 			const trueNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'True Branch', parameters: {} },
 			});
 			const falseNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'False Branch', parameters: {} },
 			});
@@ -342,12 +342,12 @@ describe('WorkflowBuilder plugin integration', () => {
 			// Custom registry has no handlers, but global pluginRegistry does
 			// The workflow should use global pluginRegistry as fallback
 			const trueNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'True Branch', parameters: {} },
 			});
 			const falseNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'False Branch', parameters: {} },
 			});
@@ -423,7 +423,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			testRegistry.registerCompositeHandler(mockHandler);
 
 			const startTrigger = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
@@ -447,12 +447,12 @@ describe('WorkflowBuilder plugin integration', () => {
 			// Create a workflow WITHOUT explicitly passing a registry
 			// Use ifElse composite which should trigger findCompositeHandler
 			const trueBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'True Branch', parameters: {} },
 			});
 			const falseBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'False Branch', parameters: {} },
 			});
@@ -476,7 +476,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			const findCompositeHandlerSpy = jest.spyOn(pluginRegistry, 'findCompositeHandler');
 
 			const startTrigger = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
@@ -503,7 +503,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			const countingValidator: ValidatorPlugin = {
 				id: 'test:counter',
 				name: 'Counting Validator',
-				nodeTypes: ['n8n-nodes-base.set'],
+				nodeTypes: ['resin-nodes-base.set'],
 				validateNode: (nodeInstance) => {
 					const nodeName = nodeInstance.name;
 					validateCallCounts.set(nodeName, (validateCallCounts.get(nodeName) ?? 0) + 1);
@@ -513,14 +513,14 @@ describe('WorkflowBuilder plugin integration', () => {
 			testRegistry.registerValidator(countingValidator);
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set Data', parameters: { values: [] } },
 			});
 
 			const wf = workflow('test', 'Test', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}).to(setNode),
@@ -542,12 +542,12 @@ describe('WorkflowBuilder plugin integration', () => {
 			// Create a workflow WITHOUT explicitly passing a registry
 			const wf = workflow('test', 'Test').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}).to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 1.7,
 						config: {
 							name: 'Agent',
@@ -575,7 +575,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			// Create an agent node with issues that both inline and plugin would catch
 			const agentNode = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					name: 'Agent',
@@ -589,7 +589,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const wf = workflow('test', 'Test', { registry: testRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}).to(agentNode),
@@ -616,7 +616,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			const findHandlerSpy = jest.spyOn(pluginRegistry, 'findCompositeHandler');
 
 			const trueBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'True', parameters: {} },
 			});
@@ -649,7 +649,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			const findHandlerSpy = jest.spyOn(pluginRegistry, 'findCompositeHandler');
 
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Case 0', parameters: {} },
 			});
@@ -682,7 +682,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			const findHandlerSpy = jest.spyOn(pluginRegistry, 'findCompositeHandler');
 
 			const doneNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Done', parameters: {} },
 			});
@@ -763,7 +763,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			registerDefaultPlugins(pluginRegistry);
 
 			const regularNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set', parameters: {} },
 			});
@@ -816,17 +816,17 @@ describe('WorkflowBuilder plugin integration', () => {
 		it('validateWorkflow directly detects disconnected nodes', () => {
 			// Build a minimal PluginContext manually to test the validator directly
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const connectedNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Connected', parameters: {} },
 			});
 			const disconnectedNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Disconnected', parameters: {} },
 			});
@@ -846,19 +846,19 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			// Trigger node - no incoming connections needed
 			nodesMap.set('Start', {
-				instance: { name: 'Start', type: 'n8n-nodes-base.manualTrigger' },
+				instance: { name: 'Start', type: 'resin-nodes-base.manualTrigger' },
 				connections: new Map([['main', new Map([[0, [{ node: 'Connected' }]]])]]),
 			});
 
 			// Connected node - has incoming connection from Start
 			nodesMap.set('Connected', {
-				instance: { name: 'Connected', type: 'n8n-nodes-base.set' },
+				instance: { name: 'Connected', type: 'resin-nodes-base.set' },
 				connections: new Map(),
 			});
 
 			// Disconnected node - no incoming connections
 			nodesMap.set('Disconnected', {
-				instance: { name: 'Disconnected', type: 'n8n-nodes-base.set' },
+				instance: { name: 'Disconnected', type: 'resin-nodes-base.set' },
 				connections: new Map(),
 			});
 
@@ -889,12 +889,12 @@ describe('WorkflowBuilder plugin integration', () => {
 			>();
 
 			nodesMap.set('Start', {
-				instance: { name: 'Start', type: 'n8n-nodes-base.manualTrigger' },
+				instance: { name: 'Start', type: 'resin-nodes-base.manualTrigger' },
 				connections: new Map(),
 			});
 
 			nodesMap.set('Disconnected', {
-				instance: { name: 'Disconnected', type: 'n8n-nodes-base.set' },
+				instance: { name: 'Disconnected', type: 'resin-nodes-base.set' },
 				connections: new Map(),
 			});
 
@@ -919,12 +919,12 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			// Create workflow with a disconnected node
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const disconnectedNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Disconnected', parameters: {} },
 			});
@@ -950,7 +950,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			// Only a trigger node
 			nodesMap.set('Start', {
-				instance: { name: 'Start', type: 'n8n-nodes-base.manualTrigger' },
+				instance: { name: 'Start', type: 'resin-nodes-base.manualTrigger' },
 				connections: new Map(),
 			});
 
@@ -977,12 +977,12 @@ describe('WorkflowBuilder plugin integration', () => {
 			>();
 
 			nodesMap.set('Start', {
-				instance: { name: 'Start', type: 'n8n-nodes-base.manualTrigger' },
+				instance: { name: 'Start', type: 'resin-nodes-base.manualTrigger' },
 				connections: new Map(),
 			});
 
 			nodesMap.set('Note', {
-				instance: { name: 'Note', type: 'n8n-nodes-base.stickyNote' },
+				instance: { name: 'Note', type: 'resin-nodes-base.stickyNote' },
 				connections: new Map(),
 			});
 
@@ -1010,13 +1010,13 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			// Agent node
 			nodesMap.set('Agent', {
-				instance: { name: 'Agent', type: '@n8n/n8n-nodes-langchain.agent' },
+				instance: { name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' },
 				connections: new Map(),
 			});
 
 			// Language model connected to agent via ai_languageModel
 			nodesMap.set('OpenAI', {
-				instance: { name: 'OpenAI', type: '@n8n/n8n-nodes-langchain.lmOpenAi' },
+				instance: { name: 'OpenAI', type: '@resin/n8n-nodes-langchain.lmOpenAi' },
 				connections: new Map([['ai_languageModel', new Map([[0, [{ node: 'Agent' }]]])]]),
 			});
 
@@ -1056,7 +1056,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			// Non-empty nodes map
 			const nodesMap = new Map();
 			nodesMap.set('Start', {
-				instance: { name: 'Start', type: 'n8n-nodes-base.manualTrigger' },
+				instance: { name: 'Start', type: 'resin-nodes-base.manualTrigger' },
 				connections: new Map(),
 			});
 
@@ -1087,7 +1087,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			// Nodes map with only non-trigger nodes
 			const nodesMap = new Map();
 			nodesMap.set('Set', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set' },
+				instance: { name: 'Set', type: 'resin-nodes-base.set' },
 				connections: new Map(),
 			});
 
@@ -1108,7 +1108,7 @@ describe('WorkflowBuilder plugin integration', () => {
 		it('validateWorkflow returns empty array when trigger node exists', () => {
 			const nodesMap = new Map();
 			nodesMap.set('Start', {
-				instance: { name: 'Start', type: 'n8n-nodes-base.manualTrigger' },
+				instance: { name: 'Start', type: 'resin-nodes-base.manualTrigger' },
 				connections: new Map(),
 			});
 
@@ -1127,7 +1127,7 @@ describe('WorkflowBuilder plugin integration', () => {
 		it('validateWorkflow respects allowNoTrigger option', () => {
 			const nodesMap = new Map();
 			nodesMap.set('Set', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set' },
+				instance: { name: 'Set', type: 'resin-nodes-base.set' },
 				connections: new Map(),
 			});
 
@@ -1146,7 +1146,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 		it('integration: workflow.validate() reports MISSING_TRIGGER warning', () => {
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set', parameters: {} },
 			});
@@ -1160,7 +1160,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 		it('integration: workflow.validate() skips MISSING_TRIGGER when allowNoTrigger is true', () => {
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set', parameters: {} },
 			});
@@ -1199,7 +1199,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const wf = workflow('wf-456', 'My Workflow', { registry: customRegistry }).add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				}),
@@ -1216,12 +1216,12 @@ describe('WorkflowBuilder plugin integration', () => {
 
 		it('workflow.toJSON() returns full serialization with nodes and connections', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set Data', parameters: { values: [] } },
 			});
@@ -1250,12 +1250,12 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			// Create IfElseBuilder with branches that have pinData
 			const trueNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'True Node', parameters: {}, pinData: [{ item: 'true' }] },
 			});
 			const falseNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'False Node', parameters: {}, pinData: [{ item: 'false' }] },
 			});
@@ -1279,12 +1279,12 @@ describe('WorkflowBuilder plugin integration', () => {
 			};
 
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Case 0', parameters: {}, pinData: [{ item: 'case0' }] },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Case 1', parameters: {}, pinData: [{ item: 'case1' }] },
 			});
@@ -1308,12 +1308,12 @@ describe('WorkflowBuilder plugin integration', () => {
 			};
 
 			const doneNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Done', parameters: {}, pinData: [{ item: 'done' }] },
 			});
 			const eachNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Each', parameters: {}, pinData: [{ item: 'each' }] },
 			});
@@ -1356,11 +1356,11 @@ describe('WorkflowBuilder plugin integration', () => {
 		it('validateWorkflow returns empty array when no nodeTypesProvider', () => {
 			const nodesMap = new Map();
 			nodesMap.set('Set 1', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set', version: 3.4 },
+				instance: { name: 'Set', type: 'resin-nodes-base.set', version: 3.4 },
 				connections: new Map(),
 			});
 			nodesMap.set('Set 2', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set', version: 3.4 },
+				instance: { name: 'Set', type: 'resin-nodes-base.set', version: 3.4 },
 				connections: new Map(),
 			});
 
@@ -1380,7 +1380,7 @@ describe('WorkflowBuilder plugin integration', () => {
 		it('validateWorkflow returns empty array when count <= maxNodes', () => {
 			const nodesMap = new Map();
 			nodesMap.set('Set 1', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set', version: 3.4 },
+				instance: { name: 'Set', type: 'resin-nodes-base.set', version: 3.4 },
 				connections: new Map(),
 			});
 
@@ -1406,15 +1406,15 @@ describe('WorkflowBuilder plugin integration', () => {
 		it('validateWorkflow returns error when count > maxNodes', () => {
 			const nodesMap = new Map();
 			nodesMap.set('Set 1', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set', version: 3.4 },
+				instance: { name: 'Set', type: 'resin-nodes-base.set', version: 3.4 },
 				connections: new Map(),
 			});
 			nodesMap.set('Set 2', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set', version: 3.4 },
+				instance: { name: 'Set', type: 'resin-nodes-base.set', version: 3.4 },
 				connections: new Map(),
 			});
 			nodesMap.set('Set 3', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set', version: 3.4 },
+				instance: { name: 'Set', type: 'resin-nodes-base.set', version: 3.4 },
 				connections: new Map(),
 			});
 
@@ -1445,11 +1445,11 @@ describe('WorkflowBuilder plugin integration', () => {
 		it('validateWorkflow skips types with no maxNodes defined', () => {
 			const nodesMap = new Map();
 			nodesMap.set('Set 1', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set', version: 3.4 },
+				instance: { name: 'Set', type: 'resin-nodes-base.set', version: 3.4 },
 				connections: new Map(),
 			});
 			nodesMap.set('Set 2', {
-				instance: { name: 'Set', type: 'n8n-nodes-base.set', version: 3.4 },
+				instance: { name: 'Set', type: 'resin-nodes-base.set', version: 3.4 },
 				connections: new Map(),
 			});
 
@@ -1474,17 +1474,17 @@ describe('WorkflowBuilder plugin integration', () => {
 
 		it('integration: workflow.validate() reports MAX_NODES_EXCEEDED error', () => {
 			const setNode1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set 1', parameters: {} },
 			});
 			const setNode2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set 2', parameters: {} },
 			});
 			const setNode3 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set 3', parameters: {} },
 			});
@@ -1492,7 +1492,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			const wf = workflow('test', 'Test')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1,
 						config: { name: 'Start' },
 					}),
@@ -1503,7 +1503,7 @@ describe('WorkflowBuilder plugin integration', () => {
 
 			const mockProvider = {
 				getByNameAndVersion: (type: string) => {
-					if (type === 'n8n-nodes-base.set') {
+					if (type === 'resin-nodes-base.set') {
 						return { description: { maxNodes: 2, displayName: 'Set' } };
 					}
 					return undefined;
@@ -1522,7 +1522,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			// when using .to([branch0, branch1, branch2]) syntax.
 			// Currently, only IF, Switch, and SplitInBatches are hardcoded as branching nodes.
 			const textClassifier = node({
-				type: '@n8n/n8n-nodes-langchain.textClassifier',
+				type: '@resin/n8n-nodes-langchain.textClassifier',
 				version: 1,
 				config: {
 					name: 'Classify',
@@ -1539,19 +1539,19 @@ describe('WorkflowBuilder plugin integration', () => {
 			});
 
 			const billingHandler = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Handle Billing', parameters: {} },
 			});
 
 			const supportHandler = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Handle Support', parameters: {} },
 			});
 
 			const salesHandler = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Handle Sales', parameters: {} },
 			});
@@ -1561,7 +1561,7 @@ describe('WorkflowBuilder plugin integration', () => {
 			const wf = workflow('test', 'Text Classifier Branching')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1,
 						config: { name: 'Start' },
 					}),

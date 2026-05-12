@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { ExecutionRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { ExecutionRepository } from '@resin/db';
+import { Service } from '@resin/di';
 
 export type TracingContext = { traceparent: string; tracestate?: string };
 

@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import type { InstanceAiAgentNode, InstanceAiTimelineEntry } from '@n8n/api-types';
+import type { InstanceAiAgentNode, InstanceAiTimelineEntry } from '@resin/api-types';
 import { getRenderableAgentResult } from '../agentResult';
 
 function makeAgentNode(overrides: Partial<InstanceAiAgentNode> = {}): InstanceAiAgentNode {

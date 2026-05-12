@@ -1,6 +1,6 @@
-import type { AuthenticatedRequest, TokenGrant } from '@n8n/db';
-import { ApiKeyRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { AuthenticatedRequest, TokenGrant } from '@resin/db';
+import { ApiKeyRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import { TokenExpiredError } from 'jsonwebtoken';
 
 import type { AuthStrategy, AuthStrategyOptions } from './auth-strategy.types';

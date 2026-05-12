@@ -1,6 +1,6 @@
-import { Tool } from '@n8n/agents';
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { Tool } from '@resin/agents';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { DateTime } from 'luxon';
 import { z } from 'zod';
 

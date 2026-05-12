@@ -3,16 +3,16 @@ import type {
 	InstanceAiEvalSubAgentResponse,
 	InstanceAiEvalToolCall,
 	InstanceAiEvalToolResult,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { Service } from '@resin/di';
 import {
 	createAllTools,
 	createSubAgent,
 	type InstanceAiContext,
 	type InstanceAiWorkflowService,
-} from '@n8n/instance-ai';
+} from '@resin/instance-ai';
 import { randomUUID } from 'node:crypto';
 
 import { InstanceAiAdapterService } from '../instance-ai.adapter.service';

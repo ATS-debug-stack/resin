@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
-import { N8nButton, N8nHeading, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nHeading, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import Modal from '@/app/components/Modal.vue';
 import { useInstanceAiSettingsStore } from '../../instanceAiSettings.store';
 import ComputerUseSetupContent from './ComputerUseSetupContent.vue';

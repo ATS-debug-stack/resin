@@ -6,8 +6,8 @@
  * without Logger or LangChain dependencies.
  */
 
-import { parseWorkflowCodeToBuilder, validateWorkflow } from '@n8n/workflow-sdk';
-import type { INodeTypes } from 'n8n-workflow';
+import { parseWorkflowCodeToBuilder, validateWorkflow } from '@resin/workflow-sdk';
+import type { INodeTypes } from 'resin-workflow';
 
 import { stripImportStatements } from './extract-code';
 import type { ParseAndValidateResult, ValidationWarning } from './types';

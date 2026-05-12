@@ -1,12 +1,18 @@
-import { isObjectLiteral, Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { ExecutionRepository } from '@n8n/db';
-import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { ErrorReporter, InstanceSettings } from 'n8n-core';
-import { BINARY_ENCODING, sleep, jsonStringify, ensureError, UnexpectedError } from 'n8n-workflow';
-import type { IExecuteResponsePromiseData, IRun } from 'n8n-workflow';
+import { isObjectLiteral, Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { ExecutionRepository } from '@resin/db';
+import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { ErrorReporter, InstanceSettings } from 'resin-core';
+import {
+	BINARY_ENCODING,
+	sleep,
+	jsonStringify,
+	ensureError,
+	UnexpectedError,
+} from 'resin-workflow';
+import type { IExecuteResponsePromiseData, IRun } from 'resin-workflow';
 import assert, { strict } from 'node:assert';
 
 import { ActiveExecutions } from '@/active-executions';
@@ -74,7 +80,7 @@ export class ScalingService {
 		this.scheduleQueueMetrics();
 
 		const { McpServer, QueuedExecutionStrategy, RedisSessionStore } = await import(
-			'@n8n/n8n-nodes-langchain/mcp/core'
+			'@resin/n8n-nodes-langchain/mcp/core'
 		);
 		const { Publisher } = await import('@/scaling/pubsub/publisher.service');
 
@@ -470,7 +476,7 @@ export class ScalingService {
 				const mcpService = Container.get(McpService);
 				mcpService.handleWorkerResponse(executionId, runData);
 			} else {
-				const { McpServer } = await import('@n8n/n8n-nodes-langchain/mcp/core');
+				const { McpServer } = await import('@resin/n8n-nodes-langchain/mcp/core');
 				const mcpServer = McpServer.instance(this.logger);
 				mcpServer.handleWorkerResponse(sessionId, messageId, response);
 			}

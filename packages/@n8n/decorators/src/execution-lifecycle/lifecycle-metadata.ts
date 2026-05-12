@@ -1,4 +1,4 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import type {
 	IDataObject,
 	IRun,
@@ -7,7 +7,7 @@ import type {
 	ITaskStartedData,
 	IWorkflowBase,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { Class } from '../types';
 

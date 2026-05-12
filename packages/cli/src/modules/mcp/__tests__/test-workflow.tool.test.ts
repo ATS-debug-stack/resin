@@ -1,14 +1,14 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { User } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { User } from '@resin/db';
 import {
 	MANUAL_TRIGGER_NODE_TYPE,
 	WEBHOOK_NODE_TYPE,
 	type INode,
 	type IWorkflowExecutionDataProcess,
 	UnexpectedError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-jest.mock('@n8n/workflow-sdk', () => jest.requireActual('@n8n/workflow-sdk'));
+jest.mock('@resin/workflow-sdk', () => jest.requireActual('@resin/workflow-sdk'));
 
 import { createWorkflow } from './mock.utils';
 import { McpExecutionTimeoutError, WorkflowAccessError } from '../mcp.errors';
@@ -25,7 +25,7 @@ import { WorkflowFinderService } from '@/workflows/workflow-finder.service';
 const TRIGGER_NODE_TYPES = new Set([
 	WEBHOOK_NODE_TYPE,
 	MANUAL_TRIGGER_NODE_TYPE,
-	'n8n-nodes-base.scheduleTrigger',
+	'resin-nodes-base.scheduleTrigger',
 ]);
 
 function createMockNodeTypes() {
@@ -112,7 +112,7 @@ describe('test-workflow MCP tool', () => {
 					{
 						id: 'node-1',
 						name: 'SetNode',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [0, 0],
 						disabled: false,
@@ -208,7 +208,7 @@ describe('test-workflow MCP tool', () => {
 					{
 						id: 'node-1',
 						name: 'SetNode',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [0, 0],
 						disabled: false,
@@ -837,7 +837,7 @@ describe('test-workflow MCP tool', () => {
 					{
 						id: 'node-2',
 						name: 'OtherNode',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [200, 0],
 						disabled: false,

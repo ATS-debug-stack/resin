@@ -7,7 +7,7 @@ import type {
 } from '@/features/core/dataTable/dataTable.types';
 import { useDataTableStore } from '@/features/core/dataTable/dataTable.store';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useRouter } from 'vue-router';
 import { DATA_TABLE_VIEW } from '@/features/core/dataTable/constants';
 import { LOADING_ANIMATION_MIN_DURATION } from '@/app/constants/durations';
@@ -26,7 +26,7 @@ import {
 	N8nText,
 	N8nIcon,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import DependencyPill from '@/app/components/DependencyPill.vue';
 import { useDependencies } from '@/app/composables/useDependencies';
 

@@ -5,11 +5,11 @@ import {
 	ChatHubConversationModel,
 	ChatHubN8nModel,
 	ChatHubCustomAgentModel,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { ExecutionRepository, User } from '@n8n/db';
-import type { EntityManager } from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { ExecutionRepository, User } from '@resin/db';
+import type { EntityManager } from '@resin/db';
+import { Service } from '@resin/di';
 import {
 	OperationalError,
 	type INodeCredentials,
@@ -20,7 +20,7 @@ import {
 	INode,
 	type IBinaryData,
 	UserError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { WorkflowFinderService } from '@/workflows/workflow-finder.service';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { N8nCard, N8nLoading } from '@n8n/design-system';
+import { N8nCard, N8nLoading } from '@resin/design-system';
 </script>
 
 <template>

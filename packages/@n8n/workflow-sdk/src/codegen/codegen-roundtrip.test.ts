@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 import * as path from 'path';
 
 import { generateWorkflowCode } from './index';
@@ -107,7 +107,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'node-1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -115,7 +115,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'node-2',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 0],
 					parameters: {
@@ -147,11 +147,11 @@ describe('parseWorkflowCode', () => {
 		const http = parsedJson.nodes.find((n) => n.name === 'HTTP Request');
 
 		expect(trigger).toBeDefined();
-		expect(trigger?.type).toBe('n8n-nodes-base.manualTrigger');
+		expect(trigger?.type).toBe('resin-nodes-base.manualTrigger');
 		expect(trigger?.typeVersion).toBe(1);
 
 		expect(http).toBeDefined();
-		expect(http?.type).toBe('n8n-nodes-base.httpRequest');
+		expect(http?.type).toBe('resin-nodes-base.httpRequest');
 		expect(http?.typeVersion).toBe(4.2);
 		expect(http?.parameters).toEqual({
 			url: 'https://api.example.com',
@@ -171,7 +171,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'trigger-1',
 					name: 'Every Hour — Run',
-					type: 'n8n-nodes-base.scheduleTrigger',
+					type: 'resin-nodes-base.scheduleTrigger',
 					typeVersion: 1.2,
 					position: [0, 0],
 					parameters: {},
@@ -179,7 +179,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'set-1',
 					name: 'Greeting — Hello',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {
@@ -225,7 +225,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'node-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -253,7 +253,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'node-1',
 					name: 'Slack',
-					type: 'n8n-nodes-base.slack',
+					type: 'resin-nodes-base.slack',
 					typeVersion: 2.2,
 					position: [0, 0],
 					parameters: { channel: '#general' },
@@ -282,7 +282,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'sticky-1',
 					name: 'Sticky Note',
-					type: 'n8n-nodes-base.stickyNote',
+					type: 'resin-nodes-base.stickyNote',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -299,7 +299,7 @@ describe('parseWorkflowCode', () => {
 		const code = generateWorkflowCode(originalJson);
 		const parsedJson = parseWorkflowCode(code);
 
-		const sticky = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.stickyNote');
+		const sticky = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.stickyNote');
 		expect(sticky).toBeDefined();
 		expect(sticky?.parameters?.content).toBe('## Documentation\n\nThis is a note.');
 		expect(sticky?.parameters?.color).toBe(4);
@@ -313,7 +313,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -321,7 +321,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'if-1',
 					name: 'IF',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {},
@@ -329,7 +329,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'true-1',
 					name: 'True Branch',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, -100],
 					parameters: {},
@@ -337,7 +337,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'false-1',
 					name: 'False Branch',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, 100],
 					parameters: {},
@@ -377,7 +377,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -385,7 +385,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'if-1',
 					name: 'IF',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {},
@@ -393,7 +393,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'true-1',
 					name: 'True Path',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, -100],
 					parameters: {},
@@ -401,7 +401,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'false-1',
 					name: 'False Path',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, 100],
 					parameters: {},
@@ -409,7 +409,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'converge-1',
 					name: 'Convergence Node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [600, 0],
 					parameters: { mode: 'manual' },
@@ -464,7 +464,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -472,7 +472,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'switch-1',
 					name: 'Switch',
-					type: 'n8n-nodes-base.switch',
+					type: 'resin-nodes-base.switch',
 					typeVersion: 3.2,
 					position: [200, 0],
 					parameters: {
@@ -487,7 +487,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'case-a-1',
 					name: 'Case A Node',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, -100],
 					parameters: {},
@@ -495,7 +495,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'case-b-1',
 					name: 'Case B Node',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, 100],
 					parameters: {},
@@ -503,7 +503,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'case-b-2',
 					name: 'Case B Downstream',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [600, 100],
 					parameters: { mode: 'manual' },
@@ -557,7 +557,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -565,7 +565,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'if-1',
 					name: 'Job Complete?',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {},
@@ -573,7 +573,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'done-1',
 					name: 'Get Dataset',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [400, -100],
 					parameters: { url: 'https://api.example.com/dataset' },
@@ -581,7 +581,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'check-1',
 					name: 'Check Status',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [400, 100],
 					parameters: { url: 'https://api.example.com/status' },
@@ -589,7 +589,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'wait-1',
 					name: 'Wait',
-					type: 'n8n-nodes-base.wait',
+					type: 'resin-nodes-base.wait',
 					typeVersion: 1.1,
 					position: [600, 100],
 					parameters: { amount: 5 },
@@ -652,7 +652,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -660,7 +660,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'fanout-1',
 					name: 'Fan Out Node',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 0],
 					parameters: { url: 'https://api.example.com' },
@@ -668,7 +668,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'branch-1',
 					name: 'Branch Node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, -100],
 					parameters: { mode: 'manual' },
@@ -676,7 +676,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'merge-1',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3.2,
 					position: [600, 0],
 					parameters: {},
@@ -684,7 +684,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'after-merge',
 					name: 'After Merge',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [800, 0],
 					parameters: {},
@@ -762,7 +762,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -770,7 +770,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'source-1',
 					name: 'Source Node',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 0],
 					parameters: { url: 'https://api.example.com' },
@@ -778,7 +778,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'branch-1',
 					name: 'Branch Node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, -100],
 					parameters: { mode: 'manual' },
@@ -786,7 +786,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'other-1',
 					name: 'Other Node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 100],
 					parameters: { mode: 'manual' },
@@ -794,7 +794,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'merge-1',
 					name: 'Merge1',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3.2,
 					position: [600, -50],
 					parameters: {},
@@ -802,7 +802,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'merge-2',
 					name: 'Merge2',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3.2,
 					position: [600, 50],
 					parameters: {},
@@ -810,7 +810,7 @@ describe('parseWorkflowCode', () => {
 				{
 					id: 'end-1',
 					name: 'End',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [800, 0],
 					parameters: {},
@@ -890,8 +890,8 @@ describe('parseWorkflowCode', () => {
 			// The parser should automatically escape them
 			const codeWithUnescapedQuotes = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.set', version: 3.4, config: {
     parameters: {
       mode: 'manual',
       assignments: {
@@ -912,7 +912,7 @@ export default workflow('test-id', 'Test Workflow')
 			expect(parsedJson.id).toBe('test-id');
 			expect(parsedJson.nodes).toHaveLength(2);
 
-			const setNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.set');
+			const setNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.set');
 			expect(setNode).toBeDefined();
 			// The expression should be preserved with the node reference
 			const assignments = (setNode?.parameters as Record<string, unknown>)?.assignments as Record<
@@ -926,8 +926,8 @@ export default workflow('test-id', 'Test Workflow')
 		it('should handle multiple node references in the same string', () => {
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.set', version: 3.4, config: {
     parameters: {
       mode: 'raw',
       jsonOutput: '={{ $('Node A').item.json.a + $('Node B').item.json.b }}'
@@ -935,7 +935,7 @@ export default workflow('test-id', 'Test Workflow')
   } }))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const setNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.set');
+			const setNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.set');
 			expect((setNode?.parameters as Record<string, unknown>)?.jsonOutput).toBe(
 				"={{ $('Node A').item.json.a + $('Node B').item.json.b }}",
 			);
@@ -945,8 +945,8 @@ export default workflow('test-id', 'Test Workflow')
 			// Code with already-escaped quotes should not be double-escaped
 			const codeWithEscapedQuotes = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.set', version: 3.4, config: {
     parameters: {
       mode: 'raw',
       jsonOutput: '={{ $(\\'Properly Escaped\\').item.json.data }}'
@@ -954,7 +954,7 @@ export default workflow('test-id', 'Test Workflow')
   } }))
 `;
 			const parsedJson = parseWorkflowCode(codeWithEscapedQuotes);
-			const setNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.set');
+			const setNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.set');
 			expect((setNode?.parameters as Record<string, unknown>)?.jsonOutput).toBe(
 				"={{ $('Properly Escaped').item.json.data }}",
 			);
@@ -964,8 +964,8 @@ export default workflow('test-id', 'Test Workflow')
 			// Node references in double-quoted strings don't need escaping
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.set', version: 3.4, config: {
     parameters: {
       mode: 'raw',
       jsonOutput: "={{ $('Node Name').item.json.data }}"
@@ -973,7 +973,7 @@ export default workflow('test-id', 'Test Workflow')
   } }))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const setNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.set');
+			const setNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.set');
 			expect((setNode?.parameters as Record<string, unknown>)?.jsonOutput).toBe(
 				"={{ $('Node Name').item.json.data }}",
 			);
@@ -982,8 +982,8 @@ export default workflow('test-id', 'Test Workflow')
 		it('should handle node names with spaces and special characters', () => {
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.set', version: 3.4, config: {
     parameters: {
       mode: 'raw',
       jsonOutput: '={{ $('Lead Generation Form').item.json.fullName }}'
@@ -991,7 +991,7 @@ export default workflow('test-id', 'Test Workflow')
   } }))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const setNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.set');
+			const setNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.set');
 			expect((setNode?.parameters as Record<string, unknown>)?.jsonOutput).toBe(
 				"={{ $('Lead Generation Form').item.json.fullName }}",
 			);
@@ -1002,8 +1002,8 @@ export default workflow('test-id', 'Test Workflow')
 			// In a template literal, \\\\ produces \\, so the actual string chars are $( + \ + \ + '
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} })
-  .to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} })
+  .to(node({ type: 'resin-nodes-base.set', version: 3.4, config: {
     parameters: {
       mode: 'raw',
       jsonOutput: '={{ $(\\\\'Manual Trigger\\\\').item.json.data }}'
@@ -1011,7 +1011,7 @@ export default workflow('test-id', 'Test Workflow')
   } })))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const setNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.set');
+			const setNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.set');
 			expect((setNode?.parameters as Record<string, unknown>)?.jsonOutput).toBe(
 				"={{ $('Manual Trigger').item.json.data }}",
 			);
@@ -1020,8 +1020,8 @@ export default workflow('test-id', 'Test Workflow')
 		it('should fix multiple double-escaped $() references in the same string', () => {
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} })
-  .to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} })
+  .to(node({ type: 'resin-nodes-base.set', version: 3.4, config: {
     parameters: {
       mode: 'raw',
       jsonOutput: '={{ $(\\\\'Node A\\\\').item.json.a + $(\\\\'Node B\\\\').item.json.b }}'
@@ -1029,7 +1029,7 @@ export default workflow('test-id', 'Test Workflow')
   } })))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const setNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.set');
+			const setNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.set');
 			expect((setNode?.parameters as Record<string, unknown>)?.jsonOutput).toBe(
 				"={{ $('Node A').item.json.a + $('Node B').item.json.b }}",
 			);
@@ -1040,8 +1040,8 @@ export default workflow('test-id', 'Test Workflow')
 		it('should parse code with placeholder() in parameters', () => {
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.slack', version: 2.2, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.slack', version: 2.2, config: {
     name: 'Send Slack Message',
     parameters: { channel: placeholder('Enter Slack Channel') }
   } }))
@@ -1050,7 +1050,7 @@ export default workflow('test-id', 'Test Workflow')
 			expect(parsedJson.id).toBe('test-id');
 			expect(parsedJson.nodes).toHaveLength(2);
 
-			const slackNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.slack');
+			const slackNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.slack');
 			expect(slackNode).toBeDefined();
 			expect((slackNode?.parameters as Record<string, unknown>)?.channel).toBe(
 				'<__PLACEHOLDER_VALUE__Enter Slack Channel__>',
@@ -1066,7 +1066,7 @@ export default workflow('test-id', 'Test Workflow')
 					{
 						id: 'trigger',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -1074,7 +1074,7 @@ export default workflow('test-id', 'Test Workflow')
 					{
 						id: 'slack',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2.2,
 						position: [200, 0] as [number, number],
 						parameters: {
@@ -1099,7 +1099,7 @@ export default workflow('test-id', 'Test Workflow')
 
 			// code → JSON (roundtrip)
 			const outputJson = parseWorkflowCode(code);
-			const slackNode = outputJson.nodes.find((n) => n.type === 'n8n-nodes-base.slack');
+			const slackNode = outputJson.nodes.find((n) => n.type === 'resin-nodes-base.slack');
 			expect((slackNode?.parameters as Record<string, unknown>)?.channel).toBe(
 				'<__PLACEHOLDER_VALUE__Enter Slack Channel__>',
 			);
@@ -1110,8 +1110,8 @@ export default workflow('test-id', 'Test Workflow')
 		it('should parse code with newCredential() in credentials', () => {
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.slack', version: 2.2, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.slack', version: 2.2, config: {
     name: 'Send Slack Message',
     parameters: { channel: '#general', text: 'Hello!' },
     credentials: { slackApi: newCredential('My Slack Bot') }
@@ -1121,7 +1121,7 @@ export default workflow('test-id', 'Test Workflow')
 			expect(parsedJson.id).toBe('test-id');
 			expect(parsedJson.nodes).toHaveLength(2);
 
-			const slackNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.slack');
+			const slackNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.slack');
 			expect(slackNode).toBeDefined();
 			// newCredential serializes to undefined, which is omitted from JSON - not yet implemented
 			expect(slackNode?.credentials).toEqual({});
@@ -1130,8 +1130,8 @@ export default workflow('test-id', 'Test Workflow')
 		it('should parse code with multiple newCredential() calls', () => {
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.httpRequest', version: 4.2, config: {
     name: 'HTTP Request',
     parameters: { url: 'https://api.example.com' },
     credentials: {
@@ -1141,7 +1141,7 @@ export default workflow('test-id', 'Test Workflow')
   } }))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const httpNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.httpRequest');
+			const httpNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.httpRequest');
 			// newCredential serializes to undefined, which is omitted - not yet implemented
 			expect(httpNode?.credentials).toEqual({});
 		});
@@ -1149,8 +1149,8 @@ export default workflow('test-id', 'Test Workflow')
 		it('should parse code with newCredential() mixed with regular credentials', () => {
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.httpRequest', version: 4.2, config: {
     name: 'HTTP Request',
     parameters: { url: 'https://api.example.com' },
     credentials: {
@@ -1160,7 +1160,7 @@ export default workflow('test-id', 'Test Workflow')
   } }))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const httpNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.httpRequest');
+			const httpNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.httpRequest');
 			// Regular credentials preserved, newCredential omitted (not yet implemented)
 			expect(httpNode?.credentials).toEqual({
 				httpBasicAuth: { id: 'existing-123', name: 'Existing Auth' },
@@ -1170,16 +1170,16 @@ export default workflow('test-id', 'Test Workflow')
 		it('should parse AI agent with newCredential() on subnode', () => {
 			const code = `
 export default workflow('test-id', 'AI Agent')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
   .to(node({
-    type: '@n8n/n8n-nodes-langchain.agent',
+    type: '@resin/n8n-nodes-langchain.agent',
     version: 3.1,
     config: {
       name: 'AI Agent',
       parameters: { promptType: 'define', text: 'You are helpful' },
       subnodes: {
         model: languageModel({
-          type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+          type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
           version: 1,
           config: {
             parameters: {},
@@ -1192,7 +1192,7 @@ export default workflow('test-id', 'AI Agent')
 `;
 			const parsedJson = parseWorkflowCode(code);
 			const openAiNode = parsedJson.nodes.find(
-				(n) => n.type === '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				(n) => n.type === '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			);
 			expect(openAiNode).toBeDefined();
 			// newCredential serializes to undefined, which is omitted - not yet implemented
@@ -1202,15 +1202,15 @@ export default workflow('test-id', 'AI Agent')
 		it('should parse newCredential() with id to link existing credential', () => {
 			const code = `
 export default workflow('test-id', 'Test Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(node({ type: 'n8n-nodes-base.slack', version: 2.2, config: {
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(node({ type: 'resin-nodes-base.slack', version: 2.2, config: {
     name: 'Slack',
     parameters: { channel: '#general' },
     credentials: { slackApi: newCredential('My Slack', 'cred-123') }
   } }))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const slackNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.slack');
+			const slackNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.slack');
 			expect(slackNode).toBeDefined();
 			// newCredential with id serializes to { id, name }
 			expect(slackNode?.credentials).toEqual({
@@ -1226,7 +1226,7 @@ export default workflow('test-id', 'Test Workflow')
 					{
 						id: 'node-1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2.2,
 						position: [0, 0],
 						parameters: { channel: '#general' },
@@ -1258,7 +1258,7 @@ export default workflow('test-id', 'Test Workflow')
 			const code = `
 // Declare the switch node first
 const triageSwitch = node({
-  type: 'n8n-nodes-base.switch',
+  type: 'resin-nodes-base.switch',
   version: 3.2,
   config: {
     name: 'Triage Issues',
@@ -1304,7 +1304,7 @@ const triageSwitch = node({
 
 // Declare case nodes
 const tagAsBug = node({
-  type: 'n8n-nodes-base.linear',
+  type: 'resin-nodes-base.linear',
   version: 1.1,
   config: {
     name: 'Tag as Bug',
@@ -1324,7 +1324,7 @@ const tagAsBug = node({
 });
 
 const tagAsFeature = node({
-  type: 'n8n-nodes-base.linear',
+  type: 'resin-nodes-base.linear',
   version: 1.1,
   config: {
     name: 'Tag as Feature',
@@ -1346,7 +1346,7 @@ const tagAsFeature = node({
 export default workflow('AlNAxHXOpfimqHPOGVuNg', 'My workflow 23')
   .add(
     trigger({
-      type: 'n8n-nodes-base.manualTrigger',
+      type: 'resin-nodes-base.manualTrigger',
       version: 1,
       config: {
         name: 'Start',
@@ -1355,7 +1355,7 @@ export default workflow('AlNAxHXOpfimqHPOGVuNg', 'My workflow 23')
     })
     .to(
       node({
-        type: 'n8n-nodes-base.linear',
+        type: 'resin-nodes-base.linear',
         version: 1.1,
         config: {
           name: 'Get Linear Issues',
@@ -1385,7 +1385,7 @@ export default workflow('AlNAxHXOpfimqHPOGVuNg', 'My workflow 23')
       })
       .onError(
         node({
-          type: 'n8n-nodes-base.slack',
+          type: 'resin-nodes-base.slack',
           version: 2.4,
           config: {
             name: 'Send Error to Slack',
@@ -1423,7 +1423,7 @@ export default workflow('AlNAxHXOpfimqHPOGVuNg', 'My workflow 23')
 			const code = `
 // Create all nodes first
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: {
     name: 'Start Research',
@@ -1432,7 +1432,7 @@ const startTrigger = trigger({
 });
 
 const setTopic = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: {
     name: 'Set Research Topic',
@@ -1448,7 +1448,7 @@ const setTopic = node({
 
 // Research Agent and its subnodes
 const researchModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'GPT-4.1-mini Model',
@@ -1467,7 +1467,7 @@ const researchModel = languageModel({
 });
 
 const webSearchTool = tool({
-  type: '@n8n/n8n-nodes-langchain.toolCode',
+  type: '@resin/n8n-nodes-langchain.toolCode',
   version: 1.3,
   config: {
     name: 'Web Search Simulator',
@@ -1481,7 +1481,7 @@ const webSearchTool = tool({
 });
 
 const researchAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Research Agent',
@@ -1499,7 +1499,7 @@ const researchAgent = node({
 
 // Fact-Checking Agent
 const factCheckModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'GPT-4.1-mini Fact Checker',
@@ -1515,7 +1515,7 @@ const factCheckModel = languageModel({
 });
 
 const factCheckAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Fact-Checking Agent',
@@ -1532,7 +1532,7 @@ const factCheckAgent = node({
 
 // Writing Agent
 const writerModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'GPT-4.1-mini Writer',
@@ -1548,7 +1548,7 @@ const writerModel = languageModel({
 });
 
 const writingAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Writing Agent',
@@ -1565,7 +1565,7 @@ const writingAgent = node({
 
 // Editing Agent
 const editorModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'GPT-4.1-mini Editor',
@@ -1581,7 +1581,7 @@ const editorModel = languageModel({
 });
 
 const editingAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Editing & Formatting Agent',
@@ -1646,7 +1646,7 @@ export default workflow('test-multi-sticky', 'Multi-Agent Research Workflow')
 			const parsedJson = parseWorkflowCode(code);
 
 			// Verify we have all 4 sticky notes
-			const stickyNotes = parsedJson.nodes.filter((n) => n.type === 'n8n-nodes-base.stickyNote');
+			const stickyNotes = parsedJson.nodes.filter((n) => n.type === 'resin-nodes-base.stickyNote');
 			expect(stickyNotes).toHaveLength(4);
 
 			// Verify each sticky content exists
@@ -1673,7 +1673,7 @@ export default workflow('test-multi-sticky', 'Multi-Agent Research Workflow')
 			// Simpler test case without the nodes option
 			const code = `
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start', position: [100, 300] }
 });
@@ -1692,7 +1692,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 			const parsedJson = parseWorkflowCode(code);
 
 			// Verify we have all 3 sticky notes
-			const stickyNotes = parsedJson.nodes.filter((n) => n.type === 'n8n-nodes-base.stickyNote');
+			const stickyNotes = parsedJson.nodes.filter((n) => n.type === 'resin-nodes-base.stickyNote');
 			expect(stickyNotes).toHaveLength(3);
 
 			// Verify content
@@ -1727,7 +1727,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1735,7 +1735,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 					{
 						id: 'trigger-2',
 						name: 'Schedule Trigger',
-						type: 'n8n-nodes-base.scheduleTrigger',
+						type: 'resin-nodes-base.scheduleTrigger',
 						typeVersion: 1.2,
 						position: [0, 200],
 						parameters: {},
@@ -1743,7 +1743,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 					{
 						id: 'shared-1',
 						name: 'Shared Node A',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [200, 100],
 						parameters: { mode: 'manual' },
@@ -1751,7 +1751,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 					{
 						id: 'shared-2',
 						name: 'Shared Node B',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [400, 100],
 						parameters: { url: 'https://api.example.com' },
@@ -1811,7 +1811,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 					{
 						id: 'trigger-1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1819,7 +1819,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 					{
 						id: 'classifier-1',
 						name: 'Text Classifier',
-						type: '@n8n/n8n-nodes-langchain.textClassifier',
+						type: '@resin/n8n-nodes-langchain.textClassifier',
 						typeVersion: 1.2,
 						position: [200, 0],
 						parameters: {},
@@ -1827,7 +1827,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 					{
 						id: 'branch-a',
 						name: 'Branch A Node',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, -100],
 						parameters: {},
@@ -1835,7 +1835,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 					{
 						id: 'branch-b',
 						name: 'Branch B Node',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, 0],
 						parameters: {},
@@ -1843,7 +1843,7 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 					{
 						id: 'branch-c',
 						name: 'Branch C Node',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, 100],
 						parameters: {},
@@ -1895,9 +1895,9 @@ export default workflow('test-simple-multi-sticky', 'Simple Multi-Sticky Workflo
 			// When template literals are properly escaped with \$, they should work
 			const code = `
 export default workflow('test-id', 'Code Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
   .to(node({
-    type: 'n8n-nodes-base.code',
+    type: 'resin-nodes-base.code',
     version: 2,
     config: {
       name: 'Process Data',
@@ -1911,7 +1911,7 @@ return { json: { message } };\`
   }))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const codeNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.code');
+			const codeNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.code');
 			expect(codeNode).toBeDefined();
 			// The jsCode should contain the template literal with ${data.name} preserved
 			expect(codeNode?.parameters?.jsCode).toContain('${data.name}');
@@ -1925,9 +1925,9 @@ return { json: { message } };\`
 			// The ${invoiceData.currency} should be escaped to \${invoiceData.currency}
 			const code = `
 export default workflow('test-id', 'Validation Workflow')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
   .to(node({
-    type: 'n8n-nodes-base.code',
+    type: 'resin-nodes-base.code',
     version: 2,
     config: {
       name: 'Validate Data',
@@ -1945,7 +1945,7 @@ return { json: { errors } };\`
 `;
 			// This should NOT throw "invoiceData is not defined" - it should escape and parse
 			const parsedJson = parseWorkflowCode(code);
-			const codeNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.code');
+			const codeNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.code');
 			expect(codeNode).toBeDefined();
 			// The jsCode should preserve the ${invoiceData.currency} as a literal string
 			expect(codeNode?.parameters?.jsCode).toContain('${invoiceData.currency}');
@@ -1955,9 +1955,9 @@ return { json: { errors } };\`
 			// More complex case with multiple user-defined variables in template expressions
 			const code = `
 export default workflow('test-id', 'Complex Code')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
   .to(node({
-    type: 'n8n-nodes-base.code',
+    type: 'resin-nodes-base.code',
     version: 2,
     config: {
       name: 'Format Output',
@@ -1970,7 +1970,7 @@ return { json: { result } };\`
   }))
 `;
 			const parsedJson = parseWorkflowCode(code);
-			const codeNode = parsedJson.nodes.find((n) => n.type === 'n8n-nodes-base.code');
+			const codeNode = parsedJson.nodes.find((n) => n.type === 'resin-nodes-base.code');
 			expect(codeNode).toBeDefined();
 			expect(codeNode?.parameters?.jsCode).toContain('${item.name}');
 			expect(codeNode?.parameters?.jsCode).toContain('${item.amount}');
@@ -1989,7 +1989,7 @@ return { json: { result } };\`
 					{
 						id: 'sib-1',
 						name: 'Loop Over Items13',
-						type: 'n8n-nodes-base.splitInBatches',
+						type: 'resin-nodes-base.splitInBatches',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: { options: {} },
@@ -1997,7 +1997,7 @@ return { json: { result } };\`
 					{
 						id: 'merge-1',
 						name: 'Merge',
-						type: 'n8n-nodes-base.merge',
+						type: 'resin-nodes-base.merge',
 						typeVersion: 3.2,
 						position: [224, 0],
 						parameters: {},
@@ -2053,7 +2053,7 @@ return { json: { result } };\`
 			// When code is passed through JSON.stringify, newlines become \\n
 			// This is a common scenario when code is stored/transmitted as JSON
 			const normalCode = `const myTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: {
     name: 'Start',
@@ -2081,7 +2081,7 @@ export default workflow('test-id', 'Test Workflow')
 			// the \\n becomes literal backslash-n characters in the string
 			// This commonly happens when code is embedded in JSON that gets stringified again
 			const codeWithLiteralBackslashN =
-				"const myTrigger = trigger({\\n  type: 'n8n-nodes-base.manualTrigger',\\n  version: 1,\\n  config: {\\n    name: 'Start',\\n    position: [240, 400]\\n  }\\n});\\n\\nexport default workflow('test-id', 'Test Workflow')\\n  .add(myTrigger);";
+				"const myTrigger = trigger({\\n  type: 'resin-nodes-base.manualTrigger',\\n  version: 1,\\n  config: {\\n    name: 'Start',\\n    position: [240, 400]\\n  }\\n});\\n\\nexport default workflow('test-id', 'Test Workflow')\\n  .add(myTrigger);";
 
 			// The parser should handle this by converting \\n to actual newlines
 			expect(() => parseWorkflowCode(codeWithLiteralBackslashN)).not.toThrow();
@@ -2093,7 +2093,7 @@ export default workflow('test-id', 'Test Workflow')
 		it('should parse code with escaped quotes in strings', () => {
 			// Double-escaped quotes like \\" should be handled
 			const codeWithEscapedQuotes =
-				"const setNode = node({\\n  type: 'n8n-nodes-base.set',\\n  version: 3.4,\\n  config: {\\n    name: 'Set Data',\\n    parameters: {\\n      mode: 'manual',\\n      assignments: {\\n        assignments: [{\\n          id: 'msg',\\n          name: 'message',\\n          value: '={{ $json.error || \\\"Default message\\\" }}',\\n          type: 'string'\\n        }]\\n      }\\n    },\\n    position: [240, 400]\\n  }\\n});\\n\\nexport default workflow('test-id', 'Test')\\n  .add(setNode);";
+				"const setNode = node({\\n  type: 'resin-nodes-base.set',\\n  version: 3.4,\\n  config: {\\n    name: 'Set Data',\\n    parameters: {\\n      mode: 'manual',\\n      assignments: {\\n        assignments: [{\\n          id: 'msg',\\n          name: 'message',\\n          value: '={{ $json.error || \\\"Default message\\\" }}',\\n          type: 'string'\\n        }]\\n      }\\n    },\\n    position: [240, 400]\\n  }\\n});\\n\\nexport default workflow('test-id', 'Test')\\n  .add(setNode);";
 
 			expect(() => parseWorkflowCode(codeWithEscapedQuotes)).not.toThrow();
 			const parsedJson = parseWorkflowCode(codeWithEscapedQuotes);
@@ -2105,7 +2105,7 @@ export default workflow('test-id', 'Test Workflow')
 		it('should produce a single language model node connected to both agents', () => {
 			const code = `
 const sharedModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'Shared GPT-4o',
@@ -2114,7 +2114,7 @@ const sharedModel = languageModel({
 });
 
 const agent1 = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Research Agent',
@@ -2124,7 +2124,7 @@ const agent1 = node({
 });
 
 const agent2 = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Writing Agent',
@@ -2134,7 +2134,7 @@ const agent2 = node({
 });
 
 export default workflow('shared-model-test', 'Shared Model Test')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } })
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } })
     .to([agent1, agent2]));
 `;
 			const parsedJson = parseWorkflowCode(code);
@@ -2144,7 +2144,7 @@ export default workflow('shared-model-test', 'Shared Model Test')
 
 			// Only ONE language model node should exist
 			const modelNodes = parsedJson.nodes.filter(
-				(n) => n.type === '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				(n) => n.type === '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			);
 			expect(modelNodes).toHaveLength(1);
 			expect(modelNodes[0].name).toBe('Shared GPT-4o');
@@ -2160,39 +2160,39 @@ export default workflow('shared-model-test', 'Shared Model Test')
 		it('should produce a single tool node connected to both agents', () => {
 			const code = `
 const sharedCalculator = tool({
-  type: '@n8n/n8n-nodes-langchain.toolCalculator',
+  type: '@resin/n8n-nodes-langchain.toolCalculator',
   version: 1,
   config: { name: 'Shared Calculator' }
 });
 
 const agent1 = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Math Agent',
     parameters: { text: 'Calculate this' },
     subnodes: {
-      model: languageModel({ type: '@n8n/n8n-nodes-langchain.lmChatOpenAi', version: 1.3, config: { name: 'Model 1', parameters: { model: { mode: 'list', value: 'gpt-4o-mini' } } } }),
+      model: languageModel({ type: '@resin/n8n-nodes-langchain.lmChatOpenAi', version: 1.3, config: { name: 'Model 1', parameters: { model: { mode: 'list', value: 'gpt-4o-mini' } } } }),
       tools: [sharedCalculator]
     }
   }
 });
 
 const agent2 = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Science Agent',
     parameters: { text: 'Calculate that' },
     subnodes: {
-      model: languageModel({ type: '@n8n/n8n-nodes-langchain.lmChatOpenAi', version: 1.3, config: { name: 'Model 2', parameters: { model: { mode: 'list', value: 'gpt-4o-mini' } } } }),
+      model: languageModel({ type: '@resin/n8n-nodes-langchain.lmChatOpenAi', version: 1.3, config: { name: 'Model 2', parameters: { model: { mode: 'list', value: 'gpt-4o-mini' } } } }),
       tools: [sharedCalculator]
     }
   }
 });
 
 export default workflow('shared-tool-test', 'Shared Tool Test')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } })
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } })
     .to([agent1, agent2]));
 `;
 			const parsedJson = parseWorkflowCode(code);
@@ -2202,7 +2202,7 @@ export default workflow('shared-tool-test', 'Shared Tool Test')
 
 			// Only ONE calculator tool node should exist
 			const toolNodes = parsedJson.nodes.filter(
-				(n) => n.type === '@n8n/n8n-nodes-langchain.toolCalculator',
+				(n) => n.type === '@resin/n8n-nodes-langchain.toolCalculator',
 			);
 			expect(toolNodes).toHaveLength(1);
 			expect(toolNodes[0].name).toBe('Shared Calculator');
@@ -2224,7 +2224,7 @@ export default workflow('shared-tool-test', 'Shared Tool Test')
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -2232,7 +2232,7 @@ export default workflow('shared-tool-test', 'Shared Tool Test')
 					{
 						id: 'agent-1',
 						name: 'Research Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3.1,
 						position: [200, -100],
 						parameters: { text: 'Research this' },
@@ -2240,7 +2240,7 @@ export default workflow('shared-tool-test', 'Shared Tool Test')
 					{
 						id: 'agent-2',
 						name: 'Writing Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3.1,
 						position: [200, 100],
 						parameters: { text: 'Write about this' },
@@ -2248,7 +2248,7 @@ export default workflow('shared-tool-test', 'Shared Tool Test')
 					{
 						id: 'model-1',
 						name: 'Shared GPT-4o',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.3,
 						position: [200, 0],
 						parameters: { model: { mode: 'list', value: 'gpt-4o-mini' } },
@@ -2283,7 +2283,7 @@ export default workflow('shared-tool-test', 'Shared Tool Test')
 
 			// Only ONE language model node
 			const modelNodes = parsedJson.nodes.filter(
-				(n) => n.type === '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				(n) => n.type === '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			);
 			expect(modelNodes).toHaveLength(1);
 
@@ -2298,7 +2298,7 @@ export default workflow('shared-tool-test', 'Shared Tool Test')
 		it('should produce a single embedding node connected to both vector stores', () => {
 			const code = `
 const sharedEmbedding = embedding({
-  type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+  type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
   version: 1.2,
   config: {
     name: 'Shared Embeddings',
@@ -2307,7 +2307,7 @@ const sharedEmbedding = embedding({
 });
 
 const vectorStore1 = node({
-  type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+  type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
   version: 1,
   config: {
     name: 'Vector Store 1',
@@ -2317,7 +2317,7 @@ const vectorStore1 = node({
 });
 
 const vectorStore2 = node({
-  type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+  type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
   version: 1,
   config: {
     name: 'Vector Store 2',
@@ -2327,7 +2327,7 @@ const vectorStore2 = node({
 });
 
 export default workflow('shared-embedding-test', 'Shared Embedding Test')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } })
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } })
     .to([vectorStore1, vectorStore2]));
 `;
 			const parsedJson = parseWorkflowCode(code);
@@ -2337,7 +2337,7 @@ export default workflow('shared-embedding-test', 'Shared Embedding Test')
 
 			// Only ONE embedding node should exist
 			const embeddingNodes = parsedJson.nodes.filter(
-				(n) => n.type === '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+				(n) => n.type === '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 			);
 			expect(embeddingNodes).toHaveLength(1);
 			expect(embeddingNodes[0].name).toBe('Shared Embeddings');
@@ -2353,7 +2353,7 @@ export default workflow('shared-embedding-test', 'Shared Embedding Test')
 		it('should handle same-named agents sharing a language model (auto-rename scenario)', () => {
 			const code = `
 const sharedModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'OpenAI Chat Model',
@@ -2362,7 +2362,7 @@ const sharedModel = languageModel({
 });
 
 const agent1 = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Generate Story Script',
@@ -2372,7 +2372,7 @@ const agent1 = node({
 });
 
 const agent2 = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Generate Story Script',
@@ -2382,7 +2382,7 @@ const agent2 = node({
 });
 
 export default workflow('same-name-agents', 'Same Name Agents')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } })
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } })
     .to([agent1, agent2]));
 `;
 			const parsedJson = parseWorkflowCode(code);
@@ -2392,7 +2392,7 @@ export default workflow('same-name-agents', 'Same Name Agents')
 
 			// Two agent nodes should exist, one auto-renamed
 			const agentNodes = parsedJson.nodes.filter(
-				(n) => n.type === '@n8n/n8n-nodes-langchain.agent',
+				(n) => n.type === '@resin/n8n-nodes-langchain.agent',
 			);
 			expect(agentNodes).toHaveLength(2);
 			const agentNames = agentNodes.map((n) => n.name).sort();
@@ -2400,7 +2400,7 @@ export default workflow('same-name-agents', 'Same Name Agents')
 
 			// Only ONE language model node
 			const modelNodes = parsedJson.nodes.filter(
-				(n) => n.type === '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				(n) => n.type === '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			);
 			expect(modelNodes).toHaveLength(1);
 
@@ -2495,7 +2495,7 @@ describe('Codegen Roundtrip with Real Workflows', () => {
 				if (!p || typeof p !== 'object') return p;
 				const obj = p as Record<string, unknown>;
 				if (Object.keys(obj).length === 0) return undefined;
-				if (nodeType === 'n8n-nodes-base.stickyNote') {
+				if (nodeType === 'resin-nodes-base.stickyNote') {
 					// Strip empty content and non-serializable color values (null, empty object)
 					const cleaned = { ...obj };
 					if (cleaned.content === '') delete cleaned.content;
@@ -2731,7 +2731,7 @@ describe('Committed workflows — schema validation errors', () => {
 	// output-mode warnings without pulling in the full nodes-langchain dependency tree.
 	const mockNodeTypesProvider = {
 		getByNameAndVersion: (type: string, _version?: number) => {
-			if (type === '@n8n/n8n-nodes-langchain.chatTrigger') {
+			if (type === '@resin/n8n-nodes-langchain.chatTrigger') {
 				return {
 					description: {
 						inputs: ['main'],
@@ -2751,7 +2751,7 @@ describe('Committed workflows — schema validation errors', () => {
 					},
 				};
 			}
-			if (type === '@n8n/n8n-nodes-langchain.agent') {
+			if (type === '@resin/n8n-nodes-langchain.agent') {
 				return {
 					description: {
 						inputs: ['main'],
@@ -2765,7 +2765,7 @@ describe('Committed workflows — schema validation errors', () => {
 					},
 				};
 			}
-			if (type === '@n8n/n8n-nodes-langchain.vectorStoreInMemory') {
+			if (type === '@resin/n8n-nodes-langchain.vectorStoreInMemory') {
 				return {
 					description: {
 						inputs: ['main'],

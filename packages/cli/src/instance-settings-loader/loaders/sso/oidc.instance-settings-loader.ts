@@ -1,9 +1,9 @@
-import { OIDC_PROMPT_VALUES } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import { SettingsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { Cipher } from 'n8n-core';
+import { OIDC_PROMPT_VALUES } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import { SettingsRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { Cipher } from 'resin-core';
 import { z } from 'zod';
 
 import { OIDC_PREFERENCES_DB_KEY } from '@/modules/sso-oidc/constants';

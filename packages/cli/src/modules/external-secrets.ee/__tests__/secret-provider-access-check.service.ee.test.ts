@@ -2,9 +2,9 @@ import type {
 	ProjectSecretsProviderAccessRepository,
 	SecretsProviderConnectionRepository,
 	User,
-} from '@n8n/db';
+} from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { Scope } from '@n8n/permissions';
+import type { Scope } from '@resin/permissions';
 
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

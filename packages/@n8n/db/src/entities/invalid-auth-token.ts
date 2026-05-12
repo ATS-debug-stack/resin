@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn } from '@n8n/typeorm';
+import { Entity, PrimaryColumn } from '@resin/typeorm';
 
 import { DateTimeColumn } from './abstract-entity';
 

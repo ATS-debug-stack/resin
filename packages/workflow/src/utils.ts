@@ -1,4 +1,4 @@
-import { ApplicationError } from '@n8n/errors';
+import { ApplicationError } from '@resin/errors';
 import { parse as esprimaParse, Syntax } from 'esprima-next';
 import type { Node as SyntaxNode, ExpressionStatement } from 'esprima-next';
 import FormData from 'form-data';

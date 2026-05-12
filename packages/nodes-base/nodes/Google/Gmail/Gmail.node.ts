@@ -1,5 +1,5 @@
-import type { INodeTypeBaseDescription, IVersionedNodeType } from 'n8n-workflow';
-import { VersionedNodeType } from 'n8n-workflow';
+import type { INodeTypeBaseDescription, IVersionedNodeType } from 'resin-workflow';
+import { VersionedNodeType } from 'resin-workflow';
 
 import { GmailV1 } from './v1/GmailV1.node';
 import { GmailV2 } from './v2/GmailV2.node';
@@ -17,7 +17,7 @@ export class Gmail extends VersionedNodeType {
 			builderHint: {
 				relatedNodes: [
 					{
-						nodeType: 'n8n-nodes-base.gmailTrigger',
+						nodeType: 'resin-nodes-base.gmailTrigger',
 						relationHint:
 							'Use Gmail Trigger for scheduled email fetching, which is simpler for user than Schedule Trigger with Gmail getAll',
 					},

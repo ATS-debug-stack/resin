@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 import { mockDeep } from 'jest-mock-extended';
-import type { IPollFunctions, INodeExecutionData, IDataObject } from 'n8n-workflow';
+import type { IPollFunctions, INodeExecutionData, IDataObject } from 'resin-workflow';
 
 import { MicrosoftOutlookTrigger } from '../../MicrosoftOutlookTrigger.node';
 
@@ -34,7 +34,7 @@ describe('MicrosoftOutlookTrigger', () => {
 			mockPollFunctions.getNode.mockReturnValue({
 				id: 'test-node',
 				name: 'Test Node',
-				type: 'n8n-nodes-base.microsoftOutlookTrigger',
+				type: 'resin-nodes-base.microsoftOutlookTrigger',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},

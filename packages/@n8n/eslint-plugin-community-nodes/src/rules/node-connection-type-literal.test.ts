@@ -6,8 +6,8 @@ const ruleTester = new RuleTester();
 
 function createNodeCode(inputs: string, outputs: string): string {
 	return `
-import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {
@@ -26,7 +26,7 @@ export class TestNode implements INodeType {
 
 function createNodeCodeNoImport(inputs: string, outputs: string): string {
 	return `
-import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {

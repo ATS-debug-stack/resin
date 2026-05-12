@@ -4,7 +4,7 @@ import type {
 	IHttpRequestMethods,
 	IHttpRequestOptions,
 	ILoadOptionsFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { IAirtopResponse } from './types';
 import { BASE_URL, N8N_VERSION } from '../constants';

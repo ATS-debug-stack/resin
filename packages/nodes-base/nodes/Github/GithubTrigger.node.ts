@@ -7,8 +7,8 @@ import type {
 	INodeTypeDescription,
 	IWebhookResponseData,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeApiError, NodeOperationError } from 'resin-workflow';
 
 import { githubApiRequest } from './GenericFunctions';
 import { verifySignature } from './GithubTriggerHelpers';

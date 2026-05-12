@@ -6,7 +6,7 @@ import {
 	NodeConnectionTypes,
 	type NodeExecutionHint,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	type Aggregations,

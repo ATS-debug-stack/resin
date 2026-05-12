@@ -1,18 +1,18 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GLOBAL_OWNER_ROLE, type User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GLOBAL_OWNER_ROLE, type User } from '@resin/db';
+import { Container } from '@resin/di';
 import axios from 'axios';
 import { mock } from 'jest-mock-extended';
 import type {
 	MessageEventBusDestinationSentryOptions,
 	MessageEventBusDestinationSyslogOptions,
 	MessageEventBusDestinationWebhookOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	defaultMessageEventBusDestinationSentryOptions,
 	defaultMessageEventBusDestinationSyslogOptions,
 	defaultMessageEventBusDestinationWebhookOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import type { EventNamesTypes } from '@/eventbus/event-message-classes';

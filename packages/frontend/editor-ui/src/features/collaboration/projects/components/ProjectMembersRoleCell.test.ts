@@ -5,7 +5,7 @@ import { screen } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import { createPinia, setActivePinia } from 'pinia';
 import { vi } from 'vitest';
-import type { AllRolesMap, ProjectRole } from '@n8n/permissions';
+import type { AllRolesMap, ProjectRole } from '@resin/permissions';
 import ProjectMembersRoleCell from './ProjectMembersRoleCell.vue';
 import type { ProjectMemberData } from '../projects.types';
 import { useSettingsStore } from '@/app/stores/settings.store';

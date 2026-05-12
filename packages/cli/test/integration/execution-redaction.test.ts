@@ -4,11 +4,11 @@ import {
 	createWorkflow,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
 import { stringify } from 'flatted';
-import type { INode, IRunExecutionData, IWorkflowBase, WorkflowExecuteMode } from 'n8n-workflow';
-import { createRunExecutionData, NodeApiError, NodeOperationError } from 'n8n-workflow';
+import type { INode, IRunExecutionData, IWorkflowBase, WorkflowExecuteMode } from 'resin-workflow';
+import { createRunExecutionData, NodeApiError, NodeOperationError } from 'resin-workflow';
 
 import { ConcurrencyControlService } from '@/concurrency/concurrency-control.service';
 import { WaitTracker } from '@/wait-tracker';
@@ -421,7 +421,7 @@ describe('GET /executions/:id — Execution Redaction', () => {
 		const mockNode: INode = {
 			id: 'node-1',
 			name: 'Test Node',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

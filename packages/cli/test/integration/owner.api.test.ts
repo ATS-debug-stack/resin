@@ -4,11 +4,11 @@ import {
 	randomName,
 	randomValidPassword,
 	testDb,
-} from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
-import { GLOBAL_OWNER_ROLE, UserRepository } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
+import { GLOBAL_OWNER_ROLE, UserRepository } from '@resin/db';
 import { OwnershipService } from '@/services/ownership.service';
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import validator from 'validator';
 
 import { createUserShell } from './shared/db/users';

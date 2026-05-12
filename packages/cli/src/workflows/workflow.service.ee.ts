@@ -1,4 +1,4 @@
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 import type {
 	CredentialsEntity,
 	CredentialUsedByWorkflow,
@@ -6,7 +6,7 @@ import type {
 	WorkflowEntity,
 	WorkflowWithSharingsAndCredentials,
 	WorkflowWithSharingsMetaDataAndCredentials,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	Folder,
 	Project,
@@ -16,14 +16,19 @@ import {
 	SharedWorkflowRepository,
 	WorkflowRepository,
 	WorkflowPublishHistoryRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, type EntityManager } from '@n8n/typeorm';
+import { In, type EntityManager } from '@resin/typeorm';
 import omit from 'lodash/omit';
-import type { IWorkflowBase, WorkflowId } from 'n8n-workflow';
-import { NodeOperationError, PROJECT_ROOT, UserError, WorkflowActivationError } from 'n8n-workflow';
+import type { IWorkflowBase, WorkflowId } from 'resin-workflow';
+import {
+	NodeOperationError,
+	PROJECT_ROOT,
+	UserError,
+	WorkflowActivationError,
+} from 'resin-workflow';
 
 import { WorkflowFinderService } from './workflow-finder.service';
 

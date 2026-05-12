@@ -20,7 +20,7 @@ import { useUsersStore } from '@/features/settings/users/users.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useRolesStore } from '@/app/stores/roles.store';
 import { useRBACStore } from '@/app/stores/rbac.store';
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 
 const mockTrack = vi.fn();
 const mockShowMessage = vi.fn();
@@ -95,7 +95,7 @@ vi.mock('../components/ProjectMembersTable.vue', () => ({
 	}),
 }));
 
-vi.mock('@n8n/design-system', async (importOriginal) => {
+vi.mock('@resin/design-system', async (importOriginal) => {
 	const original = await importOriginal<object>();
 	return {
 		...original,
@@ -104,7 +104,7 @@ vi.mock('@n8n/design-system', async (importOriginal) => {
 			props: { modelValue: { type: String, required: false } },
 			emits: ['update:model-value'],
 			template:
-				'<div data-test-id="n8n-input-stub"><input :value="modelValue" @input="$emit(\'update:model-value\', $event.target.value)" /></div>',
+				'<div data-test-id="resin-input-stub"><input :value="modelValue" @input="$emit(\'update:model-value\', $event.target.value)" /></div>',
 		}),
 		N8nUserSelect: defineComponent({
 			name: 'N8nUserSelectStub',

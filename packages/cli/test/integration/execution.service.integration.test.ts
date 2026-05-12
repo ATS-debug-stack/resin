@@ -3,11 +3,11 @@ import {
 	createWorkflow,
 	linkUserToProject,
 	testDb,
-} from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { ExecutionSummaries, User } from '@n8n/db';
-import { ExecutionMetadataRepository, ExecutionRepository, WorkflowRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { ExecutionSummaries, User } from '@resin/db';
+import { ExecutionMetadataRepository, ExecutionRepository, WorkflowRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import { ExecutionService } from '@/executions/execution.service';

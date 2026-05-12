@@ -5,16 +5,16 @@ import Modal from '@/app/components/Modal.vue';
 import { API_KEY_CREATE_OR_EDIT_MODAL_KEY } from '../apiKeys.constants';
 import { computed, onMounted, ref } from 'vue';
 import { useUIStore } from '@/app/stores/ui.store';
-import { createEventBus } from '@n8n/utils/event-bus';
-import { useI18n } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { createEventBus } from '@resin/utils/event-bus';
+import { useI18n } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { useApiKeysStore } from '../apiKeys.store';
 import { useToast } from '@/app/composables/useToast';
-import type { BaseTextKey } from '@n8n/i18n';
+import type { BaseTextKey } from '@resin/i18n';
 import { DateTime } from 'luxon';
-import type { ApiKey, ApiKeyWithRawValue, CreateApiKeyRequestDto } from '@n8n/api-types';
-import type { ApiKeyScope } from '@n8n/permissions';
+import type { ApiKey, ApiKeyWithRawValue, CreateApiKeyRequestDto } from '@resin/api-types';
+import type { ApiKeyScope } from '@resin/permissions';
 
 import { ElDatePicker } from 'element-plus';
 import {
@@ -25,7 +25,7 @@ import {
 	N8nOption,
 	N8nSelect,
 	N8nText,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 const EXPIRATION_OPTIONS = {
 	'7_DAYS': 7,
 	'30_DAYS': 30,

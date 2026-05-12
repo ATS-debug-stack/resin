@@ -1,5 +1,5 @@
-import { loadWorkflowInputMappings } from 'n8n-nodes-base/dist/utils/workflowInputsResourceMapping/GenericFunctions';
-import type { ILocalLoadOptionsFunctions, ResourceMapperFields } from 'n8n-workflow';
+import { loadWorkflowInputMappings } from 'resin-nodes-base/dist/utils/workflowInputsResourceMapping/GenericFunctions';
+import type { ILocalLoadOptionsFunctions, ResourceMapperFields } from 'resin-workflow';
 
 export async function loadSubWorkflowInputs(
 	this: ILocalLoadOptionsFunctions,

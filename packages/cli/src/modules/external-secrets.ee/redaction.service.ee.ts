@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import type { IDataObject, INodeProperties } from 'n8n-workflow';
-import { CREDENTIAL_BLANKING_VALUE, deepCopy } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import type { IDataObject, INodeProperties } from 'resin-workflow';
+import { CREDENTIAL_BLANKING_VALUE, deepCopy } from 'resin-workflow';
 import { containsExpression } from '@/utils';
 
 @Service()

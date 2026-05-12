@@ -1,10 +1,10 @@
-import type { InstanceRegistration } from '@n8n/api-types';
+import type { InstanceRegistration } from '@resin/api-types';
 import {
 	ClusterCheck,
 	type ClusterCheckContext,
 	type ClusterCheckResult,
 	type IClusterCheck,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 
 const CHECK_CODE = 'cluster.version-mismatch';
 const AUDIT_DETECTED = 'n8n.audit.cluster.version-mismatch.detected';

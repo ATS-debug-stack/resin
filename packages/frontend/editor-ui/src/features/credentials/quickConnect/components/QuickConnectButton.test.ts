@@ -7,7 +7,7 @@ import type { RenderOptions } from '@/__tests__/render';
 import { createComponentRenderer } from '@/__tests__/render';
 import { useCredentialsStore } from '../../credentials.store';
 import { mockedStore } from '@/__tests__/utils';
-import type { ICredentialType } from 'n8n-workflow';
+import type { ICredentialType } from 'resin-workflow';
 
 vi.mock('@/app/composables/useWorkflowState', () => ({
 	injectWorkflowState: vi.fn(),

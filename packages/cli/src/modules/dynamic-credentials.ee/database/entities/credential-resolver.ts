@@ -1,6 +1,6 @@
-import { WithTimestampsAndStringId } from '@n8n/db';
-import type { CredentialResolverConfiguration } from '@n8n/decorators';
-import { Column, Entity } from '@n8n/typeorm';
+import { WithTimestampsAndStringId } from '@resin/db';
+import type { CredentialResolverConfiguration } from '@resin/decorators';
+import { Column, Entity } from '@resin/typeorm';
 
 @Entity()
 export class DynamicCredentialResolver extends WithTimestampsAndStringId {

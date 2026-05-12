@@ -10,7 +10,7 @@ withDefaults(defineProps<TagProps>(), {
 </script>
 
 <template>
-	<span :class="['n8n-tag', $style.tag, { [$style.clickable]: clickable }]" v-bind="$attrs">
+	<span :class="['resin-tag', $style.tag, { [$style.clickable]: clickable }]" v-bind="$attrs">
 		<slot v-if="$slots['tag']" name="tag" />
 		<span v-else>{{ text }}</span>
 	</span>

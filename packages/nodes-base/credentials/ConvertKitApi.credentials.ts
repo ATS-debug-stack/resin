@@ -4,7 +4,7 @@ import type {
 	ICredentialType,
 	IHttpRequestOptions,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { getUrl } from './common/http';
 
 export class ConvertKitApi implements ICredentialType {

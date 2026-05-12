@@ -6,14 +6,14 @@
  * Served both as an MCP resource and via the n8n_get_workflow_sdk_reference tool.
  */
 
-import { SDK_IMPORT_STATEMENT } from '@n8n/ai-workflow-builder';
+import { SDK_IMPORT_STATEMENT } from '@resin/ai-workflow-builder';
 import {
 	EXPRESSION_REFERENCE,
 	WORKFLOW_SDK_PATTERNS,
 	WORKFLOW_PATTERNS_DETAILED,
 	ADDITIONAL_FUNCTIONS,
 	WORKFLOW_RULES,
-} from '@n8n/workflow-sdk/prompts/sdk-reference';
+} from '@resin/workflow-sdk/prompts/sdk-reference';
 
 // NOTE: CODING_GUIDELINES and DESIGN_GUIDANCE are MCP-only constants defined
 // below. They are NOT shared with the code-builder agent (which has its own

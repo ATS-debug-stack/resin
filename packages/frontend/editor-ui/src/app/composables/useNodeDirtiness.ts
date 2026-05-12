@@ -14,8 +14,8 @@ import {
 	CanvasNodeDirtiness,
 	type CanvasNodeDirtinessType,
 } from '@/features/workflows/canvas/canvas.types';
-import type { INodeConnections, NodeConnectionType } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeConnections, NodeConnectionType } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { computed } from 'vue';
 
 /**

@@ -1,4 +1,4 @@
-import type { IWebhookFunctions } from 'n8n-workflow';
+import type { IWebhookFunctions } from 'resin-workflow';
 
 import { TwilioTrigger } from '../TwilioTrigger.node';
 import { verifySignature } from '../TwilioTriggerHelpers';

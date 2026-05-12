@@ -3,8 +3,8 @@ import type {
 	IExecuteFunctions,
 	ILoadOptionsFunctions,
 	INodeTypeBaseDescription,
-} from 'n8n-workflow';
-import { NodeOperationError, ApplicationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, ApplicationError } from 'resin-workflow';
 
 import { SwitchV3 } from '../SwitchV3.node';
 
@@ -15,7 +15,7 @@ describe('SwitchV3 Node', () => {
 
 	const baseDescription: INodeTypeBaseDescription = {
 		displayName: 'Switch',
-		name: 'n8n-nodes-base.switch',
+		name: 'resin-nodes-base.switch',
 		group: ['transform'],
 		description: 'Route items to different outputs',
 	};
@@ -74,7 +74,7 @@ describe('SwitchV3 Node', () => {
 			mockExecuteFunctions.getNode.mockReturnValue({
 				id: 'switch-node',
 				name: 'Switch',
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				typeVersion: 3.3,
 				position: [0, 0],
 				parameters: {},
@@ -178,7 +178,7 @@ describe('SwitchV3 Node', () => {
 			mockExecuteFunctions.getNode.mockReturnValue({
 				id: 'switch-node',
 				name: 'Switch',
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				typeVersion: 3.3,
 				position: [0, 0],
 				parameters: {},
@@ -332,7 +332,7 @@ describe('SwitchV3 Node', () => {
 			mockExecuteFunctions.getNode.mockReturnValue({
 				id: 'switch-node',
 				name: 'Switch',
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				typeVersion: 3.3,
 				position: [0, 0],
 				parameters: {},
@@ -499,7 +499,7 @@ describe('SwitchV3 Node', () => {
 			mockExecuteFunctions.getNode.mockReturnValue({
 				id: 'switch-node',
 				name: 'Switch',
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				typeVersion: 3.3,
 				position: [0, 0],
 				parameters: {},

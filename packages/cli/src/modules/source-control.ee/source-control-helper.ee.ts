@@ -1,7 +1,7 @@
-import type { SourceControlledFile } from '@n8n/api-types';
-import { isContainedWithin, Logger, safeJoinPath } from '@n8n/backend-common';
-import type { TagEntity, WorkflowTagMapping } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { SourceControlledFile } from '@resin/api-types';
+import { isContainedWithin, Logger, safeJoinPath } from '@resin/backend-common';
+import type { TagEntity, WorkflowTagMapping } from '@resin/db';
+import { Container } from '@resin/di';
 import { generateKeyPairSync } from 'crypto';
 import { accessSync, constants as fsConstants, mkdirSync } from 'fs';
 import isEqual from 'lodash/isEqual';
@@ -12,7 +12,7 @@ import {
 	type CredentialInformation,
 	type DataTableColumnType,
 	type ICredentialDataDecryptedObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { ok } from 'node:assert/strict';
 import { readFile as fsReadFile } from 'node:fs/promises';
 import path from 'path';

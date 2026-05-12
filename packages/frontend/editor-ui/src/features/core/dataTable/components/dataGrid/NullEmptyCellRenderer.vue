@@ -7,7 +7,7 @@ const props = defineProps<{
 </script>
 
 <template>
-	<span class="n8n-empty-value">{{ props.params.value }}</span>
+	<span class="resin-empty-value">{{ props.params.value }}</span>
 </template>
 
 <style lang="scss">

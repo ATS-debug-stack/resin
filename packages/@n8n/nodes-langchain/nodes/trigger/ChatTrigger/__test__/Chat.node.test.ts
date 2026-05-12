@@ -1,10 +1,10 @@
-import type { INode, IExecuteFunctions } from 'n8n-workflow';
+import type { INode, IExecuteFunctions } from 'resin-workflow';
 import {
 	CHAT_NODE_TYPE,
 	CHAT_TRIGGER_NODE_TYPE,
 	FREE_TEXT_CHAT_RESPONSE_TYPE,
 	SEND_AND_WAIT_OPERATION,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { MockProxy } from 'vitest-mock-extended';
 import { mock } from 'vitest-mock-extended';
 

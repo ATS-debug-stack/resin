@@ -1,4 +1,4 @@
-import { Tournament } from '@n8n/tournament';
+import { Tournament } from '@resin/tournament';
 import type {
 	IExpressionEvaluator,
 	EvaluatorConfig,
@@ -8,7 +8,7 @@ import type {
 	RuntimeBridge,
 } from '../types';
 import { DEFAULT_BRIDGE_CONFIG } from '../types/bridge';
-import { IsolateError } from '@n8n/errors';
+import { IsolateError } from '@resin/errors';
 import { IdleScalingPool } from '../pool/idle-scaling-pool';
 import type { IPool } from '../pool/isolate-pool';
 import { IsolatePool, PoolDisposedError, PoolExhaustedError } from '../pool/isolate-pool';

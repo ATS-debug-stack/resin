@@ -1,8 +1,8 @@
-import { testDb } from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
-import { ApiKey, ApiKeyRepository, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { randomString } from 'n8n-workflow';
+import { testDb } from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
+import { ApiKey, ApiKeyRepository, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { randomString } from 'resin-workflow';
 
 import { ScopedJwtStrategy } from '@/modules/token-exchange/services/scoped-jwt.strategy';
 import { TOKEN_EXCHANGE_ISSUER } from '@/modules/token-exchange/token-exchange.types';

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { N8nIcon, N8nLink, N8nText } from '@n8n/design-system';
+import { N8nIcon, N8nLink, N8nText } from '@resin/design-system';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { BUILTIN_CREDENTIALS_DOCS_URL } from '@/app/constants/urls';

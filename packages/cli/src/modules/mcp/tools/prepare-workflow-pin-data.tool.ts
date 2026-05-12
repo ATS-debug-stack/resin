@@ -1,13 +1,13 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import {
 	needsPinData,
 	discoverOutputSchemaForNode,
 	inferSchemasFromRunData,
 	type JsonSchema,
-} from '@n8n/workflow-sdk';
-import type { Logger } from '@n8n/backend-common';
-import type { INodeExecutionData } from 'n8n-workflow';
-import { isTriggerNode, jsonStringify } from 'n8n-workflow';
+} from '@resin/workflow-sdk';
+import type { Logger } from '@resin/backend-common';
+import type { INodeExecutionData } from 'resin-workflow';
+import { isTriggerNode, jsonStringify } from 'resin-workflow';
 import z from 'zod';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../mcp.constants';

@@ -61,23 +61,27 @@ describe('PluginRegistry', () => {
 		});
 
 		it('getValidatorsForNodeType returns validators matching nodeType', () => {
-			const agentValidator = createMockValidator('test:agent', ['@n8n/n8n-nodes-langchain.agent']);
+			const agentValidator = createMockValidator('test:agent', [
+				'@resin/n8n-nodes-langchain.agent',
+			]);
 			const allValidator = createMockValidator('test:all', []);
 			registry.registerValidator(agentValidator);
 			registry.registerValidator(allValidator);
 
-			const result = registry.getValidatorsForNodeType('@n8n/n8n-nodes-langchain.agent');
+			const result = registry.getValidatorsForNodeType('@resin/n8n-nodes-langchain.agent');
 			expect(result).toContain(agentValidator);
 			expect(result).toContain(allValidator);
 		});
 
 		it('getValidatorsForNodeType excludes validators for other nodeTypes', () => {
-			const agentValidator = createMockValidator('test:agent', ['@n8n/n8n-nodes-langchain.agent']);
-			const httpValidator = createMockValidator('test:http', ['n8n-nodes-base.httpRequest']);
+			const agentValidator = createMockValidator('test:agent', [
+				'@resin/n8n-nodes-langchain.agent',
+			]);
+			const httpValidator = createMockValidator('test:http', ['resin-nodes-base.httpRequest']);
 			registry.registerValidator(agentValidator);
 			registry.registerValidator(httpValidator);
 
-			const result = registry.getValidatorsForNodeType('n8n-nodes-base.httpRequest');
+			const result = registry.getValidatorsForNodeType('resin-nodes-base.httpRequest');
 			expect(result).toContain(httpValidator);
 			expect(result).not.toContain(agentValidator);
 		});

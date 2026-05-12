@@ -2,14 +2,14 @@ import {
 	isAgentCredentialIntegration,
 	type AgentCredentialIntegration,
 	type AgentIntegrationStatusResponse,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { User } from '@n8n/db';
-import { ProjectRelationRepository, UserRepository } from '@n8n/db';
-import { OnLeaderStepdown, OnLeaderTakeover, OnPubSubEvent } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { User } from '@resin/db';
+import { ProjectRelationRepository, UserRepository } from '@resin/db';
+import { OnLeaderStepdown, OnLeaderTakeover, OnPubSubEvent } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { CredentialsService } from '@/credentials/credentials.service';

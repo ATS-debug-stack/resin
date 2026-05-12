@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import NodeIcon from '@/app/components/NodeIcon.vue';
-import { N8nButton, N8nIconButton, N8nText, N8nTooltip } from '@n8n/design-system';
+import { N8nButton, N8nIconButton, N8nText, N8nTooltip } from '@resin/design-system';
 import { ElSwitch } from 'element-plus';
-import { useI18n } from '@n8n/i18n';
-import type { INode, INodeTypeDescription } from 'n8n-workflow';
+import { useI18n } from '@resin/i18n';
+import type { INode, INodeTypeDescription } from 'resin-workflow';
 import { computed } from 'vue';
 
 const props = defineProps<{

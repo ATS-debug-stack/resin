@@ -53,7 +53,7 @@ function formatMode(mode: unknown): string {
 export const setNodeValidator: ValidatorPlugin = {
 	id: 'core:set-node',
 	name: 'Set Node Validator',
-	nodeTypes: ['n8n-nodes-base.set'],
+	nodeTypes: ['resin-nodes-base.set'],
 	priority: 40,
 
 	validateNode(

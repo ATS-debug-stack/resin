@@ -1,4 +1,4 @@
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 
 export const defaultSettings: FrontendSettings = {
 	ai: {

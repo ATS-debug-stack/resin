@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import type { ChatHubExecutionEnd, ChatHubStreamError } from '@n8n/api-types';
-import { mockInstance, testDb, testModules, createActiveWorkflow } from '@n8n/backend-test-utils';
-import type { User, CredentialsEntity } from '@n8n/db';
-import { ExecutionRepository, SettingsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { ChatHubExecutionEnd, ChatHubStreamError } from '@resin/api-types';
+import { mockInstance, testDb, testModules, createActiveWorkflow } from '@resin/backend-test-utils';
+import type { User, CredentialsEntity } from '@resin/db';
+import { ExecutionRepository, SettingsRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings, BinaryDataService, Cipher } from 'n8n-core';
+import { InstanceSettings, BinaryDataService, Cipher } from 'resin-core';
 import {
 	CHAT_TRIGGER_NODE_TYPE,
 	CHAT_NODE_TYPE,
@@ -15,7 +15,7 @@ import {
 	type INode,
 	type IRun,
 	type IWorkflowBase,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { saveCredential } from '@test-integration/db/credentials';
 import { createAdmin, createMember } from '@test-integration/db/users';
@@ -1420,7 +1420,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@n8n/n8n-nodes-langchain.agent',
+									type: '@resin/n8n-nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},
@@ -1556,7 +1556,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@n8n/n8n-nodes-langchain.agent',
+									type: '@resin/n8n-nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},
@@ -1669,7 +1669,7 @@ describe('chatHub', () => {
 								{
 									id: 'code-1',
 									name: 'Code Node',
-									type: 'n8n-nodes-base.code',
+									type: 'resin-nodes-base.code',
 									typeVersion: 1,
 									position: [200, 0],
 									parameters: {},
@@ -2571,7 +2571,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@n8n/n8n-nodes-langchain.agent',
+									type: '@resin/n8n-nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},
@@ -2705,7 +2705,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@n8n/n8n-nodes-langchain.agent',
+									type: '@resin/n8n-nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},
@@ -2820,7 +2820,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@n8n/n8n-nodes-langchain.agent',
+									type: '@resin/n8n-nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},

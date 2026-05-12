@@ -1,4 +1,4 @@
-import { NodeApiError, NodeError, WorkflowActivationError } from 'n8n-workflow';
+import { NodeApiError, NodeError, WorkflowActivationError } from 'resin-workflow';
 
 export function getErrorNodeId(error: unknown): string | undefined {
 	if (error instanceof NodeError) return error.node.id;

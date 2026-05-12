@@ -8,7 +8,7 @@ import type {
 	INodeExecutionData,
 	INodeParameterResourceLocator,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	handleErrorPostReceive,

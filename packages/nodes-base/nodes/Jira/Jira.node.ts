@@ -9,8 +9,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { BINARY_ENCODING, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { BINARY_ENCODING, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type { Readable } from 'stream';
 
 import {

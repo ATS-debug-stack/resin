@@ -9,7 +9,7 @@ import {
 	type INodeTypeDescription,
 	NodeConnectionTypes,
 	ensureError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { createClient, type MqttCredential } from './GenericFunctions';
 

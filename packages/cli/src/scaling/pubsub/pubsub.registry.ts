@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { PubSubEventName, PubSubMetadata } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+import { Logger } from '@resin/backend-common';
+import { PubSubEventName, PubSubMetadata } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 
 import { PubSubEventBus } from './pubsub.eventbus';
 

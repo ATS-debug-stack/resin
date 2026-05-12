@@ -43,8 +43,8 @@ describe('RemoveNodeTool', () => {
 	describe('invoke', () => {
 		it('should remove a node without connections', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -81,7 +81,7 @@ describe('RemoveNodeTool', () => {
 			expect(completeMessage?.updates[0]?.data).toMatchObject({
 				removedNodeId: 'node1',
 				removedNodeName: 'Code',
-				removedNodeType: 'n8n-nodes-base.code',
+				removedNodeType: 'resin-nodes-base.code',
 				connectionsRemoved: 0,
 			});
 		});
@@ -214,13 +214,13 @@ describe('RemoveNodeTool', () => {
 				createNode({
 					id: 'node1',
 					name: 'OpenAI Chat Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
-				createNode({ id: 'node2', name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
+				createNode({ id: 'node2', name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
 				createNode({
 					id: 'node3',
 					name: 'Calculator Tool',
-					type: '@n8n/n8n-nodes-langchain.toolCalculator',
+					type: '@resin/n8n-nodes-langchain.toolCalculator',
 				}),
 			]);
 			// AI connections: OpenAI -> Agent, Calculator -> Agent
@@ -361,7 +361,7 @@ describe('RemoveNodeTool', () => {
 
 		it('should handle removing node by exact ID match', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'test-uuid-123', name: 'My Node', type: 'n8n-nodes-base.set' }),
+				createNode({ id: 'test-uuid-123', name: 'My Node', type: 'resin-nodes-base.set' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -393,17 +393,17 @@ describe('RemoveNodeTool', () => {
 				createNode({
 					id: 'node1',
 					name: 'Vector Store',
-					type: '@n8n/n8n-nodes-langchain.vectorStore',
+					type: '@resin/n8n-nodes-langchain.vectorStore',
 				}),
 				createNode({
 					id: 'node2',
 					name: 'Embeddings',
-					type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+					type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 				}),
 				createNode({
 					id: 'node3',
 					name: 'Document Loader',
-					type: '@n8n/n8n-nodes-langchain.documentLoader',
+					type: '@resin/n8n-nodes-langchain.documentLoader',
 				}),
 			]);
 			// Mixed connection types
@@ -438,7 +438,7 @@ describe('RemoveNodeTool', () => {
 				createNode({
 					id: 'node-to-remove',
 					name: 'Test Node',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 				}),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -460,7 +460,7 @@ describe('RemoveNodeTool', () => {
 			expect(completeMessage?.updates[0]?.data).toEqual({
 				removedNodeId: 'node-to-remove',
 				removedNodeName: 'Test Node',
-				removedNodeType: 'n8n-nodes-base.httpRequest',
+				removedNodeType: 'resin-nodes-base.httpRequest',
 				connectionsRemoved: 0,
 				message: 'Successfully removed node "Test Node" (n8n-nodes-base.httpRequest)',
 			});

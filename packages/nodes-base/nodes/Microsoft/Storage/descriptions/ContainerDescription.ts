@@ -8,8 +8,8 @@ import type {
 	INodeExecutionData,
 	INodeProperties,
 	ResourceMapperValue,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import {
 	handleErrorPostReceive,

@@ -1,11 +1,15 @@
-import type { CreateApiKeyRequestDto, UnixTimestamp, UpdateApiKeyRequestDto } from '@n8n/api-types';
-import type { User } from '@n8n/db';
-import { ApiKey, ApiKeyRepository, withTransaction } from '@n8n/db';
-import { Service } from '@n8n/di';
-import type { ApiKeyScope, AuthPrincipal } from '@n8n/permissions';
-import { getApiKeyScopesForRole, getOwnerOnlyApiKeyScopes } from '@n8n/permissions';
+import type {
+	CreateApiKeyRequestDto,
+	UnixTimestamp,
+	UpdateApiKeyRequestDto,
+} from '@resin/api-types';
+import type { User } from '@resin/db';
+import { ApiKey, ApiKeyRepository, withTransaction } from '@resin/db';
+import { Service } from '@resin/di';
+import type { ApiKeyScope, AuthPrincipal } from '@resin/permissions';
+import { getApiKeyScopesForRole, getOwnerOnlyApiKeyScopes } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager } from '@n8n/typeorm';
+import type { EntityManager } from '@resin/typeorm';
 import { randomUUID } from 'crypto';
 import { JwtService } from './jwt.service';
 

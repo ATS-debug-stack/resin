@@ -1,5 +1,5 @@
-import { generateNanoId } from '@n8n/utils';
-import type { INodeType } from 'n8n-workflow';
+import { generateNanoId } from '@resin/utils';
+import type { INodeType } from 'resin-workflow';
 
 import {
 	shouldAssignExecuteMethod,

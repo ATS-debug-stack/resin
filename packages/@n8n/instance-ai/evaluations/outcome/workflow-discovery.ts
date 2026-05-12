@@ -2,7 +2,7 @@
 // Workflow discovery: snapshot IDs, build agent outcome, extract IDs from messages
 // ---------------------------------------------------------------------------
 
-import type { InstanceAiAgentNode, InstanceAiMessage } from '@n8n/api-types';
+import type { InstanceAiAgentNode, InstanceAiMessage } from '@resin/api-types';
 
 import type { N8nClient, WorkflowResponse } from '../clients/n8n-client';
 import type { AgentOutcome, EventOutcome, ExecutionSummary, WorkflowSummary } from '../types';

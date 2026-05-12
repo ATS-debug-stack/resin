@@ -1,13 +1,13 @@
-import { UpdateWorkflowHistoryVersionDto } from '@n8n/api-types';
-import { LicenseState, Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
+import { UpdateWorkflowHistoryVersionDto } from '@resin/api-types';
+import { LicenseState, Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
 import type {
 	User,
 	WorkflowEntity,
 	ListQueryDb,
 	WorkflowFolderUnionFull,
 	WorkflowHistory,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	SharedWorkflow,
 	ExecutionRepository,
@@ -18,21 +18,21 @@ import {
 	WorkflowPublishedVersionRepository,
 	WorkflowPublishHistoryRepository,
 	ProjectRepository,
-} from '@n8n/db';
-import { Container, Service } from '@n8n/di';
-import type { Scope } from '@n8n/permissions';
-import { hasGlobalScope } from '@n8n/permissions';
+} from '@resin/db';
+import { Container, Service } from '@resin/di';
+import type { Scope } from '@resin/permissions';
+import { hasGlobalScope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager } from '@n8n/typeorm';
+import type { EntityManager } from '@resin/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
-import type { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
+import { In } from '@resin/typeorm';
+import type { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
 import isEqual from 'lodash/isEqual';
 import pick from 'lodash/pick';
-import { FileLocation, BinaryDataService } from 'n8n-core';
+import { FileLocation, BinaryDataService } from 'resin-core';
 
-import type { INode, INodes, IWorkflowSettings, JsonValue, IConnections } from 'n8n-workflow';
-import { PROJECT_ROOT, Workflow, assert, calculateWorkflowChecksum } from 'n8n-workflow';
+import type { INode, INodes, IWorkflowSettings, JsonValue, IConnections } from 'resin-workflow';
+import { PROJECT_ROOT, Workflow, assert, calculateWorkflowChecksum } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { getErrorDescription, getErrorNodeId } from './utils';

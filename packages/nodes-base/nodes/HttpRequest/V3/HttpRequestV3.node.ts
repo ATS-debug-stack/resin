@@ -14,7 +14,7 @@ import type {
 	IRequestOptions,
 	IHttpRequestMethods,
 	ICredentialDataDecryptedObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	BINARY_ENCODING,
 	NodeApiError,
@@ -24,7 +24,7 @@ import {
 	removeCircularRefs,
 	sleep,
 	ensureError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { Readable } from 'stream';
 
 import { keysToLowercase } from '@utils/utilities';

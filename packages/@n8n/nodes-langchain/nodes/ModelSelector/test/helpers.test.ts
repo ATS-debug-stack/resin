@@ -1,4 +1,4 @@
-import type { INodeParameters, INodePropertyOptions } from 'n8n-workflow';
+import type { INodeParameters, INodePropertyOptions } from 'resin-workflow';
 
 // Import the function and property
 import { numberInputsProperty, configuredInputs } from '../helpers';

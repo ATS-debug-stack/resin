@@ -1,12 +1,12 @@
-import { DataTableCreateColumnSchema } from '@n8n/api-types';
-import { withTransaction } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { DataSource, EntityManager, Repository } from '@n8n/typeorm';
+import { DataTableCreateColumnSchema } from '@resin/api-types';
+import { withTransaction } from '@resin/db';
+import { Service } from '@resin/di';
+import { DataSource, EntityManager, Repository } from '@resin/typeorm';
 import {
 	DATA_TABLE_SYSTEM_COLUMNS,
 	DATA_TABLE_SYSTEM_TESTING_COLUMN,
 	UnexpectedError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { DataTableColumn } from './data-table-column.entity';
 import { DataTableDDLService } from './data-table-ddl.service';

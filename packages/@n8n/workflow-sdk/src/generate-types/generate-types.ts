@@ -5,7 +5,7 @@
  *
  * This script reads node definitions from:
  * - packages/nodes-base/dist/types/nodes.json
- * - packages/@n8n/nodes-langchain/dist/types/nodes.json
+ * - packages/@resin/nodes-langchain/dist/types/nodes.json
  *
  * And generates typed interfaces with JSDoc documentation.
  *
@@ -19,7 +19,7 @@
  */
 
 import * as fs from 'fs';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 import * as path from 'path';
 
 // eslint-disable-next-line import-x/no-cycle -- TODO: Refactor shared types/utils to break cycle
@@ -560,7 +560,7 @@ function findSchemaDirectory(baseName: string, schemaPath?: string): string | un
  * Schema path pattern: dist/nodes/{NodeFolder}/__schema__/v{version}.0.0/{resource}/{operation}.json
  * Also supports nested paths like: dist/nodes/{Parent}/{NodeFolder}/__schema__/...
  *
- * @param nodeName Full node name (e.g., 'n8n-nodes-base.freshservice')
+ * @param nodeName Full node name (e.g., 'resin-nodes-base.freshservice')
  * @param version The node version number
  * @param schemaPath Optional explicit path to schema directory relative to nodes-base/dist/nodes/
  * @returns Array of discovered output schemas
@@ -2258,7 +2258,7 @@ export function versionToTypeName(version: number): string {
  */
 export function nodeNameToFileName(nodeName: string): string {
 	// n8n-nodes-base.httpRequest -> httpRequest
-	// @n8n/n8n-nodes-langchain.lmChatOpenAi -> lmChatOpenAi
+	// @resin/n8n-nodes-langchain.lmChatOpenAi -> lmChatOpenAi
 	const parts = nodeName.split('.');
 	return parts[parts.length - 1];
 }
@@ -2268,12 +2268,12 @@ export function nodeNameToFileName(nodeName: string): string {
  */
 export function getPackageName(nodeName: string): string {
 	// n8n-nodes-base.httpRequest -> n8n-nodes-base
-	// @n8n/n8n-nodes-langchain.agent -> n8n-nodes-langchain
+	// @resin/n8n-nodes-langchain.agent -> n8n-nodes-langchain
 	const parts = nodeName.split('.');
 	const pkg = parts[0];
-	// Handle @n8n/ prefix
-	if (pkg.startsWith('@n8n/')) {
-		return pkg.replace('@n8n/', '');
+	// Handle @resin/ prefix
+	if (pkg.startsWith('@resin/')) {
+		return pkg.replace('@resin/', '');
 	}
 	return pkg;
 }
@@ -2291,7 +2291,7 @@ function getNodeBaseName(nodeName: string): string {
  */
 function getPackagePrefix(nodeName: string): string {
 	const pkg = getPackageName(nodeName);
-	if (pkg === 'n8n-nodes-base') {
+	if (pkg === 'resin-nodes-base') {
 		return ''; // No prefix for main package
 	}
 	// For langchain nodes, add 'Lc' prefix
@@ -4130,7 +4130,7 @@ export function getSubnodeOutputType(node: NodeTypeDescription): string | undefi
 /**
  * Load node types from JSON file
  * @param jsonPath Path to the nodes.json file
- * @param packageName Package name to prefix node names with (e.g., 'n8n-nodes-base')
+ * @param packageName Package name to prefix node names with (e.g., 'resin-nodes-base')
  */
 export async function loadNodeTypes(
 	jsonPath: string,
@@ -4451,7 +4451,7 @@ export async function generateTypes(): Promise<void> {
 	// Load nodes-base
 	if (fs.existsSync(NODES_BASE_TYPES)) {
 		console.log(`Loading nodes from ${NODES_BASE_TYPES}...`);
-		const nodesBase = await loadNodeTypes(NODES_BASE_TYPES, 'n8n-nodes-base');
+		const nodesBase = await loadNodeTypes(NODES_BASE_TYPES, 'resin-nodes-base');
 		console.log(`  Found ${nodesBase.length} node entries in nodes-base`);
 		allNodes.push(...groupAndAddToolVariants(nodesBase));
 	} else {
@@ -4461,7 +4461,7 @@ export async function generateTypes(): Promise<void> {
 	// Load nodes-langchain
 	if (fs.existsSync(NODES_LANGCHAIN_TYPES)) {
 		console.log(`Loading nodes from ${NODES_LANGCHAIN_TYPES}...`);
-		const nodesLangchain = await loadNodeTypes(NODES_LANGCHAIN_TYPES, '@n8n/n8n-nodes-langchain');
+		const nodesLangchain = await loadNodeTypes(NODES_LANGCHAIN_TYPES, '@resin/n8n-nodes-langchain');
 		console.log(`  Found ${nodesLangchain.length} node entries in nodes-langchain`);
 		allNodes.push(...groupAndAddToolVariants(nodesLangchain));
 	} else {

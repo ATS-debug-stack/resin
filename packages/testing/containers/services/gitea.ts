@@ -11,7 +11,7 @@ const SSH_PORT = 22;
 const DEFAULT_ADMIN = 'giteaadmin';
 const DEFAULT_PASSWORD = 'giteapassword';
 const DEFAULT_EMAIL = 'admin@example.com';
-const DEFAULT_REPO = 'n8n-test-repo';
+const DEFAULT_REPO = 'resin-test-repo';
 const DEFAULT_BRANCHES = ['development', 'staging', 'production'];
 
 export interface GiteaMeta {

@@ -9,7 +9,7 @@ import { AutoSaveState, VIEWS } from '@/app/constants';
 import { computed, watch, ref, nextTick, useSlots, provide } from 'vue';
 import { useInjectWorkflowId } from '@/app/composables/useInjectWorkflowId';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import {
 	useWorkflowDocumentStore,
@@ -20,10 +20,13 @@ import type {
 	ChatUI,
 	RatingFeedback,
 	WorkflowSuggestion,
-} from '@n8n/design-system/types/assistant';
-import { isTaskAbortedMessage, isWorkflowUpdatedMessage } from '@n8n/design-system/types/assistant';
+} from '@resin/design-system/types/assistant';
+import {
+	isTaskAbortedMessage,
+	isWorkflowUpdatedMessage,
+} from '@resin/design-system/types/assistant';
 import { nodeViewEventBus } from '@/app/event-bus';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import ExecuteMessage from './ExecuteMessage.vue';
 import NotificationPermissionBanner from './NotificationPermissionBanner.vue';
 import ChatVersionCard from './ChatVersionCard.vue';
@@ -44,7 +47,7 @@ import { WORKFLOW_SUGGESTIONS } from '@/app/constants/workflowSuggestions';
 import { useWorkflowUpdate } from '@/app/composables/useWorkflowUpdate';
 import { canvasEventBus } from '@/features/workflows/canvas/canvas.eventBus';
 import { useErrorHandler } from '@/app/composables/useErrorHandler';
-import type { WorkflowDataUpdate } from '@n8n/rest-api-client/api/workflows';
+import type { WorkflowDataUpdate } from '@resin/rest-api-client/api/workflows';
 import shuffle from 'lodash/shuffle';
 import { useAssistantStore } from '@/features/ai/assistant/assistant.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
@@ -52,7 +55,7 @@ import { useChatPanelStateStore } from '@/features/ai/assistant/chatPanelState.s
 import { useReviewChanges } from '@/features/ai/assistant/composables/useReviewChanges';
 import { watchExecutionCompletion } from '@/features/ai/assistant/composables/useExecutionWatcher';
 
-import { N8nAskAssistantChat, N8nInfoTip } from '@n8n/design-system';
+import { N8nAskAssistantChat, N8nInfoTip } from '@resin/design-system';
 import BuildModeEmptyState from './BuildModeEmptyState.vue';
 import { AiBuilderScrollToBottomKey } from '@/app/constants/injectionKeys';
 import {

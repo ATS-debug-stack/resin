@@ -12,7 +12,7 @@ import type {
 	InstanceAiEvalExecutionResult,
 	InstanceAiEvalSubAgentRequest,
 	InstanceAiEvalSubAgentResponse,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { z } from 'zod';
 
 // ---------------------------------------------------------------------------

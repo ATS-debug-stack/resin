@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
-import { N8nIcon, N8nOption, N8nSelect, N8nText, N8nTooltip } from '@n8n/design-system';
+import { N8nIcon, N8nOption, N8nSelect, N8nText, N8nTooltip } from '@resin/design-system';
 import { nextTick, ref, computed } from 'vue';
-import type { PermissionsRecord } from '@n8n/permissions';
+import type { PermissionsRecord } from '@resin/permissions';
 import type { ProjectSharingData } from '@/features/collaboration/projects/projects.types';
 
 export type CredentialOption = {

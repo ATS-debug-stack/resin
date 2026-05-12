@@ -17,7 +17,7 @@ export const CREDENTIAL_EMPTY_VALUE = '__n8n_EMPTY_VALUE_7b1af746-3729-4c60-9b9b
 // Value used when redacting sensitive credential data for the client (never sent decrypted)
 export const CREDENTIAL_BLANKING_VALUE = '__n8n_BLANK_VALUE_e5362baf-c777-4d57-a609-6eaf1f9e87f6';
 
-export const FORM_TRIGGER_PATH_IDENTIFIER = 'n8n-form';
+export const FORM_TRIGGER_PATH_IDENTIFIER = 'resin-form';
 
 export const UNKNOWN_ERROR_MESSAGE = 'There was an unknown issue while executing the node';
 export const UNKNOWN_ERROR_DESCRIPTION =
@@ -25,34 +25,34 @@ export const UNKNOWN_ERROR_DESCRIPTION =
 export const UNKNOWN_ERROR_MESSAGE_CRED = 'UNKNOWN ERROR';
 
 //n8n-nodes-base
-export const STICKY_NODE_TYPE = 'n8n-nodes-base.stickyNote';
-export const NO_OP_NODE_TYPE = 'n8n-nodes-base.noOp';
-export const HTTP_REQUEST_NODE_TYPE = 'n8n-nodes-base.httpRequest';
-export const WEBHOOK_NODE_TYPE = 'n8n-nodes-base.webhook';
-export const MANUAL_TRIGGER_NODE_TYPE = 'n8n-nodes-base.manualTrigger';
-export const EVALUATION_TRIGGER_NODE_TYPE = 'n8n-nodes-base.evaluationTrigger';
-export const EVALUATION_NODE_TYPE = 'n8n-nodes-base.evaluation';
-export const ERROR_TRIGGER_NODE_TYPE = 'n8n-nodes-base.errorTrigger';
-export const EXECUTE_WORKFLOW_NODE_TYPE = 'n8n-nodes-base.executeWorkflow';
-export const EXECUTE_WORKFLOW_TRIGGER_NODE_TYPE = 'n8n-nodes-base.executeWorkflowTrigger';
-export const CODE_NODE_TYPE = 'n8n-nodes-base.code';
-export const FUNCTION_NODE_TYPE = 'n8n-nodes-base.function';
-export const FUNCTION_ITEM_NODE_TYPE = 'n8n-nodes-base.functionItem';
-export const MERGE_NODE_TYPE = 'n8n-nodes-base.merge';
-export const AI_TRANSFORM_NODE_TYPE = 'n8n-nodes-base.aiTransform';
-export const FORM_NODE_TYPE = 'n8n-nodes-base.form';
-export const FORM_TRIGGER_NODE_TYPE = 'n8n-nodes-base.formTrigger';
-export const WAIT_NODE_TYPE = 'n8n-nodes-base.wait';
-export const RESPOND_TO_WEBHOOK_NODE_TYPE = 'n8n-nodes-base.respondToWebhook';
-export const HTML_NODE_TYPE = 'n8n-nodes-base.html';
-export const MAILGUN_NODE_TYPE = 'n8n-nodes-base.mailgun';
-export const POSTGRES_NODE_TYPE = 'n8n-nodes-base.postgres';
-export const MYSQL_NODE_TYPE = 'n8n-nodes-base.mySql';
+export const STICKY_NODE_TYPE = 'resin-nodes-base.stickyNote';
+export const NO_OP_NODE_TYPE = 'resin-nodes-base.noOp';
+export const HTTP_REQUEST_NODE_TYPE = 'resin-nodes-base.httpRequest';
+export const WEBHOOK_NODE_TYPE = 'resin-nodes-base.webhook';
+export const MANUAL_TRIGGER_NODE_TYPE = 'resin-nodes-base.manualTrigger';
+export const EVALUATION_TRIGGER_NODE_TYPE = 'resin-nodes-base.evaluationTrigger';
+export const EVALUATION_NODE_TYPE = 'resin-nodes-base.evaluation';
+export const ERROR_TRIGGER_NODE_TYPE = 'resin-nodes-base.errorTrigger';
+export const EXECUTE_WORKFLOW_NODE_TYPE = 'resin-nodes-base.executeWorkflow';
+export const EXECUTE_WORKFLOW_TRIGGER_NODE_TYPE = 'resin-nodes-base.executeWorkflowTrigger';
+export const CODE_NODE_TYPE = 'resin-nodes-base.code';
+export const FUNCTION_NODE_TYPE = 'resin-nodes-base.function';
+export const FUNCTION_ITEM_NODE_TYPE = 'resin-nodes-base.functionItem';
+export const MERGE_NODE_TYPE = 'resin-nodes-base.merge';
+export const AI_TRANSFORM_NODE_TYPE = 'resin-nodes-base.aiTransform';
+export const FORM_NODE_TYPE = 'resin-nodes-base.form';
+export const FORM_TRIGGER_NODE_TYPE = 'resin-nodes-base.formTrigger';
+export const WAIT_NODE_TYPE = 'resin-nodes-base.wait';
+export const RESPOND_TO_WEBHOOK_NODE_TYPE = 'resin-nodes-base.respondToWebhook';
+export const HTML_NODE_TYPE = 'resin-nodes-base.html';
+export const MAILGUN_NODE_TYPE = 'resin-nodes-base.mailgun';
+export const POSTGRES_NODE_TYPE = 'resin-nodes-base.postgres';
+export const MYSQL_NODE_TYPE = 'resin-nodes-base.mySql';
 export const MICROSOFT_AGENT365_TRIGGER_NODE_TYPE =
-	'@n8n/n8n-nodes-langchain.microsoftAgent365Trigger';
-export const SCHEDULE_TRIGGER_NODE_TYPE = 'n8n-nodes-base.scheduleTrigger';
-export const DATA_TABLE_NODE_TYPE = 'n8n-nodes-base.dataTable';
-export const DATA_TABLE_TOOL_NODE_TYPE = 'n8n-nodes-base.dataTableTool';
+	'@resin/n8n-nodes-langchain.microsoftAgent365Trigger';
+export const SCHEDULE_TRIGGER_NODE_TYPE = 'resin-nodes-base.scheduleTrigger';
+export const DATA_TABLE_NODE_TYPE = 'resin-nodes-base.dataTable';
+export const DATA_TABLE_TOOL_NODE_TYPE = 'resin-nodes-base.dataTableTool';
 
 export const STARTING_NODE_TYPES = [
 	MANUAL_TRIGGER_NODE_TYPE,
@@ -94,32 +94,33 @@ export const NODES_WITH_RENAMEABLE_TOPLEVEL_HTML_CONTENT = new Set([
 	HTML_NODE_TYPE,
 ]);
 
-//@n8n/n8n-nodes-langchain
-export const MANUAL_CHAT_TRIGGER_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.manualChatTrigger';
-export const AGENT_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.agent';
-export const CHAIN_LLM_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.chainLlm';
-export const OPENAI_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.openAi';
-export const OPENAI_CHAT_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.lmChatOpenAi';
+//@resin/n8n-nodes-langchain
+export const MANUAL_CHAT_TRIGGER_LANGCHAIN_NODE_TYPE =
+	'@resin/n8n-nodes-langchain.manualChatTrigger';
+export const AGENT_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.agent';
+export const CHAIN_LLM_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.chainLlm';
+export const OPENAI_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.openAi';
+export const OPENAI_CHAT_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.lmChatOpenAi';
 export const CHAIN_SUMMARIZATION_LANGCHAIN_NODE_TYPE =
-	'@n8n/n8n-nodes-langchain.chainSummarization';
-export const AGENT_TOOL_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.agentTool';
-export const CODE_TOOL_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.toolCode';
-export const WORKFLOW_TOOL_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.toolWorkflow';
-export const HTTP_REQUEST_TOOL_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.toolHttpRequest';
-export const CHAT_TRIGGER_NODE_TYPE = '@n8n/n8n-nodes-langchain.chatTrigger';
-export const CHAT_NODE_TYPE = '@n8n/n8n-nodes-langchain.chat';
-export const CHAT_TOOL_NODE_TYPE = '@n8n/n8n-nodes-langchain.chatTool';
-export const MEMORY_MANAGER_NODE_TYPE = '@n8n/n8n-nodes-langchain.memoryManager';
-export const MEMORY_BUFFER_WINDOW_NODE_TYPE = '@n8n/n8n-nodes-langchain.memoryBufferWindow';
-export const GUARDRAILS_NODE_TYPE = '@n8n/n8n-nodes-langchain.guardrails';
-export const MCP_CLIENT_TOOL_NODE_TYPE = '@n8n/n8n-nodes-langchain.mcpClientTool';
-export const MCP_CLIENT_NODE_TYPE = '@n8n/n8n-nodes-langchain.mcpClient';
-export const ANTHROPIC_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.anthropic';
-export const OLLAMA_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.ollama';
-export const GOOGLE_GEMINI_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.googleGemini';
-export const ALIBABA_CLOUD_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.alibabaCloud';
-export const MOONSHOT_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.moonshot';
-export const MINIMAX_LANGCHAIN_NODE_TYPE = '@n8n/n8n-nodes-langchain.minimax';
+	'@resin/n8n-nodes-langchain.chainSummarization';
+export const AGENT_TOOL_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.agentTool';
+export const CODE_TOOL_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.toolCode';
+export const WORKFLOW_TOOL_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.toolWorkflow';
+export const HTTP_REQUEST_TOOL_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.toolHttpRequest';
+export const CHAT_TRIGGER_NODE_TYPE = '@resin/n8n-nodes-langchain.chatTrigger';
+export const CHAT_NODE_TYPE = '@resin/n8n-nodes-langchain.chat';
+export const CHAT_TOOL_NODE_TYPE = '@resin/n8n-nodes-langchain.chatTool';
+export const MEMORY_MANAGER_NODE_TYPE = '@resin/n8n-nodes-langchain.memoryManager';
+export const MEMORY_BUFFER_WINDOW_NODE_TYPE = '@resin/n8n-nodes-langchain.memoryBufferWindow';
+export const GUARDRAILS_NODE_TYPE = '@resin/n8n-nodes-langchain.guardrails';
+export const MCP_CLIENT_TOOL_NODE_TYPE = '@resin/n8n-nodes-langchain.mcpClientTool';
+export const MCP_CLIENT_NODE_TYPE = '@resin/n8n-nodes-langchain.mcpClient';
+export const ANTHROPIC_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.anthropic';
+export const OLLAMA_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.ollama';
+export const GOOGLE_GEMINI_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.googleGemini';
+export const ALIBABA_CLOUD_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.alibabaCloud';
+export const MOONSHOT_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.moonshot';
+export const MINIMAX_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.minimax';
 
 export const AI_VENDOR_NODE_TYPES = [
 	OPENAI_LANGCHAIN_NODE_TYPE,
@@ -131,16 +132,16 @@ export const AI_VENDOR_NODE_TYPES = [
 	MINIMAX_LANGCHAIN_NODE_TYPE,
 ];
 
-export const LANGCHAIN_LM_NODE_TYPE_PREFIX = '@n8n/n8n-nodes-langchain.lm';
+export const LANGCHAIN_LM_NODE_TYPE_PREFIX = '@resin/n8n-nodes-langchain.lm';
 
 export const CHAT_HUB_VECTOR_STORE_PG_VECTOR_NODE_TYPE =
-	'@n8n/n8n-nodes-langchain.chatHubVectorStorePGVector';
+	'@resin/n8n-nodes-langchain.chatHubVectorStorePGVector';
 export const CHAT_HUB_VECTOR_STORE_QDRANT_NODE_TYPE =
-	'@n8n/n8n-nodes-langchain.chatHubVectorStoreQdrant';
+	'@resin/n8n-nodes-langchain.chatHubVectorStoreQdrant';
 export const CHAT_HUB_VECTOR_STORE_PINECONE_NODE_TYPE =
-	'@n8n/n8n-nodes-langchain.chatHubVectorStorePinecone';
+	'@resin/n8n-nodes-langchain.chatHubVectorStorePinecone';
 export const DOCUMENT_DEFAULT_DATA_LOADER_NODE_TYPE =
-	'@n8n/n8n-nodes-langchain.documentDefaultDataLoader';
+	'@resin/n8n-nodes-langchain.documentDefaultDataLoader';
 
 export const LANGCHAIN_CUSTOM_TOOLS = [
 	CODE_TOOL_LANGCHAIN_NODE_TYPE,
@@ -167,7 +168,7 @@ export const FROM_AI_AUTO_GENERATED_MARKER = '/*n8n-auto-generated-fromAI-overri
 
 export const PROJECT_ROOT = '0';
 
-export const WAITING_FORMS_EXECUTION_STATUS = 'n8n-execution-status';
+export const WAITING_FORMS_EXECUTION_STATUS = 'resin-execution-status';
 
 export const CHAT_WAIT_USER_REPLY = 'waitUserReply';
 export const FREE_TEXT_CHAT_RESPONSE_TYPE = 'freeTextChat';

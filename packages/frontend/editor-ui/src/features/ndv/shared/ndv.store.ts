@@ -15,9 +15,9 @@ import {
 	LOCAL_STORAGE_NDV_OUTPUT_PANEL_DISPLAY_MODE,
 	LOCAL_STORAGE_TABLE_HOVER_IS_ONBOARDED,
 } from './ndv.constants';
-import { STORES } from '@n8n/stores';
-import type { INodeIssues } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { STORES } from '@resin/stores';
+import type { INodeIssues } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { defineStore, getActivePinia, type Pinia } from 'pinia';
 import { v4 as uuid } from 'uuid';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';

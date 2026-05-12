@@ -5,7 +5,7 @@
  * Trigger-agnostic: works with any trigger type that increments n8n_workflow_success_total.
  */
 import type { TestInfo } from '@playwright/test';
-import type { MetricsHelper } from 'n8n-containers';
+import type { MetricsHelper } from 'resin-containers';
 
 import { attachMetric } from '../performance-helper';
 

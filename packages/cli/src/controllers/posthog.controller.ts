@@ -1,7 +1,7 @@
-import { GlobalConfig } from '@n8n/config';
-import { AuthenticatedRequest } from '@n8n/db';
-import { RestController } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { AuthenticatedRequest } from '@resin/db';
+import { RestController } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { Router } from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 

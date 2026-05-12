@@ -1,8 +1,8 @@
-import type { UsersListFilterDto } from '@n8n/api-types';
-import { Service } from '@n8n/di';
-import { PROJECT_OWNER_ROLE_SLUG, PROJECT_VIEWER_ROLE_SLUG } from '@n8n/permissions';
-import type { DeepPartial, EntityManager, SelectQueryBuilder } from '@n8n/typeorm';
-import { Brackets, DataSource, In, IsNull, Not, Repository } from '@n8n/typeorm';
+import type { UsersListFilterDto } from '@resin/api-types';
+import { Service } from '@resin/di';
+import { PROJECT_OWNER_ROLE_SLUG, PROJECT_VIEWER_ROLE_SLUG } from '@resin/permissions';
+import type { DeepPartial, EntityManager, SelectQueryBuilder } from '@resin/typeorm';
+import { Brackets, DataSource, In, IsNull, Not, Repository } from '@resin/typeorm';
 
 import { ApiKey, Project, ProjectRelation, User } from '../entities';
 
@@ -40,7 +40,7 @@ export class UserRepository extends Repository<User> {
 	 * @deprecated Use `UserRepository.save` instead if you can.
 	 *
 	 * We need to use `save` so that that the subscriber in
-	 * packages/@n8n/db/src/entities/Project.ts receives the full user.
+	 * packages/@resin/db/src/entities/Project.ts receives the full user.
 	 * With `update` it would only receive the updated fields, e.g. the `id`
 	 * would be missing. test('does not use `Repository.update`, but
 	 * `Repository.save` instead'.

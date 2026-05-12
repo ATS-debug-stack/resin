@@ -7,8 +7,8 @@ import {
 	N8nText,
 	N8nTooltip,
 	N8nCard,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import type { AgentSkill } from '../types';
 import AgentPanelHeader from './AgentPanelHeader.vue';
 

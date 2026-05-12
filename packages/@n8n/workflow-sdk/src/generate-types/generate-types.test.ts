@@ -105,7 +105,7 @@ interface NodeTypeDescription {
 // =============================================================================
 
 const mockHttpRequestNode: NodeTypeDescription = {
-	name: 'n8n-nodes-base.httpRequest',
+	name: 'resin-nodes-base.httpRequest',
 	displayName: 'HTTP Request',
 	description: 'Makes HTTP requests and returns the response data',
 	group: ['transform'],
@@ -167,7 +167,7 @@ const mockHttpRequestNode: NodeTypeDescription = {
 };
 
 const mockGmailNode: NodeTypeDescription = {
-	name: 'n8n-nodes-base.gmail',
+	name: 'resin-nodes-base.gmail',
 	displayName: 'Gmail',
 	description: 'Send and receive emails using Gmail',
 	group: ['transform'],
@@ -305,7 +305,7 @@ const mockGmailNode: NodeTypeDescription = {
 };
 
 const mockTriggerNode: NodeTypeDescription = {
-	name: 'n8n-nodes-base.scheduleTrigger',
+	name: 'resin-nodes-base.scheduleTrigger',
 	displayName: 'Schedule Trigger',
 	description: 'Triggers the workflow on a schedule',
 	group: ['trigger'],
@@ -1132,7 +1132,7 @@ describe('generate-types', () => {
 		it('should NOT split by authentication - treat as regular property', () => {
 			// HTTP Request has authentication field but should NOT be split by it
 			const nodeWithAuth: NodeTypeDescription = {
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				displayName: 'HTTP Request',
 				group: ['transform'],
 				version: 4.3,
@@ -1175,7 +1175,7 @@ describe('generate-types', () => {
 
 		it('should NOT split by promptType - treat as regular property', () => {
 			const nodeWithPromptType: NodeTypeDescription = {
-				name: '@n8n/n8n-nodes-langchain.agent',
+				name: '@resin/n8n-nodes-langchain.agent',
 				displayName: 'AI Agent',
 				group: ['transform'],
 				version: 3.1,
@@ -1210,7 +1210,7 @@ describe('generate-types', () => {
 
 		it('should NOT split by agent - treat as regular property', () => {
 			const nodeWithAgent: NodeTypeDescription = {
-				name: '@n8n/n8n-nodes-langchain.agent',
+				name: '@resin/n8n-nodes-langchain.agent',
 				displayName: 'AI Agent',
 				group: ['transform'],
 				version: 1.5,
@@ -1244,7 +1244,7 @@ describe('generate-types', () => {
 
 		it('should still split by mode - mode benefits from splitting', () => {
 			const nodeWithMode: NodeTypeDescription = {
-				name: 'n8n-nodes-base.code',
+				name: 'resin-nodes-base.code',
 				displayName: 'Code',
 				group: ['transform'],
 				version: 2,
@@ -1281,7 +1281,7 @@ describe('generate-types', () => {
 			// This simulates ChatTrigger where mode has displayOptions: { show: { public: [true] } }
 			// When mode is conditionally shown, splitting by mode creates incorrect combinations
 			const nodeWithConditionalMode: NodeTypeDescription = {
-				name: 'n8n-nodes-langchain.chatTrigger',
+				name: 'resin-nodes-langchain.chatTrigger',
 				displayName: 'Chat Trigger',
 				group: ['trigger'],
 				version: 1,
@@ -1406,7 +1406,7 @@ describe('generate-types', () => {
 
 		it('should route node-level extraTypeDefContent variations into matching narrowed types only', () => {
 			const vectorStoreLikeNode: NodeTypeDescription & { builderHint?: unknown } = {
-				name: 'n8n-nodes-test.vectorStoreLike',
+				name: 'resin-nodes-test.vectorStoreLike',
 				displayName: 'Vector Store Like',
 				group: ['transform'],
 				version: 1,
@@ -1472,7 +1472,7 @@ describe('generate-types', () => {
 
 		it('should not duplicate an unconditional node-level variation across narrowed types (file header only)', () => {
 			const node: NodeTypeDescription & { builderHint?: unknown } = {
-				name: 'n8n-nodes-test.unconditional',
+				name: 'resin-nodes-test.unconditional',
 				displayName: 'Unconditional',
 				group: ['transform'],
 				version: 1,
@@ -1515,7 +1515,7 @@ describe('generate-types', () => {
 
 		it('should skip variations whose displayOptions do not match the combo', () => {
 			const node: NodeTypeDescription & { builderHint?: unknown } = {
-				name: 'n8n-nodes-test.partialMatch',
+				name: 'resin-nodes-test.partialMatch',
 				displayName: 'Partial Match',
 				group: ['transform'],
 				version: 1,
@@ -1573,7 +1573,7 @@ describe('generate-types', () => {
 
 		it('should include promptType as a regular property in Agent node config', () => {
 			const agentNode: NodeTypeDescription = {
-				name: '@n8n/n8n-nodes-langchain.agent',
+				name: '@resin/n8n-nodes-langchain.agent',
 				displayName: 'AI Agent',
 				group: ['transform'],
 				version: 3.1,
@@ -1633,7 +1633,7 @@ describe('generate-types', () => {
 			// This test covers the ChatTrigger scenario where multiple 'options' collections
 			// with different displayOptions contain different nested options
 			const nodeWithDuplicateOptions: NodeTypeDescription = {
-				name: 'n8n-nodes-base.chatTrigger',
+				name: 'resin-nodes-base.chatTrigger',
 				displayName: 'Chat Trigger',
 				group: ['trigger'],
 				version: 1.4,
@@ -2229,9 +2229,9 @@ describe('generate-types', () => {
 
 	describe('nodeNameToFileName', () => {
 		it('should convert node name to valid file name', () => {
-			expect(generateTypes.nodeNameToFileName('n8n-nodes-base.httpRequest')).toBe('httpRequest');
-			expect(generateTypes.nodeNameToFileName('n8n-nodes-base.gmail')).toBe('gmail');
-			expect(generateTypes.nodeNameToFileName('@n8n/n8n-nodes-langchain.lmChatOpenAi')).toBe(
+			expect(generateTypes.nodeNameToFileName('resin-nodes-base.httpRequest')).toBe('httpRequest');
+			expect(generateTypes.nodeNameToFileName('resin-nodes-base.gmail')).toBe('gmail');
+			expect(generateTypes.nodeNameToFileName('@resin/n8n-nodes-langchain.lmChatOpenAi')).toBe(
 				'lmChatOpenAi',
 			);
 		});
@@ -2239,9 +2239,9 @@ describe('generate-types', () => {
 
 	describe('getPackageName', () => {
 		it('should extract package name from node type', () => {
-			expect(generateTypes.getPackageName('n8n-nodes-base.httpRequest')).toBe('n8n-nodes-base');
-			expect(generateTypes.getPackageName('@n8n/n8n-nodes-langchain.agent')).toBe(
-				'n8n-nodes-langchain',
+			expect(generateTypes.getPackageName('resin-nodes-base.httpRequest')).toBe('resin-nodes-base');
+			expect(generateTypes.getPackageName('@resin/n8n-nodes-langchain.agent')).toBe(
+				'resin-nodes-langchain',
 			);
 		});
 	});
@@ -2267,7 +2267,7 @@ describe('generate-types', () => {
 
 			// Should have node type
 			expect(result).toContain('GmailNode');
-			expect(result).toContain("type: 'n8n-nodes-base.gmail'");
+			expect(result).toContain("type: 'resin-nodes-base.gmail'");
 		});
 
 		it('should generate type file for HTTP Request (no discriminators)', () => {
@@ -2291,7 +2291,7 @@ describe('generate-types', () => {
 
 		it('should emit helper type for resourceMapper properties', () => {
 			const sheetsLikeNode: NodeTypeDescription = {
-				name: 'n8n-nodes-base.googleSheets',
+				name: 'resin-nodes-base.googleSheets',
 				displayName: 'Google Sheets',
 				description: 'Read and write rows',
 				group: ['transform'],
@@ -2328,7 +2328,7 @@ describe('generate-types', () => {
 		// required at runtime, so the type must not carry a `?` marker.
 		it('marks required string with empty default as non-optional (no "?" in type)', () => {
 			const splitOutLike: NodeTypeDescription = {
-				name: 'n8n-nodes-base.splitOut',
+				name: 'resin-nodes-base.splitOut',
 				displayName: 'Split Out',
 				description: 'Turn a list inside item(s) into separate items',
 				group: ['transform'],
@@ -2389,13 +2389,13 @@ describe('generate-types', () => {
 			}
 
 			// Pass package name to prefix node names
-			const nodes = await generateTypes.loadNodeTypes(nodesPath, 'n8n-nodes-base');
+			const nodes = await generateTypes.loadNodeTypes(nodesPath, 'resin-nodes-base');
 
 			expect(Array.isArray(nodes)).toBe(true);
 			expect(nodes.length).toBeGreaterThan(100); // Should have 400+ nodes
 
 			// Should have HTTP Request node (with package prefix added)
-			const httpNode = nodes.find((n) => n.name === 'n8n-nodes-base.httpRequest');
+			const httpNode = nodes.find((n) => n.name === 'resin-nodes-base.httpRequest');
 			expect(httpNode).toBeDefined();
 			expect(httpNode?.displayName).toBe('HTTP Request');
 		});
@@ -2481,7 +2481,7 @@ describe('generate-types', () => {
 		it('should NOT skip credentialsSelect properties in type generation', () => {
 			// Mock HTTP Request node with credentialsSelect fields
 			const nodeWithCredentialsSelect: NodeTypeDescription = {
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				displayName: 'HTTP Request',
 				description: 'Makes HTTP requests',
 				group: ['transform'],
@@ -2536,7 +2536,7 @@ describe('generate-types', () => {
 
 		it('should include generic auth credentials in credentials interface when genericAuthType is present', () => {
 			const nodeWithGenericAuth: NodeTypeDescription = {
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				displayName: 'HTTP Request',
 				description: 'Makes HTTP requests',
 				group: ['transform'],
@@ -2576,7 +2576,7 @@ describe('generate-types', () => {
 
 		it('should NOT include generic auth credentials when genericAuthType is absent', () => {
 			const nodeWithoutGenericAuth: NodeTypeDescription = {
-				name: 'n8n-nodes-base.slack',
+				name: 'resin-nodes-base.slack',
 				displayName: 'Slack',
 				description: 'Send messages to Slack',
 				group: ['transform'],
@@ -2683,7 +2683,7 @@ describe('generate-types', () => {
 
 		it('should include displayOptions.show in generated Config for credentialsSelect properties', () => {
 			const nodeWithCredentialsSelect: NodeTypeDescription = {
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				displayName: 'HTTP Request',
 				description: 'Makes HTTP requests',
 				group: ['transform'],
@@ -2784,7 +2784,7 @@ describe('generate-types', () => {
 		// even after the runtime validator started accepting both modes.
 		it('emits a single honest predicate for BigQuery-shape sqlQuery via generateNodeTypeFile', () => {
 			const node: NodeTypeDescription = {
-				name: 'n8n-nodes-base.googleBigQuery',
+				name: 'resin-nodes-base.googleBigQuery',
 				displayName: 'Google BigQuery',
 				description: 'Run BigQuery queries',
 				group: ['transform'],
@@ -2833,7 +2833,7 @@ describe('generate-types', () => {
 		// must drop `device_iden` from the hide.
 		it('emits Pushbullet-shape simplified hide via the discriminator-split path', () => {
 			const node: NodeTypeDescription = {
-				name: 'n8n-nodes-base.pushbullet',
+				name: 'resin-nodes-base.pushbullet',
 				displayName: 'Pushbullet',
 				description: 'Send pushes',
 				group: ['transform'],
@@ -2948,7 +2948,7 @@ describe('generate-types', () => {
 
 		it('should handle AI connection types in inputs/outputs', () => {
 			const aiNode: NodeTypeDescription = {
-				name: '@n8n/n8n-nodes-langchain.agent',
+				name: '@resin/n8n-nodes-langchain.agent',
 				displayName: 'AI Agent',
 				description: 'AI Agent node',
 				group: ['transform'],
@@ -2987,7 +2987,7 @@ describe('generate-types', () => {
 	describe('subnode union type generation', () => {
 		// Mock AI subnode definitions
 		const mockLanguageModelNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			displayName: 'OpenAI Chat Model',
 			description: 'Interact with OpenAI chat models',
 			group: ['transform'],
@@ -3009,7 +3009,7 @@ describe('generate-types', () => {
 		};
 
 		const mockAnthropicModelNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.lmChatAnthropic',
+			name: '@resin/n8n-nodes-langchain.lmChatAnthropic',
 			displayName: 'Anthropic Chat Model',
 			description: 'Interact with Anthropic Claude models',
 			group: ['transform'],
@@ -3020,7 +3020,7 @@ describe('generate-types', () => {
 		};
 
 		const mockToolCodeNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.toolCode',
+			name: '@resin/n8n-nodes-langchain.toolCode',
 			displayName: 'Code Tool',
 			description: 'Execute code as a tool',
 			group: ['transform'],
@@ -3038,7 +3038,7 @@ describe('generate-types', () => {
 		};
 
 		const mockCalculatorToolNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.toolCalculator',
+			name: '@resin/n8n-nodes-langchain.toolCalculator',
 			displayName: 'Calculator Tool',
 			description: 'Perform calculations',
 			group: ['transform'],
@@ -3049,7 +3049,7 @@ describe('generate-types', () => {
 		};
 
 		const mockMemoryNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			name: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			displayName: 'Window Buffer Memory',
 			description: 'Store conversation history in a buffer',
 			group: ['transform'],
@@ -3067,7 +3067,7 @@ describe('generate-types', () => {
 		};
 
 		const mockEmbeddingNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+			name: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 			displayName: 'OpenAI Embeddings',
 			description: 'Generate embeddings using OpenAI',
 			group: ['transform'],
@@ -3078,7 +3078,7 @@ describe('generate-types', () => {
 		};
 
 		const mockVectorStoreNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+			name: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 			displayName: 'Pinecone Vector Store',
 			description: 'Store vectors in Pinecone',
 			group: ['transform'],
@@ -3089,7 +3089,7 @@ describe('generate-types', () => {
 		};
 
 		const mockOutputParserNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.outputParserStructured',
+			name: '@resin/n8n-nodes-langchain.outputParserStructured',
 			displayName: 'Structured Output Parser',
 			description: 'Parse structured output',
 			group: ['transform'],
@@ -3100,7 +3100,7 @@ describe('generate-types', () => {
 		};
 
 		const mockRetrieverNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.retrieverVectorStore',
+			name: '@resin/n8n-nodes-langchain.retrieverVectorStore',
 			displayName: 'Vector Store Retriever',
 			description: 'Retrieve from vector store',
 			group: ['transform'],
@@ -3111,7 +3111,7 @@ describe('generate-types', () => {
 		};
 
 		const mockDocumentLoaderNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.documentDefaultDataLoader',
+			name: '@resin/n8n-nodes-langchain.documentDefaultDataLoader',
 			displayName: 'Default Data Loader',
 			description: 'Load documents',
 			group: ['transform'],
@@ -3122,7 +3122,7 @@ describe('generate-types', () => {
 		};
 
 		const mockTextSplitterNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter',
+			name: '@resin/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter',
 			displayName: 'Recursive Character Text Splitter',
 			description: 'Split text recursively',
 			group: ['transform'],
@@ -3134,7 +3134,7 @@ describe('generate-types', () => {
 
 		// Regular node (not a subnode) for comparison
 		const mockAgentNode: NodeTypeDescription = {
-			name: '@n8n/n8n-nodes-langchain.agent',
+			name: '@resin/n8n-nodes-langchain.agent',
 			displayName: 'AI Agent',
 			description: 'AI Agent that uses tools',
 			group: ['transform'],
@@ -3195,21 +3195,21 @@ describe('generate-types', () => {
 				const grouped = generateTypes.groupNodesByOutputType(nodes);
 
 				// Language model nodes grouped together
-				expect(grouped.ai_languageModel).toContain('@n8n/n8n-nodes-langchain.lmChatOpenAi');
-				expect(grouped.ai_languageModel).toContain('@n8n/n8n-nodes-langchain.lmChatAnthropic');
+				expect(grouped.ai_languageModel).toContain('@resin/n8n-nodes-langchain.lmChatOpenAi');
+				expect(grouped.ai_languageModel).toContain('@resin/n8n-nodes-langchain.lmChatAnthropic');
 				expect(grouped.ai_languageModel?.length).toBe(2);
 
 				// Tool nodes grouped together
-				expect(grouped.ai_tool).toContain('@n8n/n8n-nodes-langchain.toolCode');
-				expect(grouped.ai_tool).toContain('@n8n/n8n-nodes-langchain.toolCalculator');
+				expect(grouped.ai_tool).toContain('@resin/n8n-nodes-langchain.toolCode');
+				expect(grouped.ai_tool).toContain('@resin/n8n-nodes-langchain.toolCalculator');
 				expect(grouped.ai_tool?.length).toBe(2);
 
 				// Memory nodes
-				expect(grouped.ai_memory).toContain('@n8n/n8n-nodes-langchain.memoryBufferWindow');
+				expect(grouped.ai_memory).toContain('@resin/n8n-nodes-langchain.memoryBufferWindow');
 				expect(grouped.ai_memory?.length).toBe(1);
 
 				// Main output nodes NOT included in AI subnode groups
-				expect(grouped.main).toContain('@n8n/n8n-nodes-langchain.agent');
+				expect(grouped.main).toContain('@resin/n8n-nodes-langchain.agent');
 			});
 
 			it('should handle all AI subnode output types', () => {
@@ -3245,10 +3245,10 @@ describe('generate-types', () => {
 				const code = generateTypes.generateSubnodeUnionTypes(nodes);
 
 				expect(code).toContain('export type ValidLanguageModelType =');
-				expect(code).toContain("'@n8n/n8n-nodes-langchain.lmChatOpenAi'");
-				expect(code).toContain("'@n8n/n8n-nodes-langchain.lmChatAnthropic'");
+				expect(code).toContain("'@resin/n8n-nodes-langchain.lmChatOpenAi'");
+				expect(code).toContain("'@resin/n8n-nodes-langchain.lmChatAnthropic'");
 				// Should NOT include agent (it outputs 'main', not 'ai_languageModel')
-				expect(code).not.toContain("'@n8n/n8n-nodes-langchain.agent'");
+				expect(code).not.toContain("'@resin/n8n-nodes-langchain.agent'");
 			});
 
 			it('should generate ValidToolType union', () => {
@@ -3256,8 +3256,8 @@ describe('generate-types', () => {
 				const code = generateTypes.generateSubnodeUnionTypes(nodes);
 
 				expect(code).toContain('export type ValidToolType =');
-				expect(code).toContain("'@n8n/n8n-nodes-langchain.toolCode'");
-				expect(code).toContain("'@n8n/n8n-nodes-langchain.toolCalculator'");
+				expect(code).toContain("'@resin/n8n-nodes-langchain.toolCode'");
+				expect(code).toContain("'@resin/n8n-nodes-langchain.toolCalculator'");
 			});
 
 			it('should generate all subnode union types', () => {
@@ -3387,7 +3387,7 @@ describe('generate-types', () => {
 	describe('discriminator split type generation', () => {
 		// Mock node with resource/operation pattern (like Freshservice)
 		const mockFreshserviceNode: NodeTypeDescription = {
-			name: 'n8n-nodes-base.freshservice',
+			name: 'resin-nodes-base.freshservice',
 			displayName: 'Freshservice',
 			description: 'Consume Freshservice API',
 			group: ['transform'],
@@ -3458,7 +3458,7 @@ describe('generate-types', () => {
 
 		// Mock node with mode discriminator (like Code node)
 		const mockCodeNode: NodeTypeDescription = {
-			name: 'n8n-nodes-base.code',
+			name: 'resin-nodes-base.code',
 			displayName: 'Code',
 			description: 'Run custom JavaScript code',
 			group: ['transform'],
@@ -3495,7 +3495,7 @@ describe('generate-types', () => {
 
 		// Mock node without discriminators (like Aggregate)
 		const mockAggregateNode: NodeTypeDescription = {
-			name: 'n8n-nodes-base.aggregate',
+			name: 'resin-nodes-base.aggregate',
 			displayName: 'Aggregate',
 			description: 'Aggregate items into a single item',
 			group: ['transform'],
@@ -3594,7 +3594,7 @@ describe('generate-types', () => {
 
 				// Should have base type
 				expect(content).toContain('FreshserviceV1NodeBase');
-				expect(content).toContain("type: 'n8n-nodes-base.freshservice'");
+				expect(content).toContain("type: 'resin-nodes-base.freshservice'");
 				expect(content).toContain('version: 1');
 
 				// Should NOT have imports or re-exports (simplified output for LLM)
@@ -3662,7 +3662,7 @@ describe('generate-types', () => {
 
 				// Should have node type with inlined fields (not extending NodeBase)
 				expect(content).toContain('FreshserviceV1TicketGetNode');
-				expect(content).toContain("type: 'n8n-nodes-base.freshservice'");
+				expect(content).toContain("type: 'resin-nodes-base.freshservice'");
 				expect(content).toContain('version: 1');
 				expect(content).not.toContain('FreshserviceV1NodeBase');
 			});
@@ -3691,7 +3691,7 @@ describe('generate-types', () => {
 
 				// Should have node type with inlined fields
 				expect(content).toContain('CodeV2RunOnceForAllItemsNode');
-				expect(content).toContain("type: 'n8n-nodes-base.code'");
+				expect(content).toContain("type: 'resin-nodes-base.code'");
 				expect(content).toContain('version: 2');
 				expect(content).not.toContain('CodeV2NodeBase');
 			});
@@ -3750,7 +3750,7 @@ describe('generate-types', () => {
 			it('should inline helper types when properties need them', () => {
 				// Create a mock node with assignmentCollection property
 				const mockNodeWithAssignment: NodeTypeDescription = {
-					name: 'n8n-nodes-base.set',
+					name: 'resin-nodes-base.set',
 					displayName: 'Set',
 					group: ['transform'],
 					version: 3,
@@ -3794,7 +3794,7 @@ describe('generate-types', () => {
 			it('should include SubnodeConfig for AI nodes with required embeddings', () => {
 				// Create a mock vector store node with required ai_embedding input using builderHint
 				const mockVectorStoreNodeWithEmbedding: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					name: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					displayName: 'Simple Vector Store',
 					group: ['transform'],
 					version: 1.3,
@@ -3858,7 +3858,7 @@ describe('generate-types', () => {
 			it('should include SubnodeConfig with optional subnodes when not required', () => {
 				// Create a mock node with builderHint specifying required/optional status
 				const mockNodeWithOptionalTool: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					group: ['transform'],
 					version: 3.1,
@@ -3910,7 +3910,7 @@ describe('generate-types', () => {
 			it('should use builderHint.inputs for mode-specific subnode filtering', () => {
 				// Create a mock vector store node with builderHint specifying mode-specific subnodes
 				const mockVectorStoreWithBuilderHint: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					name: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					displayName: 'Simple Vector Store',
 					group: ['transform'],
 					version: 1.3,
@@ -4164,7 +4164,7 @@ describe('generate-types', () => {
 
 				// Operation files should have inline node type
 				const ticketGetContent = plan.get('resource_ticket/operation_get.ts');
-				expect(ticketGetContent).toContain("type: 'n8n-nodes-base.freshservice'");
+				expect(ticketGetContent).toContain("type: 'resin-nodes-base.freshservice'");
 				expect(ticketGetContent).toContain('version: 1');
 				expect(ticketGetContent).not.toContain('FreshserviceV1NodeBase');
 			});
@@ -4251,7 +4251,7 @@ describe('generate-types', () => {
 		describe('extractAIInputTypes', () => {
 			it('should extract AI input types from static array inputs', () => {
 				const mockAgentNode: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					description: 'AI Agent node',
 					group: ['transform'],
@@ -4278,7 +4278,7 @@ describe('generate-types', () => {
 
 			it('should extract AI input types from dynamic expression inputs', () => {
 				const mockAgentWithExpressionInputs: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					description: 'AI Agent node',
 					group: ['transform'],
@@ -4304,7 +4304,7 @@ describe('generate-types', () => {
 
 			it('should return empty array for nodes with no AI inputs', () => {
 				const mockHttpNode: NodeTypeDescription = {
-					name: 'n8n-nodes-base.httpRequest',
+					name: 'resin-nodes-base.httpRequest',
 					displayName: 'HTTP Request',
 					description: 'Makes HTTP requests',
 					group: ['transform'],
@@ -4319,7 +4319,7 @@ describe('generate-types', () => {
 
 			it('should deduplicate AI input types', () => {
 				const mockNodeWithDuplicates: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					description: 'AI Agent node',
 					group: ['transform'],
@@ -4338,7 +4338,7 @@ describe('generate-types', () => {
 
 			it('should handle string array inputs format', () => {
 				const mockNodeWithStringInputs: NodeTypeDescription = {
-					name: 'n8n-nodes-base.set',
+					name: 'resin-nodes-base.set',
 					displayName: 'Set',
 					description: 'Set values',
 					group: ['transform'],
@@ -4353,7 +4353,7 @@ describe('generate-types', () => {
 
 			it('should extract required status from AI inputs', () => {
 				const mockAgentNode: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					description: 'AI Agent node',
 					group: ['transform'],
@@ -4374,7 +4374,7 @@ describe('generate-types', () => {
 
 			it('should mark type as required if ANY input of that type is required', () => {
 				const mockNodeWithDuplicates: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					description: 'AI Agent node',
 					group: ['transform'],
@@ -4396,7 +4396,7 @@ describe('generate-types', () => {
 		describe('extractAIInputTypesFromBuilderHint', () => {
 			it('should extract inputs from builderHint when present', () => {
 				const mockNode: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					name: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					displayName: 'Simple Vector Store',
 					group: ['transform'],
 					version: 1.3,
@@ -4447,7 +4447,7 @@ describe('generate-types', () => {
 
 			it('should include ai_document for insert mode', () => {
 				const mockNode: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					name: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					displayName: 'Simple Vector Store',
 					group: ['transform'],
 					version: 1.3,
@@ -4479,7 +4479,7 @@ describe('generate-types', () => {
 
 			it('should fall back to extractAIInputTypes when no builderHint and mark all as optional', () => {
 				const mockNode: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					group: ['transform'],
 					version: 3.1,
@@ -4495,7 +4495,7 @@ describe('generate-types', () => {
 
 			it('should strip discriminator displayOptions and keep non-discriminator ones', () => {
 				const mockNode: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					name: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					displayName: 'Simple Vector Store',
 					group: ['transform'],
 					version: 1.3,
@@ -4639,7 +4639,7 @@ describe('generate-types', () => {
 		describe('generateSingleVersionTypeFile with narrowed subnodes', () => {
 			it('should generate narrowed subnode config for AI nodes', () => {
 				const mockAgentNode: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					description: 'AI Agent node',
 					group: ['transform'],
@@ -4672,7 +4672,7 @@ describe('generate-types', () => {
 
 			it('should not generate narrowed subnode config for non-AI nodes', () => {
 				const mockHttpNode: NodeTypeDescription = {
-					name: 'n8n-nodes-base.httpRequest',
+					name: 'resin-nodes-base.httpRequest',
 					displayName: 'HTTP Request',
 					description: 'Makes HTTP requests',
 					group: ['transform'],
@@ -4690,7 +4690,7 @@ describe('generate-types', () => {
 
 			it('should use subnode instance types when AI inputs exist (no imports in simplified output)', () => {
 				const mockAgentNode: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					description: 'AI Agent node',
 					group: ['transform'],
@@ -4715,7 +4715,7 @@ describe('generate-types', () => {
 
 			it('should generate non-optional fields for required AI inputs', () => {
 				const mockAgentNode: NodeTypeDescription = {
-					name: '@n8n/n8n-nodes-langchain.agent',
+					name: '@resin/n8n-nodes-langchain.agent',
 					displayName: 'AI Agent',
 					description: 'AI Agent node',
 					group: ['transform'],
@@ -5074,7 +5074,7 @@ describe('orchestrateGeneration', () => {
 	it('should generate .ts type files and .schema.js schema files for each node version', async () => {
 		const nodes: NodeTypeDescription[] = [
 			{
-				name: 'n8n-nodes-base.testNode',
+				name: 'resin-nodes-base.testNode',
 				displayName: 'Test Node',
 				description: 'A test node',
 				group: ['transform'],
@@ -5096,15 +5096,21 @@ describe('orchestrateGeneration', () => {
 		expect(result.nodeCount).toBe(1);
 
 		// Verify .ts file exists
-		const tsFile = path.join(outputDir, 'nodes', 'n8n-nodes-base', 'testNode', 'v1.ts');
+		const tsFile = path.join(outputDir, 'nodes', 'resin-nodes-base', 'testNode', 'v1.ts');
 		expect(fs.existsSync(tsFile)).toBe(true);
 
 		// Verify .schema.js file exists alongside each .ts
-		const schemaFile = path.join(outputDir, 'nodes', 'n8n-nodes-base', 'testNode', 'v1.schema.js');
+		const schemaFile = path.join(
+			outputDir,
+			'nodes',
+			'resin-nodes-base',
+			'testNode',
+			'v1.schema.js',
+		);
 		expect(fs.existsSync(schemaFile)).toBe(true);
 
 		// Verify index.ts generated
-		const indexFile = path.join(outputDir, 'nodes', 'n8n-nodes-base', 'testNode', 'index.ts');
+		const indexFile = path.join(outputDir, 'nodes', 'resin-nodes-base', 'testNode', 'index.ts');
 		expect(fs.existsSync(indexFile)).toBe(true);
 	});
 
@@ -5113,7 +5119,7 @@ describe('orchestrateGeneration', () => {
 
 		const nodes: NodeTypeDescription[] = [
 			{
-				name: 'n8n-nodes-base.hiddenNode',
+				name: 'resin-nodes-base.hiddenNode',
 				displayName: 'Hidden Node',
 				group: ['transform'],
 				version: 1,
@@ -5133,7 +5139,7 @@ describe('orchestrateGeneration', () => {
 
 		const nodes: NodeTypeDescription[] = [
 			{
-				name: 'n8n-nodes-base.nodeA',
+				name: 'resin-nodes-base.nodeA',
 				displayName: 'Node A',
 				group: ['transform'],
 				version: 1,
@@ -5142,7 +5148,7 @@ describe('orchestrateGeneration', () => {
 				outputs: ['main'],
 			},
 			{
-				name: 'n8n-nodes-base.nodeB',
+				name: 'resin-nodes-base.nodeB',
 				displayName: 'Node B',
 				group: ['output'],
 				version: [1, 2],

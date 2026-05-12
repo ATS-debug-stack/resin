@@ -7,7 +7,7 @@ import {
 	type NodeTypeAndVersion,
 	NodeOperationError,
 	FORM_TRIGGER_NODE_TYPE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { renderFormNode, getFormTriggerNode } from '../utils/formNodeUtils';
 
@@ -188,7 +188,7 @@ describe('formNodeUtils', () => {
 			};
 			const otherNode: NodeTypeAndVersion = {
 				name: 'OtherNode',
-				type: 'n8n-nodes-base.other',
+				type: 'resin-nodes-base.other',
 				typeVersion: 1,
 				disabled: false,
 			};
@@ -249,7 +249,7 @@ describe('formNodeUtils', () => {
 		it('should throw NodeOperationError when no form trigger nodes are found', () => {
 			const otherNode: NodeTypeAndVersion = {
 				name: 'OtherNode',
-				type: 'n8n-nodes-base.other',
+				type: 'resin-nodes-base.other',
 				typeVersion: 1,
 				disabled: false,
 			};
@@ -315,13 +315,13 @@ describe('formNodeUtils', () => {
 			};
 			const webhookNode: NodeTypeAndVersion = {
 				name: 'WebhookNode',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				typeVersion: 1,
 				disabled: false,
 			};
 			const httpNode: NodeTypeAndVersion = {
 				name: 'HttpNode',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				typeVersion: 1,
 				disabled: false,
 			};

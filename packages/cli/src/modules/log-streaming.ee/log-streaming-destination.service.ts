@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import type { DeleteResult } from '@n8n/typeorm';
-import type { MessageEventBusDestinationOptions } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Service } from '@resin/di';
+import type { DeleteResult } from '@resin/typeorm';
+import type { MessageEventBusDestinationOptions } from 'resin-workflow';
 
 import type { EventMessageTypes } from '@/eventbus';
 import type { EventMessageConfirmSource } from '@/eventbus/event-message-classes/event-message-confirm';

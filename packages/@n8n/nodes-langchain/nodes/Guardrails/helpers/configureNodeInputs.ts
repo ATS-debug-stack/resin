@@ -27,10 +27,10 @@ export const configureNodeInputsV2 = (parameters: { guardrails: GuardrailsOption
 			required: true,
 			filter: {
 				excludedNodes: [
-					'@n8n/n8n-nodes-langchain.lmCohere',
-					'@n8n/n8n-nodes-langchain.lmOllama',
+					'@resin/n8n-nodes-langchain.lmCohere',
+					'@resin/n8n-nodes-langchain.lmOllama',
 					'n8n/n8n-nodes-langchain.lmOpenAi',
-					'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+					'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 				],
 			},
 		},
@@ -52,10 +52,10 @@ export const configureNodeInputsV1 = (operation: 'classify' | 'sanitize') => {
 			required: true,
 			filter: {
 				excludedNodes: [
-					'@n8n/n8n-nodes-langchain.lmCohere',
-					'@n8n/n8n-nodes-langchain.lmOllama',
+					'@resin/n8n-nodes-langchain.lmCohere',
+					'@resin/n8n-nodes-langchain.lmOllama',
 					'n8n/n8n-nodes-langchain.lmOpenAi',
-					'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+					'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 				],
 			},
 		},

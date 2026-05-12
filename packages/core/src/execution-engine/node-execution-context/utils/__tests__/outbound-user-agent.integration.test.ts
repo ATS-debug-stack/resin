@@ -1,7 +1,7 @@
-import { HttpRequestConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { HttpRequestConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { INode, IWorkflowExecuteAdditionalData, Workflow } from 'n8n-workflow';
+import type { INode, IWorkflowExecuteAdditionalData, Workflow } from 'resin-workflow';
 import nock from 'nock';
 
 import type { ExecutionLifecycleHooks } from '@/execution-engine/execution-lifecycle-hooks';

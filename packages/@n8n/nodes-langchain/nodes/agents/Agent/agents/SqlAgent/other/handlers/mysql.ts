@@ -1,5 +1,5 @@
-import { DataSource } from '@n8n/typeorm';
-import { type IExecuteFunctions } from 'n8n-workflow';
+import { DataSource } from '@resin/typeorm';
+import { type IExecuteFunctions } from 'resin-workflow';
 
 export async function getMysqlDataSource(this: IExecuteFunctions): Promise<DataSource> {
 	const credentials = await this.getCredentials('mySql');

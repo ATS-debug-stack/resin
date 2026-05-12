@@ -4,11 +4,11 @@ import { setActivePinia } from 'pinia';
 import { createTestingPinia } from '@pinia/testing';
 import { useCredentialResolvers } from './useCredentialResolvers';
 import { useUIStore } from '@/app/stores/ui.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { mockedStore } from '@/__tests__/utils';
 import { CREDENTIAL_RESOLVER_EDIT_MODAL_KEY, MODAL_CONFIRM, MODAL_CANCEL } from '@/app/constants';
-import * as restApiClient from '@n8n/rest-api-client';
-import type { CredentialResolver, CredentialResolverType } from '@n8n/api-types';
+import * as restApiClient from '@resin/rest-api-client';
+import type { CredentialResolver, CredentialResolverType } from '@resin/api-types';
 
 const mockConfirm = vi.fn();
 const mockShowError = vi.fn();
@@ -27,7 +27,7 @@ vi.mock('@/app/composables/useToast', () => ({
 	}),
 }));
 
-vi.mock('@n8n/rest-api-client', async (importOriginal) => {
+vi.mock('@resin/rest-api-client', async (importOriginal) => {
 	const actual = await importOriginal<typeof restApiClient>();
 	return {
 		...actual,

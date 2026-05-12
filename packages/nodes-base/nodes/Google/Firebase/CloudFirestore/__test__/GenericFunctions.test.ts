@@ -1,6 +1,6 @@
 import { mock, mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, ILoadOptionsFunctions, INode } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IExecuteFunctions, ILoadOptionsFunctions, INode } from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import { getGoogleAccessToken } from '../../../GenericFunctions';
 import {
@@ -30,7 +30,7 @@ describe('GoogleFirebaseCloudFirestore > GenericFunctions', () => {
 		mockNode = mock<INode>({
 			id: 'test-node',
 			name: 'Test CloudFirestore Node',
-			type: 'n8n-nodes-base.googleFirebaseCloudFirestore',
+			type: 'resin-nodes-base.googleFirebaseCloudFirestore',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

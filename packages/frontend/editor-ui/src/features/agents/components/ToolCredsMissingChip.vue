@@ -12,8 +12,8 @@
  * cover the amber-tint affordance product wants for missing-credentials.
  * Reassess if/when a warning variant lands in the design system.
  */
-import { N8nIcon } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nIcon } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 
 withDefaults(defineProps<{ variant?: 'rectangular' | 'pill' }>(), {
 	variant: 'rectangular',

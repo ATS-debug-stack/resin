@@ -1,4 +1,4 @@
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { type FrontendModuleDescription } from '@/app/moduleInitializer/module.types';
 import {
 	MCP_CONNECT_WORKFLOWS_MODAL_KEY,

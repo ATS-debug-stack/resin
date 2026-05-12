@@ -1,13 +1,13 @@
-import { Logger } from '@n8n/backend-common';
-import { User, WorkflowRepository } from '@n8n/db';
+import { Logger } from '@resin/backend-common';
+import { User, WorkflowRepository } from '@resin/db';
 import {
 	CredentialResolverConfiguration,
 	CredentialResolverValidationError,
 	ICredentialResolver,
-} from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { Cipher } from 'n8n-core';
-import { jsonParse, UnexpectedError } from 'n8n-workflow';
+} from '@resin/decorators';
+import { Service } from '@resin/di';
+import { Cipher } from 'resin-core';
+import { jsonParse, UnexpectedError } from 'resin-workflow';
 
 import { ActiveWorkflowManager } from '@/active-workflow-manager';
 

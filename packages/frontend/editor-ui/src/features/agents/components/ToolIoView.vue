@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, provide } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { Workflow } from 'n8n-workflow';
-import type { IDataObject, INodeExecutionData, IRunData } from 'n8n-workflow';
-import { ChatSymbol } from '@n8n/chat/constants';
-import type { Chat } from '@n8n/chat/types';
+import { useI18n } from '@resin/i18n';
+import { Workflow } from 'resin-workflow';
+import type { IDataObject, INodeExecutionData, IRunData } from 'resin-workflow';
+import { ChatSymbol } from '@resin/chat/constants';
+import type { Chat } from '@resin/chat/types';
 import { WorkflowIdKey } from '@/app/constants/injectionKeys';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowState } from '@/app/composables/useWorkflowState';
@@ -86,7 +86,7 @@ const synthExecution = computed<IExecutionResponse>(() => {
 	const inputNode: INodeUi = {
 		id: INPUT_NODE_NAME,
 		name: INPUT_NODE_NAME,
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -94,7 +94,7 @@ const synthExecution = computed<IExecutionResponse>(() => {
 	const toolNode: INodeUi = {
 		id: props.name,
 		name: props.name,
-		type: props.nodeType ?? 'n8n-nodes-base.set',
+		type: props.nodeType ?? 'resin-nodes-base.set',
 		typeVersion: props.nodeTypeVersion ?? 1,
 		position: [220, 0],
 		// `nodeParameters` is typed loosely on the wire (Record<string, unknown>)

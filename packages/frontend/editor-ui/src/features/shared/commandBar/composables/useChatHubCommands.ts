@@ -1,14 +1,14 @@
 import { computed, type Ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
-import { N8nIcon } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nIcon } from '@resin/design-system';
 import { useToast } from '@/app/composables/useToast';
 import { useMessage } from '@/app/composables/useMessage';
 import { MODAL_CONFIRM } from '@/app/constants';
 import type { CommandGroup, CommandBarItem } from '../types';
 import { useChatStore } from '@/features/ai/chatHub/chat.store';
 import { getAgentRoute, isLlmProvider, stringifyModel } from '@/features/ai/chatHub/chat.utils';
-import type { ChatModelDto, ChatHubSessionDto, ChatSessionId } from '@n8n/api-types';
+import type { ChatModelDto, ChatHubSessionDto, ChatSessionId } from '@resin/api-types';
 import {
 	CHAT_CONVERSATION_VIEW,
 	CHAT_VIEW,

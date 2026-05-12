@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IDataObject, INodePropertyOptions, IExecuteFunctions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IDataObject, INodePropertyOptions, IExecuteFunctions } from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import {
 	getValue,
@@ -843,7 +843,7 @@ describe('Salesforce -> GenericFunctions', () => {
 				mockExecuteFunctions.getNode.mockReturnValue({
 					id: 'test-node',
 					name: 'Test Node',
-					type: 'n8n-nodes-base.salesforce',
+					type: 'resin-nodes-base.salesforce',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -870,7 +870,7 @@ describe('Salesforce -> GenericFunctions', () => {
 				mockExecuteFunctions.getNode.mockReturnValue({
 					id: 'test-node',
 					name: 'Test Node',
-					type: 'n8n-nodes-base.salesforce',
+					type: 'resin-nodes-base.salesforce',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -901,7 +901,7 @@ describe('Salesforce -> GenericFunctions', () => {
 				mockExecuteFunctions.getNode.mockReturnValue({
 					id: 'test-node',
 					name: 'Test Node',
-					type: 'n8n-nodes-base.salesforce',
+					type: 'resin-nodes-base.salesforce',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -935,7 +935,7 @@ describe('Salesforce -> GenericFunctions', () => {
 				mockExecuteFunctions.getNode.mockReturnValue({
 					id: 'test-node',
 					name: 'Test Node',
-					type: 'n8n-nodes-base.salesforce',
+					type: 'resin-nodes-base.salesforce',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},

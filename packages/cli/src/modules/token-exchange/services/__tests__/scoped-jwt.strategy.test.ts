@@ -1,7 +1,7 @@
-import type { AuthenticatedRequest, User, UserRepository } from '@n8n/db';
-import { ALL_API_KEY_SCOPES, type Scope as ScopeType } from '@n8n/permissions';
+import type { AuthenticatedRequest, User, UserRepository } from '@resin/db';
+import { ALL_API_KEY_SCOPES, type Scope as ScopeType } from '@resin/permissions';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
 
 import { JwtService } from '@/services/jwt.service';
 

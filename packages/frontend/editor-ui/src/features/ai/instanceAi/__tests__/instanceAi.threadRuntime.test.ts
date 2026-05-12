@@ -2,7 +2,7 @@ import { setActivePinia } from 'pinia';
 import { createTestingPinia } from '@pinia/testing';
 import { describe, test, it, expect, vi, beforeEach, afterEach, beforeAll, afterAll } from 'vitest';
 import { reactive } from 'vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { mockedStore } from '@/__tests__/utils';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { fetchThreadMessages, fetchThreadStatus } from '../instanceAi.memory.api';
@@ -26,7 +26,7 @@ vi.mock('@/app/composables/useTelemetry', () => ({
 	}),
 }));
 
-vi.mock('@n8n/rest-api-client', () => ({
+vi.mock('@resin/rest-api-client', () => ({
 	ResponseError: class ResponseError extends Error {
 		httpStatusCode?: number;
 	},

@@ -56,7 +56,7 @@ describe('buildIfElseComposite', () => {
 		// Create the IF node
 		const ifNode = createSemanticNode(
 			'IF',
-			'n8n-nodes-base.if',
+			'resin-nodes-base.if',
 			new Map([
 				['trueBranch', [{ target: 'TrueHandler', targetInputSlot: 'input' }]],
 				['falseBranch', [{ target: 'FalseHandler', targetInputSlot: 'input' }]],
@@ -64,8 +64,8 @@ describe('buildIfElseComposite', () => {
 		);
 
 		// Create branch targets
-		const trueHandler = createSemanticNode('TrueHandler', 'n8n-nodes-base.noOp');
-		const falseHandler = createSemanticNode('FalseHandler', 'n8n-nodes-base.noOp');
+		const trueHandler = createSemanticNode('TrueHandler', 'resin-nodes-base.noOp');
+		const falseHandler = createSemanticNode('FalseHandler', 'resin-nodes-base.noOp');
 
 		// Build the graph
 		const graph: SemanticGraph = {
@@ -103,14 +103,14 @@ describe('buildIfElseComposite', () => {
 	it('handles IF with only true branch', () => {
 		const ifNode = createSemanticNode(
 			'IF',
-			'n8n-nodes-base.if',
+			'resin-nodes-base.if',
 			new Map([
 				['trueBranch', [{ target: 'TrueHandler', targetInputSlot: 'input' }]],
 				['falseBranch', []], // Empty false branch
 			]),
 		);
 
-		const trueHandler = createSemanticNode('TrueHandler', 'n8n-nodes-base.noOp');
+		const trueHandler = createSemanticNode('TrueHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -132,14 +132,14 @@ describe('buildIfElseComposite', () => {
 	it('handles IF with only false branch', () => {
 		const ifNode = createSemanticNode(
 			'IF',
-			'n8n-nodes-base.if',
+			'resin-nodes-base.if',
 			new Map([
 				['trueBranch', []], // Empty true branch
 				['falseBranch', [{ target: 'FalseHandler', targetInputSlot: 'input' }]],
 			]),
 		);
 
-		const falseHandler = createSemanticNode('FalseHandler', 'n8n-nodes-base.noOp');
+		const falseHandler = createSemanticNode('FalseHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -161,7 +161,7 @@ describe('buildIfElseComposite', () => {
 	it('handles IF with no branches', () => {
 		const ifNode = createSemanticNode(
 			'IF',
-			'n8n-nodes-base.if',
+			'resin-nodes-base.if',
 			new Map([
 				['trueBranch', []],
 				['falseBranch', []],
@@ -186,7 +186,7 @@ describe('buildIfElseComposite', () => {
 		// IF1 -> IF2 (true branch) -> Handler
 		const ifNode1 = createSemanticNode(
 			'IF1',
-			'n8n-nodes-base.if',
+			'resin-nodes-base.if',
 			new Map([
 				['trueBranch', [{ target: 'IF2', targetInputSlot: 'input' }]],
 				['falseBranch', []],
@@ -195,14 +195,14 @@ describe('buildIfElseComposite', () => {
 
 		const ifNode2 = createSemanticNode(
 			'IF2',
-			'n8n-nodes-base.if',
+			'resin-nodes-base.if',
 			new Map([
 				['trueBranch', [{ target: 'Handler', targetInputSlot: 'input' }]],
 				['falseBranch', []],
 			]),
 		);
 
-		const handler = createSemanticNode('Handler', 'n8n-nodes-base.noOp');
+		const handler = createSemanticNode('Handler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -227,15 +227,15 @@ describe('buildIfElseComposite', () => {
 	it('marks branch targets as visited in context', () => {
 		const ifNode = createSemanticNode(
 			'IF',
-			'n8n-nodes-base.if',
+			'resin-nodes-base.if',
 			new Map([
 				['trueBranch', [{ target: 'TrueHandler', targetInputSlot: 'input' }]],
 				['falseBranch', [{ target: 'FalseHandler', targetInputSlot: 'input' }]],
 			]),
 		);
 
-		const trueHandler = createSemanticNode('TrueHandler', 'n8n-nodes-base.noOp');
-		const falseHandler = createSemanticNode('FalseHandler', 'n8n-nodes-base.noOp');
+		const trueHandler = createSemanticNode('TrueHandler', 'resin-nodes-base.noOp');
+		const falseHandler = createSemanticNode('FalseHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([

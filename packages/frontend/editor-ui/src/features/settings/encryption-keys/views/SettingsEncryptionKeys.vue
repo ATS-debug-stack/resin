@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref, shallowRef, watch } from 'vue';
 import { parseDate, type CalendarDate } from '@internationalized/date';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import {
 	N8nAlertDialog,
 	N8nButton,
@@ -16,8 +16,8 @@ import {
 	N8nText,
 	type DateRange,
 	type DateValue,
-} from '@n8n/design-system';
-import type { TableHeader, TableOptions } from '@n8n/design-system/components/N8nDataTableServer';
+} from '@resin/design-system';
+import type { TableHeader, TableOptions } from '@resin/design-system/components/N8nDataTableServer';
 
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { useToast } from '@/app/composables/useToast';

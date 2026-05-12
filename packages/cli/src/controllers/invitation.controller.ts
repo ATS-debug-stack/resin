@@ -1,8 +1,8 @@
-import { AcceptInvitationRequestDto, InviteUsersRequestDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { UserRepository, AuthenticatedRequest } from '@n8n/db';
-import { Post, GlobalScope, RestController, Body } from '@n8n/decorators';
+import { AcceptInvitationRequestDto, InviteUsersRequestDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { UserRepository, AuthenticatedRequest } from '@resin/db';
+import { Post, GlobalScope, RestController, Body } from '@resin/decorators';
 import { Response } from 'express';
 
 import { AuthService } from '@/auth/auth.service';
@@ -18,7 +18,7 @@ import { PasswordUtility } from '@/services/password.utility';
 import { UserService } from '@/services/user.service';
 import { OwnershipService } from '@/services/ownership.service';
 import { isSsoCurrentAuthenticationMethod } from '@/sso.ee/sso-helpers';
-import { Time } from '@n8n/constants';
+import { Time } from '@resin/constants';
 
 @RestController('/invitations')
 export class InvitationController {

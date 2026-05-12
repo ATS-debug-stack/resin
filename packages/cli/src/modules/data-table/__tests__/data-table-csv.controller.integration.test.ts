@@ -5,9 +5,9 @@ import {
 	getPersonalProject,
 	linkUserToProject,
 	testDb,
-} from '@n8n/backend-test-utils';
-import type { Project, User } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import type { Project, User } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { createDataTable } from '@test-integration/db/data-tables';
 import { createOwner, createMember } from '@test-integration/db/users';

@@ -1,1 +1,1 @@
-export const BROWSER_ID_STORAGE_KEY = 'n8n-browserId';
+export const BROWSER_ID_STORAGE_KEY = 'resin-browserId';

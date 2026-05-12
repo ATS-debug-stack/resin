@@ -1,6 +1,6 @@
 import { OpenAIEmbeddings } from '@langchain/openai';
-import { AiConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { AiConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import {
 	NodeConnectionTypes,
 	type INodeProperties,
@@ -8,12 +8,12 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { ClientOptions } from 'openai';
 
 import { checkDomainRestrictions } from '@utils/checkDomainRestrictions';
 import { mergeCustomHeaders } from '@utils/helpers';
-import { getProxyAgent, logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getProxyAgent, logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 const modelParameter: INodeProperties = {
 	displayName: 'Model',

@@ -1,15 +1,15 @@
-import type { LogScope } from '@n8n/config';
-import { GlobalConfig, InstanceSettingsConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import type { LogScope } from '@resin/config';
+import { GlobalConfig, InstanceSettingsConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import callsites from 'callsites';
 import type { TransformableInfo } from 'logform';
-import { LoggerProxy, LOG_LEVELS } from 'n8n-workflow';
+import { LoggerProxy, LOG_LEVELS } from 'resin-workflow';
 import type {
 	Logger as LoggerType,
 	LogLocationMetadata,
 	LogLevel,
 	LogMetadata,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import path, { basename } from 'node:path';
 import pc from 'picocolors';
 import winston from 'winston';

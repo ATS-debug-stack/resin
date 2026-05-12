@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { LogScope, TaskRunnersConfig } from '@n8n/config';
-import { OnShutdown } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { LogScope, TaskRunnersConfig } from '@resin/config';
+import { OnShutdown } from '@resin/decorators';
+import { Service } from '@resin/di';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 

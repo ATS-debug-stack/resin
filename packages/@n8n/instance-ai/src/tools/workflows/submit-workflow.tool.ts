@@ -8,9 +8,9 @@
 
 import { createTool } from '@mastra/core/tools';
 import type { Workspace } from '@mastra/core/workspace';
-import { hasPlaceholderDeep } from '@n8n/utils';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
-import { validateWorkflow } from '@n8n/workflow-sdk';
+import { hasPlaceholderDeep } from '@resin/utils';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
+import { validateWorkflow } from '@resin/workflow-sdk';
 import { createHash, randomUUID } from 'node:crypto';
 import { z } from 'zod';
 
@@ -67,10 +67,10 @@ function hashContent(content: string | null): string {
 
 /** Node types that require a webhookId for proper webhook path registration. */
 const WEBHOOK_NODE_TYPES = new Set([
-	'n8n-nodes-base.webhook',
-	'n8n-nodes-base.formTrigger',
-	'@n8n/n8n-nodes-langchain.mcpTrigger',
-	'@n8n/n8n-nodes-langchain.chatTrigger',
+	'resin-nodes-base.webhook',
+	'resin-nodes-base.formTrigger',
+	'@resin/n8n-nodes-langchain.mcpTrigger',
+	'@resin/n8n-nodes-langchain.chatTrigger',
 ]);
 
 /**

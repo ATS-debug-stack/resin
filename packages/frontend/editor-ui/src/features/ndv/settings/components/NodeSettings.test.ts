@@ -3,7 +3,7 @@ import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
 import { shallowRef } from 'vue';
 import { fireEvent, waitFor } from '@testing-library/vue';
-import { createRunExecutionData, type INodeTypeDescription, type IRunData } from 'n8n-workflow';
+import { createRunExecutionData, type INodeTypeDescription, type IRunData } from 'resin-workflow';
 
 import { createTestNode, createTestWorkflow } from '@/__tests__/mocks';
 import { createComponentRenderer } from '@/__tests__/render';
@@ -32,13 +32,13 @@ vi.mock('vue-router', () => ({
 
 const httpNode = createTestNode({
 	name: 'HTTP Request',
-	type: 'n8n-nodes-base.httpRequest',
+	type: 'resin-nodes-base.httpRequest',
 	typeVersion: 4,
 });
 
 const httpNodeType = {
 	displayName: 'HTTP Request',
-	name: 'n8n-nodes-base.httpRequest',
+	name: 'resin-nodes-base.httpRequest',
 	group: ['transform'],
 	description: 'Make HTTP requests',
 	version: 4,

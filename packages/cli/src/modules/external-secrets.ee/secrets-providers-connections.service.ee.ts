@@ -8,18 +8,18 @@ import {
 	type SecretsProviderType,
 	type TestSecretProviderConnectionResponse,
 	testSecretProviderConnectionResponseSchema,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { SecretsProviderAccessRole, SecretsProviderConnection } from '@n8n/db';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { SecretsProviderAccessRole, SecretsProviderConnection } from '@resin/db';
 import {
 	ProjectSecretsProviderAccessRepository,
 	SecretsProviderConnectionRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { In } from '@n8n/typeorm';
-import { Cipher } from 'n8n-core';
-import type { IDataObject } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { In } from '@resin/typeorm';
+import { Cipher } from 'resin-core';
+import type { IDataObject } from 'resin-workflow';
+import { jsonParse } from 'resin-workflow';
 
 import { ExternalSecretsProviderRegistry } from './provider-registry.service';
 

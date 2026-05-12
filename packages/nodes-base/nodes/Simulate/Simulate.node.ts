@@ -1,11 +1,11 @@
-import { sleep, jsonParse, NodeOperationError, NodeConnectionTypes } from 'n8n-workflow';
+import { sleep, jsonParse, NodeOperationError, NodeConnectionTypes } from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
 	IDataObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	executionDurationProperty,

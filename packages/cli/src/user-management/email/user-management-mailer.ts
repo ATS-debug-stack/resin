@@ -1,13 +1,13 @@
-import { inTest, Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { User } from '@n8n/db';
-import { UserRepository } from '@n8n/db';
-import { Container, Service } from '@n8n/di';
-import { AssignableProjectRole } from '@n8n/permissions';
+import { inTest, Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { User } from '@resin/db';
+import { UserRepository } from '@resin/db';
+import { Container, Service } from '@resin/di';
+import { AssignableProjectRole } from '@resin/permissions';
 import { existsSync } from 'fs';
 import { readFile } from 'fs/promises';
 import Handlebars from 'handlebars';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { IWorkflowBase } from 'resin-workflow';
 import { join as pathJoin } from 'path';
 
 import type { InviteEmailData, PasswordResetData, SendEmailResult } from './interfaces';

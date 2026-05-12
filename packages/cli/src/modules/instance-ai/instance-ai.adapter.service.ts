@@ -34,12 +34,12 @@ import type {
 	FolderSummary,
 	ServiceProxyConfig,
 	CredentialTypeSearchResult,
-} from '@n8n/instance-ai';
-import { wrapUntrustedData } from '@n8n/instance-ai';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import type { User, ExecutionSummaries } from '@n8n/db';
+} from '@resin/instance-ai';
+import { wrapUntrustedData } from '@resin/instance-ai';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import type { User, ExecutionSummaries } from '@resin/db';
 
 import { InstanceAiSettingsService } from './instance-ai-settings.service';
 import {
@@ -61,12 +61,12 @@ import {
 	SharedWorkflowRepository,
 	WorkflowEntity,
 	WorkflowRepository,
-} from '@n8n/db';
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { hasGlobalScope, PROJECT_OWNER_ROLE_SLUG, type Scope } from '@n8n/permissions';
+} from '@resin/db';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { hasGlobalScope, PROJECT_OWNER_ROLE_SLUG, type Scope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { LessThan } from '@n8n/typeorm';
+import { LessThan } from '@resin/typeorm';
 import {
 	type ICredentialsDecrypted,
 	type IDataObject,
@@ -95,9 +95,9 @@ import {
 	TimeoutExecutionCancelledError,
 	UnexpectedError,
 	jsonParse,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import { ActiveExecutions } from '@/active-executions';
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
@@ -415,7 +415,7 @@ export class InstanceAiAdapterService {
 					versionId: options?.versionId,
 					name: options?.name,
 					description: options?.description,
-					source: 'n8n-ai',
+					source: 'resin-ai',
 				});
 				if (!wf.activeVersionId) {
 					throw new Error(`Workflow ${workflowId} was not activated — no active version set`);
@@ -434,7 +434,7 @@ export class InstanceAiAdapterService {
 
 			async unpublish(workflowId: string) {
 				await workflowService.deactivateWorkflow(user, workflowId, {
-					source: 'n8n-ai',
+					source: 'resin-ai',
 				});
 			},
 
@@ -516,7 +516,7 @@ export class InstanceAiAdapterService {
 				}
 
 				const updated = await workflowService.update(user, updateData, saved.id, {
-					source: 'n8n-ai',
+					source: 'resin-ai',
 				});
 
 				if (threadId) {
@@ -569,7 +569,7 @@ export class InstanceAiAdapterService {
 				}
 
 				const updated = await workflowService.update(user, updateData, workflowId, {
-					source: 'n8n-ai',
+					source: 'resin-ai',
 				});
 
 				if (threadId) {
@@ -648,7 +648,7 @@ export class InstanceAiAdapterService {
 				} as Partial<WorkflowEntity>);
 
 				await workflowService.update(user, updateData, workflowId, {
-					source: 'n8n-ai',
+					source: 'resin-ai',
 				});
 			},
 
@@ -2224,7 +2224,7 @@ export class InstanceAiAdapterService {
 							}
 							await workflowService.update(user, workflow, workflowId, {
 								parentFolderId: folderId,
-								source: 'n8n-ai',
+								source: 'resin-ai',
 							});
 						},
 					}
@@ -2261,7 +2261,7 @@ export class InstanceAiAdapterService {
 					}
 				}
 
-				await workflowService.update(user, workflow, workflowId, { tagIds, source: 'n8n-ai' });
+				await workflowService.update(user, workflow, workflowId, { tagIds, source: 'resin-ai' });
 				return tagNames;
 			},
 

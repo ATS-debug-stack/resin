@@ -1,6 +1,6 @@
 import type { BaseMessage } from '@langchain/core/messages';
 import type { StructuredToolInterface } from '@langchain/core/tools';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 
 import type {
 	StreamOutput,

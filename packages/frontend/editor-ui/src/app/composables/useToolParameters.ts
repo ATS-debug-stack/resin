@@ -5,14 +5,14 @@ import {
 	isHitlToolType,
 	NodeConnectionTypes,
 	traverseNodeParameters,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { computed, reactive, ref, watch, type Ref } from 'vue';
 import { useWorkflowsStore } from '../stores/workflows.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import { useNodeTypesStore } from '../stores/nodeTypes.store';
-import { useAgentRequestStore } from '@n8n/stores/useAgentRequestStore';
-import { type IFormInput } from '@n8n/design-system';
+import { useAgentRequestStore } from '@resin/stores/useAgentRequestStore';
+import { type IFormInput } from '@resin/design-system';
 import { type JSONSchema7 } from 'json-schema';
 import { AI_MCP_TOOL_NODE_TYPE } from '../constants';
 import { TOOL_NODE_TYPES_NEED_INPUT } from '../utils/nodes/nodeTransforms';

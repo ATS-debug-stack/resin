@@ -1,4 +1,4 @@
-import type { GlobalConfig } from '@n8n/config';
+import type { GlobalConfig } from '@resin/config';
 import { mock } from 'jest-mock-extended';
 import type { Socket } from 'node:net';
 import request from 'supertest';

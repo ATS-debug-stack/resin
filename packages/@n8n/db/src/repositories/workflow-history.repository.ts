@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import { DataSource, In, LessThan, Repository } from '@n8n/typeorm';
-import { DiffMetaData, DiffRule, groupWorkflows, SKIP_RULES } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import { DataSource, In, LessThan, Repository } from '@resin/typeorm';
+import { DiffMetaData, DiffRule, groupWorkflows, SKIP_RULES } from 'resin-workflow';
 
 import { WorkflowHistory, WorkflowEntity } from '../entities';
 import { WorkflowPublishHistoryRepository } from './workflow-publish-history.repository';

@@ -52,7 +52,7 @@ describe('fromAiValidator', () => {
 
 	describe('validateNode', () => {
 		it('returns FROM_AI_IN_NON_TOOL warning for non-tool node using $fromAI', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: '={{ $fromAI("name") }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -68,7 +68,7 @@ describe('fromAiValidator', () => {
 		});
 
 		it('returns warning for $fromAI in nested parameter', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					options: {
 						headers: {
@@ -90,7 +90,7 @@ describe('fromAiValidator', () => {
 		});
 
 		it('returns warning for $fromAI in array parameter', () => {
-			const node = createMockNode('n8n-nodes-base.code', {
+			const node = createMockNode('resin-nodes-base.code', {
 				parameters: {
 					items: ['first', '={{ $fromAI("second") }}', 'third'],
 				},
@@ -108,7 +108,7 @@ describe('fromAiValidator', () => {
 		});
 
 		it('returns no warning for tool node using $fromAI', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.toolHttpRequest', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.toolHttpRequest', {
 				parameters: { url: '={{ $fromAI("url") }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -119,7 +119,7 @@ describe('fromAiValidator', () => {
 		});
 
 		it('returns no warning for non-tool node without $fromAI', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: '={{ $json.name }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -130,7 +130,7 @@ describe('fromAiValidator', () => {
 		});
 
 		it('returns no warning when parameters is undefined', () => {
-			const node = createMockNode('n8n-nodes-base.set', {});
+			const node = createMockNode('resin-nodes-base.set', {});
 			const ctx = createMockPluginContext();
 
 			const issues = fromAiValidator.validateNode(node, createGraphNode(node), ctx);
@@ -139,7 +139,7 @@ describe('fromAiValidator', () => {
 		});
 
 		it('includes nodeName in issues', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: '={{ $fromAI("name") }}' },
 			});
 			Object.assign(node, { name: 'My Set Node' });
@@ -151,7 +151,7 @@ describe('fromAiValidator', () => {
 		});
 
 		it('detects $fromAI anywhere in string value', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: 'prefix $fromAI("name") suffix' },
 			});
 			const ctx = createMockPluginContext();

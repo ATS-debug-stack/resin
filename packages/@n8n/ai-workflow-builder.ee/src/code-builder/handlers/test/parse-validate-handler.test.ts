@@ -2,13 +2,13 @@
  * Tests for ParseValidateHandler
  */
 
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
-import { parseWorkflowCodeToBuilder, validateWorkflow, workflow } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
+import { parseWorkflowCodeToBuilder, validateWorkflow, workflow } from '@resin/workflow-sdk';
 
 import { ParseValidateHandler } from '../parse-validate-handler';
 
 // Mock the workflow-sdk module
-jest.mock('@n8n/workflow-sdk', () => ({
+jest.mock('@resin/workflow-sdk', () => ({
 	parseWorkflowCodeToBuilder: jest.fn(),
 	validateWorkflow: jest.fn(),
 	workflow: { fromJSON: jest.fn() },
@@ -319,7 +319,7 @@ describe('ParseValidateHandler', () => {
 		const nonEmptyJson = {
 			id: 'test',
 			name: 'Test',
-			nodes: [{ type: 'n8n-nodes-base.set' }],
+			nodes: [{ type: 'resin-nodes-base.set' }],
 			connections: {},
 		} as unknown as WorkflowJSON;
 
@@ -403,7 +403,7 @@ describe('ParseValidateHandler', () => {
 		const nonEmptyJson = {
 			id: 'test',
 			name: 'Test',
-			nodes: [{ type: 'n8n-nodes-base.set' }],
+			nodes: [{ type: 'resin-nodes-base.set' }],
 			connections: {},
 		} as unknown as WorkflowJSON;
 

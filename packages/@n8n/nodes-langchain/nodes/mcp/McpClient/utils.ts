@@ -4,7 +4,7 @@ import type {
 	FieldType,
 	INodePropertyOptions,
 	IDataObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 function pickFirstSchema(schema: JSONSchema7Definition): JSONSchema7Definition {
 	if (typeof schema === 'object' && (schema?.anyOf || schema?.oneOf)) {

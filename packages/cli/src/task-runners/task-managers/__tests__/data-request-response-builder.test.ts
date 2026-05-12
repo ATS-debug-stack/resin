@@ -1,4 +1,4 @@
-import type { PartialAdditionalData, TaskData } from '@n8n/task-runner';
+import type { PartialAdditionalData, TaskData } from '@resin/task-runner';
 import { mock } from 'jest-mock-extended';
 import {
 	createRunExecutionData,
@@ -7,7 +7,7 @@ import {
 	type INodeExecutionData,
 	type IRunExecutionData,
 	type Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { DataRequestResponseBuilder } from '../data-request-response-builder';
 

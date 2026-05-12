@@ -1,7 +1,7 @@
 import { ref, readonly } from 'vue';
 import { createEventHook } from '@vueuse/core';
-import { BINARY_MODE_SEPARATE, deepCopy } from 'n8n-workflow';
-import type { IWorkflowSettings } from 'n8n-workflow';
+import { BINARY_MODE_SEPARATE, deepCopy } from 'resin-workflow';
+import type { IWorkflowSettings } from 'resin-workflow';
 import { CHANGE_ACTION } from './types';
 import type { ChangeAction, ChangeEvent } from './types';
 

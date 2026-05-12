@@ -1,4 +1,4 @@
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 
 import {
 	node,
@@ -17,18 +17,18 @@ describe('Node Builder', () => {
 	describe('node()', () => {
 		it('should create a node from object with type, version, and config', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { parameters: { url: 'https://api.example.com' } },
 			});
-			expect(n.type).toBe('n8n-nodes-base.httpRequest');
+			expect(n.type).toBe('resin-nodes-base.httpRequest');
 			expect(n.version).toBe('4.2');
 			expect(n.config.parameters).toEqual({ url: 'https://api.example.com' });
 		});
 
 		it('should work with agent node types', () => {
 			const agentNode = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 3.1,
 				config: {
 					parameters: {
@@ -37,13 +37,13 @@ describe('Node Builder', () => {
 					},
 				},
 			});
-			expect(agentNode.type).toBe('@n8n/n8n-nodes-langchain.agent');
+			expect(agentNode.type).toBe('@resin/n8n-nodes-langchain.agent');
 			expect(agentNode.version).toBe('3.1');
 		});
 
 		it('should support integer versions', () => {
 			const n = node({
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				version: 2,
 				config: {},
 			});
@@ -52,7 +52,7 @@ describe('Node Builder', () => {
 
 		it('should create a node with parameters', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					parameters: { url: 'https://api.example.com', method: 'GET' },
@@ -66,7 +66,7 @@ describe('Node Builder', () => {
 
 		it('should create a node with credentials', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					credentials: { httpBasicAuth: { name: 'My Creds', id: '123' } },
@@ -79,7 +79,7 @@ describe('Node Builder', () => {
 
 		it('should create a node with execution options', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					parameters: { url: 'https://api.example.com' },
@@ -94,21 +94,21 @@ describe('Node Builder', () => {
 		});
 
 		it('should auto-generate a unique ID', () => {
-			const n1 = node({ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: {} });
-			const n2 = node({ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: {} });
+			const n1 = node({ type: 'resin-nodes-base.httpRequest', version: 4.2, config: {} });
+			const n2 = node({ type: 'resin-nodes-base.httpRequest', version: 4.2, config: {} });
 			expect(n1.id).toBeDefined();
 			expect(n2.id).toBeDefined();
 			expect(n1.id).not.toBe(n2.id);
 		});
 
 		it('should auto-generate a name from type if not provided', () => {
-			const n = node({ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: {} });
+			const n = node({ type: 'resin-nodes-base.httpRequest', version: 4.2, config: {} });
 			expect(n.name).toBe('HTTP Request');
 		});
 
 		it('should use custom name if provided', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Fetch API Data' },
 			});
@@ -117,7 +117,7 @@ describe('Node Builder', () => {
 
 		it('should support position', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { position: [100, 200] },
 			});
@@ -126,7 +126,7 @@ describe('Node Builder', () => {
 
 		it('should support disabled state', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { disabled: true },
 			});
@@ -135,7 +135,7 @@ describe('Node Builder', () => {
 
 		it('should support notes', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					notes: 'This fetches user data',
@@ -148,7 +148,7 @@ describe('Node Builder', () => {
 
 		it('should support update() to modify configuration', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { parameters: { url: 'https://old-url.com' } },
 			});
@@ -164,20 +164,20 @@ describe('Node Builder', () => {
 	describe('trigger()', () => {
 		it('should create a trigger from object with type, version, and config', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.scheduleTrigger',
+				type: 'resin-nodes-base.scheduleTrigger',
 				version: 1.1,
 				config: {
 					parameters: { rule: { interval: [{ field: 'hours', hour: 8 }] } },
 				},
 			});
-			expect(t.type).toBe('n8n-nodes-base.scheduleTrigger');
+			expect(t.type).toBe('resin-nodes-base.scheduleTrigger');
 			expect(t.version).toBe('1.1');
 			expect(t.isTrigger).toBe(true);
 		});
 
 		it('should support integer versions', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.webhookTrigger',
+				type: 'resin-nodes-base.webhookTrigger',
 				version: 2,
 				config: {},
 			});
@@ -186,7 +186,7 @@ describe('Node Builder', () => {
 		});
 
 		it('should auto-generate name for trigger', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			expect(t.name).toBe('Webhook Trigger');
 		});
 	});
@@ -194,7 +194,7 @@ describe('Node Builder', () => {
 	describe('sticky()', () => {
 		it('should create a sticky note with content', () => {
 			const s = sticky('## Documentation');
-			expect(s.type).toBe('n8n-nodes-base.stickyNote');
+			expect(s.type).toBe('resin-nodes-base.stickyNote');
 			expect(s.config.parameters?.content).toBe('## Documentation');
 		});
 
@@ -216,12 +216,12 @@ describe('Node Builder', () => {
 
 		it('should auto-position around nodes when nodes array is provided as second parameter', () => {
 			const n1 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP 1', position: [400, 300] },
 			});
 			const n2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set', position: [700, 300] },
 			});
@@ -242,7 +242,7 @@ describe('Node Builder', () => {
 		it('should work with empty nodes array as second parameter', () => {
 			const s = sticky('## Note', [], { color: 4 });
 
-			expect(s.type).toBe('n8n-nodes-base.stickyNote');
+			expect(s.type).toBe('resin-nodes-base.stickyNote');
 			expect(s.config.parameters?.content).toBe('## Note');
 			expect(s.config.parameters?.color).toBe(4);
 			// No nodes means no auto-positioning
@@ -251,7 +251,7 @@ describe('Node Builder', () => {
 
 		it('should allow manual position to override nodes bounding box', () => {
 			const n1 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP', position: [400, 300] },
 			});
@@ -302,7 +302,7 @@ describe('Node Builder', () => {
 
 		it('should not crash when nodes array contains a SplitInBatchesBuilder', () => {
 			const sibNode = node({
-				type: 'n8n-nodes-base.splitInBatches',
+				type: 'resin-nodes-base.splitInBatches',
 				version: 1,
 				config: { name: 'SIB', position: [500, 400] },
 			});
@@ -310,7 +310,7 @@ describe('Node Builder', () => {
 
 			const s = sticky('## Batch Processing', [sibBuilder as never], { color: 3 });
 
-			expect(s.type).toBe('n8n-nodes-base.stickyNote');
+			expect(s.type).toBe('resin-nodes-base.stickyNote');
 			expect(s.config.parameters?.content).toBe('## Batch Processing');
 			// Should use the sibNode's position for bounding box
 			expect(s.config.position).toEqual([450, 350]);
@@ -319,7 +319,7 @@ describe('Node Builder', () => {
 		it('should not crash when nodes array contains an IfElseBuilder', () => {
 			const ifNode = ifElse({ version: 2, config: { name: 'IF Check', position: [300, 200] } });
 			const target = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set', position: [600, 200] },
 			});
@@ -328,7 +328,7 @@ describe('Node Builder', () => {
 
 			const s = sticky('## Conditional Logic', [builder as never]);
 
-			expect(s.type).toBe('n8n-nodes-base.stickyNote');
+			expect(s.type).toBe('resin-nodes-base.stickyNote');
 			expect(s.config.parameters?.content).toBe('## Conditional Logic');
 			// Should use ifNode's position for bounding box
 			expect(s.config.position).toEqual([250, 150]);
@@ -337,7 +337,7 @@ describe('Node Builder', () => {
 		it('should not crash when nodes array contains a SwitchCaseBuilder', () => {
 			const sw = switchCase({ version: 3.2, config: { name: 'Route', position: [400, 300] } });
 			const target = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set', position: [700, 300] },
 			});
@@ -346,7 +346,7 @@ describe('Node Builder', () => {
 
 			const s = sticky('## Routing', [builder as never]);
 
-			expect(s.type).toBe('n8n-nodes-base.stickyNote');
+			expect(s.type).toBe('resin-nodes-base.stickyNote');
 			expect(s.config.parameters?.content).toBe('## Routing');
 			// Should use switchNode's position for bounding box
 			expect(s.config.position).toEqual([350, 250]);
@@ -394,7 +394,7 @@ describe('Node Builder', () => {
 
 		it('should work in node credentials config (placeholder, no id)', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: {
 					parameters: { channel: '#general' },
@@ -409,7 +409,7 @@ describe('Node Builder', () => {
 
 		it('should work in node credentials config (with id)', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: {
 					parameters: { channel: '#general' },
@@ -426,7 +426,7 @@ describe('Node Builder', () => {
 
 		it('should work alongside regular credential references', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					parameters: { url: 'https://api.example.com' },
@@ -447,7 +447,7 @@ describe('Node Builder', () => {
 	describe('placeholder() inside credentials slot', () => {
 		it('normalizes placeholder() to a __newCredential marker carrying the hint as name', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: {
 					parameters: { channel: '#general' },
@@ -466,7 +466,7 @@ describe('Node Builder', () => {
 
 		it('serializes a placeholder() credential to undefined (omitted from JSON)', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: {
 					credentials: { slackApi: placeholder('Slack Bot') },
@@ -480,7 +480,7 @@ describe('Node Builder', () => {
 
 		it('does not leak the <__PLACEHOLDER_VALUE__*> string into serialized credentials', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: {
 					credentials: { slackApi: placeholder('Slack Bot') },
@@ -492,7 +492,7 @@ describe('Node Builder', () => {
 
 		it('normalizes only the placeholder slot, leaving other credentials untouched', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					credentials: {
@@ -510,7 +510,7 @@ describe('Node Builder', () => {
 
 		it('also normalizes when credentials are supplied via update()', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: { parameters: { channel: '#general' } },
 			});
@@ -523,7 +523,7 @@ describe('Node Builder', () => {
 
 		it('normalizes { value: placeholder() } shape to newCredential', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: { credentials: { slackApi: { value: placeholder('Slack token') } } },
 			});
@@ -534,7 +534,7 @@ describe('Node Builder', () => {
 
 		it('normalizes { value: literal } shape to newCredential', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: { credentials: { slackApi: { value: 'My Slack Token' } } },
 			});
@@ -545,7 +545,7 @@ describe('Node Builder', () => {
 
 		it('normalizes { id: placeholder, name: literal } to newCredential keyed by name', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: { credentials: { slackApi: { id: placeholder('id hint'), name: 'Slack Bot' } } },
 			});
@@ -556,7 +556,7 @@ describe('Node Builder', () => {
 
 		it('normalizes { id: placeholder, name: placeholder } to newCredential keyed by name hint', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: {
 					credentials: {
@@ -571,7 +571,7 @@ describe('Node Builder', () => {
 
 		it('passes a raw {id, name} CredentialReference through unchanged', () => {
 			const n = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.2,
 				config: { credentials: { slackApi: { id: 'cred-1', name: 'Slack Bot' } } },
 			});
@@ -582,17 +582,17 @@ describe('Node Builder', () => {
 	describe('then() with multiple targets (fan-out)', () => {
 		it('should connect a node to multiple targets with array syntax', () => {
 			const source = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Source' },
 			});
 			const target1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Target 1' },
 			});
 			const target2 = node({
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				version: 2,
 				config: { name: 'Target 2' },
 			});
@@ -610,17 +610,17 @@ describe('Node Builder', () => {
 
 		it('should connect to multiple targets with specific output index', () => {
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'IF' },
 			});
 			const target1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Target 1' },
 			});
 			const target2 = node({
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				version: 2,
 				config: { name: 'Target 2' },
 			});
@@ -635,12 +635,12 @@ describe('Node Builder', () => {
 
 		it('should work with single target (backward compatible)', () => {
 			const source = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Source' },
 			});
 			const target = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Target' },
 			});
@@ -655,17 +655,17 @@ describe('Node Builder', () => {
 
 		it('should return a chain with all targets included', () => {
 			const source = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Source' },
 			});
 			const target1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Target 1' },
 			});
 			const target2 = node({
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				version: 2,
 				config: { name: 'Target 2' },
 			});
@@ -680,22 +680,22 @@ describe('Node Builder', () => {
 
 		it('should allow chaining after fan-out', () => {
 			const source = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Source' },
 			});
 			const branch1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Branch 1' },
 			});
 			const branch2 = node({
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				version: 2,
 				config: { name: 'Branch 2' },
 			});
 			const finalNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Final' },
 			});
@@ -712,7 +712,7 @@ describe('Node Builder', () => {
 	describe('NodeChain.output() with composite tail', () => {
 		it('should delegate to switchNode when tail is a SwitchCaseBuilder', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: { name: 'Trigger' },
 			});
@@ -721,7 +721,7 @@ describe('Node Builder', () => {
 				config: { name: 'Route' },
 			});
 			const targetA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Branch A' },
 			});
@@ -738,7 +738,7 @@ describe('Node Builder', () => {
 
 		it('should delegate to ifNode when tail is an IfElseBuilder', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: { name: 'Trigger' },
 			});
@@ -747,7 +747,7 @@ describe('Node Builder', () => {
 				config: { name: 'IF Check' },
 			});
 			const target = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'True Branch' },
 			});
@@ -766,23 +766,23 @@ describe('Node Builder', () => {
 	describe('AI nodes with subnodes', () => {
 		it('should create an AI node with subnodes', () => {
 			const modelNode = languageModel({
-				type: 'n8n-nodes-langchain.lmChatOpenAi',
+				type: 'resin-nodes-langchain.lmChatOpenAi',
 				version: 1,
 				config: { parameters: { model: 'gpt-4' } },
 			});
 			const memoryNode = memory({
-				type: 'n8n-nodes-langchain.memoryBufferWindow',
+				type: 'resin-nodes-langchain.memoryBufferWindow',
 				version: 1,
 				config: { parameters: { windowSize: 5 } },
 			});
 			const toolNode = tool({
-				type: 'n8n-nodes-langchain.toolCalculator',
+				type: 'resin-nodes-langchain.toolCalculator',
 				version: 1,
 				config: {},
 			});
 
 			const agentNode = node({
-				type: 'n8n-nodes-langchain.agent',
+				type: 'resin-nodes-langchain.agent',
 				version: 1.6,
 				config: {
 					parameters: { text: '={{ $json.prompt }}' },
@@ -794,7 +794,7 @@ describe('Node Builder', () => {
 				},
 			});
 
-			expect(agentNode.type).toBe('n8n-nodes-langchain.agent');
+			expect(agentNode.type).toBe('resin-nodes-langchain.agent');
 			expect(agentNode.config.subnodes).toBeDefined();
 			expect(agentNode.config.subnodes?.model).toBe(modelNode);
 			expect(agentNode.config.subnodes?.memory).toBe(memoryNode);
@@ -804,13 +804,13 @@ describe('Node Builder', () => {
 
 		it('should create an AI node with output parser', () => {
 			const parserNode = outputParser({
-				type: 'n8n-nodes-langchain.outputParserStructured',
+				type: 'resin-nodes-langchain.outputParserStructured',
 				version: 1.3,
 				config: { parameters: { schemaType: 'manual', inputSchema: '{}' } },
 			});
 
 			const chainNode = node({
-				type: 'n8n-nodes-langchain.chainLlm',
+				type: 'resin-nodes-langchain.chainLlm',
 				version: 1,
 				config: {
 					parameters: {},
@@ -827,7 +827,7 @@ describe('Node Builder', () => {
 	describe('merge() factory', () => {
 		it('should create a merge node with specified version', () => {
 			const mergeNode = merge({ version: 3 });
-			expect(mergeNode.type).toBe('n8n-nodes-base.merge');
+			expect(mergeNode.type).toBe('resin-nodes-base.merge');
 			expect(mergeNode.version).toBe('3');
 		});
 
@@ -880,7 +880,7 @@ describe('Node Builder', () => {
 		it('node() should throw a clear TypeError when called with a string instead of a config object', () => {
 			const fn = () => {
 				// @ts-expect-error intentional misuse
-				node('n8n-nodes-base.httpRequest', { url: 'https://example.com' });
+				node('resin-nodes-base.httpRequest', { url: 'https://example.com' });
 			};
 			expect(fn).toThrow(TypeError);
 			expect(fn).toThrow(/node\(\) requires a configuration object/);
@@ -889,7 +889,7 @@ describe('Node Builder', () => {
 		it('trigger() should throw a clear TypeError when called with a string instead of a config object', () => {
 			const fn = () => {
 				// @ts-expect-error intentional misuse
-				trigger('n8n-nodes-base.webhook', { httpMethod: 'GET', path: 'test' });
+				trigger('resin-nodes-base.webhook', { httpMethod: 'GET', path: 'test' });
 			};
 			expect(fn).toThrow(TypeError);
 			expect(fn).toThrow(/trigger\(\) requires a configuration object/);
@@ -899,7 +899,7 @@ describe('Node Builder', () => {
 			let errorMessage = '';
 			try {
 				// @ts-expect-error intentional misuse
-				node('n8n-nodes-base.httpRequest');
+				node('resin-nodes-base.httpRequest');
 			} catch (e) {
 				errorMessage = (e as Error).message;
 			}
@@ -913,7 +913,7 @@ describe('Node Builder', () => {
 			let errorMessage = '';
 			try {
 				// @ts-expect-error intentional misuse
-				trigger('n8n-nodes-base.webhook');
+				trigger('resin-nodes-base.webhook');
 			} catch (e) {
 				errorMessage = (e as Error).message;
 			}
@@ -926,14 +926,14 @@ describe('Node Builder', () => {
 		it('node() should reject array input with a descriptive TypeError', () => {
 			expect(() => {
 				// @ts-expect-error intentional misuse
-				node([{ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: { parameters: {} } }]);
+				node([{ type: 'resin-nodes-base.httpRequest', version: 4.2, config: { parameters: {} } }]);
 			}).toThrow(/received an array/);
 		});
 
 		it('trigger() should reject array input with a descriptive TypeError', () => {
 			expect(() => {
 				// @ts-expect-error intentional misuse
-				trigger([{ type: 'n8n-nodes-base.webhook', version: 2, config: { parameters: {} } }]);
+				trigger([{ type: 'resin-nodes-base.webhook', version: 2, config: { parameters: {} } }]);
 			}).toThrow(/received an array/);
 		});
 
@@ -954,7 +954,7 @@ describe('Node Builder', () => {
 		it('should not crash when config is undefined', () => {
 			expect(() => {
 				// @ts-expect-error intentional misuse
-				node({ type: 'n8n-nodes-base.set', version: 3, config: undefined });
+				node({ type: 'resin-nodes-base.set', version: 3, config: undefined });
 			}).not.toThrow();
 		});
 	});

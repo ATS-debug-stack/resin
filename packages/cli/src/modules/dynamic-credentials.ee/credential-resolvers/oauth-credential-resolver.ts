@@ -1,4 +1,4 @@
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 import {
 	CredentialResolver,
 	CredentialResolverConfiguration,
@@ -6,9 +6,9 @@ import {
 	CredentialResolverHandle,
 	CredentialResolverValidationError,
 	ICredentialResolver,
-} from '@n8n/decorators';
-import { Cipher } from 'n8n-core';
-import { ICredentialContext, ICredentialDataDecryptedObject, jsonParse } from 'n8n-workflow';
+} from '@resin/decorators';
+import { Cipher } from 'resin-core';
+import { ICredentialContext, ICredentialDataDecryptedObject, jsonParse } from 'resin-workflow';
 import z from 'zod';
 
 import type { ITokenIdentifier } from './identifiers/identifier-interface';

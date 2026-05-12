@@ -1,6 +1,6 @@
-import type { IRestApiContext } from '@n8n/rest-api-client';
-import { makeRestApiRequest } from '@n8n/rest-api-client';
-import type { QuickConnectOption } from '@n8n/api-types';
+import type { IRestApiContext } from '@resin/rest-api-client';
+import { makeRestApiRequest } from '@resin/rest-api-client';
+import type { QuickConnectOption } from '@resin/api-types';
 
 type GetQuickConnectApiKeyResponse = {
 	apiKey: string;

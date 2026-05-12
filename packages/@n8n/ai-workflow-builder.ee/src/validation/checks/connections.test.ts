@@ -1,5 +1,5 @@
-import type { INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 import { DATA_TABLE_NODE_TYPE, SET_NODE_TYPE } from '@/utils/data-table-helpers';
@@ -23,7 +23,7 @@ describe('validateConnections', () => {
 	const mockNodeTypes: INodeTypeDescription[] = [
 		createMockNodeType(DATA_TABLE_NODE_TYPE),
 		createMockNodeType(SET_NODE_TYPE),
-		createMockNodeType('n8n-nodes-base.httpRequest'),
+		createMockNodeType('resin-nodes-base.httpRequest'),
 	];
 
 	describe('data-table-missing-set-node validation', () => {
@@ -34,7 +34,7 @@ describe('validateConnections', () => {
 					{
 						id: '1',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},

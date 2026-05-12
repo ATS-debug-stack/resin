@@ -1,9 +1,9 @@
 import * as fsPromises from 'fs/promises';
 import { mock } from 'jest-mock-extended';
-import type { IExecuteFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
 import type { SimpleGit } from 'simple-git';
-import { Container } from '@n8n/di';
-import { SecurityConfig } from '@n8n/config';
+import { Container } from '@resin/di';
+import { SecurityConfig } from '@resin/config';
 
 import { Git } from '../Git.node';
 import { ALLOWED_CONFIG_KEYS } from '../descriptions';

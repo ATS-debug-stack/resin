@@ -1,6 +1,6 @@
-import { DatabaseConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import { DataSource, EntityManager, IsNull, LessThan, Repository, Not } from '@n8n/typeorm';
+import { DatabaseConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import { DataSource, EntityManager, IsNull, LessThan, Repository, Not } from '@resin/typeorm';
 
 import { WorkflowDependency } from '../entities';
 

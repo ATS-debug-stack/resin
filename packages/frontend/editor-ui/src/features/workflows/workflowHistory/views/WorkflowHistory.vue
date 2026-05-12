@@ -10,7 +10,7 @@ import {
 	WORKFLOW_HISTORY_DIFF_MODAL_KEY,
 	EnterpriseEditionFeature,
 } from '@/app/constants';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useToast } from '@/app/composables/useToast';
 import type {
 	WorkflowHistoryActionTypes,
@@ -18,7 +18,7 @@ import type {
 	WorkflowHistoryRequestParams,
 	WorkflowHistory,
 	WorkflowVersion,
-} from '@n8n/rest-api-client/api/workflowHistory';
+} from '@resin/rest-api-client/api/workflowHistory';
 import WorkflowHistoryList from '../components/WorkflowHistoryList.vue';
 import WorkflowHistoryContent from '../components/WorkflowHistoryContent.vue';
 import WorkflowHistoryDiff from './WorkflowHistoryDiff.vue';
@@ -28,14 +28,14 @@ import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { telemetry } from '@/app/plugins/telemetry';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useWorkflowActivate } from '@/app/composables/useWorkflowActivate';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
-import type { IUser } from 'n8n-workflow';
+import type { IUser } from 'resin-workflow';
 
-import { N8nBadge, N8nButton, N8nHeading } from '@n8n/design-system';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { N8nBadge, N8nButton, N8nHeading } from '@resin/design-system';
+import { createEventBus } from '@resin/utils/event-bus';
 import type { WorkflowHistoryVersionUnpublishModalEventBusEvents } from '../components/WorkflowHistoryVersionUnpublishModal.vue';
 import type { WorkflowVersionFormModalEventBusEvents } from '../components/WorkflowVersionFormModal.vue';
 import type { WorkflowHistoryAction } from '@/features/workflows/workflowHistory/types';

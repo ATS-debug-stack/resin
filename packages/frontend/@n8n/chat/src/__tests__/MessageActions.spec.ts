@@ -2,13 +2,13 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
-import { useChat } from '@n8n/chat/composables';
-import { chatEventBus } from '@n8n/chat/event-buses';
-import type { ChatMessage } from '@n8n/chat/types';
+import { useChat } from '@resin/chat/composables';
+import { chatEventBus } from '@resin/chat/event-buses';
+import type { ChatMessage } from '@resin/chat/types';
 
 import MessageActions from '../components/MessageActions.vue';
 
-vi.mock('@n8n/design-system', () => ({
+vi.mock('@resin/design-system', () => ({
 	N8nTooltip: {
 		name: 'N8nTooltip',
 		template: '<div><slot /></div>',
@@ -20,7 +20,7 @@ vi.mock('@n8n/design-system', () => ({
 	},
 }));
 
-vi.mock('@n8n/chat/composables', () => ({
+vi.mock('@resin/chat/composables', () => ({
 	useChat: vi.fn(() => ({
 		sendMessage: vi.fn(),
 	})),
@@ -34,7 +34,7 @@ vi.mock('@n8n/chat/composables', () => ({
 	}),
 }));
 
-vi.mock('@n8n/chat/event-buses', () => ({
+vi.mock('@resin/chat/event-buses', () => ({
 	chatEventBus: {
 		emit: vi.fn(),
 	},

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import type { SourceControlledFile } from '@n8n/api-types';
-import { SOURCE_CONTROL_FILE_TYPE } from '@n8n/api-types';
+import { useI18n } from '@resin/i18n';
+import type { SourceControlledFile } from '@resin/api-types';
+import { SOURCE_CONTROL_FILE_TYPE } from '@resin/api-types';
 import { VIEWS } from '@/app/constants';
 import Modal from '@/app/components/Modal.vue';
-import { N8nButton, N8nHeading, N8nText, N8nInfoTip } from '@n8n/design-system';
+import { N8nButton, N8nHeading, N8nText, N8nInfoTip } from '@resin/design-system';
 import { useUIStore } from '@/app/stores/ui.store';
 
 type TabType = 'failed' | 'published';

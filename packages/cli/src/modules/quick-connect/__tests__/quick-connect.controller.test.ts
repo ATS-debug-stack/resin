@@ -1,5 +1,5 @@
-import type { GetQuickConnectApiKeyDto } from '@n8n/api-types';
-import type { AuthenticatedRequest, User } from '@n8n/db';
+import type { GetQuickConnectApiKeyDto } from '@resin/api-types';
+import type { AuthenticatedRequest, User } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import { QuickConnectController } from '../quick-connect.controller';

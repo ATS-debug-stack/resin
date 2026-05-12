@@ -103,13 +103,13 @@ export interface PgStatIoRow {
 }
 
 export interface N8nMainMetrics extends BaseServiceMetrics {
-	kind: 'n8n-main';
+	kind: 'resin-main';
 	/** Sum across replicas. */
 	eventLoopLagSec?: number;
 }
 
 export interface N8nWorkerMetrics extends BaseServiceMetrics {
-	kind: 'n8n-worker';
+	kind: 'resin-worker';
 	queueWaiting?: number;
 	queueActive?: number;
 	queueCompletedRate?: number;
@@ -156,7 +156,7 @@ export function diagnosticsToServiceEntries(diag: DiagnosticsResult): ServiceMet
 	const services: ServiceMetrics[] = [];
 
 	if (diag.eventLoopLag !== undefined) {
-		services.push({ kind: 'n8n-main', name: 'n8n-main', eventLoopLagSec: diag.eventLoopLag });
+		services.push({ kind: 'resin-main', name: 'resin-main', eventLoopLagSec: diag.eventLoopLag });
 	}
 
 	if (
@@ -166,8 +166,8 @@ export function diagnosticsToServiceEntries(diag: DiagnosticsResult): ServiceMet
 		diag.queueFailedRate !== undefined
 	) {
 		services.push({
-			kind: 'n8n-worker',
-			name: 'n8n-worker',
+			kind: 'resin-worker',
+			name: 'resin-worker',
 			queueWaiting: diag.queueWaiting,
 			queueActive: diag.queueActive,
 			queueCompletedRate: diag.queueCompletedRate,

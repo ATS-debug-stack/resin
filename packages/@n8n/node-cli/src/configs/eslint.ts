@@ -1,5 +1,5 @@
 import eslint from '@eslint/js';
-import { n8nCommunityNodesPlugin } from '@n8n/eslint-plugin-community-nodes';
+import { n8nCommunityNodesPlugin } from '@resin/eslint-plugin-community-nodes';
 import { globalIgnores } from 'eslint/config';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import importPlugin from 'eslint-plugin-import-x';
@@ -27,7 +27,7 @@ function createConfig(supportCloud = true): ConfigArray {
 			},
 		},
 		{
-			plugins: { 'n8n-nodes-base': n8nNodesPlugin },
+			plugins: { 'resin-nodes-base': n8nNodesPlugin },
 			settings: {
 				'import-x/resolver-next': [createTypeScriptImportResolver()],
 			},
@@ -39,7 +39,7 @@ function createConfig(supportCloud = true): ConfigArray {
 			// valid-peer-dependencies, no-forbidden-lifecycle-scripts) actually
 			// fire. The `**/*.ts` block above scopes its `extends:` to TypeScript
 			// only, which means ESLint never lints package.json under that block —
-			// see CE-1023 for the analogous issue in @n8n/scan-community-package.
+			// see CE-1023 for the analogous issue in @resin/scan-community-package.
 			extends: [communityNodesRecommended],
 			rules: {
 				...n8nNodesPlugin.configs.community.rules,
@@ -56,9 +56,9 @@ function createConfig(supportCloud = true): ConfigArray {
 			rules: {
 				...n8nNodesPlugin.configs.credentials.rules,
 				// Not valid for community nodes
-				'n8n-nodes-base/cred-class-field-documentation-url-miscased': 'off',
-				// @n8n/eslint-plugin-community-nodes credential-password-field rule is more accurate
-				'n8n-nodes-base/cred-class-field-type-options-password-missing': 'off',
+				'resin-nodes-base/cred-class-field-documentation-url-miscased': 'off',
+				// @resin/eslint-plugin-community-nodes credential-password-field rule is more accurate
+				'resin-nodes-base/cred-class-field-type-options-password-missing': 'off',
 			},
 		},
 		{
@@ -66,10 +66,10 @@ function createConfig(supportCloud = true): ConfigArray {
 			rules: {
 				...n8nNodesPlugin.configs.nodes.rules,
 				// Inputs and outputs can be enum instead of string "main"
-				'n8n-nodes-base/node-class-description-inputs-wrong-regular-node': 'off',
-				'n8n-nodes-base/node-class-description-outputs-wrong': 'off',
+				'resin-nodes-base/node-class-description-inputs-wrong-regular-node': 'off',
+				'resin-nodes-base/node-class-description-outputs-wrong': 'off',
 				// Sometimes the 3rd party API does have a maximum limit, so maxValue is valid
-				'n8n-nodes-base/node-param-type-options-max-value-present': 'off',
+				'resin-nodes-base/node-param-type-options-max-value-present': 'off',
 			},
 		},
 	);

@@ -11,10 +11,10 @@ function makeWorkflow(overrides: Partial<WorkflowResponse> = {}): WorkflowRespon
 		active: false,
 		versionId: 'v-1',
 		nodes: [
-			{ name: 'Webhook', type: 'n8n-nodes-base.webhook' },
+			{ name: 'Webhook', type: 'resin-nodes-base.webhook' },
 			{
 				name: 'Set',
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				parameters: { assignments: { assignments: [{ name: 'x', value: '1' }] } },
 			},
 		],
@@ -40,7 +40,7 @@ describe('binary checks', () => {
 
 	it('fails has_trigger when no trigger node exists', async () => {
 		const workflow = makeWorkflow({
-			nodes: [{ name: 'Set', type: 'n8n-nodes-base.set', parameters: {} }],
+			nodes: [{ name: 'Set', type: 'resin-nodes-base.set', parameters: {} }],
 			connections: {},
 		});
 		const feedback = await runBinaryChecks(workflow, ctx);
@@ -51,9 +51,9 @@ describe('binary checks', () => {
 	it('fails all_nodes_connected for disconnected node', async () => {
 		const workflow = makeWorkflow({
 			nodes: [
-				{ name: 'Webhook', type: 'n8n-nodes-base.webhook' },
-				{ name: 'Set', type: 'n8n-nodes-base.set', parameters: {} },
-				{ name: 'Orphan', type: 'n8n-nodes-base.code', parameters: {} },
+				{ name: 'Webhook', type: 'resin-nodes-base.webhook' },
+				{ name: 'Set', type: 'resin-nodes-base.set', parameters: {} },
+				{ name: 'Orphan', type: 'resin-nodes-base.code', parameters: {} },
 			],
 			connections: {
 				Webhook: { main: [[{ node: 'Set', type: 'main', index: 0 }]] },
@@ -68,8 +68,8 @@ describe('binary checks', () => {
 	it('fails no_empty_set_nodes when Set has no assignments', async () => {
 		const workflow = makeWorkflow({
 			nodes: [
-				{ name: 'Webhook', type: 'n8n-nodes-base.webhook' },
-				{ name: 'EmptySet', type: 'n8n-nodes-base.set', parameters: {} },
+				{ name: 'Webhook', type: 'resin-nodes-base.webhook' },
+				{ name: 'EmptySet', type: 'resin-nodes-base.set', parameters: {} },
 			],
 			connections: {
 				Webhook: { main: [[{ node: 'EmptySet', type: 'main', index: 0 }]] },
@@ -84,8 +84,8 @@ describe('binary checks', () => {
 	it('fails no_disabled_nodes when a node is disabled', async () => {
 		const workflow = makeWorkflow({
 			nodes: [
-				{ name: 'Webhook', type: 'n8n-nodes-base.webhook' },
-				{ name: 'Set', type: 'n8n-nodes-base.set', parameters: {}, disabled: true },
+				{ name: 'Webhook', type: 'resin-nodes-base.webhook' },
+				{ name: 'Set', type: 'resin-nodes-base.set', parameters: {}, disabled: true },
 			],
 			connections: {
 				Webhook: { main: [[{ node: 'Set', type: 'main', index: 0 }]] },
@@ -101,10 +101,10 @@ describe('binary checks', () => {
 			nodes: [
 				{
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					parameters: { authentication: 'basicAuth' },
 				},
-				{ name: 'Set', type: 'n8n-nodes-base.set', parameters: {} },
+				{ name: 'Set', type: 'resin-nodes-base.set', parameters: {} },
 			],
 		});
 
@@ -120,10 +120,10 @@ describe('binary checks', () => {
 			nodes: [
 				{
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					parameters: { authentication: 'headerAuth' },
 				},
-				{ name: 'Set', type: 'n8n-nodes-base.set', parameters: {} },
+				{ name: 'Set', type: 'resin-nodes-base.set', parameters: {} },
 			],
 		});
 

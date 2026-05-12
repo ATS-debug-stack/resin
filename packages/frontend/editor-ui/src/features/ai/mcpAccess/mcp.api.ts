@@ -3,10 +3,10 @@ import type {
 	InstanceMcpClientStatsResponseDto,
 	ListOAuthClientsResponseDto,
 	DeleteOAuthClientResponseDto,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import type { WorkflowListItem } from '@/Interface';
-import type { IRestApiContext } from '@n8n/rest-api-client';
-import { makeRestApiRequest, getFullApiResponse } from '@n8n/rest-api-client';
+import type { IRestApiContext } from '@resin/rest-api-client';
+import { makeRestApiRequest, getFullApiResponse } from '@resin/rest-api-client';
 
 export type McpSettingsResponse = {
 	mcpAccessEnabled: boolean;

@@ -20,7 +20,7 @@ describe('graph validation', () => {
 		test('returns no error when workflow has nodes', () => {
 			const wf = workflow('test-id', 'Test Workflow').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1.1,
 					config: { name: 'Start' },
 				}),
@@ -37,7 +37,7 @@ describe('graph validation', () => {
 		test('returns warning when workflow has no trigger', () => {
 			const wf = workflow('test-id', 'No Trigger Workflow').add(
 				node({
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					version: 4.2,
 					config: { name: 'HTTP Request' },
 				}),
@@ -56,7 +56,7 @@ describe('graph validation', () => {
 		test('returns no warning when workflow has a trigger', () => {
 			const wf = workflow('test-id', 'Test Workflow').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1.1,
 					config: { name: 'Start' },
 				}),
@@ -71,7 +71,7 @@ describe('graph validation', () => {
 		test('respects allowNoTrigger option', () => {
 			const wf = workflow('test-id', 'No Trigger Workflow').add(
 				node({
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					version: 4.2,
 					config: { name: 'HTTP Request' },
 				}),
@@ -89,14 +89,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Agent Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 3.1,
 						config: {
 							name: 'AI Agent',
@@ -121,14 +121,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Agent Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 3.1,
 						config: {
 							name: 'AI Agent',
@@ -150,14 +150,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Agent Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 3.1,
 						config: {
 							name: 'AI Agent',
@@ -183,14 +183,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Agent Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 3.1,
 						config: {
 							name: 'AI Agent',
@@ -215,14 +215,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Agent Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 3.1,
 						config: {
 							name: 'AI Agent',
@@ -247,14 +247,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'HTTP Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4.2,
 						config: {
 							name: 'HTTP Request',
@@ -287,14 +287,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'HTTP Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4.2,
 						config: {
 							name: 'HTTP Request',
@@ -324,14 +324,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'HTTP Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4.2,
 						config: {
 							name: 'HTTP Request',
@@ -366,14 +366,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Set Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -405,14 +405,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Set Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -441,7 +441,7 @@ describe('graph validation', () => {
 	describe('checkMergeNode', () => {
 		test('returns warning when Merge node has only one input', () => {
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge' },
 			});
@@ -449,7 +449,7 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Merge Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
@@ -467,25 +467,25 @@ describe('graph validation', () => {
 
 		test('returns no warning when Merge node has multiple inputs', () => {
 			const startTrigger = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1.1,
 				config: { name: 'Start', position: [0, 0] },
 			});
 
 			const branch1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Branch 1', position: [200, 0] },
 			});
 
 			const branch2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Branch 2', position: [200, 200] },
 			});
 
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge', position: [400, 100] },
 			});
@@ -509,14 +509,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Disconnected Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.add(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4.2,
 						config: { name: 'Orphan HTTP Request' },
 					}),
@@ -535,7 +535,7 @@ describe('graph validation', () => {
 		test('returns no warning for trigger nodes without incoming connections', () => {
 			const wf = workflow('test-id', 'Test Workflow').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1.1,
 					config: { name: 'Start' },
 				}),
@@ -551,14 +551,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Connected Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4.2,
 						config: { name: 'Connected HTTP' },
 					}),
@@ -574,14 +574,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Disconnected Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.add(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4.2,
 						config: { name: 'Orphan HTTP Request' },
 					}),
@@ -597,14 +597,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Workflow With Sticky Note')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4.2,
 						config: { name: 'HTTP Request' },
 					}),
@@ -626,7 +626,7 @@ describe('graph validation', () => {
 					{
 						id: 'node-1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -634,7 +634,7 @@ describe('graph validation', () => {
 					{
 						id: 'node-2',
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [200, 0],
 						parameters: {},
@@ -656,13 +656,13 @@ describe('graph validation', () => {
 
 		test('does not flag subnodes connected to agent as disconnected', () => {
 			const model = languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1.2,
 				config: { parameters: { model: 'gpt-4' } },
 			});
 
 			const codeTool = tool({
-				type: '@n8n/n8n-nodes-langchain.toolCode',
+				type: '@resin/n8n-nodes-langchain.toolCode',
 				version: 1.1,
 				config: { parameters: { code: 'return "hello"' } },
 			});
@@ -670,14 +670,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'AI Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 1.7,
 						config: {
 							name: 'AI Agent',
@@ -703,14 +703,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'FromAI Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4.2,
 						config: {
 							name: 'HTTP Request',
@@ -735,14 +735,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Tool Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.toolHttpRequest',
+						type: '@resin/n8n-nodes-langchain.toolHttpRequest',
 						version: 1.1,
 						config: {
 							name: 'HTTP Tool',
@@ -763,14 +763,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Regular Expression Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4.2,
 						config: {
 							name: 'HTTP Request',
@@ -793,14 +793,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'ChainLlm Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.chainLlm',
+						type: '@resin/n8n-nodes-langchain.chainLlm',
 						version: 1.9,
 						config: {
 							name: 'LLM Chain',
@@ -823,14 +823,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'ChainLlm Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.chainLlm',
+						type: '@resin/n8n-nodes-langchain.chainLlm',
 						version: 1.9,
 						config: {
 							name: 'LLM Chain',
@@ -852,14 +852,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'ChainLlm Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.chainLlm',
+						type: '@resin/n8n-nodes-langchain.chainLlm',
 						version: 1.3,
 						config: {
 							name: 'LLM Chain',
@@ -882,14 +882,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -919,14 +919,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -955,14 +955,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -991,14 +991,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 3.1,
 						config: {
 							name: 'AI Agent',
@@ -1028,12 +1028,12 @@ describe('graph validation', () => {
 		test('warning includes both renamed and original name for disconnected node', () => {
 			// Create two nodes with same name - second gets renamed to "Process 1"
 			const process1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Process' },
 			});
 			const process2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Process' },
 			});
@@ -1041,7 +1041,7 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Test')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
@@ -1064,7 +1064,7 @@ describe('graph validation', () => {
 
 		test('warning does not include original name when node was not renamed', () => {
 			const processNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Process' },
 			});
@@ -1072,7 +1072,7 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Test')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
@@ -1095,7 +1095,7 @@ describe('graph validation', () => {
 			// Create two Set nodes with credential-like field names
 			// Using .add() for second node to trigger auto-rename (set2 becomes "Store Data 1")
 			const set1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: {
 					name: 'Store Data',
@@ -1109,7 +1109,7 @@ describe('graph validation', () => {
 				},
 			});
 			const set2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: {
 					name: 'Store Data',
@@ -1126,7 +1126,7 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Test')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
@@ -1153,14 +1153,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Tool Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.toolHttpRequest',
+						type: '@resin/n8n-nodes-langchain.toolHttpRequest',
 						version: 1.1,
 						config: {
 							name: 'HTTP Tool',
@@ -1182,14 +1182,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Tool Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.toolHttpRequest',
+						type: '@resin/n8n-nodes-langchain.toolHttpRequest',
 						version: 1.1,
 						config: {
 							name: 'HTTP Tool',
@@ -1210,14 +1210,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Tool Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.toolCalculator',
+						type: '@resin/n8n-nodes-langchain.toolCalculator',
 						version: 1,
 						config: {
 							name: 'Calculator',
@@ -1238,14 +1238,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Invalid Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.embeddingsGoogleGemini',
+						type: '@resin/n8n-nodes-langchain.embeddingsGoogleGemini',
 						version: 1,
 						config: {
 							name: 'Bad Embeddings',
@@ -1271,14 +1271,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Invalid Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						version: 1,
 						config: {
 							name: 'Bad LLM',
@@ -1304,14 +1304,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Valid Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.vectorStoreSupabase',
+						type: '@resin/n8n-nodes-langchain.vectorStoreSupabase',
 						version: 1.1,
 						config: {
 							name: 'Vector Store',
@@ -1320,7 +1320,7 @@ describe('graph validation', () => {
 							},
 							subnodes: {
 								embedding: embedding({
-									type: '@n8n/n8n-nodes-langchain.embeddingsGoogleGemini',
+									type: '@resin/n8n-nodes-langchain.embeddingsGoogleGemini',
 									version: 1,
 									config: {
 										parameters: {
@@ -1343,14 +1343,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Valid Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 3.1,
 						config: {
 							name: 'Agent',
@@ -1359,7 +1359,7 @@ describe('graph validation', () => {
 							},
 							subnodes: {
 								model: languageModel({
-									type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+									type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 									version: 1.2,
 									config: {
 										parameters: {
@@ -1382,14 +1382,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Vector Store Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.vectorStoreSupabase',
+						type: '@resin/n8n-nodes-langchain.vectorStoreSupabase',
 						version: 1.1,
 						config: {
 							name: 'Vector Store',
@@ -1410,14 +1410,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Tool Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: '@n8n/n8n-nodes-langchain.toolCode',
+						type: '@resin/n8n-nodes-langchain.toolCode',
 						version: 1,
 						config: {
 							name: 'Code Tool',
@@ -1452,12 +1452,12 @@ describe('graph validation', () => {
 
 		test('returns no error when node count is within maxNodes limit', () => {
 			const nodeTypesProvider = createMockNodeTypesProvider({
-				'n8n-nodes-base.manualTrigger': 1,
+				'resin-nodes-base.manualTrigger': 1,
 			});
 
 			const wf = workflow('test-id', 'Test Workflow').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1.1,
 					config: { name: 'Start' },
 				}),
@@ -1471,20 +1471,20 @@ describe('graph validation', () => {
 
 		test('returns error when workflow exceeds maxNodes limit', () => {
 			const nodeTypesProvider = createMockNodeTypesProvider({
-				'n8n-nodes-base.manualTrigger': 1,
+				'resin-nodes-base.manualTrigger': 1,
 			});
 
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start 1' },
 					}),
 				)
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start 2' },
 					}),
@@ -1503,20 +1503,20 @@ describe('graph validation', () => {
 
 		test('returns error for chat trigger when maxNodes: 1 exceeded', () => {
 			const nodeTypesProvider = createMockNodeTypesProvider({
-				'@n8n/n8n-nodes-langchain.chatTrigger': 1,
+				'@resin/n8n-nodes-langchain.chatTrigger': 1,
 			});
 
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: '@n8n/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/n8n-nodes-langchain.chatTrigger',
 						version: 1.1,
 						config: { name: 'Chat 1' },
 					}),
 				)
 				.add(
 					trigger({
-						type: '@n8n/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/n8n-nodes-langchain.chatTrigger',
 						version: 1.1,
 						config: { name: 'Chat 2' },
 					}),
@@ -1534,27 +1534,27 @@ describe('graph validation', () => {
 
 		test('allows maxNodes: 2 when exactly 2 nodes exist', () => {
 			const nodeTypesProvider = createMockNodeTypesProvider({
-				'n8n-nodes-base.set': 2,
+				'resin-nodes-base.set': 2,
 			});
 
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: { name: 'Set 1' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: { name: 'Set 2' },
 					}),
@@ -1568,21 +1568,21 @@ describe('graph validation', () => {
 
 		test('returns error when exceeding maxNodes: 2', () => {
 			const nodeTypesProvider = createMockNodeTypesProvider({
-				'n8n-nodes-base.set': 2,
+				'resin-nodes-base.set': 2,
 			});
 
 			const set1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set 1' },
 			});
 			const set2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set 2' },
 			});
 			const set3 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set 3' },
 			});
@@ -1590,7 +1590,7 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start' },
 					}),
@@ -1614,14 +1614,14 @@ describe('graph validation', () => {
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start 1' },
 					}),
 				)
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Start 2' },
 					}),
@@ -1637,21 +1637,21 @@ describe('graph validation', () => {
 
 		test('allows mixing different node types with maxNodes: 1', () => {
 			const nodeTypesProvider = createMockNodeTypesProvider({
-				'n8n-nodes-base.manualTrigger': 1,
-				'n8n-nodes-base.scheduleTrigger': 1,
+				'resin-nodes-base.manualTrigger': 1,
+				'resin-nodes-base.scheduleTrigger': 1,
 			});
 
 			const wf = workflow('test-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1.1,
 						config: { name: 'Manual Start' },
 					}),
 				)
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.scheduleTrigger',
+						type: 'resin-nodes-base.scheduleTrigger',
 						version: 1.2,
 						config: { name: 'Schedule Start' },
 					}),

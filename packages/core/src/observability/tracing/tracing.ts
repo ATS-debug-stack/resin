@@ -1,11 +1,11 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import type {
 	StartSpanOptions as SentryStartSpanOptions,
 	SpanContextData as SentrySpanContextData,
 	SpanAttributes as SentrySpanAttributes,
 } from '@sentry/core';
 import type Sentry from '@sentry/node';
-import type { INode, IWorkflowBase } from 'n8n-workflow';
+import type { INode, IWorkflowBase } from 'resin-workflow';
 
 import { NoopTracing } from './noop-tracing';
 

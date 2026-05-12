@@ -1,10 +1,10 @@
 import { TypedEmitter } from '@/typed-emitter';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { MultiMainMetadata } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { ErrorReporter, InstanceSettings } from 'n8n-core';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { MultiMainMetadata } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { ErrorReporter, InstanceSettings } from 'resin-core';
 
 import type * as LeaderElectionClientModule from '@/scaling/leader-election-client';
 import { Publisher } from '@/scaling/pubsub/publisher.service';

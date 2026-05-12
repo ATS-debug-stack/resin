@@ -3,8 +3,8 @@ import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
-import { isObjectEmpty, jsonParse, updateDisplayOptions } from 'n8n-workflow';
+} from 'resin-workflow';
+import { isObjectEmpty, jsonParse, updateDisplayOptions } from 'resin-workflow';
 
 import { apiRequest } from '../../../transport';
 import { metadataProperty, textMessageProperties } from '../descriptions';

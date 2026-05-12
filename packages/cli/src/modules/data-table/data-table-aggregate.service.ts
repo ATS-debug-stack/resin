@@ -1,12 +1,12 @@
-import type { ListDataTableQueryDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { User } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { ListDataTableQueryDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { User } from '@resin/db';
+import { Service } from '@resin/di';
 
 import { ProjectService } from '@/services/project.service.ee';
 
 import { DataTableRepository } from './data-table.repository';
-import { hasGlobalScope } from '@n8n/permissions';
+import { hasGlobalScope } from '@resin/permissions';
 
 @Service()
 export class DataTableAggregateService {

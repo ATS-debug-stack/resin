@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia';
 import { computed, ref, watch } from 'vue';
-import type { PushMessage } from '@n8n/api-types';
+import type { PushMessage } from '@resin/api-types';
 
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { DEBOUNCE_TIME, getDebounceTime } from '@/app/constants/durations';
 import { useSettingsStore } from './settings.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useWebSocketClient } from '@/app/push-connection/useWebSocketClient';
 import { useEventSourceClient } from '@/app/push-connection/useEventSourceClient';
 

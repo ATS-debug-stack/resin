@@ -1,4 +1,4 @@
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 import * as path from 'node:path';
 
 /**

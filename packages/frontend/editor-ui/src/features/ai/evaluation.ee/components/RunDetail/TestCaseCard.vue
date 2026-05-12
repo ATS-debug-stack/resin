@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import type { BaseTextKey } from '@n8n/i18n';
-import { N8nCard } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import type { BaseTextKey } from '@resin/i18n';
+import { N8nCard } from '@resin/design-system';
 import type { TestCaseExecutionRecord } from '../../evaluation.api';
 import {
 	computeDurationMs,

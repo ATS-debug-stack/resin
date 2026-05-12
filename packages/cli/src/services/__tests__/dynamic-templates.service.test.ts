@@ -1,5 +1,5 @@
-import type { Logger } from '@n8n/backend-common';
-import type { GlobalConfig } from '@n8n/config';
+import type { Logger } from '@resin/backend-common';
+import type { GlobalConfig } from '@resin/config';
 import axios from 'axios';
 import { mock } from 'jest-mock-extended';
 

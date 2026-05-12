@@ -32,7 +32,7 @@ const workflowNodes = reactive<INodeUi[]>([
 	{
 		id: '1',
 		name: 'Start Trigger',
-		type: 'n8n-nodes-base.manualTrigger',
+		type: 'resin-nodes-base.manualTrigger',
 		position: [0, 0],
 		parameters: {},
 		typeVersion: 1,
@@ -43,7 +43,7 @@ const workflowNodes = reactive<INodeUi[]>([
 const showMessageMock = vi.fn();
 const runWorkflowMock = vi.fn();
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string) => key,
@@ -112,7 +112,7 @@ describe('ExecuteMessage', () => {
 		workflowNodes.splice(0, workflowNodes.length, {
 			id: '1',
 			name: 'Start Trigger',
-			type: 'n8n-nodes-base.manualTrigger',
+			type: 'resin-nodes-base.manualTrigger',
 			position: [0, 0],
 			parameters: {},
 			typeVersion: 1,
@@ -371,7 +371,7 @@ describe('ExecuteMessage', () => {
 		workflowNodes.push({
 			id: '2',
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			position: [100, 0],
 			parameters: {},
 			typeVersion: 1,
@@ -384,7 +384,7 @@ describe('ExecuteMessage', () => {
 		await fireEvent.click(issueItem);
 
 		expect(builderStore.trackWorkflowBuilderJourney).toHaveBeenCalledWith('user_clicked_todo', {
-			node_type: 'n8n-nodes-base.httpRequest',
+			node_type: 'resin-nodes-base.httpRequest',
 			type: 'parameters',
 		});
 	});
@@ -399,7 +399,7 @@ describe('ExecuteMessage', () => {
 		workflowNodes.push({
 			id: '2',
 			name: 'OpenAI Model',
-			type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			position: [100, 0],
 			parameters: {},
 			typeVersion: 1,

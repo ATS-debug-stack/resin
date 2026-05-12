@@ -1,4 +1,4 @@
-import type { IDataObject, MessageEventBusDestinationOptions } from 'n8n-workflow';
+import type { IDataObject, MessageEventBusDestinationOptions } from 'resin-workflow';
 
 import type { IRestApiContext } from '../types';
 import { makeRestApiRequest } from '../utils';

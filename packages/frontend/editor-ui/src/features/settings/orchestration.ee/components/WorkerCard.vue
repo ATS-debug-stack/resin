@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, onBeforeUnmount, ref } from 'vue';
-import type { WorkerStatus } from '@n8n/api-types';
+import type { WorkerStatus } from '@resin/api-types';
 
 import { useOrchestrationStore } from '../orchestration.store';
 import { averageWorkerLoadFromLoadsAsString, memAsGb } from '../orchestration.utils';
@@ -8,10 +8,10 @@ import WorkerJobAccordion from './WorkerJobAccordion.vue';
 import WorkerNetAccordion from './WorkerNetAccordion.vue';
 import WorkerChartsAccordion from './WorkerChartsAccordion.vue';
 import WorkerMemoryMonitorAccordion from './WorkerMemoryMonitorAccordion.vue';
-import { sortByProperty } from '@n8n/utils/sort/sortByProperty';
-import { useI18n } from '@n8n/i18n';
+import { sortByProperty } from '@resin/utils/sort/sortByProperty';
+import { useI18n } from '@resin/i18n';
 
-import { N8nCard, N8nHeading, N8nText } from '@n8n/design-system';
+import { N8nCard, N8nHeading, N8nText } from '@resin/design-system';
 let interval: NodeJS.Timeout;
 
 const orchestrationStore = useOrchestrationStore();

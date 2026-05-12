@@ -1,6 +1,6 @@
 import type { StartSpanOptions } from '@sentry/core';
 import { mock } from 'jest-mock-extended';
-import type { INode, Workflow } from 'n8n-workflow';
+import type { INode, Workflow } from 'resin-workflow';
 
 import { EmptySpan, NoopTracing } from '../noop-tracing';
 import { type Span, Tracing, type Tracer } from '../tracing';
@@ -138,7 +138,7 @@ describe('tracing', () => {
 			const node = mock<INode>({
 				id: 'node-456',
 				name: 'Test Node',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				typeVersion: 2,
 			});
 
@@ -147,7 +147,7 @@ describe('tracing', () => {
 			expect(attributes).toEqual({
 				'n8n.node.id': 'node-456',
 				'n8n.node.name': 'Test Node',
-				'n8n.node.type': 'n8n-nodes-base.httpRequest',
+				'n8n.node.type': 'resin-nodes-base.httpRequest',
 				'n8n.node.type_version': 2,
 			});
 		});

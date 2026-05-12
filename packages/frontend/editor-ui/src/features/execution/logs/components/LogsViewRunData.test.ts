@@ -11,7 +11,7 @@ import { WorkflowIdKey } from '@/app/constants/injectionKeys';
 import userEvent from '@testing-library/user-event';
 import LogsViewRunData from './LogsViewRunData.vue';
 import { createTestingPinia, type TestingPinia } from '@pinia/testing';
-import { createRunExecutionData, NodeApiError, NodeConnectionTypes } from 'n8n-workflow';
+import { createRunExecutionData, NodeApiError, NodeConnectionTypes } from 'resin-workflow';
 import { AGENT_NODE_TYPE, OPEN_AI_CHAT_MODEL_NODE_TYPE } from '@/app/constants';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { mockedStore } from '@/__tests__/utils';

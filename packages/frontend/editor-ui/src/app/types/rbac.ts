@@ -1,6 +1,6 @@
-import type { Resource, ScopeOptions, Scope } from '@n8n/permissions';
+import type { Resource, ScopeOptions, Scope } from '@resin/permissions';
 import type { EnterpriseEditionFeatureValue } from '@/Interface';
-import type { Role } from '@n8n/api-types';
+import type { Role } from '@resin/api-types';
 
 export type AuthenticatedPermissionOptions = {
 	bypass?: () => boolean;

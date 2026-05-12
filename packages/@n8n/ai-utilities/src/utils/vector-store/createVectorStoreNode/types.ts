@@ -14,7 +14,7 @@ import type {
 	IDataObject,
 	NodeParameterValueType,
 	IBuilderHint,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export type NodeOperationMode = 'insert' | 'load' | 'retrieve' | 'update' | 'retrieve-as-tool';
 

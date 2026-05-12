@@ -1,4 +1,4 @@
-import type { ContextEstablishmentResult } from '@n8n/decorators';
+import type { ContextEstablishmentResult } from '@resin/decorators';
 
 import { BearerTokenExtractor } from '../bearer-token-extractor';
 import type { HttpHeaderExtractor } from '../http-header-extractor';
@@ -31,10 +31,10 @@ describe('BearerTokenExtractor', () => {
 		it('should delegate to HttpHeaderExtractor', () => {
 			mockHttpHeaderExtractor.isApplicableToTriggerNode.mockReturnValue(true);
 
-			const result = bearerTokenExtractor.isApplicableToTriggerNode('n8n-nodes-base.webhook');
+			const result = bearerTokenExtractor.isApplicableToTriggerNode('resin-nodes-base.webhook');
 
 			expect(mockHttpHeaderExtractor.isApplicableToTriggerNode).toHaveBeenCalledWith(
-				'n8n-nodes-base.webhook',
+				'resin-nodes-base.webhook',
 			);
 			expect(result).toBe(true);
 		});
@@ -42,7 +42,7 @@ describe('BearerTokenExtractor', () => {
 		it('should return false for non-webhook nodes', () => {
 			mockHttpHeaderExtractor.isApplicableToTriggerNode.mockReturnValue(false);
 
-			const result = bearerTokenExtractor.isApplicableToTriggerNode('n8n-nodes-base.httpRequest');
+			const result = bearerTokenExtractor.isApplicableToTriggerNode('resin-nodes-base.httpRequest');
 
 			expect(result).toBe(false);
 		});

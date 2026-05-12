@@ -1,8 +1,8 @@
 import stylelint from 'stylelint';
 import type { Rule } from 'stylelint';
 
-const ruleName = '@n8n/css-var-naming';
-const DESIGN_SYSTEM_CSS_PATH_SEGMENT = '/frontend/@n8n/design-system/src/css/';
+const ruleName = '@resin/css-var-naming';
+const DESIGN_SYSTEM_CSS_PATH_SEGMENT = '/frontend/@resin/design-system/src/css/';
 
 const messages = stylelint.utils.ruleMessages(ruleName, {
 	rejected: (variable: string, reason: string) => `Invalid CSS variable "${variable}": ${reason}`,

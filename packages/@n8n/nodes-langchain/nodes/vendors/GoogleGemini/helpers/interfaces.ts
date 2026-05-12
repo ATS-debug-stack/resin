@@ -3,7 +3,7 @@ import type {
 	GenerationConfig,
 	GenerateContentParameters,
 } from '@google/genai';
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
 export { Modality } from '@google/genai';
 
 /* type created based on: https://ai.google.dev/api/generate-content#generationconfig */

@@ -1,5 +1,5 @@
 import { computed, toValue, type ComputedRef, type MaybeRefOrGetter } from 'vue';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
 

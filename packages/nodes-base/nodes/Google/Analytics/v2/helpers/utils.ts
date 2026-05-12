@@ -5,8 +5,8 @@ import type {
 	IDataObject,
 	INodeListSearchItems,
 	INodePropertyOptions,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 // tslint:disable-next-line:no-any
 export function simplify(responseData: any | [any]) {

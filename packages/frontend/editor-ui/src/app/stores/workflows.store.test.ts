@@ -10,12 +10,12 @@ import {
 import type { IWorkflowDb, IWorkflowSettings } from '@/Interface';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
 
-import type { ExecutionSummary, INodeTypeDescription } from 'n8n-workflow';
+import type { ExecutionSummary, INodeTypeDescription } from 'resin-workflow';
 import { useUIStore } from '@/app/stores/ui.store';
-import * as apiUtils from '@n8n/rest-api-client';
+import * as apiUtils from '@resin/rest-api-client';
 import { createTestWorkflow, createTestWorkflowExecutionResponse } from '@/__tests__/mocks';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
-import type { WorkflowHistory } from '@n8n/rest-api-client';
+import type { WorkflowHistory } from '@resin/rest-api-client';
 
 vi.mock('@/app/api/workflows', () => ({
 	getWorkflows: vi.fn(),
@@ -62,7 +62,7 @@ vi.mock('@/features/integrations/sourceControl.ee/sourceControl.store', () => ({
 	})),
 }));
 
-vi.mock('@n8n/permissions', () => ({
+vi.mock('@resin/permissions', () => ({
 	getResourcePermissions: vi.fn((scopes: string[] = []) => ({
 		workflow: {
 			update: scopes.includes('workflow:update'),
@@ -305,7 +305,7 @@ describe('useWorkflowsStore', () => {
 				isArchived: false,
 				projectId: 'project-123',
 				tags: ['tag1', 'tag2'],
-				nodeTypes: ['n8n-nodes-base.httpRequest'],
+				nodeTypes: ['resin-nodes-base.httpRequest'],
 			});
 
 			expect(workflowsApi.getWorkflows).toHaveBeenCalledWith(
@@ -315,7 +315,7 @@ describe('useWorkflowsStore', () => {
 					isArchived: false,
 					projectId: 'project-123',
 					tags: ['tag1', 'tag2'],
-					nodeTypes: ['n8n-nodes-base.httpRequest'],
+					nodeTypes: ['resin-nodes-base.httpRequest'],
 				},
 				undefined,
 				undefined,
@@ -895,7 +895,7 @@ describe('useWorkflowsStore', () => {
 				parameters: {},
 				id: '554c7ff4-7ee2-407c-8931-e34234c5056a',
 				name: nodeName,
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				position: [680, 180],
 				typeVersion: 3.4,
 			});

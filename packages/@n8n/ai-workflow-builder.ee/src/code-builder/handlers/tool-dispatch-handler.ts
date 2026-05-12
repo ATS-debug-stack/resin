@@ -8,8 +8,8 @@
 import type { BaseMessage } from '@langchain/core/messages';
 import { ToolMessage } from '@langchain/core/messages';
 import type { StructuredToolInterface } from '@langchain/core/tools';
-import { parseStrReplacements } from '@n8n/ai-utilities/text-editor';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import { parseStrReplacements } from '@resin/ai-utilities/text-editor';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 import type { TextEditorHandler } from './text-editor-handler';
 import type { TextEditorToolHandler } from './text-editor-tool-handler';

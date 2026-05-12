@@ -4,11 +4,11 @@ import {
 	runSingleMigration,
 	undoLastSingleMigration,
 	type TestMigrationContext,
-} from '@n8n/backend-test-utils';
-import { DbConnection } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { DataSource } from '@n8n/typeorm';
-import { Cipher } from 'n8n-core';
+} from '@resin/backend-test-utils';
+import { DbConnection } from '@resin/db';
+import { Container } from '@resin/di';
+import { DataSource } from '@resin/typeorm';
+import { Cipher } from 'resin-core';
 import { randomUUID } from 'node:crypto';
 
 const MIGRATION_NAME = 'CreateCredentialDependencyTable1773000000000';

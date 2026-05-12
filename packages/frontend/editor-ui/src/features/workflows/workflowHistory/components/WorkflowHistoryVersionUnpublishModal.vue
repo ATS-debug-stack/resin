@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { ref, onBeforeUnmount } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import Modal from '@/app/components/Modal.vue';
 import { useUIStore } from '@/app/stores/ui.store';
-import type { EventBus } from '@n8n/utils/event-bus';
+import type { EventBus } from '@resin/utils/event-bus';
 
-import { N8nButton, N8nHeading, N8nIcon, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nHeading, N8nIcon, N8nText } from '@resin/design-system';
 
 export type WorkflowHistoryVersionUnpublishModalEventBusEvents = {
 	unpublish: undefined;

@@ -4,8 +4,8 @@ import type {
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import * as fromFile from './fromFile.operation';
 import * as toFile from './toFile.operation';

@@ -21,8 +21,8 @@ import type {
 } from '@/features/execution/executions/executions.types';
 import { clearPopupWindowState } from '@/features/execution/executions/executions.utils';
 import type { INewWorkflowData } from '@/Interface';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { type IDataObject, type IWorkflowSettings } from 'n8n-workflow';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { type IDataObject, type IWorkflowSettings } from 'resin-workflow';
 import { inject } from 'vue';
 import { useDocumentTitle } from './useDocumentTitle';
 import { IN_PROGRESS_EXECUTION_ID } from '@/app/constants/placeholders';

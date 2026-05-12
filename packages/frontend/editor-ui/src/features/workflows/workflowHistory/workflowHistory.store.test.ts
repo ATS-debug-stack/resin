@@ -1,11 +1,11 @@
 import { createPinia, setActivePinia } from 'pinia';
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 import { useWorkflowHistoryStore } from './workflowHistory.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import * as whApi from '@n8n/rest-api-client/api/workflowHistory';
+import { useRootStore } from '@resin/stores/useRootStore';
+import * as whApi from '@resin/rest-api-client/api/workflowHistory';
 
-vi.mock('@n8n/rest-api-client/api/workflowHistory');
+vi.mock('@resin/rest-api-client/api/workflowHistory');
 
 describe('Workflow history store', () => {
 	beforeEach(() => {

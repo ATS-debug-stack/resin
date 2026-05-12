@@ -7,14 +7,14 @@
  */
 
 // Mock all external dependencies first, before any imports
-jest.mock('@n8n/config', () => ({
-	...jest.requireActual('@n8n/config'),
+jest.mock('@resin/config', () => ({
+	...jest.requireActual('@resin/config'),
 	GlobalConfig: jest.fn().mockImplementation(() => ({
 		sentry: { backendDsn: '' },
 	})),
 }));
 
-jest.mock('@n8n/di', () => ({
+jest.mock('@resin/di', () => ({
 	Container: {
 		get: jest.fn(),
 	},
@@ -55,8 +55,8 @@ jest.mock('../../utils/convert-binary-data.ts', () => ({
 }));
 
 // Now import the real classes
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import type {
 	ExecutionBaseError,
@@ -67,8 +67,8 @@ import type {
 	ITaskDataConnections,
 	IWorkflowExecuteAdditionalData,
 	Workflow,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError, Node, createRunExecutionData } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeOperationError, Node, createRunExecutionData } from 'resin-workflow';
 
 import { ExecuteContext, PollContext } from '../node-execution-context';
 import { RoutingNode } from '../routing-node';

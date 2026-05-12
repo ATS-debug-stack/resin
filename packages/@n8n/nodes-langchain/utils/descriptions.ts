@@ -1,4 +1,4 @@
-import type { DisplayCondition, INodeProperties, NodeParameterValue } from 'n8n-workflow';
+import type { DisplayCondition, INodeProperties, NodeParameterValue } from 'resin-workflow';
 
 export const schemaTypeField: INodeProperties = {
 	displayName: 'Schema Type',

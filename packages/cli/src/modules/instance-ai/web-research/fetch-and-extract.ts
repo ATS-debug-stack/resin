@@ -1,8 +1,8 @@
 import { gfm } from '@joplin/turndown-plugin-gfm';
 import { Readability } from '@mozilla/readability';
-import type { FetchedPage } from '@n8n/instance-ai';
+import type { FetchedPage } from '@resin/instance-ai';
 import { parseHTML } from 'linkedom';
-import type { SsrfBridge } from 'n8n-core';
+import type { SsrfBridge } from 'resin-core';
 import TurndownService from 'turndown';
 import { Agent } from 'undici';
 
@@ -62,7 +62,7 @@ export async function fetchAndExtract(
 			response = await fetch(currentUrl, {
 				signal: controller.signal,
 				headers: {
-					'User-Agent': 'n8n-instance-ai/1.0 (content extraction)',
+					'User-Agent': 'resin-instance-ai/1.0 (content extraction)',
 					Accept:
 						'text/html,application/xhtml+xml,application/xml;q=0.9,text/plain;q=0.8,application/pdf;q=0.7,*/*;q=0.5',
 				},

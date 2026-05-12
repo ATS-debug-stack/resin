@@ -1,7 +1,7 @@
 import { AgentExecutor } from '@langchain/classic/agents';
 import type { Tool } from '@langchain/classic/tools';
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
-import type { ISupplyDataFunctions, IExecuteFunctions, INode } from 'n8n-workflow';
+import type { ISupplyDataFunctions, IExecuteFunctions, INode } from 'resin-workflow';
 import type { Mock } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 

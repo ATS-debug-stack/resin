@@ -1,5 +1,5 @@
-import type { ILoadOptionsFunctions, ResourceMapperFields } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { ILoadOptionsFunctions, ResourceMapperFields } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { convertJsonSchemaToResourceMapperFields } from './utils';
 import type { McpAuthenticationOption, McpServerTransport } from '../shared/types';

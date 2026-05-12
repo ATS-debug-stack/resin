@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+import { Logger } from '@resin/backend-common';
+import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 
 import { InstanceRegistryService } from './instance-registry.service';
 import { REGISTRY_CONSTANTS } from './instance-registry.types';

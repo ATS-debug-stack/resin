@@ -6,8 +6,8 @@ import type {
 	WorkflowExecuteMode,
 	IWorkflowDataProxyAdditionalKeys,
 	IWebhookDescription,
-} from 'n8n-workflow';
-import { NodeHelpers } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeHelpers } from 'resin-workflow';
 
 /** Returns the full webhook description of the webhook with the given name */
 export function getWebhookDescription(

@@ -13,7 +13,7 @@ jest.mock('electron', () => ({
 	},
 }));
 
-jest.mock('@n8n/computer-use/logger', () => ({
+jest.mock('@resin/computer-use/logger', () => ({
 	configure: (options: { level?: string }) => {
 		mockConfigure(options);
 	},
@@ -25,7 +25,7 @@ jest.mock('@n8n/computer-use/logger', () => ({
 	},
 }));
 
-import { logger } from '@n8n/computer-use/logger';
+import { logger } from '@resin/computer-use/logger';
 
 import { registerIpcHandlers } from './ipc-handlers';
 

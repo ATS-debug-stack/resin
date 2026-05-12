@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { GlobalConfig } from '@n8n/config';
-import type { SqliteConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
-import type { SelectQueryBuilder } from '@n8n/typeorm';
-import { In, LessThan, LessThanOrEqual, And, Not } from '@n8n/typeorm';
+import { GlobalConfig } from '@resin/config';
+import type { SqliteConfig } from '@resin/config';
+import { Container } from '@resin/di';
+import type { SelectQueryBuilder } from '@resin/typeorm';
+import { In, LessThan, LessThanOrEqual, And, Not } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import { BinaryDataService } from 'n8n-core';
-import type { IRunExecutionData, IWorkflowBase } from 'n8n-workflow';
+import { BinaryDataService } from 'resin-core';
+import type { IRunExecutionData, IWorkflowBase } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
 import { ExecutionEntity } from '../../entities';

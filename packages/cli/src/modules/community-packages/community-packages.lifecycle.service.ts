@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import {
 	RESPONSE_ERROR_MESSAGES,
 	STARTER_TEMPLATE_NAME,
@@ -12,8 +12,8 @@ import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { InternalServerError } from '@/errors/response-errors/internal-server.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 import { Push } from '@/push';
-import { InstanceSettings } from 'n8n-core';
-import { ensureError, jsonParse, type PublicInstalledPackage } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { ensureError, jsonParse, type PublicInstalledPackage } from 'resin-workflow';
 
 import { CommunityNodeTypesService } from './community-node-types.service';
 import { CommunityPackagesConfig } from './community-packages.config';

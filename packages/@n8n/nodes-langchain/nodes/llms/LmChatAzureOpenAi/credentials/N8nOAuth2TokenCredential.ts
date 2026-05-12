@@ -1,8 +1,8 @@
 import type { TokenCredential, AccessToken } from '@azure/identity';
-import type { ClientOAuth2TokenData } from '@n8n/client-oauth2';
-import { ClientOAuth2 } from '@n8n/client-oauth2';
-import type { INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { ClientOAuth2TokenData } from '@resin/client-oauth2';
+import { ClientOAuth2 } from '@resin/client-oauth2';
+import type { INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import type { AzureEntraCognitiveServicesOAuth2ApiCredential } from '../types';
 /**

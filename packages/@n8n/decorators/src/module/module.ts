@@ -1,12 +1,12 @@
-import type { LICENSE_FEATURES, InstanceType } from '@n8n/constants';
-import { Container, Service, type Constructable } from '@n8n/di';
-import type { NodeLoader } from 'n8n-workflow';
+import type { LICENSE_FEATURES, InstanceType } from '@resin/constants';
+import { Container, Service, type Constructable } from '@resin/di';
+import type { NodeLoader } from 'resin-workflow';
 
 import { ModuleMetadata } from './module-metadata';
 
 /**
  * Structurally similar (not identical) interface to typeorm's `BaseEntity`
- * to prevent importing `@n8n/typeorm` into `@n8n/decorators`.
+ * to prevent importing `@resin/typeorm` into `@resin/decorators`.
  */
 export interface BaseEntity {
 	hasId(): boolean;

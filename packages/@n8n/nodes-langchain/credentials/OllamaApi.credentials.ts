@@ -3,7 +3,7 @@ import type {
 	ICredentialType,
 	INodeProperties,
 	IAuthenticateGeneric,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class OllamaApi implements ICredentialType {
 	name = 'ollamaApi';

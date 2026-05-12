@@ -9,10 +9,10 @@ import type {
 	INodeCredentialTestResult,
 	INodeProperties,
 	NodeParameterValueType,
-} from 'n8n-workflow';
-import { jsonParse, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { jsonParse, NodeOperationError } from 'resin-workflow';
 import { getUserScopedSlot } from '../shared/userScoped';
-import { createVectorStoreNode, metadataFilterField } from '@n8n/ai-utilities';
+import { createVectorStoreNode, metadataFilterField } from '@resin/ai-utilities';
 import {
 	filterChatHubMetadata,
 	filterChatHubInsertDocuments,

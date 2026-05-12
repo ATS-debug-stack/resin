@@ -1,5 +1,5 @@
 import { getCurrentTaskInput } from '@langchain/langgraph';
-import type { IConnections, INodeTypeDescription } from 'n8n-workflow';
+import type { IConnections, INodeTypeDescription } from 'resin-workflow';
 
 import {
 	createNode,
@@ -49,8 +49,8 @@ describe('ConnectNodesTool', () => {
 	describe('invoke', () => {
 		it('should connect two nodes with main connection', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -96,7 +96,7 @@ describe('ConnectNodesTool', () => {
 			// Create node types with proper AI connections
 			const agentNodeType = createNodeType({
 				displayName: 'AI Agent',
-				name: '@n8n/n8n-nodes-langchain.agent',
+				name: '@resin/n8n-nodes-langchain.agent',
 				group: ['output'],
 				inputs: ['main', 'ai_tool'],
 				outputs: ['main'],
@@ -104,7 +104,7 @@ describe('ConnectNodesTool', () => {
 
 			const toolNodeType = createNodeType({
 				displayName: 'Calculator Tool',
-				name: '@n8n/n8n-nodes-langchain.toolCalculator',
+				name: '@resin/n8n-nodes-langchain.toolCalculator',
 				group: ['output'],
 				inputs: [],
 				outputs: ['ai_tool'],
@@ -115,11 +115,11 @@ describe('ConnectNodesTool', () => {
 			connectNodesTool = createConnectNodesTool(nodeTypesList).tool;
 
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'agent1', name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
+				createNode({ id: 'agent1', name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
 				createNode({
 					id: 'tool1',
 					name: 'Calculator',
-					type: '@n8n/n8n-nodes-langchain.toolCalculator',
+					type: '@resin/n8n-nodes-langchain.toolCalculator',
 				}),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -158,7 +158,7 @@ describe('ConnectNodesTool', () => {
 			// Update the agent node type to accept ai_languageModel input
 			const agentNodeType = createNodeType({
 				displayName: 'AI Agent',
-				name: '@n8n/n8n-nodes-langchain.agent',
+				name: '@resin/n8n-nodes-langchain.agent',
 				group: ['output'],
 				inputs: ['main', 'ai_languageModel'],
 				outputs: ['main'],
@@ -167,14 +167,14 @@ describe('ConnectNodesTool', () => {
 			// Add language model node type
 			const languageModelNodeType = createNodeType({
 				displayName: 'OpenAI Chat Model',
-				name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				group: ['output'],
 				inputs: [],
 				outputs: ['ai_languageModel'],
 			});
 
 			// Replace the agent node type in the list
-			nodeTypesList = nodeTypesList.filter((nt) => nt.name !== '@n8n/n8n-nodes-langchain.agent');
+			nodeTypesList = nodeTypesList.filter((nt) => nt.name !== '@resin/n8n-nodes-langchain.agent');
 			nodeTypesList.push(agentNodeType, languageModelNodeType);
 			connectNodesTool = createConnectNodesTool(nodeTypesList).tool;
 
@@ -182,12 +182,12 @@ describe('ConnectNodesTool', () => {
 				createNode({
 					id: 'agent1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 				}),
 				createNode({
 					id: 'model1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -222,8 +222,8 @@ describe('ConnectNodesTool', () => {
 
 		it('should handle custom source and target indices', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Multi Output', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'Multi Input', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Multi Output', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'Multi Input', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -275,7 +275,7 @@ describe('ConnectNodesTool', () => {
 
 		it('should handle non-existent source node', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -295,7 +295,7 @@ describe('ConnectNodesTool', () => {
 
 		it('should handle non-existent target node', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -315,8 +315,8 @@ describe('ConnectNodesTool', () => {
 
 		it('should handle invalid connection between incompatible nodes', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'webhook1', name: 'Webhook 1', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: 'webhook2', name: 'Webhook 2', type: 'n8n-nodes-base.webhook' }),
+				createNode({ id: 'webhook1', name: 'Webhook 1', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: 'webhook2', name: 'Webhook 2', type: 'resin-nodes-base.webhook' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -337,8 +337,8 @@ describe('ConnectNodesTool', () => {
 
 		it('should detect existing connection and handle gracefully', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			// Add existing connection
@@ -378,7 +378,7 @@ describe('ConnectNodesTool', () => {
 
 			const existingWorkflow = createWorkflow([
 				createNode({ id: 'multi1', name: 'Multi Output', type: 'test.multiOutput' }),
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 

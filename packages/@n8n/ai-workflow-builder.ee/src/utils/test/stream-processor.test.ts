@@ -235,7 +235,7 @@ describe('stream-processor', () => {
 					updates: [
 						{
 							type: 'input',
-							data: { nodeType: 'n8n-nodes-base.code' },
+							data: { nodeType: 'resin-nodes-base.code' },
 						},
 					],
 				};
@@ -630,7 +630,7 @@ describe('stream-processor', () => {
 				{
 					id: 'call-1',
 					name: 'add_nodes',
-					args: { nodeType: 'n8n-nodes-base.code' },
+					args: { nodeType: 'resin-nodes-base.code' },
 					type: 'tool_call',
 				},
 				{
@@ -656,7 +656,7 @@ describe('stream-processor', () => {
 				updates: [
 					{
 						type: 'input',
-						data: { nodeType: 'n8n-nodes-base.code' },
+						data: { nodeType: 'resin-nodes-base.code' },
 					},
 				],
 			});
@@ -682,7 +682,7 @@ describe('stream-processor', () => {
 				{
 					id: 'call-1',
 					name: 'add_nodes',
-					args: { nodeType: 'n8n-nodes-base.code' },
+					args: { nodeType: 'resin-nodes-base.code' },
 					type: 'tool_call',
 				},
 			];
@@ -707,7 +707,7 @@ describe('stream-processor', () => {
 				updates: [
 					{
 						type: 'input',
-						data: { nodeType: 'n8n-nodes-base.code' },
+						data: { nodeType: 'resin-nodes-base.code' },
 					},
 					{
 						type: 'output',
@@ -730,7 +730,7 @@ describe('stream-processor', () => {
 
 			const toolMessage = new ToolMessage({
 				// @ts-expect-error Lnagchain types are not propagated
-				content: { nodeId: 'node1', nodeType: 'n8n-nodes-base.code' },
+				content: { nodeId: 'node1', nodeType: 'resin-nodes-base.code' },
 				tool_call_id: 'call-1',
 			});
 
@@ -742,7 +742,7 @@ describe('stream-processor', () => {
 			// @ts-expect-error Lnagchain types are not propagated
 			expect(result[0].updates?.[1]).toEqual({
 				type: 'output',
-				data: { nodeId: 'node1', nodeType: 'n8n-nodes-base.code' },
+				data: { nodeId: 'node1', nodeType: 'resin-nodes-base.code' },
 			});
 		});
 
@@ -754,7 +754,7 @@ describe('stream-processor', () => {
 				{
 					id: 'call-1',
 					name: 'add_nodes',
-					args: { nodeType: 'n8n-nodes-base.code' },
+					args: { nodeType: 'resin-nodes-base.code' },
 					type: 'tool_call',
 				},
 			];
@@ -784,7 +784,7 @@ describe('stream-processor', () => {
 				{
 					id: 'call-1',
 					name: 'add_nodes',
-					args: { nodeType: 'n8n-nodes-base.code' },
+					args: { nodeType: 'resin-nodes-base.code' },
 					type: 'tool_call',
 				},
 			];
@@ -908,7 +908,7 @@ describe('stream-processor', () => {
 				{
 					id: 'call-1',
 					name: 'add_nodes',
-					args: { nodeType: 'n8n-nodes-base.code' },
+					args: { nodeType: 'resin-nodes-base.code' },
 					type: 'tool_call',
 				},
 			];
@@ -929,7 +929,7 @@ describe('stream-processor', () => {
 				updates: [
 					{
 						type: 'input',
-						data: { nodeType: 'n8n-nodes-base.code' },
+						data: { nodeType: 'resin-nodes-base.code' },
 					},
 				],
 			});
@@ -1049,7 +1049,7 @@ describe('stream-processor', () => {
 				{
 					id: 'call-1',
 					name: 'add_nodes',
-					args: { nodeType: 'n8n-nodes-base.code' },
+					args: { nodeType: 'resin-nodes-base.code' },
 					type: 'tool_call',
 				},
 			];
@@ -1093,7 +1093,7 @@ describe('stream-processor', () => {
 				{
 					id: 'call-1',
 					name: 'add_nodes',
-					args: { nodeType: 'n8n-nodes-base.code' },
+					args: { nodeType: 'resin-nodes-base.code' },
 					type: 'tool_call',
 				},
 			];
@@ -1109,7 +1109,7 @@ describe('stream-processor', () => {
 			// @ts-expect-error Lnagchain types are not propagated
 			expect(result[0].updates?.[0]).toEqual({
 				type: 'input',
-				data: { nodeType: 'n8n-nodes-base.code' },
+				data: { nodeType: 'resin-nodes-base.code' },
 			});
 		});
 
@@ -1139,7 +1139,7 @@ describe('stream-processor', () => {
 				{
 					id: 'call-1',
 					name: 'add_nodes',
-					args: { nodeType: 'n8n-nodes-base.code' },
+					args: { nodeType: 'resin-nodes-base.code' },
 					type: 'tool_call',
 				},
 			];

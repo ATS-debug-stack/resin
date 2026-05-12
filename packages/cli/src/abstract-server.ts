@@ -1,8 +1,8 @@
-import { inDevelopment, inTest, Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { DbConnection } from '@n8n/db';
-import { OnShutdown } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+import { inDevelopment, inTest, Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { DbConnection } from '@resin/db';
+import { OnShutdown } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import compression from 'compression';
 import express from 'express';
 import { readFile } from 'fs/promises';

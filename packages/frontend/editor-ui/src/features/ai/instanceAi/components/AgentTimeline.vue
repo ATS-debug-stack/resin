@@ -4,13 +4,13 @@ import type {
 	InstanceAiTimelineEntry,
 	InstanceAiToolCallState,
 	TaskList,
-} from '@n8n/api-types';
-import { N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/api-types';
+import { N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
 import { extractArtifacts, HIDDEN_TOOLS, type ArtifactInfo } from '../agentTimeline.utils';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useThread } from '../instanceAi.store';
 import { isActiveBuilderAgent } from '../builderAgents';
 import AgentSection from './AgentSection.vue';

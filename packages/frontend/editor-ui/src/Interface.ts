@@ -4,11 +4,11 @@ import type {
 	IUserManagementSettings,
 	IVersionNotificationSettings,
 	Role,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import type { ILogInStatus } from '@/features/settings/users/users.types';
 import type { IUsedCredential } from '@/features/credentials/credentials.types';
-import type { Scope } from '@n8n/permissions';
-import type { NodeCreatorTag, IconName, BinaryMetadata } from '@n8n/design-system';
+import type { Scope } from '@resin/permissions';
+import type { NodeCreatorTag, IconName, BinaryMetadata } from '@resin/design-system';
 import type {
 	GenericValue,
 	IConnections,
@@ -35,15 +35,15 @@ import type {
 	PublicInstalledPackage,
 	IDestinationNode,
 	AgentRequestQuery,
-} from 'n8n-workflow';
-import type { Version } from '@n8n/rest-api-client/api/versions';
-import type { Cloud, InstanceUsage } from '@n8n/rest-api-client/api/cloudPlans';
+} from 'resin-workflow';
+import type { Version } from '@resin/rest-api-client/api/versions';
+import type { Cloud, InstanceUsage } from '@resin/rest-api-client/api/cloudPlans';
 import type {
 	WorkflowMetadata,
 	WorkflowDataCreate,
 	WorkflowDataUpdate,
-} from '@n8n/rest-api-client/api/workflows';
-import type { ITag } from '@n8n/rest-api-client/api/tags';
+} from '@resin/rest-api-client/api/workflows';
+import type { ITag } from '@resin/rest-api-client/api/tags';
 
 import type {
 	AI_NODE_CREATOR_VIEW,
@@ -63,9 +63,9 @@ import type {
 	FolderListItem,
 	ResourceParentFolder,
 } from '@/features/core/folders/folders.types';
-import type { WorkflowHistory } from '@n8n/rest-api-client/api/workflowHistory';
+import type { WorkflowHistory } from '@resin/rest-api-client/api/workflowHistory';
 
-export * from '@n8n/design-system/types';
+export * from '@resin/design-system/types';
 
 declare global {
 	interface Window {

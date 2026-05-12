@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 
@@ -8,28 +8,28 @@ import { evaluateTrigger } from './trigger';
 describe('evaluateTrigger', () => {
 	const mockNodeTypes: INodeTypeDescription[] = [
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.manualTrigger',
+			name: 'resin-nodes-base.manualTrigger',
 			displayName: 'Manual Trigger',
 			group: ['trigger'],
 			inputs: [],
 			outputs: ['main'],
 		}),
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.webhookTrigger',
+			name: 'resin-nodes-base.webhookTrigger',
 			displayName: 'Webhook Trigger',
 			group: ['trigger'],
 			inputs: [],
 			outputs: ['main'],
 		}),
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.scheduleTrigger',
+			name: 'resin-nodes-base.scheduleTrigger',
 			displayName: 'Schedule Trigger',
 			group: ['trigger'],
 			inputs: [],
 			outputs: ['main'],
 		}),
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.executeWorkflowTrigger',
+			name: 'resin-nodes-base.executeWorkflowTrigger',
 			displayName: 'Execute Workflow Trigger',
 			group: ['trigger'],
 			inputs: [],
@@ -37,21 +37,21 @@ describe('evaluateTrigger', () => {
 			maxNodes: 1,
 		}),
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.code',
+			name: 'resin-nodes-base.code',
 			displayName: 'Code',
 			group: ['transform'],
 			inputs: ['main'],
 			outputs: ['main'],
 		}),
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.httpRequest',
+			name: 'resin-nodes-base.httpRequest',
 			displayName: 'HTTP Request',
 			group: ['transform'],
 			inputs: ['main'],
 			outputs: ['main'],
 		}),
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.set',
+			name: 'resin-nodes-base.set',
 			displayName: 'Set',
 			group: ['input'],
 			inputs: ['main'],
@@ -79,7 +79,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '1',
 						name: 'Code',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -87,7 +87,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '2',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -112,7 +112,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -120,7 +120,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '2',
 						name: 'Code',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -143,7 +143,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '1',
 						name: 'Unknown Trigger',
-						type: 'n8n-nodes-base.unknownTrigger',
+						type: 'resin-nodes-base.unknownTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -151,7 +151,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '2',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -171,7 +171,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '1',
 						name: 'Set Data',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -179,7 +179,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '2',
 						name: 'Webhook',
-						type: 'n8n-nodes-base.webhookTrigger',
+						type: 'resin-nodes-base.webhookTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -187,7 +187,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '3',
 						name: 'Process',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [400, 0],
@@ -195,7 +195,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '4',
 						name: 'Manual',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 200],
@@ -203,7 +203,7 @@ describe('evaluateTrigger', () => {
 					{
 						id: '5',
 						name: 'HTTP Call',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						parameters: {},
 						typeVersion: 1,
 						position: [600, 0],

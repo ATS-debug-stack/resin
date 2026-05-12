@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 
 import { ControllerRegistryMetadata } from './controller-registry-metadata';
 import type { Arg, Controller } from './types';

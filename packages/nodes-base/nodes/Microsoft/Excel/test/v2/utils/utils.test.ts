@@ -1,7 +1,12 @@
 import { mock } from 'jest-mock-extended';
 import get from 'lodash/get';
-import { constructExecutionMetaData } from 'n8n-core';
-import type { IDataObject, IExecuteFunctions, IGetNodeParameterOptions, INode } from 'n8n-workflow';
+import { constructExecutionMetaData } from 'resin-core';
+import type {
+	IDataObject,
+	IExecuteFunctions,
+	IGetNodeParameterOptions,
+	INode,
+} from 'resin-workflow';
 
 import {
 	checkRange,
@@ -17,7 +22,7 @@ const node: INode = {
 	id: '1',
 	name: 'Microsoft Excel 365',
 	typeVersion: 2,
-	type: 'n8n-nodes-base.microsoftExcel',
+	type: 'resin-nodes-base.microsoftExcel',
 	position: [60, 760],
 	parameters: {},
 };

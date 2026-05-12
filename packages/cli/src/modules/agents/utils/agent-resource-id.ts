@@ -1,4 +1,4 @@
-import { generateNanoId } from '@n8n/utils';
+import { generateNanoId } from '@resin/utils';
 
 type AgentResourceIdPrefix = 'skill' | 'tool';
 

@@ -1,4 +1,4 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import {
 	CHAT_TRIGGER_NODE_TYPE,
 	FORM_TRIGGER_NODE_TYPE,
@@ -12,7 +12,7 @@ import {
 	jsonStringify,
 	SCHEDULE_TRIGGER_NODE_TYPE,
 	createRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import z from 'zod';
 
 import {

@@ -1,4 +1,4 @@
-import type { OAuth2CredentialData } from '@n8n/client-oauth2';
+import type { OAuth2CredentialData } from '@resin/client-oauth2';
 /**
  * Common interfaces for Azure OpenAI configuration
  */

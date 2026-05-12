@@ -15,7 +15,7 @@ import { canvasEventBus } from '@/features/workflows/canvas/canvas.eventBus';
 import { nodeViewEventBus } from '@/app/event-bus';
 import { createTestWorkflow } from '@/__tests__/mocks';
 import type { IWorkflowDb, INodeUi } from '@/Interface';
-import type { WorkflowData } from '@n8n/rest-api-client/api/workflows';
+import type { WorkflowData } from '@resin/rest-api-client/api/workflows';
 import { shallowRef, type Ref } from 'vue';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
@@ -36,7 +36,7 @@ vi.mock('vue-router', () => ({
 	useRoute: () => ({}),
 	RouterLink: vi.fn(),
 }));
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string) => key,
@@ -151,7 +151,7 @@ describe('useWorkflowCommands', () => {
 				{
 					id: 'node1',
 					name: 'node1',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					position: [0, 0],
 					parameters: {},
 					credentials: {
@@ -175,7 +175,7 @@ describe('useWorkflowCommands', () => {
 				{
 					id: 'node1',
 					name: 'node1',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					position: [0, 0],
 					parameters: {},
 					credentials: {
@@ -337,7 +337,7 @@ describe('useWorkflowCommands', () => {
 				{
 					id: 'node1',
 					name: 'node1',
-					type: 'n8n-nodes-base.executeWorkflow',
+					type: 'resin-nodes-base.executeWorkflow',
 					position: [0, 0],
 					parameters: {
 						workflowId: {

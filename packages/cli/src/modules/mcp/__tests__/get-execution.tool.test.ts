@@ -1,6 +1,6 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { ExecutionRepository, User } from '@n8n/db';
-import { createEmptyRunExecutionData } from 'n8n-workflow';
+import { mockInstance } from '@resin/backend-test-utils';
+import { ExecutionRepository, User } from '@resin/db';
+import { createEmptyRunExecutionData } from 'resin-workflow';
 
 import { Telemetry } from '@/telemetry';
 import { WorkflowFinderService } from '@/workflows/workflow-finder.service';

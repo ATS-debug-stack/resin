@@ -1,6 +1,6 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { CredentialsEntity, WorkflowEntity } from '@n8n/db';
-import { CredentialsRepository, WorkflowRepository } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { CredentialsEntity, WorkflowEntity } from '@resin/db';
+import { CredentialsRepository, WorkflowRepository } from '@resin/db';
 
 import { NamingService } from '@/services/naming.service';
 

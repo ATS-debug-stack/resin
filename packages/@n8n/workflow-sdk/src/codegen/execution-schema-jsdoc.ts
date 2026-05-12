@@ -1,4 +1,4 @@
-import type { Schema } from 'n8n-workflow';
+import type { Schema } from 'resin-workflow';
 
 /**
  * Convert Schema to output sample data for node({ output: [...] })

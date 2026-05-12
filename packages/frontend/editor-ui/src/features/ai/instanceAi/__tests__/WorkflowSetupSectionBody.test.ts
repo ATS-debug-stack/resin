@@ -23,7 +23,7 @@ vi.mock('@/features/ndv/parameters/components/ParameterInputList.vue', () => ({
 	default: { template: '<div />' },
 }));
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string, options?: { interpolate?: Record<string, string | number> }) => {
@@ -116,8 +116,8 @@ describe('WorkflowSetupSectionBody', () => {
 	it('shows grouped nodes count and tooltip for multi-target sections', () => {
 		const section = makeWorkflowSetupSection({
 			credentialTargetNodes: [
-				{ id: 'primary', name: 'Primary', type: 'n8n-nodes-base.httpRequest' },
-				{ id: 'follower', name: 'Follower', type: 'n8n-nodes-base.httpRequest' },
+				{ id: 'primary', name: 'Primary', type: 'resin-nodes-base.httpRequest' },
+				{ id: 'follower', name: 'Follower', type: 'resin-nodes-base.httpRequest' },
 			],
 		});
 

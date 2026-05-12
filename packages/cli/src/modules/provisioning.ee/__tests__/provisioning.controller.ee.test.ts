@@ -1,12 +1,12 @@
-import type { LicenseState } from '@n8n/backend-common';
-import type { InstanceSettingsLoaderConfig } from '@n8n/config';
+import type { LicenseState } from '@resin/backend-common';
+import type { InstanceSettingsLoaderConfig } from '@resin/config';
 import { mock } from 'jest-mock-extended';
 
 import { ProvisioningController } from '../provisioning.controller.ee';
 import { type ProvisioningService } from '@/modules/provisioning.ee/provisioning.service.ee';
 import { type Response } from 'express';
-import { type AuthenticatedRequest } from '@n8n/db';
-import { type ProvisioningConfigDto } from '@n8n/api-types';
+import { type AuthenticatedRequest } from '@resin/db';
+import { type ProvisioningConfigDto } from '@resin/api-types';
 
 const provisioningService = mock<ProvisioningService>();
 const licenseState = mock<LicenseState>();

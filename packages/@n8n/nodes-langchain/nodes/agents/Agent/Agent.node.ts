@@ -1,5 +1,5 @@
-import type { INodeTypeBaseDescription, IVersionedNodeType } from 'n8n-workflow';
-import { VersionedNodeType } from 'n8n-workflow';
+import type { INodeTypeBaseDescription, IVersionedNodeType } from 'resin-workflow';
+import { VersionedNodeType } from 'resin-workflow';
 
 import { AgentV1 } from './V1/AgentV1.node';
 import { AgentV2 } from './V2/AgentV2.node';
@@ -34,20 +34,20 @@ export class Agent extends VersionedNodeType {
 					"Wire model/memory/tools/outputParser via the SDK `subnodes` config object using factory functions (`languageModel()`, `memory()`, `tool()`, `outputParser()`). Inside subnodes, reference upstream data with `nodeJson(triggerNode, 'path')`, not `$json` — subnodes do not share the main predecessor's item context.",
 				relatedNodes: [
 					{
-						nodeType: 'n8n-nodes-base.aggregate',
+						nodeType: 'resin-nodes-base.aggregate',
 						relationHint: 'Use to combine multiple items together before the agent',
 					},
 					{
-						nodeType: '@n8n/n8n-nodes-langchain.outputParserStructured',
+						nodeType: '@resin/n8n-nodes-langchain.outputParserStructured',
 						relationHint:
 							'Attach for structured output; reference fields as $json.output.fieldName for use in subsequent nodes (conditions, storing data)',
 					},
 					{
-						nodeType: '@n8n/n8n-nodes-langchain.agentTool',
+						nodeType: '@resin/n8n-nodes-langchain.agentTool',
 						relationHint: 'For multi-agent systems using orchestrator pattern',
 					},
 					{
-						nodeType: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+						nodeType: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 						relationHint:
 							'Required for conversational workflows - connect memory to every agent that needs to recall previous messages in the conversation',
 					},
@@ -57,7 +57,7 @@ export class Agent extends VersionedNodeType {
 						content: `<patterns>
 <pattern title="Agent with model, memory, structured output parser">
 const chatTrigger = trigger({
-  type: '@n8n/n8n-nodes-langchain.chatTrigger',
+  type: '@resin/n8n-nodes-langchain.chatTrigger',
   version: 1.3,
   config: {
     name: 'Chat Trigger',
@@ -67,7 +67,7 @@ const chatTrigger = trigger({
 });
 
 const model = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'OpenAI Chat Model',
@@ -77,7 +77,7 @@ const model = languageModel({
 });
 
 const parser = outputParser({
-  type: '@n8n/n8n-nodes-langchain.outputParserStructured',
+  type: '@resin/n8n-nodes-langchain.outputParserStructured',
   version: 1.3,
   config: {
     name: 'Output Parser',
@@ -89,7 +89,7 @@ const parser = outputParser({
 });
 
 const memoryNode = memory({
-  type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+  type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
   version: 1.3,
   config: {
     name: 'Conversation Memory',
@@ -102,7 +102,7 @@ const memoryNode = memory({
 });
 
 const agent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'AI Agent',

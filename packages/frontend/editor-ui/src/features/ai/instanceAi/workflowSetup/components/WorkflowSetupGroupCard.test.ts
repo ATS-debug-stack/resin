@@ -25,7 +25,7 @@ vi.mock('@/app/stores/nodeTypes.store', () => ({
 	useNodeTypesStore: () => nodeTypesStore,
 }));
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string) => key,

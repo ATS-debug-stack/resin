@@ -1,6 +1,6 @@
-import MessageWithButtons from '@n8n/chat/components/MessageWithButtons.vue';
-import { MessageComponentKey } from '@n8n/chat/constants/messageComponents';
-import type { ChatOptions } from '@n8n/chat/types';
+import MessageWithButtons from '@resin/chat/components/MessageWithButtons.vue';
+import { MessageComponentKey } from '@resin/chat/constants/messageComponents';
+import type { ChatOptions } from '@resin/chat/types';
 
 export const defaultOptions: ChatOptions = {
 	webhookUrl: 'http://localhost:5678',

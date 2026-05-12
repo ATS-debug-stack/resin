@@ -8,7 +8,7 @@ import {
 	type ProjectRole,
 	type GlobalRole,
 	type Role as RoleDTO,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 
 import type { Role } from './entities';
 

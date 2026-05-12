@@ -66,7 +66,7 @@ function extractFunctionBody(fn: Function): string {
  *
  * @example
  * ```typescript
- * node('n8n-nodes-base.code', 'v2', {
+ * node('resin-nodes-base.code', 'v2', {
  *   parameters: {
  *     ...runOnceForAllItems<{ sum: number }>((ctx) => {
  *       const total = ctx.$input.all().reduce((acc, i) => acc + i.json.value, 0);
@@ -103,7 +103,7 @@ export function runOnceForAllItems<T = unknown>(
  *
  * @example
  * ```typescript
- * node('n8n-nodes-base.code', 'v2', {
+ * node('resin-nodes-base.code', 'v2', {
  *   parameters: {
  *     ...runOnceForEachItem<{ doubled: number }>((ctx) => {
  *       return { json: { doubled: ctx.$input.item.json.value * 2 } };

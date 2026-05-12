@@ -1,6 +1,6 @@
 import type { Memory } from '@mastra/memory';
-import { taskListSchema } from '@n8n/api-types';
-import type { TaskList } from '@n8n/api-types';
+import { taskListSchema } from '@resin/api-types';
+import type { TaskList } from '@resin/api-types';
 
 import type { TaskStorage } from '../types';
 import { patchThread } from './thread-patch';

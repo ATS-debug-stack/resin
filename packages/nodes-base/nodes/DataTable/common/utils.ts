@@ -9,8 +9,8 @@ import type {
 	ILoadOptionsFunctions,
 	DataTableColumnJsType,
 	DataTableColumnType,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import type { FieldEntry, FilterType } from './constants';
 import { ALL_CONDITIONS, ANY_CONDITION } from './constants';

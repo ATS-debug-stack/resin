@@ -1,5 +1,5 @@
 import { computed, ref, watch, type Ref } from 'vue';
-import type { IconName } from '@n8n/design-system';
+import type { IconName } from '@resin/design-system';
 import {
 	getLatestBuildResult,
 	getLatestExecutionId,

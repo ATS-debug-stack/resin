@@ -1,6 +1,6 @@
-import type { WorkflowHistory, WorkflowPublishHistory } from '@n8n/db';
-import { WorkflowPublishHistoryRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { WorkflowHistory, WorkflowPublishHistory } from '@resin/db';
+import { WorkflowPublishHistoryRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 export async function createWorkflowPublishHistoryItem(
 	workflowHistory: Pick<WorkflowHistory, 'workflowId' | 'versionId'>,

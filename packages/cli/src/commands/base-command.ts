@@ -6,11 +6,11 @@ import {
 	Logger,
 	ModuleRegistry,
 	ModulesConfig,
-} from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { LICENSE_FEATURES } from '@n8n/constants';
-import { DbConnection } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { LICENSE_FEATURES } from '@resin/constants';
+import { DbConnection } from '@resin/db';
+import { Container } from '@resin/di';
 import {
 	BinaryDataConfig,
 	BinaryDataService,
@@ -18,9 +18,9 @@ import {
 	DataDeduplicationService,
 	ErrorReporter,
 	ExecutionContextHookRegistry,
-} from 'n8n-core';
-import { ObjectStoreConfig } from 'n8n-core/dist/binary-data/object-store/object-store.config';
-import { ensureError, Expression, sleep, UnexpectedError } from 'n8n-workflow';
+} from 'resin-core';
+import { ObjectStoreConfig } from 'resin-core/dist/binary-data/object-store/object-store.config';
+import { ensureError, Expression, sleep, UnexpectedError } from 'resin-workflow';
 
 import type { AbstractServer } from '@/abstract-server';
 import { N8N_VERSION, N8N_RELEASE_DATE } from '@/constants';
@@ -264,12 +264,12 @@ export abstract class BaseCommand<F = never> {
 		if (isS3Configured) {
 			try {
 				const { ObjectStoreService } = await import(
-					'n8n-core/dist/binary-data/object-store/object-store.service.ee'
+					'resin-core/dist/binary-data/object-store/object-store.service.ee'
 				);
 				const objectStoreService = Container.get(ObjectStoreService);
 				await objectStoreService.init();
 				const { ObjectStoreManager } = await import(
-					'n8n-core/dist/binary-data/object-store.manager'
+					'resin-core/dist/binary-data/object-store.manager'
 				);
 				binaryDataService.setManager('s3', new ObjectStoreManager(objectStoreService));
 			} catch {

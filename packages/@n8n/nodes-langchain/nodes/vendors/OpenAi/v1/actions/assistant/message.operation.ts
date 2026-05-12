@@ -9,13 +9,13 @@ import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ApplicationError,
 	NodeConnectionTypes,
 	NodeOperationError,
 	updateDisplayOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { OpenAI as OpenAIClient } from 'openai';
 
 import { promptTypeOptionsDeprecated } from '@utils/descriptions';
@@ -24,9 +24,9 @@ import { getTracingConfig } from '@utils/tracing';
 
 import { formatToOpenAIAssistantTool, getChatMessages } from '../../../helpers/utils';
 import { assistantRLC } from '../descriptions';
-import { getProxyAgent } from '@n8n/ai-utilities';
-import { Container } from '@n8n/di';
-import { AiConfig } from '@n8n/config';
+import { getProxyAgent } from '@resin/ai-utilities';
+import { Container } from '@resin/di';
+import { AiConfig } from '@resin/config';
 import { checkDomainRestrictions } from '@utils/checkDomainRestrictions';
 
 const properties: INodeProperties[] = [

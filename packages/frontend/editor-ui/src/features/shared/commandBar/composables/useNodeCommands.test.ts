@@ -6,8 +6,8 @@ import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
-import type { INodeTypeDescription } from 'n8n-workflow';
-import { getResourcePermissions } from '@n8n/permissions';
+import type { INodeTypeDescription } from 'resin-workflow';
+import { getResourcePermissions } from '@resin/permissions';
 import { useCanvasOperations } from '@/app/composables/useCanvasOperations';
 import { canvasEventBus } from '@/features/workflows/canvas/canvas.eventBus';
 import {
@@ -37,11 +37,11 @@ vi.mock('@/features/shared/nodeCreator/composables/useActionsGeneration', () => 
 	}),
 }));
 
-vi.mock('@n8n/permissions', () => ({
+vi.mock('@resin/permissions', () => ({
 	getResourcePermissions: vi.fn(),
 }));
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string) => key,
@@ -192,8 +192,8 @@ describe('useNodeCommands', () => {
 
 		it('should populate add node children with node types from generateMergedNodesAndActions', () => {
 			const mockNodes = [
-				createMockNodeType('n8n-nodes-base.httpRequest', 'HTTP Request'),
-				createMockNodeType('n8n-nodes-base.slack', 'Slack'),
+				createMockNodeType('resin-nodes-base.httpRequest', 'HTTP Request'),
+				createMockNodeType('resin-nodes-base.slack', 'Slack'),
 			];
 
 			mockGenerateMergedNodesAndActionsFn.mockReturnValue({
@@ -207,8 +207,8 @@ describe('useNodeCommands', () => {
 
 			const addCommand = commands.value.find((cmd) => cmd.id === 'add-node');
 			expect(addCommand?.children).toHaveLength(2);
-			expect(addCommand?.children?.[0].id).toBe('n8n-nodes-base.httpRequest');
-			expect(addCommand?.children?.[1].id).toBe('n8n-nodes-base.slack');
+			expect(addCommand?.children?.[0].id).toBe('resin-nodes-base.httpRequest');
+			expect(addCommand?.children?.[1].id).toBe('resin-nodes-base.slack');
 
 			expect(mockGenerateMergedNodesAndActionsFn).toHaveBeenCalled();
 		});
@@ -232,13 +232,13 @@ describe('useNodeCommands', () => {
 				createTestNode({
 					id: 'node-1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 				}),
 				createTestNode({
 					id: 'node-2',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 				}),
 			]);
@@ -313,7 +313,7 @@ describe('useNodeCommands', () => {
 				createTestNode({
 					id: 'node-1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 				}),
 			]);

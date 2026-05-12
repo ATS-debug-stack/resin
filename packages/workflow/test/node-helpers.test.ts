@@ -3848,7 +3848,7 @@ describe('NodeHelpers', () => {
 							workflowInputs: {},
 							inputOptions: {},
 						},
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						typeVersion: 1.1,
 						position: [-140, -20],
 						id: '9abdbdac-5f32-4876-b4d5-895d8ca4cb00',
@@ -3964,7 +3964,7 @@ describe('NodeHelpers', () => {
 							workflowInputs: {},
 							inputOptions: {},
 						},
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						typeVersion: 1.1,
 						position: [-140, -20],
 						id: '9abdbdac-5f32-4876-b4d5-895d8ca4cb00',
@@ -4068,7 +4068,7 @@ describe('NodeHelpers', () => {
 							workflowInputs: {},
 							inputOptions: {},
 						},
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						typeVersion: 1.1,
 						position: [-140, -20],
 						id: '9abdbdac-5f32-4876-b4d5-895d8ca4cb00',
@@ -4187,7 +4187,7 @@ describe('NodeHelpers', () => {
 							workflowInputs: {},
 							inputOptions: {},
 						},
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						typeVersion: 1.1,
 						position: [-140, -20],
 						id: '9abdbdac-5f32-4876-b4d5-895d8ca4cb00',
@@ -4305,7 +4305,7 @@ describe('NodeHelpers', () => {
 							workflowInputs: {},
 							inputOptions: {},
 						},
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						typeVersion: 1.1,
 						position: [-140, -20],
 						id: '9abdbdac-5f32-4876-b4d5-895d8ca4cb00',
@@ -4335,7 +4335,7 @@ describe('NodeHelpers', () => {
 			id: '12345',
 			name: 'Test Node',
 			typeVersion: 1,
-			type: 'n8n-nodes-base.testNode',
+			type: 'resin-nodes-base.testNode',
 			position: [1, 1],
 			parameters: {},
 		};
@@ -4499,7 +4499,7 @@ describe('NodeHelpers', () => {
 				id: 'testNodeId',
 				name: 'TestNode',
 				position: [0, 0],
-				type: 'n8n-nodes-base.TestNode',
+				type: 'resin-nodes-base.TestNode',
 				typeVersion: 1,
 				parameters: {},
 			};
@@ -4513,7 +4513,7 @@ describe('NodeHelpers', () => {
 				id: 'testNodeId',
 				name: 'TestNode',
 				position: [0, 0],
-				type: 'n8n-nodes-base.TestNode',
+				type: 'resin-nodes-base.TestNode',
 				typeVersion: 1,
 				parameters: {},
 			};
@@ -4531,7 +4531,7 @@ describe('NodeHelpers', () => {
 				id: 'testNodeId',
 				name: 'TestNode',
 				position: [0, 0],
-				type: 'n8n-nodes-base.TestNode',
+				type: 'resin-nodes-base.TestNode',
 				typeVersion: 1,
 				parameters: {},
 			};
@@ -4573,7 +4573,7 @@ describe('NodeHelpers', () => {
 					id: 'triggerNodeId',
 					name: 'TriggerNode',
 					position: [0, 0],
-					type: 'n8n-nodes-base.TriggerNode',
+					type: 'resin-nodes-base.TriggerNode',
 					typeVersion: 1,
 					parameters: {},
 				},
@@ -4596,7 +4596,7 @@ describe('NodeHelpers', () => {
 					id: 'mainOutputNodeId',
 					name: 'MainOutputNode',
 					position: [0, 0],
-					type: 'n8n-nodes-base.MainOutputNode',
+					type: 'resin-nodes-base.MainOutputNode',
 					typeVersion: 1,
 					parameters: {},
 				},
@@ -4619,7 +4619,7 @@ describe('NodeHelpers', () => {
 					id: 'nonExecutableNodeId',
 					name: 'NonExecutableNode',
 					position: [0, 0],
-					type: 'n8n-nodes-base.NonExecutableNode',
+					type: 'resin-nodes-base.NonExecutableNode',
 					typeVersion: 1,
 					parameters: {},
 				},
@@ -4642,7 +4642,7 @@ describe('NodeHelpers', () => {
 					id: 'mixedOutputNodeId',
 					name: 'MixedOutputNode',
 					position: [0, 0],
-					type: 'n8n-nodes-base.MixedOutputNode',
+					type: 'resin-nodes-base.MixedOutputNode',
 					typeVersion: 1,
 					parameters: {},
 				},
@@ -4665,7 +4665,7 @@ describe('NodeHelpers', () => {
 					id: 'aiToolOutputNodeId',
 					name: 'AiToolOutputNode',
 					position: [0, 0],
-					type: 'n8n-nodes-base.AiToolOutputNode',
+					type: 'resin-nodes-base.AiToolOutputNode',
 					typeVersion: 1,
 					parameters: {},
 				},
@@ -4688,7 +4688,7 @@ describe('NodeHelpers', () => {
 					id: 'dynamicAiToolNodeId',
 					name: 'DynamicAiToolNode',
 					position: [0, 0],
-					type: 'n8n-nodes-base.DynamicAiToolNode',
+					type: 'resin-nodes-base.DynamicAiToolNode',
 					typeVersion: 1,
 					parameters: {},
 				},
@@ -4728,7 +4728,7 @@ describe('NodeHelpers', () => {
 				id: 'testNodeId',
 				name: 'TestNode',
 				position: [0, 0],
-				type: 'n8n-nodes-base.TestNode',
+				type: 'resin-nodes-base.TestNode',
 				typeVersion: 1,
 				parameters: {},
 			};
@@ -4742,7 +4742,7 @@ describe('NodeHelpers', () => {
 				id: 'testNodeId',
 				name: 'TestNode',
 				position: [0, 0],
-				type: 'n8n-nodes-base.TestNode',
+				type: 'resin-nodes-base.TestNode',
 				typeVersion: 1,
 				parameters: {},
 			};
@@ -4756,7 +4756,7 @@ describe('NodeHelpers', () => {
 			id: '12345',
 			name: 'Test Node',
 			typeVersion: 1,
-			type: 'n8n-nodes-base.testNode',
+			type: 'resin-nodes-base.testNode',
 			position: [1, 1],
 			parameters: {},
 		};
@@ -6218,7 +6218,7 @@ describe('NodeHelpers', () => {
 		])(
 			'should return action-based name for Code node with %s language',
 			(language, expectedAction) => {
-				mockNodeTypeDescription.name = 'n8n-nodes-base.code';
+				mockNodeTypeDescription.name = 'resin-nodes-base.code';
 				mockNodeTypeDescription.properties = [
 					{
 						displayName: 'Language',
@@ -6258,7 +6258,7 @@ describe('NodeHelpers', () => {
 				displayName: '',
 				group: [],
 				description: '',
-				name: 'n8n-nodes-base.someTool',
+				name: 'resin-nodes-base.someTool',
 			};
 			const parameters = {};
 			const result = isTool(description, parameters);
@@ -6278,7 +6278,7 @@ describe('NodeHelpers', () => {
 				displayName: '',
 				group: [],
 				description: '',
-				name: 'n8n-nodes-base.someTool',
+				name: 'resin-nodes-base.someTool',
 			};
 			const parameters = {};
 			const result = isTool(description, parameters);
@@ -6298,7 +6298,7 @@ describe('NodeHelpers', () => {
 				displayName: '',
 				description: '',
 				group: [],
-				name: 'n8n-nodes-base.vectorStore',
+				name: 'resin-nodes-base.vectorStore',
 			};
 			const parameters = { mode: 'retrieve-as-tool' };
 			const result = isTool(description, parameters);
@@ -6318,7 +6318,7 @@ describe('NodeHelpers', () => {
 				displayName: '',
 				group: [],
 				description: '',
-				name: 'n8n-nodes-base.someTool',
+				name: 'resin-nodes-base.someTool',
 			};
 			const parameters = { mode: 'retrieve-as-tool' };
 			const result = isTool(description, parameters);
@@ -6402,9 +6402,9 @@ describe('NodeHelpers', () => {
 		});
 
 		it.each([
-			['@n8n/n8n-nodes-base.toolCalculator', true],
-			['@n8n/n8n-nodes-base.toolCode', true],
-			['n8n-nodes-base.someTool', true],
+			['@resin/n8n-nodes-base.toolCalculator', true],
+			['@resin/n8n-nodes-base.toolCode', true],
+			['resin-nodes-base.someTool', true],
 			['nodes-base.dot.dot.dot.someTool', true],
 			['nodes-base.dot.dot.dot.someTool', true],
 			['nodes-base.dot.dot.dot.someHitlTool', true],
@@ -6454,7 +6454,7 @@ describe('NodeHelpers', () => {
 			const node: INode = {
 				id: 'test-123',
 				name: 'Test',
-				type: 'n8n-nodes-base.test',
+				type: 'resin-nodes-base.test',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: nodeValues,
@@ -6506,7 +6506,7 @@ describe('NodeHelpers', () => {
 			const node: INode = {
 				id: 'test-123',
 				name: 'Test',
-				type: 'n8n-nodes-base.test',
+				type: 'resin-nodes-base.test',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: nodeValues,
@@ -6557,7 +6557,7 @@ describe('NodeHelpers', () => {
 			const node: INode = {
 				id: 'test-123',
 				name: 'Test',
-				type: 'n8n-nodes-base.test',
+				type: 'resin-nodes-base.test',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: nodeValues,
@@ -6608,7 +6608,7 @@ describe('NodeHelpers', () => {
 			const node: INode = {
 				id: 'test-123',
 				name: 'Test',
-				type: 'n8n-nodes-base.test',
+				type: 'resin-nodes-base.test',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: nodeValues,

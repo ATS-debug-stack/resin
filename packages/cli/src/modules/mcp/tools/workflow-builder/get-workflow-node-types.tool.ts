@@ -1,4 +1,4 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import z from 'zod';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../../mcp.constants';
@@ -10,7 +10,7 @@ import type { Telemetry } from '@/telemetry';
 import { CODE_BUILDER_GET_NODE_TYPES_TOOL } from './constants';
 
 const nodeIdWithDiscriminators = z.object({
-	nodeId: z.string().describe('The node type ID (e.g. "n8n-nodes-base.gmail")'),
+	nodeId: z.string().describe('The node type ID (e.g. "resin-nodes-base.gmail")'),
 	version: z.string().optional().describe('Specific version (e.g. "2.1")'),
 	resource: z.string().optional().describe('Resource discriminator (e.g. "message")'),
 	operation: z.string().optional().describe('Operation discriminator (e.g. "send")'),

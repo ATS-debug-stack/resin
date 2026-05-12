@@ -5,8 +5,8 @@ import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	ISupplyDataFunctions,
-} from 'n8n-workflow';
-import { getHighlightedResponseKey, sleep } from 'n8n-workflow';
+} from 'resin-workflow';
+import { getHighlightedResponseKey, sleep } from 'resin-workflow';
 
 import { buildExecutionContext, executeBatch } from './helpers';
 import { isExecuteFunctions } from '../../utils';

@@ -4,7 +4,7 @@ import { mockedStore } from '@/__tests__/utils';
 import { createPinia, setActivePinia } from 'pinia';
 import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
-import type { Role } from '@n8n/permissions';
+import type { Role } from '@resin/permissions';
 import RoleHoverPopover from './RoleHoverPopover.vue';
 import { VIEWS } from '@/app/constants';
 import { useUsersStore } from '@/features/settings/users/users.store';

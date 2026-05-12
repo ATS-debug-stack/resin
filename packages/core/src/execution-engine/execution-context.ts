@@ -1,11 +1,11 @@
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 import {
 	type IWorkflowExecuteAdditionalData,
 	type WorkflowExecuteMode,
 	type IRunExecutionData,
 	type Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { assertExecutionDataExists } from '@/utils/assertions';
 

@@ -31,7 +31,7 @@ jest.mock('../daytona-filesystem', () => {
 
 jest.mock('../n8n-sandbox-sandbox', () => {
 	class N8nSandboxServiceSandbox {
-		readonly type = 'n8n-sandbox';
+		readonly type = 'resin-sandbox';
 		constructor(public opts: Record<string, unknown>) {}
 	}
 	return { N8nSandboxServiceSandbox };
@@ -39,7 +39,7 @@ jest.mock('../n8n-sandbox-sandbox', () => {
 
 jest.mock('../n8n-sandbox-filesystem', () => {
 	class N8nSandboxFilesystem {
-		readonly type = 'n8n-sandbox-fs';
+		readonly type = 'resin-sandbox-fs';
 		constructor(public sandbox: unknown) {}
 	}
 	return { N8nSandboxFilesystem };
@@ -205,10 +205,10 @@ describe('createSandbox', () => {
 		);
 	});
 
-	it('should return an N8nSandboxServiceSandbox for "n8n-sandbox" provider', async () => {
+	it('should return an N8nSandboxServiceSandbox for "resin-sandbox" provider', async () => {
 		const config: SandboxConfig = {
 			enabled: true,
-			provider: 'n8n-sandbox',
+			provider: 'resin-sandbox',
 			serviceUrl: 'https://sandbox.example.com',
 			apiKey: 'sandbox-key',
 			timeout: 45_000,

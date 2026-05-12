@@ -1,6 +1,6 @@
 /* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { INodeProperties, INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeProperties, INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import * as base from './actions/base/base.resource';
 import * as linkrows from './actions/linkrows/linkrows.resource';

@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import type { Response } from 'express';
-import { Workflow, CHAT_TRIGGER_NODE_TYPE } from 'n8n-workflow';
-import type { INode, IWebhookData, IHttpRequestMethods, IWorkflowBase } from 'n8n-workflow';
+import { Workflow, CHAT_TRIGGER_NODE_TYPE } from 'resin-workflow';
+import type { INode, IWebhookData, IHttpRequestMethods, IWorkflowBase } from 'resin-workflow';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 import { WebhookNotFoundError } from '@/errors/response-errors/webhook-not-found.error';

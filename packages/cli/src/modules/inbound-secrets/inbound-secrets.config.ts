@@ -1,4 +1,4 @@
-import { Config } from '@n8n/config';
+import { Config } from '@resin/config';
 
 @Config
 export class InboundSecretsConfig {}

@@ -14,7 +14,7 @@ import {
 	type SchemaNode,
 } from '@/app/composables/useDataSchema';
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useCalloutHelpers } from '@/app/composables/useCalloutHelpers';
@@ -29,7 +29,7 @@ import {
 	NodeConnectionTypes,
 	type IConnectedNode,
 	type IDataObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { computed, ref, watch } from 'vue';
 import {
 	DynamicScroller,
@@ -51,7 +51,7 @@ import { I18nT } from 'vue-i18n';
 import { useTelemetryContext } from '@/app/composables/useTelemetryContext';
 import NDVEmptyState from '@/features/ndv/panel/components/NDVEmptyState.vue';
 
-import { N8nCallout, N8nIcon, N8nText, N8nTooltip } from '@n8n/design-system';
+import { N8nCallout, N8nIcon, N8nText, N8nTooltip } from '@resin/design-system';
 type Props = {
 	nodes?: IConnectedNode[];
 	node?: INodeUi | null;
@@ -409,7 +409,7 @@ const items = computed(() => {
 		allItems = flattenNodeSchema.value;
 
 		if (
-			props.node?.type === 'n8n-nodes-base.merge' &&
+			props.node?.type === 'resin-nodes-base.merge' &&
 			props.paneType === 'output' &&
 			props.data &&
 			props.data.length > 1
@@ -689,19 +689,19 @@ const onDragEnd = (el: HTMLElement) => {
 	color: var(--color--text);
 	font-size: var(--font-size--2xs);
 	line-height: var(--line-height--lg);
-	/* stylelint-disable-next-line @n8n/css-var-naming */
+	/* stylelint-disable-next-line @resin/css-var-naming */
 	margin-left: calc(var(--spacing--lg) * var(--schema-level));
 }
 
 .empty-schema {
 	padding-bottom: var(--spacing--xs);
-	/* stylelint-disable-next-line @n8n/css-var-naming */
+	/* stylelint-disable-next-line @resin/css-var-naming */
 	margin-left: calc((var(--spacing--xl) * var(--schema-level)));
 }
 
 .callout-wrapper {
 	padding-bottom: var(--spacing--xs);
-	/* stylelint-disable-next-line @n8n/css-var-naming */
+	/* stylelint-disable-next-line @resin/css-var-naming */
 	margin-left: calc(var(--spacing--lg) * var(--schema-level));
 }
 

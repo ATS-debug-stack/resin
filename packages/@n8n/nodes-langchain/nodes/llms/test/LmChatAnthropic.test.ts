@@ -1,9 +1,9 @@
 /* eslint-disable n8n-nodes-base/node-filename-against-convention */
 /* eslint-disable @typescript-eslint/unbound-method */
 import { ChatAnthropic } from '@langchain/anthropic';
-import { N8nLlmTracing, makeN8nLlmFailedAttemptHandler, getProxyAgent } from '@n8n/ai-utilities';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { ILoadOptionsFunctions, INode, ISupplyDataFunctions } from 'n8n-workflow';
+import { N8nLlmTracing, makeN8nLlmFailedAttemptHandler, getProxyAgent } from '@resin/ai-utilities';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { ILoadOptionsFunctions, INode, ISupplyDataFunctions } from 'resin-workflow';
 import type { Mock, Mocked } from 'vitest';
 
 import { LmChatAnthropic } from '../LMChatAnthropic/LmChatAnthropic.node';
@@ -11,7 +11,7 @@ import { LmChatAnthropic } from '../LMChatAnthropic/LmChatAnthropic.node';
 vi.mock('@langchain/anthropic', () => ({
 	ChatAnthropic: vi.fn(),
 }));
-vi.mock('@n8n/ai-utilities');
+vi.mock('@resin/ai-utilities');
 
 const MockedChatAnthropic = vi.mocked(ChatAnthropic);
 const MockedN8nLlmTracing = vi.mocked(N8nLlmTracing);
@@ -26,7 +26,7 @@ describe('LmChatAnthropic', () => {
 		id: '1',
 		name: 'Anthropic Chat Model',
 		typeVersion: 1.3,
-		type: 'n8n-nodes-langchain.lmChatAnthropic',
+		type: 'resin-nodes-langchain.lmChatAnthropic',
 		position: [0, 0],
 		parameters: {},
 	};

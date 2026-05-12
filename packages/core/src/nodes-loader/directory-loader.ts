@@ -1,5 +1,5 @@
-import { isContainedWithin, Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import { isContainedWithin, Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 import uniqBy from 'lodash/uniqBy';
 import type {
 	CodexData,
@@ -16,8 +16,8 @@ import type {
 	IVersionedNodeType,
 	KnownNodesAndCredentials,
 	NodeLoader,
-} from 'n8n-workflow';
-import { ApplicationError, isExpression, isSubNodeType, UnexpectedError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, isExpression, isSubNodeType, UnexpectedError } from 'resin-workflow';
 import { realpathSync } from 'node:fs';
 import * as path from 'path';
 

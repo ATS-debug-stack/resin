@@ -1494,7 +1494,7 @@ describe('AskAssistantChat', () => {
 						),
 						MessageWrapper: MessageWrapperStub,
 						N8nPromptInput: {
-							name: 'n8n-prompt-input',
+							name: 'resin-prompt-input',
 							props: [
 								'modelValue',
 								'placeholder',

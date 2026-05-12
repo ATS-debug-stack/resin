@@ -1,11 +1,11 @@
 import type { Ref } from 'vue';
 import { computed } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import type {
 	INodeParameterResourceLocator,
 	INodePropertyMode,
 	ResourceLocatorModes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { Router } from 'vue-router';
 import { useWorkflowResourcesLocator } from './useWorkflowResourcesLocator';
 

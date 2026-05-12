@@ -1,4 +1,4 @@
-import { Container, Service } from '@n8n/di';
+import { Container, Service } from '@resin/di';
 
 import { CommandMetadata } from './command-metadata';
 import type { CommandClass, CommandOptions } from './types';

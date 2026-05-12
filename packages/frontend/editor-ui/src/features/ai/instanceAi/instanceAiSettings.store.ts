@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed, reactive, toRaw, watch } from 'vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
 import { useToast } from '@/app/composables/useToast';
@@ -24,8 +24,8 @@ import type {
 	InstanceAiPermissions,
 	InstanceAiPermissionMode,
 	ToolCategory,
-} from '@n8n/api-types';
-import { i18n } from '@n8n/i18n';
+} from '@resin/api-types';
+import { i18n } from '@resin/i18n';
 
 export const useInstanceAiSettingsStore = defineStore('instanceAiSettings', () => {
 	const rootStore = useRootStore();
@@ -365,7 +365,7 @@ export const useInstanceAiSettingsStore = defineStore('instanceAiSettings', () =
 	const DAEMON_BASE = 'http://127.0.0.1:7655';
 
 	/**
-	 * User-initiated pairing with a running `@n8n/computer-use` daemon.
+	 * User-initiated pairing with a running `@resin/computer-use` daemon.
 	 * Returns true on success, false on failure (a toast is shown on failure).
 	 */
 	async function connectLocalGateway(): Promise<boolean> {
@@ -397,7 +397,7 @@ export const useInstanceAiSettingsStore = defineStore('instanceAiSettings', () =
 		} catch {
 			toast.showError(
 				new Error(
-					'Could not reach the local daemon. Make sure `npx @n8n/computer-use` is running.',
+					'Could not reach the local daemon. Make sure `npx @resin/computer-use` is running.',
 				),
 				'Connection failed',
 			);

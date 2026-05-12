@@ -2,7 +2,7 @@
  * Consolidated executions tool — list, get, run, debug, get-node-output, stop.
  */
 import { createTool } from '@mastra/core/tools';
-import { instanceAiConfirmationSeveritySchema } from '@n8n/api-types';
+import { instanceAiConfirmationSeveritySchema } from '@resin/api-types';
 import { nanoid } from 'nanoid';
 import { z } from 'zod';
 

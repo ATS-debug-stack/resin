@@ -4,10 +4,10 @@ import {
 	getPersonalProject,
 	getAllSharedWorkflows,
 	getAllWorkflows,
-} from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { WorkflowPublishHistoryRepository, WorkflowHistoryRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { WorkflowPublishHistoryRepository, WorkflowHistoryRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { nanoid } from 'nanoid';
 
 import '@/zod-alias-support';

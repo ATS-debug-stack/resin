@@ -1,4 +1,4 @@
-import type { CurrentUserResponse } from '@n8n/rest-api-client/api/users';
+import type { CurrentUserResponse } from '@resin/rest-api-client/api/users';
 import { useUsersStore } from './users.store';
 import { createPinia, setActivePinia } from 'pinia';
 
@@ -12,7 +12,7 @@ const { loginCurrentUser, inviteUsers, login, logout } = vi.hoisted(() => {
 	};
 });
 
-vi.mock('@n8n/rest-api-client/api/users', () => ({
+vi.mock('@resin/rest-api-client/api/users', () => ({
 	loginCurrentUser,
 	login,
 	logout,
@@ -22,7 +22,7 @@ vi.mock('./invitation.api', () => ({
 	inviteUsers,
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: vi.fn(() => ({
 		instanceId: 'test-instance-id',
 	})),

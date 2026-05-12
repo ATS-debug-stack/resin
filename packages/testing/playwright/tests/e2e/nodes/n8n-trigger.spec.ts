@@ -1,5 +1,5 @@
-import { workflow, trigger, node } from '@n8n/workflow-sdk';
-import type { INode, IWorkflowBase } from 'n8n-workflow';
+import { workflow, trigger, node } from '@resin/workflow-sdk';
+import type { INode, IWorkflowBase } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
 import { test, expect } from '../../../fixtures/base';
@@ -8,7 +8,7 @@ type TriggerEventType = 'activate' | 'update';
 
 const makeN8nTriggerWorkflow = (events: TriggerEventType[]) => {
 	const n8nTrigger = trigger({
-		type: 'n8n-nodes-base.n8nTrigger',
+		type: 'resin-nodes-base.n8nTrigger',
 		version: 1,
 		config: {
 			name: 'n8n Trigger',
@@ -17,7 +17,7 @@ const makeN8nTriggerWorkflow = (events: TriggerEventType[]) => {
 	});
 
 	const noOp = node({
-		type: 'n8n-nodes-base.noOp',
+		type: 'resin-nodes-base.noOp',
 		version: 1,
 		config: {
 			name: 'NoOp',
@@ -57,7 +57,7 @@ test.describe(
 
 			// Update the workflow nodes to create a new version (simulates editing)
 			const updatedNodes = wf.add(
-				node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'NoOp2' } }),
+				node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'NoOp2' } }),
 			);
 			const updatedWorkflow = await api.workflows.update(workflowId, createdWorkflow.versionId!, {
 				nodes: updatedNodes.toJSON().nodes as INode[],

@@ -1,5 +1,5 @@
-import type { AuthenticatedRequest } from '@n8n/db';
-import type { IDataObject, INodeProperties } from 'n8n-workflow';
+import type { AuthenticatedRequest } from '@resin/db';
+import type { IDataObject, INodeProperties } from 'resin-workflow';
 
 export interface SecretsProviderSettings<T = IDataObject> {
 	connected: boolean;

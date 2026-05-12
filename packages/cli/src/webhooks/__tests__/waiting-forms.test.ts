@@ -1,14 +1,14 @@
-import type { IExecutionResponse, ExecutionRepository } from '@n8n/db';
+import type { IExecutionResponse, ExecutionRepository } from '@resin/db';
 import type express from 'express';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
-import { getHtmlSandboxCSP, WAITING_TOKEN_QUERY_PARAM } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
+import { getHtmlSandboxCSP, WAITING_TOKEN_QUERY_PARAM } from 'resin-core';
 import {
 	FORM_NODE_TYPE,
 	WAITING_FORMS_EXECUTION_STATUS,
 	type IWorkflowBase,
 	type Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { WaitingWebhookRequest } from '../webhook.types';
 

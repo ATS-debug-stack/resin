@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { N8nIcon, N8nText } from '@n8n/design-system';
-import type { IconName } from '@n8n/design-system/components/N8nIcon';
+import { N8nIcon, N8nText } from '@resin/design-system';
+import type { IconName } from '@resin/design-system/components/N8nIcon';
 
 const props = withDefaults(
 	defineProps<{

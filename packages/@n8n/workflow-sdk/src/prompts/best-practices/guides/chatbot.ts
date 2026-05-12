@@ -56,7 +56,7 @@ often be called "Append n8n Attribution" for nodes that support it, add this set
 
 ## Recommended Nodes
 
-### Chat Trigger (@n8n/n8n-nodes-langchain.chatTrigger)
+### Chat Trigger (@resin/n8n-nodes-langchain.chatTrigger)
 
 Purpose: Entry point for user messages in n8n-hosted chat interfaces
 
@@ -64,7 +64,7 @@ Pitfalls:
 
 - Most production chatbots use external platforms (Slack, Telegram) rather than n8n's chat interface
 
-### AI Agent (@n8n/n8n-nodes-langchain.agent)
+### AI Agent (@resin/n8n-nodes-langchain.agent)
 
 Purpose: Orchestrates logic, tool use, and LLM calls for intelligent responses.
 
@@ -73,14 +73,14 @@ For example, for "create a chatbot using OpenAI", implement: AI Agent -- OpenAI 
 
 ### Chat Model Nodes
 
-- OpenAI Chat Model (@n8n/n8n-nodes-langchain.lmChatOpenAi)
-- Google Gemini Chat Model (@n8n/n8n-nodes-langchain.lmChatGoogleGemini)
-- xAI Grok Chat Model (@n8n/n8n-nodes-langchain.lmChatXAiGrok)
-- DeepSeek Chat Model (@n8n/n8n-nodes-langchain.lmChatDeepSeek)
+- OpenAI Chat Model (@resin/n8n-nodes-langchain.lmChatOpenAi)
+- Google Gemini Chat Model (@resin/n8n-nodes-langchain.lmChatGoogleGemini)
+- xAI Grok Chat Model (@resin/n8n-nodes-langchain.lmChatXAiGrok)
+- DeepSeek Chat Model (@resin/n8n-nodes-langchain.lmChatDeepSeek)
 
 Purpose: Connect to LLMs for natural, context-aware responses
 
-### Simple Memory (@n8n/n8n-nodes-langchain.memoryBufferWindow)
+### Simple Memory (@resin/n8n-nodes-langchain.memoryBufferWindow)
 
 Purpose: Maintains short-term conversation history for context continuity
 

@@ -34,14 +34,14 @@ test(
 				{
 					id: '1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 				},
 				{
 					id: '2',
 					name: 'Email',
-					type: 'n8n-nodes-base.emailSend',
+					type: 'resin-nodes-base.emailSend',
 					typeVersion: 2,
 					position: [300, 0],
 					parameters: {

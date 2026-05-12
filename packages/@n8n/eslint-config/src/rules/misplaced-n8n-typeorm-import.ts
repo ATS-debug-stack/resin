@@ -4,10 +4,10 @@ export const MisplacedN8nTypeormImportRule = ESLintUtils.RuleCreator.withoutDocs
 	meta: {
 		type: 'problem',
 		docs: {
-			description: 'Ensure `@n8n/typeorm` is imported only from within the `@n8n/db` package.',
+			description: 'Ensure `@resin/typeorm` is imported only from within the `@resin/db` package.',
 		},
 		messages: {
-			moveImport: 'Please move this import to `@n8n/db`.',
+			moveImport: 'Please move this import to `@resin/db`.',
 		},
 		schema: [],
 	},
@@ -15,7 +15,7 @@ export const MisplacedN8nTypeormImportRule = ESLintUtils.RuleCreator.withoutDocs
 	create(context) {
 		return {
 			ImportDeclaration(node) {
-				if (node.source.value === '@n8n/typeorm' && !context.filename.includes('@n8n/db')) {
+				if (node.source.value === '@resin/typeorm' && !context.filename.includes('@resin/db')) {
 					context.report({ node, messageId: 'moveImport' });
 				}
 			},

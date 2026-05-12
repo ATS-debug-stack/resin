@@ -22,8 +22,8 @@ import {
 	ChatReconnectRequest,
 	ALWAYS_BLOCKED_CHAT_HUB_TOOL_TYPES,
 	CHAT_USER_BLOCKED_CHAT_HUB_TOOL_TYPES,
-} from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
+} from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
 import {
 	RestController,
 	Post,
@@ -35,9 +35,9 @@ import {
 	Param,
 	Patch,
 	Query,
-} from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import { sanitizeFilename } from '@n8n/utils';
+} from '@resin/decorators';
+import { Container } from '@resin/di';
+import { sanitizeFilename } from '@resin/utils';
 import type { Response } from 'express';
 import multer from 'multer';
 

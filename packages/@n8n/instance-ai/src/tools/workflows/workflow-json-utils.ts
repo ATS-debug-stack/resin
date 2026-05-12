@@ -1,10 +1,10 @@
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 const KNOWN_MOCKABLE_TRIGGER_TYPES = new Set([
-	'n8n-nodes-base.webhook',
-	'n8n-nodes-base.formTrigger',
-	'n8n-nodes-base.scheduleTrigger',
-	'@n8n/n8n-nodes-langchain.chatTrigger',
+	'resin-nodes-base.webhook',
+	'resin-nodes-base.formTrigger',
+	'resin-nodes-base.scheduleTrigger',
+	'@resin/n8n-nodes-langchain.chatTrigger',
 ]);
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -40,7 +40,7 @@ export function getReferencedWorkflowIds(json: WorkflowJSON): string[] {
 	const seen = new Set<string>();
 
 	for (const node of json.nodes ?? []) {
-		if (node.disabled || node.type !== 'n8n-nodes-base.executeWorkflow') continue;
+		if (node.disabled || node.type !== 'resin-nodes-base.executeWorkflow') continue;
 		const parameters = isRecord(node.parameters) ? node.parameters : {};
 		if (shouldSkipReferencedWorkflow(parameters.source)) continue;
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { AnnotationVote } from 'n8n-workflow';
+import type { AnnotationVote } from 'resin-workflow';
 
-import { N8nIconButton } from '@n8n/design-system';
+import { N8nIconButton } from '@resin/design-system';
 defineProps<{
 	vote: AnnotationVote | null;
 }>();

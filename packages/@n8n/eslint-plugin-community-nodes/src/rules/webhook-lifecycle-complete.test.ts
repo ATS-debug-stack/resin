@@ -16,7 +16,7 @@ function createTriggerNode(options: {
 	const methodsProp = webhookMethods === null ? '' : `\n\twebhookMethods = ${webhookMethods};`;
 
 	return `
-import type { INodeType, INodeTypeDescription, IHookFunctions } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription, IHookFunctions } from 'resin-workflow';
 
 export class TestTrigger implements INodeType {
 	description: INodeTypeDescription = {

@@ -57,7 +57,7 @@ describe('buildMergeComposite', () => {
 		// Create the Merge node with 2 inputs
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map(),
 			new Map([
 				['branch0', [{ from: 'Branch1', outputSlot: 'output0' }]],
@@ -66,8 +66,8 @@ describe('buildMergeComposite', () => {
 		);
 
 		// Create branch sources
-		const branch1 = createSemanticNode('Branch1', 'n8n-nodes-base.noOp');
-		const branch2 = createSemanticNode('Branch2', 'n8n-nodes-base.noOp');
+		const branch1 = createSemanticNode('Branch1', 'resin-nodes-base.noOp');
+		const branch2 = createSemanticNode('Branch2', 'resin-nodes-base.noOp');
 
 		// Build the graph
 		const graph: SemanticGraph = {
@@ -116,7 +116,7 @@ describe('buildMergeComposite', () => {
 	it('registers source nodes as variables', () => {
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map(),
 			new Map([
 				['branch0', [{ from: 'Branch1', outputSlot: 'output0' }]],
@@ -124,8 +124,8 @@ describe('buildMergeComposite', () => {
 			]),
 		);
 
-		const branch1 = createSemanticNode('Branch1', 'n8n-nodes-base.noOp');
-		const branch2 = createSemanticNode('Branch2', 'n8n-nodes-base.noOp');
+		const branch1 = createSemanticNode('Branch1', 'resin-nodes-base.noOp');
+		const branch2 = createSemanticNode('Branch2', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -148,12 +148,12 @@ describe('buildMergeComposite', () => {
 	it('handles merge with single input', () => {
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map(),
 			new Map([['branch0', [{ from: 'Source', outputSlot: 'output0' }]]]),
 		);
 
-		const source = createSemanticNode('Source', 'n8n-nodes-base.noOp');
+		const source = createSemanticNode('Source', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -174,7 +174,7 @@ describe('buildMergeComposite', () => {
 	});
 
 	it('handles merge with no inputs', () => {
-		const mergeNode = createSemanticNode('Merge', 'n8n-nodes-base.merge', new Map(), new Map());
+		const mergeNode = createSemanticNode('Merge', 'resin-nodes-base.merge', new Map(), new Map());
 
 		const graph: SemanticGraph = {
 			nodes: new Map([['Merge', mergeNode]]),
@@ -193,12 +193,12 @@ describe('buildMergeComposite', () => {
 		// Source with output1 (not output0)
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map(),
 			new Map([['branch0', [{ from: 'MultiOutput', outputSlot: 'output1' }]]]),
 		);
 
-		const multiOutput = createSemanticNode('MultiOutput', 'n8n-nodes-base.noOp');
+		const multiOutput = createSemanticNode('MultiOutput', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -220,7 +220,7 @@ describe('buildMergeComposite', () => {
 		// Multiple sources connecting to the same merge input
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map(),
 			new Map([
 				[
@@ -233,8 +233,8 @@ describe('buildMergeComposite', () => {
 			]),
 		);
 
-		const sourceA = createSemanticNode('SourceA', 'n8n-nodes-base.noOp');
-		const sourceB = createSemanticNode('SourceB', 'n8n-nodes-base.noOp');
+		const sourceA = createSemanticNode('SourceA', 'resin-nodes-base.noOp');
+		const sourceB = createSemanticNode('SourceB', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([

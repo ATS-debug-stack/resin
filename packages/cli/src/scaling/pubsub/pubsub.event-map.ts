@@ -1,5 +1,5 @@
-import type { ChatHubMessageStatus, PushMessage, WorkerStatus } from '@n8n/api-types';
-import type { IWorkflowBase, WorkflowActivateMode } from 'n8n-workflow';
+import type { ChatHubMessageStatus, PushMessage, WorkerStatus } from '@resin/api-types';
+import type { IWorkflowBase, WorkflowActivateMode } from 'resin-workflow';
 
 export type PubSubCommandMap = {
 	// #region Lifecycle

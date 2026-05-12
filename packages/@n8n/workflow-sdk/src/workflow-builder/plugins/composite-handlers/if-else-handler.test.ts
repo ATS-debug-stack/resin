@@ -5,7 +5,7 @@ import type { MutablePluginContext } from '../types';
 // Helper to create a mock if node
 function createMockIfNode(name = 'If Node'): NodeInstance<string, string, unknown> {
 	return {
-		type: 'n8n-nodes-base.if',
+		type: 'resin-nodes-base.if',
 		name,
 		version: '2',
 		config: { parameters: {} },
@@ -15,7 +15,7 @@ function createMockIfNode(name = 'If Node'): NodeInstance<string, string, unknow
 // Helper to create a mock node
 function createMockNode(name: string): NodeInstance<string, string, unknown> {
 	return {
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		name,
 		version: '1',
 		config: { parameters: {} },

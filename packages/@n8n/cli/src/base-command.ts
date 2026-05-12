@@ -72,14 +72,14 @@ export abstract class BaseCommand extends Command {
 
 		if (!url) {
 			this.error(
-				"No n8n URL configured.\nHint: Run 'n8n-cli config set-url <url>' or set N8N_URL.",
+				"No n8n URL configured.\nHint: Run 'resin-cli config set-url <url>' or set N8N_URL.",
 				{ exit: EXIT_ERROR },
 			);
 		}
 
 		if (!apiKey) {
 			this.error(
-				"No API key configured.\nHint: Run 'n8n-cli config set-api-key <key>' or set N8N_API_KEY.",
+				"No API key configured.\nHint: Run 'resin-cli config set-api-key <key>' or set N8N_API_KEY.",
 				{ exit: EXIT_AUTH },
 			);
 		}

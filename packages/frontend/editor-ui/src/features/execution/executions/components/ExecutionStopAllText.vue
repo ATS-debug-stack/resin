@@ -2,10 +2,10 @@
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { STOP_MANY_EXECUTIONS_MODAL_KEY } from '@/app/constants';
 import { useUIStore } from '@/app/stores/ui.store';
-import { useI18n } from '@n8n/i18n';
-import type { ExecutionSummary } from 'n8n-workflow';
+import { useI18n } from '@resin/i18n';
+import type { ExecutionSummary } from 'resin-workflow';
 import { computed } from 'vue';
-import { N8nText } from '@n8n/design-system';
+import { N8nText } from '@resin/design-system';
 
 const props = defineProps<{
 	executions: ExecutionSummary[];

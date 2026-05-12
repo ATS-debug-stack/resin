@@ -1,4 +1,4 @@
-import { NANOID_ALPHABET } from '@n8n/constants';
+import { NANOID_ALPHABET } from '@resin/constants';
 import { customAlphabet } from 'nanoid';
 
 /**

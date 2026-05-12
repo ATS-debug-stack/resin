@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useRolesStore } from '@/app/stores/roles.store';
-import { N8nDialog, N8nIconButton, N8nLoading, N8nText, N8nUserInfo } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nDialog, N8nIconButton, N8nLoading, N8nText, N8nUserInfo } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { ref, watch } from 'vue';
 
-import type { RoleProjectMembersResponse } from '@n8n/api-types';
+import type { RoleProjectMembersResponse } from '@resin/api-types';
 
 const props = defineProps<{
 	open: boolean;

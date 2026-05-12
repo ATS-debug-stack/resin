@@ -1,4 +1,4 @@
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 
 /**
  * Error thrown when a resolved address is denied by SSRF IP policy.

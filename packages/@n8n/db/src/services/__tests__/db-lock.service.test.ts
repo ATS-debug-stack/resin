@@ -1,8 +1,8 @@
-import type { DatabaseConfig } from '@n8n/config';
-import { QueryFailedError } from '@n8n/typeorm';
-import type { DataSource, EntityManager } from '@n8n/typeorm';
+import type { DatabaseConfig } from '@resin/config';
+import { QueryFailedError } from '@resin/typeorm';
+import type { DataSource, EntityManager } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import { OperationalError } from 'n8n-workflow';
+import { OperationalError } from 'resin-workflow';
 
 import { DbLockService } from '../db-lock.service';
 

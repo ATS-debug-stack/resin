@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import type { ButtonSize, IUpdateInformation } from '@/Interface';
-import type { ButtonVariant } from '@n8n/design-system';
-import { type IconName } from '@n8n/design-system/components/N8nIcon/icons';
-import { N8nButton, N8nTooltip } from '@n8n/design-system';
+import type { ButtonVariant } from '@resin/design-system';
+import { type IconName } from '@resin/design-system/components/N8nIcon/icons';
+import { N8nButton, N8nTooltip } from '@resin/design-system';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeExecution } from '@/app/composables/useNodeExecution';

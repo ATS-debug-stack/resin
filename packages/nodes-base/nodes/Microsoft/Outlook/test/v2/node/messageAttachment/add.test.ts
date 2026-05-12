@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import { execute } from '../../../../v2/actions/messageAttachment/add.operation';
 
 import * as transport from '../../../../v2/transport';
@@ -12,7 +12,7 @@ describe('Microsoft Outlook V2 - MessageAttachment:add', () => {
 	const mockNode: INode = {
 		id: 'test-node-id',
 		name: 'Microsoft Outlook Test',
-		type: 'n8n-nodes-base.microsoftOutlook',
+		type: 'resin-nodes-base.microsoftOutlook',
 		typeVersion: 2,
 		position: [0, 0],
 		parameters: {},

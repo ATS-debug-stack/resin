@@ -19,10 +19,10 @@ export const COMPILER_OPTIONS: ts.CompilerOptions = {
 };
 export const TYPESCRIPT_AUTOCOMPLETE_THRESHOLD = '15';
 export const TYPESCRIPT_FILES = {
-	DYNAMIC_TYPES: 'n8n-dynamic.d.ts',
-	DYNAMIC_INPUT_TYPES: 'n8n-dynamic-input.d.ts',
-	DYNAMIC_VARIABLES_TYPES: 'n8n-variables.d.ts',
-	MODE_TYPES: 'n8n-mode-specific.d.ts',
+	DYNAMIC_TYPES: 'resin-dynamic.d.ts',
+	DYNAMIC_INPUT_TYPES: 'resin-dynamic-input.d.ts',
+	DYNAMIC_VARIABLES_TYPES: 'resin-variables.d.ts',
+	MODE_TYPES: 'resin-mode-specific.d.ts',
 	N8N_TYPES: 'n8n.d.ts',
 	GLOBAL_TYPES: 'globals.d.ts',
 };

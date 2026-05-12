@@ -4,8 +4,8 @@ import { useDebounceFn } from '@vueuse/core';
 import { defaultKeymap, history } from '@codemirror/commands';
 import { json } from '@codemirror/lang-json';
 import { EditorView, lineNumbers, keymap } from '@codemirror/view';
-import { useI18n } from '@n8n/i18n';
-import { N8nIconButton, N8nTooltip } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nIconButton, N8nTooltip } from '@resin/design-system';
 
 import { DEBOUNCE_TIME, getDebounceTime } from '@/app/constants';
 import { codeEditorTheme } from '@/features/shared/editors/components/CodeNodeEditor/theme';

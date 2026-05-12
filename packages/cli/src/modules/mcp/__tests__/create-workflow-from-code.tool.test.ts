@@ -1,6 +1,6 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { ProjectRepository, User, WorkflowEntity } from '@n8n/db';
-import type { INode } from 'n8n-workflow';
+import { mockInstance } from '@resin/backend-test-utils';
+import { ProjectRepository, User, WorkflowEntity } from '@resin/db';
+import type { INode } from 'resin-workflow';
 import { z } from 'zod';
 
 import { createCreateWorkflowFromCodeTool } from '../tools/workflow-builder/create-workflow-from-code.tool';
@@ -24,7 +24,7 @@ jest.mock('../tools/workflow-builder/credentials-auto-assign', () => ({
 const mockParseAndValidate = jest.fn();
 const mockStripImportStatements = jest.fn((code: string) => code);
 
-jest.mock('@n8n/ai-workflow-builder', () => ({
+jest.mock('@resin/ai-workflow-builder', () => ({
 	ParseValidateHandler: jest.fn().mockImplementation(() => ({
 		parseAndValidate: mockParseAndValidate,
 	})),
@@ -45,7 +45,7 @@ const mockNodes: INode[] = [
 	{
 		id: 'node-1',
 		name: 'Webhook',
-		type: 'n8n-nodes-base.webhook',
+		type: 'resin-nodes-base.webhook',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -53,7 +53,7 @@ const mockNodes: INode[] = [
 	{
 		id: 'node-2',
 		name: 'Set',
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		typeVersion: 1,
 		position: [200, 0],
 		parameters: {},
@@ -249,7 +249,7 @@ describe('create-workflow-from-code MCP tool', () => {
 			expect(workflowCreationService.createWorkflow).toHaveBeenCalledWith(
 				user,
 				expect.any(WorkflowEntity),
-				{ projectId: undefined, source: 'n8n-mcp' },
+				{ projectId: undefined, source: 'resin-mcp' },
 			);
 		});
 
@@ -259,7 +259,7 @@ describe('create-workflow-from-code MCP tool', () => {
 			expect(workflowCreationService.createWorkflow).toHaveBeenCalledWith(
 				user,
 				expect.any(WorkflowEntity),
-				{ projectId: 'custom-project-id', source: 'n8n-mcp' },
+				{ projectId: 'custom-project-id', source: 'resin-mcp' },
 			);
 		});
 
@@ -329,7 +329,7 @@ describe('create-workflow-from-code MCP tool', () => {
 
 		test('assigns webhookId to webhook nodes before saving', async () => {
 			nodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return { description: { webhooks: [{ httpMethod: 'GET', path: '' }] } };
 				}
 				return { description: {} };
@@ -339,9 +339,9 @@ describe('create-workflow-from-code MCP tool', () => {
 
 			const savedWorkflow = createWorkflowMock.mock.calls[0][1] as WorkflowEntity;
 			const webhookNode = savedWorkflow.nodes.find(
-				(n: INode) => n.type === 'n8n-nodes-base.webhook',
+				(n: INode) => n.type === 'resin-nodes-base.webhook',
 			);
-			const setNode = savedWorkflow.nodes.find((n: INode) => n.type === 'n8n-nodes-base.set');
+			const setNode = savedWorkflow.nodes.find((n: INode) => n.type === 'resin-nodes-base.set');
 
 			expect(webhookNode!.webhookId).toBeDefined();
 			expect(typeof webhookNode!.webhookId).toBe('string');

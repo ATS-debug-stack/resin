@@ -4,7 +4,7 @@ import {
 	isAgentCredentialIntegration,
 	isAgentScheduleIntegration,
 	type AgentIntegrationStatusEntry,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import {
 	buildAgentConfigFingerprint,
 	deriveAgentStatus,

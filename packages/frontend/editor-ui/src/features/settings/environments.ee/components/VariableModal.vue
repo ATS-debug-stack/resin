@@ -3,7 +3,7 @@ import Modal from '@/app/components/Modal.vue';
 import { VARIABLE_MODAL_KEY } from '../environments.constants';
 import { computed, reactive, ref, onMounted, nextTick } from 'vue';
 import { useUIStore } from '@/app/stores/ui.store';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import { useToast } from '@/app/composables/useToast';
 import {
 	N8nFormInput,
@@ -14,13 +14,13 @@ import {
 	N8nCallout,
 	N8nText,
 	N8nIcon,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import type { Rule, RuleGroup } from '@/Interface';
 import type { EnvironmentVariable } from '../environments.types';
 import { useEnvironmentsStore } from '../environments.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
-import { useI18n } from '@n8n/i18n';
-import type { IconOrEmoji } from '@n8n/design-system/components/N8nIconPicker/types';
+import { useI18n } from '@resin/i18n';
+import type { IconOrEmoji } from '@resin/design-system/components/N8nIconPicker/types';
 
 const props = withDefaults(
 	defineProps<{

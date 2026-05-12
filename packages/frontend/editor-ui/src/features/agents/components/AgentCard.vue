@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import dateformat from 'dateformat';
-import { N8nActionToggle, N8nBadge, N8nCard, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { N8nActionToggle, N8nBadge, N8nCard, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { MODAL_CONFIRM } from '@/app/constants';
 import TimeAgo from '@/app/components/TimeAgo.vue';
 import { deleteAgent } from '../composables/useAgentApi';

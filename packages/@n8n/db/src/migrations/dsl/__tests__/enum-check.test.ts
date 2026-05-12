@@ -1,4 +1,4 @@
-import type { Driver, QueryRunner, Table } from '@n8n/typeorm';
+import type { Driver, QueryRunner, Table } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import { Column } from '../column';

@@ -1,7 +1,7 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { DbConnection, DeploymentKeyRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { BinaryDataConfig } from 'n8n-core';
+import { mockInstance } from '@resin/backend-test-utils';
+import { DbConnection, DeploymentKeyRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { BinaryDataConfig } from 'resin-core';
 
 import { DeprecationService } from '@/deprecation/deprecation.service';
 import { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';

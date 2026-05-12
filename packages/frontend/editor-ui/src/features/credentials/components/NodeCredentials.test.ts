@@ -4,9 +4,9 @@ import { screen } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
-import type { ICredentialType, INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
-import type { FrontendSettings } from '@n8n/api-types';
+import type { ICredentialType, INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
+import type { FrontendSettings } from '@resin/api-types';
 import NodeCredentials from './NodeCredentials.vue';
 import type { RenderOptions } from '@/__tests__/render';
 import { createComponentRenderer } from '@/__tests__/render';
@@ -58,7 +58,7 @@ const httpNode: INodeUi = {
 		options: {},
 		infoMessage: '',
 	},
-	type: 'n8n-nodes-base.httpRequest',
+	type: 'resin-nodes-base.httpRequest',
 	typeVersion: 4.2,
 	position: [-200, -160],
 	id: '416988b5-e994-42c7-8576-6ef28a7619b2',
@@ -77,7 +77,7 @@ const openAiNode: INodeUi = {
 		jsonOutput: false,
 		options: {},
 	},
-	type: '@n8n/n8n-nodes-langchain.openAi',
+	type: '@resin/n8n-nodes-langchain.openAi',
 	typeVersion: 1.8,
 	position: [440, 0],
 	id: '17241295-a277-4cdf-8c46-6c3f85b335e9',
@@ -562,7 +562,7 @@ describe('NodeCredentials', () => {
 
 		const slackNode: INodeUi = {
 			parameters: {},
-			type: 'n8n-nodes-base.slack',
+			type: 'resin-nodes-base.slack',
 			typeVersion: 2,
 			position: [0, 0],
 			id: 'slack-node-id',
@@ -651,7 +651,7 @@ describe('NodeCredentials', () => {
 
 			const linearMcpNode: INodeUi = {
 				parameters: {},
-				type: 'n8n-nodes-base.linearMcp',
+				type: 'resin-nodes-base.linearMcp',
 				typeVersion: 1,
 				position: [0, 0],
 				id: 'linear-mcp-node-id',
@@ -736,7 +736,7 @@ describe('NodeCredentials', () => {
 
 			const mcpNode: INodeUi = {
 				parameters: {},
-				type: '@n8n/n8n-nodes-langchain.mcpClientTool',
+				type: '@resin/n8n-nodes-langchain.mcpClientTool',
 				typeVersion: 1,
 				position: [0, 0],
 				id: 'mcp-node-id',
@@ -845,7 +845,7 @@ describe('NodeCredentials', () => {
 			nodeTypesStore.setNodeTypes([
 				{
 					displayName: 'Dropbox',
-					name: 'n8n-nodes-base.dropbox',
+					name: 'resin-nodes-base.dropbox',
 					group: ['input'],
 					version: 1,
 					description: 'Access data on Dropbox',
@@ -881,7 +881,7 @@ describe('NodeCredentials', () => {
 
 			const dropboxNode: INodeUi = {
 				parameters: { authentication: 'accessToken' },
-				type: 'n8n-nodes-base.dropbox',
+				type: 'resin-nodes-base.dropbox',
 				typeVersion: 1,
 				position: [0, 0],
 				id: 'dropbox-node-id',

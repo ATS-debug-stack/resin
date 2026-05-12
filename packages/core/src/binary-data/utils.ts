@@ -1,9 +1,9 @@
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 import type { Readable } from 'node:stream';
 
 import type { BinaryData } from './types';
 
-export { assertDir, exists } from '@n8n/backend-common';
+export { assertDir, exists } from '@resin/backend-common';
 
 const STORED_MODES = ['filesystem', 'filesystem-v2', 's3', 'database'] as const;
 

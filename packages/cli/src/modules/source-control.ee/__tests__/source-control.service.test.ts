@@ -1,9 +1,9 @@
-import type { SourceControlledFile } from '@n8n/api-types';
-import { isContainedWithin } from '@n8n/backend-common';
-import { GLOBAL_ADMIN_ROLE, GLOBAL_MEMBER_ROLE, User, type WorkflowEntity } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { SourceControlledFile } from '@resin/api-types';
+import { isContainedWithin } from '@resin/backend-common';
+import { GLOBAL_ADMIN_ROLE, GLOBAL_MEMBER_ROLE, User, type WorkflowEntity } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 import type { PushResult } from 'simple-git';
 
 import { SourceControlPreferencesService } from '@/modules/source-control.ee/source-control-preferences.service.ee';
@@ -23,8 +23,8 @@ const mockStatusService = {
 	getStatus: jest.fn(),
 };
 
-jest.mock('@n8n/backend-common', () => ({
-	...jest.requireActual('@n8n/backend-common'),
+jest.mock('@resin/backend-common', () => ({
+	...jest.requireActual('@resin/backend-common'),
 	isContainedWithin: jest.fn(() => true),
 }));
 

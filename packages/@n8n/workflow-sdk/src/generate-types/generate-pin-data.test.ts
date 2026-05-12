@@ -24,7 +24,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4,
 						config: { name: 'HTTP' },
 					}),
@@ -39,7 +39,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4,
 						config: { name: 'HTTP' },
 						output: [],
@@ -59,14 +59,14 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1,
 						config: { name: 'Start' },
 					}),
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'Slack',
@@ -93,7 +93,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'Slack',
@@ -118,7 +118,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4,
 						config: { name: 'HTTP Request' },
 						output: outputData,
@@ -136,7 +136,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.webhook',
+						type: 'resin-nodes-base.webhook',
 						version: 2,
 						config: { name: 'Webhook' },
 						output: outputData,
@@ -154,7 +154,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'Slack',
@@ -173,7 +173,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						version: 2,
 						config: { name: 'Code' },
 						output: [{ result: 'value' }],
@@ -194,7 +194,7 @@ describe('generatePinData', () => {
 					{
 						id: '1',
 						name: 'Existing Node',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -206,7 +206,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'Existing Node',
@@ -217,7 +217,7 @@ describe('generatePinData', () => {
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'New Node',
@@ -242,7 +242,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'Slack',
@@ -268,7 +268,7 @@ describe('generatePinData', () => {
 					{
 						id: '1',
 						name: 'Old Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -280,7 +280,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'Old Slack',
@@ -291,7 +291,7 @@ describe('generatePinData', () => {
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'New With Existing Creds',
@@ -302,7 +302,7 @@ describe('generatePinData', () => {
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'New With NewCredential',
@@ -313,7 +313,7 @@ describe('generatePinData', () => {
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						version: 4,
 						config: { name: 'HTTP Request' },
 						output: [{ id: 'http' }],
@@ -321,7 +321,7 @@ describe('generatePinData', () => {
 				)
 				.to(
 					node({
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						version: 2,
 						config: { name: 'Code Node' },
 						output: [{ id: 'code' }],
@@ -350,7 +350,7 @@ describe('generatePinData', () => {
 			const wf1 = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'Slack',
@@ -364,7 +364,7 @@ describe('generatePinData', () => {
 			const wf2 = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						version: 2,
 						config: {
 							name: 'Slack',
@@ -384,7 +384,7 @@ describe('generatePinData', () => {
 			const outputData = [{ response: 'AI response' }];
 
 			const model = languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1.2,
 				config: {
 					name: 'OpenAI Chat Model',
@@ -395,7 +395,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 1.7,
 						config: {
 							name: 'AI Agent',
@@ -415,7 +415,7 @@ describe('generatePinData', () => {
 			const outputData = [{ result: 'search result' }];
 
 			const searchTool = tool({
-				type: '@n8n/n8n-nodes-langchain.toolHttpRequest',
+				type: '@resin/n8n-nodes-langchain.toolHttpRequest',
 				version: 1,
 				config: {
 					name: 'Search Tool',
@@ -424,7 +424,7 @@ describe('generatePinData', () => {
 			});
 
 			const model = languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1.2,
 				config: {
 					name: 'OpenAI Model',
@@ -436,7 +436,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 1.7,
 						config: {
 							name: 'AI Agent',
@@ -456,7 +456,7 @@ describe('generatePinData', () => {
 			const outputData = [{ response: 'AI response' }];
 
 			const model = languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1.2,
 				config: {
 					name: 'OpenAI Model',
@@ -468,7 +468,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						version: 1.7,
 						config: {
 							name: 'AI Agent',
@@ -489,7 +489,7 @@ describe('generatePinData', () => {
 
 			// Create an embedding model with newCredential
 			const embeddingModel = embedding({
-				type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+				type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 				version: 1,
 				config: {
 					name: 'OpenAI Embeddings',
@@ -499,7 +499,7 @@ describe('generatePinData', () => {
 
 			// VectorStore that uses the embedding as a subnode
 			const store = vectorStore({
-				type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+				type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 				version: 1,
 				config: {
 					name: 'Pinecone Store',
@@ -511,7 +511,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: '@n8n/n8n-nodes-langchain.retrievalQaChain',
+						type: '@resin/n8n-nodes-langchain.retrievalQaChain',
 						version: 1,
 						config: {
 							name: 'QA Chain',
@@ -536,7 +536,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						version: 1,
 						config: {
 							name: 'Data Table',
@@ -562,7 +562,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						version: 1,
 						config: {
 							name: 'Data Table',
@@ -587,7 +587,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						version: 1,
 						config: {
 							name: 'Data Table',
@@ -613,7 +613,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						version: 1,
 						config: {
 							name: 'Data Table',
@@ -639,7 +639,7 @@ describe('generatePinData', () => {
 			const wf = workflow('id', 'Test')
 				.add(
 					node({
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						version: 1.1,
 						config: {
 							name: 'Store Data',

@@ -5,9 +5,9 @@ import type { BaseLLMOutputParser } from '@langchain/core/output_parsers';
 import { JsonOutputParser, StringOutputParser } from '@langchain/core/output_parsers';
 import type { ChatPromptTemplate, PromptTemplate } from '@langchain/core/prompts';
 import type { Runnable } from '@langchain/core/runnables';
-import type { IExecuteFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
 
-import { isChatInstance } from '@n8n/ai-utilities';
+import { isChatInstance } from '@resin/ai-utilities';
 import { getTracingConfig } from '@utils/tracing';
 
 import { createPromptTemplate, getAgentStepsParser } from './promptUtils';

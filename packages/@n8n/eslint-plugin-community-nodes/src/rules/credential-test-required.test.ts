@@ -21,8 +21,8 @@ function createCredentialCode(options: {
 	} = options;
 
 	const imports = hasTest
-		? "import type { ICredentialTestRequest, ICredentialType, INodeProperties } from 'n8n-workflow';"
-		: "import type { ICredentialType, INodeProperties } from 'n8n-workflow';";
+		? "import type { ICredentialTestRequest, ICredentialType, INodeProperties } from 'resin-workflow';"
+		: "import type { ICredentialType, INodeProperties } from 'resin-workflow';";
 
 	const extendsStr = extendsArray ? `\n\textends = ${JSON.stringify(extendsArray)};` : '';
 
@@ -87,7 +87,7 @@ ruleTester.run('credential-test-required', CredentialTestRequiredRule, {
 						{
 							messageId: 'addTemplate',
 							output: `
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class MyApi implements ICredentialType {
 	name = 'myApi';
@@ -118,7 +118,7 @@ export class MyApi implements ICredentialType {
 						{
 							messageId: 'addTemplate',
 							output: `
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class MyApi implements ICredentialType {
 	name = 'myApi';
@@ -150,7 +150,7 @@ export class MyApi implements ICredentialType {
 						{
 							messageId: 'addTemplate',
 							output: `
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class MyApi implements ICredentialType {
 	name = 'myApi';

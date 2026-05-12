@@ -1,5 +1,5 @@
-import { mockInstance, mockLogger } from '@n8n/backend-test-utils';
-import { EncryptionKeyProxy, InstanceSettings } from 'n8n-core';
+import { mockInstance, mockLogger } from '@resin/backend-test-utils';
+import { EncryptionKeyProxy, InstanceSettings } from 'resin-core';
 
 import { KeyManagerService } from '../key-manager.service';
 import { EncryptionBootstrapService } from '../encryption-bootstrap.service';

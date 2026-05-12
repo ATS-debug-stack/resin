@@ -8,8 +8,8 @@ import type {
 	WorkflowExecuteMode,
 	TriggerTime,
 	CronExpression,
-} from 'n8n-workflow';
-import { LoggerProxy, TriggerCloseError, WorkflowActivationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { LoggerProxy, TriggerCloseError, WorkflowActivationError } from 'resin-workflow';
 
 import type { ErrorReporter } from '@/errors/error-reporter';
 import { Tracing } from '@/observability';

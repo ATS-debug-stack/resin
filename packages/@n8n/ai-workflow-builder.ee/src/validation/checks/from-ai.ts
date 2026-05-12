@@ -1,4 +1,4 @@
-import type { INodeTypeDescription, INodeParameters } from 'n8n-workflow';
+import type { INodeTypeDescription, INodeParameters } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 import { createNodeTypeMaps, getNodeTypeForNode } from '@/validation/utils/node-type-map';

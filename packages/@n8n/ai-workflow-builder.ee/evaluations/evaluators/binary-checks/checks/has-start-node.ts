@@ -1,4 +1,4 @@
-import { getChildNodes, NodeConnectionTypes } from 'n8n-workflow';
+import { getChildNodes, NodeConnectionTypes } from 'resin-workflow';
 
 import { createNodeTypeMaps, getNodeTypeForNode } from '@/validation/utils/node-type-map';
 

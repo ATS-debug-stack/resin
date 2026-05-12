@@ -1,4 +1,4 @@
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { IWorkflowBase } from 'resin-workflow';
 
 /**
  * Determines the active status of a workflow from workflow data.

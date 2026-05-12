@@ -2,7 +2,7 @@
 // Shared types for the instance-ai workflow test case evaluator
 // ---------------------------------------------------------------------------
 
-import type { InstanceAiEvalExecutionResult } from '@n8n/api-types';
+import type { InstanceAiEvalExecutionResult } from '@resin/api-types';
 
 import type { WorkflowResponse } from './clients/n8n-client';
 

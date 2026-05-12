@@ -9,9 +9,9 @@ import {
 	createRule,
 } from '../utils/index.js';
 
-// n8n-workflow's ESM dist uses bare module specifiers that Node's native ESM
+// resin-workflow's ESM dist uses bare module specifiers that Node's native ESM
 // loader cannot resolve. Loading via CJS (createRequire) sidesteps this.
-const { NodeConnectionTypes } = createRequire(import.meta.url)('n8n-workflow') as {
+const { NodeConnectionTypes } = createRequire(import.meta.url)('resin-workflow') as {
 	NodeConnectionTypes: Record<string, string>;
 };
 
@@ -31,13 +31,13 @@ export const NodeConnectionTypeLiteralRule = createRule({
 		},
 		messages: {
 			stringLiteralInInputs:
-				'Use NodeConnectionTypes.{{enumKey}} from "n8n-workflow" instead of the string literal "{{value}}" in "inputs".',
+				'Use NodeConnectionTypes.{{enumKey}} from "resin-workflow" instead of the string literal "{{value}}" in "inputs".',
 			stringLiteralInOutputs:
-				'Use NodeConnectionTypes.{{enumKey}} from "n8n-workflow" instead of the string literal "{{value}}" in "outputs".',
+				'Use NodeConnectionTypes.{{enumKey}} from "resin-workflow" instead of the string literal "{{value}}" in "outputs".',
 			unknownStringLiteralInInputs:
-				'Use the NodeConnectionTypes enum from "n8n-workflow" instead of the string literal "{{value}}" in "inputs".',
+				'Use the NodeConnectionTypes enum from "resin-workflow" instead of the string literal "{{value}}" in "inputs".',
 			unknownStringLiteralInOutputs:
-				'Use the NodeConnectionTypes enum from "n8n-workflow" instead of the string literal "{{value}}" in "outputs".',
+				'Use the NodeConnectionTypes enum from "resin-workflow" instead of the string literal "{{value}}" in "outputs".',
 		},
 		fixable: 'code',
 		schema: [],

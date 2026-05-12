@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
-import type { INodeProperties, INodePropertyCollection, INodePropertyOptions } from 'n8n-workflow';
+import type {
+	INodeProperties,
+	INodePropertyCollection,
+	INodePropertyOptions,
+} from 'resin-workflow';
 import { ref } from 'vue';
 import { createI18n } from 'vue-i18n';
 
@@ -46,7 +50,7 @@ export class I18nClass {
 	}
 
 	shortNodeType(longNodeType: string) {
-		return longNodeType.replace('n8n-nodes-base.', '');
+		return longNodeType.replace('resin-nodes-base.', '');
 	}
 
 	get locale() {
@@ -440,7 +444,7 @@ export function addNodeTranslation(
 	language: string,
 ) {
 	const newMessages = {
-		'n8n-nodes-base': {
+		'resin-nodes-base': {
 			nodes: nodeTranslation,
 		},
 	};
@@ -470,7 +474,7 @@ export function addCredentialTranslation(
 	language: string,
 ) {
 	const newMessages = {
-		'n8n-nodes-base': {
+		'resin-nodes-base': {
 			credentials: nodeCredentialTranslation,
 		},
 	};

@@ -3,9 +3,13 @@ import type { BaseLanguageModel } from '@langchain/core/language_models/base';
 import type { ChainValues } from '@langchain/core/utils/types';
 import { RecursiveCharacterTextSplitter, type TextSplitter } from '@langchain/textsplitters';
 import { loadSummarizationChain } from '@langchain/classic/chains';
-import { type IExecuteFunctions, type INodeExecutionData, NodeConnectionTypes } from 'n8n-workflow';
+import {
+	type IExecuteFunctions,
+	type INodeExecutionData,
+	NodeConnectionTypes,
+} from 'resin-workflow';
 
-import { N8nBinaryLoader, N8nJsonLoader } from '@n8n/ai-utilities';
+import { N8nBinaryLoader, N8nJsonLoader } from '@resin/ai-utilities';
 import { getTracingConfig } from '@utils/tracing';
 
 import { getChainPromptsArgs } from '../helpers';

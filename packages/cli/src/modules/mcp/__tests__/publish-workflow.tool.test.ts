@@ -1,5 +1,5 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { User } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { User } from '@resin/db';
 import { v4 as uuid } from 'uuid';
 
 import { createWorkflow } from './mock.utils';
@@ -135,7 +135,7 @@ describe('publish-workflow MCP tool', () => {
 
 				expect(workflowService.activateWorkflow).toHaveBeenCalledWith(user, 'wf-1', {
 					versionId: undefined,
-					source: 'n8n-mcp',
+					source: 'resin-mcp',
 				});
 
 				expect(collaborationService.broadcastWorkflowUpdate).toHaveBeenCalledWith('wf-1', user.id);
@@ -170,7 +170,7 @@ describe('publish-workflow MCP tool', () => {
 
 				expect(workflowService.activateWorkflow).toHaveBeenCalledWith(user, 'wf-1', {
 					versionId,
-					source: 'n8n-mcp',
+					source: 'resin-mcp',
 				});
 			});
 		});

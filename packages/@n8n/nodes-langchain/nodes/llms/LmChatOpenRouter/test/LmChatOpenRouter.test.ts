@@ -4,15 +4,15 @@
 
 /* eslint-disable @typescript-eslint/unbound-method */
 import { ChatOpenAI } from '@langchain/openai';
-import { makeN8nLlmFailedAttemptHandler, getProxyAgent } from '@n8n/ai-utilities';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
+import { makeN8nLlmFailedAttemptHandler, getProxyAgent } from '@resin/ai-utilities';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
 import type { Mock, Mocked } from 'vitest';
 
 import { LmChatOpenRouter } from '../LmChatOpenRouter.node';
 
 vi.mock('@langchain/openai');
-vi.mock('@n8n/ai-utilities');
+vi.mock('@resin/ai-utilities');
 
 const MockedChatOpenAI = vi.mocked(ChatOpenAI);
 const mockedMakeN8nLlmFailedAttemptHandler = vi.mocked(makeN8nLlmFailedAttemptHandler);
@@ -25,7 +25,7 @@ describe('LmChatOpenRouter', () => {
 		id: '1',
 		name: 'OpenRouter Chat Model',
 		typeVersion: 1,
-		type: 'n8n-nodes-langchain.lmChatOpenRouter',
+		type: 'resin-nodes-langchain.lmChatOpenRouter',
 		position: [0, 0],
 		parameters: {},
 	};

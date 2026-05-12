@@ -1,17 +1,17 @@
-import { Logger } from '@n8n/backend-common';
-import type { IExecutionResponse } from '@n8n/db';
-import { ExecutionRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import type { IExecutionResponse } from '@resin/db';
+import { ExecutionRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import { timingSafeEqual } from 'crypto';
 import type express from 'express';
-import { InstanceSettings, WAITING_TOKEN_QUERY_PARAM, validateUrlSignature } from 'n8n-core';
+import { InstanceSettings, WAITING_TOKEN_QUERY_PARAM, validateUrlSignature } from 'resin-core';
 import {
 	type INodes,
 	type IWorkflowBase,
 	NodeConnectionTypes,
 	SEND_AND_WAIT_OPERATION,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { sanitizeWebhookRequest } from './webhook-request-sanitizer';
 import { WebhookService } from './webhook.service';

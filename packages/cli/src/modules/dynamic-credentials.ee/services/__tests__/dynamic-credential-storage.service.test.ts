@@ -1,11 +1,11 @@
-import type { Logger } from '@n8n/backend-common';
-import type { ICredentialResolver } from '@n8n/decorators';
-import type { Cipher } from 'n8n-core';
+import type { Logger } from '@resin/backend-common';
+import type { ICredentialResolver } from '@resin/decorators';
+import type { Cipher } from 'resin-core';
 import type {
 	ICredentialContext,
 	ICredentialDataDecryptedObject,
 	IWorkflowSettings,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { CredentialStoreMetadata } from '@/credentials/dynamic-credential-storage.interface';
 import type { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';

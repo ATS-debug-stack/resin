@@ -2,8 +2,8 @@ import type {
 	ChatHubLLMProvider,
 	AgentIconOrEmoji,
 	ChatHubAgentKnowledgeItem,
-} from '@n8n/api-types';
-import { User, CredentialsEntity, JsonColumn, WithTimestamps } from '@n8n/db';
+} from '@resin/api-types';
+import { User, CredentialsEntity, JsonColumn, WithTimestamps } from '@resin/db';
 import {
 	Column,
 	Entity,
@@ -13,7 +13,7 @@ import {
 	JoinColumn,
 	PrimaryGeneratedColumn,
 	type Relation,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 
 import type { ChatHubTool } from './chat-hub-tool.entity';
 

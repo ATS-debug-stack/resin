@@ -1,4 +1,4 @@
-import type { INodeParameterResourceLocator } from 'n8n-workflow';
+import type { INodeParameterResourceLocator } from 'resin-workflow';
 
 export interface EditableField<T = string> {
 	value: T;

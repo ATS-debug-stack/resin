@@ -1,5 +1,5 @@
 import { SerpAPI } from '@langchain/community/tools/serpapi';
-import { logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 import {
 	type IExecuteFunctions,
@@ -10,7 +10,7 @@ import {
 	type SupplyData,
 	type INodeExecutionData,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 async function getTool(ctx: ISupplyDataFunctions | IExecuteFunctions, itemIndex: number) {
 	const credentials = await ctx.getCredentials('serpApi');

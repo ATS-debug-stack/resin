@@ -1,5 +1,5 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { FolderRepository, User } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { FolderRepository, User } from '@resin/db';
 
 import { createSearchFoldersTool } from '../tools/search-folders.tool';
 

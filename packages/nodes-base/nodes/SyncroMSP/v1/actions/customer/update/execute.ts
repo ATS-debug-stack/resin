@@ -1,5 +1,10 @@
-import type { IDataObject, IExecuteFunctions, INodeExecutionData, JsonObject } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type {
+	IDataObject,
+	IExecuteFunctions,
+	INodeExecutionData,
+	JsonObject,
+} from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import { apiRequest } from '../../../transport';
 

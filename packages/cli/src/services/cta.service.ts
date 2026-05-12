@@ -1,6 +1,6 @@
-import type { User } from '@n8n/db';
-import { WorkflowStatisticsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { User } from '@resin/db';
+import { WorkflowStatisticsRepository } from '@resin/db';
+import { Service } from '@resin/di';
 
 @Service()
 export class CtaService {

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { setupApiKeyAuthentication } from '../credentials/api-key';
 
@@ -13,7 +13,7 @@ describe('setupApiKeyAuthentication', () => {
 			id: '1',
 			name: 'Mock node',
 			typeVersion: 2,
-			type: 'n8n-nodes-base.mock',
+			type: 'resin-nodes-base.mock',
 			position: [0, 0],
 			parameters: {},
 		};

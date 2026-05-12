@@ -1,6 +1,6 @@
-import type { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
@@ -93,7 +93,7 @@ describe('QuickConnectService', () => {
 		it('should register firecrawl handler when configured', async () => {
 			const testConfig = [
 				{
-					packageName: '@n8n/firecrawl',
+					packageName: '@resin/firecrawl',
 					credentialType: 'firecrawlApi',
 					text: 'Firecrawl Integration',
 					quickConnectType: 'firecrawl',
@@ -119,7 +119,7 @@ describe('QuickConnectService', () => {
 		it('should not register handlers for non-backend quickConnectTypes', async () => {
 			const testConfig = [
 				{
-					packageName: '@n8n/oauth-service',
+					packageName: '@resin/oauth-service',
 					credentialType: 'oauthApi',
 					text: 'OAuth Service',
 					quickConnectType: 'oauth',
@@ -151,7 +151,7 @@ describe('QuickConnectService', () => {
 		it('should register multiple backend handlers', async () => {
 			const testConfig = [
 				{
-					packageName: '@n8n/firecrawl',
+					packageName: '@resin/firecrawl',
 					credentialType: 'firecrawlApi',
 					text: 'Firecrawl Integration',
 					quickConnectType: 'firecrawl',

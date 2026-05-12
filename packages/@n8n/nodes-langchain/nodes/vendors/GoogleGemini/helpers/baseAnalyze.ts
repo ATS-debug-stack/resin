@@ -2,7 +2,7 @@ import {
 	validateNodeParameters,
 	type IExecuteFunctions,
 	type INodeExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { Content, GenerateContentResponse } from './interfaces';
 import { downloadFile, uploadFile } from './utils';

@@ -2,8 +2,8 @@ import type { BaseLanguageModel } from '@langchain/core/language_models/base';
 import { HumanMessage } from '@langchain/core/messages';
 import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
 import { ChatOllama } from '@langchain/ollama';
-import type { IExecuteFunctions, IBinaryData } from 'n8n-workflow';
-import { NodeOperationError, NodeConnectionTypes, OperationalError } from 'n8n-workflow';
+import type { IExecuteFunctions, IBinaryData } from 'resin-workflow';
+import { NodeOperationError, NodeConnectionTypes, OperationalError } from 'resin-workflow';
 
 import type { MessageTemplate } from './types';
 

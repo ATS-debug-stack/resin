@@ -3,8 +3,8 @@ import type {
 	RoleAssignmentsResponse,
 	RoleProjectMembersResponse,
 	UpdateRoleDto,
-} from '@n8n/api-types';
-import type { AllRolesMap, Role } from '@n8n/permissions';
+} from '@resin/api-types';
+import type { AllRolesMap, Role } from '@resin/permissions';
 
 import type { IRestApiContext } from '../types';
 import { makeRestApiRequest } from '../utils';

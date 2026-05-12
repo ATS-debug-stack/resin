@@ -2,13 +2,13 @@ import { ChatAnthropic } from '@langchain/anthropic';
 import { AIMessage, ToolMessage } from '@langchain/core/messages';
 import type { BaseMessage } from '@langchain/core/messages';
 import { LangChainTracer } from '@langchain/core/tracers/tracer_langchain';
-import { buildProxyHeaders } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
+import { buildProxyHeaders } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
 import { AiAssistantClient, AiAssistantSDK } from '@n8n_io/ai-assistant-sdk';
 import assert from 'assert';
 import { Client as TracingClient } from 'langsmith';
-import type { IUser, INodeTypeDescription, ITelemetryTrackProperties } from 'n8n-workflow';
+import type { IUser, INodeTypeDescription, ITelemetryTrackProperties } from 'resin-workflow';
 import { z } from 'zod';
 
 import { AssistantHandler } from '@/assistant';
@@ -157,13 +157,13 @@ export class AiWorkflowBuilderService {
 	private filterNodeTypes(nodeTypes: INodeTypeDescription[]): INodeTypeDescription[] {
 		// These types are ignored because they tend to cause issues when generating workflows
 		const ignoredTypes = new Set([
-			'@n8n/n8n-nodes-langchain.toolVectorStore',
-			'@n8n/n8n-nodes-langchain.documentGithubLoader',
-			'@n8n/n8n-nodes-langchain.code',
+			'@resin/n8n-nodes-langchain.toolVectorStore',
+			'@resin/n8n-nodes-langchain.documentGithubLoader',
+			'@resin/n8n-nodes-langchain.code',
 		]);
 
 		const isBuiltInNode = (name: string) =>
-			name.startsWith('n8n-nodes-base.') || name.startsWith('@n8n/');
+			name.startsWith('resin-nodes-base.') || name.startsWith('@resin/');
 
 		const visibleNodeTypes = nodeTypes.filter(
 			(nodeType) =>
@@ -172,7 +172,7 @@ export class AiWorkflowBuilderService {
 				// We filter out hidden nodes, except for the Data Table node which has custom hiding logic
 				// See more details in DataTable.node.ts#L29
 				!ignoredTypes.has(nodeType.name) &&
-				(nodeType.hidden !== true || nodeType.name === 'n8n-nodes-base.dataTable'),
+				(nodeType.hidden !== true || nodeType.name === 'resin-nodes-base.dataTable'),
 		);
 
 		return visibleNodeTypes.map((nodeType) => {

@@ -2,9 +2,9 @@ import type {
 	CodeBuilderSearchResult,
 	NodeRequest,
 	NodeTypeParser,
-} from '@n8n/ai-workflow-builder';
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
+} from '@resin/ai-workflow-builder';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
@@ -87,7 +87,7 @@ export class NodeCatalogService {
 	 * Search the node catalog for node IDs matching `queries`.
 	 * Results are cached per `(filter, queries)` pair and invalidated on node-type refresh.
 	 *
-	 * Calls the plain `searchCodeBuilderNodes` helper from `@n8n/ai-workflow-builder`
+	 * Calls the plain `searchCodeBuilderNodes` helper from `@resin/ai-workflow-builder`
 	 * rather than its LangChain `tool(...)` wrapper. When `LANGCHAIN_TRACING_V2` is on
 	 * (the agents SDK enables it for the OTel exporter), the wrapper would register a
 	 * separate LangSmith root run for every invocation — fragmenting traces. The plain
@@ -111,7 +111,7 @@ export class NodeCatalogService {
 		if (cached) return cached;
 
 		if (!state.search) {
-			const { searchCodeBuilderNodes } = await import('@n8n/ai-workflow-builder');
+			const { searchCodeBuilderNodes } = await import('@resin/ai-workflow-builder');
 			const nodeTypeParser = this.getNodeTypeParser();
 			state.search = (searchQueries: string[]) =>
 				nodeFilter
@@ -132,7 +132,7 @@ export class NodeCatalogService {
 		const cached = this.getCache.get(cacheKey);
 		if (cached) return cached;
 
-		const { getNodeTypes } = await import('@n8n/ai-workflow-builder');
+		const { getNodeTypes } = await import('@resin/ai-workflow-builder');
 		const result = getNodeTypes(nodeIds, { nodeDefinitionDirs: this.nodeDefinitionDirs });
 		this.getCache.set(cacheKey, result);
 		return result;
@@ -145,7 +145,7 @@ export class NodeCatalogService {
 		if (cached) return cached;
 
 		if (!this.suggestTool) {
-			const { createGetSuggestedNodesTool } = await import('@n8n/ai-workflow-builder');
+			const { createGetSuggestedNodesTool } = await import('@resin/ai-workflow-builder');
 			this.suggestTool = createGetSuggestedNodesTool(this.getNodeTypeParser());
 		}
 		const result = await this.suggestTool.invoke({ categories });
@@ -154,8 +154,8 @@ export class NodeCatalogService {
 	}
 
 	private async doInitialize(): Promise<void> {
-		const { NodeTypeParser: NodeTypeParserClass } = await import('@n8n/ai-workflow-builder');
-		const { setSchemaBaseDirs } = await import('@n8n/workflow-sdk');
+		const { NodeTypeParser: NodeTypeParserClass } = await import('@resin/ai-workflow-builder');
+		const { setSchemaBaseDirs } = await import('@resin/workflow-sdk');
 
 		await this.loadNodesAndCredentials.postProcessLoaders();
 		const { nodes: nodeTypeDescriptions } = await this.loadNodesAndCredentials.collectTypes();
@@ -174,7 +174,7 @@ export class NodeCatalogService {
 	private async refreshNodeTypes(): Promise<void> {
 		if (!this.nodeTypeParser) return;
 
-		const { NodeTypeParser: NodeTypeParserClass } = await import('@n8n/ai-workflow-builder');
+		const { NodeTypeParser: NodeTypeParserClass } = await import('@resin/ai-workflow-builder');
 		const { nodes: nodeTypeDescriptions } = await this.loadNodesAndCredentials.collectTypes();
 		this.nodeTypeParser = new NodeTypeParserClass(nodeTypeDescriptions);
 
@@ -191,7 +191,7 @@ export class NodeCatalogService {
 
 	private async resolveBuiltinNodeDefinitionDirs(): Promise<string[]> {
 		const dirs: string[] = [];
-		for (const packageId of ['n8n-nodes-base', '@n8n/n8n-nodes-langchain']) {
+		for (const packageId of ['resin-nodes-base', '@resin/n8n-nodes-langchain']) {
 			try {
 				const packageJsonPath = require.resolve(`${packageId}/package.json`);
 				const distDir = path.dirname(packageJsonPath);

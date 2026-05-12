@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type { InstanceAiMessage } from '@n8n/api-types';
-import type { RatingFeedback } from '@n8n/design-system';
-import { N8nCallout, N8nIconButton, N8nMessageRating, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import type { InstanceAiMessage } from '@resin/api-types';
+import type { RatingFeedback } from '@resin/design-system';
+import { N8nCallout, N8nIconButton, N8nMessageRating, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { computed, ref } from 'vue';
 import { useInstanceAiStore, useThread } from '../instanceAi.store';
 import AgentActivityTree from './AgentActivityTree.vue';
@@ -176,7 +176,7 @@ function formatJson(value: unknown): string {
 </template>
 
 <style lang="scss" module>
-@use '@n8n/design-system/css/mixins/motion';
+@use '@resin/design-system/css/mixins/motion';
 
 .userMessage {
 	align-self: flex-end;

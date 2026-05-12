@@ -1,7 +1,7 @@
 import type { Document } from '@langchain/core/documents';
 import type { TextSplitter } from '@langchain/textsplitters';
-import type { IBinaryData, IExecuteFunctions, INode, INodeExecutionData } from 'n8n-workflow';
-import { BINARY_ENCODING, NodeOperationError } from 'n8n-workflow';
+import type { IBinaryData, IExecuteFunctions, INode, INodeExecutionData } from 'resin-workflow';
+import { BINARY_ENCODING, NodeOperationError } from 'resin-workflow';
 import { Readable } from 'stream';
 
 import { N8nBinaryLoader } from 'src/utils/n8n-binary-loader';
@@ -58,7 +58,7 @@ describe('N8nBinaryLoader', () => {
 		mockNode = {
 			id: 'test-node',
 			name: 'Test Node',
-			type: 'n8n-nodes-base.testNode',
+			type: 'resin-nodes-base.testNode',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

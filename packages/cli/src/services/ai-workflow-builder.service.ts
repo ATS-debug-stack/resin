@@ -1,12 +1,12 @@
-import { AiWorkflowBuilderService } from '@n8n/ai-workflow-builder';
-import type { ResourceLocatorCallbackFactory } from '@n8n/ai-workflow-builder';
-import { ChatPayload } from '@n8n/ai-workflow-builder/dist/workflow-builder-agent';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { AiWorkflowBuilderService } from '@resin/ai-workflow-builder';
+import type { ResourceLocatorCallbackFactory } from '@resin/ai-workflow-builder';
+import { ChatPayload } from '@resin/ai-workflow-builder/dist/workflow-builder-agent';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import { AiAssistantClient } from '@n8n_io/ai-assistant-sdk';
 import * as fs from 'fs';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 import * as path from 'path';
 import type {
 	INodeCredentials,
@@ -14,7 +14,7 @@ import type {
 	INodeTypeNameVersion,
 	IUser,
 	ITelemetryTrackProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { N8N_VERSION } from '@/constants';
 import { License } from '@/license';
@@ -167,7 +167,7 @@ export class WorkflowBuilderService {
 
 	private resolveBuiltinNodeDefinitionDirs(): string[] {
 		const dirs: string[] = [];
-		for (const packageId of ['n8n-nodes-base', '@n8n/n8n-nodes-langchain']) {
+		for (const packageId of ['resin-nodes-base', '@resin/n8n-nodes-langchain']) {
 			try {
 				const packageJsonPath = require.resolve(`${packageId}/package.json`);
 				const distDir = path.dirname(packageJsonPath);

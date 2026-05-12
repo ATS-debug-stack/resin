@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { ExecutionRepository, UserRepository } from '@n8n/db';
-import type { User } from '@n8n/db';
-import { LifecycleMetadata } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { ExecutionRepository, UserRepository } from '@resin/db';
+import type { User } from '@resin/db';
+import { LifecycleMetadata } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import { stringify } from 'flatted';
 import {
 	BinaryDataService,
@@ -10,7 +10,7 @@ import {
 	FileLocation,
 	InstanceSettings,
 	ExecutionLifecycleHooks,
-} from 'n8n-core';
+} from 'resin-core';
 import type {
 	ExecutionStatus,
 	IRun,
@@ -20,7 +20,7 @@ import type {
 	RelatedExecution,
 	WorkflowExecuteMode,
 	IWorkflowExecutionDataProcess,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { EventService } from '@/events/event.service';
 import { ExecutionPersistence } from '@/executions/execution-persistence';

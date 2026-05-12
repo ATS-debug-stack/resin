@@ -10,7 +10,7 @@ import {
 	type INodePropertyCollection,
 	type INodePropertyOptions,
 	type Logger,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { z } from 'zod';
 
 import type { BuilderTool, BuilderToolBase } from '@/utils/stream-processor';

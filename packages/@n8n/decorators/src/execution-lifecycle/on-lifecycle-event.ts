@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 
 import type { LifecycleEvent, LifecycleHandlerClass } from './lifecycle-metadata';
 import { LifecycleMetadata } from './lifecycle-metadata';

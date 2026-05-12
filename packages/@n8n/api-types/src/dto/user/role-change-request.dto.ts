@@ -1,4 +1,4 @@
-import { assignableGlobalRoleSchema } from '@n8n/permissions';
+import { assignableGlobalRoleSchema } from '@resin/permissions';
 
 import { Z } from '../../zod-class';
 

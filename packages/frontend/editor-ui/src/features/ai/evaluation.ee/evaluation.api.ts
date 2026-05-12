@@ -1,7 +1,7 @@
-import type { StartTestRunPayload } from '@n8n/api-types';
-import type { IRestApiContext } from '@n8n/rest-api-client';
-import { makeRestApiRequest, request } from '@n8n/rest-api-client';
-import type { JsonObject } from 'n8n-workflow';
+import type { StartTestRunPayload } from '@resin/api-types';
+import type { IRestApiContext } from '@resin/rest-api-client';
+import { makeRestApiRequest, request } from '@resin/rest-api-client';
+import type { JsonObject } from 'resin-workflow';
 
 export interface TestRunRecord {
 	id: string;
@@ -69,7 +69,7 @@ export const getTestRun = async (context: IRestApiContext, params: GetTestRunPar
 	);
 };
 
-// FE alias of the shared payload contract from @n8n/api-types. Re-exporting
+// FE alias of the shared payload contract from @resin/api-types. Re-exporting
 // instead of duplicating the shape avoids silent drift between FE and BE.
 export type StartTestRunOptions = StartTestRunPayload;
 

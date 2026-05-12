@@ -16,7 +16,7 @@ import {
 	STARTING_NODE_TYPES,
 } from './constants';
 import { UserError } from './errors';
-import { ApplicationError } from '@n8n/errors';
+import { ApplicationError } from '@resin/errors';
 import { WorkflowExpression } from './workflow-expression';
 import { getGlobalState } from './global-state';
 import type {

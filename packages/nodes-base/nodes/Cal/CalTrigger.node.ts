@@ -9,7 +9,7 @@ import {
 	type INodeTypeDescription,
 	type IWebhookResponseData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { verifySignature } from './CalTriggerHelpers';
 import { calApiRequest, sortOptionParameters } from './GenericFunctions';

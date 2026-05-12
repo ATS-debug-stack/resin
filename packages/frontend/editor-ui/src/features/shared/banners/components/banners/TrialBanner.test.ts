@@ -4,7 +4,7 @@ import { createPinia, setActivePinia } from 'pinia';
 import { useCloudPlanStore } from '@/app/stores/cloudPlan.store';
 import { vi } from 'vitest';
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: vi.fn(() => ({
 		restApiContext: {},
 		baseUrl: 'http://localhost:5678',
@@ -22,7 +22,7 @@ vi.mock('@/app/utils/rbac/permissions', () => ({
 	hasPermission: vi.fn(() => true),
 }));
 
-vi.mock('@n8n/rest-api-client/api/cloudPlans', () => ({
+vi.mock('@resin/rest-api-client/api/cloudPlans', () => ({
 	getAdminPanelLoginCode: vi.fn(),
 	getCurrentPlan: vi.fn(),
 	getCurrentUsage: vi.fn(),

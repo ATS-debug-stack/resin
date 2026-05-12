@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import { z } from 'zod';
 
 import type { EphemeralNodeExecutor } from '@/node-execution';
@@ -21,7 +21,7 @@ const baseToolSchema = {
 	type: 'node' as const,
 	name: 'Google Drive',
 	node: {
-		nodeType: 'n8n-nodes-base.googleDriveTool',
+		nodeType: 'resin-nodes-base.googleDriveTool',
 		nodeTypeVersion: 1,
 		nodeParameters: {},
 	},
@@ -61,7 +61,7 @@ describe('resolveNodeTool → tool name sanitization', () => {
 			{
 				...baseToolSchema,
 				node: {
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					nodeTypeVersion: 4,
 					nodeParameters: {},
 				},
@@ -74,9 +74,9 @@ describe('resolveNodeTool → tool name sanitization', () => {
 
 		await tool.handler!({ url: 'https://example.com' }, {} as never);
 
-		expect(getByNameAndVersion).toHaveBeenCalledWith('n8n-nodes-base.httpRequestTool', 4);
+		expect(getByNameAndVersion).toHaveBeenCalledWith('resin-nodes-base.httpRequestTool', 4);
 		expect(executeInline).toHaveBeenCalledWith(
-			expect.objectContaining({ nodeType: 'n8n-nodes-base.httpRequestTool' }),
+			expect.objectContaining({ nodeType: 'resin-nodes-base.httpRequestTool' }),
 		);
 	});
 
@@ -143,7 +143,7 @@ describe('resolveNodeTool → tool name sanitization', () => {
 			{
 				...baseToolSchema,
 				node: {
-					nodeType: '@n8n/n8n-nodes-langchain.toolWikipedia',
+					nodeType: '@resin/n8n-nodes-langchain.toolWikipedia',
 					nodeTypeVersion: 1,
 					nodeParameters: {},
 				},

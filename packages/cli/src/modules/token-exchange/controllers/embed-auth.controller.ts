@@ -1,6 +1,6 @@
-import { EmbedLoginBodyDto, EmbedLoginQueryDto } from '@n8n/api-types';
-import { Time } from '@n8n/constants';
-import { Body, Get, Post, Query, RestController } from '@n8n/decorators';
+import { EmbedLoginBodyDto, EmbedLoginQueryDto } from '@resin/api-types';
+import { Time } from '@resin/constants';
+import { Body, Get, Post, Query, RestController } from '@resin/decorators';
 import type { Response } from 'express';
 
 import { AuthService } from '@/auth/auth.service';
@@ -13,7 +13,7 @@ import { TokenExchangeService } from '../services/token-exchange.service';
 import { TokenExchangeConfig } from '../token-exchange.config';
 import { TokenExchangeAuthError, TokenExchangeRequestError } from '../token-exchange.errors';
 import { TokenExchangeFailureReason } from '../token-exchange.types';
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 
 const configService = Container.get(TokenExchangeConfig);
 

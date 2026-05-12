@@ -1,7 +1,7 @@
 import type { NodeTypeGuide } from './types';
 
 export const IF_NODE_GUIDE: NodeTypeGuide = {
-	patterns: ['n8n-nodes-base.if'],
+	patterns: ['resin-nodes-base.if'],
 	content: `
 ### The IF node uses a complex filter structure for conditional logic. Understanding the correct operator format is crucial.
 

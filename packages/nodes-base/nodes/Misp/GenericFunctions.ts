@@ -5,8 +5,8 @@ import type {
 	JsonObject,
 	IHttpRequestMethods,
 	IRequestOptions,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError, jsonParse } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeOperationError, jsonParse } from 'resin-workflow';
 import { URL } from 'url';
 
 import type { MispCredentials } from './types';

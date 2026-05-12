@@ -6,10 +6,10 @@ import WorkflowDiffAside from './WorkflowDiffAside.vue';
 import NodeDiff from './NodeDiff.vue';
 import HighlightedEdge from './HighlightedEdge.vue';
 import Node from '@/features/workflows/canvas/components/elements/nodes/CanvasNode.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useCssModule } from 'vue';
-import { N8nHeading, N8nText } from '@n8n/design-system';
-import { NodeDiffStatus } from 'n8n-workflow';
+import { N8nHeading, N8nText } from '@resin/design-system';
+import { NodeDiffStatus } from 'resin-workflow';
 
 const props = defineProps<{
 	sourceNodes: CanvasNode[];

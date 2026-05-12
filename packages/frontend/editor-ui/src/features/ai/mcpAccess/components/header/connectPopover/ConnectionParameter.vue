@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useClipboard } from '@/app/composables/useClipboard';
-import { N8nButton, N8nTooltip, N8nInfoTip, N8nInput, N8nLoading } from '@n8n/design-system';
+import { N8nButton, N8nTooltip, N8nInfoTip, N8nInput, N8nLoading } from '@resin/design-system';
 import { MCP_TOOLTIP_DELAY } from '@/features/ai/mcpAccess/mcp.constants';
 
 type Props = {

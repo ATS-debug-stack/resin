@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { computed, ref, onMounted } from 'vue';
-import type { UserAction } from '@n8n/design-system';
+import type { UserAction } from '@resin/design-system';
 import type {
 	WorkflowHistory,
 	WorkflowVersionId,
 	WorkflowHistoryActionTypes,
-} from '@n8n/rest-api-client/api/workflowHistory';
-import { useI18n } from '@n8n/i18n';
-import type { IUser } from 'n8n-workflow';
+} from '@resin/rest-api-client/api/workflowHistory';
+import { useI18n } from '@resin/i18n';
+import type { IUser } from 'resin-workflow';
 
-import { N8nActionToggle, N8nIconButton, N8nTooltip, N8nText } from '@n8n/design-system';
+import { N8nActionToggle, N8nIconButton, N8nTooltip, N8nText } from '@resin/design-system';
 import {
 	getLastPublishedVersion,
 	formatTimestamp,

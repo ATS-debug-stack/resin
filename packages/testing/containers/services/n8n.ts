@@ -131,7 +131,7 @@ async function createContainer(
 		.withEnvironment(environment)
 		.withLabels({
 			'com.docker.compose.project': projectName,
-			'com.docker.compose.service': isWorker ? 'n8n-worker' : 'n8n-main',
+			'com.docker.compose.service': isWorker ? 'resin-worker' : 'resin-main',
 			instance: instanceNumber.toString(),
 		})
 		.withPullPolicy(new N8nImagePullPolicy(N8N_IMAGE))
@@ -193,7 +193,7 @@ export async function createN8NInstances(
 		filesToMount,
 	} = options;
 
-	const log = createElapsedLogger('n8n-instances');
+	const log = createElapsedLogger('resin-instances');
 	const environment = computeEnvironment(options);
 	const containers: StartedTestContainer[] = [];
 

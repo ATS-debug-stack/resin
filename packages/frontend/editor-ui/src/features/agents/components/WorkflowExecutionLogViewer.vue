@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, provide, ref } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { Workflow } from 'n8n-workflow';
-import { ChatSymbol } from '@n8n/chat/constants';
-import type { Chat } from '@n8n/chat/types';
+import { useI18n } from '@resin/i18n';
+import { Workflow } from 'resin-workflow';
+import { ChatSymbol } from '@resin/chat/constants';
+import type { Chat } from '@resin/chat/types';
 import { WorkflowIdKey } from '@/app/constants/injectionKeys';
 import { useExecutionsStore } from '@/features/execution/executions/executions.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
@@ -111,7 +111,7 @@ const isTriggerSelected = computed((): boolean => {
 
 // Non-null view of the selected entry; only read inside the `v-if="selected"` branch
 // of the template. Helps vue-tsc's inferer pick the right LogEntry type when
-// passing to child components — n8n-workflow's `Workflow` types deep-recurse and can
+// passing to child components — resin-workflow's `Workflow` types deep-recurse and can
 // trip up template type-narrowing of refs across module boundaries.
 // vue-tsc can't reconcile the deeply-recursive `Workflow` / `WorkflowExpression`
 // types across reactive ref boundaries; cast through `unknown` so the prop

@@ -17,7 +17,7 @@ const DEFAULT_PACKAGE_CONFIG: N8nPackageJson = {
 };
 
 const DEFAULT_ESLINT_CONFIG =
-	"import { config } from '@n8n/node-cli/eslint';\n\nexport default config;\n";
+	"import { config } from '@resin/node-cli/eslint';\n\nexport default config;\n";
 
 export async function setupTestPackage(
 	tmpdir: string,

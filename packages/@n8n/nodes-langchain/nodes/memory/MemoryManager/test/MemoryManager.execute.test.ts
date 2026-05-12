@@ -2,8 +2,8 @@
 import type { BaseChatMemory } from '@langchain/community/memory/chat_memory';
 import type { BaseMessage } from '@langchain/core/messages';
 import { SystemMessage } from '@langchain/core/messages';
-import type { IExecuteFunctions, INode, INodeExecutionData } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { IExecuteFunctions, INode, INodeExecutionData } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type { Mock } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 

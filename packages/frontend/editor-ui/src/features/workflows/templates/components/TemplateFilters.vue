@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue';
-import type { ITemplatesCategory } from '@n8n/rest-api-client/api/templates';
-import { useI18n } from '@n8n/i18n';
+import type { ITemplatesCategory } from '@resin/rest-api-client/api/templates';
+import { useI18n } from '@resin/i18n';
 
-import { N8nCheckbox, N8nLoading, N8nText } from '@n8n/design-system';
+import { N8nCheckbox, N8nLoading, N8nText } from '@resin/design-system';
 interface Props {
 	categories?: ITemplatesCategory[];
 	sortOnPopulate?: boolean;

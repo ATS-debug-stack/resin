@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 
 import { AiConfig } from '../ai.config';
 

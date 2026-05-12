@@ -1,6 +1,6 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { User } from '@n8n/db';
-import type { ExecutionSummary } from 'n8n-workflow';
+import { mockInstance } from '@resin/backend-test-utils';
+import { User } from '@resin/db';
+import type { ExecutionSummary } from 'resin-workflow';
 
 import { ExecutionService } from '@/executions/execution.service';
 import { Telemetry } from '@/telemetry';

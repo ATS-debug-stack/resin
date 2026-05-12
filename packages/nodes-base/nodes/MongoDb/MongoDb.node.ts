@@ -5,7 +5,7 @@ import type {
 	Sort,
 } from 'mongodb';
 import { ObjectId } from 'mongodb';
-import { ApplicationError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { ApplicationError, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	ICredentialsDecrypted,
@@ -17,7 +17,7 @@ import type {
 	INodeTypeDescription,
 	JsonObject,
 	IPairedItemData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	buildParameterizedConnString,

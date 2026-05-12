@@ -53,11 +53,11 @@ export function setSchemaBaseDirs(dirs: string[]): void {
  * Convert node type to schema file path components
  *
  * Examples:
- * - "n8n-nodes-base.httpRequest" -> { pkg: "n8n-nodes-base", nodeName: "httpRequest" }
- * - "@n8n/n8n-nodes-langchain.agent" -> { pkg: "n8n-nodes-langchain", nodeName: "agent" }
+ * - "resin-nodes-base.httpRequest" -> { pkg: "resin-nodes-base", nodeName: "httpRequest" }
+ * - "@resin/n8n-nodes-langchain.agent" -> { pkg: "resin-nodes-langchain", nodeName: "agent" }
  */
 function nodeTypeToPathComponents(nodeType: string): { pkg: string; nodeName: string } {
-	// Handle @n8n/ prefix for langchain nodes
+	// Handle @resin/ prefix for langchain nodes
 	const normalized = nodeType.replace(/^@n8n\//, '');
 	const [pkg, ...rest] = normalized.split('.');
 	const nodeName = rest.join('.'); // Handle multi-part names (shouldn't happen, but be safe)
@@ -212,7 +212,7 @@ function resolveSchemaFromModule(
 function tryLoadSchemaForNodeType(nodeType: string, version: number): SchemaOrFactory | null {
 	const { pkg, nodeName } = nodeTypeToPathComponents(nodeType);
 	const versionStr = versionToString(version);
-	const isLangchain = pkg === 'n8n-nodes-langchain';
+	const isLangchain = pkg === 'resin-nodes-langchain';
 
 	for (const baseDir of schemaBaseDirs) {
 		// Try flat structure first: nodes/{pkg}/{nodeName}/{version}.schema.js
@@ -249,7 +249,7 @@ function tryLoadSchemaForNodeType(nodeType: string, version: number): SchemaOrFa
  * For tool variants (e.g., "googleCalendarTool"), falls back to the base node
  * (e.g., "googleCalendar") since tool variants don't have separate schemas.
  *
- * @param nodeType - Full node type string (e.g., "n8n-nodes-base.set", "@n8n/n8n-nodes-langchain.agent")
+ * @param nodeType - Full node type string (e.g., "resin-nodes-base.set", "@resin/n8n-nodes-langchain.agent")
  * @param version - Node version (e.g., 2, 4.2, 1.7)
  * @returns ZodSchema or factory function if found, null otherwise
  */

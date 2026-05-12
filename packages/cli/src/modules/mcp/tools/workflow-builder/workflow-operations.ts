@@ -5,8 +5,8 @@ import type {
 	INodeParameters,
 	IWorkflowBase,
 	NodeConnectionType,
-} from 'n8n-workflow';
-import { isSafeObjectProperty, NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { isSafeObjectProperty, NodeConnectionTypes } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 import { z } from 'zod';
 
@@ -55,7 +55,7 @@ export const partialUpdateOperationSchema = z.discriminatedUnion('type', [
 		node: z
 			.object({
 				name: z.string().describe('Unique node name. Must not collide with an existing node.'),
-				type: z.string().describe('Fully qualified node type, e.g. "n8n-nodes-base.set".'),
+				type: z.string().describe('Fully qualified node type, e.g. "resin-nodes-base.set".'),
 				typeVersion: z.number(),
 				parameters: z.record(z.string(), z.unknown()).optional(),
 				position: positionSchema().optional(),

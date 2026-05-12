@@ -10,7 +10,7 @@
  * 4. Generate Code - emit SDK code from composite tree
  */
 
-import type { NodeExecutionSchema, Schema, IRunExecutionData } from 'n8n-workflow';
+import type { NodeExecutionSchema, Schema, IRunExecutionData } from 'resin-workflow';
 
 import { generateCode } from './code-generator';
 import { buildCompositeTree } from './composite-builder';

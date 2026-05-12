@@ -129,7 +129,7 @@ describe('lint command', () => {
 
 		mockSpawn('pnpm', ['exec', '--', 'eslint', '.'], {
 			exitCode: 1,
-			stderr: 'Error: @n8n/community-nodes/no-restricted-globals rule failed',
+			stderr: 'Error: @resin/community-nodes/no-restricted-globals rule failed',
 		});
 
 		await expect(CommandTester.run('lint')).rejects.toThrow('EEXIT: 1');
@@ -165,7 +165,7 @@ describe('lint command', () => {
 		await setupTestPackage(tmpdir, {
 			packageJson: { n8n: { strict: true } },
 			eslintConfig:
-				"import { config } from '@n8n/node-cli/eslint';\n\n// Custom modification\nexport default config;\n",
+				"import { config } from '@resin/node-cli/eslint';\n\n// Custom modification\nexport default config;\n",
 		});
 
 		await fs.writeFile(`${tmpdir}/pnpm-lock.yaml`, 'lockfileVersion: 5.4\n');

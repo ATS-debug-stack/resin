@@ -1,18 +1,18 @@
 /* eslint-disable n8n-nodes-base/node-filename-against-convention */
 /* eslint-disable @typescript-eslint/unbound-method */
 import { ChatOpenAI } from '@langchain/openai';
-import { makeN8nLlmFailedAttemptHandler, N8nLlmTracing, getProxyAgent } from '@n8n/ai-utilities';
-import { AiConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { IDataObject, INode, ISupplyDataFunctions } from 'n8n-workflow';
+import { makeN8nLlmFailedAttemptHandler, N8nLlmTracing, getProxyAgent } from '@resin/ai-utilities';
+import { AiConfig } from '@resin/config';
+import { Container } from '@resin/di';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { IDataObject, INode, ISupplyDataFunctions } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 
 import * as common from '../LMChatOpenAi/common';
 import { LmChatOpenAi } from '../LMChatOpenAi/LmChatOpenAi.node';
 
 vi.mock('@langchain/openai');
-vi.mock('@n8n/ai-utilities');
+vi.mock('@resin/ai-utilities');
 vi.mock('../LMChatOpenAi/common');
 
 const MockedChatOpenAI = vi.mocked(ChatOpenAI);
@@ -30,7 +30,7 @@ describe('LmChatOpenAi', () => {
 		id: '1',
 		name: 'OpenAI Chat Model',
 		typeVersion: 1.2,
-		type: 'n8n-nodes-langchain.lmChatOpenAi',
+		type: 'resin-nodes-langchain.lmChatOpenAi',
 		position: [0, 0],
 		parameters: {},
 	};

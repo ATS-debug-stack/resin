@@ -7,14 +7,14 @@ import type {
 	INodeExecutionData,
 	INodeProperties,
 	IBinaryData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	BINARY_ENCODING,
 	NodeOperationError,
 	deepCopy,
 	jsonParse,
 	BINARY_MODE_COMBINED,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { icsCalendarToObject } from 'ts-ics';
 
 import { encodeDecodeOptions } from '@utils/descriptions';

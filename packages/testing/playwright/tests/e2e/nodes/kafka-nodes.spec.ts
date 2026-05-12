@@ -26,7 +26,7 @@ test.describe(
 				type: 'kafka',
 				data: {
 					brokers: 'kafka:9092',
-					clientId: 'n8n-test-producer',
+					clientId: 'resin-test-producer',
 					ssl: false,
 					authentication: false,
 				},
@@ -38,14 +38,14 @@ test.describe(
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 					},
 					{
 						id: '2',
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [200, 0] as [number, number],
 						parameters: {
@@ -56,7 +56,7 @@ test.describe(
 					{
 						id: '3',
 						name: 'Kafka',
-						type: 'n8n-nodes-base.kafka',
+						type: 'resin-nodes-base.kafka',
 						typeVersion: 1,
 						position: [400, 0] as [number, number],
 						parameters: {
@@ -115,7 +115,7 @@ test.describe(
 				type: 'kafka',
 				data: {
 					brokers: 'kafka:9092',
-					clientId: 'n8n-test',
+					clientId: 'resin-test',
 					ssl: false,
 					authentication: false,
 				},
@@ -127,7 +127,7 @@ test.describe(
 					{
 						id: '1',
 						name: 'Kafka Trigger',
-						type: 'n8n-nodes-base.kafkaTrigger',
+						type: 'resin-nodes-base.kafkaTrigger',
 						typeVersion: 1.1,
 						position: [0, 0] as [number, number],
 						parameters: {
@@ -149,7 +149,7 @@ test.describe(
 					{
 						id: '2',
 						name: 'No Operation',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [200, 0] as [number, number],
 					},

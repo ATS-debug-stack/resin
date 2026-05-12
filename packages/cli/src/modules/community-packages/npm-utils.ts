@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { jsonParse, UnexpectedError, LoggerProxy } from 'n8n-workflow';
+import { jsonParse, UnexpectedError, LoggerProxy } from 'resin-workflow';
 import { valid } from 'semver';
 import { execFile } from 'node:child_process';
 import { access } from 'node:fs/promises';

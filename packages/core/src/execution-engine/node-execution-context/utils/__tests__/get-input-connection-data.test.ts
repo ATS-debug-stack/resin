@@ -17,8 +17,8 @@ import type {
 	EngineRequest,
 	WorkflowExecuteMode,
 	CloseFunction,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import { z } from 'zod';
 
 import { ExecuteContext } from '../../execute-context';
@@ -892,7 +892,7 @@ describe('makeHandleToolInvocation', () => {
 
 		it('should respect waitBetweenTries limits (0-5000ms)', async () => {
 			const sleepWithAbortSpy = jest
-				.spyOn(require('n8n-workflow'), 'sleepWithAbort')
+				.spyOn(require('resin-workflow'), 'sleepWithAbort')
 				.mockResolvedValue(undefined);
 
 			const connectedNode = mock<INode>({
@@ -969,7 +969,7 @@ describe('makeHandleToolInvocation', () => {
 
 		it('should handle abort signal during retry wait', async () => {
 			const sleepWithAbortSpy = jest
-				.spyOn(require('n8n-workflow'), 'sleepWithAbort')
+				.spyOn(require('resin-workflow'), 'sleepWithAbort')
 				.mockRejectedValue(new Error('Execution was cancelled'));
 
 			const connectedNode = mock<INode>({
@@ -1044,7 +1044,7 @@ describe('makeHandleToolInvocation', () => {
 			});
 
 			const sleepWithAbortSpy = jest
-				.spyOn(require('n8n-workflow'), 'sleepWithAbort')
+				.spyOn(require('resin-workflow'), 'sleepWithAbort')
 				.mockResolvedValue(undefined);
 
 			handleToolInvocation = makeHandleToolInvocation(
@@ -1086,7 +1086,7 @@ describe('makeHandleToolInvocation', () => {
 			});
 
 			const sleepWithAbortSpy = jest
-				.spyOn(require('n8n-workflow'), 'sleepWithAbort')
+				.spyOn(require('resin-workflow'), 'sleepWithAbort')
 				.mockResolvedValue(undefined);
 
 			handleToolInvocation = makeHandleToolInvocation(
@@ -1247,7 +1247,7 @@ describe('HITL Tool handling', () => {
 		it('should not treat regular tools as HITL tools', async () => {
 			const regularToolNode = mock<INode>({
 				name: 'Regular Tool',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				disabled: false,
 			});
 
@@ -1285,14 +1285,14 @@ describe('HITL Tool handling', () => {
 
 		it('should identify HITL tools by type suffix ending in HitlTool', () => {
 			const hitlTypes = [
-				'@n8n/n8n-nodes-langchain.toolWorkflowHitlTool',
+				'@resin/n8n-nodes-langchain.toolWorkflowHitlTool',
 				'test.HitlTool',
 				'myPackage.customHitlTool',
 			];
 
 			const nonHitlTypes = [
-				'n8n-nodes-base.httpRequest',
-				'@n8n/n8n-nodes-langchain.toolWorkflow',
+				'resin-nodes-base.httpRequest',
+				'@resin/n8n-nodes-langchain.toolWorkflow',
 				'test.regularTool',
 			];
 

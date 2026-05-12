@@ -1,4 +1,4 @@
-import type { BuiltTool } from '@n8n/agents';
+import type { BuiltTool } from '@resin/agents';
 import { buildToolRegistry } from '../tool-registry';
 
 function mkTool(name: string, metadata?: Record<string, unknown>): BuiltTool {
@@ -49,14 +49,14 @@ describe('buildToolRegistry', () => {
 		const r = buildToolRegistry([
 			mkTool('http-tool', {
 				kind: 'node',
-				nodeType: 'n8n-nodes-base.httpRequest',
+				nodeType: 'resin-nodes-base.httpRequest',
 				nodeTypeVersion: 4.2,
 				displayName: 'HTTP Request',
 			}),
 		]);
 		expect(r.get('http-tool')).toEqual({
 			kind: 'node',
-			nodeType: 'n8n-nodes-base.httpRequest',
+			nodeType: 'resin-nodes-base.httpRequest',
 			nodeTypeVersion: 4.2,
 			nodeDisplayName: 'HTTP Request',
 		});

@@ -1,4 +1,4 @@
-import type { ICredentialDataDecryptedObject, IHttpRequestOptions } from 'n8n-workflow';
+import type { ICredentialDataDecryptedObject, IHttpRequestOptions } from 'resin-workflow';
 
 import { AnthropicApi } from '../AnthropicApi.credentials';
 

@@ -1,8 +1,8 @@
 import { ref, computed, type Ref } from 'vue';
-import { isSafeObjectKey } from '@n8n/api-types';
-import type { InstanceAiMessage, InstanceAiAgentNode } from '@n8n/api-types';
-import type { RatingFeedback } from '@n8n/design-system';
-import type { ITelemetryTrackProperties } from 'n8n-workflow';
+import { isSafeObjectKey } from '@resin/api-types';
+import type { InstanceAiMessage, InstanceAiAgentNode } from '@resin/api-types';
+import type { RatingFeedback } from '@resin/design-system';
+import type { ITelemetryTrackProperties } from 'resin-workflow';
 
 // ---------------------------------------------------------------------------
 // Tree traversal helpers (pure functions)

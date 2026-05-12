@@ -4,7 +4,7 @@ import { useDebounceFn } from '@vueuse/core';
 import { defaultKeymap, history } from '@codemirror/commands';
 import { json } from '@codemirror/lang-json';
 import { EditorView, lineNumbers, keymap } from '@codemirror/view';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 import { codeEditorTheme } from '@/features/shared/editors/components/CodeNodeEditor/theme';
 import { useCodeMirrorEditor } from '../composables/useCodeMirrorEditor';

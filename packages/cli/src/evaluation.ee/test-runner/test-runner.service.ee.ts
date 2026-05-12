@@ -1,10 +1,10 @@
-import { Logger } from '@n8n/backend-common';
-import { ExecutionsConfig } from '@n8n/config';
-import type { User, TestRun } from '@n8n/db';
-import { TestCaseExecutionRepository, TestRunRepository, WorkflowRepository } from '@n8n/db';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { ErrorReporter, InstanceSettings } from 'n8n-core';
+import { Logger } from '@resin/backend-common';
+import { ExecutionsConfig } from '@resin/config';
+import type { User, TestRun } from '@resin/db';
+import { TestCaseExecutionRepository, TestRunRepository, WorkflowRepository } from '@resin/db';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { ErrorReporter, InstanceSettings } from 'resin-core';
 
 import { ConcurrencyControlService } from '@/concurrency/concurrency-control.service';
 import { Publisher } from '@/scaling/pubsub/publisher.service';
@@ -17,7 +17,7 @@ import {
 	DEFAULT_EVALUATION_METRIC,
 	ManualExecutionCancelledError,
 	createRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	IDataObject,
 	IRun,
@@ -27,7 +27,7 @@ import type {
 	AssignmentCollectionValue,
 	GenericValue,
 	JsonObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import assert from 'node:assert';
 import pLimit from 'p-limit';
 

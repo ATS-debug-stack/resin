@@ -1,7 +1,7 @@
 import type { Embeddings } from '@langchain/core/embeddings';
 import type { VectorStore } from '@langchain/core/vectorstores';
-import { NodeOperationError } from 'n8n-workflow';
-import type { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
+import type { IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
 
 import { logAiEvent } from '../../../log-ai-event';
 import { N8nJsonLoader } from '../../../n8n-json-loader';

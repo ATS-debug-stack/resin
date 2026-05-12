@@ -2,16 +2,16 @@ import {
 	CreateRoleMappingRuleDto,
 	type ListRoleMappingRuleQueryInput,
 	type PatchRoleMappingRuleInput,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import {
 	ProjectRepository,
 	RoleMappingRule,
 	RoleMappingRuleRepository,
 	RoleRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import { Service } from '@resin/di';
 
-import { type EntityManager, type FindOptionsOrder, In } from '@n8n/typeorm';
+import { type EntityManager, type FindOptionsOrder, In } from '@resin/typeorm';
 import type { z } from 'zod';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

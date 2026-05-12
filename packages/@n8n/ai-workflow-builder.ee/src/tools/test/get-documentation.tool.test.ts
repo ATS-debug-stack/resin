@@ -97,7 +97,7 @@ describe('get_documentation tool', () => {
 
 			expect(result).toContain('<node_recommendations>');
 			expect(result).toContain('<text_manipulation>');
-			expect(result).toContain('@n8n/n8n-nodes-langchain.agent');
+			expect(result).toContain('@resin/n8n-nodes-langchain.agent');
 			expect(result).toContain('</node_recommendations>');
 		});
 
@@ -119,7 +119,7 @@ describe('get_documentation tool', () => {
 
 			expect(result).toContain('<node_recommendations>');
 			expect(result).toContain('<image_generation>');
-			expect(result).toContain('@n8n/n8n-nodes-langchain.openAi');
+			expect(result).toContain('@resin/n8n-nodes-langchain.openAi');
 		});
 
 		it('should return recommendations for multiple categories', async () => {

@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import type { WebhookEntity } from '@n8n/db';
-import { WebhookRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { HookContext, WebhookContext } from 'n8n-core';
-import { ensureError, Node, NodeHelpers, UnexpectedError } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import type { WebhookEntity } from '@resin/db';
+import { WebhookRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { HookContext, WebhookContext } from 'resin-core';
+import { ensureError, Node, NodeHelpers, UnexpectedError } from 'resin-workflow';
 import type {
 	IHttpRequestMethods,
 	INode,
@@ -15,7 +15,7 @@ import type {
 	Workflow,
 	WorkflowActivateMode,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { NodeTypes } from '@/node-types';
 import { CacheService } from '@/services/cache/cache.service';

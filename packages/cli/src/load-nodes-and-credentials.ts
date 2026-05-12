@@ -1,11 +1,11 @@
-import { inTest, isContainedWithin, Logger, ModuleRegistry } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Container, Service } from '@n8n/di';
-import { isWindowsFilePath } from '@n8n/utils';
+import { inTest, isContainedWithin, Logger, ModuleRegistry } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Container, Service } from '@resin/di';
+import { isWindowsFilePath } from '@resin/utils';
 import type ParcelWatcher from '@parcel/watcher';
 import glob from 'fast-glob';
 import fsPromises from 'fs/promises';
-import type { Class, Types } from 'n8n-core';
+import type { Class, Types } from 'resin-core';
 import {
 	CUSTOM_EXTENSION_ENV,
 	DirectoryLoader,
@@ -18,7 +18,7 @@ import {
 	UnrecognizedNodeTypeError,
 	ExecutionContextHookRegistry,
 	CUSTOM_NODES_PACKAGE_NAME,
-} from 'n8n-core';
+} from 'resin-core';
 import type {
 	KnownNodesAndCredentials,
 	INodeTypeDescription,
@@ -29,8 +29,8 @@ import type {
 	INodeProperties,
 	LoadedNodesAndCredentials,
 	NodeLoader,
-} from 'n8n-workflow';
-import { ensureError, UnexpectedError, UserError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ensureError, UnexpectedError, UserError } from 'resin-workflow';
 import path from 'path';
 import picocolors from 'picocolors';
 
@@ -82,12 +82,12 @@ export class LoadNodesAndCredentials {
 
 		if (!inE2ETests) {
 			this.excludeNodes = this.excludeNodes ?? [];
-			this.excludeNodes.push('n8n-nodes-base.e2eTest');
+			this.excludeNodes.push('resin-nodes-base.e2eTest');
 		}
 
 		if (process.env.N8N_ENV_FEAT_DYNAMIC_CREDENTIALS !== 'true') {
 			this.excludeNodes = this.excludeNodes ?? [];
-			this.excludeNodes.push('n8n-nodes-base.dynamicCredentialCheck');
+			this.excludeNodes.push('resin-nodes-base.dynamicCredentialCheck');
 		}
 
 		// Load nodes from `n8n-nodes-base`
@@ -100,8 +100,8 @@ export class LoadNodesAndCredentials {
 		];
 
 		for (const nodeModulesDir of basePathsToScan) {
-			await this.loadNodesFromNodeModules(nodeModulesDir, 'n8n-nodes-base');
-			await this.loadNodesFromNodeModules(nodeModulesDir, '@n8n/n8n-nodes-langchain');
+			await this.loadNodesFromNodeModules(nodeModulesDir, 'resin-nodes-base');
+			await this.loadNodesFromNodeModules(nodeModulesDir, '@resin/n8n-nodes-langchain');
 		}
 
 		await this.loadNodesFromCustomDirectories();

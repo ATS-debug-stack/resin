@@ -1,5 +1,5 @@
-import type { INode, IConnections, INodeTypes } from 'n8n-workflow';
-import { Workflow } from 'n8n-workflow';
+import type { INode, IConnections, INodeTypes } from 'resin-workflow';
+import { Workflow } from 'resin-workflow';
 
 import type { SimpleWorkflow, WorkflowOperation } from '../types/workflow';
 

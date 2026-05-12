@@ -8,8 +8,8 @@ import {
 	CredentialResolverType,
 	credentialResolverTypesSchema,
 	type CredentialResolverAffectedWorkflow,
-} from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
+} from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
 import {
 	Body,
 	Delete,
@@ -20,7 +20,7 @@ import {
 	Post,
 	RestController,
 	CredentialResolverValidationError,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import { Response } from 'express';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

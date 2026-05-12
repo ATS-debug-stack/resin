@@ -1,5 +1,8 @@
-import type { AgentBuilderAdminSettings, AgentBuilderAdminSettingsResponse } from '@n8n/api-types';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import type {
+	AgentBuilderAdminSettings,
+	AgentBuilderAdminSettingsResponse,
+} from '@resin/api-types';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 

@@ -1,8 +1,8 @@
 import { DynamicTool, type Tool } from '@langchain/core/tools';
-import { StructuredToolkit } from 'n8n-core';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import { NodeOperationError } from 'n8n-workflow';
-import type { ISupplyDataFunctions, IExecuteFunctions, INode } from 'n8n-workflow';
+import { StructuredToolkit } from 'resin-core';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import { NodeOperationError } from 'resin-workflow';
+import type { ISupplyDataFunctions, IExecuteFunctions, INode } from 'resin-workflow';
 import { z } from 'zod';
 
 import {
@@ -523,7 +523,7 @@ describe('getSessionId', () => {
 		mockCtx.evaluateExpression.mockReturnValue('abc');
 		mockCtx.getNode.mockReturnValue({
 			name: 'Memory 1',
-			type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			typeVersion: 1.3,
 		});
 
@@ -536,7 +536,7 @@ describe('getSessionId', () => {
 		mockCtx.evaluateExpression.mockReturnValue('abc');
 		mockCtx.getNode.mockReturnValue({
 			name: 'Memory 1',
-			type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			typeVersion: 1.4,
 		});
 
@@ -549,7 +549,7 @@ describe('getSessionId', () => {
 		mockCtx.evaluateExpression.mockReturnValue('abc');
 		mockCtx.getNode.mockReturnValue({
 			name: 'Memory 1',
-			type: '@n8n/n8n-nodes-langchain.memoryDevNull',
+			type: '@resin/n8n-nodes-langchain.memoryDevNull',
 			typeVersion: 1,
 		});
 
@@ -563,14 +563,14 @@ describe('getSessionId', () => {
 
 		mockCtx.getNode.mockReturnValue({
 			name: 'Memory 1',
-			type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			typeVersion: 1.4,
 		});
 		const sessionId1 = getSessionId(mockCtx, 0);
 
 		mockCtx.getNode.mockReturnValue({
 			name: 'Memory 2',
-			type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			typeVersion: 1.4,
 		});
 		const sessionId2 = getSessionId(mockCtx, 0);
@@ -584,7 +584,7 @@ describe('getSessionId', () => {
 		mockCtx.evaluateExpression.mockReturnValue('abc');
 		mockCtx.getNode.mockReturnValue({
 			name: 'Memory (main)/v2',
-			type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			typeVersion: 1.4,
 		});
 
@@ -598,7 +598,7 @@ describe('getSessionId', () => {
 		mockCtx.evaluateExpression.mockReturnValue('abc');
 		mockCtx.getNode.mockReturnValue({
 			name: 'memory_main-v2',
-			type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			typeVersion: 1.4,
 		});
 
@@ -610,7 +610,7 @@ describe('getSessionId', () => {
 		mockCtx.getNodeParameter.mockReturnValueOnce('customKey').mockReturnValueOnce('my-key');
 		mockCtx.getNode.mockReturnValue({
 			name: 'Memory 1',
-			type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			typeVersion: 1.4,
 		});
 
@@ -624,7 +624,7 @@ describe('getSessionId', () => {
 		mockCtx.getChatTrigger.mockReturnValue(undefined);
 		mockCtx.getNode.mockReturnValue({
 			name: 'Memory 1',
-			type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			typeVersion: 1.4,
 		});
 

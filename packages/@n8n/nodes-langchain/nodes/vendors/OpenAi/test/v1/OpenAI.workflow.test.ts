@@ -1,6 +1,6 @@
 import { NodeTestHarness } from '@nodes-testing/node-test-harness';
 import pick from 'lodash/pick';
-import type { WorkflowTestData } from 'n8n-workflow';
+import type { WorkflowTestData } from 'resin-workflow';
 import path from 'node:path';
 
 describe('OpenAI Workflow', () => {
@@ -10,7 +10,7 @@ describe('OpenAI Workflow', () => {
 	};
 
 	const testHarness = new NodeTestHarness({
-		additionalPackagePaths: [path.dirname(require.resolve('n8n-nodes-base'))],
+		additionalPackagePaths: [path.dirname(require.resolve('resin-nodes-base'))],
 	});
 
 	const assistants = [

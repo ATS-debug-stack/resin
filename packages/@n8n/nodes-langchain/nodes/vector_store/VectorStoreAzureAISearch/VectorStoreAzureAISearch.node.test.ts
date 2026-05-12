@@ -5,7 +5,7 @@ import type {
 	ILoadOptionsFunctions,
 	INode,
 	IExecuteFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import {
@@ -66,7 +66,7 @@ describe('VectorStoreAzureAISearch', () => {
 				type: expect.any(String),
 			},
 			clientOptions: {
-				userAgentOptions: { userAgentPrefix: 'n8n-azure-ai-search' },
+				userAgentOptions: { userAgentPrefix: 'resin-azure-ai-search' },
 			},
 		});
 	});
@@ -111,7 +111,7 @@ describe('VectorStoreAzureAISearch', () => {
 				semanticConfigurationName: 'test-semantic-config',
 			},
 			clientOptions: {
-				userAgentOptions: { userAgentPrefix: 'n8n-azure-ai-search' },
+				userAgentOptions: { userAgentPrefix: 'resin-azure-ai-search' },
 			},
 		});
 	});

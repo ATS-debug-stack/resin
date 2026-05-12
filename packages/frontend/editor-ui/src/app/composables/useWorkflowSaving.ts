@@ -3,7 +3,7 @@ import { useUIStore } from '@/app/stores/ui.store';
 import type { LocationQuery, NavigationGuardNext, useRouter } from 'vue-router';
 import { watch } from 'vue';
 import { useMessage } from './useMessage';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import {
 	MODAL_CANCEL,
 	MODAL_CLOSE,
@@ -19,8 +19,8 @@ import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
 import { useCanvasStore } from '@/app/stores/canvas.store';
 import type { IUpdateInformation, IWorkflowDb } from '@/Interface';
-import type { WorkflowDataCreate, WorkflowDataUpdate } from '@n8n/rest-api-client/api/workflows';
-import { isExpression, type IDataObject } from 'n8n-workflow';
+import type { WorkflowDataCreate, WorkflowDataUpdate } from '@resin/rest-api-client/api/workflows';
+import { isExpression, type IDataObject } from 'resin-workflow';
 import { useToast } from './useToast';
 import { useExternalHooks } from './useExternalHooks';
 import { useTelemetry } from './useTelemetry';
@@ -33,7 +33,7 @@ import {
 	useWorkflowDocumentStore,
 	createWorkflowDocumentId,
 } from '@/app/stores/workflowDocument.store';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { useDebounceFn } from '@vueuse/core';
 import { useBuilderStore } from '@/features/ai/assistant/builder.store';
 import { useWorkflowSaveStore } from '@/app/stores/workflowSave.store';

@@ -1,4 +1,4 @@
-import { Memoized } from '@n8n/decorators';
+import { Memoized } from '@resin/decorators';
 import callsites from 'callsites';
 import glob from 'fast-glob';
 import { mock } from 'jest-mock-extended';
@@ -9,13 +9,13 @@ import type {
 	IWorkflowBase,
 	IWorkflowExecuteAdditionalData,
 	WorkflowTestData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	createDeferredPromise,
 	createRunExecutionData,
 	UnexpectedError,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import nock from 'nock';
 import { readFileSync, mkdtempSync, existsSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -95,7 +95,7 @@ export class NodeTestHarness {
 
 	@Memoized
 	get temporaryDir() {
-		const dir = mkdtempSync(path.join(tmpdir(), 'n8n-'));
+		const dir = mkdtempSync(path.join(tmpdir(), 'resin-'));
 		afterAll(() => rmSync(dir, { recursive: true }));
 		return dir;
 	}

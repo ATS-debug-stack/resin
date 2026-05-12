@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { BaseTextKey } from '@n8n/i18n';
-import { useI18n } from '@n8n/i18n';
-import { N8nIcon, N8nText } from '@n8n/design-system';
+import type { BaseTextKey } from '@resin/i18n';
+import { useI18n } from '@resin/i18n';
+import { N8nIcon, N8nText } from '@resin/design-system';
 import type { MetricCategory } from '../../evaluation.utils';
 
 const props = defineProps<{

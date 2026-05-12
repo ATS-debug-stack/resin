@@ -1,4 +1,4 @@
-import { Service, type Constructable } from '@n8n/di';
+import { Service, type Constructable } from '@resin/di';
 
 type RuleEntry = {
 	class: Constructable;

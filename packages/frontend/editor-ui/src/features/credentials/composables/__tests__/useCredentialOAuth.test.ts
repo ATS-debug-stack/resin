@@ -4,7 +4,7 @@ import { setActivePinia } from 'pinia';
 import { useCredentialOAuth } from '../useCredentialOAuth';
 import { useCredentialsStore } from '../../credentials.store';
 import { mockedStore } from '@/__tests__/utils';
-import type { ICredentialType } from 'n8n-workflow';
+import type { ICredentialType } from 'resin-workflow';
 import type { ICredentialsResponse } from '../../credentials.types';
 
 const { mockShowError, mockShowMessage } = vi.hoisted(() => ({
@@ -611,12 +611,12 @@ describe('useCredentialOAuth', () => {
 			setupSuccessfulOAuthFlow();
 
 			const { createAndAuthorize } = useCredentialOAuth();
-			await createAndAuthorize('slackOAuth2Api', 'n8n-nodes-base.slack');
+			await createAndAuthorize('slackOAuth2Api', 'resin-nodes-base.slack');
 
 			expect(mockTrack).toHaveBeenCalledWith(
 				'User saved credentials',
 				expect.objectContaining({
-					node_type: 'n8n-nodes-base.slack',
+					node_type: 'resin-nodes-base.slack',
 				}),
 			);
 		});

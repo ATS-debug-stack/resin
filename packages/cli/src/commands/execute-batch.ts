@@ -1,12 +1,12 @@
-import type { User } from '@n8n/db';
-import { WorkflowRepository } from '@n8n/db';
-import { Command } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import type { User } from '@resin/db';
+import { WorkflowRepository } from '@resin/db';
+import { Command } from '@resin/decorators';
+import { Container } from '@resin/di';
 import fs from 'fs';
 import { diff } from 'json-diff';
 import pick from 'lodash/pick';
-import type { IRun, ITaskData, IWorkflowBase, IWorkflowExecutionDataProcess } from 'n8n-workflow';
-import { jsonParse, UnexpectedError } from 'n8n-workflow';
+import type { IRun, ITaskData, IWorkflowBase, IWorkflowExecutionDataProcess } from 'resin-workflow';
+import { jsonParse, UnexpectedError } from 'resin-workflow';
 import os from 'os';
 import { sep } from 'path';
 import { z } from 'zod';

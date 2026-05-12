@@ -3,7 +3,7 @@ import ActionsDropdownMenu from '@/app/components/MainHeader/ActionsDropdownMenu
 import WorkflowHistoryButton from '@/features/workflows/workflowHistory/components/WorkflowHistoryButton.vue';
 import type { FolderShortInfo } from '@/features/core/folders/folders.types';
 import type { IWorkflowDb } from '@/Interface';
-import type { PermissionsRecord } from '@n8n/permissions';
+import type { PermissionsRecord } from '@resin/permissions';
 import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue';
 import {
 	WORKFLOW_PUBLISH_MODAL_KEY,
@@ -18,8 +18,8 @@ import {
 	N8nButton,
 	N8nIconButton,
 	N8nTooltip,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { getActivatableTriggerNodes } from '@/app/utils/nodeTypesUtils';
@@ -38,7 +38,7 @@ import { ProjectTypes } from '@/features/collaboration/projects/projects.types';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import { useWorkflowActivate } from '@/app/composables/useWorkflowActivate';
 import { useToast } from '@/app/composables/useToast';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import type { WorkflowVersionFormModalEventBusEvents } from '@/features/workflows/workflowHistory/components/WorkflowVersionFormModal.vue';
 import { useWorkflowHistoryStore } from '@/features/workflows/workflowHistory/workflowHistory.store';
 import { useKeybindings } from '@/app/composables/useKeybindings';

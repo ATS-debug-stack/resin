@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import BaseBanner from './BaseBanner.vue';
-import { i18n as locale } from '@n8n/i18n';
+import { i18n as locale } from '@resin/i18n';
 import { useCloudPlanStore } from '@/app/stores/cloudPlan.store';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import type { CloudPlanAndUsageData } from '@/Interface';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
-import { N8nButton, N8nText, type IconName, type ButtonVariant } from '@n8n/design-system';
+import { N8nButton, N8nText, type IconName, type ButtonVariant } from '@resin/design-system';
 
 const LEGACY_STYLE_TO_VARIANT: Record<string, ButtonVariant> = {
 	success: 'solid',

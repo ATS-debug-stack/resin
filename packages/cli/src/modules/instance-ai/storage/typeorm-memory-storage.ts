@@ -23,11 +23,11 @@ import type {
 	UpdateActiveObservationsInput,
 } from '@mastra/core/storage';
 import { MemoryStorage } from '@mastra/core/storage';
-import { Service } from '@n8n/di';
-import { withCurrentTraceSpan } from '@n8n/instance-ai';
-import { In } from '@n8n/typeorm';
-import { generateNanoId } from '@n8n/utils';
-import { jsonParse } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import { withCurrentTraceSpan } from '@resin/instance-ai';
+import { In } from '@resin/typeorm';
+import { generateNanoId } from '@resin/utils';
+import { jsonParse } from 'resin-workflow';
 
 import type { InstanceAiMessage } from '../entities/instance-ai-message.entity';
 import type { InstanceAiObservationalMemory } from '../entities/instance-ai-observational-memory.entity';

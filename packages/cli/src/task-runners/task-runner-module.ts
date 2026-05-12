@@ -1,10 +1,10 @@
-import { Logger } from '@n8n/backend-common';
-import { TaskRunnersConfig } from '@n8n/config';
-import { OnShutdown } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import type { ServiceIdentifier } from '@n8n/di';
-import { ErrorReporter } from 'n8n-core';
-import { sleep } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { TaskRunnersConfig } from '@resin/config';
+import { OnShutdown } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import type { ServiceIdentifier } from '@resin/di';
+import { ErrorReporter } from 'resin-core';
+import { sleep } from 'resin-workflow';
 import * as a from 'node:assert/strict';
 
 import { EventService } from '@/events/event.service';

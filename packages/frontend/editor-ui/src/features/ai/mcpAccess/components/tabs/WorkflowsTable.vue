@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import type { WorkflowListItem, UserAction } from '@/Interface';
-import { type TableHeader } from '@n8n/design-system/components/N8nDataTableServer';
+import { type TableHeader } from '@resin/design-system/components/N8nDataTableServer';
 import {
 	N8nActionToggle,
 	N8nButton,
@@ -12,12 +12,12 @@ import {
 	N8nLoading,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { VIEWS } from '@/app/constants';
 import WorkflowLocation from '@/features/ai/mcpAccess/components/WorkflowLocation.vue';
 import { MCP_TOOLTIP_DELAY } from '@/features/ai/mcpAccess/mcp.constants';
 import router from '@/app/router';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 
 type Props = {
 	workflows: WorkflowListItem[];

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed, onMounted, onUnmounted, ref, toRef } from 'vue';
-import { N8nActionBox, N8nButton, N8nHeading, N8nIcon } from '@n8n/design-system';
-import type { SecretProviderTypeResponse } from '@n8n/api-types';
+import { N8nActionBox, N8nButton, N8nHeading, N8nIcon } from '@resin/design-system';
+import type { SecretProviderTypeResponse } from '@resin/api-types';
 import SecretsProviderImage from './SecretsProviderImage.ee.vue';
 
 const i18n = useI18n();

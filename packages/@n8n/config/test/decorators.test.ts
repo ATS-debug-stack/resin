@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import fs from 'fs';
 
 import { Config, Env } from '../src/decorators';

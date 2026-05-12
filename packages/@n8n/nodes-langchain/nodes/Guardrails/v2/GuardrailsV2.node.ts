@@ -5,7 +5,7 @@ import {
 	type IExecuteFunctions,
 	type INodeExecutionData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { execute } from '../actions/execute';
 import { propertiesDescription } from '../description';
@@ -62,7 +62,7 @@ export class GuardrailsV2 implements INodeType {
 						content: `<patterns>
 <pattern title="Guardrails classify with separate Pass and Fail outputs">
 const model = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'OpenAI Chat Model',
@@ -72,7 +72,7 @@ const model = languageModel({
 });
 
 const guardrailsCheck = node({
-  type: '@n8n/n8n-nodes-langchain.guardrails',
+  type: '@resin/n8n-nodes-langchain.guardrails',
   version: 2,
   config: {
     name: 'Guardrails',
@@ -86,13 +86,13 @@ const guardrailsCheck = node({
 });
 
 const passHandler = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: { name: 'Handle Pass', parameters: {} }
 });
 
 const failHandler = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: { name: 'Handle Fail', parameters: {} }
 });

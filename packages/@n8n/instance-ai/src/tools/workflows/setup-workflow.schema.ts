@@ -2,13 +2,13 @@
  * Zod schemas for the setup-workflow tool's suspend/resume contract.
  * Shared between the tool definition and the service layer.
  *
- * The node schema is the canonical `workflowSetupNodeSchema` from @n8n/api-types.
+ * The node schema is the canonical `workflowSetupNodeSchema` from @resin/api-types.
  */
 import {
 	instanceAiConfirmationSeveritySchema,
 	workflowSetupNodeSchema,
 	type InstanceAiWorkflowSetupNode,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { z } from 'zod';
 
 export type SetupRequest = InstanceAiWorkflowSetupNode;

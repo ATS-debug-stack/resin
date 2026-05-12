@@ -1,4 +1,4 @@
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 import type { InstanceAiContext } from '../../../types';
 import { resolveCredentials, type CredentialEntry } from '../resolve-credentials';
@@ -48,7 +48,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: undefined as unknown as { id: string; name: string } },
@@ -73,7 +73,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: null as unknown as { id: string; name: string } },
@@ -96,7 +96,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: undefined as unknown as { id: string; name: string } },
@@ -109,7 +109,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'existing-id', name: 'Existing Slack' } },
@@ -134,7 +134,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: undefined as unknown as { id: string; name: string } },
@@ -167,7 +167,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Gmail',
-						type: 'n8n-nodes-base.gmail',
+						type: 'resin-nodes-base.gmail',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { gmailOAuth2Api: undefined as unknown as { id: string; name: string } },
@@ -195,7 +195,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'real-id', name: 'Real Slack' } },
@@ -220,7 +220,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack 1',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: undefined as unknown as { id: string; name: string } },
@@ -228,7 +228,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '2',
 						name: 'Slack 2',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [200, 0],
 						credentials: { slackApi: undefined as unknown as { id: string; name: string } },
@@ -267,7 +267,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'slack-1', name: 'Team Slack' } },
@@ -294,7 +294,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'WHATSAPP_CREDENTIAL_ID', name: 'WhatsApp' } },
@@ -324,7 +324,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Gmail',
-						type: 'n8n-nodes-base.gmail',
+						type: 'resin-nodes-base.gmail',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { gmailOAuth2Api: { id: 'mock-gmail-oauth2', name: 'Gmail' } },
@@ -350,7 +350,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'gmail-1', name: 'Gmail' } },
@@ -376,7 +376,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'WHATSAPP_CREDENTIAL_ID', name: 'WhatsApp' } },
@@ -389,7 +389,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'existing-slack', name: 'Existing Slack' } },
@@ -415,7 +415,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'OpenAI',
-						type: '@n8n/n8n-nodes-langchain.openAi',
+						type: '@resin/n8n-nodes-langchain.openAi',
 						typeVersion: 1,
 						position: [0, 0],
 						credentials: { openAiApi: undefined as unknown as { id: string; name: string } },
@@ -428,7 +428,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'OpenAI',
-						type: '@n8n/n8n-nodes-langchain.openAi',
+						type: '@resin/n8n-nodes-langchain.openAi',
 						typeVersion: 1,
 						position: [0, 0],
 						credentials: { openAiApi: { id: 'user-chosen-id', name: 'My OpenAI' } },
@@ -453,7 +453,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: undefined as unknown as { id: string; name: string } },
@@ -484,7 +484,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'real-id', name: 'Real Slack' } },
@@ -508,7 +508,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'real-id', name: 'Real Slack' } },
@@ -536,7 +536,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						credentials: { slackApi: { id: 'real-id', name: 'Real Slack' } },
@@ -544,7 +544,7 @@ describe('resolveCredentials', () => {
 					{
 						id: '2',
 						name: 'Gmail',
-						type: 'n8n-nodes-base.gmail',
+						type: 'resin-nodes-base.gmail',
 						typeVersion: 2,
 						position: [200, 0],
 						credentials: { gmailOAuth2Api: undefined as unknown as { id: string; name: string } },

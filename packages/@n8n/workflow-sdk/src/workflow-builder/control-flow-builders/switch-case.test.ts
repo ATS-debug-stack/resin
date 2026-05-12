@@ -3,18 +3,18 @@ import { workflow } from '../../workflow-builder';
 import { node, trigger, isSwitchCaseBuilder } from '../node-builders/node-builder';
 
 // Helper type for Switch node
-type SwitchNode = NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+type SwitchNode = NodeInstance<'resin-nodes-base.switch', string, unknown>;
 
 describe('Switch Case fluent API', () => {
 	describe('switchNode.onCase() syntax', () => {
 		it('should require a switch node for onCase()', () => {
 			const regularNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set Node' },
 			});
 			const target = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Target' },
 			});
@@ -27,17 +27,17 @@ describe('Switch Case fluent API', () => {
 
 		it('should work with fluent syntax: switchNode.onCase!(0, case0).onCase(1, case1)', () => {
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'My Switch' },
 			}) as SwitchNode;
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Case 0' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Case 1' },
 			});
@@ -50,12 +50,12 @@ describe('Switch Case fluent API', () => {
 
 		it('should return a SwitchCaseBuilder', () => {
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'My Switch' },
 			}) as SwitchNode;
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Case 0' },
 			});
@@ -67,29 +67,29 @@ describe('Switch Case fluent API', () => {
 
 	describe('fluent API in workflow', () => {
 		it('should support switchNode.onCase!(0, case0).onCase(1, case1) in workflow', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'My Switch' },
 			}) as SwitchNode;
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Case 0' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Case 1' },
 			});
 			const case2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Case 2' },
 			});
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Downstream' },
 			});
@@ -118,19 +118,19 @@ describe('Switch Case fluent API', () => {
 		});
 
 		it('should support sparse cases (skipping indices)', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'My Switch' },
 			}) as SwitchNode;
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Case 0' },
 			});
 			const case2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Case 2' },
 			});
@@ -158,24 +158,24 @@ describe('Switch Case fluent API', () => {
 		});
 
 		it('should support plain array for multiple targets from one case', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'My Switch' },
 			}) as SwitchNode;
 			const targetA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Target A' },
 			});
 			const targetB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Target B' },
 			});
 			const targetC = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Target C' },
 			});
@@ -205,12 +205,12 @@ describe('Switch Case fluent API', () => {
 
 		it('should identify builder with isSwitchCaseBuilder', () => {
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'My Switch' },
 			}) as SwitchNode;
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Case 0' },
 			});
@@ -221,19 +221,19 @@ describe('Switch Case fluent API', () => {
 		});
 
 		it('should handle duplicate node names in different cases', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'My Switch' },
 			}) as SwitchNode;
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
@@ -259,24 +259,24 @@ describe('Switch Case fluent API', () => {
 		});
 
 		it('should handle 3 cases with same-named nodes', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'My Switch' },
 			}) as SwitchNode;
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Handler' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Handler' },
 			});
 			const case2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Handler' },
 			});

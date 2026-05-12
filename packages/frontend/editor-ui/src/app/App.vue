@@ -15,10 +15,10 @@ import { CODEMIRROR_TOOLTIP_CONTAINER_ELEMENT_ID, HIRING_BANNER, VIEWS } from '@
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import LoadingView from '@/app/views/LoadingView.vue';
-import { locale } from '@n8n/design-system';
-import { setLanguage } from '@n8n/i18n';
+import { locale } from '@resin/design-system';
+import { setLanguage } from '@resin/i18n';
 // Note: no need to import en.json here; default 'en' is handled via setLanguage
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import axios from 'axios';
 import { computed, onMounted, provide, ref, shallowRef, watch } from 'vue';
 import { useRoute } from 'vue-router';
@@ -105,7 +105,7 @@ useExposeCssVar('--ask-assistant--floating-button--margin-bottom', askAiFloating
 
 <template>
 	<LoadingView v-if="loading" />
-	<BaseLayout v-else id="n8n-app" :class="$style.app">
+	<BaseLayout v-else id="resin-app" :class="$style.app">
 		<template #banners>
 			<AppBanners />
 		</template>

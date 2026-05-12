@@ -1,4 +1,4 @@
-import { Column, Entity, Index, OneToMany, PrimaryGeneratedColumn } from '@n8n/typeorm';
+import { Column, Entity, Index, OneToMany, PrimaryGeneratedColumn } from '@resin/typeorm';
 
 import { WithTimestamps } from './abstract-entity';
 import type { ProjectSecretsProviderAccess } from './project-secrets-provider-access';

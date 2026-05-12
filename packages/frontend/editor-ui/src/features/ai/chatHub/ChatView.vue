@@ -29,8 +29,8 @@ import {
 	type ChatHubSendMessageRequest,
 	type ChatModelDto,
 	chatHubConversationModelSchema,
-} from '@n8n/api-types';
-import { N8nIconButton, N8nResizeWrapper, N8nScrollArea, N8nText } from '@n8n/design-system';
+} from '@resin/api-types';
+import { N8nIconButton, N8nResizeWrapper, N8nScrollArea, N8nText } from '@resin/design-system';
 import { useElementSize, useLocalStorage, useMediaQuery } from '@vueuse/core';
 import { v4 as uuidv4 } from 'uuid';
 import { computed, onBeforeMount, ref, useTemplateRef, watch } from 'vue';
@@ -46,7 +46,7 @@ import {
 	chatHubConversationModelWithCachedDisplayNameSchema,
 	type ChatMessage as ChatMessageType,
 } from '@/features/ai/chatHub/chat.types';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useCustomAgent } from '@/features/ai/chatHub/composables/useCustomAgent';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { hasRole } from '@/app/utils/rbac/checks';

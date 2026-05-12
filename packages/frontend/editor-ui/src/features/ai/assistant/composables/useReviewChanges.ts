@@ -5,9 +5,9 @@ import {
 	NodeHelpers,
 	type IConnections,
 	type INode,
-} from 'n8n-workflow';
-import { createEventBus } from '@n8n/utils/event-bus';
-import { useI18n } from '@n8n/i18n';
+} from 'resin-workflow';
+import { createEventBus } from '@resin/utils/event-bus';
+import { useI18n } from '@resin/i18n';
 import { useBuilderStore } from '@/features/ai/assistant/builder.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';

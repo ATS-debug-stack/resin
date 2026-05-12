@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { N8nIcon, N8nTooltip } from '@n8n/design-system';
+import { N8nIcon, N8nTooltip } from '@resin/design-system';
 import type { ToolCall } from '../composables/agentChatMessages';
 import { formatToolNameForDisplay } from '../utils/toolDisplayName';
 

@@ -7,8 +7,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, deepCopy, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, deepCopy, NodeOperationError } from 'resin-workflow';
 
 import { vmResolver } from '../Code/JavaScriptSandbox';
 

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import { useI18n, type BaseTextKey } from '@n8n/i18n';
-import { N8nIcon } from '@n8n/design-system';
+import { useI18n, type BaseTextKey } from '@resin/i18n';
+import { N8nIcon } from '@resin/design-system';
 import {
 	isMenuSuggestion,
 	isPromptSuggestion,

@@ -1,12 +1,12 @@
-import type { SharedCredentials, User } from '@n8n/db';
-import { CredentialsEntity, CredentialsRepository, SharedCredentialsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
-import type { CredentialSharingRole, ProjectRole, Scope } from '@n8n/permissions';
+import type { SharedCredentials, User } from '@resin/db';
+import { CredentialsEntity, CredentialsRepository, SharedCredentialsRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
+import type { CredentialSharingRole, ProjectRole, Scope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager, FindOptionsWhere } from '@n8n/typeorm';
+import type { EntityManager, FindOptionsWhere } from '@resin/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
+import { In } from '@resin/typeorm';
 
 import { RoleService } from '@/services/role.service';
 

@@ -1,4 +1,4 @@
-import { sleep } from 'n8n-workflow';
+import { sleep } from 'resin-workflow';
 
 import { ConcurrencyQueue } from '../concurrency-queue';
 

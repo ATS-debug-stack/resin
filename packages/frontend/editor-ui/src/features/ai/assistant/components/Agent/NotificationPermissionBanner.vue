@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { useI18n } from '@n8n/i18n';
-import { N8nIcon, N8nButton } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nIcon, N8nButton } from '@resin/design-system';
 import { useBrowserNotifications } from '@/app/composables/useBrowserNotifications';
 import { useBuilderStore } from '../../builder.store';
 

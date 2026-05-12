@@ -2,10 +2,10 @@
 import { ref, computed, watch } from 'vue';
 
 import { capitalCase } from 'change-case';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 import { ElOption, ElOptionGroup, ElSelect } from 'element-plus';
-import { N8nCheckbox, N8nInputLabel } from '@n8n/design-system';
+import { N8nCheckbox, N8nInputLabel } from '@resin/design-system';
 // Define props
 const props = defineProps({
 	modelValue: {

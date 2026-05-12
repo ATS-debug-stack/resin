@@ -1,6 +1,6 @@
 import { type ClassValue } from 'clsx';
 
-import { type IconName } from '@n8n/design-system/components/N8nIcon/icons';
+import { type IconName } from '@resin/design-system/components/N8nIcon/icons';
 
 import { type IconSize } from './icon';
 

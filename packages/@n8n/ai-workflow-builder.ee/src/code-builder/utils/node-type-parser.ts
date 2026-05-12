@@ -6,7 +6,7 @@
  * - Get detailed node type information
  */
 
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import { CodeBuilderNodeSearchEngine } from '../engines/code-builder-node-search-engine';
 

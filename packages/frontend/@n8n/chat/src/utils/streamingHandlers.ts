@@ -1,8 +1,8 @@
 import { nextTick } from 'vue';
 import type { Ref } from 'vue';
 
-import { chatEventBus } from '@n8n/chat/event-buses';
-import type { ChatMessage, ChatMessageText, ChatOptions } from '@n8n/chat/types';
+import { chatEventBus } from '@resin/chat/event-buses';
+import type { ChatMessage, ChatMessageText, ChatOptions } from '@resin/chat/types';
 
 import type { StreamingMessageManager } from './streaming';
 import { createBotMessage, updateMessageInArray } from './streaming';

@@ -1,9 +1,9 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { WorkflowRepository, LicenseMetricsRepository } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { WorkflowRepository, LicenseMetricsRepository } from '@resin/db';
 import type express from 'express';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
 import promClient from 'prom-client';
 
 import { EventMessageWorkflow } from '@/eventbus/event-message-classes/event-message-workflow';

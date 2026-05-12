@@ -1,10 +1,10 @@
-import { Tool } from '@n8n/agents';
-import type { BuiltTool, CredentialProvider } from '@n8n/agents';
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { validateNodeConfig } from '@n8n/workflow-sdk';
-import { isToolType, isTriggerNodeType } from 'n8n-workflow';
-import type { IDataObject, INodeParameters } from 'n8n-workflow';
+import { Tool } from '@resin/agents';
+import type { BuiltTool, CredentialProvider } from '@resin/agents';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { validateNodeConfig } from '@resin/workflow-sdk';
+import { isToolType, isTriggerNodeType } from 'resin-workflow';
+import type { IDataObject, INodeParameters } from 'resin-workflow';
 import { z } from 'zod';
 
 import { EphemeralNodeExecutor, isAgentProviderNode } from '@/node-execution';
@@ -63,7 +63,7 @@ const getNodeTypesInputSchema = z.object({
 			]),
 		)
 		.min(1)
-		.describe('Tool node IDs from search_nodes (e.g., ["n8n-nodes-base.gmailTool"])'),
+		.describe('Tool node IDs from search_nodes (e.g., ["resin-nodes-base.gmailTool"])'),
 });
 
 const listCredentialsInputSchema = z.object({

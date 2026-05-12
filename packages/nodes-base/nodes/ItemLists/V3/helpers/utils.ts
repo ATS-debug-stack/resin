@@ -3,8 +3,8 @@ import type {
 	IBinaryData,
 	INodeExecutionData,
 	GenericValue,
-} from 'n8n-workflow';
-import { ApplicationError, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, NodeOperationError } from 'resin-workflow';
 
 import { JsTaskRunnerSandbox } from '../../../Code/JsTaskRunnerSandbox';
 

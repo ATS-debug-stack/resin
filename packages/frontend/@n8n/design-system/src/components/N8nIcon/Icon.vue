@@ -35,7 +35,7 @@ const classes = computed(() => {
 		applied.push('strokeWidth');
 	}
 
-	return ['n8n-icon', ...applied.map((c) => $style[c])];
+	return ['resin-icon', ...applied.map((c) => $style[c])];
 });
 
 const sizesInPixels: Record<IconSize, number> = {

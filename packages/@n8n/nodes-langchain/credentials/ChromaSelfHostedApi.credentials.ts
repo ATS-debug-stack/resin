@@ -3,7 +3,7 @@ import type {
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class ChromaSelfHostedApi implements ICredentialType {
 	name = 'chromaSelfHostedApi';

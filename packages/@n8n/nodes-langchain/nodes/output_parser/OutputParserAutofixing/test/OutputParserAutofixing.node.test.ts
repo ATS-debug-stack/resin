@@ -2,13 +2,13 @@
 
 import type { BaseLanguageModel } from '@langchain/core/language_models/base';
 import { OutputParserException } from '@langchain/core/output_parsers';
-import { normalizeItems } from 'n8n-core';
+import { normalizeItems } from 'resin-core';
 import type {
 	ISupplyDataFunctions,
 	IWorkflowDataProxyData,
 	NodeConnectionType,
-} from 'n8n-workflow';
-import { ApplicationError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 import type { MockProxy } from 'vitest-mock-extended';
 

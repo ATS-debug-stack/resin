@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-return -- jest.mock factory */
-jest.mock('@n8n/backend-common', () => {
-	const actual = jest.requireActual('@n8n/backend-common');
+jest.mock('@resin/backend-common', () => {
+	const actual = jest.requireActual('@resin/backend-common');
 	return {
 		...actual,
 		inProduction: true,
@@ -8,13 +8,13 @@ jest.mock('@n8n/backend-common', () => {
 });
 /* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-return */
 
-import { LicenseState } from '@n8n/backend-common';
-import { mockInstance, testDb } from '@n8n/backend-test-utils';
-import { CredentialsRepository } from '@n8n/db';
-import type { ICredentialResolver } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { LicenseState } from '@resin/backend-common';
+import { mockInstance, testDb } from '@resin/backend-test-utils';
+import { CredentialsRepository } from '@resin/db';
+import type { ICredentialResolver } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { Cipher } from 'n8n-core';
+import { Cipher } from 'resin-core';
 
 import { EnterpriseCredentialsService } from '@/credentials/credentials.service.ee';
 import { OauthService } from '@/oauth/oauth.service';

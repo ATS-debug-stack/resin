@@ -1,4 +1,4 @@
-import type { MessageEventBusDestinationOptions } from 'n8n-workflow';
+import type { MessageEventBusDestinationOptions } from 'resin-workflow';
 import { defineStore } from 'pinia';
 import {
 	deleteDestinationFromDb,
@@ -7,8 +7,8 @@ import {
 	hasDestinationId,
 	saveDestinationToDb,
 	sendTestMessageToDestination,
-} from '@n8n/rest-api-client/api/eventbus.ee';
-import { useRootStore } from '@n8n/stores/useRootStore';
+} from '@resin/rest-api-client/api/eventbus.ee';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { ref } from 'vue';
 
 export interface EventSelectionItem {

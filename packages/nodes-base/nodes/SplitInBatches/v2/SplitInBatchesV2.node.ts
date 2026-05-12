@@ -4,8 +4,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IPairedItemData,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, deepCopy } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, deepCopy } from 'resin-workflow';
 
 export class SplitInBatchesV2 implements INodeType {
 	description: INodeTypeDescription = {

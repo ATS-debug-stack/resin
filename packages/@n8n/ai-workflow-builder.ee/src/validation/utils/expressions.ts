@@ -1,5 +1,5 @@
-import type { INodeParameters } from 'n8n-workflow';
-import { isExpression } from 'n8n-workflow';
+import type { INodeParameters } from 'resin-workflow';
+import { isExpression } from 'resin-workflow';
 
 export function containsExpression(value: unknown): boolean {
 	if (!isExpression(value)) {

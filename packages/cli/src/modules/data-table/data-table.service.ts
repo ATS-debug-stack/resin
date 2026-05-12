@@ -9,11 +9,11 @@ import type {
 	UpsertDataTableRowDto,
 	UpdateDataTableDto,
 	UpdateDataTableRowDto,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { ProjectRelationRepository, type User } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { ProjectRelationRepository, type User } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
 import { DateTime } from 'luxon';
 import type {
 	DataTableColumnJsType,
@@ -27,8 +27,8 @@ import type {
 	DataTableInfoById,
 	DataTableColumnType,
 	DataTableRowReturnWithState,
-} from 'n8n-workflow';
-import { DATA_TABLE_SYSTEM_COLUMN_TYPE_MAP, validateFieldType } from 'n8n-workflow';
+} from 'resin-workflow';
+import { DATA_TABLE_SYSTEM_COLUMN_TYPE_MAP, validateFieldType } from 'resin-workflow';
 
 import { EventService } from '@/events/event.service';
 import { RoleService } from '@/services/role.service';

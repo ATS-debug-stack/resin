@@ -1,5 +1,5 @@
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Get, RestController } from '@n8n/decorators';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Get, RestController } from '@resin/decorators';
 
 import { InternalServerError } from '@/errors/response-errors/internal-server.error';
 import { DynamicTemplatesService } from '@/services/dynamic-templates.service';

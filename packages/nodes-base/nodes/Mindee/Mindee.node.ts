@@ -4,8 +4,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 
 import { cleanData, cleanDataPreviousApiVersions, mindeeApiRequest } from './GenericFunctions';
 

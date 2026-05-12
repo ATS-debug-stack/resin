@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import type { Mock } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 
@@ -28,7 +28,7 @@ describe('AlicloudModelStudio Router', () => {
 	const mockNode = {
 		id: 'test-node-id',
 		name: 'Test Node',
-		type: '@n8n/n8n-nodes-langchain.alibabaCloud',
+		type: '@resin/n8n-nodes-langchain.alibabaCloud',
 		typeVersion: 1,
 		position: [0, 0] as [number, number],
 		parameters: {},

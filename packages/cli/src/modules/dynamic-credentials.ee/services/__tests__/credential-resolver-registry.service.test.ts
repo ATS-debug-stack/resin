@@ -1,12 +1,12 @@
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import type {
 	ICredentialResolver,
 	CredentialResolverClass,
 	CredentialResolverEntryMetadata,
 	CredentialResolverConfiguration,
-} from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import type { ICredentialContext, ICredentialDataDecryptedObject } from 'n8n-workflow';
+} from '@resin/decorators';
+import { Container } from '@resin/di';
+import type { ICredentialContext, ICredentialDataDecryptedObject } from 'resin-workflow';
 
 import { DynamicCredentialResolverRegistry } from '../credential-resolver-registry.service';
 

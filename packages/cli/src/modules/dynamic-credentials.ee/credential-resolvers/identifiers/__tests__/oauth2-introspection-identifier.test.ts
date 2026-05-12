@@ -1,5 +1,5 @@
-import { mockLogger } from '@n8n/backend-test-utils';
-import { Time } from '@n8n/constants';
+import { mockLogger } from '@resin/backend-test-utils';
+import { Time } from '@resin/constants';
 import axios from 'axios';
 import { mock } from 'jest-mock-extended';
 

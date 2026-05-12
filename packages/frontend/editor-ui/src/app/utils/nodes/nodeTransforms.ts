@@ -11,8 +11,8 @@ import type {
 	INodeCredentials,
 	FromAIArgument,
 	INodePropertyOptions,
-} from 'n8n-workflow';
-import { isHitlToolType, NodeHelpers, traverseNodeParameters } from 'n8n-workflow';
+} from 'resin-workflow';
+import { isHitlToolType, NodeHelpers, traverseNodeParameters } from 'resin-workflow';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { getCredentialTypeName, isCredentialOnlyNodeType } from '@/app/utils/credentialOnlyNodes';
 import { hasProxyAuth } from '@/app/utils/nodeTypesUtils';

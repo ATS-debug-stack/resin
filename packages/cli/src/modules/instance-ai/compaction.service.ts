@@ -1,12 +1,12 @@
 import type { MastraMessageContentV2 } from '@mastra/core/agent';
 import type { MastraDBMessage } from '@mastra/core/memory';
 import type { Memory } from '@mastra/memory';
-import type { ChatHubLLMProvider } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import { generateCompactionSummary, patchThread } from '@n8n/instance-ai';
-import type { ModelConfig } from '@n8n/instance-ai';
+import type { ChatHubLLMProvider } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import { generateCompactionSummary, patchThread } from '@resin/instance-ai';
+import type { ModelConfig } from '@resin/instance-ai';
 
 import { maxContextWindowTokens } from '@/modules/chat-hub/context-limits';
 

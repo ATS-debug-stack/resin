@@ -9,7 +9,7 @@ import { WorkflowIdKey } from '@/app/constants/injectionKeys';
 import { createComponentRenderer } from '@/__tests__/render';
 import { type MockedStore, mockedStore, SETTINGS_STORE_DEFAULT_STATE } from '@/__tests__/utils';
 import RunData from './RunData.vue';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { SET_NODE_TYPE } from '@/app/constants';
 import type { INodeUi, IRunDataDisplayMode } from '@/Interface';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
@@ -25,7 +25,7 @@ import {
 	type INodeExecutionData,
 	type ITaskData,
 	type ITaskMetadata,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { setActivePinia } from 'pinia';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useSchemaPreviewStore } from '@/features/ndv/runData/schemaPreview.store';
@@ -518,7 +518,7 @@ describe('RunData', () => {
 			{
 				id: '1',
 				name: 'When clicking ‘Execute workflow’',
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [80, -180],
 				disabled: false,
@@ -527,7 +527,7 @@ describe('RunData', () => {
 			{
 				id: '2',
 				name: 'Edit Fields',
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				parameters: {
 					mode: 'manual',
 					duplicateItem: false,
@@ -543,7 +543,7 @@ describe('RunData', () => {
 			{
 				id: '3',
 				name: 'Test Node',
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				parameters: {
 					mode: 'runOnceForAllItems',
 					language: 'javaScript',
@@ -584,7 +584,7 @@ describe('RunData', () => {
 						description: null,
 						lineNumber: 1,
 						node: {
-							type: 'n8n-nodes-base.code',
+							type: 'resin-nodes-base.code',
 							typeVersion: 2,
 							position: [300, -180],
 							id: 'e41f12e0-d178-4294-8748-da5a6a531be6',
@@ -618,7 +618,7 @@ describe('RunData', () => {
 						node: {
 							id: 'e41f12e0-d178-4294-8748-da5a6a531be6',
 							name: 'Test Node',
-							type: 'n8n-nodes-base.code',
+							type: 'resin-nodes-base.code',
 							typeVersion: 2,
 							position: [300, -180],
 							parameters: {
@@ -1043,7 +1043,7 @@ describe('RunData', () => {
 							message: 'Test error message',
 							node: {
 								name: 'Test Node',
-								type: 'n8n-nodes-base.set',
+								type: 'resin-nodes-base.set',
 								typeVersion: 3,
 								position: [0, 0],
 							},
@@ -1082,7 +1082,7 @@ describe('RunData', () => {
 							message: 'Test error message',
 							node: {
 								name: 'Test Node',
-								type: 'n8n-nodes-base.set',
+								type: 'resin-nodes-base.set',
 								typeVersion: 3,
 								position: [0, 0],
 							},
@@ -1266,7 +1266,7 @@ describe('RunData', () => {
 							message: 'Test error',
 							node: {
 								name: 'Test Node',
-								type: 'n8n-nodes-base.set',
+								type: 'resin-nodes-base.set',
 								typeVersion: 3,
 								position: [0, 0],
 							},

@@ -7,7 +7,7 @@ import {
 	type IWebhookResponseData,
 	type INodeTypeBaseDescription,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { verifySignature } from './MailerLiteTriggerHelpers';
 import { mailerliteApiRequest } from '../GenericFunctions';

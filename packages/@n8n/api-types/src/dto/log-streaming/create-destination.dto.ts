@@ -2,7 +2,7 @@ import {
 	MessageEventBusDestinationSentryOptionsSchema,
 	MessageEventBusDestinationSyslogOptionsSchema,
 	MessageEventBusDestinationWebhookOptionsSchema,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { z } from 'zod';
 
 // Union of all destination types - discriminated union based on __type field
@@ -17,4 +17,4 @@ export type {
 	MessageEventBusDestinationWebhookOptions as WebhookDestination,
 	MessageEventBusDestinationSentryOptions as SentryDestination,
 	MessageEventBusDestinationSyslogOptions as SyslogDestination,
-} from 'n8n-workflow';
+} from 'resin-workflow';

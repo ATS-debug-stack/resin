@@ -9,8 +9,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { netlifyApiRequest } from './GenericFunctions';
 import { verifySignature } from './NetlifyTriggerHelpers';

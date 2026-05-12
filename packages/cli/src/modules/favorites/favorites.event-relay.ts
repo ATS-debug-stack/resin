@@ -1,4 +1,4 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 
 import { EventRelay } from '@/events/relays/event-relay';
 import { EventService } from '@/events/event.service';

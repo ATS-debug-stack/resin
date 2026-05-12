@@ -1,8 +1,8 @@
-import type { DataTableListOptions, ListDataTableQueryDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { type Scope } from '@n8n/permissions';
+import type { DataTableListOptions, ListDataTableQueryDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { Service } from '@resin/di';
+import { type Scope } from '@resin/permissions';
 import {
 	AddDataTableColumnOptions,
 	CreateDataTableOptions,
@@ -22,7 +22,7 @@ import {
 	UpdateDataTableRowOptions,
 	UpsertDataTableRowOptions,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { DataTableAggregateService } from './data-table-aggregate.service';
 import { DataTableService } from './data-table.service';
@@ -33,10 +33,10 @@ import { SourceControlPreferencesService } from '@/modules/source-control.ee/sou
 import { OwnershipService } from '@/services/ownership.service';
 
 const ALLOWED_NODES = [
-	'n8n-nodes-base.dataTable',
-	'n8n-nodes-base.dataTableTool',
-	'n8n-nodes-base.evaluationTrigger',
-	'n8n-nodes-base.evaluation',
+	'resin-nodes-base.dataTable',
+	'resin-nodes-base.dataTableTool',
+	'resin-nodes-base.evaluationTrigger',
+	'resin-nodes-base.evaluation',
 ] as const;
 
 type AllowedNode = (typeof ALLOWED_NODES)[number];

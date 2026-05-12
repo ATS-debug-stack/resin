@@ -3,8 +3,8 @@ import { getCommandHeader, printCommandHeader } from './prompts';
 describe('prompts utils', () => {
 	describe('getCommandHeader', () => {
 		it('should return command header with version', async () => {
-			const header = await getCommandHeader('n8n-node dev');
-			expect(header).toContain('n8n-node dev');
+			const header = await getCommandHeader('resin-node dev');
+			expect(header).toContain('resin-node dev');
 			expect(header).toMatch(/v\d+\.\d+\.\d+|vunknown/);
 		});
 

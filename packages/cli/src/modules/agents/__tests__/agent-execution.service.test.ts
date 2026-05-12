@@ -1,4 +1,4 @@
-import { mockLogger } from '@n8n/backend-test-utils';
+import { mockLogger } from '@resin/backend-test-utils';
 import { mock } from 'jest-mock-extended';
 
 import { AgentExecutionService } from '../agent-execution.service';

@@ -6,8 +6,8 @@ import {
 	createTeamProject,
 	linkUserToProject,
 	createWorkflow,
-} from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
+} from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
 import {
 	SharedWorkflowRepository,
 	type WorkflowEntity,
@@ -15,10 +15,10 @@ import {
 	WorkflowPublishHistoryRepository,
 	WorkflowRepository,
 	ProjectRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { ActiveWorkflowManager } from '@/active-workflow-manager';
@@ -124,7 +124,7 @@ describe('update()', () => {
 				{
 					id: 'new-node',
 					name: 'New Node',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [250, 300],
 					parameters: {},
@@ -155,7 +155,7 @@ describe('update()', () => {
 					{
 						id: 'uuid-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [240, 300],
 						parameters: {},
@@ -163,7 +163,7 @@ describe('update()', () => {
 					{
 						id: 'uuid-2',
 						name: 'Code Node',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 1,
 						position: [500, 300],
 						parameters: {},
@@ -304,7 +304,7 @@ describe('activateWorkflow()', () => {
 				webhookId: 'version1',
 				name: 'test',
 				typeVersion: 0,
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				position: [1, 2],
 				parameters: {},
 			},
@@ -313,7 +313,7 @@ describe('activateWorkflow()', () => {
 				webhookId: 'version1-2',
 				name: 'test2',
 				typeVersion: 0,
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				position: [1, 2],
 				parameters: {},
 			},
@@ -333,7 +333,7 @@ describe('activateWorkflow()', () => {
 				webhookId: 'version2',
 				name: 'updatedNode',
 				typeVersion: 0,
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				position: [1, 2],
 				parameters: {},
 			},
@@ -353,7 +353,7 @@ describe('activateWorkflow()', () => {
 					webhookId: 'version2',
 					name: 'newNode',
 					typeVersion: 0,
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					position: [1, 2],
 					parameters: {},
 				},
@@ -377,7 +377,7 @@ describe('activateWorkflow()', () => {
 				webhookId: 'version1',
 				name: 'test',
 				typeVersion: 0,
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				position: [1, 2],
 				parameters: {},
 			},
@@ -386,7 +386,7 @@ describe('activateWorkflow()', () => {
 				webhookId: 'version1-2',
 				name: 'test2',
 				typeVersion: 0,
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				position: [1, 2],
 				parameters: {},
 			},
@@ -405,7 +405,7 @@ describe('activateWorkflow()', () => {
 				webhookId: 'version2',
 				name: 'newNode',
 				typeVersion: 0,
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				position: [1, 2],
 				parameters: {},
 			},

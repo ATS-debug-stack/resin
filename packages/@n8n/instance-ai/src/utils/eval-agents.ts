@@ -5,7 +5,7 @@
  * for the 3 eval call sites (hint generation, mock responses, pin data).
  */
 
-import { Agent, Tool, type GenerateResult } from '@n8n/agents';
+import { Agent, Tool, type GenerateResult } from '@resin/agents';
 
 export { Tool };
 

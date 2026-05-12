@@ -8,7 +8,7 @@ import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/
 import { useRecommendedTemplatesStore } from '@/features/workflows/templates/recommendations/recommendedTemplates.store';
 import { useBannersStore } from '@/features/shared/banners/banners.store';
 import userEvent from '@testing-library/user-event';
-import type { IUser } from '@n8n/rest-api-client/api/users';
+import type { IUser } from '@resin/rest-api-client/api/users';
 
 vi.mock('vue-router', () => ({
 	useRouter: () => ({

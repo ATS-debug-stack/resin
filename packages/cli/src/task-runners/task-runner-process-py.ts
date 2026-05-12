@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { TaskRunnersConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { TaskRunnersConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import { exec, spawn } from 'node:child_process';
 import { access } from 'node:fs/promises';
 import path from 'node:path';
@@ -32,7 +32,7 @@ export class PyTaskRunnerProcess extends TaskRunnerProcessBase {
 	}
 
 	async startProcess(grantToken: string, taskBrokerUri: string) {
-		const pythonDir = path.join(__dirname, '../../../@n8n/task-runner-python');
+		const pythonDir = path.join(__dirname, '../../../@resin/task-runner-python');
 		const venvPath = PyTaskRunnerProcess.getVenvPath();
 
 		return spawn(venvPath, ['-m', 'src.main'], {
@@ -89,7 +89,7 @@ export class PyTaskRunnerProcess extends TaskRunnerProcessBase {
 	}
 
 	private static getVenvPath() {
-		const pythonDir = path.join(__dirname, '../../../@n8n/task-runner-python');
+		const pythonDir = path.join(__dirname, '../../../@resin/task-runner-python');
 		const isWindows = process.platform === 'win32';
 		const venvBin = isWindows ? 'Scripts' : 'bin';
 		const pythonExe = isWindows ? 'python.exe' : 'python';

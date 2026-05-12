@@ -4,7 +4,7 @@ import {
 	type INodeTypeDescription,
 	type IParameterBuilderHint,
 	type Logger,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 /**
  * Represents an operation available for a resource

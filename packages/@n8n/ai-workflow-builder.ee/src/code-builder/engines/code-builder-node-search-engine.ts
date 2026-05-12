@@ -9,9 +9,9 @@
  * different requirements.
  */
 
-import { sublimeSearch } from '@n8n/utils';
-import type { BuilderHintInputs, INodeTypeDescription, NodeConnectionType } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { sublimeSearch } from '@resin/utils';
+import type { BuilderHintInputs, INodeTypeDescription, NodeConnectionType } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import type { CodeBuilderNodeSearchResult, SubnodeRequirement } from '../types';
 
@@ -25,10 +25,10 @@ function isNodeConnectionType(value: string): value is NodeConnectionType {
  * These are sensible defaults shown in search results
  */
 const DEFAULT_SUBNODES: Record<string, string[]> = {
-	ai_languageModel: ['@n8n/n8n-nodes-langchain.lmChatOpenAi'],
-	ai_memory: ['@n8n/n8n-nodes-langchain.memoryBufferWindow'],
-	ai_embedding: ['@n8n/n8n-nodes-langchain.embeddingsOpenAi'],
-	ai_vectorStore: ['@n8n/n8n-nodes-langchain.vectorStoreInMemory'],
+	ai_languageModel: ['@resin/n8n-nodes-langchain.lmChatOpenAi'],
+	ai_memory: ['@resin/n8n-nodes-langchain.memoryBufferWindow'],
+	ai_embedding: ['@resin/n8n-nodes-langchain.embeddingsOpenAi'],
+	ai_vectorStore: ['@resin/n8n-nodes-langchain.vectorStoreInMemory'],
 	// ai_tool is intentionally excluded - varies by use case
 };
 
@@ -45,7 +45,7 @@ const NODE_SEARCH_KEYS = [
 
 /**
  * Extract the short type name from a full node name
- * e.g., "n8n-nodes-base.set" -> "set"
+ * e.g., "resin-nodes-base.set" -> "set"
  */
 function getTypeName(nodeName: string): string {
 	if (!nodeName) return '';

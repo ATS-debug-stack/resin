@@ -6,8 +6,8 @@ import type {
 	IExecuteFunctions,
 	INode,
 	INodeExecutionData,
-} from 'n8n-workflow';
-import { NodeOperationError, BINARY_MODE_COMBINED } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, BINARY_MODE_COMBINED } from 'resin-workflow';
 
 import type { SetNodeOptions } from '../interfaces';
 import { INCLUDE } from '../interfaces';

@@ -1,4 +1,4 @@
-import type { TestWebhookReceived } from '@n8n/api-types/push/webhook';
+import type { TestWebhookReceived } from '@resin/api-types/push/webhook';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import type { WorkflowState } from '@/app/composables/useWorkflowState';
 

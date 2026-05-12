@@ -8,9 +8,9 @@ import {
 	type INodeTypeDescription,
 	type INodeExecutionData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { processDocuments, type N8nJsonLoader } from '@n8n/ai-utilities';
+import { processDocuments, type N8nJsonLoader } from '@resin/ai-utilities';
 
 import { supabaseTableNameSearch } from '../shared/methods/listSearch';
 import { supabaseTableNameRLC } from '../shared/descriptions';

@@ -6,13 +6,13 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	BINARY_ENCODING,
 	SEND_AND_WAIT_OPERATION,
 	NodeConnectionTypes,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { Readable } from 'stream';
 
 import {

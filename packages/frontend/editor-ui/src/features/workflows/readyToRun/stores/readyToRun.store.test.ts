@@ -84,7 +84,7 @@ vi.mock('@/app/stores/settings.store', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({
 		baseText: (key: string) => key,
 	}),

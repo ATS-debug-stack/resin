@@ -22,8 +22,8 @@ import NodeCredentials from '@/features/credentials/components/NodeCredentials.v
 import ParameterInputList from '@/features/ndv/parameters/components/ParameterInputList.vue';
 import { collectParametersByTab, createCommonNodeSettings } from '@/features/ndv/shared/ndv.utils';
 import type { INodeUpdatePropertiesInformation, ITab, IUpdateInformation } from '@/Interface';
-import { N8nTabs, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nTabs, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import {
 	Workflow,
 	NodeHelpers,
@@ -34,7 +34,7 @@ import {
 	type INodeType,
 	type IVersionedNodeType,
 	type IDataObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { computed, onBeforeUnmount, onMounted, provide, ref, shallowRef, watch } from 'vue';
 import { ChatHubToolContextKey, ExpressionLocalResolveContextSymbol } from '@/app/constants';
 import type { ExpressionLocalResolveContext } from '@/app/types/expressions';

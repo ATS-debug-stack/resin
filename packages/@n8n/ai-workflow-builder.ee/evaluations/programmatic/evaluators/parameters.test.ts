@@ -1,5 +1,5 @@
-import type { INodeParameters, INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeParameters, INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 import { validateParameters } from '@/validation/checks/parameters';
@@ -48,7 +48,7 @@ describe('validateParameters', () => {
 			['empty string default', ''],
 			['undefined default', undefined],
 		])('should flag missing required parameter with %s', (_, defaultValue) => {
-			const nodeType = createNodeType('n8n-nodes-base.test', [
+			const nodeType = createNodeType('resin-nodes-base.test', [
 				{
 					displayName: 'API Key',
 					name: 'apiKey',
@@ -57,7 +57,7 @@ describe('validateParameters', () => {
 					required: true,
 				},
 			]);
-			const workflow = createWorkflow([createNode('n8n-nodes-base.test', {})]);
+			const workflow = createWorkflow([createNode('resin-nodes-base.test', {})]);
 
 			const violations = validateParameters(workflow, [nodeType]);
 
@@ -68,7 +68,7 @@ describe('validateParameters', () => {
 					pointsDeducted: 50,
 					metadata: expect.objectContaining({
 						nodeName: 'Test Node',
-						nodeType: 'n8n-nodes-base.test',
+						nodeType: 'resin-nodes-base.test',
 						parameterName: 'apiKey',
 					}),
 				}),
@@ -76,7 +76,7 @@ describe('validateParameters', () => {
 		});
 
 		it('should NOT flag required parameter with meaningful default or when value is provided', () => {
-			const nodeType = createNodeType('n8n-nodes-base.test', [
+			const nodeType = createNodeType('resin-nodes-base.test', [
 				{
 					displayName: 'Method',
 					name: 'method',
@@ -97,7 +97,7 @@ describe('validateParameters', () => {
 				},
 			]);
 			const workflow = createWorkflow([
-				createNode('n8n-nodes-base.test', { apiKey: 'my-key' }), // method uses default, apiKey provided
+				createNode('resin-nodes-base.test', { apiKey: 'my-key' }), // method uses default, apiKey provided
 			]);
 
 			const violations = validateParameters(workflow, [nodeType]);
@@ -106,7 +106,7 @@ describe('validateParameters', () => {
 		});
 
 		it('should respect displayOptions for resource/operation', () => {
-			const nodeType = createNodeType('n8n-nodes-base.test', [
+			const nodeType = createNodeType('resin-nodes-base.test', [
 				{
 					displayName: 'Resource',
 					name: 'resource',
@@ -129,13 +129,13 @@ describe('validateParameters', () => {
 
 			// Resource is 'user', so postId should not be required
 			const workflowUser = createWorkflow([
-				createNode('n8n-nodes-base.test', { resource: 'user' }),
+				createNode('resin-nodes-base.test', { resource: 'user' }),
 			]);
 			expect(validateParameters(workflowUser, [nodeType])).toHaveLength(0);
 
 			// Resource is 'post', so postId IS required
 			const workflowPost = createWorkflow([
-				createNode('n8n-nodes-base.test', { resource: 'post' }),
+				createNode('resin-nodes-base.test', { resource: 'post' }),
 			]);
 			expect(validateParameters(workflowPost, [nodeType])).toContainEqual(
 				expect.objectContaining({
@@ -148,7 +148,7 @@ describe('validateParameters', () => {
 		it.each(['collection', 'fixedCollection', 'credentialsSelect'] as const)(
 			'should skip %s type parameters',
 			(type) => {
-				const nodeType = createNodeType('n8n-nodes-base.test', [
+				const nodeType = createNodeType('resin-nodes-base.test', [
 					{
 						displayName: 'Options',
 						name: 'options',
@@ -158,7 +158,7 @@ describe('validateParameters', () => {
 						options: [],
 					},
 				]);
-				const workflow = createWorkflow([createNode('n8n-nodes-base.test', {})]);
+				const workflow = createWorkflow([createNode('resin-nodes-base.test', {})]);
 
 				expect(validateParameters(workflow, [nodeType])).toHaveLength(0);
 			},
@@ -167,7 +167,7 @@ describe('validateParameters', () => {
 
 	describe('node-invalid-options-value', () => {
 		it('should flag invalid options value with metadata', () => {
-			const nodeType = createNodeType('n8n-nodes-base.test', [
+			const nodeType = createNodeType('resin-nodes-base.test', [
 				{
 					displayName: 'Method',
 					name: 'method',
@@ -179,7 +179,7 @@ describe('validateParameters', () => {
 					],
 				},
 			]);
-			const workflow = createWorkflow([createNode('n8n-nodes-base.test', { method: 'INVALID' })]);
+			const workflow = createWorkflow([createNode('resin-nodes-base.test', { method: 'INVALID' })]);
 
 			const violations = validateParameters(workflow, [nodeType]);
 
@@ -197,7 +197,7 @@ describe('validateParameters', () => {
 		});
 
 		it('should NOT flag valid options value', () => {
-			const nodeType = createNodeType('n8n-nodes-base.test', [
+			const nodeType = createNodeType('resin-nodes-base.test', [
 				{
 					displayName: 'Method',
 					name: 'method',
@@ -209,7 +209,7 @@ describe('validateParameters', () => {
 					],
 				},
 			]);
-			const workflow = createWorkflow([createNode('n8n-nodes-base.test', { method: 'POST' })]);
+			const workflow = createWorkflow([createNode('resin-nodes-base.test', { method: 'POST' })]);
 
 			expect(validateParameters(workflow, [nodeType])).toHaveLength(0);
 		});
@@ -219,7 +219,7 @@ describe('validateParameters', () => {
 			['expression values', { method: '={{ $json.method }}' }, undefined],
 			['undefined values', {}, undefined],
 		])('should skip validation for %s', (_, params, typeOptions) => {
-			const nodeType = createNodeType('n8n-nodes-base.test', [
+			const nodeType = createNodeType('resin-nodes-base.test', [
 				{
 					displayName: 'Field',
 					name: Object.keys(params)[0] ?? 'method',
@@ -232,13 +232,13 @@ describe('validateParameters', () => {
 					],
 				},
 			]);
-			const workflow = createWorkflow([createNode('n8n-nodes-base.test', params)]);
+			const workflow = createWorkflow([createNode('resin-nodes-base.test', params)]);
 
 			expect(validateParameters(workflow, [nodeType])).toHaveLength(0);
 		});
 
 		it('should handle non-string option values (numeric, boolean)', () => {
-			const nodeType = createNodeType('n8n-nodes-base.test', [
+			const nodeType = createNodeType('resin-nodes-base.test', [
 				{
 					displayName: 'Priority',
 					name: 'priority',
@@ -262,7 +262,7 @@ describe('validateParameters', () => {
 			]);
 			// Invalid numeric value
 			const workflowNumeric = createWorkflow([
-				createNode('n8n-nodes-base.test', { priority: 5 }, { id: '1', name: 'Node 1' }),
+				createNode('resin-nodes-base.test', { priority: 5 }, { id: '1', name: 'Node 1' }),
 			]);
 			expect(validateParameters(workflowNumeric, [nodeType])).toContainEqual(
 				expect.objectContaining({ name: 'node-invalid-options-value' }),
@@ -270,7 +270,7 @@ describe('validateParameters', () => {
 
 			// Invalid boolean value (string instead of boolean)
 			const workflowBoolean = createWorkflow([
-				createNode('n8n-nodes-base.test', { enabled: 'yes' }, { id: '2', name: 'Node 2' }),
+				createNode('resin-nodes-base.test', { enabled: 'yes' }, { id: '2', name: 'Node 2' }),
 			]);
 			expect(validateParameters(workflowBoolean, [nodeType])).toContainEqual(
 				expect.objectContaining({ name: 'node-invalid-options-value' }),
@@ -278,7 +278,7 @@ describe('validateParameters', () => {
 
 			// Valid boolean value should pass
 			const workflowValidBoolean = createWorkflow([
-				createNode('n8n-nodes-base.test', { enabled: false }, { id: '3', name: 'Node 3' }),
+				createNode('resin-nodes-base.test', { enabled: false }, { id: '3', name: 'Node 3' }),
 			]);
 			expect(validateParameters(workflowValidBoolean, [nodeType])).toHaveLength(0);
 		});
@@ -286,13 +286,13 @@ describe('validateParameters', () => {
 
 	describe('edge cases', () => {
 		it('should validate multiple nodes independently', () => {
-			const nodeType = createNodeType('n8n-nodes-base.test', [
+			const nodeType = createNodeType('resin-nodes-base.test', [
 				{ displayName: 'Field', name: 'field', type: 'string', default: '', required: true },
 			]);
 			const workflow = createWorkflow([
-				createNode('n8n-nodes-base.test', { field: 'valid' }, { id: '1', name: 'Node 1' }),
-				createNode('n8n-nodes-base.test', {}, { id: '2', name: 'Node 2' }),
-				createNode('n8n-nodes-base.test', { field: 'valid' }, { id: '3', name: 'Node 3' }),
+				createNode('resin-nodes-base.test', { field: 'valid' }, { id: '1', name: 'Node 1' }),
+				createNode('resin-nodes-base.test', {}, { id: '2', name: 'Node 2' }),
+				createNode('resin-nodes-base.test', { field: 'valid' }, { id: '3', name: 'Node 3' }),
 			]);
 
 			const violations = validateParameters(workflow, [nodeType]);
@@ -302,7 +302,7 @@ describe('validateParameters', () => {
 		});
 
 		it('should respect displayOptions for boolean parameters (e.g., sshTunnel)', () => {
-			const nodeType = createNodeType('n8n-nodes-base.test', [
+			const nodeType = createNodeType('resin-nodes-base.test', [
 				{
 					displayName: 'SSH Tunnel',
 					name: 'sshTunnel',
@@ -330,14 +330,14 @@ describe('validateParameters', () => {
 			// sshTunnel is false, so sshHost should be hidden (not required)
 			// but regularField is shown (required)
 			const workflowTunnelOff = createWorkflow([
-				createNode('n8n-nodes-base.test', { sshTunnel: false, regularField: 'value' }),
+				createNode('resin-nodes-base.test', { sshTunnel: false, regularField: 'value' }),
 			]);
 			expect(validateParameters(workflowTunnelOff, [nodeType])).toHaveLength(0);
 
 			// sshTunnel is true, so sshHost is shown (required) and regularField is hidden
 			// Missing sshHost should trigger violation
 			const workflowTunnelOn = createWorkflow([
-				createNode('n8n-nodes-base.test', { sshTunnel: true }),
+				createNode('resin-nodes-base.test', { sshTunnel: true }),
 			]);
 			const violations = validateParameters(workflowTunnelOn, [nodeType]);
 			expect(violations).toContainEqual(
@@ -355,14 +355,14 @@ describe('validateParameters', () => {
 
 			// sshTunnel is true and sshHost is provided - should pass
 			const workflowTunnelOnValid = createWorkflow([
-				createNode('n8n-nodes-base.test', { sshTunnel: true, sshHost: 'localhost' }),
+				createNode('resin-nodes-base.test', { sshTunnel: true, sshHost: 'localhost' }),
 			]);
 			expect(validateParameters(workflowTunnelOnValid, [nodeType])).toHaveLength(0);
 		});
 
 		it('should handle node with different version via @version displayOptions', () => {
 			const nodeType = createNodeType(
-				'n8n-nodes-base.test',
+				'resin-nodes-base.test',
 				[
 					{
 						displayName: 'V1 Field',
@@ -376,13 +376,15 @@ describe('validateParameters', () => {
 				[1, 2],
 			);
 			// Node is version 2, so v1Field should be hidden
-			const workflow = createWorkflow([createNode('n8n-nodes-base.test', {}, { typeVersion: 2 })]);
+			const workflow = createWorkflow([
+				createNode('resin-nodes-base.test', {}, { typeVersion: 2 }),
+			]);
 
 			expect(validateParameters(workflow, [nodeType])).toHaveLength(0);
 		});
 
 		it('should respect displayOptions for mode parameter (e.g., Vector Store nodes)', () => {
-			const nodeType = createNodeType('n8n-nodes-langchain.vectorStore', [
+			const nodeType = createNodeType('resin-nodes-langchain.vectorStore', [
 				{
 					displayName: 'Mode',
 					name: 'mode',
@@ -406,13 +408,13 @@ describe('validateParameters', () => {
 
 			// Mode is 'retrieve', so toolDescription should NOT be required
 			const workflowRetrieve = createWorkflow([
-				createNode('n8n-nodes-langchain.vectorStore', { mode: 'retrieve' }),
+				createNode('resin-nodes-langchain.vectorStore', { mode: 'retrieve' }),
 			]);
 			expect(validateParameters(workflowRetrieve, [nodeType])).toHaveLength(0);
 
 			// Mode is 'retrieve-as-tool', so toolDescription IS required
 			const workflowTool = createWorkflow([
-				createNode('n8n-nodes-langchain.vectorStore', { mode: 'retrieve-as-tool' }),
+				createNode('resin-nodes-langchain.vectorStore', { mode: 'retrieve-as-tool' }),
 			]);
 			expect(validateParameters(workflowTool, [nodeType])).toContainEqual(
 				expect.objectContaining({
@@ -423,7 +425,7 @@ describe('validateParameters', () => {
 		});
 
 		it('should respect displayOptions for authentication parameter', () => {
-			const nodeType = createNodeType('n8n-nodes-base.discord', [
+			const nodeType = createNodeType('resin-nodes-base.discord', [
 				{
 					displayName: 'Authentication',
 					name: 'authentication',
@@ -459,19 +461,19 @@ describe('validateParameters', () => {
 
 			// Using botToken auth with 'send' operation - should be valid
 			const workflowBotSend = createWorkflow([
-				createNode('n8n-nodes-base.discord', { authentication: 'botToken', operation: 'send' }),
+				createNode('resin-nodes-base.discord', { authentication: 'botToken', operation: 'send' }),
 			]);
 			expect(validateParameters(workflowBotSend, [nodeType])).toHaveLength(0);
 
 			// Using botToken auth with 'getAll' operation - should be valid
 			const workflowBotGetAll = createWorkflow([
-				createNode('n8n-nodes-base.discord', { authentication: 'botToken', operation: 'getAll' }),
+				createNode('resin-nodes-base.discord', { authentication: 'botToken', operation: 'getAll' }),
 			]);
 			expect(validateParameters(workflowBotGetAll, [nodeType])).toHaveLength(0);
 
 			// Using webhook auth with 'sendLegacy' operation - should be valid
 			const workflowWebhook = createWorkflow([
-				createNode('n8n-nodes-base.discord', {
+				createNode('resin-nodes-base.discord', {
 					authentication: 'webhook',
 					operation: 'sendLegacy',
 				}),
@@ -481,7 +483,7 @@ describe('validateParameters', () => {
 			// Using webhook auth with 'send' operation - should be invalid
 			// (send is only valid for botToken, not webhook)
 			const workflowWebhookInvalid = createWorkflow([
-				createNode('n8n-nodes-base.discord', { authentication: 'webhook', operation: 'send' }),
+				createNode('resin-nodes-base.discord', { authentication: 'webhook', operation: 'send' }),
 			]);
 			expect(validateParameters(workflowWebhookInvalid, [nodeType])).toContainEqual(
 				expect.objectContaining({
@@ -497,7 +499,7 @@ describe('validateParameters', () => {
 			// Simulates the Discord node structure with multiple operation properties
 			// for different authentication methods
 			const discordNodeType = createNodeType(
-				'n8n-nodes-base.discord',
+				'resin-nodes-base.discord',
 				[
 					{
 						displayName: 'Authentication',
@@ -551,7 +553,7 @@ describe('validateParameters', () => {
 
 			const getMessagesWorkflow = createWorkflow([
 				createNode(
-					'n8n-nodes-base.discord',
+					'resin-nodes-base.discord',
 					{ authentication: 'botToken', resource: 'message', operation: 'getAll' },
 					{ name: 'Get Discord Messages', typeVersion: 2 },
 				),
@@ -561,7 +563,7 @@ describe('validateParameters', () => {
 			// "Send Discord Response" node from workflow
 			const sendResponseWorkflow = createWorkflow([
 				createNode(
-					'n8n-nodes-base.discord',
+					'resin-nodes-base.discord',
 					{ authentication: 'botToken', resource: 'message', operation: 'send' },
 					{ name: 'Send Discord Response', typeVersion: 2 },
 				),
@@ -572,7 +574,7 @@ describe('validateParameters', () => {
 		it('should validate Vector Store nodes from Eco chatbot workflow', () => {
 			// Simulates the Vector Store In Memory node structure
 			const vectorStoreNodeType = createNodeType(
-				'@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+				'@resin/n8n-nodes-langchain.vectorStoreInMemory',
 				[
 					{
 						displayName: 'Operation Mode',
@@ -618,7 +620,7 @@ describe('validateParameters', () => {
 			// "Vector Store - Load Rules" node (mode: insert) - no toolDescription required
 			const loadRulesWorkflow = createWorkflow([
 				createNode(
-					'@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					'@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					{ mode: 'insert', clearStore: false },
 					{ name: 'Vector Store - Load Rules', typeVersion: 1.3 },
 				),
@@ -628,7 +630,7 @@ describe('validateParameters', () => {
 			// "Vector Store - Query Tool" node (mode: retrieve-as-tool) with toolDescription provided
 			const queryToolWorkflow = createWorkflow([
 				createNode(
-					'@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					'@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					{
 						mode: 'retrieve-as-tool',
 						toolDescription:
@@ -643,7 +645,7 @@ describe('validateParameters', () => {
 			// Vector Store in 'retrieve-as-tool' mode WITHOUT toolDescription - should fail
 			const missingDescriptionWorkflow = createWorkflow([
 				createNode(
-					'@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					'@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					{ mode: 'retrieve-as-tool', topK: 5 },
 					{ name: 'Vector Store Missing Description', typeVersion: 1.3 },
 				),
@@ -661,7 +663,7 @@ describe('validateParameters', () => {
 			// Vector Store in 'load' mode WITHOUT prompt - should fail
 			const missingPromptWorkflow = createWorkflow([
 				createNode(
-					'@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					'@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					{ mode: 'load' },
 					{ name: 'Vector Store Missing Prompt', typeVersion: 1.3 },
 				),
@@ -679,7 +681,7 @@ describe('validateParameters', () => {
 			// Vector Store in 'retrieve' mode - no extra required params
 			const retrieveWorkflow = createWorkflow([
 				createNode(
-					'@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					'@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					{ mode: 'retrieve' },
 					{ name: 'Vector Store Retrieve', typeVersion: 1.3 },
 				),

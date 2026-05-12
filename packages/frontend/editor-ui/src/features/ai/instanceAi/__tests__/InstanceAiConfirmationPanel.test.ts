@@ -7,7 +7,7 @@ import type {
 	InstanceAiConfirmation,
 	InstanceAiToolCallState,
 	InstanceAiAgentNode,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import InstanceAiConfirmationPanel from '../components/InstanceAiConfirmationPanel.vue';
 import { useInstanceAiStore } from '../instanceAi.store';
 import type { QuestionAnswer } from '../components/InstanceAiQuestions.vue';
@@ -16,7 +16,7 @@ import type { QuestionAnswer } from '../components/InstanceAiQuestions.vue';
 // Mocks
 // ---------------------------------------------------------------------------
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string, opts?: { interpolate?: Record<string, string> }) => {
@@ -36,7 +36,7 @@ vi.mock('@/app/composables/useTelemetry', () => ({
 	useTelemetry: () => ({ track: mockTelemetryTrack }),
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({ instanceId: 'test-instance-id' }),
 }));
 

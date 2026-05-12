@@ -1,6 +1,6 @@
 /* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { INodeTypeBaseDescription, IVersionedNodeType } from 'n8n-workflow';
-import { VersionedNodeType } from 'n8n-workflow';
+import type { INodeTypeBaseDescription, IVersionedNodeType } from 'resin-workflow';
+import { VersionedNodeType } from 'resin-workflow';
 
 import { NocoDBV1 } from './v1/NocoDBV1.node';
 import { NocoDBV2 } from './v2/NocoDBV2.node';

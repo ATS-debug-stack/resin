@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 import * as textToVideo from './generate.t2v.operation';
 import * as imageToVideo from './generate.i2v.operation';

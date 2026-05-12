@@ -22,7 +22,7 @@ const createMockLLM = () => {
 // Create mock node types
 const mockNodeTypes = [
 	{
-		name: 'n8n-nodes-base.manualTrigger',
+		name: 'resin-nodes-base.manualTrigger',
 		displayName: 'Manual Trigger',
 		description: 'Start workflow manually',
 		version: 1.1,
@@ -121,7 +121,7 @@ describe('CodeWorkflowBuilder', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1.1,
 						position: [240, 300] as [number, number],
 						parameters: {},

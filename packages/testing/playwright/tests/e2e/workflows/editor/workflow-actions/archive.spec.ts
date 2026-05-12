@@ -11,7 +11,7 @@ async function createWorkflowWithSingleNode(api: ApiHelpers): Promise<string> {
 			{
 				id: nanoid(),
 				name: 'Schedule Trigger',
-				type: 'n8n-nodes-base.scheduleTrigger',
+				type: 'resin-nodes-base.scheduleTrigger',
 				typeVersion: 1.2,
 				position: [250, 300] as [number, number],
 				parameters: {},
@@ -108,7 +108,7 @@ test.describe(
 						parameters: {},
 						id: 'paste-test-node',
 						name: 'No Operation, do nothing',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [300, 300],
 					},

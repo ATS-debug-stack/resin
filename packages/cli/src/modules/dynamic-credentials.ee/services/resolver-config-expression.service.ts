@@ -1,8 +1,8 @@
-import { CredentialResolverConfiguration } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { getNonWorkflowAdditionalKeys } from 'n8n-core';
-import type { INode, INodeParameters } from 'n8n-workflow';
-import { isNodeParameters, Workflow } from 'n8n-workflow';
+import { CredentialResolverConfiguration } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { getNonWorkflowAdditionalKeys } from 'resin-core';
+import type { INode, INodeParameters } from 'resin-workflow';
+import { isNodeParameters, Workflow } from 'resin-workflow';
 
 import { NodeTypes } from '@/node-types';
 import { getBase } from '@/workflow-execute-additional-data';

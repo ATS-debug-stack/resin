@@ -1,5 +1,5 @@
 import { mock } from 'vitest-mock-extended';
-import { NodeOperationError, type ILoadOptionsFunctions } from 'n8n-workflow';
+import { NodeOperationError, type ILoadOptionsFunctions } from 'resin-workflow';
 
 // Mock external modules that are not needed for these unit tests
 vi.mock('@langchain/redis', () => {
@@ -13,7 +13,7 @@ vi.mock('@langchain/redis', () => {
 	return { RedisVectorStore, __state: state };
 });
 
-vi.mock('@n8n/ai-utilities', () => ({
+vi.mock('@resin/ai-utilities', () => ({
 	metadataFilterField: {},
 	getMetadataFiltersValues: vi.fn(),
 	logAiEvent: vi.fn(),

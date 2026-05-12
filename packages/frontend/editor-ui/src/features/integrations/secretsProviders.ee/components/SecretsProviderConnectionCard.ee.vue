@@ -8,17 +8,20 @@ import {
 	N8nHeading,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
-import type { SecretProviderConnection, SecretProviderTypeResponse } from '@n8n/api-types';
+} from '@resin/design-system';
+import type { SecretProviderConnection, SecretProviderTypeResponse } from '@resin/api-types';
 import { DateTime } from 'luxon';
 import { isDateObject } from '@/app/utils/typeGuards';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useRBACStore } from '@/app/stores/rbac.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import ProjectIcon from '@/features/collaboration/projects/components/ProjectIcon.vue';
 import { splitName } from '@/features/collaboration/projects/projects.utils';
 import type { ProjectListItem } from '@/features/collaboration/projects/projects.types';
-import { isIconOrEmoji, type IconOrEmoji } from '@n8n/design-system/components/N8nIconPicker/types';
+import {
+	isIconOrEmoji,
+	type IconOrEmoji,
+} from '@resin/design-system/components/N8nIconPicker/types';
 import { useSettingsStore } from '@/app/stores/settings.store';
 
 const i18n = useI18n();

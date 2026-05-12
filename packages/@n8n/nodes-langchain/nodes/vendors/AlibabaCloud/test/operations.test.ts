@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, IBinaryData } from 'n8n-workflow';
+import type { IExecuteFunctions, IBinaryData } from 'resin-workflow';
 import { mock, mockDeep } from 'vitest-mock-extended';
 
 vi.mock('../transport', () => ({
@@ -15,8 +15,8 @@ vi.mock('zod-to-json-schema', () => ({
 	default: vi.fn(),
 }));
 
-vi.mock('n8n-workflow', async () => {
-	const actual = await vi.importActual('n8n-workflow');
+vi.mock('resin-workflow', async () => {
+	const actual = await vi.importActual('resin-workflow');
 	return {
 		...actual,
 		accumulateTokenUsage: vi.fn(),

@@ -9,7 +9,7 @@ jest.mock('../../agent/sanitize-mcp-schemas', () => ({
 	sanitizeMcpToolSchemas: jest.fn((tools: Record<string, unknown>) => tools),
 }));
 
-import { createResultError, createResultOk, UserError } from 'n8n-workflow';
+import { createResultError, createResultOk, UserError } from 'resin-workflow';
 
 import type { SsrfUrlValidator } from '../mcp-client-manager';
 import { McpClientManager } from '../mcp-client-manager';

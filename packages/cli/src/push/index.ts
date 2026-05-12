@@ -1,13 +1,13 @@
-import type { PushMessage } from '@n8n/api-types';
-import { inProduction, Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { OnPubSubEvent, OnShutdown } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+import type { PushMessage } from '@resin/api-types';
+import { inProduction, Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { OnPubSubEvent, OnShutdown } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import type { Application } from 'express';
 import { ServerResponse } from 'http';
 import type { Server } from 'http';
 import pick from 'lodash/pick';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 import { parse as parseUrl } from 'url';
 import { Server as WSServer } from 'ws';
 

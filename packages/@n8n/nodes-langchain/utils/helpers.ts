@@ -1,14 +1,14 @@
 import type { BaseMessage } from '@langchain/core/messages';
 import { type DynamicStructuredTool, type StructuredTool, Tool } from '@langchain/core/tools';
 import type { JSONSchema7 } from 'json-schema';
-import { StructuredToolkit, type SupplyDataToolResponse } from 'n8n-core';
+import { StructuredToolkit, type SupplyDataToolResponse } from 'resin-core';
 import type {
 	ICredentialDataDecryptedObject,
 	IExecuteFunctions,
 	ISupplyDataFunctions,
 	IWebhookFunctions,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import { ZodType } from 'zod';
 
 import { N8nTool } from './N8nTool';
@@ -52,13 +52,13 @@ export function getPromptInputByType(options: {
 // Minimum version at which a memory node scopes its session id
 // to the node's own name
 const SESSION_KEY_SCOPING_MIN_VERSION: Record<string, number> = {
-	'@n8n/n8n-nodes-langchain.memoryBufferWindow': 1.4,
-	'@n8n/n8n-nodes-langchain.memoryPostgresChat': 1.4,
-	'@n8n/n8n-nodes-langchain.memoryRedisChat': 1.6,
-	'@n8n/n8n-nodes-langchain.memoryMongoDbChat': 1.1,
-	'@n8n/n8n-nodes-langchain.memoryMotorhead': 1.4,
-	'@n8n/n8n-nodes-langchain.memoryXata': 1.5,
-	'@n8n/n8n-nodes-langchain.memoryZep': 1.4,
+	'@resin/n8n-nodes-langchain.memoryBufferWindow': 1.4,
+	'@resin/n8n-nodes-langchain.memoryPostgresChat': 1.4,
+	'@resin/n8n-nodes-langchain.memoryRedisChat': 1.6,
+	'@resin/n8n-nodes-langchain.memoryMongoDbChat': 1.1,
+	'@resin/n8n-nodes-langchain.memoryMotorhead': 1.4,
+	'@resin/n8n-nodes-langchain.memoryXata': 1.5,
+	'@resin/n8n-nodes-langchain.memoryZep': 1.4,
 };
 
 function shouldScopeSessionKey(ctx: ISupplyDataFunctions | IWebhookFunctions): boolean {

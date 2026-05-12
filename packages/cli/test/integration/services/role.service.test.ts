@@ -1,10 +1,10 @@
-import type { CreateRoleDto, UpdateRoleDto } from '@n8n/api-types';
-import { LicenseState } from '@n8n/backend-common';
-import { testDb } from '@n8n/backend-test-utils';
-import { ProjectRepository } from '@n8n/db';
-import { RoleRepository, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { ALL_ROLES } from '@n8n/permissions';
+import type { CreateRoleDto, UpdateRoleDto } from '@resin/api-types';
+import { LicenseState } from '@resin/backend-common';
+import { testDb } from '@resin/backend-test-utils';
+import { ProjectRepository } from '@resin/db';
+import { RoleRepository, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { ALL_ROLES } from '@resin/permissions';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

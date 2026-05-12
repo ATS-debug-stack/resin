@@ -1,5 +1,5 @@
-import type { BaseTextKey } from '@n8n/i18n';
-import type { IconName } from '@n8n/design-system';
+import type { BaseTextKey } from '@resin/i18n';
+import type { IconName } from '@resin/design-system';
 
 export interface InstanceAiEmptyStateQuickExample {
 	id: string;

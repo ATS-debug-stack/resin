@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, watch } from 'vue';
-import { N8nHeading, N8nSelect, N8nOption, N8nInputLabel } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nHeading, N8nSelect, N8nOption, N8nInputLabel } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useUIStore } from '@/app/stores/ui.store';
 import { CREDENTIAL_EDIT_MODAL_KEY } from '@/features/credentials/credentials.constants';
 import { useSettingsField } from './useSettingsField';

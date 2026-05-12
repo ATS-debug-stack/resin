@@ -1,11 +1,11 @@
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import { hasResourceLocatorParameters } from '../utils';
 
 // Mock node type definition
 const mockSetNodeDefinition: INodeTypeDescription = {
 	displayName: 'Set',
-	name: 'n8n-nodes-base.set',
+	name: 'resin-nodes-base.set',
 	group: ['transform'],
 	version: 1,
 	description: 'Set values',

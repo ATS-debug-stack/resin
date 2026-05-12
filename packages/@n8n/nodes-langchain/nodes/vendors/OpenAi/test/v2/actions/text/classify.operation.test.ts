@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 import { mockDeep } from 'vitest-mock-extended';
 
 import * as transport from '../../../../transport';
@@ -9,7 +9,7 @@ describe('OpenAI Classify Operation', () => {
 	const node = {
 		id: '123',
 		name: 'OpenAI Node',
-		type: '@n8n/n8n-nodes-langchain.openAi',
+		type: '@resin/n8n-nodes-langchain.openAi',
 		typeVersion: 2.1,
 		position: [0, 0],
 		parameters: {},

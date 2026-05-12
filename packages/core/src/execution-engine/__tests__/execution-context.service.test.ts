@@ -1,5 +1,5 @@
-import type { Logger } from '@n8n/backend-common';
-import type { IContextEstablishmentHook } from '@n8n/decorators';
+import type { Logger } from '@resin/backend-common';
+import type { IContextEstablishmentHook } from '@resin/decorators';
 import { mock } from 'jest-mock-extended';
 import type {
 	IExecuteData,
@@ -9,23 +9,23 @@ import type {
 	ISecureArtifacts,
 	PlaintextExecutionContext,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { Cipher } from '@/encryption';
 
 import type { ExecutionContextHookRegistry } from '../execution-context-hook-registry.service';
 import { ExecutionContextService } from '../execution-context.service';
 
-// Mock the helper functions from n8n-workflow
-jest.mock('n8n-workflow', () => ({
-	...jest.requireActual('n8n-workflow'),
+// Mock the helper functions from resin-workflow
+jest.mock('resin-workflow', () => ({
+	...jest.requireActual('resin-workflow'),
 	toCredentialContext: jest.fn((data: string) => JSON.parse(data)),
 	toSecureArtifacts: jest.fn((data: string) => JSON.parse(data)),
 	toExecutionContextEstablishmentHookParameter: jest.fn(),
 }));
 
 const { toCredentialContext, toSecureArtifacts, toExecutionContextEstablishmentHookParameter } =
-	jest.requireMock('n8n-workflow');
+	jest.requireMock('resin-workflow');
 
 const sampleArtifacts: ISecureArtifacts = {
 	version: 1,
@@ -305,7 +305,7 @@ describe('ExecutionContextService', () => {
 			mockCipher.decryptV2.mockImplementation(async (data: string) => data);
 
 			// Use the real toSecureArtifacts so the round-trip exercises actual schema parsing.
-			const realToSecureArtifacts = jest.requireActual('n8n-workflow').toSecureArtifacts;
+			const realToSecureArtifacts = jest.requireActual('resin-workflow').toSecureArtifacts;
 			toSecureArtifacts.mockImplementation(realToSecureArtifacts);
 
 			const plaintext: PlaintextExecutionContext = {
@@ -448,7 +448,7 @@ describe('ExecutionContextService', () => {
 
 		it('should handle node with contextEstablishmentHooks but undefined hooks array', async () => {
 			// Temporarily use real parsing function
-			const realModule = jest.requireActual('n8n-workflow');
+			const realModule = jest.requireActual('resin-workflow');
 			toExecutionContextEstablishmentHookParameter.mockImplementationOnce(
 				realModule.toExecutionContextEstablishmentHookParameter,
 			);

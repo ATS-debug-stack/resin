@@ -1,5 +1,5 @@
-import type { AuthenticatedRequest, TokenGrant, User } from '@n8n/db';
-import type { ApiKeyScope } from '@n8n/permissions';
+import type { AuthenticatedRequest, TokenGrant, User } from '@resin/db';
+import type { ApiKeyScope } from '@resin/permissions';
 import { mock, mockDeep } from 'jest-mock-extended';
 import type { NextFunction, Response } from 'express';
 

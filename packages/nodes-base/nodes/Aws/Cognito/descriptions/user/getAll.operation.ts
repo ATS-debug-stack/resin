@@ -3,8 +3,8 @@ import type {
 	IExecuteSingleFunctions,
 	IHttpRequestOptions,
 	INodeProperties,
-} from 'n8n-workflow';
-import { jsonParse, updateDisplayOptions } from 'n8n-workflow';
+} from 'resin-workflow';
+import { jsonParse, updateDisplayOptions } from 'resin-workflow';
 
 import type { Filters } from '../../helpers/interfaces';
 import { userPoolResourceLocator } from '../common.description';

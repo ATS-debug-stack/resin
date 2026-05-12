@@ -1,5 +1,5 @@
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
+import { jsonParse } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import type { N8nTool } from '@utils/N8nTool';
@@ -15,7 +15,7 @@ describe('ToolHttpRequest', () => {
 		vi.resetAllMocks();
 		executeFunctions.getNode.mockReturnValue(
 			mock<INode>({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				name: 'HTTP Request',
 				typeVersion: 1.1,
 			}),

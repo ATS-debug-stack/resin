@@ -5,9 +5,9 @@ import {
 	userBaseSchema,
 	UsersListFilterDto,
 	usersListSchema,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { PublicUser } from '@n8n/db';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { PublicUser } from '@resin/db';
 import {
 	Project,
 	User,
@@ -19,7 +19,7 @@ import {
 	AuthenticatedRequest,
 	GLOBAL_ADMIN_ROLE,
 	GLOBAL_OWNER_ROLE,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	GlobalScope,
 	Delete,
@@ -31,8 +31,8 @@ import {
 	Param,
 	Query,
 	Post,
-} from '@n8n/decorators';
-import { hasGlobalScope } from '@n8n/permissions';
+} from '@resin/decorators';
+import { hasGlobalScope } from '@resin/permissions';
 import { Response } from 'express';
 
 import { AuthService } from '@/auth/auth.service';

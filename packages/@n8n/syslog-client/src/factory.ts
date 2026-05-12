@@ -11,7 +11,7 @@ import type { ClientOptions } from './types';
  *
  * @example
  * ```typescript
- * import { createClient, Transport } from '@n8n/syslog-client';
+ * import { createClient, Transport } from '@resin/syslog-client';
  *
  * const client = createClient('192.168.1.1', {
  *   transport: Transport.Tcp,

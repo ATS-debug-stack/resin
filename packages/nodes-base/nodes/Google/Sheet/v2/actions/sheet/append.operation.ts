@@ -4,7 +4,7 @@ import {
 	type INodeExecutionData,
 	NodeOperationError,
 	type ResourceMapperField,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	cellFormat,

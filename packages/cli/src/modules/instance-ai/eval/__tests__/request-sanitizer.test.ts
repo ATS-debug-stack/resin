@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 
 import { isSecretKey, redactSecretKeys, truncateForLlm } from '../request-sanitizer';
 

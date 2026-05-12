@@ -5,17 +5,17 @@ import { useSettingsStore } from '@/app/stores/settings.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { WORKFLOW_SETTINGS_MODAL_KEY } from '@/app/constants';
-import type { IWorkflowSettings } from 'n8n-workflow';
+import type { IWorkflowSettings } from 'resin-workflow';
 import { useNpsSurveyStore } from '@/app/stores/npsSurvey.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useInjectWorkflowId } from '@/app/composables/useInjectWorkflowId';
 import { useWorkflowSaving } from '@/app/composables/useWorkflowSaving';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
-import type { IconColor } from '@n8n/design-system';
-import { type IAccordionItem } from '@n8n/design-system/components/N8nInfoAccordion/InfoAccordion.vue';
-import { type IconName } from '@n8n/design-system/components/N8nIcon/icons';
+import type { IconColor } from '@resin/design-system';
+import { type IAccordionItem } from '@resin/design-system/components/N8nInfoAccordion/InfoAccordion.vue';
+import { type IconName } from '@resin/design-system/components/N8nIcon/icons';
 
-import { N8nInfoAccordion, N8nLink, N8nTooltip } from '@n8n/design-system';
+import { N8nInfoAccordion, N8nLink, N8nTooltip } from '@resin/design-system';
 interface IWorkflowSaveSettings {
 	saveFailedExecutions: boolean;
 	saveSuccessfulExecutions: boolean;

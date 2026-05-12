@@ -7,7 +7,7 @@ import type * as VueUse from '@vueuse/core';
 import AgentAdvancedPanel from '../components/AgentAdvancedPanel.vue';
 import type { AgentJsonConfig } from '../types';
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({ baseText: (k: string) => k }),
 }));
 

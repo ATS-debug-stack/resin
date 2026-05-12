@@ -7,7 +7,7 @@ import {
 	PrimaryGeneratedColumn,
 	Relation,
 	Unique,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 
 import { WithCreatedAt } from './abstract-entity';
 import type { CredentialsEntity } from './credentials-entity';

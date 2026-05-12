@@ -1,5 +1,5 @@
-import type { INodeTypeBaseDescription, IVersionedNodeType } from 'n8n-workflow';
-import { VersionedNodeType } from 'n8n-workflow';
+import type { INodeTypeBaseDescription, IVersionedNodeType } from 'resin-workflow';
+import { VersionedNodeType } from 'resin-workflow';
 
 import { SyncroMspV1 } from './v1/SyncroMspV1.node';
 

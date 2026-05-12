@@ -9,8 +9,8 @@ import type {
 	INodeTypeDescription,
 	IWebhookResponseData,
 	INodeProperties,
-} from 'n8n-workflow';
-import { BINARY_ENCODING, NodeOperationError, Node } from 'n8n-workflow';
+} from 'resin-workflow';
+import { BINARY_ENCODING, NodeOperationError, Node } from 'resin-workflow';
 import { pipeline } from 'stream/promises';
 import { file as tmpFile } from 'tmp-promise';
 import { v4 as uuid } from 'uuid';
@@ -217,7 +217,7 @@ export class Webhook extends Node {
 		const { typeVersion: nodeVersion, type: nodeType } = context.getNode();
 		const responseMode = context.getNodeParameter('responseMode', 'onReceived') as string;
 
-		if (nodeVersion >= 2 && nodeType === 'n8n-nodes-base.webhook') {
+		if (nodeVersion >= 2 && nodeType === 'resin-nodes-base.webhook') {
 			checkResponseModeConfiguration(context);
 		}
 
@@ -329,7 +329,7 @@ export class Webhook extends Node {
 		const options = context.getNodeParameter('options', {}) as IDataObject;
 
 		// TODO: create empty binaryData placeholder, stream into that path, and then finalize the binaryData
-		const binaryFile = await tmpFile({ prefix: 'n8n-webhook-' });
+		const binaryFile = await tmpFile({ prefix: 'resin-webhook-' });
 
 		try {
 			await pipeline(req, createWriteStream(binaryFile.path));

@@ -1,4 +1,4 @@
-import type { Violation, RuleResult, FixResult } from '@n8n/rules-engine';
+import type { Violation, RuleResult, FixResult } from '@resin/rules-engine';
 import type { Project, SourceFile } from 'ts-morph';
 
 export type {
@@ -20,8 +20,8 @@ export type {
 	FixAction,
 	FixResult,
 	FixData,
-} from '@n8n/rules-engine';
-export type { Report as JanitorReport } from '@n8n/rules-engine';
+} from '@resin/rules-engine';
+export type { Report as JanitorReport } from '@resin/rules-engine';
 
 export type BuiltInRuleId =
 	| 'boundary-protection'

@@ -3,7 +3,7 @@ import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import { nextTick, ref } from 'vue';
-import { i18n } from '@n8n/i18n';
+import { i18n } from '@resin/i18n';
 import { useToast } from '@/app/composables/useToast';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 import { useCanvasOperations } from '@/app/composables/useCanvasOperations';

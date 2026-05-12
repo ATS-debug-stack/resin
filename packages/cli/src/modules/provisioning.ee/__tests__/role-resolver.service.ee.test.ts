@@ -1,5 +1,5 @@
-import type { Logger } from '@n8n/backend-common';
-import type { ProjectRepository } from '@n8n/db';
+import type { Logger } from '@resin/backend-common';
+import type { ProjectRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import { RoleResolverService } from '../role-resolver.service.ee';

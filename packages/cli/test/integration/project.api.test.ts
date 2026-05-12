@@ -9,24 +9,24 @@ import {
 	randomCredentialPayload,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
-import type { Project } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import type { Project } from '@resin/db';
 import {
 	FolderRepository,
 	ProjectRelationRepository,
 	ProjectRepository,
 	SharedCredentialsRepository,
 	SharedWorkflowRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import {
 	getRoleScopes,
 	PROJECT_OWNER_ROLE_SLUG,
 	type GlobalRole,
 	type ProjectRole,
 	type Scope,
-} from '@n8n/permissions';
-import { EntityNotFoundError } from '@n8n/typeorm';
+} from '@resin/permissions';
+import { EntityNotFoundError } from '@resin/typeorm';
 import { createFolder } from '@test-integration/db/folders';
 
 import {

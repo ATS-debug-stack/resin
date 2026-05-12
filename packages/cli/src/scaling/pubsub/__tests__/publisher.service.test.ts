@@ -1,8 +1,8 @@
-import { mockInstance, mockLogger } from '@n8n/backend-test-utils';
-import { ExecutionsConfig, GlobalConfig } from '@n8n/config';
+import { mockInstance, mockLogger } from '@resin/backend-test-utils';
+import { ExecutionsConfig, GlobalConfig } from '@resin/config';
 import type { Redis as SingleNodeClient } from 'ioredis';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
 
 import type { RedisClientService } from '@/services/redis-client.service';
 
@@ -198,7 +198,7 @@ describe('Publisher', () => {
 		});
 
 		it('should apply configured prefix to MCP relay channel', async () => {
-			const customConfig = mockInstance(GlobalConfig, { redis: { prefix: 'n8n-instance-1' } });
+			const customConfig = mockInstance(GlobalConfig, { redis: { prefix: 'resin-instance-1' } });
 			const publisher = new Publisher(
 				logger,
 				redisClientService,
@@ -211,7 +211,7 @@ describe('Publisher', () => {
 			await publisher.publishMcpRelay(msg);
 
 			expect(client.publish).toHaveBeenCalledWith(
-				'n8n-instance-1:n8n.mcp-relay',
+				'resin-instance-1:n8n.mcp-relay',
 				JSON.stringify(msg),
 			);
 		});
@@ -219,7 +219,7 @@ describe('Publisher', () => {
 
 	describe('prefix isolation', () => {
 		it('should apply configured prefix to both command and worker response channels', async () => {
-			const customConfig = mockInstance(GlobalConfig, { redis: { prefix: 'n8n-instance-1' } });
+			const customConfig = mockInstance(GlobalConfig, { redis: { prefix: 'resin-instance-1' } });
 			const publisher = new Publisher(
 				logger,
 				redisClientService,
@@ -231,7 +231,7 @@ describe('Publisher', () => {
 			const commandMsg = mock<PubSub.Command>({ command: 'reload-license' });
 			await publisher.publishCommand(commandMsg);
 			expect(client.publish).toHaveBeenCalledWith(
-				'n8n-instance-1:n8n.commands',
+				'resin-instance-1:n8n.commands',
 				expect.any(String),
 			);
 
@@ -240,7 +240,7 @@ describe('Publisher', () => {
 			});
 			await publisher.publishWorkerResponse(workerMsg);
 			expect(client.publish).toHaveBeenCalledWith(
-				'n8n-instance-1:n8n.worker-response',
+				'resin-instance-1:n8n.worker-response',
 				JSON.stringify(workerMsg),
 			);
 		});

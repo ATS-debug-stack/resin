@@ -4,7 +4,7 @@ import type {
 	IDataTableProjectAggregateService,
 	IDataTableProjectService,
 	INode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import * as createOperation from '../../actions/table/create.operation';
 import * as deleteOperation from '../../actions/table/delete.operation';
@@ -14,7 +14,7 @@ import * as updateOperation from '../../actions/table/update.operation';
 const mockNode: INode = {
 	id: 'test-node',
 	name: 'Test Node',
-	type: 'n8n-nodes-base.dataTable',
+	type: 'resin-nodes-base.dataTable',
 	typeVersion: 1,
 	position: [0, 0],
 	parameters: {},

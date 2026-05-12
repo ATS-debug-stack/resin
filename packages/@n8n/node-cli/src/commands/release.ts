@@ -50,7 +50,7 @@ Full documentation: https://docs.n8n.io/integrations/creating-nodes/deploy/submi
 	async run(): Promise<void> {
 		const { flags } = await this.parse(Release);
 
-		intro(await getCommandHeader('n8n-node release'));
+		intro(await getCommandHeader('resin-node release'));
 
 		const pm = (await detectPackageManager()) ?? 'npm';
 		const isCI = Boolean(process.env.GITHUB_ACTIONS);

@@ -6,7 +6,7 @@ import type {
 	INodeTypeDescription,
 	IWebhookFunctions,
 	IWebhookResponseData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	FORM_NODE_TYPE,
 	FORM_TRIGGER_NODE_TYPE,
@@ -14,7 +14,7 @@ import {
 	NodeConnectionTypes,
 	NodeOperationError,
 	updateDisplayOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { configureWaitTillDate } from '../../utils/sendAndWait/configureWaitTillDate.util';
 import { limitWaitTimeProperties } from '../../utils/sendAndWait/descriptions';
@@ -293,7 +293,7 @@ export class Form extends Node {
 		builderHint: {
 			relatedNodes: [
 				{
-					nodeType: 'n8n-nodes-base.formTrigger',
+					nodeType: 'resin-nodes-base.formTrigger',
 					relationHint: 'Creates additional pages/steps after the trigger',
 				},
 			],

@@ -1,15 +1,15 @@
-import { LicenseState, Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { LdapConfig } from '@n8n/constants';
-import { LDAP_FEATURE_NAME } from '@n8n/constants';
-import { isValidEmail, SettingsRepository, User } from '@n8n/db';
-import type { RunningMode, SyncStatus } from '@n8n/db';
-import { Constructable, Container } from '@n8n/di';
-import type { IPasswordAuthHandler } from '@n8n/decorators';
-import { AuthHandler } from '@n8n/decorators';
+import { LicenseState, Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { LdapConfig } from '@resin/constants';
+import { LDAP_FEATURE_NAME } from '@resin/constants';
+import { isValidEmail, SettingsRepository, User } from '@resin/db';
+import type { RunningMode, SyncStatus } from '@resin/db';
+import { Constructable, Container } from '@resin/di';
+import type { IPasswordAuthHandler } from '@resin/decorators';
+import { AuthHandler } from '@resin/decorators';
 import type { Entry as LdapUser, ClientOptions, Client } from 'ldapts';
-import { Cipher } from 'n8n-core';
-import { jsonParse, UnexpectedError } from 'n8n-workflow';
+import { Cipher } from 'resin-core';
+import { jsonParse, UnexpectedError } from 'resin-workflow';
 import type { ConnectionOptions } from 'tls';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

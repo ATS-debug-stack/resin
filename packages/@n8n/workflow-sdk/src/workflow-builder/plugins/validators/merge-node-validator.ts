@@ -22,7 +22,7 @@ import {
 export const mergeNodeValidator: ValidatorPlugin = {
 	id: 'core:merge-node',
 	name: 'Merge Node Validator',
-	nodeTypes: ['n8n-nodes-base.merge'],
+	nodeTypes: ['resin-nodes-base.merge'],
 	priority: 40,
 
 	validateNode(

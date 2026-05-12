@@ -1,8 +1,8 @@
 import { setActivePinia } from 'pinia';
 import { createTestingPinia } from '@pinia/testing';
 import { AI_CATEGORY_AGENTS, AI_CATEGORY_CHAINS, AI_TRANSFORM_NODE_TYPE } from '@/app/constants';
-import type { INodeTypeDescription } from 'n8n-workflow';
-import { MANUAL_TRIGGER_NODE_TYPE } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
+import { MANUAL_TRIGGER_NODE_TYPE } from 'resin-workflow';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { AIView, HitlToolView } from './viewsData';
 import { mockNodeTypeDescription } from '@/__tests__/mocks';

@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
 import { mock } from 'jest-mock-extended';
-import { MessageEventBusDestinationTypeNames } from 'n8n-workflow';
+import { MessageEventBusDestinationTypeNames } from 'resin-workflow';
 
 import { EventMessageGeneric } from '@/eventbus/event-message-classes/event-message-generic';
 import type { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';

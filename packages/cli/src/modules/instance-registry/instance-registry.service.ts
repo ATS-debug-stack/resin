@@ -1,9 +1,9 @@
-import type { InstanceRegistration } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { ExecutionsConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import type { InstanceRegistration } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { ExecutionsConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import { randomUUID } from 'node:crypto';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import { N8N_VERSION } from '@/constants';
 
@@ -111,7 +111,7 @@ export class InstanceRegistryService {
 
 		if (useRedis) {
 			const { RedisInstanceStorage } = await import('./storage/redis-instance-storage');
-			const { Container } = await import('@n8n/di');
+			const { Container } = await import('@resin/di');
 			return Container.get(RedisInstanceStorage);
 		}
 

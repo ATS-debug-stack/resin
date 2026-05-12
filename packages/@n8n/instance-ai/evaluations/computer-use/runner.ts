@@ -12,7 +12,7 @@
 // snapshot+diff so the local n8n instance stays in the state it started in.
 // ---------------------------------------------------------------------------
 
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import { copyFile, mkdir, readFile, rm } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 

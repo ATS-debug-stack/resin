@@ -1,6 +1,6 @@
 import { useExecutionHelpers } from '../composables/useExecutionHelpers';
-import type { ExecutionSummary } from 'n8n-workflow';
-import { i18n } from '@n8n/i18n';
+import type { ExecutionSummary } from 'resin-workflow';
+import { i18n } from '@resin/i18n';
 import { convertToDisplayDate } from '@/app/utils/formatters/dateFormatter';
 import { mock } from 'vitest-mock-extended';
 

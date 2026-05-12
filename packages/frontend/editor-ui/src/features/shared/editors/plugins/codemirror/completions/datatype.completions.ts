@@ -1,5 +1,5 @@
 import { VALID_EMAIL_REGEX } from '@/app/constants';
-import { i18n } from '@n8n/i18n';
+import { i18n } from '@resin/i18n';
 import { useEnvironmentsStore } from '@/features/settings/environments.ee/environments.store';
 import { useExternalSecretsStore } from '@/features/integrations/externalSecrets.ee/externalSecrets.ee.store';
 import type {
@@ -10,14 +10,14 @@ import type {
 } from '@codemirror/autocomplete';
 import uniqBy from 'lodash/uniqBy';
 import { DateTime } from 'luxon';
-import type { Alias, DocMetadata, IDataObject, NativeDoc } from 'n8n-workflow';
+import type { Alias, DocMetadata, IDataObject, NativeDoc } from 'resin-workflow';
 import {
 	Expression,
 	ExpressionExtensions,
 	NativeMethods,
 	validateFieldType,
 	type AliasCompletion,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ARRAY_NUMBER_ONLY_METHODS,
 	ARRAY_RECOMMENDED_OPTIONS,

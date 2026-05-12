@@ -10,8 +10,8 @@ vi.mock('@utils/agent-execution/createEngineRequests', () => ({
 }));
 
 import { DynamicTool, DynamicStructuredTool } from '@langchain/core/tools';
-import type { EngineResponse, IExecuteFunctions, INode } from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import type { EngineResponse, IExecuteFunctions, INode } from 'resin-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { z } from 'zod';

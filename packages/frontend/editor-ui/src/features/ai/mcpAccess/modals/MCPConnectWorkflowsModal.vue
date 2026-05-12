@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import Modal from '@/app/components/Modal.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import {
 	MCP_CONNECT_WORKFLOWS_MODAL_KEY,
 	MCP_DOCS_PAGE_URL,
 	ELIGIBLE_WORKFLOWS_DOCS_SECTION,
 } from '@/features/ai/mcpAccess/mcp.constants';
 import MCPWorkflowsSelect from '@/features/ai/mcpAccess/components/MCPWorkflowsSelect.vue';
-import { N8nButton, N8nNotice } from '@n8n/design-system';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { N8nButton, N8nNotice } from '@resin/design-system';
+import { createEventBus } from '@resin/utils/event-bus';
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 

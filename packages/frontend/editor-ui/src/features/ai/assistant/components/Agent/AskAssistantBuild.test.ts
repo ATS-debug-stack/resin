@@ -66,7 +66,7 @@ vi.mock('./NotificationPermissionBanner.vue', () => ({
 }));
 
 // Mock AskAssistantChat component
-vi.mock('@n8n/design-system/components/AskAssistantChat/AskAssistantChat.vue', () => ({
+vi.mock('@resin/design-system/components/AskAssistantChat/AskAssistantChat.vue', () => ({
 	default: defineComponent({
 		name: 'AskAssistantChat',
 		props: [
@@ -150,7 +150,7 @@ import { faker } from '@faker-js/faker';
 import AskAssistantBuild from './AskAssistantBuild.vue';
 import { useBuilderStore } from '../../builder.store';
 import { mockedStore } from '@/__tests__/utils';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import {
@@ -194,7 +194,7 @@ vi.mock('@/app/composables/useTelemetry', () => ({
 }));
 
 // Mock i18n
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string) => key,
@@ -498,7 +498,7 @@ describe('AskAssistantBuild', () => {
 				{
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					position: [0, 0],
 					typeVersion: 1,
 					parameters: {},
@@ -774,7 +774,7 @@ describe('AskAssistantBuild', () => {
 				{
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					position: [0, 0],
 					typeVersion: 1,
 					parameters: {},
@@ -824,7 +824,7 @@ describe('AskAssistantBuild', () => {
 					{
 						id: 'new-node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [0, 0] as [number, number],
 						typeVersion: 1,
 						parameters: {},
@@ -888,7 +888,7 @@ describe('AskAssistantBuild', () => {
 				{
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					position: [0, 0],
 					typeVersion: 1,
 					parameters: {},
@@ -925,7 +925,7 @@ describe('AskAssistantBuild', () => {
 				{
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					position: [0, 0],
 					typeVersion: 1,
 					parameters: {},
@@ -962,7 +962,7 @@ describe('AskAssistantBuild', () => {
 				{
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					position: [0, 0],
 					typeVersion: 1,
 					parameters: {},
@@ -1000,7 +1000,7 @@ describe('AskAssistantBuild', () => {
 				{
 					id: 'node1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					position: [0, 0],
 					typeVersion: 1,
 					parameters: {},
@@ -1039,7 +1039,7 @@ describe('AskAssistantBuild', () => {
 				{
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					position: [0, 0],
 					typeVersion: 1,
 					parameters: {},
@@ -1084,7 +1084,7 @@ describe('AskAssistantBuild', () => {
 					{
 						id: 'new-node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [0, 0] as [number, number],
 						typeVersion: 1,
 						parameters: {},
@@ -1128,7 +1128,7 @@ describe('AskAssistantBuild', () => {
 					{
 						id: 'node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [0, 0] as [number, number],
 						typeVersion: 1,
 						parameters: {},
@@ -1141,7 +1141,7 @@ describe('AskAssistantBuild', () => {
 					{
 						id: 'node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [0, 0] as [number, number],
 						typeVersion: 1,
 						parameters: {},
@@ -1149,7 +1149,7 @@ describe('AskAssistantBuild', () => {
 					{
 						id: 'node-2',
 						name: 'HTTP',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						position: [100, 0] as [number, number],
 						typeVersion: 1,
 						parameters: {},
@@ -1230,7 +1230,7 @@ describe('AskAssistantBuild', () => {
 					{
 						id: 'node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [0, 0] as [number, number],
 						typeVersion: 1,
 						parameters: {},
@@ -1274,7 +1274,7 @@ describe('AskAssistantBuild', () => {
 					{
 						id: 'node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [0, 0] as [number, number],
 						typeVersion: 1,
 						parameters: { updated: true },
@@ -1312,7 +1312,7 @@ describe('AskAssistantBuild', () => {
 					{
 						id: 'new-node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [0, 0] as [number, number],
 						typeVersion: 1,
 						parameters: {},
@@ -1355,7 +1355,7 @@ describe('AskAssistantBuild', () => {
 					{
 						id: 'new-node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [0, 0] as [number, number],
 						typeVersion: 1,
 						parameters: {},
@@ -1423,7 +1423,7 @@ describe('AskAssistantBuild', () => {
 							{
 								id: 'node-1',
 								name: 'Node',
-								type: 'n8n-nodes-base.httpRequest',
+								type: 'resin-nodes-base.httpRequest',
 								position: [0, 0],
 								typeVersion: 1,
 								parameters: {},

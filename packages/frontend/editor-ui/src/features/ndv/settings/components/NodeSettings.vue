@@ -10,8 +10,8 @@ import type {
 	INodeParameters,
 	NodeConnectionType,
 	NodeParameterValue,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeHelpers, deepCopy, isCommunityPackageName } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeHelpers, deepCopy, isCommunityPackageName } from 'resin-workflow';
 import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue';
 
 import { BASE_NODE_SURVEY_URL, VIEWS } from '@/app/constants';
@@ -54,8 +54,8 @@ import {
 	getNodeSettingsInitialValues,
 	nameIsParameter,
 } from '../../shared/ndv.utils';
-import { useI18n } from '@n8n/i18n';
-import type { EventBus } from '@n8n/utils/event-bus';
+import { useI18n } from '@resin/i18n';
+import type { EventBus } from '@resin/utils/event-bus';
 import { useResizeObserver } from '@vueuse/core';
 import CommunityNodeFooter from '@/features/settings/communityNodes/components/nodeCreator/CommunityNodeFooter.vue';
 import CommunityNodeUpdateInfo from '@/features/settings/communityNodes/components/nodeCreator/CommunityNodeUpdateInfo.vue';
@@ -63,7 +63,7 @@ import NodeExecuteButton from '@/app/components/NodeExecuteButton.vue';
 import QuickConnectBanner from '@/features/credentials/quickConnect/components/QuickConnectBanner.vue';
 import { useQuickConnect } from '@/features/credentials/quickConnect/composables/useQuickConnect';
 
-import { N8nBlockUi, N8nIcon, N8nNotice, N8nText } from '@n8n/design-system';
+import { N8nBlockUi, N8nIcon, N8nNotice, N8nText } from '@resin/design-system';
 import { useRoute } from 'vue-router';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';

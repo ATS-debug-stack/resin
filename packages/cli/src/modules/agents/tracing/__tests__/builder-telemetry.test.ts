@@ -1,4 +1,4 @@
-import { LangSmithTelemetry } from '@n8n/agents';
+import { LangSmithTelemetry } from '@resin/agents';
 
 import {
 	buildBuilderTelemetry,

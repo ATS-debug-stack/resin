@@ -42,7 +42,7 @@ const CHAR_TEST_REGEXP = /\p{L}/u;
 const PUNC_TEST_REGEXP = /[!?.]/;
 
 /**
- * Inline version of tryToParseDateTime from n8n-workflow/type-validation.ts
+ * Inline version of tryToParseDateTime from resin-workflow/type-validation.ts
  * Avoids circular dependency.
  */
 function tryToParseDateTime(value: unknown, defaultZone?: string): DateTime {

@@ -5,12 +5,12 @@ import {
 	WORKFLOW_REACTIVATE_INITIAL_TIMEOUT,
 	WORKFLOW_REACTIVATE_MAX_TIMEOUT,
 } from '@/constants';
-import { Logger } from '@n8n/backend-common';
-import { WorkflowsConfig } from '@n8n/config';
-import type { WorkflowEntity, IWorkflowDb } from '@n8n/db';
-import { WorkflowRepository } from '@n8n/db';
-import { OnLeaderStepdown, OnLeaderTakeover, OnPubSubEvent, OnShutdown } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { WorkflowsConfig } from '@resin/config';
+import type { WorkflowEntity, IWorkflowDb } from '@resin/db';
+import { WorkflowRepository } from '@resin/db';
+import { OnLeaderStepdown, OnLeaderTakeover, OnPubSubEvent, OnShutdown } from '@resin/decorators';
+import { Service } from '@resin/di';
 import chunk from 'lodash/chunk';
 import {
 	ActiveWorkflows,
@@ -21,7 +21,7 @@ import {
 	TriggerContext,
 	type IGetExecutePollFunctions,
 	type IGetExecuteTriggerFunctions,
-} from 'n8n-core';
+} from 'resin-core';
 import type {
 	ExecutionError,
 	IDeferredPromise,
@@ -35,7 +35,7 @@ import type {
 	WorkflowExecuteMode,
 	INodeType,
 	WorkflowId,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	Workflow,
 	WorkflowActivationError,
@@ -45,7 +45,7 @@ import {
 	ensureError,
 	createRunExecutionData,
 	validateWorkflowHasTriggerLikeNode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { strict } from 'node:assert';
 
 import { ActivationErrorsService } from '@/activation-errors.service';

@@ -1,4 +1,4 @@
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 
 export class UnknownModuleError extends UnexpectedError {
 	constructor(moduleName: string) {

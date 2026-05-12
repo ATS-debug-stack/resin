@@ -1,7 +1,7 @@
 import { ProjectsClient } from '@google-cloud/resource-manager';
 import type { GoogleAISafetySetting } from '@langchain/google-common';
 import { ChatVertexAI, type ChatVertexAIInput } from '@langchain/google-vertexai';
-import { formatPrivateKey } from 'n8n-nodes-base/dist/utils/utilities';
+import { formatPrivateKey } from 'resin-nodes-base/dist/utils/utilities';
 import {
 	NodeConnectionTypes,
 	type INodeType,
@@ -12,7 +12,7 @@ import {
 	type JsonObject,
 	NodeOperationError,
 	validateNodeParameters,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { makeErrorFromStatus } from './error-handling';
 import { getAdditionalOptions } from '../gemini-common/additional-options';
@@ -20,7 +20,7 @@ import {
 	makeN8nLlmFailedAttemptHandler,
 	N8nLlmTracing,
 	getConnectionHintNoticeField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 
 export class LmChatGoogleVertex implements INodeType {
 	description: INodeTypeDescription = {

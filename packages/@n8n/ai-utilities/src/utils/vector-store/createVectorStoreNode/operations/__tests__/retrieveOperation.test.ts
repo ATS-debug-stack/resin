@@ -3,8 +3,8 @@ import type { BaseDocumentCompressor } from '@langchain/core/retrievers/document
 import type { VectorStore } from '@langchain/core/vectorstores';
 import type { MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
-import type { ISupplyDataFunctions } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { ISupplyDataFunctions } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { logWrapper } from '../../../../log-wrapper';
 import type { VectorStoreNodeConstructorArgs } from '../../types';

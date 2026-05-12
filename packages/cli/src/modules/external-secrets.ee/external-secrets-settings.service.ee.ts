@@ -1,6 +1,6 @@
-import { SettingsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { EXTERNAL_SECRETS_SYSTEM_ROLES_ENABLED_SETTING } from '@n8n/permissions';
+import { SettingsRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { EXTERNAL_SECRETS_SYSTEM_ROLES_ENABLED_SETTING } from '@resin/permissions';
 
 import { RoleService } from '@/services/role.service';
 

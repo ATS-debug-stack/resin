@@ -219,7 +219,7 @@ const onCheckboxChange = (index: number) => {
 </script>
 
 <template>
-	<div class="n8n-markdown">
+	<div class="resin-markdown">
 		<!-- Needed to support YouTube player embeds. HTML rendered here is sanitized. -->
 		<!-- eslint-disable vue/no-v-html -->
 		<div

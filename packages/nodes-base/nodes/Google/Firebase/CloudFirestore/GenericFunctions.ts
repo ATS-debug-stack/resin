@@ -6,8 +6,8 @@ import type {
 	JsonObject,
 	IHttpRequestMethods,
 	IRequestOptions,
-} from 'n8n-workflow';
-import { isSafeObjectProperty, NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { isSafeObjectProperty, NodeApiError } from 'resin-workflow';
 
 import { getGoogleAccessToken } from '../../GenericFunctions';
 

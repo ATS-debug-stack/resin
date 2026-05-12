@@ -1,4 +1,4 @@
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 
 import { HttpHeaderExtractor } from '../http-header-extractor';
 import { createOptions, createTriggerItem } from './utils';
@@ -24,7 +24,7 @@ describe('HttpHeaderExtractor', () => {
 
 	describe('isApplicableToTriggerNode', () => {
 		it('returns true for n8n-nodes-base.webhook', () => {
-			expect(extractor.isApplicableToTriggerNode('n8n-nodes-base.webhook')).toBe(true);
+			expect(extractor.isApplicableToTriggerNode('resin-nodes-base.webhook')).toBe(true);
 		});
 
 		it('returns true for shorthand webhook type', () => {
@@ -32,11 +32,11 @@ describe('HttpHeaderExtractor', () => {
 		});
 
 		it.each([
-			'n8n-nodes-base.httpRequest',
-			'n8n-nodes-base.cron',
+			'resin-nodes-base.httpRequest',
+			'resin-nodes-base.cron',
 			'',
 			'WEBHOOK',
-			'n8n-nodes-base.Webhook',
+			'resin-nodes-base.Webhook',
 		])('returns false for "%s"', (nodeType) => {
 			expect(extractor.isApplicableToTriggerNode(nodeType)).toBe(false);
 		});

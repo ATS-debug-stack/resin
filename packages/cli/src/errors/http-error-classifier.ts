@@ -1,5 +1,5 @@
 import { HttpError } from 'express-openapi-validator/dist/framework/types';
-import { UnexpectedError, UserError } from 'n8n-workflow';
+import { UnexpectedError, UserError } from 'resin-workflow';
 
 import { ResponseError } from '@/errors/response-errors/abstract/response.error';
 

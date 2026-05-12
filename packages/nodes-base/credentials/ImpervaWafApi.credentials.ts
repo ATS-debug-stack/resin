@@ -1,4 +1,4 @@
-import type { IAuthenticateGeneric, ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { IAuthenticateGeneric, ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class ImpervaWafApi implements ICredentialType {
 	name = 'impervaWafApi';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { N8nTag } from '@n8n/design-system';
+import { N8nTag } from '@resin/design-system';
 import { computed, useCssModule } from 'vue';
 
 const $style = useCssModule();

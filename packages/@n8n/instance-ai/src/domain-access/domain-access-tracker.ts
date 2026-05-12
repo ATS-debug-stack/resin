@@ -1,4 +1,4 @@
-import { isAllowedDomain } from '@n8n/api-types';
+import { isAllowedDomain } from '@resin/api-types';
 
 /**
  * Tracks domain-level approvals for the current thread.
@@ -11,7 +11,7 @@ import { isAllowedDomain } from '@n8n/api-types';
  *
  * The check order in `isHostAllowed()` is:
  * 1. `allDomainsApproved` flag (blanket allow)
- * 2. Trusted allowlist (shared `isAllowedDomain()` from @n8n/api-types)
+ * 2. Trusted allowlist (shared `isAllowedDomain()` from @resin/api-types)
  * 3. Per-host persistent approval set
  * 4. Per-run transient approval set (when `runId` is provided)
  *

@@ -5,7 +5,7 @@ import {
 	createWorkflowDocumentId,
 	useWorkflowDocumentStore,
 } from '@/app/stores/workflowDocument.store';
-import type { ExecutionStarted } from '@n8n/api-types/push/execution';
+import type { ExecutionStarted } from '@resin/api-types/push/execution';
 import {
 	createWorkflowExecutionStateId,
 	useWorkflowExecutionStateStore,

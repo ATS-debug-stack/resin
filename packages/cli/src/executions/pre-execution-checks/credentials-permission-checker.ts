@@ -1,9 +1,9 @@
-import type { Project } from '@n8n/db';
-import { CredentialsRepository, SharedCredentialsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
-import type { INode } from 'n8n-workflow';
-import { displayParameter, UserError } from 'n8n-workflow';
+import type { Project } from '@resin/db';
+import { CredentialsRepository, SharedCredentialsRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
+import type { INode } from 'resin-workflow';
+import { displayParameter, UserError } from 'resin-workflow';
 
 import { NodeTypes } from '@/node-types';
 import { OwnershipService } from '@/services/ownership.service';

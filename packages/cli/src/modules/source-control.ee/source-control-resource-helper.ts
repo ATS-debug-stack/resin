@@ -1,4 +1,4 @@
-import type { SourceControlledFile } from '@n8n/api-types';
+import type { SourceControlledFile } from '@resin/api-types';
 
 export function filterByType(
 	files: SourceControlledFile[],

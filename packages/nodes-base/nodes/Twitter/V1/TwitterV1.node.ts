@@ -9,8 +9,8 @@ import type {
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { directMessageFields, directMessageOperations } from './DirectMessageDescription';
 import {

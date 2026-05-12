@@ -2,7 +2,7 @@ import { AIMessage, HumanMessage, type BaseMessage } from '@langchain/core/messa
 import { evaluate } from 'langsmith/evaluation';
 import type { Run, Example } from 'langsmith/schemas';
 import { traceable } from 'langsmith/traceable';
-import type { IPinData } from 'n8n-workflow';
+import type { IPinData } from 'resin-workflow';
 import pLimit from 'p-limit';
 
 import { runWithOptionalLimiter, withTimeout } from './evaluation-helpers';

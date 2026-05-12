@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Debounce } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Debounce } from '@resin/decorators';
+import { Service } from '@resin/di';
 import ioRedis from 'ioredis';
 import type { Cluster, ClusterOptions, RedisOptions } from 'ioredis';
 

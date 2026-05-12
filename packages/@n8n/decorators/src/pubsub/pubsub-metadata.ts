@@ -1,5 +1,5 @@
-import type { InstanceRole, InstanceType } from '@n8n/constants';
-import { Service } from '@n8n/di';
+import type { InstanceRole, InstanceType } from '@resin/constants';
+import { Service } from '@resin/di';
 
 import type { EventHandler } from '../types';
 

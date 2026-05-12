@@ -17,7 +17,7 @@ withDefaults(defineProps<SpinnerProps>(), {
 </script>
 
 <template>
-	<span class="n8n-spinner">
+	<span class="resin-spinner">
 		<div v-if="type === 'ring'" class="lds-ring">
 			<div></div>
 			<div></div>

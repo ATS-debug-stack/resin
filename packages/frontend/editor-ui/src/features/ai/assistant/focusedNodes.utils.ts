@@ -1,4 +1,4 @@
-import type { IConnections } from 'n8n-workflow';
+import type { IConnections } from 'resin-workflow';
 import type { INodeUi } from '@/Interface';
 import type { FocusedNode, FocusedNodesContextPayload } from './focusedNodes.types';
 

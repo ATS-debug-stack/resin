@@ -34,7 +34,7 @@ export const expressionPrefixValidator: ValidatorPlugin = {
 		}
 
 		// Skip HTML template node - it uses {{ }} natively for template expressions
-		if (node.type === 'n8n-nodes-base.html') {
+		if (node.type === 'resin-nodes-base.html') {
 			return issues;
 		}
 

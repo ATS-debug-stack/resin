@@ -1,7 +1,7 @@
-import { Service } from '@n8n/di';
-import type { EntityManager, FindManyOptions } from '@n8n/typeorm';
-import { DataSource, In, Repository } from '@n8n/typeorm';
-import { UnexpectedError, type IDataObject } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import type { EntityManager, FindManyOptions } from '@resin/typeorm';
+import { DataSource, In, Repository } from '@resin/typeorm';
+import { UnexpectedError, type IDataObject } from 'resin-workflow';
 
 import { TestRun } from '../entities';
 import type {

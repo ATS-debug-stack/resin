@@ -163,7 +163,7 @@ describe('useWorkflowResourcesLocator', () => {
 				1, // page
 				40, // pageSize
 				'updatedAt:desc', // sort
-				{ triggerNodeTypes: ['n8n-nodes-base.executeWorkflowTrigger'] }, // filter
+				{ triggerNodeTypes: ['resin-nodes-base.executeWorkflowTrigger'] }, // filter
 			);
 
 			expect(workflowsResources.value).toEqual([
@@ -205,7 +205,7 @@ describe('useWorkflowResourcesLocator', () => {
 				1,
 				40,
 				'updatedAt:desc',
-				{ query: 'test search', triggerNodeTypes: ['n8n-nodes-base.executeWorkflowTrigger'] },
+				{ query: 'test search', triggerNodeTypes: ['resin-nodes-base.executeWorkflowTrigger'] },
 			);
 
 			// Should reset workflows array and populate with filtered results
@@ -260,7 +260,7 @@ describe('useWorkflowResourcesLocator', () => {
 				1,
 				40,
 				'updatedAt:desc',
-				{ triggerNodeTypes: ['n8n-nodes-base.executeWorkflowTrigger'] },
+				{ triggerNodeTypes: ['resin-nodes-base.executeWorkflowTrigger'] },
 			);
 
 			// Load second page
@@ -271,7 +271,7 @@ describe('useWorkflowResourcesLocator', () => {
 				2,
 				40,
 				'updatedAt:desc',
-				{ triggerNodeTypes: ['n8n-nodes-base.executeWorkflowTrigger'] },
+				{ triggerNodeTypes: ['resin-nodes-base.executeWorkflowTrigger'] },
 			);
 
 			// Verify workflows from both pages are present

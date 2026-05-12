@@ -3,16 +3,16 @@
  * These are the scopes shown in the role editor checkboxes and used for
  * permission counting. Excludes auto-added scopes like :list, :execute, :listProject.
  *
- * Operations are type-checked against RESOURCES from @n8n/permissions to ensure
+ * Operations are type-checked against RESOURCES from @resin/permissions to ensure
  * only valid resource:operation combinations can be specified.
  */
 
-import { type RESOURCES } from '@n8n/permissions';
+import { type RESOURCES } from '@resin/permissions';
 
 /**
  * UI-visible operations per resource for the project role editor.
  * The `satisfies` constraint ensures every key is a valid resource and
- * every operation exists in that resource's definition in @n8n/permissions.
+ * every operation exists in that resource's definition in @resin/permissions.
  */
 const UI_OPERATIONS = {
 	project: ['read', 'update', 'delete'],

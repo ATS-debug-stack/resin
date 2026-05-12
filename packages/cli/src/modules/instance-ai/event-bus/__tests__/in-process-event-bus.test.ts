@@ -1,4 +1,4 @@
-import type { InstanceAiEvent } from '@n8n/api-types';
+import type { InstanceAiEvent } from '@resin/api-types';
 
 import { InProcessEventBus } from '../in-process-event-bus';
 

@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
 import type { Thread } from 'chat';
 
 import { ConflictError } from '@/errors/response-errors/conflict.error';

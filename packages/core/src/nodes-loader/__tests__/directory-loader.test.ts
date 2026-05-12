@@ -5,8 +5,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IVersionedNodeType,
-} from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy } from 'resin-workflow';
 import fs from 'node:fs';
 import fsPromises from 'node:fs/promises';
 
@@ -36,7 +36,7 @@ import { PackageDirectoryLoader } from '../package-directory-loader';
 describe('DirectoryLoader', () => {
 	const directory = '/not/a/real/path';
 	const packageJson = JSON.stringify({
-		name: 'n8n-nodes-testing',
+		name: 'resin-nodes-testing',
 		n8n: {
 			credentials: ['dist/Credential1.js'],
 			nodes: ['dist/Node1/Node1.node.js', 'dist/Node2/Node2.node.js'],
@@ -124,7 +124,7 @@ describe('DirectoryLoader', () => {
 			const loader = new CustomDirectoryLoader(
 				directory,
 				[],
-				['n8n-nodes-base.aggregate', 'CUSTOM.node1'],
+				['resin-nodes-base.aggregate', 'CUSTOM.node1'],
 			);
 
 			await loader.loadAll();
@@ -140,7 +140,7 @@ describe('DirectoryLoader', () => {
 			const loader = new CustomDirectoryLoader(
 				directory,
 				[],
-				['n8n-nodes-base.aggregate', 'n8n-nodes-base.httpRequest'],
+				['resin-nodes-base.aggregate', 'resin-nodes-base.httpRequest'],
 			);
 
 			await loader.loadAll();
@@ -166,7 +166,7 @@ describe('DirectoryLoader', () => {
 			mockFs.readFileSync.calledWith(`${directory}/package.json`).mockReturnValue(packageJson);
 
 			const loader = new PackageDirectoryLoader(directory);
-			expect(loader.packageName).toEqual('n8n-nodes-testing');
+			expect(loader.packageName).toEqual('resin-nodes-testing');
 
 			await loader.loadAll();
 
@@ -218,7 +218,7 @@ describe('DirectoryLoader', () => {
 		it('should do nothing if package.json has no n8n field', async () => {
 			mockFs.readFileSync.calledWith(`${directory}/package.json`).mockReturnValue(
 				JSON.stringify({
-					name: 'n8n-nodes-testing',
+					name: 'resin-nodes-testing',
 				}),
 			);
 
@@ -265,7 +265,7 @@ describe('DirectoryLoader', () => {
 		it('should not include nodes that are not in "includeNodes" even if they are from a different package', async () => {
 			mockFs.readFileSync.calledWith(`${directory}/package.json`).mockReturnValue(packageJson);
 
-			const loader = new PackageDirectoryLoader(directory, [], ['n8n-nodes-other-package.node']);
+			const loader = new PackageDirectoryLoader(directory, [], ['resin-nodes-other-package.node']);
 			await loader.loadAll();
 
 			expect(loader.nodeTypes).toEqual({});
@@ -278,7 +278,7 @@ describe('DirectoryLoader', () => {
 			mockFsPromises.readFile.mockResolvedValue('[]');
 
 			const loader = new LazyPackageDirectoryLoader(directory);
-			expect(loader.packageName).toEqual('n8n-nodes-testing');
+			expect(loader.packageName).toEqual('resin-nodes-testing');
 
 			await loader.loadAll();
 
@@ -323,7 +323,7 @@ describe('DirectoryLoader', () => {
 				throw new Error('File not found');
 			});
 
-			const loader = new LazyPackageDirectoryLoader(directory, [], ['n8n-nodes-testing.node1']);
+			const loader = new LazyPackageDirectoryLoader(directory, [], ['resin-nodes-testing.node1']);
 			await loader.loadAll();
 
 			expect(loader.isLazyLoaded).toBe(true);
@@ -362,7 +362,7 @@ describe('DirectoryLoader', () => {
 			const loader = new LazyPackageDirectoryLoader(
 				directory,
 				[],
-				['n8n-nodes-testing.nonexistent'],
+				['resin-nodes-testing.nonexistent'],
 			);
 			await loader.loadAll();
 
@@ -399,7 +399,7 @@ describe('DirectoryLoader', () => {
 			const loader = new LazyPackageDirectoryLoader(
 				directory,
 				[],
-				['n8n-nodes-other-package.node'],
+				['resin-nodes-other-package.node'],
 			);
 			await loader.loadAll();
 
@@ -433,7 +433,7 @@ describe('DirectoryLoader', () => {
 				throw new Error('File not found');
 			});
 
-			const loader = new LazyPackageDirectoryLoader(directory, ['n8n-nodes-testing.node1']);
+			const loader = new LazyPackageDirectoryLoader(directory, ['resin-nodes-testing.node1']);
 			await loader.loadAll();
 
 			expect(loader.isLazyLoaded).toBe(true);

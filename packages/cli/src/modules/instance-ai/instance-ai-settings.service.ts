@@ -1,4 +1,4 @@
-import { DEFAULT_INSTANCE_AI_PERMISSIONS } from '@n8n/api-types';
+import { DEFAULT_INSTANCE_AI_PERMISSIONS } from '@resin/api-types';
 import type {
 	InstanceAiAdminSettingsResponse,
 	InstanceAiAdminSettingsUpdateRequest,
@@ -6,16 +6,16 @@ import type {
 	InstanceAiUserPreferencesUpdateRequest,
 	InstanceAiModelCredential,
 	InstanceAiPermissions,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { InstanceAiConfig, DeploymentConfig } from '@n8n/config';
-import { SettingsRepository, UserRepository } from '@n8n/db';
-import type { User } from '@n8n/db';
-import { Container, Service } from '@n8n/di';
-import type { ModelConfig } from '@n8n/instance-ai';
-import type { IUserSettings } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { InstanceAiConfig, DeploymentConfig } from '@resin/config';
+import { SettingsRepository, UserRepository } from '@resin/db';
+import type { User } from '@resin/db';
+import { Container, Service } from '@resin/di';
+import type { ModelConfig } from '@resin/instance-ai';
+import type { IUserSettings } from 'resin-workflow';
+import { jsonParse } from 'resin-workflow';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { CredentialsService } from '@/credentials/credentials.service';

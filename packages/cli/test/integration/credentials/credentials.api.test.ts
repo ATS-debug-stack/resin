@@ -6,20 +6,20 @@ import {
 	randomCredentialPayloadWithOauthTokenData,
 	randomName,
 	testDb,
-} from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { Project, User, ListQueryDb } from '@n8n/db';
-import { CredentialsRepository, ProjectRepository, SharedCredentialsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { Project, User, ListQueryDb } from '@resin/db';
+import { CredentialsRepository, ProjectRepository, SharedCredentialsRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import type { Scope } from '@sentry/node';
 import * as a from 'assert';
 import { mock } from 'jest-mock-extended';
-import { Credentials } from 'n8n-core';
+import { Credentials } from 'resin-core';
 import {
 	CREDENTIAL_BLANKING_VALUE,
 	type ICredentialDataDecryptedObject,
 	randomString,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { CredentialsService } from '@/credentials/credentials.service';
 import { createCredentialsFromCredentialsEntity } from '@/credentials-helper';
 import { CredentialsTester } from '@/services/credentials-tester.service';

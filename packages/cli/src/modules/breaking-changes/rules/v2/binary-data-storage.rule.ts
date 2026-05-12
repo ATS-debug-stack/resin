@@ -1,6 +1,6 @@
-import { ExecutionsConfig } from '@n8n/config';
-import { BreakingChangeRule } from '@n8n/decorators';
-import { BinaryDataConfig } from 'n8n-core';
+import { ExecutionsConfig } from '@resin/config';
+import { BreakingChangeRule } from '@resin/decorators';
+import { BinaryDataConfig } from 'resin-core';
 
 import type {
 	BreakingChangeRuleMetadata,

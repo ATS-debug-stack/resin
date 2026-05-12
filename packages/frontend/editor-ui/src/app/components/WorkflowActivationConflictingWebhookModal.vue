@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { createEventBus } from '@n8n/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import Modal from '@/app/components/Modal.vue';
 import { WORKFLOW_ACTIVATION_CONFLICTING_WEBHOOK_MODAL_KEY } from '@/app/constants';
 import { useUIStore } from '@/app/stores/ui.store';
 
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { computed } from 'vue';
-import { CHAT_TRIGGER_NODE_TYPE, FORM_TRIGGER_NODE_TYPE, WEBHOOK_NODE_TYPE } from 'n8n-workflow';
+import { CHAT_TRIGGER_NODE_TYPE, FORM_TRIGGER_NODE_TYPE, WEBHOOK_NODE_TYPE } from 'resin-workflow';
 
-import { N8nButton, N8nCallout, N8nLink, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nCallout, N8nLink, N8nText } from '@resin/design-system';
 const modalBus = createEventBus();
 const uiStore = useUIStore();
 const rootStore = useRootStore();

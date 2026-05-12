@@ -66,11 +66,11 @@ import type { NodeIconSource } from '@/app/utils/nodeIcon';
 import { useEvaluationStore } from '@/features/ai/evaluation.ee/evaluation.store';
 import { useTemplatesStore } from '@/features/workflows/templates/templates.store';
 import type { SimplifiedNodeType } from '@/Interface';
-import type { BaseTextKey } from '@n8n/i18n';
-import { useI18n } from '@n8n/i18n';
+import type { BaseTextKey } from '@resin/i18n';
+import { useI18n } from '@resin/i18n';
 import camelCase from 'lodash/camelCase';
-import type { INodeTypeDescription, NodeConnectionType, Themed } from 'n8n-workflow';
-import { EVALUATION_TRIGGER_NODE_TYPE, isHitlToolType, NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeTypeDescription, NodeConnectionType, Themed } from 'resin-workflow';
+import { EVALUATION_TRIGGER_NODE_TYPE, isHitlToolType, NodeConnectionTypes } from 'resin-workflow';
 import { getAiTemplatesCallout } from '../nodeCreator.utils';
 
 export interface NodeViewItemSection {
@@ -147,7 +147,7 @@ function getEvaluationNode(
 	nodeTypesStore: ReturnType<typeof useNodeTypesStore>,
 	isEvaluationVariantEnabled: boolean,
 ) {
-	const evaluationNodeStore = nodeTypesStore.getNodeType('n8n-nodes-base.evaluation');
+	const evaluationNodeStore = nodeTypesStore.getNodeType('resin-nodes-base.evaluation');
 
 	if (!isEvaluationVariantEnabled || !evaluationNodeStore) {
 		return [];

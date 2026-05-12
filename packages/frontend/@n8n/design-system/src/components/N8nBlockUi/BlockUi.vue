@@ -12,7 +12,7 @@ withDefaults(defineProps<BlockUiProps>(), {
 	<Transition name="fade" mode="out-in">
 		<div
 			v-show="show"
-			:class="['n8n-block-ui', $style.uiBlocker]"
+			:class="['resin-block-ui', $style.uiBlocker]"
 			role="dialog"
 			:aria-hidden="true"
 		/>

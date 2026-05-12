@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed, ref, useTemplateRef } from 'vue';
-import { N8nDropdownMenu, N8nIcon, N8nButton, N8nText, N8nTooltip } from '@n8n/design-system';
-import { PROVIDER_CREDENTIAL_TYPE_MAP } from '@n8n/api-types';
+import { N8nDropdownMenu, N8nIcon, N8nButton, N8nText, N8nTooltip } from '@resin/design-system';
+import { PROVIDER_CREDENTIAL_TYPE_MAP } from '@resin/api-types';
 import type {
 	ChatHubProvider,
 	ChatHubLLMProvider,
 	ChatModelDto,
 	ChatHubConversationModel,
 	ChatModelsResponse,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import {
 	CHAT_CREDENTIAL_SELECTOR_MODAL_KEY,
 	CHAT_MODEL_BY_ID_SELECTOR_MODAL_KEY,
@@ -16,7 +16,7 @@ import {
 	NEW_AGENT_MENU_ID,
 	providerDisplayNames,
 } from '@/features/ai/chatHub/constants';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 import type { CredentialsMap } from '../chat.types';
 import { useUIStore } from '@/app/stores/ui.store';
@@ -29,9 +29,9 @@ import {
 } from '@/features/ai/chatHub/chat.utils';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
-import { truncateBeforeLast } from '@n8n/utils';
+import { truncateBeforeLast } from '@resin/utils';
 import ChatProviderAvatar from './ChatProviderAvatar.vue';
 import { applySearch, buildModelSelectorMenuItems } from '../model-selector.utils';
 

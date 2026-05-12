@@ -2,7 +2,7 @@
  * Consolidated task-control tool — update-checklist + cancel-task + correct-task.
  */
 import { createTool } from '@mastra/core/tools';
-import { taskListSchema } from '@n8n/api-types';
+import { taskListSchema } from '@resin/api-types';
 import { z } from 'zod';
 
 import { sanitizeInputSchema } from '../agent/sanitize-mcp-schemas';

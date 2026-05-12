@@ -1,13 +1,13 @@
 // Import zod alias support before importing Start command
 import '@/zod-alias-support';
 
-import { mockInstance } from '@n8n/backend-test-utils';
-import { AuthRolesService, DbConnection, DeploymentKeyRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import { AuthRolesService, DbConnection, DeploymentKeyRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
-import { BinaryDataConfig } from 'n8n-core';
+import { BinaryDataConfig } from 'resin-core';
 
 import { FeatureNotLicensedError } from '@/errors/feature-not-licensed.error';
 import { JwtService } from '@/services/jwt.service';
@@ -20,7 +20,7 @@ import { License } from '@/license';
 import { MultiMainSetup } from '@/scaling/multi-main-setup.ee';
 import { Start } from '../start';
 import { WaitTracker } from '@/wait-tracker';
-import { ErrorReporter } from 'n8n-core';
+import { ErrorReporter } from 'resin-core';
 import { NodeTypes } from '@/node-types';
 import { ShutdownService } from '@/shutdown/shutdown.service';
 import type { AbstractServer } from '@/abstract-server';

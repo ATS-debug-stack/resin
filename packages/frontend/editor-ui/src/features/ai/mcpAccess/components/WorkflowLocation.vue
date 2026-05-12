@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { N8nLink, N8nText } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nLink, N8nText } from '@resin/design-system';
 import { VIEWS } from '@/app/constants';
 import router from '@/app/router';
 import type { ProjectSharingData } from '@/features/collaboration/projects/projects.types';

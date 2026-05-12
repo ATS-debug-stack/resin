@@ -1,13 +1,13 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { User } from '@n8n/db';
-import type { SharedCredentials } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { User } from '@resin/db';
+import type { SharedCredentials } from '@resin/db';
 import type {
 	INode,
 	INodeCredentials,
 	INodeParameters,
 	ICredentialDataDecryptedObject,
-} from 'n8n-workflow';
-import { WEBHOOK_NODE_TYPE } from 'n8n-workflow';
+} from 'resin-workflow';
+import { WEBHOOK_NODE_TYPE } from 'resin-workflow';
 
 import { buildWebhookPath, getWebhookDetails } from '../tools/webhook-utils';
 

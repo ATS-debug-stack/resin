@@ -1,4 +1,4 @@
-import { NodeConnectionTypes, type INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes, type INodeTypeDescription } from 'resin-workflow';
 
 import {
 	nodeTypes,
@@ -44,28 +44,28 @@ describe('NodeSearchTool', () => {
 			nodeTypes.openAiModel,
 			nodeTypes.agent,
 			createNodeType({
-				name: '@n8n/n8n-nodes-langchain.toolCalculator',
+				name: '@resin/n8n-nodes-langchain.toolCalculator',
 				displayName: 'Calculator Tool',
 				description: 'Perform mathematical calculations',
 				inputs: [],
 				outputs: ['ai_tool'],
 			}),
 			createNodeType({
-				name: '@n8n/n8n-nodes-langchain.toolCode',
+				name: '@resin/n8n-nodes-langchain.toolCode',
 				displayName: 'Code Tool',
 				description: 'Execute custom code as a tool',
 				inputs: [],
 				outputs: ['ai_tool'],
 			}),
 			createNodeType({
-				name: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+				name: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 				displayName: 'Window Buffer Memory',
 				description: 'Stores conversation in a sliding window',
 				inputs: [],
 				outputs: ['ai_memory'],
 			}),
 			createNodeType({
-				name: 'n8n-nodes-base.httpBin',
+				name: 'resin-nodes-base.httpBin',
 				displayName: 'HTTP Bin',
 				description: 'Test HTTP requests',
 				codex: {
@@ -127,8 +127,8 @@ describe('NodeSearchTool', () => {
 
 			expectToolSuccess(content, 'Found');
 			expect(message).toContain('nodes matching "sub-nodes with ai_tool output"');
-			expect(message).toContain('<node_name>@n8n/n8n-nodes-langchain.toolCalculator</node_name>');
-			expect(message).toContain('<node_name>@n8n/n8n-nodes-langchain.toolCode</node_name>');
+			expect(message).toContain('<node_name>@resin/n8n-nodes-langchain.toolCalculator</node_name>');
+			expect(message).toContain('<node_name>@resin/n8n-nodes-langchain.toolCode</node_name>');
 			expect(message).toContain('<node_outputs>["ai_tool"]</node_outputs>');
 		});
 
@@ -151,8 +151,8 @@ describe('NodeSearchTool', () => {
 			expect(message).toContain(
 				'nodes matching "sub-nodes with ai_tool output matching "calculator""',
 			);
-			expect(message).toContain('<node_name>@n8n/n8n-nodes-langchain.toolCalculator</node_name>');
-			expect(message).not.toContain('<node_name>@n8n/n8n-nodes-langchain.toolCode</node_name>');
+			expect(message).toContain('<node_name>@resin/n8n-nodes-langchain.toolCalculator</node_name>');
+			expect(message).not.toContain('<node_name>@resin/n8n-nodes-langchain.toolCode</node_name>');
 		});
 
 		it('should handle multiple queries in a single request', async () => {
@@ -178,7 +178,7 @@ describe('NodeSearchTool', () => {
 
 			// Second query results
 			expect(message).toContain('nodes matching "sub-nodes with ai_languageModel output"');
-			expect(message).toContain('<node_name>@n8n/n8n-nodes-langchain.lmChatOpenAi</node_name>');
+			expect(message).toContain('<node_name>@resin/n8n-nodes-langchain.lmChatOpenAi</node_name>');
 		});
 
 		it('should return no results message for non-matching queries', async () => {
@@ -311,7 +311,7 @@ describe('NodeSearchTool', () => {
 			// Vector Store should appear because its expression contains 'ai_tool'
 			// and its name contains 'vector'
 			expectToolSuccess(content, 'Found');
-			expect(message).toContain('<node_name>@n8n/n8n-nodes-langchain.vectorStore</node_name>');
+			expect(message).toContain('<node_name>@resin/n8n-nodes-langchain.vectorStore</node_name>');
 		});
 
 		it('should handle case-insensitive search', async () => {
@@ -329,7 +329,7 @@ describe('NodeSearchTool', () => {
 
 			expectToolSuccess(content, 'Found');
 			expect(message).toContain('<node_name>n8n-nodes-base.code</node_name>');
-			expect(message).toContain('<node_name>@n8n/n8n-nodes-langchain.toolCode</node_name>');
+			expect(message).toContain('<node_name>@resin/n8n-nodes-langchain.toolCode</node_name>');
 		});
 
 		it('should respect result limit', async () => {

@@ -1,5 +1,5 @@
-import { makeRestApiRequest } from '@n8n/rest-api-client';
-import type { IRestApiContext } from '@n8n/rest-api-client';
+import { makeRestApiRequest } from '@resin/rest-api-client';
+import type { IRestApiContext } from '@resin/rest-api-client';
 
 export interface AgentExecutionThread {
 	id: string;

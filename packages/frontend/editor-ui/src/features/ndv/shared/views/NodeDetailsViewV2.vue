@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { IRunDataDisplayMode, IUpdateInformation, TargetItem } from '@/Interface';
 import type { MainPanelType, NodePanelType } from '../ndv.types';
-import { createEventBus } from '@n8n/utils/event-bus';
-import type { IRunData, NodeConnectionType } from 'n8n-workflow';
-import { jsonParse, NodeConnectionTypes, NodeHelpers } from 'n8n-workflow';
+import { createEventBus } from '@resin/utils/event-bus';
+import type { IRunData, NodeConnectionType } from 'resin-workflow';
+import { jsonParse, NodeConnectionTypes, NodeHelpers } from 'resin-workflow';
 import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue';
 
 import NDVHeader from '../../panel/components/NDVHeader.vue';
@@ -34,15 +34,15 @@ import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
-import { useDeviceSupport } from '@n8n/composables/useDeviceSupport';
-import { useI18n } from '@n8n/i18n';
+import { useDeviceSupport } from '@resin/composables/useDeviceSupport';
+import { useI18n } from '@resin/i18n';
 import InputPanel from '../../panel/components/InputPanel.vue';
 import OutputPanel from '../../panel/components/OutputPanel.vue';
 import PanelDragButtonV2 from '../../panel/components/PanelDragButtonV2.vue';
 import TriggerPanel from '../../panel/components/TriggerPanel.vue';
 import { useTelemetryContext } from '@/app/composables/useTelemetryContext';
 import { nodeViewEventBus } from '@/app/event-bus';
-import { N8nResizeWrapper } from '@n8n/design-system';
+import { N8nResizeWrapper } from '@resin/design-system';
 import NDVFloatingNodes from '@/features/ndv/panel/components/NDVFloatingNodes.vue';
 import { useNodeIconSource } from '@/app/composables/useNodeIconSource';
 const emit = defineEmits<{

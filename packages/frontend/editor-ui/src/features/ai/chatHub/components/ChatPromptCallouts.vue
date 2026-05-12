@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { providerDisplayNames } from '@/features/ai/chatHub/constants';
-import type { ChatHubLLMProvider } from '@n8n/api-types';
-import { N8nButton, N8nIcon, N8nText, N8nCallout } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import type { ChatHubLLMProvider } from '@resin/api-types';
+import { N8nButton, N8nIcon, N8nText, N8nCallout } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { I18nT } from 'vue-i18n';
 
 defineProps<{

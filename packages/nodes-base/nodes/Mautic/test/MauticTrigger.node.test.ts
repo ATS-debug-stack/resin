@@ -1,5 +1,5 @@
 import { randomBytes } from 'crypto';
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-workflow';
+import type { IHookFunctions, IWebhookFunctions } from 'resin-workflow';
 
 import { mauticApiRequest } from '../GenericFunctions';
 import { MauticTrigger } from '../MauticTrigger.node';

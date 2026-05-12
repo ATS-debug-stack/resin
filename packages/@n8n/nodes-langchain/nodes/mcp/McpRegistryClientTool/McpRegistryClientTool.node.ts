@@ -9,7 +9,7 @@ import {
 	type ISupplyDataFunctions,
 	type SupplyData,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { McpToolIncludeMode } from '../McpClientTool/types';
 import {
@@ -25,7 +25,7 @@ import {
 } from '../shared/types';
 
 /**
- * Nodes from the MCP registry are saved as `@n8n/mcp-registry.<slug>`
+ * Nodes from the MCP registry are saved as `@resin/mcp-registry.<slug>`
  *
  * This class is the shared runtime for all of them
  */

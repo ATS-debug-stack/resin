@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
 
 import type { Content, MessagesResponse } from './interfaces';
 import { getBaseUrl, splitByComma } from './utils';

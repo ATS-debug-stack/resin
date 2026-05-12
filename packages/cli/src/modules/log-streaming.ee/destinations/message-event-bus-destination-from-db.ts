@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
-import { MessageEventBusDestinationTypeNames } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
+import { MessageEventBusDestinationTypeNames } from 'resin-workflow';
 
 import type { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';
 

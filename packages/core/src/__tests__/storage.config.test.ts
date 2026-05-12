@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/unbound-method */
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import { existsSync, renameSync } from 'node:fs';
 

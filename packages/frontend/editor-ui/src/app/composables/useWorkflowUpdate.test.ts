@@ -14,7 +14,7 @@ import { mockedStore } from '@/__tests__/utils';
 import { createTestNode } from '@/__tests__/mocks';
 import type { INodeUi } from '@/Interface';
 import { DEFAULT_NEW_WORKFLOW_NAME } from '@/app/constants';
-import type { Workflow } from 'n8n-workflow';
+import type { Workflow } from 'resin-workflow';
 
 // Mock canvas event bus - using hoisted to ensure proper initialization order
 const canvasEventBusEmitMock = vi.hoisted(() => vi.fn());
@@ -157,7 +157,7 @@ describe('useWorkflowUpdate', () => {
 				const newNode = createTestNode({
 					id: 'new-node-1',
 					name: 'New Node',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 				});
 
 				mockCanvasOperations.addNodes.mockResolvedValue([newNode as INodeUi]);
@@ -211,7 +211,7 @@ describe('useWorkflowUpdate', () => {
 				const existingNode = createTestNode({
 					id: 'old-uuid-123',
 					name: 'Chat Trigger',
-					type: '@n8n/n8n-nodes-langchain.chatTrigger',
+					type: '@resin/n8n-nodes-langchain.chatTrigger',
 					position: [100, 200],
 				}) as INodeUi;
 
@@ -233,7 +233,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'new-uuid-456', // Different ID!
 							name: 'Chat Trigger', // Same name
-							type: '@n8n/n8n-nodes-langchain.chatTrigger', // Same type
+							type: '@resin/n8n-nodes-langchain.chatTrigger', // Same type
 							typeVersion: 1,
 							position: [300, 400], // New position should be ignored
 							parameters: { greeting: 'Hello' },
@@ -254,7 +254,7 @@ describe('useWorkflowUpdate', () => {
 				const existingNode = createTestNode({
 					id: 'existing-id',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					position: [100, 200],
 					parameters: { url: 'http://old.com' },
 				}) as INodeUi;
@@ -277,7 +277,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'different-id', // Different ID
 							name: 'HTTP Request', // Same name
-							type: 'n8n-nodes-base.httpRequest', // Same type
+							type: 'resin-nodes-base.httpRequest', // Same type
 							typeVersion: 1,
 							position: [300, 400],
 							parameters: { url: 'http://new.com' },
@@ -297,7 +297,7 @@ describe('useWorkflowUpdate', () => {
 				const existingNode = createTestNode({
 					id: 'existing-id',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 				}) as INodeUi;
 
 				(mockDocumentStore as { allNodes: INodeUi[] }).allNodes = [existingNode];
@@ -314,7 +314,7 @@ describe('useWorkflowUpdate', () => {
 				const newNode = createTestNode({
 					id: 'brand-new-id',
 					name: 'Different Name', // Different name
-					type: 'n8n-nodes-base.set', // Different type
+					type: 'resin-nodes-base.set', // Different type
 				});
 
 				mockCanvasOperations.addNodes.mockResolvedValue([newNode as INodeUi]);
@@ -326,7 +326,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'existing-id',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {},
@@ -334,7 +334,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'brand-new-id',
 							name: 'Different Name',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 1,
 							position: [200, 0],
 							parameters: {},
@@ -376,7 +376,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'node-1',
 							name: 'Old Name',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [300, 400], // New position should be ignored
 							parameters: { url: 'http://new.com' },
@@ -398,7 +398,7 @@ describe('useWorkflowUpdate', () => {
 				const existingNode = createTestNode({
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					position: [100, 200],
 					parameters: { url: 'http://example.com' },
 				}) as INodeUi;
@@ -421,7 +421,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'node-1',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: { url: 'http://example.com' },
@@ -440,7 +440,7 @@ describe('useWorkflowUpdate', () => {
 				const newNode = createTestNode({
 					id: 'new-node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 				});
 
 				mockCanvasOperations.addNodes.mockResolvedValue([
@@ -492,7 +492,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'node-1',
 							name: 'New Name', // Renamed
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {},
@@ -532,7 +532,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'node-1',
 							name: 'Same Name', // No rename
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {},
@@ -573,7 +573,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'node-1',
 							name: 'New Name', // Attempted rename
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: { url: 'http://updated.com' },
@@ -616,7 +616,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'node-1',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: { url: 'http://new.com' }, // Changed
@@ -653,7 +653,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'node-1',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: { url: 'http://same.com' }, // Same
@@ -793,7 +793,7 @@ describe('useWorkflowUpdate', () => {
 				const existingNode = createTestNode({
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					parameters: { url: 'http://example.com' },
 				}) as INodeUi;
 
@@ -815,7 +815,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'node-1',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: { url: 'http://updated.com' },
@@ -839,7 +839,7 @@ describe('useWorkflowUpdate', () => {
 				const nodeWithoutCreds = createTestNode({
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					credentials: undefined,
 				});
 
@@ -879,7 +879,7 @@ describe('useWorkflowUpdate', () => {
 				const nodeWithCreds = createTestNode({
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					credentials: existingCredentials,
 				});
 
@@ -915,7 +915,7 @@ describe('useWorkflowUpdate', () => {
 				const newNode = createTestNode({
 					id: 'new-node-1',
 					name: 'New Node',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 				});
 
 				const { updateWorkflow } = useWorkflowUpdate();
@@ -977,7 +977,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'node-1',
 							name: 'Existing Node',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: { updated: true },
@@ -999,7 +999,7 @@ describe('useWorkflowUpdate', () => {
 				const newNode = createTestNode({
 					id: 'new-node-1',
 					name: 'New Node',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 				});
 
 				const { updateWorkflow } = useWorkflowUpdate();
@@ -1019,7 +1019,7 @@ describe('useWorkflowUpdate', () => {
 				const newNode = createTestNode({
 					id: 'new-node-1',
 					name: 'New Node',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 				});
 
 				const { updateWorkflow } = useWorkflowUpdate();

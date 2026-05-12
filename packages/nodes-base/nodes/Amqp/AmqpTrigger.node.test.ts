@@ -1,7 +1,7 @@
 import { testTriggerNode } from '@test/nodes/TriggerHelpers';
 import { mockDeep } from 'jest-mock-extended';
-import { NodeOperationError } from 'n8n-workflow';
-import type { ITriggerFunctions } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
+import type { ITriggerFunctions } from 'resin-workflow';
 
 import { AmqpTrigger } from './AmqpTrigger.node';
 

@@ -12,10 +12,10 @@ import type { CallbackManagerForChainRun } from '@langchain/core/callbacks/manag
 import { CallbackManager } from '@langchain/core/callbacks/manager';
 import type { AIMessage, BaseMessage } from '@langchain/core/messages';
 import type { StructuredToolInterface } from '@langchain/core/tools';
-import type { Logger } from '@n8n/backend-common';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
-import { setSchemaBaseDirs } from '@n8n/workflow-sdk';
-import type { ITelemetryTrackProperties } from 'n8n-workflow';
+import type { Logger } from '@resin/backend-common';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
+import { setSchemaBaseDirs } from '@resin/workflow-sdk';
+import type { ITelemetryTrackProperties } from 'resin-workflow';
 
 import type {
 	StreamOutput,

@@ -1,13 +1,13 @@
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
-import type { IDataObject, INodeExecutionData, IPinData } from 'n8n-workflow';
+import { useI18n } from '@resin/i18n';
+import type { IDataObject, INodeExecutionData, IPinData } from 'resin-workflow';
 import {
 	isTrimmedNodeExecutionData,
 	jsonParse,
 	jsonStringify,
 	NodeConnectionTypes,
 	NodeHelpers,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	MAX_EXPECTED_REQUEST_SIZE,
 	MAX_PINNED_DATA_SIZE,
@@ -27,7 +27,7 @@ import { useExternalHooks } from '@/app/composables/useExternalHooks';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import type { MaybeRef } from 'vue';
 import { computed, unref } from 'vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useNodeType } from '@/app/composables/useNodeType';
 import { useDataSchema } from './useDataSchema';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';

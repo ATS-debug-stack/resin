@@ -1,5 +1,5 @@
-import { NodeOperationError } from 'n8n-workflow';
-import type { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
+import type { IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
 
 import * as databricksSql from './databricksSql/DatabricksSql.resource';
 import * as files from './files/Files.resource';

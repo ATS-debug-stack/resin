@@ -2,8 +2,8 @@ import '@testing-library/jest-dom';
 import 'fake-indexeddb/auto';
 import { configure } from '@testing-library/vue';
 import 'core-js/proposals/set-methods-v2';
-import englishBaseText from '@n8n/i18n/locales/en.json';
-import { loadLanguage, type LocaleMessages } from '@n8n/i18n';
+import englishBaseText from '@resin/i18n/locales/en.json';
+import { loadLanguage, type LocaleMessages } from '@resin/i18n';
 import { APP_MODALS_ELEMENT_ID } from '@/app/constants';
 
 // Global stub for Reka UI Popover components used by N8nPopover.

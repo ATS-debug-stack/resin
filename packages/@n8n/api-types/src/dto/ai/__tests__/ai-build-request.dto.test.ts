@@ -46,7 +46,7 @@ describe('AiBuilderChatRequestDto', () => {
 								{
 									expression: '{{ $json.field }}',
 									resolvedValue: 'test value',
-									nodeType: 'n8n-nodes-base.set',
+									nodeType: 'resin-nodes-base.set',
 								},
 							],
 							node2: [

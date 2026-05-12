@@ -10,12 +10,12 @@ import type {
 	ObservationLockHandle,
 	ScopeKind,
 	Thread,
-} from '@n8n/agents';
-import { Service } from '@n8n/di';
-import type { FindOptionsWhere } from '@n8n/typeorm';
-import { Equal, In, LessThan, LessThanOrEqual, Like, MoreThan } from '@n8n/typeorm';
-import type { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
-import { UnexpectedError } from 'n8n-workflow';
+} from '@resin/agents';
+import { Service } from '@resin/di';
+import type { FindOptionsWhere } from '@resin/typeorm';
+import { Equal, In, LessThan, LessThanOrEqual, Like, MoreThan } from '@resin/typeorm';
+import type { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
+import { UnexpectedError } from 'resin-workflow';
 
 import type { AgentMessageEntity } from '../entities/agent-message.entity';
 import { AgentObservationCursorEntity } from '../entities/agent-observation-cursor.entity';

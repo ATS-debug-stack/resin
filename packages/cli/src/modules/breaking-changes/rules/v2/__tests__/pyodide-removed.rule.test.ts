@@ -53,7 +53,7 @@ describe('PyodideRemovedRule', () => {
 	describe('detectWorkflow()', () => {
 		it('should return no issues when no Code nodes are found', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('HTTP', 'n8n-nodes-base.httpRequest'),
+				createNode('HTTP', 'resin-nodes-base.httpRequest'),
 			]);
 			const result = await rule.detectWorkflow(workflow, nodesGroupedByType);
 
@@ -65,7 +65,7 @@ describe('PyodideRemovedRule', () => {
 
 		it('should return no issues when Code nodes use JavaScript', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Code', 'n8n-nodes-base.code', {
+				createNode('Code', 'resin-nodes-base.code', {
 					language: 'javaScript',
 					jsCode: 'return items;',
 				}),
@@ -80,7 +80,7 @@ describe('PyodideRemovedRule', () => {
 
 		it('should return no issues when Code nodes use native Python (pythonNative)', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Python', 'n8n-nodes-base.code', {
+				createNode('Python', 'resin-nodes-base.code', {
 					language: 'pythonNative',
 					pythonCode: 'print("hello")',
 				}),
@@ -95,7 +95,7 @@ describe('PyodideRemovedRule', () => {
 
 		it('should detect Code node with Pyodide Python (language="python")', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Python', 'n8n-nodes-base.code', {
+				createNode('Python', 'resin-nodes-base.code', {
 					language: 'python',
 					pythonCode: 'print("hello")',
 				}),
@@ -117,15 +117,15 @@ describe('PyodideRemovedRule', () => {
 
 		it('should detect multiple Pyodide-based Code nodes', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Python1', 'n8n-nodes-base.code', {
+				createNode('Python1', 'resin-nodes-base.code', {
 					language: 'python',
 					pythonCode: 'print("hello")',
 				}),
-				createNode('Python2', 'n8n-nodes-base.code', {
+				createNode('Python2', 'resin-nodes-base.code', {
 					language: 'python',
 					pythonCode: 'print("world")',
 				}),
-				createNode('Python3', 'n8n-nodes-base.code', {
+				createNode('Python3', 'resin-nodes-base.code', {
 					language: 'pythonNative',
 					pythonCode: 'print("ok")',
 				}),
@@ -151,16 +151,16 @@ describe('PyodideRemovedRule', () => {
 
 		it('should detect mixed workflow with Pyodide and non-Pyodide nodes', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('HTTP', 'n8n-nodes-base.httpRequest'),
-				createNode('Python', 'n8n-nodes-base.code', {
+				createNode('HTTP', 'resin-nodes-base.httpRequest'),
+				createNode('Python', 'resin-nodes-base.code', {
 					language: 'python',
 					pythonCode: 'print("hello")',
 				}),
-				createNode('JS', 'n8n-nodes-base.code', {
+				createNode('JS', 'resin-nodes-base.code', {
 					language: 'javaScript',
 					jsCode: 'return items;',
 				}),
-				createNode('Set', 'n8n-nodes-base.set'),
+				createNode('Set', 'resin-nodes-base.set'),
 			]);
 
 			const result = await rule.detectWorkflow(workflow, nodesGroupedByType);
@@ -172,7 +172,7 @@ describe('PyodideRemovedRule', () => {
 
 		it('should return no issues when Code Tool nodes use native Python (pythonNative)', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Code Tool', '@n8n/n8n-nodes-langchain.toolCode', {
+				createNode('Code Tool', '@resin/n8n-nodes-langchain.toolCode', {
 					language: 'pythonNative',
 					pythonCode: 'print("hello")',
 				}),
@@ -187,7 +187,7 @@ describe('PyodideRemovedRule', () => {
 
 		it('should detect Code Tool node with Pyodide Python (language="python")', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Code Tool', '@n8n/n8n-nodes-langchain.toolCode', {
+				createNode('Code Tool', '@resin/n8n-nodes-langchain.toolCode', {
 					language: 'python',
 					pythonCode: 'print("hello")',
 				}),
@@ -209,11 +209,11 @@ describe('PyodideRemovedRule', () => {
 
 		it('should detect both Code and Code Tool nodes with Pyodide Python', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Python Code', 'n8n-nodes-base.code', {
+				createNode('Python Code', 'resin-nodes-base.code', {
 					language: 'python',
 					pythonCode: 'print("hello")',
 				}),
-				createNode('Python Tool', '@n8n/n8n-nodes-langchain.toolCode', {
+				createNode('Python Tool', '@resin/n8n-nodes-langchain.toolCode', {
 					language: 'python',
 					pythonCode: 'print("world")',
 				}),

@@ -45,19 +45,19 @@ describe('Workflow Builder', () => {
 	describe('.add()', () => {
 		it('should add a trigger node to the workflow', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.scheduleTrigger',
+				type: 'resin-nodes-base.scheduleTrigger',
 				version: 1.1,
 				config: { parameters: { rule: { interval: [{ field: 'hours', hour: 8 }] } } },
 			});
 			const wf = workflow('test-id', 'Test Workflow').add(t);
 			const json = wf.toJSON();
 			expect(json.nodes).toHaveLength(1);
-			expect(json.nodes[0].type).toBe('n8n-nodes-base.scheduleTrigger');
+			expect(json.nodes[0].type).toBe('resin-nodes-base.scheduleTrigger');
 		});
 
 		it('should add multiple nodes', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
-			const n = node({ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
+			const n = node({ type: 'resin-nodes-base.httpRequest', version: 4.2, config: {} });
 			const wf = workflow('test-id', 'Test Workflow').add(t).add(n);
 			const json = wf.toJSON();
 			expect(json.nodes).toHaveLength(2);
@@ -65,16 +65,16 @@ describe('Workflow Builder', () => {
 
 		it('should add a NodeChain and include all nodes', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const n1 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP Request' },
 			});
-			const n2 = node({ type: 'n8n-nodes-base.set', version: 3, config: { name: 'Set Data' } });
+			const n2 = node({ type: 'resin-nodes-base.set', version: 3, config: { name: 'Set Data' } });
 
 			// Create a chain via .to()
 			const chain = t.to(n1).to(n2);
@@ -96,12 +96,12 @@ describe('Workflow Builder', () => {
 
 		it('should add multiple sticky notes with explicit names', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const agentNode = node({
-				type: 'n8n-nodes-langchain.agent',
+				type: 'resin-nodes-langchain.agent',
 				version: 1.6,
 				config: { name: 'Research Agent', position: [400, 300] },
 			});
@@ -126,7 +126,7 @@ describe('Workflow Builder', () => {
 			expect(json.nodes).toHaveLength(6);
 
 			// All sticky notes should have unique names
-			const stickyNodes = json.nodes.filter((n) => n.type === 'n8n-nodes-base.stickyNote');
+			const stickyNodes = json.nodes.filter((n) => n.type === 'resin-nodes-base.stickyNote');
 			expect(stickyNodes).toHaveLength(4);
 
 			// Extract names and verify uniqueness
@@ -144,23 +144,23 @@ describe('Workflow Builder', () => {
 
 		it('should add SwitchCaseBuilder directly', () => {
 			const case0 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 0' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 1' },
 			});
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.2,
 				config: {
 					name: 'Direct Switch',
 					parameters: { mode: 'rules' },
 				},
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 
 			// Pass fluent builder directly to add() - runtime supports this but types don't
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -178,17 +178,17 @@ describe('Workflow Builder', () => {
 
 		it('should add IfElseBuilder directly', () => {
 			const trueNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True Path' },
 			});
 			const falseNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False Path' },
 			});
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: {
 					name: 'Direct IF',
@@ -204,7 +204,7 @@ describe('Workflow Builder', () => {
 						},
 					},
 				},
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 
 			// Pass fluent builder directly to add() - runtime supports this but types don't
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -222,23 +222,23 @@ describe('Workflow Builder', () => {
 
 		it('should add merge pattern using .input(n) syntax', () => {
 			const source1 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Source 1' },
 			});
 			const source2 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Source 2' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: {
 					name: 'Merge',
 					parameters: { mode: 'append' },
 				},
-			}) as NodeInstance<'n8n-nodes-base.merge', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.merge', string, unknown>;
 
 			// Use .input(n) syntax to connect sources to merge inputs
 			const wf = workflow('test', 'Test')
@@ -259,12 +259,12 @@ describe('Workflow Builder', () => {
 
 		it('should mutate the builder in place when add() return value is discarded', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Trigger' },
 			});
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP' },
 			});
@@ -282,7 +282,7 @@ describe('Workflow Builder', () => {
 
 	describe('.output() / .input() error guidance', () => {
 		it('should throw a clear error when calling .output() on the workflow builder', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const wf = workflow('test-id', 'Test Workflow').add(t);
 			expect(() => (wf as unknown as { output: (n: number) => void }).output(0)).toThrow(
 				'Cannot call .output() on the workflow builder',
@@ -290,7 +290,7 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should throw a clear error when calling .input() on the workflow builder', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const wf = workflow('test-id', 'Test Workflow').add(t);
 			expect(() => (wf as unknown as { input: (n: number) => void }).input(1)).toThrow(
 				'Cannot call .input() on the workflow builder',
@@ -298,14 +298,14 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should throw a clear error when an OutputSelector is passed to .add()', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const source = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'Branch' },
 			});
 			const target = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Set' },
 			});
@@ -318,9 +318,9 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should throw a clear error when an OutputSelector is passed to .to()', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const source = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'Branch' },
 			});
@@ -331,14 +331,14 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should throw a clear error when an OutputSelector is inside an array passed to .add()', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const source = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'Branch' },
 			});
 			const sibling = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Sibling' },
 			});
@@ -353,14 +353,14 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should accept node.output(n).to(target) inside .add() — the documented form', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const source = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'Branch' },
 			});
 			const target = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Set' },
 			});
@@ -376,9 +376,9 @@ describe('Workflow Builder', () => {
 
 	describe('.to()', () => {
 		it('should chain nodes with connections', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
-			const n1 = node({ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: {} });
-			const n2 = node({ type: 'n8n-nodes-base.set', version: 3, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
+			const n1 = node({ type: 'resin-nodes-base.httpRequest', version: 4.2, config: {} });
+			const n2 = node({ type: 'resin-nodes-base.set', version: 3, config: {} });
 
 			const wf = workflow('test-id', 'Test Workflow').add(t).to(n1).to(n2);
 
@@ -399,17 +399,17 @@ describe('Workflow Builder', () => {
 	describe('NodeInstance.onError()', () => {
 		it('should connect error output to handler for regular nodes', () => {
 			const httpNode = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP', onError: 'continueErrorOutput' },
 			});
 			const successHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Success' },
 			});
 			const errorHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Error Handler' },
 			});
@@ -436,22 +436,22 @@ describe('Workflow Builder', () => {
 
 		it('should calculate correct error output index for IF nodes', () => {
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'IF', onError: 'continueErrorOutput' },
 			});
 			const trueHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True' },
 			});
 			const falseHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False' },
 			});
 			const errorHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Error' },
 			});
@@ -480,17 +480,17 @@ describe('Workflow Builder', () => {
 			// BUG FIX TEST: When using .to(node.onError(handler)), the .to() should
 			// connect to the node, not to the handler returned by onError()
 			const t = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const slackNode = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.4,
 				config: { name: 'Send Slack', onError: 'continueErrorOutput' },
 			});
 			const telegramNode = node({
-				type: 'n8n-nodes-base.telegram',
+				type: 'resin-nodes-base.telegram',
 				version: 1.2,
 				config: { name: 'Error Alert' },
 			});
@@ -513,27 +513,27 @@ describe('Workflow Builder', () => {
 			// Build: trigger → http1.onError(http2.onError(errorFinal.to(downstream)))
 			// All 5 nodes should appear in toJSON().nodes
 			const t = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const http1 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP 1', onError: 'continueErrorOutput' },
 			});
 			const http2 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP 2', onError: 'continueErrorOutput' },
 			});
 			const errorFinal = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Error Final' },
 			});
 			const downstream = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Downstream' },
 			});
@@ -564,22 +564,22 @@ describe('Workflow Builder', () => {
 
 		it('should handle IfElse composite as onError target on standalone node', () => {
 			const httpNode = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP', onError: 'continueErrorOutput' },
 			});
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'IF' },
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 			const trueHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True Handler' },
 			});
 			const falseHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False Handler' },
 			});
@@ -599,22 +599,22 @@ describe('Workflow Builder', () => {
 
 		it('should handle SwitchCase composite as onError target on standalone node', () => {
 			const httpNode = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP', onError: 'continueErrorOutput' },
 			});
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.2,
 				config: { name: 'Switch', parameters: { mode: 'rules' } },
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 			const case0 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 0' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 1' },
 			});
@@ -633,22 +633,22 @@ describe('Workflow Builder', () => {
 
 		it('should handle SplitInBatches composite as onError target on standalone node', () => {
 			const httpNode = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP', onError: 'continueErrorOutput' },
 			});
 			const sibNode = node({
-				type: 'n8n-nodes-base.splitInBatches',
+				type: 'resin-nodes-base.splitInBatches',
 				version: 3,
 				config: { name: 'SIB', parameters: { batchSize: 10 } },
 			});
 			const doneNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Done' },
 			});
 			const eachNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Each' },
 			});
@@ -668,27 +668,27 @@ describe('Workflow Builder', () => {
 
 		it('should handle IfElse composite as onError target in chain', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const httpNode = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP', onError: 'continueErrorOutput' },
 			});
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'IF' },
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 			const trueHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True Handler' },
 			});
 			const falseHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False Handler' },
 			});
@@ -707,27 +707,27 @@ describe('Workflow Builder', () => {
 
 		it('should handle chain leading to composite via onError', () => {
 			const httpNode = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP', onError: 'continueErrorOutput' },
 			});
 			const logNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Log' },
 			});
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'IF' },
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 			const trueHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True Handler' },
 			});
 			const falseHandler = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False Handler' },
 			});
@@ -772,14 +772,14 @@ describe('Workflow Builder', () => {
 	describe('.getNode()', () => {
 		it('should retrieve node by name', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.webhookTrigger',
+				type: 'resin-nodes-base.webhookTrigger',
 				version: 1,
 				config: { name: 'My Trigger' },
 			});
 			const wf = workflow('test-id', 'Test Workflow').add(t);
 			const found = wf.getNode('My Trigger');
 			expect(found).toBeDefined();
-			expect(found?.type).toBe('n8n-nodes-base.webhookTrigger');
+			expect(found?.type).toBe('resin-nodes-base.webhookTrigger');
 		});
 
 		it('should return undefined for non-existent node', () => {
@@ -791,9 +791,9 @@ describe('Workflow Builder', () => {
 
 	describe('.toJSON()', () => {
 		it('should export complete workflow JSON', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { parameters: { url: 'https://example.com' } },
 			});
@@ -814,7 +814,7 @@ describe('Workflow Builder', () => {
 
 		it('should include node positions', () => {
 			const t = trigger({
-				type: 'n8n-nodes-base.webhookTrigger',
+				type: 'resin-nodes-base.webhookTrigger',
 				version: 1,
 				config: { position: [100, 200] },
 			});
@@ -824,8 +824,8 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should auto-position nodes when position not specified', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
-			const n = node({ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
+			const n = node({ type: 'resin-nodes-base.httpRequest', version: 4.2, config: {} });
 			const wf = workflow('test-id', 'Test').add(t).to(n);
 			const json = wf.toJSON();
 			// Both nodes should have positions assigned
@@ -855,7 +855,7 @@ describe('Workflow Builder', () => {
 					{
 						id: 'node-1',
 						name: 'Webhook',
-						type: 'n8n-nodes-base.webhook',
+						type: 'resin-nodes-base.webhook',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -881,7 +881,7 @@ describe('Workflow Builder', () => {
 					{
 						id: 'node-1',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [0, 0] as [number, number],
 						parameters: { url: 'https://old.com' },
@@ -895,7 +895,7 @@ describe('Workflow Builder', () => {
 			expect(httpNode).toBeDefined();
 
 			// Add another node
-			const newNode = node({ type: 'n8n-nodes-base.set', version: 3, config: {} });
+			const newNode = node({ type: 'resin-nodes-base.set', version: 3, config: {} });
 			const updatedWf = wf.to(newNode);
 			const exported = updatedWf.toJSON();
 			expect(exported.nodes).toHaveLength(2);
@@ -911,7 +911,7 @@ describe('Workflow Builder', () => {
 					{
 						id: 'node-1',
 						name: 'OpenAI Chat Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -923,7 +923,7 @@ describe('Workflow Builder', () => {
 					{
 						id: 'node-2',
 						name: 'Telegram',
-						type: 'n8n-nodes-base.telegram',
+						type: 'resin-nodes-base.telegram',
 						typeVersion: 1.2,
 						position: [200, 0] as [number, number],
 						parameters: {},
@@ -935,7 +935,7 @@ describe('Workflow Builder', () => {
 					{
 						id: 'node-3',
 						name: 'Gmail',
-						type: 'n8n-nodes-base.gmail',
+						type: 'resin-nodes-base.gmail',
 						typeVersion: 2.1,
 						position: [400, 0] as [number, number],
 						parameters: {},
@@ -976,7 +976,7 @@ describe('Workflow Builder', () => {
 					{
 						id: 'node-1',
 						name: 'HTTP',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -985,7 +985,7 @@ describe('Workflow Builder', () => {
 					{
 						id: 'node-2',
 						name: 'Success',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [200, 0] as [number, number],
 						parameters: {},
@@ -993,7 +993,7 @@ describe('Workflow Builder', () => {
 					{
 						id: 'node-3',
 						name: 'ErrorHandler',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [200, 200] as [number, number],
 						parameters: {},
@@ -1019,23 +1019,23 @@ describe('Workflow Builder', () => {
 	describe('AI nodes with subnodes', () => {
 		it('should include subnodes in exported JSON', () => {
 			const modelNode = languageModel({
-				type: 'n8n-nodes-langchain.lmChatOpenAi',
+				type: 'resin-nodes-langchain.lmChatOpenAi',
 				version: 1,
 				config: { parameters: { model: 'gpt-4' } },
 			});
 			const memoryNode = memory({
-				type: 'n8n-nodes-langchain.memoryBufferWindow',
+				type: 'resin-nodes-langchain.memoryBufferWindow',
 				version: 1,
 				config: { parameters: { windowSize: 5 } },
 			});
 			const toolNode = tool({
-				type: 'n8n-nodes-langchain.toolCalculator',
+				type: 'resin-nodes-langchain.toolCalculator',
 				version: 1,
 				config: {},
 			});
 
 			const agentNode = node({
-				type: 'n8n-nodes-langchain.agent',
+				type: 'resin-nodes-langchain.agent',
 				version: 1.6,
 				config: {
 					parameters: { text: '={{ $json.prompt }}' },
@@ -1048,7 +1048,7 @@ describe('Workflow Builder', () => {
 			});
 
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: {},
 			});
@@ -1062,22 +1062,22 @@ describe('Workflow Builder', () => {
 
 			// Verify all node types are present
 			const nodeTypes = json.nodes.map((n) => n.type);
-			expect(nodeTypes).toContain('n8n-nodes-base.manualTrigger');
-			expect(nodeTypes).toContain('n8n-nodes-langchain.agent');
-			expect(nodeTypes).toContain('n8n-nodes-langchain.lmChatOpenAi');
-			expect(nodeTypes).toContain('n8n-nodes-langchain.memoryBufferWindow');
-			expect(nodeTypes).toContain('n8n-nodes-langchain.toolCalculator');
+			expect(nodeTypes).toContain('resin-nodes-base.manualTrigger');
+			expect(nodeTypes).toContain('resin-nodes-langchain.agent');
+			expect(nodeTypes).toContain('resin-nodes-langchain.lmChatOpenAi');
+			expect(nodeTypes).toContain('resin-nodes-langchain.memoryBufferWindow');
+			expect(nodeTypes).toContain('resin-nodes-langchain.toolCalculator');
 		});
 
 		it('should create AI connections for subnodes', () => {
 			const modelNode = languageModel({
-				type: 'n8n-nodes-langchain.lmChatOpenAi',
+				type: 'resin-nodes-langchain.lmChatOpenAi',
 				version: 1,
 				config: { parameters: { model: 'gpt-4' } },
 			});
 
 			const agentNode = node({
-				type: 'n8n-nodes-langchain.agent',
+				type: 'resin-nodes-langchain.agent',
 				version: 1.6,
 				config: {
 					parameters: {},
@@ -1088,7 +1088,7 @@ describe('Workflow Builder', () => {
 			});
 
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: {},
 			});
@@ -1108,30 +1108,30 @@ describe('Workflow Builder', () => {
 	describe('merge with .input(n) syntax', () => {
 		it('should connect branches to different merge inputs', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: {},
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: {
 					name: 'Merge',
 					parameters: { mode: 'append' },
 				},
-			}) as NodeInstance<'n8n-nodes-base.merge', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.merge', string, unknown>;
 			const source1 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Source 1' },
 			});
 			const source2 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Source 2' },
 			});
 			const source3 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Source 3' },
 			});
@@ -1159,18 +1159,18 @@ describe('Workflow Builder', () => {
 			expect(json.connections['Source 3']?.main[0]?.[0]?.index).toBe(2);
 
 			// Merge node should exist
-			const foundMergeNode = json.nodes.find((n) => n.type === 'n8n-nodes-base.merge');
+			const foundMergeNode = json.nodes.find((n) => n.type === 'resin-nodes-base.merge');
 			expect(foundMergeNode).toBeDefined();
 		});
 
 		it('should support merge with custom name and parameters', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: {},
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: {
 					name: 'Combine Branches',
@@ -1179,14 +1179,14 @@ describe('Workflow Builder', () => {
 						combineBy: 'combineByPosition',
 					},
 				},
-			}) as NodeInstance<'n8n-nodes-base.merge', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.merge', string, unknown>;
 			const source1 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Branch A' },
 			});
 			const source2 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Branch B' },
 			});
@@ -1199,7 +1199,7 @@ describe('Workflow Builder', () => {
 
 			const json = wf.toJSON();
 
-			const foundMergeNode = json.nodes.find((n) => n.type === 'n8n-nodes-base.merge');
+			const foundMergeNode = json.nodes.find((n) => n.type === 'resin-nodes-base.merge');
 			expect(foundMergeNode?.parameters?.mode).toBe('combine');
 			expect(foundMergeNode?.parameters?.combineBy).toBe('combineByPosition');
 		});
@@ -1208,17 +1208,17 @@ describe('Workflow Builder', () => {
 	describe('NodeInstance.to() for fan-out', () => {
 		it('should support fan-out via multiple .to() calls on same node', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: {},
 			});
 			const http1 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP 1' },
 			});
 			const http2 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP 2' },
 			});
@@ -1238,9 +1238,9 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should support chaining: nodeA.to(nodeB).to(nodeC)', () => {
-			const nodeA = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'A' } });
-			const nodeB = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'B' } });
-			const nodeC = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'C' } });
+			const nodeA = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'A' } });
+			const nodeB = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'B' } });
+			const nodeC = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'C' } });
 
 			// Chain: A → B → C
 			nodeA.to(nodeB).to(nodeC);
@@ -1255,17 +1255,17 @@ describe('Workflow Builder', () => {
 
 		it('should support fan-out from specific output index', () => {
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2,
 				config: { name: 'If Check' },
 			});
 			const truePath = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True Path' },
 			});
 			const falsePath = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False Path' },
 			});
@@ -1283,8 +1283,8 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should return NodeChain for chaining', () => {
-			const nodeA = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'A' } });
-			const nodeB = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'B' } });
+			const nodeA = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'A' } });
+			const nodeB = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'B' } });
 
 			const result = nodeA.to(nodeB);
 
@@ -1299,9 +1299,9 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should allow getting declared connections', () => {
-			const nodeA = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'A' } });
-			const nodeB = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'B' } });
-			const nodeC = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'C' } });
+			const nodeA = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'A' } });
+			const nodeB = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'B' } });
+			const nodeC = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'C' } });
 
 			nodeA.to(nodeB);
 			nodeA.to(nodeC, 1);
@@ -1317,12 +1317,12 @@ describe('Workflow Builder', () => {
 	describe('IF fluent API', () => {
 		it('should create IF node with true and false branches', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: {},
 			});
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.3,
 				config: {
 					name: 'Check Value',
@@ -1338,14 +1338,14 @@ describe('Workflow Builder', () => {
 						},
 					},
 				},
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 			const trueNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True Path' },
 			});
 			const falseNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False Path' },
 			});
@@ -1369,20 +1369,20 @@ describe('Workflow Builder', () => {
 
 		it('should use generated IF types for config', () => {
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.3,
 				config: {
 					name: 'Type Check',
 					parameters: { looseTypeValidation: true },
 				},
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 			const trueNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True' },
 			});
 			const falseNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False' },
 			});
@@ -1391,29 +1391,29 @@ describe('Workflow Builder', () => {
 
 			const json = wf.toJSON();
 
-			const foundIfNode = json.nodes.find((n) => n.type === 'n8n-nodes-base.if');
+			const foundIfNode = json.nodes.find((n) => n.type === 'resin-nodes-base.if');
 			expect(foundIfNode?.typeVersion).toBe(2.3);
 			expect(foundIfNode?.parameters?.looseTypeValidation).toBe(true);
 		});
 
 		it('should chain after IF node', () => {
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.3,
 				config: { name: 'IF' },
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 			const trueNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True' },
 			});
 			const falseNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False' },
 			});
 			const afterNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'After' },
 			});
@@ -1434,12 +1434,12 @@ describe('Workflow Builder', () => {
 
 		it('should handle only false branch connected (no true branch)', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.3,
 				config: {
 					name: 'IF Check',
@@ -1454,9 +1454,9 @@ describe('Workflow Builder', () => {
 						},
 					},
 				},
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 			const falseNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'False Path' },
 			});
@@ -1479,12 +1479,12 @@ describe('Workflow Builder', () => {
 
 		it('should handle only true branch connected (no false branch)', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.3,
 				config: {
 					name: 'IF Check',
@@ -1499,9 +1499,9 @@ describe('Workflow Builder', () => {
 						},
 					},
 				},
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 			const trueNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'True Path' },
 			});
@@ -1525,13 +1525,13 @@ describe('Workflow Builder', () => {
 	describe('pinData', () => {
 		it('should collect pinData from node config into workflow JSON', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start', position: [240, 300] },
 			});
 
 			const boxNode = node({
-				type: 'n8n-nodes-base.box',
+				type: 'resin-nodes-base.box',
 				version: 1,
 				config: {
 					name: 'Search Box Files',
@@ -1571,7 +1571,7 @@ describe('Workflow Builder', () => {
 
 		it('should collect pinData from multiple nodes', () => {
 			const node1 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					name: 'HTTP Node 1',
@@ -1580,7 +1580,7 @@ describe('Workflow Builder', () => {
 			});
 
 			const node2 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					name: 'HTTP Node 2',
@@ -1598,7 +1598,7 @@ describe('Workflow Builder', () => {
 
 		it('should not include pinData key when no nodes have pinData', () => {
 			const node1 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'HTTP Node' },
 			});
@@ -1616,22 +1616,22 @@ describe('Workflow Builder', () => {
 			// BUG: When using workflow.add(chain).to(switchNode.onCase(...)),
 			// output 2 (fallback) was not being connected
 			const t = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const linearNode = node({
-				type: 'n8n-nodes-base.linear',
+				type: 'resin-nodes-base.linear',
 				version: 1.1,
 				config: { name: 'Get Issues', onError: 'continueErrorOutput' },
 			});
 			const errorHandler = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2.4,
 				config: { name: 'Send Error to Slack' },
 			});
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: {
 					name: 'Triage Issues',
@@ -1640,19 +1640,19 @@ describe('Workflow Builder', () => {
 						options: { fallbackOutput: 2 },
 					},
 				},
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 			const case0 = node({
-				type: 'n8n-nodes-base.linear',
+				type: 'resin-nodes-base.linear',
 				version: 1.1,
 				config: { name: 'Update as Bug' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.linear',
+				type: 'resin-nodes-base.linear',
 				version: 1.1,
 				config: { name: 'Update as Feature' },
 			});
 			const case2 = node({
-				type: 'n8n-nodes-base.linear',
+				type: 'resin-nodes-base.linear',
 				version: 1.1,
 				config: { name: 'Update as Other' },
 			});
@@ -1685,30 +1685,30 @@ describe('Workflow Builder', () => {
 			// BUG FIX TEST: When using .add() with a chain containing switchNode.onCase(),
 			// the connection from the previous node to the switch was not being created
 			const t = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
 			const linearNode = node({
-				type: 'n8n-nodes-base.linear',
+				type: 'resin-nodes-base.linear',
 				version: 1.1,
 				config: { name: 'Get Issues' },
 			});
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: {
 					name: 'Triage',
 					parameters: { mode: 'rules' },
 				},
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 			const case0 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Bug Handler' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Feature Handler' },
 			});
@@ -1738,30 +1738,30 @@ describe('Workflow Builder', () => {
 
 		it('should create Switch node with case branches', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: {},
 			});
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: {
 					name: 'Route by Type',
 					parameters: { mode: 'rules' },
 				},
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 			const case0 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 0' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 1' },
 			});
 			const case2 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 2' },
 			});
@@ -1783,20 +1783,20 @@ describe('Workflow Builder', () => {
 
 		it('should include fallback as last case', () => {
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: {
 					name: 'Router',
 					parameters: { mode: 'rules' },
 				},
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 			const case0 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 0' },
 			});
 			const fallback = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Fallback' },
 			});
@@ -1809,21 +1809,21 @@ describe('Workflow Builder', () => {
 			expect(json.connections['Router']?.main[1]?.[0]?.node).toBe('Fallback');
 
 			// Switch node should exist
-			const foundSwitchNode = json.nodes.find((n) => n.type === 'n8n-nodes-base.switch');
+			const foundSwitchNode = json.nodes.find((n) => n.type === 'resin-nodes-base.switch');
 			expect(foundSwitchNode).toBeDefined();
 		});
 
 		it('should use latest Switch version', () => {
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: {
 					name: 'Switch',
 					parameters: { mode: 'expression', numberOutputs: 4 },
 				},
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 			const case0 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 0' },
 			});
@@ -1832,23 +1832,23 @@ describe('Workflow Builder', () => {
 
 			const json = wf.toJSON();
 
-			const foundSwitchNode = json.nodes.find((n) => n.type === 'n8n-nodes-base.switch');
+			const foundSwitchNode = json.nodes.find((n) => n.type === 'resin-nodes-base.switch');
 			expect(foundSwitchNode?.typeVersion).toBe(3.4);
 		});
 
 		it('should connect trigger to switch', () => {
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: {},
 			});
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'Switch' },
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 			const case0 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Case 0' },
 			});
@@ -1866,22 +1866,22 @@ describe('Workflow Builder', () => {
 			// the trigger node is lost because NodeChain.onCase() delegates to
 			// tail.onCase() which creates a new SwitchCaseBuilder without the chain context
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2.1,
 				config: { name: 'Webhook Trigger' },
 			});
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'Route by Amount' },
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 			const case0 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Auto Approve' },
 			});
 			const case1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Manual Approve' },
 			});
@@ -1911,7 +1911,7 @@ describe('Workflow Builder', () => {
 		it('should add __rl: true to resource locator values missing it', () => {
 			const wf = workflow('test', 'Test').add(
 				node({
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					version: 1.2,
 					config: {
 						name: 'OpenAI Model',
@@ -1936,7 +1936,7 @@ describe('Workflow Builder', () => {
 		it('should preserve existing __rl: true', () => {
 			const wf = workflow('test', 'Test').add(
 				node({
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					version: 1.2,
 					config: {
 						name: 'OpenAI Model',
@@ -1961,7 +1961,7 @@ describe('Workflow Builder', () => {
 		it('should normalize nested resource locator values', () => {
 			const wf = workflow('test', 'Test').add(
 				node({
-					type: 'n8n-nodes-base.googleSheets',
+					type: 'resin-nodes-base.googleSheets',
 					version: 4.5,
 					config: {
 						name: 'Google Sheets',
@@ -1992,7 +1992,7 @@ describe('Workflow Builder', () => {
 		it('should not add __rl to objects without mode property', () => {
 			const wf = workflow('test', 'Test').add(
 				node({
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					version: 3.4,
 					config: {
 						name: 'Set',
@@ -2014,7 +2014,7 @@ describe('Workflow Builder', () => {
 		it('should normalize resource locators in nested objects', () => {
 			const wf = workflow('test', 'Test').add(
 				node({
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					version: 4.2,
 					config: {
 						name: 'HTTP Request',
@@ -2042,7 +2042,7 @@ describe('Workflow Builder', () => {
 		it('should clear placeholder values when mode is list', () => {
 			const wf = workflow('test', 'Test').add(
 				node({
-					type: 'n8n-nodes-base.slack',
+					type: 'resin-nodes-base.slack',
 					version: 2.4,
 					config: {
 						name: 'Slack',
@@ -2071,7 +2071,7 @@ describe('Workflow Builder', () => {
 		it('should NOT clear placeholder values when mode is id', () => {
 			const wf = workflow('test', 'Test').add(
 				node({
-					type: 'n8n-nodes-base.slack',
+					type: 'resin-nodes-base.slack',
 					version: 2.4,
 					config: {
 						name: 'Slack',
@@ -2102,13 +2102,13 @@ describe('Workflow Builder', () => {
 		it('should not create duplicate nodes when same instance appears in multiple chain targets', () => {
 			// Create AI agent with subnode named "Format Response"
 			const outputParserSubnode = outputParser({
-				type: '@n8n/n8n-nodes-langchain.outputParserStructured',
+				type: '@resin/n8n-nodes-langchain.outputParserStructured',
 				version: 1.3,
 				config: { name: 'Format Response', parameters: {} },
 			});
 
 			const aiAgent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 3.1,
 				config: {
 					name: 'AI Agent',
@@ -2118,20 +2118,20 @@ describe('Workflow Builder', () => {
 
 			// Create Set node with SAME name as outputParser
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Format Response' },
 			});
 
 			const finalNode = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Send Request' },
 			});
 
 			// Build chain: trigger -> aiAgent -> setNode -> finalNode
 			const triggerNode = trigger({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: { name: 'Start' },
 			});
@@ -2143,13 +2143,13 @@ describe('Workflow Builder', () => {
 			const json = wf.toJSON();
 
 			// Count Set nodes - should be exactly 1 (renamed to "Format Response 1")
-			const setNodes = json.nodes.filter((n) => n.type === 'n8n-nodes-base.set');
+			const setNodes = json.nodes.filter((n) => n.type === 'resin-nodes-base.set');
 			expect(setNodes).toHaveLength(1);
 			expect(setNodes[0].name).toBe('Format Response 1');
 
 			// Verify no duplicates like "Format Response 2", "Format Response 3", etc.
 			const formatResponseNodes = json.nodes.filter(
-				(n) => n.name?.startsWith('Format Response') && n.type === 'n8n-nodes-base.set',
+				(n) => n.name?.startsWith('Format Response') && n.type === 'resin-nodes-base.set',
 			);
 			expect(formatResponseNodes).toHaveLength(1);
 		});
@@ -2161,7 +2161,7 @@ describe('Workflow Builder', () => {
 			it('should escape raw newline in double-quoted string', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2179,7 +2179,7 @@ describe('Workflow Builder', () => {
 			it('should escape raw newline in single-quoted string', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2197,7 +2197,7 @@ describe('Workflow Builder', () => {
 			it('should escape multiple string literals in expression', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2215,7 +2215,7 @@ describe('Workflow Builder', () => {
 			it('should escape newline-only string', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2233,7 +2233,7 @@ describe('Workflow Builder', () => {
 			it('should escape multiple consecutive newlines', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2254,7 +2254,7 @@ describe('Workflow Builder', () => {
 			it('should NOT double-escape already escaped newline', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2272,7 +2272,7 @@ describe('Workflow Builder', () => {
 			it('should handle mix of escaped and raw newlines', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2290,7 +2290,7 @@ describe('Workflow Builder', () => {
 			it('should handle double backslash + n (not a newline)', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2312,7 +2312,7 @@ describe('Workflow Builder', () => {
 			it('should NOT escape plain text without = prefix', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2330,7 +2330,7 @@ describe('Workflow Builder', () => {
 			it('should NOT escape {{ }} without = prefix', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2351,7 +2351,7 @@ describe('Workflow Builder', () => {
 			it('should NOT escape newlines inside backtick strings', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2369,7 +2369,7 @@ describe('Workflow Builder', () => {
 			it('should NOT escape newlines in template literal with expression', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2390,7 +2390,7 @@ describe('Workflow Builder', () => {
 			it('should NOT escape newlines outside {{ }}', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2408,7 +2408,7 @@ describe('Workflow Builder', () => {
 			it('should escape inside but not outside {{ }}', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2429,7 +2429,7 @@ describe('Workflow Builder', () => {
 			it('should NOT modify expression with only variable reference', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2447,7 +2447,7 @@ describe('Workflow Builder', () => {
 			it('should NOT modify expression with numbers', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2468,7 +2468,7 @@ describe('Workflow Builder', () => {
 			it('should NOT modify empty string', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2486,7 +2486,7 @@ describe('Workflow Builder', () => {
 			it('should NOT modify empty expression', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2507,7 +2507,7 @@ describe('Workflow Builder', () => {
 			it('should escape in multiple {{ }} blocks', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2525,7 +2525,7 @@ describe('Workflow Builder', () => {
 			it('should escape in multiple separated {{ }} blocks', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2546,7 +2546,7 @@ describe('Workflow Builder', () => {
 			it('should escape newline after escaped quote in double-quoted string', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2564,7 +2564,7 @@ describe('Workflow Builder', () => {
 			it('should escape newline after escaped quote in single-quoted string', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2585,7 +2585,7 @@ describe('Workflow Builder', () => {
 			it('should escape in single quotes inside double quotes', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2603,7 +2603,7 @@ describe('Workflow Builder', () => {
 			it('should escape in both double and single quoted strings', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2624,7 +2624,7 @@ describe('Workflow Builder', () => {
 			it('should escape in string argument to function', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2642,7 +2642,7 @@ describe('Workflow Builder', () => {
 			it('should escape in ternary expression', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2660,7 +2660,7 @@ describe('Workflow Builder', () => {
 			it('should escape in array literal', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2678,7 +2678,7 @@ describe('Workflow Builder', () => {
 			it('should escape in object literal', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2699,7 +2699,7 @@ describe('Workflow Builder', () => {
 			it('should escape in deeply nested object', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2724,7 +2724,7 @@ describe('Workflow Builder', () => {
 			it('should escape in array items', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2746,7 +2746,7 @@ describe('Workflow Builder', () => {
 			it('should NOT escape tab characters', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2764,7 +2764,7 @@ describe('Workflow Builder', () => {
 			it('should NOT modify backslashes without newlines', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2785,7 +2785,7 @@ describe('Workflow Builder', () => {
 			it('should NOT modify expression without newlines', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2803,7 +2803,7 @@ describe('Workflow Builder', () => {
 			it('should NOT modify just equals sign', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2821,7 +2821,7 @@ describe('Workflow Builder', () => {
 			it('should only escape last string with newline when others have none', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2842,7 +2842,7 @@ describe('Workflow Builder', () => {
 			it('should escape newlines in multi-part prompt expression', () => {
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2863,7 +2863,7 @@ describe('Workflow Builder', () => {
 				// Regression test: regex /\"/g contains a quote that should not start a string
 				const wf = workflow('test', 'Test').add(
 					node({
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						version: 3.4,
 						config: {
 							name: 'Set',
@@ -2886,30 +2886,30 @@ describe('Workflow Builder', () => {
 			// Diamond pattern: trigger → IF → (true: A, false: B) → both to Merge → End
 			// This creates convergence that previously caused exponential recursion
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge' },
 			});
 			const nodeA = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'A' },
 			}).to(mergeNode.input(0));
 			const nodeB = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'B' },
 			}).to(mergeNode.input(1));
 			const ifNode = node({
-				type: 'n8n-nodes-base.if' as const,
+				type: 'resin-nodes-base.if' as const,
 				version: 2,
 				config: { name: 'IF' },
 			});
 
 			const ifBuilder = ifNode.onTrue!(nodeA).onFalse(nodeB);
-			const end = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'End' } });
+			const end = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'End' } });
 
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const wf = workflow('test', 'Test').add(t.to(ifBuilder));
 			// Also connect merge output to end
 			wf.add(mergeNode.to(end));
@@ -2923,11 +2923,11 @@ describe('Workflow Builder', () => {
 			// Build deeply nested IF composites — each true branch is another IF builder
 			// This triggers recursive addBranchToGraph calls via the IfElse composite handler
 			// MAX_BRANCH_DEPTH is 500, so we need > 500 nesting levels
-			const leaf = node({ type: 'n8n-nodes-base.noOp', version: 1, config: { name: 'Leaf' } });
+			const leaf = node({ type: 'resin-nodes-base.noOp', version: 1, config: { name: 'Leaf' } });
 			let current: NodeInstance<string, string, unknown> = leaf;
 			for (let i = 0; i < 510; i++) {
 				const ifNode = node({
-					type: 'n8n-nodes-base.if' as const,
+					type: 'resin-nodes-base.if' as const,
 					version: 2,
 					config: { name: `IF ${i}` },
 				});
@@ -2935,7 +2935,7 @@ describe('Workflow Builder', () => {
 				current = ifNode.onTrue!(current) as unknown as NodeInstance<string, string, unknown>;
 			}
 
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const wf = workflow('test', 'Test').add(t);
 
 			expect(() => wf.to(current)).toThrow(/Maximum branch depth/);
@@ -2946,7 +2946,7 @@ describe('Workflow Builder', () => {
 		it('should throw descriptive TypeError when name is an array', () => {
 			expect(() => {
 				// @ts-expect-error intentional misuse
-				workflow('Test', [trigger({ type: 'n8n-nodes-base.webhook', version: 2, config: {} })]);
+				workflow('Test', [trigger({ type: 'resin-nodes-base.webhook', version: 2, config: {} })]);
 			}).toThrow(/workflow\(\) requires \(id: string, name: string\)/);
 		});
 
@@ -2958,7 +2958,7 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should throw when nodes are passed in the options argument', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			expect(() => {
 				workflow('id', 'Test', { nodes: [t] });
 			}).toThrow(/Do not pass nodes or connections here/);
@@ -2971,7 +2971,7 @@ describe('Workflow Builder', () => {
 		});
 
 		it('should throw when an array of nodes is passed as the options argument', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			expect(() => {
 				// @ts-expect-error intentional misuse
 				workflow('id', 'Test', [t]);

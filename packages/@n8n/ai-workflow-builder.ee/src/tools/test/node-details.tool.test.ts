@@ -1,5 +1,5 @@
 import { getCurrentTaskInput } from '@langchain/langgraph';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import {
 	nodeTypes,
@@ -72,7 +72,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.code',
+					nodeName: 'resin-nodes-base.code',
 				}),
 				mockConfig,
 			);
@@ -85,7 +85,7 @@ describe('NodeDetailsTool', () => {
 
 			// Check basic details
 			expectNodeDetails(content, {
-				name: 'n8n-nodes-base.code',
+				name: 'resin-nodes-base.code',
 				displayName: 'Code',
 				description: 'Test node description',
 			});
@@ -105,7 +105,7 @@ describe('NodeDetailsTool', () => {
 			const startMessage = findProgressMessage(progressCalls, 'running', 'input');
 			expect(startMessage).toBeDefined();
 			expect(startMessage?.updates[0]?.data).toMatchObject({
-				nodeName: 'n8n-nodes-base.code',
+				nodeName: 'resin-nodes-base.code',
 				withParameters: false,
 				withConnections: true,
 			});
@@ -119,7 +119,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.httpRequest',
+					nodeName: 'resin-nodes-base.httpRequest',
 					withParameters: true,
 				}),
 				mockConfig,
@@ -143,7 +143,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.code',
+					nodeName: 'resin-nodes-base.code',
 					withConnections: false,
 				}),
 				mockConfig,
@@ -165,7 +165,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: '@n8n/n8n-nodes-langchain.vectorStore',
+					nodeName: '@resin/n8n-nodes-langchain.vectorStore',
 				}),
 				mockConfig,
 			);
@@ -188,13 +188,13 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.unknown',
+					nodeName: 'resin-nodes-base.unknown',
 				}),
 				mockConfig,
 			);
 
 			const content = parseToolResult<ParsedToolContent>(result);
-			expectToolError(content, 'Error: Node type "n8n-nodes-base.unknown" not found');
+			expectToolError(content, 'Error: Node type "resin-nodes-base.unknown" not found');
 		});
 
 		it('should handle validation errors for missing required fields', async () => {
@@ -221,7 +221,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.webhook',
+					nodeName: 'resin-nodes-base.webhook',
 				}),
 				mockConfig,
 			);
@@ -241,7 +241,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.merge',
+					nodeName: 'resin-nodes-base.merge',
 				}),
 				mockConfig,
 			);
@@ -262,7 +262,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.if',
+					nodeName: 'resin-nodes-base.if',
 				}),
 				mockConfig,
 			);
@@ -282,7 +282,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: '@n8n/n8n-nodes-langchain.vectorStore',
+					nodeName: '@resin/n8n-nodes-langchain.vectorStore',
 				}),
 				mockConfig,
 			);
@@ -339,7 +339,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					nodeName: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
 				mockConfig,
 			);
@@ -351,7 +351,7 @@ describe('NodeDetailsTool', () => {
 
 			// Check AI node specifics
 			expectNodeDetails(content, {
-				name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				displayName: 'OpenAI Chat Model',
 			});
 
@@ -421,7 +421,7 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.set',
+					nodeName: 'resin-nodes-base.set',
 					withParameters: true,
 					withConnections: true,
 				}),
@@ -475,7 +475,7 @@ describe('NodeDetailsTool', () => {
 		it('should retrieve the correct node version when multiple versions exist', async () => {
 			// Create multiple versions of the same node type
 			const setNodeV1 = createNodeType({
-				name: 'n8n-nodes-base.set',
+				name: 'resin-nodes-base.set',
 				displayName: 'Set V1',
 				version: 1,
 				description: 'Set node version 1',
@@ -494,7 +494,7 @@ describe('NodeDetailsTool', () => {
 			});
 
 			const setNodeV2 = createNodeType({
-				name: 'n8n-nodes-base.set',
+				name: 'resin-nodes-base.set',
 				displayName: 'Set V2',
 				version: 2,
 				description: 'Set node version 2 with enhanced features',
@@ -514,7 +514,7 @@ describe('NodeDetailsTool', () => {
 			});
 
 			const setNodeV3 = createNodeType({
-				name: 'n8n-nodes-base.set',
+				name: 'resin-nodes-base.set',
 				displayName: 'Set V3',
 				version: 3,
 				description: 'Set node version 3 with latest improvements',
@@ -542,7 +542,7 @@ describe('NodeDetailsTool', () => {
 			// Request version 2 specifically
 			const result = await testTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.set',
+					nodeName: 'resin-nodes-base.set',
 					nodeVersion: 2,
 					withParameters: true,
 				}),
@@ -556,7 +556,7 @@ describe('NodeDetailsTool', () => {
 
 			// Verify we got version 2 details
 			expectNodeDetails(content, {
-				name: 'n8n-nodes-base.set',
+				name: 'resin-nodes-base.set',
 				displayName: 'Set V2',
 				description: 'Set node version 2 with enhanced features',
 			});
@@ -572,20 +572,20 @@ describe('NodeDetailsTool', () => {
 
 			const result = await nodeDetailsTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.code',
+					nodeName: 'resin-nodes-base.code',
 					nodeVersion: 99, // Non-existent version
 				}),
 				mockConfig,
 			);
 
 			const content = parseToolResult<ParsedToolContent>(result);
-			expectToolError(content, 'Error: Node type "n8n-nodes-base.code" not found');
+			expectToolError(content, 'Error: Node type "resin-nodes-base.code" not found');
 		});
 
 		it('should retrieve correct version with array version node types', async () => {
 			// Create a node that supports multiple versions in an array
 			const multiVersionNode = createNodeType({
-				name: 'n8n-nodes-base.multiVersion',
+				name: 'resin-nodes-base.multiVersion',
 				displayName: 'Multi Version Node',
 				version: [1, 2, 3],
 				description: 'Node that supports versions 1, 2, and 3',
@@ -607,7 +607,7 @@ describe('NodeDetailsTool', () => {
 			// Request version 2 from the array
 			const result = await testTool.invoke(
 				buildNodeDetailsInput({
-					nodeName: 'n8n-nodes-base.multiVersion',
+					nodeName: 'resin-nodes-base.multiVersion',
 					nodeVersion: 2,
 				}),
 				mockConfig,
@@ -617,7 +617,7 @@ describe('NodeDetailsTool', () => {
 
 			expectToolSuccess(content, '<node_details>');
 			expectNodeDetails(content, {
-				name: 'n8n-nodes-base.multiVersion',
+				name: 'resin-nodes-base.multiVersion',
 				displayName: 'Multi Version Node',
 				description: 'Node that supports versions 1, 2, and 3',
 			});
@@ -649,7 +649,7 @@ describe('NodeDetailsTool', () => {
 						createNode({
 							id: 'http-1',
 							name: 'Fetch User Data',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							parameters: {
 								url: 'https://api.example.com/users',
@@ -660,14 +660,14 @@ describe('NodeDetailsTool', () => {
 						createNode({
 							id: 'code-1',
 							name: 'Process Data',
-							type: 'n8n-nodes-base.code',
+							type: 'resin-nodes-base.code',
 						}),
 					]),
 					createMockCachedTemplate('Webhook Handler', [
 						createNode({
 							id: 'http-2',
 							name: 'Post to Slack',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							parameters: {
 								url: 'https://hooks.slack.com/services/xxx',
@@ -689,7 +689,7 @@ describe('NodeDetailsTool', () => {
 
 				const result = await nodeDetailsTool.invoke(
 					buildNodeDetailsInput({
-						nodeName: 'n8n-nodes-base.httpRequest',
+						nodeName: 'resin-nodes-base.httpRequest',
 						nodeVersion: 1,
 					}),
 					mockConfig,

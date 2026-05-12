@@ -1,5 +1,5 @@
 import FormData from 'form-data';
-import type { IDataObject, IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-workflow';
+import type { IDataObject, IExecuteFunctions, ILoadOptionsFunctions } from 'resin-workflow';
 
 import { apiRequest } from '../transport';
 import type { File } from './interfaces';

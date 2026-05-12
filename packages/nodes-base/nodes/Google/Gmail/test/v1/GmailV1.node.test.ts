@@ -1,5 +1,5 @@
 import { NodeTestHarness } from '@nodes-testing/node-test-harness';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import nock from 'nock';
 
 import labels from '../fixtures/labels.json';

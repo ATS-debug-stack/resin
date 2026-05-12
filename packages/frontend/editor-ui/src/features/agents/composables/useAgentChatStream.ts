@@ -1,11 +1,11 @@
 import { ref, reactive, computed, type Ref } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useI18n } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
 import type {
 	AgentBuilderOpenSuspension,
 	AgentPersistedMessageDto,
 	AgentSseEvent,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { useToast } from '@/app/composables/useToast';
 import {
 	getBuilderMessages,
@@ -440,7 +440,7 @@ export function useAgentChatStream(params: UseAgentChatStreamParams) {
 		let transportFailed = false;
 
 		try {
-			const browserId = localStorage.getItem('n8n-browserId') ?? '';
+			const browserId = localStorage.getItem('resin-browserId') ?? '';
 			const response = await fetch(url, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json', 'browser-id': browserId },

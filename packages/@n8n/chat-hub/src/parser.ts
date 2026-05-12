@@ -2,7 +2,7 @@ import {
 	chatHubMessageWithButtonsSchema,
 	type ChatHubMessageType,
 	type ChatMessageContentChunk,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export interface MessageWithContent {
 	type: ChatHubMessageType;

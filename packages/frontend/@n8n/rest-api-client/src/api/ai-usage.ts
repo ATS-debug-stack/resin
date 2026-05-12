@@ -1,4 +1,4 @@
-import type { AiUsageSettingsRequestDto } from '@n8n/api-types';
+import type { AiUsageSettingsRequestDto } from '@resin/api-types';
 
 import type { IRestApiContext } from '../types';
 import { makeRestApiRequest } from '../utils';

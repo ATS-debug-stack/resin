@@ -5,7 +5,7 @@
  * `ensureLoaded()` can retry cleanly.
  */
 import { ref, watch, type Ref } from 'vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { listAgents } from './useAgentApi';
 import type { AgentResource } from '../types';
 

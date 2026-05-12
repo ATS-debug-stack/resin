@@ -1,4 +1,4 @@
-import type { ExecutionStarted } from '@n8n/api-types/push/execution';
+import type { ExecutionStarted } from '@resin/api-types/push/execution';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import {
 	createWorkflowDocumentId,
@@ -10,8 +10,8 @@ import {
 } from '@/app/stores/workflowExecutionState.store';
 import { createExecutionDataId, useExecutionDataStore } from '@/app/stores/executionData.store';
 import { parse } from 'flatted';
-import { createRunExecutionData } from 'n8n-workflow';
-import type { IRunExecutionData } from 'n8n-workflow';
+import { createRunExecutionData } from 'resin-workflow';
+import type { IRunExecutionData } from 'resin-workflow';
 
 /**
  * Handles the 'executionStarted' event, which happens when a workflow is executed.

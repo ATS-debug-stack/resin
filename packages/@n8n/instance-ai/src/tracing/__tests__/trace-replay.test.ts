@@ -1,4 +1,4 @@
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 
 import { IdRemapper, TraceIndex, TraceWriter, parseTraceJsonl } from '../trace-replay';
 import type { TraceToolCall, TraceToolSuspend, TraceToolResume, TraceEvent } from '../trace-replay';

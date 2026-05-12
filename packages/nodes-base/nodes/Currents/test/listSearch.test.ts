@@ -1,4 +1,4 @@
-import type { IDataObject, ILoadOptionsFunctions } from 'n8n-workflow';
+import type { IDataObject, ILoadOptionsFunctions } from 'resin-workflow';
 
 import { getProjects } from '../methods/listSearch';
 

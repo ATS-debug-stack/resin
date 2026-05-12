@@ -1,10 +1,11 @@
 import { createPinia, setActivePinia } from 'pinia';
 import { useRBACStore } from '@/app/stores/rbac.store';
-import type { Scope } from '@n8n/permissions';
-import { hasScope } from '@n8n/permissions';
+import type { Scope } from '@resin/permissions';
+import { hasScope } from '@resin/permissions';
 
-vi.mock('@n8n/permissions', async () => {
-	const { hasScope } = await vi.importActual<typeof import('@n8n/permissions')>('@n8n/permissions');
+vi.mock('@resin/permissions', async () => {
+	const { hasScope } =
+		await vi.importActual<typeof import('@resin/permissions')>('@resin/permissions');
 	return {
 		hasScope: vi.fn().mockImplementation(hasScope),
 	};

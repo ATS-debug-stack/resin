@@ -148,7 +148,7 @@ describe('WorkflowDataProxy', () => {
 				{
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -156,7 +156,7 @@ describe('WorkflowDataProxy', () => {
 				{
 					id: 'node2',
 					name: 'ProcessData',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					typeVersion: 1,
 					position: [300, 0],
 					parameters: {},
@@ -884,7 +884,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: 'aiNode',
 						name: 'AI Node',
-						type: 'n8n-nodes-base.aiAgent',
+						type: 'resin-nodes-base.aiAgent',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -947,7 +947,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: 'aiNode',
 						name: 'AI Node',
-						type: 'n8n-nodes-base.aiAgent',
+						type: 'resin-nodes-base.aiAgent',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1013,7 +1013,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: 'aiNode',
 						name: 'AI Node',
-						type: 'n8n-nodes-base.aiAgent',
+						type: 'resin-nodes-base.aiAgent',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1090,7 +1090,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: 'aiNode',
 						name: 'AI Node',
-						type: 'n8n-nodes-base.aiAgent',
+						type: 'resin-nodes-base.aiAgent',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1466,7 +1466,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: '1',
 						name: 'Telegram Trigger',
-						type: 'n8n-nodes-base.telegramTrigger',
+						type: 'resin-nodes-base.telegramTrigger',
 						typeVersion: 1.2,
 						position: [0, 0],
 						parameters: {},
@@ -1474,7 +1474,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: '2',
 						name: 'Send a text message',
-						type: 'n8n-nodes-base.telegram',
+						type: 'resin-nodes-base.telegram',
 						typeVersion: 1.2,
 						position: [576, 0],
 						parameters: {
@@ -1531,7 +1531,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: '1',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1539,7 +1539,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: '2',
 						name: 'Process Data',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [300, 0],
 						parameters: {
@@ -1592,7 +1592,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: '1',
 						name: 'Start Node',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1600,7 +1600,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: '2',
 						name: 'End Node',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [300, 0],
 						parameters: {},
@@ -1676,7 +1676,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: '1',
 						name: 'Real Node',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1763,7 +1763,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: 'node1',
 						name: 'Node1',
-						type: 'n8n-nodes-base.unknownNode',
+						type: 'resin-nodes-base.unknownNode',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1792,7 +1792,7 @@ describe('WorkflowDataProxy', () => {
 			const node: INode = {
 				id: 'node1',
 				name: 'Node1',
-				type: 'n8n-nodes-base.unknownNode',
+				type: 'resin-nodes-base.unknownNode',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -1802,7 +1802,7 @@ describe('WorkflowDataProxy', () => {
 
 			expect(result).toEqual({
 				name: 'Node1',
-				type: 'n8n-nodes-base.unknownNode',
+				type: 'resin-nodes-base.unknownNode',
 			});
 		});
 
@@ -1814,7 +1814,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: 'node1',
 						name: 'Node1',
-						type: 'n8n-nodes-base.testNode',
+						type: 'resin-nodes-base.testNode',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1841,7 +1841,7 @@ describe('WorkflowDataProxy', () => {
 			const node: INode = {
 				id: 'node1',
 				name: 'Node1',
-				type: 'n8n-nodes-base.testNode',
+				type: 'resin-nodes-base.testNode',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -1862,7 +1862,7 @@ describe('WorkflowDataProxy', () => {
 					{
 						id: 'node1',
 						name: 'Node1',
-						type: 'n8n-nodes-base.missingNode',
+						type: 'resin-nodes-base.missingNode',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1891,7 +1891,7 @@ describe('WorkflowDataProxy', () => {
 			const node: INode = {
 				id: 'node1',
 				name: 'Node1',
-				type: 'n8n-nodes-base.missingNode',
+				type: 'resin-nodes-base.missingNode',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -1901,7 +1901,7 @@ describe('WorkflowDataProxy', () => {
 
 			expect(result).toEqual({
 				name: 'Node1',
-				type: 'n8n-nodes-base.missingNode',
+				type: 'resin-nodes-base.missingNode',
 			});
 			expect(result).not.toHaveProperty('displayName');
 			expect(result).not.toHaveProperty('params');
@@ -1920,7 +1920,7 @@ describe('WorkflowDataProxy', () => {
 				{
 					id: 'node1',
 					name: 'Reference',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [256, 16] as [number, number],
 					parameters: {},
@@ -1928,7 +1928,7 @@ describe('WorkflowDataProxy', () => {
 				{
 					id: 'node2',
 					name: 'Edit',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [544, 16] as [number, number],
 					parameters: {
@@ -1948,7 +1948,7 @@ describe('WorkflowDataProxy', () => {
 				{
 					id: 'node3',
 					name: 'NoOp',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [832, 32] as [number, number],
 					parameters: {},
@@ -1956,7 +1956,7 @@ describe('WorkflowDataProxy', () => {
 				{
 					id: 'node4',
 					name: 'Edit Fields',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [1136, 0] as [number, number],
 					parameters: {},

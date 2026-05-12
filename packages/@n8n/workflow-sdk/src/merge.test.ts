@@ -4,16 +4,16 @@ import { splitInBatches } from './workflow-builder/control-flow-builders/split-i
 import { node, trigger } from './workflow-builder/node-builders/node-builder';
 
 // Helper types
-type MergeNode = NodeInstance<'n8n-nodes-base.merge', string, unknown>;
-type IfNode = NodeInstance<'n8n-nodes-base.if', string, unknown>;
-type SwitchNode = NodeInstance<'n8n-nodes-base.switch', string, unknown>;
-type SplitInBatchesNode = NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>;
+type MergeNode = NodeInstance<'resin-nodes-base.merge', string, unknown>;
+type IfNode = NodeInstance<'resin-nodes-base.if', string, unknown>;
+type SwitchNode = NodeInstance<'resin-nodes-base.switch', string, unknown>;
+type SplitInBatchesNode = NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>;
 
 describe('Merge', () => {
 	describe('.input(n) syntax for merge connections', () => {
 		it('should connect node to specific input index of merge node', () => {
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'My Merge' },
 			}) as MergeNode;
@@ -27,7 +27,7 @@ describe('Merge', () => {
 
 		it('should allow different input indices', () => {
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'My Merge' },
 			}) as MergeNode;
@@ -44,24 +44,24 @@ describe('Merge', () => {
 
 	describe('merge workflow patterns', () => {
 		it('should connect sources to different merge inputs using .input(n)', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'My Merge' },
 			}) as MergeNode;
 			const source1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Source 1' },
 			});
 			const source2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Source 2' },
 			});
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Downstream' },
 			});
@@ -103,24 +103,24 @@ describe('Merge', () => {
 		});
 
 		it('should support multiple sources to same input index', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'My Merge' },
 			}) as MergeNode;
 			const sourceA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Source A' },
 			});
 			const sourceB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Source B' },
 			});
 			const sourceC = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Source C' },
 			});
@@ -157,24 +157,24 @@ describe('Merge', () => {
 		});
 
 		it('should work with chains connecting to merge inputs', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Combine' },
 			}) as MergeNode;
 			const process1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process 1' },
 			});
 			const transform1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Transform 1' },
 			});
 			const process2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process 2' },
 			});
@@ -197,24 +197,24 @@ describe('Merge', () => {
 		});
 
 		it('should support three or more inputs', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge 3' },
 			}) as MergeNode;
 			const api1 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'API 1' },
 			});
 			const api2 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'API 2' },
 			});
 			const api3 = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'API 3' },
 			});
@@ -234,22 +234,22 @@ describe('Merge', () => {
 
 		it('should connect merge inputs via WorkflowBuilder.to() pattern', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: { name: 'Website Form' },
 			});
 			const gmailTrigger = trigger({
-				type: 'n8n-nodes-base.gmailTrigger',
+				type: 'resin-nodes-base.gmailTrigger',
 				version: 1.3,
 				config: { name: 'Incoming Email' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Combine Sources' },
 			}) as MergeNode;
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
@@ -280,29 +280,29 @@ describe('Merge', () => {
 		});
 
 		it('should connect IF true/false branches to merge via WorkflowBuilder.to()', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'Check' },
 			}) as IfNode;
 			const processTrue = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process True' },
 			});
 			const processFalse = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process False' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Combine' },
 			}) as MergeNode;
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Final' },
 			});
@@ -335,24 +335,24 @@ describe('Merge', () => {
 		});
 
 		it('should connect IF true/false branches directly to merge inputs via .input(n)', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'Check' },
 			}) as IfNode;
 			const processTrue = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process True' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Combine' },
 			}) as MergeNode;
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Final' },
 			});
@@ -382,19 +382,19 @@ describe('Merge', () => {
 		});
 
 		it('should connect Switch case branches directly to merge inputs via .input(n)', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'Route' },
 			}) as SwitchNode;
 			const handleA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Handle A' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Collect' },
 			}) as MergeNode;
@@ -420,29 +420,29 @@ describe('Merge', () => {
 		});
 
 		it('should connect Switch cases to merge via WorkflowBuilder.to()', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const switchNode = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.4,
 				config: { name: 'Route' },
 			}) as SwitchNode;
 			const handleA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Handle A' },
 			});
 			const handleB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Handle B' },
 			});
 			const handleC = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Handle C' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Collect' },
 			}) as MergeNode;
@@ -475,34 +475,34 @@ describe('Merge', () => {
 		});
 
 		it('should connect SplitInBatches done output to merge via WorkflowBuilder.to()', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const sibNode = node({
-				type: 'n8n-nodes-base.splitInBatches',
+				type: 'resin-nodes-base.splitInBatches',
 				version: 3,
 				config: { name: 'Loop' },
 			}) as SplitInBatchesNode;
 			const processBatch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process Batch' },
 			});
 			const batchDone = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Batch Done' },
 			});
 			const otherSource = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Fetch Data' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge Results' },
 			}) as MergeNode;
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Output' },
 			});
@@ -537,19 +537,19 @@ describe('Merge', () => {
 		});
 
 		it('should handle WorkflowBuilder.to() to same merge node from already-added node', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const source1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Source 1' },
 			});
 			const source2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Source 2' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Join' },
 			}) as MergeNode;
@@ -577,14 +577,14 @@ describe('Merge', () => {
 		});
 
 		it('should not create duplicate connections when .to(merge.input(n)) is called twice from same source', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const source = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Source' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge' },
 			}) as MergeNode;
@@ -606,19 +606,19 @@ describe('Merge', () => {
 		});
 
 		it('should chain downstream after WorkflowBuilder.to(inputTarget)', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const source = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Source' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge' },
 			}) as MergeNode;
 			const next = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Next' },
 			});
@@ -635,14 +635,14 @@ describe('Merge', () => {
 		});
 
 		it('should support merge node self-loop via WorkflowBuilder.to()', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Accumulator' },
 			}) as MergeNode;
 			const process = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
@@ -670,25 +670,25 @@ describe('Merge', () => {
 		});
 
 		it('should handle duplicate source names connecting to merge inputs', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			// Two nodes with the same default name - second one gets auto-renamed to "Process 1"
 			const process1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
 			const process2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Combine' },
 			}) as MergeNode;
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Output' },
 			});
@@ -723,34 +723,34 @@ describe('Merge', () => {
 		});
 
 		it('should connect two merge nodes to each other via WorkflowBuilder.to()', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const sourceA = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Fetch A' },
 			});
 			const sourceB = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Fetch B' },
 			});
 			const sourceC = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Fetch C' },
 			});
 			const merge1 = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge AB' },
 			}) as MergeNode;
 			const merge2 = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge Final' },
 			}) as MergeNode;
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Output' },
 			});
@@ -791,27 +791,27 @@ describe('Merge', () => {
 
 		it('should not connect to both inputs when using inline chain pattern with .to([])', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: { name: 'Webhook' },
 			});
 			const mergeResults = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Merge Results' },
 			}) as MergeNode;
 			const fetchEmails = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Fetch Emails' },
 			});
 			const summarizeEmails = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Summarize Emails' },
 			});
 			const fetchWeather = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Fetch Weather' },
 			});
@@ -842,25 +842,25 @@ describe('Merge', () => {
 		});
 
 		it('should handle duplicate node names with workflow-level .to() to merge inputs', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const mergeNode = node({
-				type: 'n8n-nodes-base.merge',
+				type: 'resin-nodes-base.merge',
 				version: 3,
 				config: { name: 'Combine' },
 			}) as MergeNode;
 			// Both nodes have the same name - second will be auto-renamed to "Process 1"
 			const process1 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
 			const process2 = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Downstream' },
 			});

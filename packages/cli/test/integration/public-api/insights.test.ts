@@ -1,6 +1,6 @@
-import { insightsSummarySchema } from '@n8n/api-types';
-import { createTeamProject, createWorkflow, testDb } from '@n8n/backend-test-utils';
-import { type User } from '@n8n/db';
+import { insightsSummarySchema } from '@resin/api-types';
+import { createTeamProject, createWorkflow, testDb } from '@resin/backend-test-utils';
+import { type User } from '@resin/db';
 import { DateTime } from 'luxon';
 
 import { createOwnerWithApiKey } from '../shared/db/users';

@@ -17,45 +17,45 @@ export const RISK_CATEGORIES: Risk.Category[] = [
  */
 
 export const SQL_NODE_TYPES_WITH_QUERY_PARAMS = new Set([
-	'n8n-nodes-base.postgres',
-	'n8n-nodes-base.crateDb',
-	'n8n-nodes-base.questDb',
-	'n8n-nodes-base.timescaleDb',
+	'resin-nodes-base.postgres',
+	'resin-nodes-base.crateDb',
+	'resin-nodes-base.questDb',
+	'resin-nodes-base.timescaleDb',
 ]);
 
 export const SQL_NODE_TYPES = new Set([
 	...SQL_NODE_TYPES_WITH_QUERY_PARAMS,
-	'n8n-nodes-base.mySql',
-	'n8n-nodes-base.microsoftSql',
-	'n8n-nodes-base.snowflake',
+	'resin-nodes-base.mySql',
+	'resin-nodes-base.microsoftSql',
+	'resin-nodes-base.snowflake',
 ]);
 
-export const WEBHOOK_NODE_TYPE = 'n8n-nodes-base.webhook';
+export const WEBHOOK_NODE_TYPE = 'resin-nodes-base.webhook';
 
 export const WEBHOOK_VALIDATOR_NODE_TYPES = new Set([
-	'n8n-nodes-base.if',
-	'n8n-nodes-base.switch',
-	'n8n-nodes-base.code',
-	'n8n-nodes-base.function',
-	'n8n-nodes-base.functionItem',
+	'resin-nodes-base.if',
+	'resin-nodes-base.switch',
+	'resin-nodes-base.code',
+	'resin-nodes-base.function',
+	'resin-nodes-base.functionItem',
 ]);
 
 export const FILESYSTEM_INTERACTION_NODE_TYPES = new Set([
-	'n8n-nodes-base.readPdf',
-	'n8n-nodes-base.readBinaryFile',
-	'n8n-nodes-base.readBinaryFiles',
-	'n8n-nodes-base.spreadsheetFile',
-	'n8n-nodes-base.writeBinaryFile',
+	'resin-nodes-base.readPdf',
+	'resin-nodes-base.readBinaryFile',
+	'resin-nodes-base.readBinaryFiles',
+	'resin-nodes-base.spreadsheetFile',
+	'resin-nodes-base.writeBinaryFile',
 ]);
 
 export const OFFICIAL_RISKY_NODE_TYPES = new Set([
-	'n8n-nodes-base.executeCommand',
-	'n8n-nodes-base.code',
-	'n8n-nodes-base.function',
-	'n8n-nodes-base.functionItem',
-	'n8n-nodes-base.httpRequest',
-	'n8n-nodes-base.ssh',
-	'n8n-nodes-base.ftp',
+	'resin-nodes-base.executeCommand',
+	'resin-nodes-base.code',
+	'resin-nodes-base.function',
+	'resin-nodes-base.functionItem',
+	'resin-nodes-base.httpRequest',
+	'resin-nodes-base.ssh',
+	'resin-nodes-base.ftp',
 ]);
 
 /**

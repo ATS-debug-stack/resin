@@ -1,5 +1,5 @@
-import type { AiEvent, IDataObject, IExecuteFunctions, ISupplyDataFunctions } from 'n8n-workflow';
-import { jsonStringify } from 'n8n-workflow';
+import type { AiEvent, IDataObject, IExecuteFunctions, ISupplyDataFunctions } from 'resin-workflow';
+import { jsonStringify } from 'resin-workflow';
 
 export function logAiEvent(
 	executeFunctions: IExecuteFunctions | ISupplyDataFunctions,

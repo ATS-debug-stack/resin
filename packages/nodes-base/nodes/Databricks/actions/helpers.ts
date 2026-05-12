@@ -1,5 +1,5 @@
-import { UserError } from 'n8n-workflow';
-import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
+import type { IExecuteFunctions, ILoadOptionsFunctions } from 'resin-workflow';
 
 import type { DatabricksCredentials, OpenAPISchema } from './interfaces';
 

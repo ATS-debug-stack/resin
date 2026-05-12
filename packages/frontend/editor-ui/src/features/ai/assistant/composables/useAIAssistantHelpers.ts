@@ -4,7 +4,7 @@ import {
 	isFilterValue,
 	isResourceLocatorValue,
 	isResourceMapperValue,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	FilterValue,
 	IDataObject,
@@ -15,7 +15,7 @@ import type {
 	NodeError,
 	NodeOperationError,
 	NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { useWorkflowHelpers } from '@/app/composables/useWorkflowHelpers';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
@@ -31,7 +31,7 @@ import {
 } from '@/app/stores/workflowDocument.store';
 import { useDataSchema } from '@/app/composables/useDataSchema';
 import { AI_ASSISTANT_MAX_CONTENT_LENGTH, VIEWS } from '@/app/constants';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import type { IWorkflowDb } from '@/Interface';
 import { getObjectSizeInKB } from '@/app/utils/objectUtils';
 

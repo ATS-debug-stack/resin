@@ -31,7 +31,7 @@
 import { Agent } from '@mastra/core/agent';
 import type { ToolsInput } from '@mastra/core/agent';
 import { InMemoryStore } from '@mastra/core/storage';
-import type { InstanceAiEvent } from '@n8n/api-types';
+import type { InstanceAiEvent } from '@resin/api-types';
 import { nanoid } from 'nanoid';
 import { createWriteStream, type WriteStream } from 'node:fs';
 import { mkdir } from 'node:fs/promises';

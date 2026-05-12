@@ -1,5 +1,5 @@
-import type { CredentialProvider, ResolvedCredential, CredentialListItem } from '@n8n/agents';
-import type { CredentialsEntity, User } from '@n8n/db';
+import type { CredentialProvider, ResolvedCredential, CredentialListItem } from '@resin/agents';
+import type { CredentialsEntity, User } from '@resin/db';
 
 import type { CredentialsService } from '@/credentials/credentials.service';
 

@@ -4,12 +4,12 @@ import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 import { createComponentRenderer } from '@/__tests__/render';
 import { mockedStore } from '@/__tests__/utils';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import MigrationRuleDetail from './MigrationRuleDetail.vue';
-import * as breakingChangesApi from '@n8n/rest-api-client/api/breaking-changes';
-import type { BreakingChangeWorkflowRuleResult } from '@n8n/api-types';
+import * as breakingChangesApi from '@resin/rest-api-client/api/breaking-changes';
+import type { BreakingChangeWorkflowRuleResult } from '@resin/api-types';
 
-vi.mock('@n8n/rest-api-client/api/breaking-changes', () => ({
+vi.mock('@resin/rest-api-client/api/breaking-changes', () => ({
 	getReportForRule: vi.fn(),
 }));
 

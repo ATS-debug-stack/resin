@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { ChatArtifact } from '@n8n/api-types';
-import { N8nIconButton, N8nSelect2 } from '@n8n/design-system';
+import type { ChatArtifact } from '@resin/api-types';
+import { N8nIconButton, N8nSelect2 } from '@resin/design-system';
 import { computed } from 'vue';
 import ChatMarkdownChunk from './ChatMarkdownChunk.vue';
 

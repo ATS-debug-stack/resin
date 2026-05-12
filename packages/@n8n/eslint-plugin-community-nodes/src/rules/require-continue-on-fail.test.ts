@@ -6,7 +6,7 @@ const ruleTester = new RuleTester();
 
 function createNodeWithExecute(executeBody: string): string {
 	return `
-import type { INodeType, INodeTypeDescription, IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription, IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {
@@ -60,7 +60,7 @@ export class RegularClass {
 		{
 			name: 'node class without execute method (should be ignored)',
 			code: `
-import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {
@@ -79,7 +79,7 @@ export class TestNode implements INodeType {
 		{
 			name: 'node extending Node base class with continueOnFail',
 			code: `
-import { Node } from 'n8n-workflow';
+import { Node } from 'resin-workflow';
 
 export class TestNode extends Node {
 	async execute() {

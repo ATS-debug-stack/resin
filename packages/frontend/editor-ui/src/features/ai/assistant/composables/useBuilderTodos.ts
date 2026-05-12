@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 import type { WorkflowValidationIssue } from '@/Interface';
 import {
@@ -8,7 +8,7 @@ import {
 	formatPlaceholderPath,
 	isPlaceholderValue,
 	type PlaceholderDetail,
-} from '@n8n/utils';
+} from '@resin/utils';
 
 export {
 	extractPlaceholderLabels,

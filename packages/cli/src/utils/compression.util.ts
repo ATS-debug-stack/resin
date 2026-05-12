@@ -5,7 +5,7 @@ import * as path from 'path';
 import { Readable } from 'stream';
 import { pipeline } from 'stream/promises';
 import { createInflateRaw } from 'zlib';
-import { safeJoinPath } from '@n8n/backend-common';
+import { safeJoinPath } from '@resin/backend-common';
 import * as fflate from 'fflate';
 
 // Reuse the same compression levels as the Compression node

@@ -1,7 +1,7 @@
 import type { Document } from '@langchain/core/documents';
 import type { TextSplitter } from '@langchain/textsplitters';
-import type { IExecuteFunctions, INode, INodeExecutionData } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INode, INodeExecutionData } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { N8nJsonLoader } from 'src/utils/n8n-json-loader';
 
@@ -20,7 +20,7 @@ describe('N8nJsonLoader', () => {
 		mockNode = {
 			id: 'test-node',
 			name: 'Test Node',
-			type: 'n8n-nodes-base.testNode',
+			type: 'resin-nodes-base.testNode',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

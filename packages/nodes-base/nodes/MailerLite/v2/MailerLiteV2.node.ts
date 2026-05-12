@@ -5,8 +5,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	INodeTypeBaseDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import type { Subscriber } from './MailerLite.Interface';
 import { subscriberFields, subscriberOperations } from './SubscriberDescription';

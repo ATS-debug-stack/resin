@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import { mock } from 'jest-mock-extended';
 
 import { resolveDataTableId } from '../../common/utils';
@@ -7,7 +7,7 @@ import { resolveDataTableId } from '../../common/utils';
 const mockNode: INode = {
 	id: 'test-node',
 	name: 'Test Node',
-	type: 'n8n-nodes-base.dataTable',
+	type: 'resin-nodes-base.dataTable',
 	typeVersion: 1,
 	position: [0, 0],
 	parameters: {},

@@ -41,7 +41,7 @@ export function isSplitInBatchesBuilder(value: unknown): boolean {
  * SplitInBatchesBuilder shape for extraction
  */
 export interface SplitInBatchesBuilderShape {
-	sibNode: NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>;
+	sibNode: NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>;
 	_doneNodes: Array<NodeInstance<string, string, unknown>>;
 	_eachNodes: Array<NodeInstance<string, string, unknown>>;
 	_doneBatches: Array<

@@ -7,16 +7,16 @@ import Modal from '@/app/components/Modal.vue';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
-import type { WorkflowDataCreate } from '@n8n/rest-api-client/api/workflows';
-import { createEventBus, type EventBus } from '@n8n/utils/event-bus';
+import type { WorkflowDataCreate } from '@resin/rest-api-client/api/workflows';
+import { createEventBus, type EventBus } from '@resin/utils/event-bus';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useWorkflowHelpers } from '@/app/composables/useWorkflowHelpers';
 import { useRouter } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useWorkflowSaving } from '@/app/composables/useWorkflowSaving';
 
-import { N8nButton, N8nInput } from '@n8n/design-system';
+import { N8nButton, N8nInput } from '@resin/design-system';
 const props = defineProps<{
 	modalName: string;
 	isActive: boolean;

@@ -3,8 +3,8 @@ import type {
 	IDataObject,
 	INodeExecutionData,
 	ResourceMapperField,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import {
 	cellFormat,

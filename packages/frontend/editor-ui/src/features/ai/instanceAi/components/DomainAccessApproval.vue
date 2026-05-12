@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { N8nButton, N8nText } from '@n8n/design-system';
-import type { ActionDropdownItem } from '@n8n/design-system/types';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nText } from '@resin/design-system';
+import type { ActionDropdownItem } from '@resin/design-system/types';
+import { useI18n } from '@resin/i18n';
 import { computed, ref } from 'vue';
 import { useThread } from '../instanceAi.store';
 import ConfirmationFooter from './ConfirmationFooter.vue';

@@ -2,9 +2,9 @@
 import NodeIcon from '@/app/components/NodeIcon.vue';
 import Modal from '@/app/components/Modal.vue';
 import { useUIStore } from '@/app/stores/ui.store';
-import { N8nButton, N8nInlineTextEdit } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import type { INode } from 'n8n-workflow';
+import { N8nButton, N8nInlineTextEdit } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import type { INode } from 'resin-workflow';
 import { ref } from 'vue';
 import NodeToolSettingsContent from '@/features/shared/toolConfig/NodeToolSettingsContent.vue';
 

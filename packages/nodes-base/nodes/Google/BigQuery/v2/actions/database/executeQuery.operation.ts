@@ -3,8 +3,8 @@ import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
-import { ApplicationError, NodeOperationError, sleep } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, NodeOperationError, sleep } from 'resin-workflow';
 
 import { getResolvables, updateDisplayOptions } from '@utils/utilities';
 

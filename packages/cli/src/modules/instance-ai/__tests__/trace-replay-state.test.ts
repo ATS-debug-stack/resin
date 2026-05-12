@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	createMemory: jest.fn(),
 	workflowLoopStateSchema: z.string(),
 	attemptRecordSchema: z.object({}),
@@ -21,7 +21,7 @@ jest.mock('@n8n/instance-ai', () => ({
 	})),
 }));
 
-import type { InstanceAiTraceContext } from '@n8n/instance-ai';
+import type { InstanceAiTraceContext } from '@resin/instance-ai';
 
 import { TraceReplayState } from '../trace-replay-state';
 

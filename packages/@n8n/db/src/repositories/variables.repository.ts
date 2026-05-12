@@ -1,5 +1,5 @@
-import { Service } from '@n8n/di';
-import { DataSource, In, Repository } from '@n8n/typeorm';
+import { Service } from '@resin/di';
+import { DataSource, In, Repository } from '@resin/typeorm';
 
 import { Variables } from '../entities';
 

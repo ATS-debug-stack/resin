@@ -7,7 +7,7 @@ import type {
 	ILoadOptionsFunctions,
 	IN8nHttpFullResponse,
 	INodeExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	getCursorPaginator,

@@ -5,7 +5,7 @@ import { useUIStore } from '@/app/stores/ui.store';
 import { useChatStore } from '@/features/ai/chatHub/chat.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { fetchChatModelsApi, fetchAgentApi } from '@/features/ai/chatHub/chat.api';
 import Modal from '@/app/components/Modal.vue';
 import ModelSelector from '@/features/ai/chatHub/components/ModelSelector.vue';
@@ -18,7 +18,7 @@ import {
 	type ChatHubProvider,
 	type ChatModelDto,
 	type ChatHubAgentKnowledgeItem,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import {
 	N8nButton,
 	N8nHeading,
@@ -27,13 +27,13 @@ import {
 	N8nInputLabel,
 	N8nText,
 	N8nCallout,
-} from '@n8n/design-system';
-import type { IconOrEmoji } from '@n8n/design-system/components/N8nIconPicker/types';
-import { useI18n } from '@n8n/i18n';
-import { assert } from '@n8n/utils/assert';
+} from '@resin/design-system';
+import type { IconOrEmoji } from '@resin/design-system/components/N8nIconPicker/types';
+import { useI18n } from '@resin/i18n';
+import { assert } from '@resin/utils/assert';
 import { computed, onMounted, ref, useTemplateRef, watch } from 'vue';
 import { useDocumentVisibility, useTimeoutPoll } from '@vueuse/core';
-import type { SuggestedPrompt } from '@n8n/api-types';
+import type { SuggestedPrompt } from '@resin/api-types';
 import type { CredentialsMap } from '../chat.types';
 import SuggestedPromptsEditor from './SuggestedPromptsEditor.vue';
 import ToolsSelector from './ToolsSelector.vue';

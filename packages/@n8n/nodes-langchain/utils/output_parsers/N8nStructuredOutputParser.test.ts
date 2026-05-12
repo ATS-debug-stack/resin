@@ -1,5 +1,5 @@
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 import { z } from 'zod';
@@ -15,7 +15,7 @@ describe('N8nStructuredOutputParser', () => {
 		mockContext.addOutputData.mockReturnValue(undefined);
 		mockContext.getNode.mockReturnValue({
 			name: 'Test Node',
-			type: 'n8n-nodes-langchain.outputParserStructured',
+			type: 'resin-nodes-langchain.outputParserStructured',
 			typeVersion: 1.3,
 			position: [0, 0],
 		} as INode);

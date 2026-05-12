@@ -1,6 +1,6 @@
 import type { RuntimeBridge } from '../types';
 import type { Logger } from '../types/bridge';
-import { IsolateError } from '@n8n/errors';
+import { IsolateError } from '@resin/errors';
 
 export class PoolDisposedError extends IsolateError {
 	constructor() {

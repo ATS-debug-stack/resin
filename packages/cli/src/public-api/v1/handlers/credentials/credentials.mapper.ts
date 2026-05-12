@@ -1,9 +1,9 @@
 import {
 	publicApiCredentialResponseSchema,
 	type PublicApiCredentialResponse,
-} from '@n8n/api-types';
-import type { ICredentialsDb } from '@n8n/db';
-import { UnexpectedError } from 'n8n-workflow';
+} from '@resin/api-types';
+import type { ICredentialsDb } from '@resin/db';
+import { UnexpectedError } from 'resin-workflow';
 
 export function toPublicApiCredentialResponse(
 	credential: Pick<

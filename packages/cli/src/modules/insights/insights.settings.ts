@@ -1,5 +1,5 @@
-import { LicenseState } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
+import { LicenseState } from '@resin/backend-common';
+import { Service } from '@resin/di';
 
 import { INSIGHTS_DATE_RANGE_KEYS, keyRangeToDays } from './insights.constants';
 

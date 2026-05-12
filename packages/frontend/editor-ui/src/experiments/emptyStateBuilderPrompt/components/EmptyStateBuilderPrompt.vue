@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
-import { N8nButton, N8nPromptInput, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nPromptInput, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { WORKFLOW_SUGGESTIONS } from '../constants';
 import { VIEWS } from '@/app/constants/navigation';
 import { useToast } from '@/app/composables/useToast';

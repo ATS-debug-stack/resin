@@ -1,7 +1,7 @@
-import type { BannerName } from '@n8n/api-types';
-import { SettingsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { ErrorReporter } from 'n8n-core';
+import type { BannerName } from '@resin/api-types';
+import { SettingsRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { ErrorReporter } from 'resin-core';
 
 import config from '@/config';
 

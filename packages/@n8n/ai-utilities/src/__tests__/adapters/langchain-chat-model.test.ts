@@ -1,6 +1,6 @@
 import type { CallbackManagerForLLMRun } from '@langchain/core/callbacks/manager';
 import { HumanMessage } from '@langchain/core/messages';
-import type { ISupplyDataFunctions } from 'n8n-workflow';
+import type { ISupplyDataFunctions } from 'resin-workflow';
 
 import type { GenerateResult, StreamChunk } from 'src/types/output';
 
@@ -84,10 +84,10 @@ describe('LangchainAdapter', () => {
 	});
 
 	describe('_llmType', () => {
-		it('returns "n8n-chat-model"', () => {
+		it('returns "resin-chat-model"', () => {
 			const adapter = new LangchainChatModelAdapter(createMockChatModel());
 
-			expect(adapter._llmType()).toBe('n8n-chat-model');
+			expect(adapter._llmType()).toBe('resin-chat-model');
 		});
 	});
 

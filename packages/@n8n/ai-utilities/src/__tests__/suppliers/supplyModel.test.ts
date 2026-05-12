@@ -1,4 +1,4 @@
-import type { ISupplyDataFunctions } from 'n8n-workflow';
+import type { ISupplyDataFunctions } from 'resin-workflow';
 
 import { supplyModel } from 'src/suppliers/supplyModel';
 

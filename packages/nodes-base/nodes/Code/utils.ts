@@ -1,4 +1,4 @@
-import type { INodeExecutionData, IDataObject, IExecuteFunctions } from 'n8n-workflow';
+import type { INodeExecutionData, IDataObject, IExecuteFunctions } from 'resin-workflow';
 
 export function isObject(maybe: unknown): maybe is { [key: string]: unknown } {
 	return (

@@ -1,6 +1,6 @@
 import type { RequestResponseMetadata } from '@utils/agent-execution';
-import { NodeOperationError } from 'n8n-workflow';
-import type { INode, EngineResponse } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
+import type { INode, EngineResponse } from 'resin-workflow';
 
 /**
  * Checks if the maximum iteration limit has been reached and throws an error if so.

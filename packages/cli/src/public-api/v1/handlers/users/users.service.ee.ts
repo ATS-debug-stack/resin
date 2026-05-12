@@ -1,8 +1,8 @@
-import type { User } from '@n8n/db';
-import { UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { User } from '@resin/db';
+import { UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
+import { In } from '@resin/typeorm';
 import pick from 'lodash/pick';
 import { validate as uuidValidate } from 'uuid';
 

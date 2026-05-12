@@ -1,9 +1,9 @@
-import type { InstanceAiWorkflowSetupNode } from '@n8n/api-types';
+import type { InstanceAiWorkflowSetupNode } from '@resin/api-types';
 import { computed, type ComputedRef, type Ref } from 'vue';
 import { isExpression } from '@/app/utils/expressions';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { isHttpRequestNodeType } from '@/features/setupPanel/setupPanel.utils';
-import { NodeHelpers, type INodeParameters } from 'n8n-workflow';
+import { NodeHelpers, type INodeParameters } from 'resin-workflow';
 import type { WorkflowSetupSection } from '../workflowSetup.types';
 import { buildSectionId } from '../workflowSetup.helpers';
 

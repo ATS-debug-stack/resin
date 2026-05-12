@@ -1,4 +1,4 @@
-import type { InstanceAiPermissions } from '@n8n/api-types';
+import type { InstanceAiPermissions } from '@resin/api-types';
 
 import type { InstanceAiContext, CredentialSummary, CredentialDetail } from '../../types';
 import { createCredentialsTool, type CredentialAction } from '../credentials.tool';
@@ -332,7 +332,7 @@ describe('credentials tool', () => {
 				id: '42',
 				name: 'My Notion Key',
 				type: 'notionApi',
-				nodesWithAccess: [{ nodeType: 'n8n-nodes-base.notion' }],
+				nodesWithAccess: [{ nodeType: 'resin-nodes-base.notion' }],
 			};
 			const context = createMockContext();
 			(context.credentialService.get as jest.Mock).mockResolvedValue(detail);

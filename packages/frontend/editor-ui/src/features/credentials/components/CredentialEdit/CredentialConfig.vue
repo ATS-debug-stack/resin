@@ -7,13 +7,13 @@ import type {
 	ICredentialType,
 	INode,
 	INodeProperties,
-} from 'n8n-workflow';
-import { isCommunityPackageName } from 'n8n-workflow';
+} from 'resin-workflow';
+import { isCommunityPackageName } from 'resin-workflow';
 
 import type { IUpdateInformation } from '@/Interface';
 import CredentialModeSelector, { type CredentialModeOption } from './CredentialModeSelector.vue';
 import EnterpriseEdition from '@/app/components/EnterpriseEdition.ee.vue';
-import { useI18n, addCredentialTranslation } from '@n8n/i18n';
+import { useI18n, addCredentialTranslation } from '@resin/i18n';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import {
 	BUILTIN_CREDENTIALS_DOCS_URL,
@@ -21,10 +21,10 @@ import {
 	EnterpriseEditionFeature,
 	NEW_ASSISTANT_SESSION_MODAL,
 } from '@/app/constants';
-import type { PermissionsRecord } from '@n8n/permissions';
+import type { PermissionsRecord } from '@resin/permissions';
 import { useCredentialsStore } from '../../credentials.store';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import Banner from '@/app/components/Banner.vue';
@@ -43,7 +43,7 @@ import {
 	N8nLink,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { ElSwitch } from 'element-plus';
 import { useQuickConnect } from '../../quickConnect/composables/useQuickConnect';
 import QuickConnectButton from '../../quickConnect/components/QuickConnectButton.vue';

@@ -1,9 +1,9 @@
-import type { Constructable } from '@n8n/di';
+import type { Constructable } from '@resin/di';
 import type {
 	ICredentialContext,
 	ICredentialDataDecryptedObject,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 /**
  * Configuration object passed to resolver methods. Structure is defined by resolver type's metadata.options.

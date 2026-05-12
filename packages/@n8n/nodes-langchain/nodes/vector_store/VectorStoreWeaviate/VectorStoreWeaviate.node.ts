@@ -8,12 +8,12 @@ import {
 	type INodeProperties,
 	type INodePropertyCollection,
 	type INodePropertyOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { type ProxiesParams, type TimeoutParams } from 'weaviate-client';
 
 import type { WeaviateCompositeFilter, WeaviateCredential } from './Weaviate.utils';
 import { createWeaviateClient, parseCompositeFilter } from './Weaviate.utils';
-import { createVectorStoreNode } from '@n8n/ai-utilities';
+import { createVectorStoreNode } from '@resin/ai-utilities';
 import { weaviateCollectionsSearch } from '../shared/methods/listSearch';
 import { weaviateCollectionRLC } from '../shared/descriptions';
 

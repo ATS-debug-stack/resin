@@ -1,4 +1,4 @@
-import type { NodeExecuteBefore } from '@n8n/api-types/push/execution';
+import type { NodeExecuteBefore } from '@resin/api-types/push/execution';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import {
 	createWorkflowExecutionStateId,

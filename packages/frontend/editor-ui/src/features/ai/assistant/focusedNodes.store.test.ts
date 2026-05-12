@@ -49,7 +49,7 @@ vi.mock('vue-router', () => ({
 	RouterLink: vi.fn(),
 }));
 
-const createMockNode = (id: string, name: string, type = 'n8n-nodes-base.httpRequest'): INodeUi =>
+const createMockNode = (id: string, name: string, type = 'resin-nodes-base.httpRequest'): INodeUi =>
 	({
 		id,
 		name,
@@ -81,9 +81,9 @@ describe('useFocusedNodesStore', () => {
 			createWorkflowDocumentId(workflowsStore.workflowId),
 		);
 		workflowDocumentStore.setNodes([
-			createMockNode('node-1', 'HTTP Request', 'n8n-nodes-base.httpRequest'),
-			createMockNode('node-2', 'Code', 'n8n-nodes-base.code'),
-			createMockNode('node-3', 'Set', 'n8n-nodes-base.set'),
+			createMockNode('node-1', 'HTTP Request', 'resin-nodes-base.httpRequest'),
+			createMockNode('node-2', 'Code', 'resin-nodes-base.code'),
+			createMockNode('node-3', 'Set', 'resin-nodes-base.set'),
 		]);
 
 		focusedNodesStore = useFocusedNodesStore();
@@ -106,13 +106,13 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 				'node-2': {
 					nodeId: 'node-2',
 					nodeName: 'Code',
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'unconfirmed',
 				},
 			};
@@ -126,13 +126,13 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 				'node-2': {
 					nodeId: 'node-2',
 					nodeName: 'Code',
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'unconfirmed',
 				},
 			};
@@ -147,19 +147,19 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 				'node-2': {
 					nodeId: 'node-2',
 					nodeName: 'Code',
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'confirmed',
 				},
 				'node-3': {
 					nodeId: 'node-3',
 					nodeName: 'Set',
-					nodeType: 'n8n-nodes-base.set',
+					nodeType: 'resin-nodes-base.set',
 					state: 'unconfirmed',
 				},
 			};
@@ -173,13 +173,13 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 				'node-2': {
 					nodeId: 'node-2',
 					nodeName: 'Code',
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'unconfirmed',
 				},
 			};
@@ -193,7 +193,7 @@ describe('useFocusedNodesStore', () => {
 				map[`node-${i}`] = {
 					nodeId: `node-${i}`,
 					nodeName: `Node ${i}`,
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'confirmed',
 				};
 			}
@@ -207,7 +207,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -220,13 +220,13 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 				'node-2': {
 					nodeId: 'node-2',
 					nodeName: 'Code',
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'unconfirmed',
 				},
 			};
@@ -241,7 +241,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -261,7 +261,7 @@ describe('useFocusedNodesStore', () => {
 				map[`node-${i}`] = {
 					nodeId: `node-${i}`,
 					nodeName: `Node ${i}`,
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'unconfirmed',
 				};
 			}
@@ -281,7 +281,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'unconfirmed',
 				},
 			};
@@ -297,7 +297,7 @@ describe('useFocusedNodesStore', () => {
 			expect(focusedNodesStore.focusedNodesMap['node-1']).toEqual({
 				nodeId: 'node-1',
 				nodeName: 'HTTP Request',
-				nodeType: 'n8n-nodes-base.httpRequest',
+				nodeType: 'resin-nodes-base.httpRequest',
 				state: 'confirmed',
 			});
 		});
@@ -321,7 +321,7 @@ describe('useFocusedNodesStore', () => {
 			expect(track).toHaveBeenCalledWith('ai.focusedNodes.added', {
 				source: 'context_menu',
 				node_count: 1,
-				node_types: ['n8n-nodes-base.httpRequest'],
+				node_types: ['resin-nodes-base.httpRequest'],
 			});
 		});
 
@@ -331,7 +331,7 @@ describe('useFocusedNodesStore', () => {
 			expect(track).toHaveBeenCalledWith('ai.focusedNodes.added', {
 				source: 'mention',
 				node_count: 1,
-				node_types: ['n8n-nodes-base.httpRequest'],
+				node_types: ['resin-nodes-base.httpRequest'],
 				mention_query_length: 5,
 			});
 		});
@@ -366,7 +366,7 @@ describe('useFocusedNodesStore', () => {
 			expect(focusedNodesStore.focusedNodesMap['node-1']).toEqual({
 				nodeId: 'node-1',
 				nodeName: 'HTTP Request',
-				nodeType: 'n8n-nodes-base.httpRequest',
+				nodeType: 'resin-nodes-base.httpRequest',
 				state: 'unconfirmed',
 			});
 		});
@@ -376,7 +376,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -392,7 +392,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'unconfirmed',
 				},
 			};
@@ -422,7 +422,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'unconfirmed',
 				},
 			};
@@ -437,7 +437,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -452,7 +452,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -469,7 +469,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -484,7 +484,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -503,7 +503,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'unconfirmed',
 				},
 			};
@@ -518,7 +518,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -536,13 +536,13 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 				'node-2': {
 					nodeId: 'node-2',
 					nodeName: 'Code',
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'confirmed',
 				},
 			};
@@ -562,7 +562,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -577,13 +577,13 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 				'node-2': {
 					nodeId: 'node-2',
 					nodeName: 'Code',
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'confirmed',
 				},
 			};
@@ -602,7 +602,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'unconfirmed',
 				},
 			};
@@ -620,7 +620,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -636,7 +636,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -651,7 +651,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -672,7 +672,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -695,7 +695,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -718,7 +718,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -735,13 +735,13 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'unconfirmed',
 				},
 				'node-2': {
 					nodeId: 'node-2',
 					nodeName: 'Code',
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					state: 'unconfirmed',
 				},
 			};
@@ -791,7 +791,11 @@ describe('useFocusedNodesStore', () => {
 		});
 
 		it('should include issues (param + credential)', () => {
-			const nodeWithIssues = createMockNode('node-1', 'HTTP Request', 'n8n-nodes-base.httpRequest');
+			const nodeWithIssues = createMockNode(
+				'node-1',
+				'HTTP Request',
+				'resin-nodes-base.httpRequest',
+			);
 			(nodeWithIssues as INodeUi & { issues: unknown }).issues = {
 				parameters: {
 					url: ['URL is required'],
@@ -821,7 +825,7 @@ describe('useFocusedNodesStore', () => {
 				'missing-node': {
 					nodeId: 'missing-node',
 					nodeName: 'Deleted Node',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'confirmed',
 				},
 			};
@@ -870,8 +874,8 @@ describe('useFocusedNodesStore', () => {
 			);
 			// Remove node-1 from workflow
 			workflowDocumentStore.setNodes([
-				createMockNode('node-2', 'Code', 'n8n-nodes-base.code'),
-				createMockNode('node-3', 'Set', 'n8n-nodes-base.set'),
+				createMockNode('node-2', 'Code', 'resin-nodes-base.code'),
+				createMockNode('node-3', 'Set', 'resin-nodes-base.set'),
 			]);
 			await nextTick();
 
@@ -889,7 +893,7 @@ describe('useFocusedNodesStore', () => {
 				'node-1': {
 					nodeId: 'node-1',
 					nodeName: 'HTTP Request',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					state: 'unconfirmed',
 				},
 			};
@@ -898,8 +902,8 @@ describe('useFocusedNodesStore', () => {
 				createWorkflowDocumentId(workflowsStore.workflowId),
 			);
 			workflowDocumentStore.setNodes([
-				createMockNode('node-2', 'Code', 'n8n-nodes-base.code'),
-				createMockNode('node-3', 'Set', 'n8n-nodes-base.set'),
+				createMockNode('node-2', 'Code', 'resin-nodes-base.code'),
+				createMockNode('node-3', 'Set', 'resin-nodes-base.set'),
 			]);
 			await nextTick();
 
@@ -914,9 +918,9 @@ describe('useFocusedNodesStore', () => {
 				createWorkflowDocumentId(workflowsStore.workflowId),
 			);
 			workflowDocumentStore.setNodes([
-				createMockNode('node-1', 'My HTTP Request', 'n8n-nodes-base.httpRequest'),
-				createMockNode('node-2', 'Code', 'n8n-nodes-base.code'),
-				createMockNode('node-3', 'Set', 'n8n-nodes-base.set'),
+				createMockNode('node-1', 'My HTTP Request', 'resin-nodes-base.httpRequest'),
+				createMockNode('node-2', 'Code', 'resin-nodes-base.code'),
+				createMockNode('node-3', 'Set', 'resin-nodes-base.set'),
 			]);
 			await nextTick();
 
@@ -931,7 +935,7 @@ describe('useFocusedNodesStore', () => {
 			ndvStore.activeNode = createMockNode(
 				'node-2',
 				'Code',
-				'n8n-nodes-base.code',
+				'resin-nodes-base.code',
 			) as unknown as ReturnType<typeof mockedStore<typeof useNDVStore>>['activeNode'];
 			await nextTick();
 

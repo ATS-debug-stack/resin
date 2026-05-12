@@ -19,8 +19,8 @@ import {
 	domainAccessMetaSchema,
 	domainAccessActionSchema,
 	webSearchMetaSchema,
-} from '@n8n/api-types';
-import type { InstanceAiPermissionMode } from '@n8n/api-types';
+} from '@resin/api-types';
+import type { InstanceAiPermissionMode } from '@resin/api-types';
 import { nanoid } from 'nanoid';
 import { z } from 'zod';
 

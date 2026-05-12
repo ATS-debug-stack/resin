@@ -14,8 +14,8 @@ import {
 } from 'vue';
 
 import { ensureSyntaxTree } from '@codemirror/language';
-import type { IDataObject } from 'n8n-workflow';
-import { Expression, ExpressionExtensions } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
+import { Expression, ExpressionExtensions } from 'resin-workflow';
 
 import {
 	EXPRESSION_EDITOR_PARSER_TIMEOUT,
@@ -44,12 +44,12 @@ import {
 import { EditorView, type ViewUpdate } from '@codemirror/view';
 import debounce from 'lodash/debounce';
 import isEqual from 'lodash/isEqual';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useAutocompleteTelemetry } from '@/app/composables/useAutocompleteTelemetry';
 import { ignoreUpdateAnnotation } from '@/app/utils/forceParse';
 import { TARGET_NODE_PARAMETER_FACET } from '../plugins/codemirror/completions/constants';
-import { useDeviceSupport } from '@n8n/composables/useDeviceSupport';
+import { useDeviceSupport } from '@resin/composables/useDeviceSupport';
 import { isEventTargetContainedBy } from '@/app/utils/htmlUtils';
 
 export const useExpressionEditor = ({

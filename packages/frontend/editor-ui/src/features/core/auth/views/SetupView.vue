@@ -3,8 +3,8 @@ import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
-import { createPasswordRules } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { createPasswordRules } from '@resin/design-system';
 
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useUsersStore } from '@/features/settings/users/users.store';

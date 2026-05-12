@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitest/config';
-import { createBaseInlineConfig } from '@n8n/vitest-config/node';
+import { createBaseInlineConfig } from '@resin/vitest-config/node';
 
 const { reporters, outputFile, ...sharedTestConfig } = createBaseInlineConfig({
 	include: ['test/**/*.test.ts'],

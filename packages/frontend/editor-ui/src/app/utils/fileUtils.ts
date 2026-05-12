@@ -1,4 +1,4 @@
-import type { BinaryFileType, IBinaryData } from 'n8n-workflow';
+import type { BinaryFileType, IBinaryData } from 'resin-workflow';
 
 export async function convertFileToBinaryData(file: File): Promise<IBinaryData> {
 	const reader = new FileReader();

@@ -1,4 +1,4 @@
-import type { IExecuteData, INodeExecutionData, ISourceData } from 'n8n-workflow';
+import type { IExecuteData, INodeExecutionData, ISourceData } from 'resin-workflow';
 
 import { resolveSourceOverwrite } from '../resolve-source-overwrite';
 

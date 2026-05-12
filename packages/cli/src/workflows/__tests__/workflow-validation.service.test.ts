@@ -1,5 +1,5 @@
-import type { CredentialsRepository, WorkflowRepository } from '@n8n/db';
-import type { INode, IConnections, INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { CredentialsRepository, WorkflowRepository } from '@resin/db';
+import type { INode, IConnections, INodeType, INodeTypeDescription } from 'resin-workflow';
 import { mock } from 'jest-mock-extended';
 
 import type { NodeTypes } from '@/node-types';
@@ -23,7 +23,7 @@ describe('WorkflowValidationService', () => {
 			options?: { disabled?: boolean; source?: string },
 		): INode => ({
 			name,
-			type: 'n8n-nodes-base.executeWorkflow',
+			type: 'resin-nodes-base.executeWorkflow',
 			id: `node-${name}`,
 			typeVersion: 1,
 			position: [0, 0],
@@ -38,7 +38,7 @@ describe('WorkflowValidationService', () => {
 			const nodes: INode[] = [
 				{
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					id: 'node-1',
 					typeVersion: 1,
 					position: [0, 0],
@@ -305,7 +305,7 @@ describe('WorkflowValidationService', () => {
 
 		it('should return valid for workflow with no connected nodes', () => {
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook'),
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook'),
 			};
 			const connections: IConnections = {};
 
@@ -318,8 +318,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should return valid for workflow with all valid connected nodes', () => {
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook'),
-				'HTTP Request': createNode('HTTP Request', 'n8n-nodes-base.httpRequest', {
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook'),
+				'HTTP Request': createNode('HTTP Request', 'resin-nodes-base.httpRequest', {
 					credentials: { httpAuth: { id: 'cred-1' } },
 					parameters: { url: 'https://example.com' },
 				}),
@@ -329,10 +329,10 @@ describe('WorkflowValidationService', () => {
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((
 				type: string,
 			): INodeType | undefined => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return createMockNodeType([], [], true);
 				}
-				if (type === 'n8n-nodes-base.httpRequest') {
+				if (type === 'resin-nodes-base.httpRequest') {
 					return createMockNodeType(
 						[{ name: 'httpAuth', displayName: 'HTTP Auth', required: true }],
 						[{ name: 'url', required: true }],
@@ -348,8 +348,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should return invalid when connected node is missing required credential', () => {
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook'),
-				Agent: createNode('Agent', 'n8n-nodes-base.agent', {
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook'),
+				Agent: createNode('Agent', 'resin-nodes-base.agent', {
 					parameters: {},
 				}),
 			};
@@ -358,10 +358,10 @@ describe('WorkflowValidationService', () => {
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((
 				type: string,
 			): INodeType | undefined => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return createMockNodeType([], [], true);
 				}
-				if (type === 'n8n-nodes-base.agent') {
+				if (type === 'resin-nodes-base.agent') {
 					return createMockNodeType(
 						[{ name: 'openAiApi', displayName: 'OpenAI API', required: true }],
 						[],
@@ -381,8 +381,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should return invalid when connected node has credential without ID', () => {
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook'),
-				Agent: createNode('Agent', 'n8n-nodes-base.agent', {
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook'),
+				Agent: createNode('Agent', 'resin-nodes-base.agent', {
 					credentials: { openAiApi: { id: '' } },
 					parameters: {},
 				}),
@@ -392,10 +392,10 @@ describe('WorkflowValidationService', () => {
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((
 				type: string,
 			): INodeType | undefined => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return createMockNodeType([], [], true);
 				}
-				if (type === 'n8n-nodes-base.agent') {
+				if (type === 'resin-nodes-base.agent') {
 					return createMockNodeType(
 						[{ name: 'openAiApi', displayName: 'OpenAI API', required: true }],
 						[],
@@ -412,8 +412,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should skip validation for disabled nodes', () => {
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook'),
-				Agent: createNode('Agent', 'n8n-nodes-base.agent', {
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook'),
+				Agent: createNode('Agent', 'resin-nodes-base.agent', {
 					disabled: true,
 					parameters: {},
 				}),
@@ -423,10 +423,10 @@ describe('WorkflowValidationService', () => {
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((
 				type: string,
 			): INodeType | undefined => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return createMockNodeType([], [], true);
 				}
-				if (type === 'n8n-nodes-base.agent') {
+				if (type === 'resin-nodes-base.agent') {
 					return createMockNodeType(
 						[{ name: 'openAiApi', displayName: 'OpenAI API', required: true }],
 						[],
@@ -442,8 +442,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should skip validation for disconnected nodes', () => {
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook'),
-				Agent: createNode('Agent', 'n8n-nodes-base.agent', {
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook'),
+				Agent: createNode('Agent', 'resin-nodes-base.agent', {
 					parameters: {},
 				}),
 			};
@@ -453,10 +453,10 @@ describe('WorkflowValidationService', () => {
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((
 				type: string,
 			): INodeType | undefined => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return createMockNodeType([], [], true);
 				}
-				if (type === 'n8n-nodes-base.agent') {
+				if (type === 'resin-nodes-base.agent') {
 					return createMockNodeType(
 						[{ name: 'openAiApi', displayName: 'OpenAI API', required: true }],
 						[],
@@ -472,11 +472,11 @@ describe('WorkflowValidationService', () => {
 
 		it('should validate multiple nodes with issues', () => {
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook'),
-				Agent1: createNode('Agent1', 'n8n-nodes-base.agent', {
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook'),
+				Agent1: createNode('Agent1', 'resin-nodes-base.agent', {
 					parameters: {},
 				}),
-				Agent2: createNode('Agent2', 'n8n-nodes-base.agent', {
+				Agent2: createNode('Agent2', 'resin-nodes-base.agent', {
 					parameters: {},
 				}),
 			};
@@ -488,10 +488,10 @@ describe('WorkflowValidationService', () => {
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((
 				type: string,
 			): INodeType | undefined => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return createMockNodeType([], [], true);
 				}
-				if (type === 'n8n-nodes-base.agent') {
+				if (type === 'resin-nodes-base.agent') {
 					return createMockNodeType(
 						[{ name: 'openAiApi', displayName: 'OpenAI API', required: true }],
 						[],
@@ -510,15 +510,15 @@ describe('WorkflowValidationService', () => {
 
 		it('should return invalid when node type is not found', () => {
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook'),
-				Unknown: createNode('Unknown', 'n8n-nodes-base.unknownNode'),
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook'),
+				Unknown: createNode('Unknown', 'resin-nodes-base.unknownNode'),
 			};
 			const connections = createConnections([['Webhook', 'Unknown']]);
 
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((
 				type: string,
 			): INodeType | undefined => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return createMockNodeType([], [], true);
 				}
 				return undefined;
@@ -533,7 +533,7 @@ describe('WorkflowValidationService', () => {
 
 		it('should return invalid when workflow has no trigger node', () => {
 			const nodes = {
-				Set: createNode('Set', 'n8n-nodes-base.set'),
+				Set: createNode('Set', 'resin-nodes-base.set'),
 			};
 			const connections: IConnections = {};
 
@@ -548,7 +548,7 @@ describe('WorkflowValidationService', () => {
 		it('should respect displayOptions when validating credentials', () => {
 			// Simulates a Webhook node with authentication parameter set to 'none'
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook', {
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook', {
 					parameters: { authentication: 'none' },
 				}),
 			};
@@ -590,7 +590,7 @@ describe('WorkflowValidationService', () => {
 		it('should validate credentials when displayOptions match', () => {
 			// Simulates a Webhook node with authentication='basicAuth' but missing credential
 			const nodes = {
-				Webhook: createNode('Webhook', 'n8n-nodes-base.webhook', {
+				Webhook: createNode('Webhook', 'resin-nodes-base.webhook', {
 					parameters: { authentication: 'basicAuth' },
 				}),
 			};
@@ -663,7 +663,7 @@ describe('WorkflowValidationService', () => {
 		});
 
 		it('should return valid when no credentials are used', async () => {
-			const nodes: INode[] = [createNode('Set', 'n8n-nodes-base.set')];
+			const nodes: INode[] = [createNode('Set', 'resin-nodes-base.set')];
 
 			const result = await service.validateDynamicCredentials(nodes, mockNodeTypes);
 
@@ -673,8 +673,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should return valid when no credentials are resolvable', async () => {
 			const nodes: INode[] = [
-				createNode('Webhook', 'n8n-nodes-base.webhook'),
-				createNode('HTTP', 'n8n-nodes-base.httpRequest', {
+				createNode('Webhook', 'resin-nodes-base.webhook'),
+				createNode('HTTP', 'resin-nodes-base.httpRequest', {
 					credentials: { httpAuth: { id: 'cred-1' } },
 				}),
 			];
@@ -688,10 +688,10 @@ describe('WorkflowValidationService', () => {
 
 		it('should return invalid when a dynamic credential has no resolver configured', async () => {
 			const nodes: INode[] = [
-				createNode('Webhook', 'n8n-nodes-base.webhook', {
+				createNode('Webhook', 'resin-nodes-base.webhook', {
 					parameters: hooksParameters,
 				}),
-				createNode('HTTP', 'n8n-nodes-base.httpRequest', {
+				createNode('HTTP', 'resin-nodes-base.httpRequest', {
 					credentials: { oAuth2Api: { id: 'cred-1' } },
 				}),
 			];
@@ -710,10 +710,10 @@ describe('WorkflowValidationService', () => {
 
 		it('should return valid when credential has no resolver but workflow settings provide one', async () => {
 			const nodes: INode[] = [
-				createNode('Webhook', 'n8n-nodes-base.webhook', {
+				createNode('Webhook', 'resin-nodes-base.webhook', {
 					parameters: hooksParameters,
 				}),
-				createNode('HTTP', 'n8n-nodes-base.httpRequest', {
+				createNode('HTTP', 'resin-nodes-base.httpRequest', {
 					credentials: { oAuth2Api: { id: 'cred-1' } },
 				}),
 			];
@@ -723,7 +723,7 @@ describe('WorkflowValidationService', () => {
 			]);
 
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === 'n8n-nodes-base.webhook') return createTriggerNodeType();
+				if (type === 'resin-nodes-base.webhook') return createTriggerNodeType();
 				return {} as INodeType;
 			}) as any);
 
@@ -736,10 +736,10 @@ describe('WorkflowValidationService', () => {
 
 		it('should return valid when resolvable credentials are used with a trigger that has extractor hooks', async () => {
 			const nodes: INode[] = [
-				createNode('Webhook', 'n8n-nodes-base.webhook', {
+				createNode('Webhook', 'resin-nodes-base.webhook', {
 					parameters: hooksParameters,
 				}),
-				createNode('HTTP', 'n8n-nodes-base.httpRequest', {
+				createNode('HTTP', 'resin-nodes-base.httpRequest', {
 					credentials: { oAuth2Api: { id: 'cred-1' } },
 				}),
 			];
@@ -749,7 +749,7 @@ describe('WorkflowValidationService', () => {
 			]);
 
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === 'n8n-nodes-base.webhook') return createTriggerNodeType();
+				if (type === 'resin-nodes-base.webhook') return createTriggerNodeType();
 				return {} as INodeType;
 			}) as any);
 
@@ -760,8 +760,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should return invalid when resolvable credentials are used with a trigger without extractor hooks', async () => {
 			const nodes: INode[] = [
-				createNode('Schedule', 'n8n-nodes-base.scheduleTrigger'),
-				createNode('HTTP', 'n8n-nodes-base.httpRequest', {
+				createNode('Schedule', 'resin-nodes-base.scheduleTrigger'),
+				createNode('HTTP', 'resin-nodes-base.httpRequest', {
 					credentials: { oAuth2Api: { id: 'cred-1' } },
 				}),
 			];
@@ -771,7 +771,7 @@ describe('WorkflowValidationService', () => {
 			]);
 
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === 'n8n-nodes-base.scheduleTrigger') return createTriggerNodeType();
+				if (type === 'resin-nodes-base.scheduleTrigger') return createTriggerNodeType();
 				return {} as INodeType;
 			}) as any);
 
@@ -785,8 +785,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should return invalid when webhook trigger has no hooks configured', async () => {
 			const nodes: INode[] = [
-				createNode('Webhook', 'n8n-nodes-base.webhook'),
-				createNode('HTTP', 'n8n-nodes-base.httpRequest', {
+				createNode('Webhook', 'resin-nodes-base.webhook'),
+				createNode('HTTP', 'resin-nodes-base.httpRequest', {
 					credentials: { oAuth2Api: { id: 'cred-1' } },
 				}),
 			];
@@ -796,7 +796,7 @@ describe('WorkflowValidationService', () => {
 			]);
 
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === 'n8n-nodes-base.webhook') return createTriggerNodeType();
+				if (type === 'resin-nodes-base.webhook') return createTriggerNodeType();
 				return {} as INodeType;
 			}) as any);
 
@@ -809,10 +809,10 @@ describe('WorkflowValidationService', () => {
 
 		it('should return valid when Chat Trigger with availableInChat is the trigger', async () => {
 			const nodes: INode[] = [
-				createNode('Chat Trigger', '@n8n/n8n-nodes-langchain.chatTrigger', {
+				createNode('Chat Trigger', '@resin/n8n-nodes-langchain.chatTrigger', {
 					parameters: { availableInChat: true },
 				}),
-				createNode('Google Calendar', 'n8n-nodes-base.googleCalendar', {
+				createNode('Google Calendar', 'resin-nodes-base.googleCalendar', {
 					credentials: { googleCalendarOAuth2Api: { id: 'cred-1' } },
 				}),
 			];
@@ -822,7 +822,7 @@ describe('WorkflowValidationService', () => {
 			]);
 
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === '@n8n/n8n-nodes-langchain.chatTrigger') return createTriggerNodeType();
+				if (type === '@resin/n8n-nodes-langchain.chatTrigger') return createTriggerNodeType();
 				return {} as INodeType;
 			}) as any);
 
@@ -833,8 +833,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should return invalid when Chat Trigger does not have availableInChat set', async () => {
 			const nodes: INode[] = [
-				createNode('Chat Trigger', '@n8n/n8n-nodes-langchain.chatTrigger'),
-				createNode('Google Calendar', 'n8n-nodes-base.googleCalendar', {
+				createNode('Chat Trigger', '@resin/n8n-nodes-langchain.chatTrigger'),
+				createNode('Google Calendar', 'resin-nodes-base.googleCalendar', {
 					credentials: { googleCalendarOAuth2Api: { id: 'cred-1' } },
 				}),
 			];
@@ -844,7 +844,7 @@ describe('WorkflowValidationService', () => {
 			]);
 
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === '@n8n/n8n-nodes-langchain.chatTrigger') return createTriggerNodeType();
+				if (type === '@resin/n8n-nodes-langchain.chatTrigger') return createTriggerNodeType();
 				return {} as INodeType;
 			}) as any);
 
@@ -856,8 +856,8 @@ describe('WorkflowValidationService', () => {
 
 		it('should skip disabled nodes when collecting credentials', async () => {
 			const nodes: INode[] = [
-				createNode('Schedule', 'n8n-nodes-base.scheduleTrigger'),
-				createNode('HTTP', 'n8n-nodes-base.httpRequest', {
+				createNode('Schedule', 'resin-nodes-base.scheduleTrigger'),
+				createNode('HTTP', 'resin-nodes-base.httpRequest', {
 					disabled: true,
 					credentials: { oAuth2Api: { id: 'cred-1' } },
 				}),

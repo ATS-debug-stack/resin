@@ -8,8 +8,8 @@
  * button for the Available section, gear + Connected badge for the
  * Connected section.
  */
-import { N8nButton, N8nIcon, N8nIconButton, N8nText, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nIcon, N8nIconButton, N8nText, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 
 import ToolConnectedBadge from './ToolConnectedBadge.vue';
 

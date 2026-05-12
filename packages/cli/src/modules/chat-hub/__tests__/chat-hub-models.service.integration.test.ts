@@ -1,15 +1,15 @@
-import type { ChatHubN8nModel } from '@n8n/api-types';
+import type { ChatHubN8nModel } from '@resin/api-types';
 import {
 	createActiveWorkflow,
 	createWorkflow,
 	mockInstance,
 	testDb,
 	testModules,
-} from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { BinaryDataService } from 'n8n-core';
-import { CHAT_TRIGGER_NODE_TYPE } from 'n8n-workflow';
+} from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
+import { Container } from '@resin/di';
+import { BinaryDataService } from 'resin-core';
+import { CHAT_TRIGGER_NODE_TYPE } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { createMember } from '@test-integration/db/users';
@@ -198,7 +198,7 @@ describe('ChatHubModelsService', () => {
 							{
 								id: uuid(),
 								name: 'Manual Trigger',
-								type: 'n8n-nodes-base.manualTrigger',
+								type: 'resin-nodes-base.manualTrigger',
 								typeVersion: 1,
 								position: [0, 0],
 								parameters: {},

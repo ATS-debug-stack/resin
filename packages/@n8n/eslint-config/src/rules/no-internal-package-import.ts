@@ -4,7 +4,7 @@ export const NoInternalPackageImportRule = ESLintUtils.RuleCreator.withoutDocs({
 	meta: {
 		type: 'problem',
 		docs: {
-			description: 'Disallow imports from internal package paths (e.g. `@n8n/pkg/src/...`).',
+			description: 'Disallow imports from internal package paths (e.g. `@resin/pkg/src/...`).',
 		},
 		messages: {
 			noInternalPackageImport:

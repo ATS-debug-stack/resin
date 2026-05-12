@@ -1,13 +1,13 @@
 import isbot from 'isbot';
-import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'n8n-core';
+import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'resin-core';
 import type {
 	FormFieldsParameter,
 	IDataObject,
 	IExecuteFunctions,
 	INodeProperties,
 	IWebhookFunctions,
-} from 'n8n-workflow';
-import { NodeOperationError, SEND_AND_WAIT_OPERATION, updateDisplayOptions } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, SEND_AND_WAIT_OPERATION, updateDisplayOptions } from 'resin-workflow';
 
 import { cssVariables } from '../../nodes/Form/cssVariables';
 import { formFieldsProperties } from '../../nodes/Form/Form.node';

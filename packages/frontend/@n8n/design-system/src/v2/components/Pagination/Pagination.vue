@@ -11,8 +11,8 @@ import {
 } from 'reka-ui';
 import { computed, useCssModule, ref, watch } from 'vue';
 
-import Icon from '@n8n/design-system/components/N8nIcon/Icon.vue';
-import N8nSelect from '@n8n/design-system/v2/components/Select/Select.vue';
+import Icon from '@resin/design-system/components/N8nIcon/Icon.vue';
+import N8nSelect from '@resin/design-system/v2/components/Select/Select.vue';
 
 import type {
 	PaginationEmits,
@@ -200,7 +200,7 @@ const handleJumperSubmit = () => {
 <template>
 	<div
 		v-if="!shouldHide"
-		:class="['n8n-pagination', $style.paginationContainer, variant, size, backgroundClass]"
+		:class="['resin-pagination', $style.paginationContainer, variant, size, backgroundClass]"
 		v-bind="$attrs"
 	>
 		<!-- Render layout parts in order specified by layout prop -->

@@ -1,10 +1,10 @@
-import type { AgentMessage, StreamChunk } from '@n8n/agents';
+import type { AgentMessage, StreamChunk } from '@resin/agents';
 import type {
 	AgentPersistedMessageContentPart,
 	AgentSseEvent,
 	AgentSseMessage,
 	ToolSuspendedPayload,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import type { Response } from 'express';
 
 export type FlushableResponse = Response & { flush?: () => void };

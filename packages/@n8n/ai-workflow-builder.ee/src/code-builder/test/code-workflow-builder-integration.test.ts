@@ -5,9 +5,9 @@
 
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import type { MemorySaver } from '@langchain/langgraph';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import { mock } from 'jest-mock-extended';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 // Mock the CodeWorkflowBuilder module
 const mockChat = jest.fn();
@@ -99,7 +99,7 @@ describe('CodeWorkflowBuilder Integration', () => {
 
 		parsedNodeTypes = [
 			{
-				name: 'n8n-nodes-base.manualTrigger',
+				name: 'resin-nodes-base.manualTrigger',
 				displayName: 'Manual Trigger',
 				description: 'Start workflow manually',
 				version: 1.1,
@@ -282,7 +282,7 @@ describe('CodeWorkflowBuilder Integration', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1.1,
 						position: [240, 300] as [number, number],
 						parameters: {},

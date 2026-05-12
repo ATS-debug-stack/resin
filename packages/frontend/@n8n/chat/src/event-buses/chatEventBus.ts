@@ -1,3 +1,3 @@
-import { createEventBus } from '@n8n/chat/utils';
+import { createEventBus } from '@resin/chat/utils';
 
 export const chatEventBus = createEventBus();

@@ -1,17 +1,17 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { User } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { User } from '@resin/db';
 import {
 	WORKFLOW_PATTERNS_DETAILED,
 	WORKFLOW_SDK_PATTERNS,
-} from '@n8n/workflow-sdk/prompts/sdk-reference';
+} from '@resin/workflow-sdk/prompts/sdk-reference';
 
 import { createGetWorkflowSdkReferenceTool } from '../tools/workflow-builder/get-workflow-sdk-reference.tool';
 import { getSdkReferenceContent } from '../tools/workflow-builder/sdk-reference-content';
 
 import { Telemetry } from '@/telemetry';
 
-jest.mock('@n8n/ai-workflow-builder', () => ({
-	SDK_IMPORT_STATEMENT: "import { workflow } from '@n8n/workflow-sdk';",
+jest.mock('@resin/ai-workflow-builder', () => ({
+	SDK_IMPORT_STATEMENT: "import { workflow } from '@resin/workflow-sdk';",
 	MCP_GET_SDK_REFERENCE_TOOL: {
 		toolName: 'get_sdk_reference',
 		displayTitle: 'Get SDK Reference',

@@ -1,4 +1,4 @@
-import type { InstanceAiPermissions } from '@n8n/api-types';
+import type { InstanceAiPermissions } from '@resin/api-types';
 
 import type { InstanceAiContext, PlannedTaskKind } from '../types';
 

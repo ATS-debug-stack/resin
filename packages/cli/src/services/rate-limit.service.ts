@@ -1,13 +1,13 @@
-import { Time } from '@n8n/constants';
-import type { RateLimiterLimits, UserKeyedRateLimiterConfig } from '@n8n/decorators';
-import { BodyKeyedRateLimiterConfig } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import { Time } from '@resin/constants';
+import type { RateLimiterLimits, UserKeyedRateLimiterConfig } from '@resin/decorators';
+import { BodyKeyedRateLimiterConfig } from '@resin/decorators';
+import { Service } from '@resin/di';
 import type { Request, RequestHandler } from 'express';
 import { rateLimit as expressRateLimit } from 'express-rate-limit';
 import assert from 'node:assert';
 import type { ZodTypeAny } from 'zod';
-import type { ZodClass } from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
+import type { ZodClass } from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
 
 const defaultLimits: Required<RateLimiterLimits> = {
 	limit: 5,

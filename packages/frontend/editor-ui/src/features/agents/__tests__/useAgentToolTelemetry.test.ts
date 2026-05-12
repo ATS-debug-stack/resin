@@ -14,7 +14,7 @@ function nodeRef(overrides: Partial<AgentJsonToolRef['node']> = {}): AgentJsonTo
 		type: 'node',
 		name: 'Slack',
 		requireApproval: false,
-		node: { nodeType: 'n8n-nodes-base.slack', nodeTypeVersion: 1, ...overrides },
+		node: { nodeType: 'resin-nodes-base.slack', nodeTypeVersion: 1, ...overrides },
 	};
 }
 
@@ -41,7 +41,7 @@ describe('useAgentToolTelemetry', () => {
 		expect(trackMock).toHaveBeenCalledWith('User added agent tool', {
 			tool_type: 'node',
 			has_approval: false,
-			node_type: 'n8n-nodes-base.slack',
+			node_type: 'resin-nodes-base.slack',
 			agent_id: 'agent-42',
 		});
 	});
@@ -70,7 +70,7 @@ describe('useAgentToolTelemetry', () => {
 
 		expect(trackMock).toHaveBeenCalledWith('User edited agent tool', {
 			tool_type: 'node',
-			node_type: 'n8n-nodes-base.slack',
+			node_type: 'resin-nodes-base.slack',
 			agent_id: 'agent-42',
 		});
 	});

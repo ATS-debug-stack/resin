@@ -10,8 +10,8 @@ import type {
 	IRequestOptions,
 	IWebhookFunctions,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError, sanitizeXmlName } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeOperationError, sanitizeXmlName } from 'resin-workflow';
 import { URL } from 'url';
 import { parseString } from 'xml2js';
 

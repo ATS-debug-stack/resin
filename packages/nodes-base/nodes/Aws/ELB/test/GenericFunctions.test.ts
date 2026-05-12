@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import {
 	awsApiRequest,
@@ -26,7 +26,7 @@ describe('ELB GenericFunctions', () => {
 			mockExecuteFunctions.getNode.mockReturnValue({
 				id: 'test-node',
 				name: 'Test ELB Node',
-				type: 'n8n-nodes-base.awsElb',
+				type: 'resin-nodes-base.awsElb',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},

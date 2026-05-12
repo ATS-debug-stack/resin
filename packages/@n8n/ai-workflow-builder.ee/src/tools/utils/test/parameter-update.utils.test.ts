@@ -1,5 +1,5 @@
 /* eslint-disable id-denylist */
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 
 import {
 	extractNodeParameters,
@@ -14,7 +14,7 @@ describe('parameter-update.utils', () => {
 	const mockNode: INode = {
 		id: 'node1',
 		name: 'Test Node',
-		type: 'n8n-nodes-base.httpRequest',
+		type: 'resin-nodes-base.httpRequest',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {

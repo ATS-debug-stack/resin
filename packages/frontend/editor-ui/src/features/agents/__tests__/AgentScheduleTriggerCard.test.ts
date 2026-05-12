@@ -7,13 +7,13 @@ const updateScheduleIntegrationMock = vi.fn();
 const activateScheduleIntegrationMock = vi.fn();
 const deactivateScheduleIntegrationMock = vi.fn();
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({
 		restApiContext: {},
 	}),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({
 		baseText: (key: string) => key,
 	}),

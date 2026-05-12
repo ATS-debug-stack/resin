@@ -5,7 +5,7 @@ import {
 	type IExecuteFunctions,
 	type INode,
 	type ISupplyDataFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { ZodObjectAny } from '../../../../types/types';
 

@@ -1,5 +1,5 @@
-import { Container } from '@n8n/di';
-import type { ICredentialContext, ICredentialDataDecryptedObject } from 'n8n-workflow';
+import { Container } from '@resin/di';
+import type { ICredentialContext, ICredentialDataDecryptedObject } from 'resin-workflow';
 
 import type { CredentialResolverConfiguration, ICredentialResolver } from '../credential-resolver';
 import {

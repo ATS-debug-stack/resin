@@ -1,6 +1,6 @@
-import type { SourceControlledFile } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { IWorkflowDb } from '@n8n/db';
+import type { SourceControlledFile } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { IWorkflowDb } from '@resin/db';
 import {
 	FolderRepository,
 	ProjectRepository,
@@ -9,13 +9,13 @@ import {
 	TagRepository,
 	WorkflowRepository,
 	WorkflowTagMappingRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
-import { In } from '@n8n/typeorm';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
+import { In } from '@resin/typeorm';
 import chunk from 'lodash/chunk';
-import { Credentials, InstanceSettings } from 'n8n-core';
-import { UnexpectedError } from 'n8n-workflow';
+import { Credentials, InstanceSettings } from 'resin-core';
+import { UnexpectedError } from 'resin-workflow';
 import { rm as fsRm, writeFile as fsWriteFile } from 'node:fs/promises';
 import path from 'path';
 

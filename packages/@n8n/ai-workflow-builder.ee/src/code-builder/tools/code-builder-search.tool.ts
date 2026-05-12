@@ -10,7 +10,7 @@
  */
 
 import { tool } from '@langchain/core/tools';
-import { isTriggerNodeType, type IParameterBuilderHint, type IRelatedNode } from 'n8n-workflow';
+import { isTriggerNodeType, type IParameterBuilderHint, type IRelatedNode } from 'resin-workflow';
 import { z } from 'zod';
 
 import {

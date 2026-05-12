@@ -1,8 +1,8 @@
 import { createPinia, setActivePinia } from 'pinia';
 import { nodeExecuteAfterData } from './nodeExecuteAfterData';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
-import type { NodeExecuteAfterData } from '@n8n/api-types/push/execution';
-import { createRunExecutionData } from 'n8n-workflow';
+import type { NodeExecuteAfterData } from '@resin/api-types/push/execution';
+import { createRunExecutionData } from 'resin-workflow';
 import { createTestWorkflowExecutionResponse } from '@/__tests__/mocks';
 import {
 	createWorkflowExecutionStateId,

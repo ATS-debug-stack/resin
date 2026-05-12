@@ -2,7 +2,7 @@ import type { ElMessageBoxOptions, Action, MessageBoxInputData } from 'element-p
 import { ElMessageBox as MessageBox } from 'element-plus';
 import { h } from 'vue';
 import { sanitizeIfString } from '@/app/utils/htmlUtils';
-import { N8nCheckbox } from '@n8n/design-system';
+import { N8nCheckbox } from '@resin/design-system';
 
 export type MessageBoxConfirmResult = 'confirm' | 'cancel';
 

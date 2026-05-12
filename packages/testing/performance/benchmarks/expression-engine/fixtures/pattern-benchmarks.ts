@@ -7,7 +7,7 @@
  * that current and vm benchmarks are distinguishable in reports.
  */
 import { bench } from 'vitest';
-import type { Workflow, INodeExecutionData } from 'n8n-workflow';
+import type { Workflow, INodeExecutionData } from 'resin-workflow';
 
 import {
 	SIMPLE_PROPERTY,

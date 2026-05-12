@@ -54,7 +54,7 @@ Prerequisites:
   * \`claude\` CLI installed (https://docs.claude.com/claude-code)
   * ~/.claude.json has the MCP server block configured (project-scoped
     under .projects[<repo-root>].mcpServers[<name>] or globally under
-    .mcpServers[<name>]). Default name: "n8n-mcp (instance)" — override
+    .mcpServers[<name>]). Default name: "resin-mcp (instance)" — override
     with --mcp-server.
   * n8n instance reachable at the URL the MCP block points at.
 
@@ -68,7 +68,7 @@ Flags:
   --output-dir DIR        Where manifest + logs go (default: cwd).
   --manifest PATH         Override manifest path (default: <output-dir>/manifest.json).
   --log-dir DIR           Override log dir (default: <output-dir>/logs).
-  --mcp-server NAME       MCP server name in ~/.claude.json (default: "n8n-mcp (instance)").
+  --mcp-server NAME       MCP server name in ~/.claude.json (default: "resin-mcp (instance)").
   --builder LABEL         Free-form label written into manifest-stats.json
                           (default: "instance-mcp").
   --model MODEL           Anthropic model id passed to claude -p
@@ -107,7 +107,7 @@ function parseArgs(argv: string[]): ParseResult {
 		manifestPath: '',
 		statsPath: '',
 		logDir: '',
-		mcpServerName: 'n8n-mcp (instance)',
+		mcpServerName: 'resin-mcp (instance)',
 		builder: 'instance-mcp',
 		model: 'claude-sonnet-4-6',
 		append: false,
@@ -267,8 +267,8 @@ function stageMcpConfig(serverName: string, repoRoot: string | undefined): strin
 }
 
 /** Each non-alphanumeric character (excluding hyphen) becomes "_". Mirrors
- *  Claude Code's tool-prefix sanitization: "n8n-mcp (instance)" maps to
- *  "n8n-mcp__instance_", and the full prefix becomes "mcp__n8n-mcp__instance___". */
+ *  Claude Code's tool-prefix sanitization: "resin-mcp (instance)" maps to
+ *  "resin-mcp__instance_", and the full prefix becomes "mcp__n8n-mcp__instance___". */
 function sanitizeServerName(name: string): string {
 	return name.replace(/[^a-zA-Z0-9-]/g, '_');
 }
@@ -544,7 +544,7 @@ async function main(): Promise<void> {
 				'Could not determine repo root via git. Run from inside the n8n repo, or pass --workflow-dir to point at a test-case directory directly.',
 			);
 		}
-		workflowDir = join(repoRoot, 'packages/@n8n/instance-ai/evaluations/data/workflows');
+		workflowDir = join(repoRoot, 'packages/@resin/instance-ai/evaluations/data/workflows');
 	}
 
 	if (args.buildCwd && !existsSync(args.buildCwd)) {

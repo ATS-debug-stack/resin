@@ -1,9 +1,9 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import watcher from '@parcel/watcher';
 import fs from 'fs/promises';
 import { mock } from 'jest-mock-extended';
-import { CUSTOM_NODES_PACKAGE_NAME, DirectoryLoader } from 'n8n-core';
-import type { INodeProperties, INodeTypeDescription } from 'n8n-workflow';
+import { CUSTOM_NODES_PACKAGE_NAME, DirectoryLoader } from 'resin-core';
+import type { INodeProperties, INodeTypeDescription } from 'resin-workflow';
 
 import { LoadNodesAndCredentials } from '../load-nodes-and-credentials';
 
@@ -154,7 +154,7 @@ describe('LoadNodesAndCredentials', () => {
 
 		beforeEach(() => {
 			instance = new LoadNodesAndCredentials(mock(), mock(), mock(), mock(), mock(), mock());
-			instance.knownNodes['n8n-nodes-base.test'] = {
+			instance.knownNodes['resin-nodes-base.test'] = {
 				className: 'Test',
 				sourcePath: '/nodes-base/dist/nodes/Test/Test.node.js',
 			};
@@ -162,7 +162,7 @@ describe('LoadNodesAndCredentials', () => {
 
 		it('should return undefined if the node is not known', () => {
 			const result = instance.resolveSchema({
-				node: 'n8n-nodes-base.doesNotExist',
+				node: 'resin-nodes-base.doesNotExist',
 				version: '1.0.0',
 				resource: 'account',
 				operation: 'get',
@@ -172,7 +172,7 @@ describe('LoadNodesAndCredentials', () => {
 
 		it('should return the correct path if the node is known', () => {
 			const result = instance.resolveSchema({
-				node: 'n8n-nodes-base.test',
+				node: 'resin-nodes-base.test',
 				version: '1.0.0',
 				resource: 'account',
 				operation: 'get',
@@ -182,7 +182,7 @@ describe('LoadNodesAndCredentials', () => {
 
 		it('should return the correct path if there is no resource or operation', () => {
 			const result = instance.resolveSchema({
-				node: 'n8n-nodes-base.test',
+				node: 'resin-nodes-base.test',
 				version: '1.0.0',
 			});
 			expect(result).toEqual('/nodes-base/dist/nodes/Test/__schema__/v1.0.0.json');
@@ -707,7 +707,7 @@ describe('LoadNodesAndCredentials', () => {
 
 		it('should return a snapshot of types with package-namespaced node names', async () => {
 			const mockLoader = mock<DirectoryLoader>({
-				packageName: 'n8n-nodes-base',
+				packageName: 'resin-nodes-base',
 				directory: '/test/dir',
 				known: { nodes: {}, credentials: {} },
 				types: {
@@ -719,12 +719,12 @@ describe('LoadNodesAndCredentials', () => {
 				ensureTypesLoaded: jest.fn().mockResolvedValue(undefined),
 			});
 
-			instance.loaders = { 'n8n-nodes-base': mockLoader };
+			instance.loaders = { 'resin-nodes-base': mockLoader };
 
 			const types = await instance.collectTypes();
 
 			expect(types.nodes).toHaveLength(1);
-			expect(types.nodes[0].name).toBe('n8n-nodes-base.httpRequest');
+			expect(types.nodes[0].name).toBe('resin-nodes-base.httpRequest');
 			expect(types.nodes[0].displayName).toBe('HTTP Request');
 			expect(types.credentials).toHaveLength(1);
 		});

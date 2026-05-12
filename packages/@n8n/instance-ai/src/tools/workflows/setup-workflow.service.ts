@@ -5,11 +5,11 @@
  * Separated from the tool definition so the tool stays a thin suspend/resume
  * state machine, and this logic is testable independently.
  */
-import { findPlaceholderDetails } from '@n8n/utils';
-import type { IDataObject, NodeJSON, DisplayOptions, WorkflowJSON } from '@n8n/workflow-sdk';
-import { matchesDisplayOptions } from '@n8n/workflow-sdk';
-import type { IConnections, INode } from 'n8n-workflow';
-import { getParentNodes, mapConnectionsByDestination } from 'n8n-workflow';
+import { findPlaceholderDetails } from '@resin/utils';
+import type { IDataObject, NodeJSON, DisplayOptions, WorkflowJSON } from '@resin/workflow-sdk';
+import { matchesDisplayOptions } from '@resin/workflow-sdk';
+import type { IConnections, INode } from 'resin-workflow';
+import { getParentNodes, mapConnectionsByDestination } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
 import type { SetupRequest } from './setup-workflow.schema';

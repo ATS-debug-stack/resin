@@ -1,21 +1,21 @@
 import {
 	getSendAndWaitConfig,
 	getSendAndWaitProperties,
-} from 'n8n-nodes-base/dist/utils/sendAndWait/utils';
+} from 'resin-nodes-base/dist/utils/sendAndWait/utils';
 import {
 	ChatNodeMessageType,
 	FREE_TEXT_CHAT_RESPONSE_TYPE,
 	NodeOperationError,
 	UserError,
 	WAIT_INDEFINITELY,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	ChatNodeMessage,
 	ChatNodeMessageButtonType,
 	IExecuteFunctions,
 	INodeProperties,
 	INodePropertyOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export function configureWaitTillDate(context: IExecuteFunctions) {
 	let waitTill = WAIT_INDEFINITELY;

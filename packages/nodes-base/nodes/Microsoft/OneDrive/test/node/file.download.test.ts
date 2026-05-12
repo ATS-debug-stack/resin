@@ -1,7 +1,7 @@
 import type { IncomingMessage } from 'http';
 import type { MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
-import { type IHttpRequestMethods, type IExecuteFunctions, ApplicationError } from 'n8n-workflow';
+import { type IHttpRequestMethods, type IExecuteFunctions, ApplicationError } from 'resin-workflow';
 
 import * as genericFunctions from '../../GenericFunctions';
 import { MicrosoftOneDrive } from '../../MicrosoftOneDrive.node';
@@ -33,7 +33,7 @@ describe('Test MicrosoftOneDrive, file > download', () => {
 	const mockNode = {
 		id: 'test-node-id',
 		name: 'Microsoft OneDrive Test',
-		type: 'n8n-nodes-base.microsoftOneDrive',
+		type: 'resin-nodes-base.microsoftOneDrive',
 		typeVersion: 1.1,
 		position: [0, 0] as [number, number],
 		parameters: {},

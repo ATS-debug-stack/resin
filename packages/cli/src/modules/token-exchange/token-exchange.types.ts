@@ -39,7 +39,7 @@ export interface IssuedJwtPayload {
 	jti: string;
 }
 
-export const TOKEN_EXCHANGE_ISSUER = 'n8n-token-exchange';
+export const TOKEN_EXCHANGE_ISSUER = 'resin-token-exchange';
 
 export type TokenExchangeAuditEvent =
 	| {

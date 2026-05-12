@@ -1,8 +1,11 @@
-import type { BreakingChangeAffectedWorkflow, BreakingChangeRecommendation } from '@n8n/api-types';
-import type { WorkflowEntity } from '@n8n/db';
-import type { INode } from 'n8n-workflow';
+import type {
+	BreakingChangeAffectedWorkflow,
+	BreakingChangeRecommendation,
+} from '@resin/api-types';
+import type { WorkflowEntity } from '@resin/db';
+import type { INode } from 'resin-workflow';
 
-import { BreakingChangeRule } from '@n8n/decorators';
+import { BreakingChangeRule } from '@resin/decorators';
 import type {
 	BreakingChangeRuleMetadata,
 	IBreakingChangeWorkflowRule,
@@ -54,8 +57,8 @@ export class PyodideRemovedRule implements IBreakingChangeWorkflowRule {
 		nodesGroupedByType: Map<string, INode[]>,
 	): Promise<WorkflowDetectionReport> {
 		// Get all Code nodes (the Code node supports both JavaScript and Python)
-		const codeNodes = nodesGroupedByType.get('n8n-nodes-base.code') ?? [];
-		const codeToolNodes = nodesGroupedByType.get('@n8n/n8n-nodes-langchain.toolCode') ?? [];
+		const codeNodes = nodesGroupedByType.get('resin-nodes-base.code') ?? [];
+		const codeToolNodes = nodesGroupedByType.get('@resin/n8n-nodes-langchain.toolCode') ?? [];
 
 		// Filter for Code nodes using the Pyodide-based Python implementation
 		// The 'language' parameter determines which language/implementation is used:

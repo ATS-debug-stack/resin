@@ -75,7 +75,7 @@ export interface NodeAnnotations {
 export interface SemanticNode {
 	/** Node name (unique identifier in workflow) */
 	name: string;
-	/** Node type (e.g., 'n8n-nodes-base.if') */
+	/** Node type (e.g., 'resin-nodes-base.if') */
 	type: string;
 	/** Original JSON representation */
 	json: NodeJSON;

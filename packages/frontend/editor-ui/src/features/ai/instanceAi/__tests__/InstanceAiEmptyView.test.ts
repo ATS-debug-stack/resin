@@ -37,7 +37,7 @@ vi.mock('@/app/composables/useToast', () => ({
 	useToast: () => ({ showError: showErrorMock }),
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({ pushRef: 'test-push-ref' }),
 }));
 

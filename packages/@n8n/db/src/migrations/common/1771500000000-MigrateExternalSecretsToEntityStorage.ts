@@ -1,6 +1,6 @@
-import { Container } from '@n8n/di';
-import { Cipher } from 'n8n-core';
-import { jsonParse } from 'n8n-workflow';
+import { Container } from '@resin/di';
+import { Cipher } from 'resin-core';
+import { jsonParse } from 'resin-workflow';
 
 import type { IrreversibleMigration, MigrationContext } from '../migration-types';
 

@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import { mockDeep } from 'vitest-mock-extended';
 
 import { apiRequest, pollTaskResult } from '../transport';
 
-vi.mock('n8n-workflow', async () => {
-	const actual = await vi.importActual('n8n-workflow');
+vi.mock('resin-workflow', async () => {
+	const actual = await vi.importActual('resin-workflow');
 	return {
 		...actual,
 		sleep: vi.fn(),
@@ -24,7 +24,7 @@ describe('AlicloudModelStudio Transport', () => {
 		mockExecuteFunctions.getNode.mockReturnValue({
 			id: 'test-node-id',
 			name: 'Test Node',
-			type: '@n8n/n8n-nodes-langchain.alibabaCloud',
+			type: '@resin/n8n-nodes-langchain.alibabaCloud',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

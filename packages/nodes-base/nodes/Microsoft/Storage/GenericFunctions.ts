@@ -14,8 +14,8 @@ import type {
 	INodeParameterResourceLocator,
 	ICredentialDataDecryptedObject,
 	IRequestOptions,
-} from 'n8n-workflow';
-import { NodeApiError, sanitizeXmlName } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, sanitizeXmlName } from 'resin-workflow';
 import { Parser } from 'xml2js';
 import { firstCharLowerCase, parseBooleans, parseNumbers } from 'xml2js/lib/processors';
 

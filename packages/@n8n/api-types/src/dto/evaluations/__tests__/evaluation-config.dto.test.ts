@@ -7,7 +7,7 @@ import {
 const validLlmJudgeConfig = (overrides: Record<string, unknown> = {}) => ({
 	preset: 'correctness' as const,
 	prompt: 'You are a judge...',
-	provider: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+	provider: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 	credentialId: 'cred-123',
 	model: 'gpt-4o',
 	outputType: 'numeric' as const,

@@ -74,7 +74,7 @@ function getCompositeOutputNode(value: unknown): NodeInstance<string, string, un
 
 /**
  * Generate a human-readable name from a node type
- * @example 'n8n-nodes-base.httpRequest' -> 'HTTP Request'
+ * @example 'resin-nodes-base.httpRequest' -> 'HTTP Request'
  */
 function generateNodeName(type: string): string {
 	// Extract the node name after the package prefix
@@ -315,7 +315,7 @@ class NodeInstanceImpl<TType extends string, TVersion extends string, TOutput = 
 			throw new Error(`.onTrue() is only available on IF nodes (${NODE_TYPES.IF})`);
 		}
 		const builder = new IfElseBuilderImpl<TOutput>(
-			this as unknown as NodeInstance<'n8n-nodes-base.if', string, TOutput>,
+			this as unknown as NodeInstance<'resin-nodes-base.if', string, TOutput>,
 		);
 		return builder.onTrue(target);
 	}
@@ -332,7 +332,7 @@ class NodeInstanceImpl<TType extends string, TVersion extends string, TOutput = 
 			throw new Error(`.onFalse() is only available on IF nodes (${NODE_TYPES.IF})`);
 		}
 		const builder = new IfElseBuilderImpl<TOutput>(
-			this as unknown as NodeInstance<'n8n-nodes-base.if', string, TOutput>,
+			this as unknown as NodeInstance<'resin-nodes-base.if', string, TOutput>,
 		);
 		return builder.onFalse(target);
 	}
@@ -349,7 +349,7 @@ class NodeInstanceImpl<TType extends string, TVersion extends string, TOutput = 
 			throw new Error(`.onCase() is only available on Switch nodes (${NODE_TYPES.SWITCH})`);
 		}
 		const builder = new SwitchCaseBuilderImpl<TOutput>(
-			this as unknown as NodeInstance<'n8n-nodes-base.switch', string, TOutput>,
+			this as unknown as NodeInstance<'resin-nodes-base.switch', string, TOutput>,
 		);
 		return builder.onCase(index, target);
 	}
@@ -726,14 +726,14 @@ export function isSwitchCaseBuilder(value: unknown): value is SwitchCaseBuilder<
  */
 class IfElseBuilderImpl<TOutput = unknown> implements IfElseBuilder<TOutput> {
 	readonly _isIfElseBuilder = true as const;
-	readonly ifNode: NodeInstance<'n8n-nodes-base.if', string, TOutput>;
+	readonly ifNode: NodeInstance<'resin-nodes-base.if', string, TOutput>;
 	trueBranch: IfElseTarget = null;
 	falseBranch: IfElseTarget = null;
 	errorBranch?: IfElseTarget;
 	/** All nodes from both branches (for workflow-builder) */
 	_allBranchNodes: Array<NodeInstance<string, string, unknown>> = [];
 
-	constructor(ifNode: NodeInstance<'n8n-nodes-base.if', string, TOutput>) {
+	constructor(ifNode: NodeInstance<'resin-nodes-base.if', string, TOutput>) {
 		this.ifNode = ifNode;
 	}
 
@@ -758,7 +758,7 @@ class IfElseBuilderImpl<TOutput = unknown> implements IfElseBuilder<TOutput> {
 	to<T extends NodeInstance<string, string, unknown>>(
 		target: T | T[],
 		outputIndex: number = 0,
-	): NodeChain<NodeInstance<'n8n-nodes-base.if', string, TOutput>, T> {
+	): NodeChain<NodeInstance<'resin-nodes-base.if', string, TOutput>, T> {
 		// Delegate to the IF node's to method
 		return this.ifNode.to(target, outputIndex);
 	}
@@ -793,7 +793,7 @@ class IfElseBuilderImpl<TOutput = unknown> implements IfElseBuilder<TOutput> {
  */
 class SwitchCaseBuilderImpl<TOutput = unknown> implements SwitchCaseBuilder<TOutput> {
 	readonly _isSwitchCaseBuilder = true as const;
-	readonly switchNode: NodeInstance<'n8n-nodes-base.switch', string, TOutput>;
+	readonly switchNode: NodeInstance<'resin-nodes-base.switch', string, TOutput>;
 	readonly caseMapping: Map<number, SwitchCaseTarget> = new Map();
 	/** All nodes from all cases (for workflow-builder) */
 	_allCaseNodes: Array<NodeInstance<string, string, unknown>> = [];
@@ -803,7 +803,7 @@ class SwitchCaseBuilderImpl<TOutput = unknown> implements SwitchCaseBuilder<TOut
 		NodeInstance<string, string, unknown>
 	>;
 
-	constructor(switchNode: NodeInstance<'n8n-nodes-base.switch', string, TOutput>) {
+	constructor(switchNode: NodeInstance<'resin-nodes-base.switch', string, TOutput>) {
 		this.switchNode = switchNode;
 	}
 
@@ -816,7 +816,7 @@ class SwitchCaseBuilderImpl<TOutput = unknown> implements SwitchCaseBuilder<TOut
 	to<T extends NodeInstance<string, string, unknown>>(
 		target: T | T[],
 		outputIndex: number = 0,
-	): NodeChain<NodeInstance<'n8n-nodes-base.switch', string, TOutput>, T> {
+	): NodeChain<NodeInstance<'resin-nodes-base.switch', string, TOutput>, T> {
 		// Delegate to the Switch node's to method
 		return this.switchNode.to(target, outputIndex);
 	}
@@ -845,14 +845,14 @@ class SwitchCaseBuilderImpl<TOutput = unknown> implements SwitchCaseBuilder<TOut
  * // With generated types (recommended)
  * import { LcAgentV31Node } from './types/generated';
  * const agent = node({
- *   type: '@n8n/n8n-nodes-langchain.agent',
+ *   type: '@resin/n8n-nodes-langchain.agent',
  *   version: 3.1,
  *   config: { parameters: { promptType: 'auto', text: 'Hello' } }
  * } satisfies LcAgentV31Node);
  *
  * // Generic usage
  * const httpNode = node({
- *   type: 'n8n-nodes-base.httpRequest',
+ *   type: 'resin-nodes-base.httpRequest',
  *   version: 4.2,
  *   config: {
  *     parameters: { url: 'https://api.example.com', method: 'GET' },
@@ -867,7 +867,7 @@ export function node<TNode extends NodeInput>(
 	assertPlainObject(
 		input,
 		'node',
-		"a configuration object { type, version, config }. Example: node({ type: 'n8n-nodes-base.httpRequest', version: 4.2, config: { parameters: {} } })",
+		"a configuration object { type, version, config }. Example: node({ type: 'resin-nodes-base.httpRequest', version: 4.2, config: { parameters: {} } })",
 	);
 	const versionStr = String(input.version) as `${TNode['version']}`;
 	// Copy top-level output into config if present
@@ -893,7 +893,7 @@ export interface IfElseFactoryConfig {
 
 /**
  * Create an IF node with the specified config.
- * Convenience wrapper around node() with type preset to 'n8n-nodes-base.if'.
+ * Convenience wrapper around node() with type preset to 'resin-nodes-base.if'.
  *
  * @param input - Config with version (required) and config object
  * @returns A configured IF node instance with .onTrue()/.onFalse() methods
@@ -907,13 +907,13 @@ export interface IfElseFactoryConfig {
  */
 export function ifElse<TOutput = unknown>(
 	input: IfElseFactoryConfig,
-): NodeInstance<'n8n-nodes-base.if', string, TOutput> {
+): NodeInstance<'resin-nodes-base.if', string, TOutput> {
 	assertPlainObject(input, 'ifElse', 'a config object { version, config }');
 	return node({
-		type: 'n8n-nodes-base.if',
+		type: 'resin-nodes-base.if',
 		version: input.version,
 		config: input.config ?? {},
-	}) as NodeInstance<'n8n-nodes-base.if', string, TOutput>;
+	}) as NodeInstance<'resin-nodes-base.if', string, TOutput>;
 }
 
 /**
@@ -947,13 +947,13 @@ export interface MergeFactoryConfig {
  */
 export function merge<TOutput = unknown>(
 	input: MergeFactoryConfig,
-): NodeInstance<'n8n-nodes-base.merge', string, TOutput> {
+): NodeInstance<'resin-nodes-base.merge', string, TOutput> {
 	assertPlainObject(input, 'merge', 'a config object { version, config }');
 	return node({
-		type: 'n8n-nodes-base.merge',
+		type: 'resin-nodes-base.merge',
 		version: input.version,
 		config: input.config ?? {},
-	}) as NodeInstance<'n8n-nodes-base.merge', string, TOutput>;
+	}) as NodeInstance<'resin-nodes-base.merge', string, TOutput>;
 }
 
 /**
@@ -983,13 +983,13 @@ export interface SwitchCaseFactoryConfig {
  */
 export function switchCase<TOutput = unknown>(
 	input: SwitchCaseFactoryConfig,
-): NodeInstance<'n8n-nodes-base.switch', string, TOutput> {
+): NodeInstance<'resin-nodes-base.switch', string, TOutput> {
 	assertPlainObject(input, 'switchCase', 'a config object { version, config }');
 	return node({
-		type: 'n8n-nodes-base.switch',
+		type: 'resin-nodes-base.switch',
 		version: input.version,
 		config: input.config ?? {},
-	}) as NodeInstance<'n8n-nodes-base.switch', string, TOutput>;
+	}) as NodeInstance<'resin-nodes-base.switch', string, TOutput>;
 }
 
 /**
@@ -1001,7 +1001,7 @@ export function switchCase<TOutput = unknown>(
  * @example
  * ```typescript
  * const schedule = trigger({
- *   type: 'n8n-nodes-base.scheduleTrigger',
+ *   type: 'resin-nodes-base.scheduleTrigger',
  *   version: 1.1,
  *   config: { parameters: { rule: { interval: [{ field: 'hours', hour: 8 }] } } }
  * });
@@ -1013,7 +1013,7 @@ export function trigger<TTrigger extends TriggerInput>(
 	assertPlainObject(
 		input,
 		'trigger',
-		"a configuration object { type, version, config }. Example: trigger({ type: 'n8n-nodes-base.webhook', version: 2, config: { parameters: {} } })",
+		"a configuration object { type, version, config }. Example: trigger({ type: 'resin-nodes-base.webhook', version: 2, config: { parameters: {} } })",
 	);
 	const versionStr = String(input.version) as `${TTrigger['version']}`;
 	// Copy top-level output into config if present
@@ -1089,8 +1089,8 @@ function calculateNodesBoundingBox(nodes: Array<NodeInstance<string, string, unk
 /**
  * Sticky note node instance
  */
-class StickyNoteInstance implements NodeInstance<'n8n-nodes-base.stickyNote', 'v1', void> {
-	readonly type = 'n8n-nodes-base.stickyNote' as const;
+class StickyNoteInstance implements NodeInstance<'resin-nodes-base.stickyNote', 'v1', void> {
+	readonly type = 'resin-nodes-base.stickyNote' as const;
 	readonly version = 'v1' as const;
 	readonly config: NodeConfig;
 	readonly id: string;
@@ -1125,7 +1125,7 @@ class StickyNoteInstance implements NodeInstance<'n8n-nodes-base.stickyNote', 'v
 		};
 	}
 
-	update(config: Partial<NodeConfig>): NodeInstance<'n8n-nodes-base.stickyNote', 'v1', void> {
+	update(config: Partial<NodeConfig>): NodeInstance<'resin-nodes-base.stickyNote', 'v1', void> {
 		const newContent = (config.parameters?.content as string) ?? this.config.parameters?.content;
 		const newConfig: StickyNoteConfig = {
 			position: config.position ?? this.config.position,
@@ -1142,14 +1142,14 @@ class StickyNoteInstance implements NodeInstance<'n8n-nodes-base.stickyNote', 'v
 		throw new Error('Sticky notes do not support input connections');
 	}
 
-	output(_index: number): OutputSelector<'n8n-nodes-base.stickyNote', 'v1', void> {
+	output(_index: number): OutputSelector<'resin-nodes-base.stickyNote', 'v1', void> {
 		throw new Error('Sticky notes do not support output connections');
 	}
 
 	to<T extends NodeInstance<string, string, unknown>>(
 		_target: T | T[] | InputTarget,
 		_outputIndex?: number,
-	): NodeChain<NodeInstance<'n8n-nodes-base.stickyNote', 'v1', void>, T> {
+	): NodeChain<NodeInstance<'resin-nodes-base.stickyNote', 'v1', void>, T> {
 		throw new Error('Sticky notes do not support connections');
 	}
 
@@ -1179,8 +1179,8 @@ class StickyNoteInstance implements NodeInstance<'n8n-nodes-base.stickyNote', 'v
  * });
  *
  * // Auto-position around nodes
- * const httpNode = node({ type: 'n8n-nodes-base.httpRequest', ... });
- * const setNode = node({ type: 'n8n-nodes-base.set', ... });
+ * const httpNode = node({ type: 'resin-nodes-base.httpRequest', ... });
+ * const setNode = node({ type: 'resin-nodes-base.set', ... });
  * const note = sticky('## Data Processing', [httpNode, setNode], { color: 2 });
  *
  * // Backward compatible: config as second param (no nodes)
@@ -1191,7 +1191,7 @@ export function sticky(
 	content: string,
 	nodesOrConfig?: Array<NodeInstance<string, string, unknown>> | StickyNoteConfig,
 	config?: StickyNoteConfig,
-): NodeInstance<'n8n-nodes-base.stickyNote', 'v1', void> {
+): NodeInstance<'resin-nodes-base.stickyNote', 'v1', void> {
 	// Handle backward compatibility: sticky(content, config)
 	// If second param is an object but not an array, treat it as config
 	if (nodesOrConfig !== undefined && !Array.isArray(nodesOrConfig)) {
@@ -1224,7 +1224,7 @@ export function sticky(
  *
  * @example
  * ```typescript
- * const slackNode = node('n8n-nodes-base.slack', 'v2.2', {
+ * const slackNode = node('resin-nodes-base.slack', 'v2.2', {
  *   parameters: { channel: placeholder('Enter Channel') }
  * });
  * // Serializes channel as: '<__PLACEHOLDER_VALUE__Enter Channel__>'

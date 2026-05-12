@@ -2,7 +2,7 @@ import type { BaseLanguageModel } from '@langchain/core/language_models/base';
 import { HumanMessage } from '@langchain/core/messages';
 import { SystemMessagePromptTemplate, ChatPromptTemplate } from '@langchain/core/prompts';
 import { OutputFixingParser, StructuredOutputParser } from '@langchain/classic/output_parsers';
-import { NodeConnectionTypes, NodeOperationError, sleep } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeOperationError, sleep } from 'resin-workflow';
 import type {
 	IDataObject,
 	IExecuteFunctions,
@@ -10,10 +10,10 @@ import type {
 	INodeParameters,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { z } from 'zod';
 
-import { getBatchingOptionFields } from '@n8n/ai-utilities';
+import { getBatchingOptionFields } from '@resin/ai-utilities';
 import { getTracingConfig } from '@utils/tracing';
 
 const DEFAULT_SYSTEM_PROMPT_TEMPLATE =

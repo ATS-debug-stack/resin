@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 import { searchErrorPostReceive } from '../../GenericFunctions';
 import * as searchOp from './search.operation';

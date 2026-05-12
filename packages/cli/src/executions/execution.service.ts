@@ -1,13 +1,13 @@
-import { ExecutionRedactionQueryDtoSchema } from '@n8n/api-types';
-import { LicenseState, Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
+import { ExecutionRedactionQueryDtoSchema } from '@resin/api-types';
+import { LicenseState, Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
 import type {
 	CreateExecutionPayload,
 	ExecutionSummaries,
 	IExecutionResponse,
 	IGetExecutionsQueryFilter,
 	User,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	AnnotationTagMappingRepository,
 	ExecutionAnnotationRepository,
@@ -15,9 +15,9 @@ import {
 	In,
 	WorkflowHistoryRepository,
 	WorkflowRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { PROJECT_OWNER_ROLE_SLUG, type Scope } from '@n8n/permissions';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { PROJECT_OWNER_ROLE_SLUG, type Scope } from '@resin/permissions';
 import { stringify } from 'flatted';
 import { validate as jsonSchemaValidate } from 'jsonschema';
 import type {
@@ -27,7 +27,7 @@ import type {
 	IWorkflowBase,
 	IWorkflowExecutionDataProcess,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ExecutionStatusList,
 	ManualExecutionCancelledError,
@@ -37,7 +37,7 @@ import {
 	WorkflowOperationError,
 	createErrorExecutionData,
 	ensureError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { ActiveExecutions } from '@/active-executions';
 import { ConcurrencyControlService } from '@/concurrency/concurrency-control.service';

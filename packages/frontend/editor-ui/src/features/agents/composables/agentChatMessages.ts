@@ -17,7 +17,7 @@ import {
 	type AskQuestionInput,
 	type AskQuestionResume,
 	type InteractiveToolName,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 import { CHAT_MESSAGE_STATUS, TOOL_CALL_STATE } from '../constants';
 import type { ChatMessageStatus, ToolCallState } from '../constants';
@@ -63,7 +63,7 @@ interface InteractivePayloadBase {
 /**
  * Discriminated union describing the interactive card that a suspended builder
  * tool call renders in the chat. `toolName` is the discriminant (one of the
- * three canonical interactive tool names from `@n8n/api-types`).
+ * three canonical interactive tool names from `@resin/api-types`).
  */
 export type InteractivePayload =
 	| (InteractivePayloadBase & {

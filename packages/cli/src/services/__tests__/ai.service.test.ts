@@ -2,12 +2,12 @@ import type {
 	AiAskRequestDto,
 	AiApplySuggestionRequestDto,
 	AiChatRequestDto,
-} from '@n8n/api-types';
-import type { GlobalConfig } from '@n8n/config';
+} from '@resin/api-types';
+import type { GlobalConfig } from '@resin/config';
 import { AiAssistantClient, type AiAssistantSDK } from '@n8n_io/ai-assistant-sdk';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
-import type { IUser } from 'n8n-workflow';
+import type { InstanceSettings } from 'resin-core';
+import type { IUser } from 'resin-workflow';
 
 import { N8N_VERSION } from '@/constants';
 import type { License } from '@/license';

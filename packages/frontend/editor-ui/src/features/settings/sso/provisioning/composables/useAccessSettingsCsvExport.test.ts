@@ -1,11 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { useAccessSettingsCsvExport } from './useAccessSettingsCsvExport';
-import * as usersApi from '@n8n/rest-api-client/api/users';
-import type { UsersList, User } from '@n8n/api-types';
+import * as usersApi from '@resin/rest-api-client/api/users';
+import type { UsersList, User } from '@resin/api-types';
 
 const mockedRestApiContext = {};
-vi.mock('@n8n/rest-api-client/api/users');
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/rest-api-client/api/users');
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({
 		restApiContext: mockedRestApiContext,
 	}),

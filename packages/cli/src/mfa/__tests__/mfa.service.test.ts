@@ -1,8 +1,8 @@
-import type { LicenseState } from '@n8n/backend-common';
-import { mockLogger } from '@n8n/backend-test-utils';
-import type { SettingsRepository, UserRepository } from '@n8n/db';
+import type { LicenseState } from '@resin/backend-common';
+import { mockLogger } from '@resin/backend-test-utils';
+import type { SettingsRepository, UserRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { Cipher } from 'n8n-core';
+import type { Cipher } from 'resin-core';
 
 import type { CacheService } from '@/services/cache/cache.service';
 

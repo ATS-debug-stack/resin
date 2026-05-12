@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
 
 import { GoogleSheet } from '../../../v2/helpers/GoogleSheet';
 import { apiRequest } from '../../../v2/transport';

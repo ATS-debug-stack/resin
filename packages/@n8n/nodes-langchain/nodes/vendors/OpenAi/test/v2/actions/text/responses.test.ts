@@ -1,5 +1,5 @@
 import lodashGet from 'lodash/get';
-import type { IDataObject, IExecuteFunctions } from 'n8n-workflow';
+import type { IDataObject, IExecuteFunctions } from 'resin-workflow';
 import type { FunctionTool } from 'openai/resources/responses/responses';
 
 import { getBinaryDataFile } from '../../../../helpers/binary-data';
@@ -24,7 +24,7 @@ const createExecuteFunctionsMock = (parameters: IDataObject): IExecuteFunctions 
 			return {
 				id: 'test-node',
 				name: 'Test Node',
-				type: 'n8n-nodes-langchain.openAi',
+				type: 'resin-nodes-langchain.openAi',
 				typeVersion: 2,
 				position: [0, 0],
 				parameters: {},

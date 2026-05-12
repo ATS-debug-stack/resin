@@ -1,7 +1,7 @@
 import type { Request } from 'express';
 import { mock, mockDeep } from 'jest-mock-extended';
-import { returnJsonArray } from 'n8n-core';
-import type { INode, IWebhookFunctions } from 'n8n-workflow';
+import { returnJsonArray } from 'resin-core';
+import type { INode, IWebhookFunctions } from 'resin-workflow';
 import * as GenericFunctions from '../GenericFunctions';
 
 import { EventbriteTrigger } from '../EventbriteTrigger.node';

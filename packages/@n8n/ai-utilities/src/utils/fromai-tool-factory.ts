@@ -1,7 +1,7 @@
 import type { CallbackManagerForToolRun } from '@langchain/core/callbacks/manager';
 import { DynamicStructuredTool, DynamicTool } from '@langchain/core/tools';
-import type { FromAIArgument, IDataObject, INode, INodeParameters } from 'n8n-workflow';
-import { generateZodSchema, traverseNodeParameters } from 'n8n-workflow';
+import type { FromAIArgument, IDataObject, INode, INodeParameters } from 'resin-workflow';
+import { generateZodSchema, traverseNodeParameters } from 'resin-workflow';
 import { z } from 'zod';
 
 export type ToolFunc = (

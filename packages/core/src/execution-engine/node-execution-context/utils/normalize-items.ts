@@ -1,5 +1,5 @@
-import { ApplicationError } from '@n8n/errors';
-import type { INodeExecutionData, IDataObject } from 'n8n-workflow';
+import { ApplicationError } from '@resin/errors';
+import type { INodeExecutionData, IDataObject } from 'resin-workflow';
 
 /**
  * Automatically put the objects under a 'json' key and don't error,

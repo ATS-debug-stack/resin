@@ -8,7 +8,7 @@ import type {
 	INodePropertyOptions,
 	INodeParameters,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	updateDynamicConnections,
 	updateParameterByPath,

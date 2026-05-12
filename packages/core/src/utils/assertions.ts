@@ -4,7 +4,7 @@ import {
 	UnexpectedError,
 	type Workflow,
 	type WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export function assertExecutionDataExists(
 	executionData: IRunExecutionData['executionData'],

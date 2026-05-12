@@ -1,7 +1,7 @@
-import type { SecretProviderTypeResponse } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Get, Middleware, Param, RestController } from '@n8n/decorators';
+import type { SecretProviderTypeResponse } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Get, Middleware, Param, RestController } from '@resin/decorators';
 import type { NextFunction, Request, Response } from 'express';
 
 import { ExternalSecretsConfig } from './external-secrets.config';

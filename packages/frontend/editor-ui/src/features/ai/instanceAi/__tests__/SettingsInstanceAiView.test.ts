@@ -5,9 +5,9 @@ import { createComponentRenderer } from '@/__tests__/render';
 import SettingsInstanceAiView from '../views/SettingsInstanceAiView.vue';
 import { useInstanceAiSettingsStore } from '../instanceAiSettings.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import type { FrontendModuleSettings } from '@n8n/api-types';
+import type { FrontendModuleSettings } from '@resin/api-types';
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string) => key,
@@ -244,7 +244,7 @@ describe('SettingsInstanceAiView', () => {
 
 		it('shows Enable toggle', () => {
 			const { getByTestId } = renderComponent();
-			expect(getByTestId('n8n-agent-enable-toggle')).toBeVisible();
+			expect(getByTestId('resin-agent-enable-toggle')).toBeVisible();
 		});
 	});
 

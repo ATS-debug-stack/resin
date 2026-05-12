@@ -44,7 +44,7 @@ const state: DataWorkerState = {
 };
 
 const DB_NAME = 'n8n';
-const VFS_NAME = 'n8n-opfs';
+const VFS_NAME = 'resin-opfs';
 const SQLITE_ACCESS_EXISTS =
 	(SQLite as { SQLITE_ACCESS_EXISTS?: number }).SQLITE_ACCESS_EXISTS ?? 0;
 

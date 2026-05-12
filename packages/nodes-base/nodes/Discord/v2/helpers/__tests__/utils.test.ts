@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, IDataObject } from 'n8n-workflow';
-import { NodeOperationError, jsonParse } from 'n8n-workflow';
+import type { IExecuteFunctions, IDataObject } from 'resin-workflow';
+import { NodeOperationError, jsonParse } from 'resin-workflow';
 import { prepareMultiPartForm } from '../utils';
 
 describe('Discord V2 Utils', () => {

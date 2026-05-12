@@ -1,11 +1,11 @@
-import type { InstanceRegistration } from '@n8n/api-types';
+import type { InstanceRegistration } from '@resin/api-types';
 import {
 	ClusterCheck,
 	type ClusterCheckAuditEvent,
 	type ClusterCheckContext,
 	type ClusterCheckResult,
 	type IClusterCheck,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 
 const AUDIT_JOINED = 'n8n.audit.cluster.instance-joined';
 const AUDIT_LEFT = 'n8n.audit.cluster.instance-left';

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import {
 	isResourceLocatorValue,
 	type INodeProperties,
 	type NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { isValueExpression } from '@/app/utils/nodeTypesUtils';
 import { computed, inject } from 'vue';
 import { ChatHubToolContextKey } from '@/app/constants';
@@ -20,7 +20,7 @@ import {
 	N8nIconButton,
 	N8nRadioButtons,
 	N8nText,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 interface Props {
 	parameter: INodeProperties;
 	isReadOnly: boolean;

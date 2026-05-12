@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import type { EntityManager } from '@n8n/typeorm';
-import { DataSource, In, Repository } from '@n8n/typeorm';
+import { Service } from '@resin/di';
+import type { EntityManager } from '@resin/typeorm';
+import { DataSource, In, Repository } from '@resin/typeorm';
 import intersection from 'lodash/intersection';
 
 import { TagEntity } from '../entities';

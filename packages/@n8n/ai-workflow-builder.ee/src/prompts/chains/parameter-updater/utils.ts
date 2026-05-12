@@ -2,7 +2,7 @@
  * Utility functions for parameter updater prompts.
  */
 
-import type { INodeTypeDescription, INodeProperties } from 'n8n-workflow';
+import type { INodeTypeDescription, INodeProperties } from 'resin-workflow';
 
 /**
  * Analyzes node definition to determine if it has resource locator parameters.

@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 import type { Response } from 'express';
 import { validateHeaderName, validateHeaderValue } from 'node:http';
-import { ensureError } from 'n8n-workflow';
+import { ensureError } from 'resin-workflow';
 
 /**
  * The headers object that node's `responseHeaders` property can return

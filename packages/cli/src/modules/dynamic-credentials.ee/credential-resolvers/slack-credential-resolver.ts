@@ -1,4 +1,4 @@
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 import {
 	CredentialResolver,
 	type CredentialResolverConfiguration,
@@ -6,13 +6,13 @@ import {
 	type CredentialResolverHandle,
 	CredentialResolverValidationError,
 	type ICredentialResolver,
-} from '@n8n/decorators';
-import { Cipher } from 'n8n-core';
+} from '@resin/decorators';
+import { Cipher } from 'resin-core';
 import {
 	type ICredentialContext,
 	type ICredentialDataDecryptedObject,
 	jsonParse,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	SlackSignatureIdentifier,
 	SlackSignatureOptionsSchema,

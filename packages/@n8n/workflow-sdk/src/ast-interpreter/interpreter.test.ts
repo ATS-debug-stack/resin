@@ -187,10 +187,10 @@ describe('AST Interpreter', () => {
 		});
 
 		it('should call node function with config', () => {
-			const code = "export default node({ type: 'n8n-nodes-base.set', version: 3, config: {} });";
+			const code = "export default node({ type: 'resin-nodes-base.set', version: 3, config: {} });";
 			interpretSDKCode(code, sdkFunctions);
 			expect(sdkFunctions.node).toHaveBeenCalledWith({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {},
 			});
@@ -198,10 +198,10 @@ describe('AST Interpreter', () => {
 
 		it('should call trigger function', () => {
 			const code =
-				"export default trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });";
+				"export default trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });";
 			interpretSDKCode(code, sdkFunctions);
 			expect(sdkFunctions.trigger).toHaveBeenCalledWith({
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				version: 1,
 				config: {},
 			});
@@ -209,7 +209,7 @@ describe('AST Interpreter', () => {
 
 		it('should call languageModel function', () => {
 			const code =
-				"export default languageModel({ type: '@n8n/n8n-nodes-langchain.lmChatOpenAi', version: 1, config: {} });";
+				"export default languageModel({ type: '@resin/n8n-nodes-langchain.lmChatOpenAi', version: 1, config: {} });";
 			interpretSDKCode(code, sdkFunctions);
 			expect(sdkFunctions.languageModel).toHaveBeenCalled();
 		});
@@ -673,7 +673,7 @@ describe('AST Interpreter', () => {
 		it('should interpret a simple workflow', () => {
 			const code = `
 				const wf = workflow('test-id', 'Test Workflow');
-				wf.add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }));
+				wf.add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }));
 				export default wf;
 			`;
 			const result = interpretSDKCode(code, sdkFunctions) as { id: string; name: string };
@@ -683,8 +683,8 @@ describe('AST Interpreter', () => {
 
 		it('should interpret workflow with node chain', () => {
 			const code = `
-				const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
-				const n = node({ type: 'n8n-nodes-base.set', version: 3, config: {} });
+				const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
+				const n = node({ type: 'resin-nodes-base.set', version: 3, config: {} });
 				export default workflow('id', 'name').add(t).add(n);
 			`;
 			const result = interpretSDKCode(code, sdkFunctions) as { nodes: unknown[] };
@@ -694,12 +694,12 @@ describe('AST Interpreter', () => {
 		it('should interpret workflow with subnodes', () => {
 			const code = `
 				const model = languageModel({
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					version: 1,
 					config: { parameters: { model: 'gpt-4' } }
 				});
 				export default node({
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					version: 1,
 					config: { subnodes: { model: model } }
 				});
@@ -707,7 +707,7 @@ describe('AST Interpreter', () => {
 			interpretSDKCode(code, sdkFunctions);
 			// Verify languageModel was called
 			expect(sdkFunctions.languageModel).toHaveBeenCalledWith({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1,
 				config: { parameters: { model: 'gpt-4' } },
 			});
@@ -722,12 +722,12 @@ describe('AST Interpreter', () => {
 		it('should interpret workflow with subnodes assigned after creation', () => {
 			const code = `
 				const splitter = textSplitter({
-					type: '@n8n/n8n-nodes-langchain.textSplitterTokenSplitter',
+					type: '@resin/n8n-nodes-langchain.textSplitterTokenSplitter',
 					version: 1,
 					config: { parameters: { chunkSize: 500 } }
 				});
 				const loader = documentLoader({
-					type: '@n8n/n8n-nodes-langchain.documentDefaultDataLoader',
+					type: '@resin/n8n-nodes-langchain.documentDefaultDataLoader',
 					version: 1,
 					config: { subnodes: {} }
 				});
@@ -749,7 +749,7 @@ describe('AST Interpreter', () => {
 		it('should interpret workflow with fromAi', () => {
 			const code = `
 				export default tool({
-					type: 'n8n-nodes-base.gmailTool',
+					type: 'resin-nodes-base.gmailTool',
 					version: 1,
 					config: { parameters: { sendTo: fromAi('email', 'Recipient email') } }
 				});
@@ -783,7 +783,7 @@ describe('AST Interpreter', () => {
 
 		it('should reject update() on node objects', () => {
 			const code = `
-				const n = node({ type: 'n8n-nodes-base.set', version: 3, config: {} });
+				const n = node({ type: 'resin-nodes-base.set', version: 3, config: {} });
 				export default n.update({});
 			`;
 			expect(() => interpretSDKCode(code, sdkFunctions)).toThrow(SecurityError);

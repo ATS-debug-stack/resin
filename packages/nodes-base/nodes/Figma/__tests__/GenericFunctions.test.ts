@@ -1,4 +1,4 @@
-import { NodeApiError } from 'n8n-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import { figmaApiRequest } from '../GenericFunctions';
 

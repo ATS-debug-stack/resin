@@ -1,9 +1,9 @@
-import type { LicenseState, Logger, ModuleRegistry } from '@n8n/backend-common';
-import type { GlobalConfig, SecurityConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import type { LicenseState, Logger, ModuleRegistry } from '@resin/backend-common';
+import type { GlobalConfig, SecurityConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { BinaryDataConfig, InstanceSettings } from 'n8n-core';
-import type { ICredentialType, INodeTypeDescription } from 'n8n-workflow';
+import type { BinaryDataConfig, InstanceSettings } from 'resin-core';
+import type { ICredentialType, INodeTypeDescription } from 'resin-workflow';
 
 import type { CredentialTypes } from '@/credential-types';
 import type { CredentialsOverwrites } from '@/credentials-overwrites';
@@ -500,11 +500,11 @@ describe('FrontendService', () => {
 
 			const nodes = [
 				{
-					name: 'n8n-nodes-base.single',
+					name: 'resin-nodes-base.single',
 					version: 1,
 				},
 				{
-					name: 'n8n-nodes-base.multi',
+					name: 'resin-nodes-base.multi',
 					version: [1, 2],
 				},
 			] as unknown as INodeTypeDescription[];
@@ -513,9 +513,9 @@ describe('FrontendService', () => {
 
 			expect(identifiers).toEqual(
 				expect.arrayContaining([
-					'n8n-nodes-base.single@1',
-					'n8n-nodes-base.multi@1',
-					'n8n-nodes-base.multi@2',
+					'resin-nodes-base.single@1',
+					'resin-nodes-base.multi@1',
+					'resin-nodes-base.multi@2',
 				]),
 			);
 			expect(identifiers).toHaveLength(3);
@@ -527,11 +527,11 @@ describe('FrontendService', () => {
 
 			const nodes = [
 				{
-					name: 'n8n-nodes-base.duplicate',
+					name: 'resin-nodes-base.duplicate',
 					version: [1, 1, 2],
 				},
 				{
-					name: 'n8n-nodes-base.duplicate',
+					name: 'resin-nodes-base.duplicate',
 					version: 2,
 				},
 				{
@@ -539,14 +539,14 @@ describe('FrontendService', () => {
 					version: 3,
 				},
 				{
-					name: 'n8n-nodes-base.invalidVersion',
+					name: 'resin-nodes-base.invalidVersion',
 				},
 			] as unknown as INodeTypeDescription[];
 
 			const identifiers = getNodeVersionIdentifiers(nodes);
 
 			expect(identifiers).toEqual(
-				expect.arrayContaining(['n8n-nodes-base.duplicate@1', 'n8n-nodes-base.duplicate@2']),
+				expect.arrayContaining(['resin-nodes-base.duplicate@1', 'resin-nodes-base.duplicate@2']),
 			);
 			expect(identifiers).toHaveLength(2);
 		});
@@ -715,8 +715,8 @@ describe('FrontendService', () => {
 	describe('generateTypes', () => {
 		it('should write node versions file with generated identifiers', async () => {
 			const testNodes = [
-				{ name: 'n8n-nodes-base.single', version: 1 },
-				{ name: 'n8n-nodes-base.multi', version: [1, 2] },
+				{ name: 'resin-nodes-base.single', version: 1 },
+				{ name: 'resin-nodes-base.multi', version: [1, 2] },
 			];
 
 			(loadNodesAndCredentials.collectTypes as jest.Mock).mockResolvedValue({
@@ -743,9 +743,9 @@ describe('FrontendService', () => {
 
 				expect(identifiers).toEqual(
 					expect.arrayContaining([
-						'n8n-nodes-base.single@1',
-						'n8n-nodes-base.multi@1',
-						'n8n-nodes-base.multi@2',
+						'resin-nodes-base.single@1',
+						'resin-nodes-base.multi@1',
+						'resin-nodes-base.multi@2',
 					]),
 				);
 				expect(identifiers).toHaveLength(3);

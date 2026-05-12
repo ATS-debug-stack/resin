@@ -30,7 +30,7 @@ vi.mock('vue-router', () => ({
 	RouterLink: { template: '<a><slot/></a>' },
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({ restApiContext: { baseUrl: 'http://localhost:5678' } }),
 }));
 
@@ -194,7 +194,7 @@ const baseTextFn = (key: string) => {
 	return map[key] ?? key;
 };
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({ baseText: baseTextFn }),
 	i18n: { baseText: baseTextFn },
 }));

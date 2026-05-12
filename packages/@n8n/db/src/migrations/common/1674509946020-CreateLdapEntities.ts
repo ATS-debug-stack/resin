@@ -1,4 +1,4 @@
-import { LDAP_FEATURE_NAME, LDAP_DEFAULT_CONFIGURATION } from '@n8n/constants';
+import { LDAP_FEATURE_NAME, LDAP_DEFAULT_CONFIGURATION } from '@resin/constants';
 
 import type { MigrationContext, ReversibleMigration } from '../migration-types';
 

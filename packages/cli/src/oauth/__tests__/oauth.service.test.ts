@@ -1,16 +1,16 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { OAuth2CredentialData } from '@n8n/client-oauth2';
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import type { AuthenticatedRequest, CredentialsEntity, ICredentialsDb, User } from '@n8n/db';
-import { CredentialsRepository } from '@n8n/db';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { OAuth2CredentialData } from '@resin/client-oauth2';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import type { AuthenticatedRequest, CredentialsEntity, ICredentialsDb, User } from '@resin/db';
+import { CredentialsRepository } from '@resin/db';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
-import type { Cipher } from 'n8n-core';
-import { Credentials } from 'n8n-core';
-import type { IWorkflowExecuteAdditionalData } from 'n8n-workflow';
-import { UnexpectedError } from 'n8n-workflow';
+import type { Cipher } from 'resin-core';
+import { Credentials } from 'resin-core';
+import type { IWorkflowExecuteAdditionalData } from 'resin-workflow';
+import { UnexpectedError } from 'resin-workflow';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { DynamicCredentialsProxy } from '@/credentials/dynamic-credentials-proxy';
@@ -31,7 +31,7 @@ import * as WorkflowExecuteAdditionalData from '@/workflow-execute-additional-da
 
 jest.mock('@/workflow-execute-additional-data');
 jest.mock('axios');
-jest.mock('@n8n/client-oauth2');
+jest.mock('@resin/client-oauth2');
 jest.mock('pkce-challenge');
 
 describe('OauthService', () => {
@@ -1304,7 +1304,7 @@ describe('OauthService', () => {
 
 	describe('generateAOauth2AuthUri', () => {
 		it('should generate auth URI without dynamic client registration', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () =>
 					'https://example.domain/oauth2/auth?client_id=client_id&redirect_uri=http://localhost:5678/rest/oauth2-credential/callback&response_type=code&state=state&scope=openid',
@@ -1379,7 +1379,7 @@ describe('OauthService', () => {
 		});
 
 		it('should generate auth URI with PKCE flow', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const pkceChallenge = await import('pkce-challenge');
 			jest.mocked(pkceChallenge.default).mockResolvedValue({
 				code_verifier: 'code_verifier',
@@ -1429,7 +1429,7 @@ describe('OauthService', () => {
 		});
 
 		it('should generate auth URI with auth query parameters', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () =>
 					'https://example.domain/oauth2/auth?client_id=client_id&redirect_uri=http://localhost:5678/rest/oauth2-credential/callback&response_type=code&state=state&scope=openid&custom_param=value',
@@ -1470,7 +1470,7 @@ describe('OauthService', () => {
 
 		it('should handle dynamic client registration with root-level server URL', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () =>
 					'https://example.domain/oauth2/auth?client_id=registered_client_id&redirect_uri=http://localhost:5678/rest/oauth2-credential/callback&response_type=code&state=state&scope=openid profile',
@@ -1579,7 +1579,7 @@ describe('OauthService', () => {
 
 		it('should throw BadRequestError when client registration response is invalid', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			jest.mocked(ClientOAuth2).mockImplementation(() => ({}) as any);
 
 			const credential = mock<CredentialsEntity>({ id: '1', type: 'googleOAuth2Api' });
@@ -1622,7 +1622,7 @@ describe('OauthService', () => {
 
 		it('should handle dynamic client registration with client_secret_post authentication', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () =>
 					'https://example.domain/oauth2/auth?client_id=registered_client_id&redirect_uri=http://localhost:5678/rest/oauth2-credential/callback&response_type=code&state=state&scope=openid',
@@ -1680,7 +1680,7 @@ describe('OauthService', () => {
 			// we need to check the actual behavior by verifying the CSRF state doesn't include userId
 			// when the env var is set. However, since it's evaluated at module load, we'll test
 			// that the function works correctly with or without userId
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () =>
 					'https://example.domain/oauth2/auth?client_id=client_id&redirect_uri=http://localhost:5678/rest/oauth2-credential/callback&response_type=code&state=state&scope=openid',
@@ -1727,7 +1727,7 @@ describe('OauthService', () => {
 	describe('generateAOauth2AuthUri with DCR and RFC 8414 compliance', () => {
 		it('should insert .well-known between host and path per RFC 8414', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () =>
 					'https://example.domain/authorize?client_id=registered_client_id&redirect_uri=http://localhost:5678/rest/oauth2-credential/callback&response_type=code&state=state',
@@ -1784,7 +1784,7 @@ describe('OauthService', () => {
 
 		it('should handle root-level issuer URLs (no path)', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () =>
 					'https://example.domain/authorize?client_id=test_id&redirect_uri=http://localhost:5678/rest/oauth2-credential/callback&response_type=code&state=state',
@@ -1840,7 +1840,7 @@ describe('OauthService', () => {
 
 		it('should handle issuer URLs with trailing slashes', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://example.domain/authorize?client_id=test_id',
 			});
@@ -1892,7 +1892,7 @@ describe('OauthService', () => {
 
 		it('should handle multi-segment paths correctly', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://oauth.example.com/authorize?client_id=test_id',
 			});
@@ -1944,7 +1944,7 @@ describe('OauthService', () => {
 
 		it('should fall back to OpenID Connect path insertion when RFC 8414 fails', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://example.domain/authorize?client_id=test_id',
 			});
@@ -2011,7 +2011,7 @@ describe('OauthService', () => {
 
 		it('should fall back to OpenID Connect path appending when first two fail', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://example.domain/authorize?client_id=test_id',
 			});
@@ -2083,7 +2083,7 @@ describe('OauthService', () => {
 
 		it('should fall back to origin-only discovery when path-aware variants fail (Atlassian MCP)', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://mcp.atlassian.com/authorize?client_id=test_id',
 			});
@@ -2190,7 +2190,7 @@ describe('OauthService', () => {
 
 		it('should discover authorization server via protected resource metadata (MCP flow)', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://auth.example.com/authorize?client_id=test_id',
 			});
@@ -2264,7 +2264,7 @@ describe('OauthService', () => {
 
 		it('should fall back to direct authorization server discovery when protected resource fails', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://example.domain/authorize?client_id=test_id',
 			});
@@ -2334,7 +2334,7 @@ describe('OauthService', () => {
 
 		it('should handle Smithery MCP server with path-specific protected resource discovery', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://auth.smithery.ai/authorize?client_id=test_id',
 			});
@@ -2405,7 +2405,7 @@ describe('OauthService', () => {
 
 		it('should handle Notion MCP server with root protected resource discovery', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://mcp.notion.com/authorize?client_id=test_id',
 			});
@@ -2483,7 +2483,7 @@ describe('OauthService', () => {
 
 		it('should handle VEED.io with fallback to authorization server discovery', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://www.veed.io/authorize?client_id=test_id',
 			});
@@ -2585,7 +2585,7 @@ describe('OauthService', () => {
 
 		it('should succeed when server advertises only authorization_code without refresh_token', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://login.commonroom.io/authorize?client_id=test_id',
 			});
@@ -2641,7 +2641,7 @@ describe('OauthService', () => {
 
 		it('should not produce double /.well-known/ paths when authorization server URL already contains /.well-known/', async () => {
 			const axios = require('axios');
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () => 'https://example.domain/authorize?client_id=test_id',
 			});

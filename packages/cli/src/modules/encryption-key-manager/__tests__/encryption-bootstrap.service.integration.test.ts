@@ -1,7 +1,7 @@
-import { mockInstance, testDb } from '@n8n/backend-test-utils';
-import { DeploymentKeyRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { Cipher, InstanceSettings } from 'n8n-core';
+import { mockInstance, testDb } from '@resin/backend-test-utils';
+import { DeploymentKeyRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { Cipher, InstanceSettings } from 'resin-core';
 
 import { EncryptionBootstrapService } from '../encryption-bootstrap.service';
 

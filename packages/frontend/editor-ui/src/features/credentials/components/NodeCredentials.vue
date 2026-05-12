@@ -6,7 +6,7 @@ import type {
 	INodeCredentialDescription,
 	INodeCredentialsDetails,
 	NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { I18nT } from 'vue-i18n';
 
@@ -21,7 +21,7 @@ import {
 import { useToast } from '@/app/composables/useToast';
 
 import TitledList from '@/app/components/TitledList.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { CREDENTIAL_ONLY_NODE_PREFIX, WORKFLOW_SETTINGS_MODAL_KEY } from '@/app/constants';
 import { ndvEventBus } from '@/features/ndv/shared/ndv.eventBus';
@@ -34,9 +34,9 @@ import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
-import { assert } from '@n8n/utils/assert';
+import { assert } from '@resin/utils/assert';
 import { isEmpty } from '@/app/utils/typesUtils';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { useNodeCredentialOptions } from '../composables/useNodeCredentialOptions';
 import { useDynamicCredentials } from '@/features/resolvers/composables/useDynamicCredentials';
 import { useAiGateway } from '@/app/composables/useAiGateway';
@@ -54,7 +54,7 @@ import {
 	N8nSelect,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 type Props = {
 	node: INodeUi;

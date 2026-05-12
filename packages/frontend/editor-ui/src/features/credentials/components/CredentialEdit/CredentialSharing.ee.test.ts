@@ -7,17 +7,17 @@ import { useProjectsStore } from '@/features/collaboration/projects/projects.sto
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useRolesStore } from '@/app/stores/roles.store';
 import type { ICredentialsResponse } from '../../credentials.types';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import { getDropdownItems } from '@/__tests__/utils';
-import { useI18n } from '@n8n/i18n';
-import type * as I18nModule from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
+import type * as I18nModule from '@resin/i18n';
 import { ProjectTypes } from '@/features/collaboration/projects/projects.types';
 import {
 	createProjectListItem,
 	createTestProject,
 } from '@/features/collaboration/projects/__tests__/utils';
 
-vi.mock('@n8n/i18n', async (importOriginal) => {
+vi.mock('@resin/i18n', async (importOriginal) => {
 	const actual = await importOriginal<typeof I18nModule>();
 	return {
 		...actual,

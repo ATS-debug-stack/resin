@@ -14,7 +14,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '1',
 						name: 'When clicking Execute workflow',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -22,7 +22,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '2',
 						name: 'Loop Over Items',
-						type: 'n8n-nodes-base.splitInBatches',
+						type: 'resin-nodes-base.splitInBatches',
 						typeVersion: 3,
 						position: [224, 0],
 						parameters: { options: {} },
@@ -30,7 +30,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '3',
 						name: 'Replace Me',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [448, 0],
 						parameters: {},
@@ -39,7 +39,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '4',
 						name: 'Loop Over Items1',
-						type: 'n8n-nodes-base.splitInBatches',
+						type: 'resin-nodes-base.splitInBatches',
 						typeVersion: 3,
 						position: [0, 224],
 						parameters: { options: {} },
@@ -88,7 +88,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -96,7 +96,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '2',
 						name: 'Connected Node',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [200, 0],
 						parameters: {},
@@ -105,7 +105,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '3',
 						name: 'Loop3',
-						type: 'n8n-nodes-base.splitInBatches',
+						type: 'resin-nodes-base.splitInBatches',
 						typeVersion: 3,
 						position: [0, 200],
 						parameters: { options: {} },
@@ -113,7 +113,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '4',
 						name: 'Loop4',
-						type: 'n8n-nodes-base.splitInBatches',
+						type: 'resin-nodes-base.splitInBatches',
 						typeVersion: 3,
 						position: [200, 200],
 						parameters: { options: {} },
@@ -162,7 +162,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -170,7 +170,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '2',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [200, 0],
 						parameters: {},
@@ -178,7 +178,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '3',
 						name: 'OpenAI Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [200, 200],
 						parameters: {},
@@ -215,7 +215,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -223,7 +223,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '2',
 						name: 'Connected1',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [200, 0],
 						parameters: {},
@@ -232,7 +232,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '3',
 						name: 'Disconnected1',
-						type: 'n8n-nodes-base.splitInBatches',
+						type: 'resin-nodes-base.splitInBatches',
 						typeVersion: 3,
 						position: [0, 200],
 						parameters: { options: {} },
@@ -241,7 +241,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '4',
 						name: 'Disconnected2A',
-						type: 'n8n-nodes-base.splitInBatches',
+						type: 'resin-nodes-base.splitInBatches',
 						typeVersion: 3,
 						position: [0, 400],
 						parameters: { options: {} },
@@ -249,7 +249,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '5',
 						name: 'Disconnected2B',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [200, 400],
 						parameters: {},
@@ -301,7 +301,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -309,7 +309,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '2',
 						name: 'Edit Fields',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [200, 0],
 						parameters: { options: {} },
@@ -318,7 +318,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '3',
 						name: 'Success Handler',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, 0],
 						parameters: {},
@@ -326,7 +326,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '4',
 						name: 'Error Handler',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, 200],
 						parameters: {},
@@ -373,7 +373,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -381,7 +381,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '2',
 						name: 'Edit Fields',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [200, 0],
 						parameters: { options: {} },
@@ -390,7 +390,7 @@ describe('buildSemanticGraph', () => {
 					{
 						id: '3',
 						name: 'Next Node',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, 0],
 						parameters: {},

@@ -26,7 +26,7 @@ import { createTestingPinia } from '@pinia/testing';
 
 import { mock } from 'vitest-mock-extended';
 import type { ViewStack } from './composables/useViewStacks';
-import { SEND_AND_WAIT_OPERATION } from 'n8n-workflow';
+import { SEND_AND_WAIT_OPERATION } from 'resin-workflow';
 import {
 	DISCORD_NODE_TYPE,
 	MICROSOFT_TEAMS_NODE_TYPE,
@@ -123,7 +123,7 @@ describe('NodeCreator - utils', () => {
 					name: 'SampleNode',
 				},
 				description: 'Sample description',
-				name: 'n8n-nodes-preview-test.SampleNode',
+				name: 'resin-nodes-preview-test.SampleNode',
 				group: ['transform'],
 				outputs: ['main'],
 			},
@@ -133,7 +133,7 @@ describe('NodeCreator - utils', () => {
 					name: 'OtherNode',
 				},
 				description: 'Other node description',
-				name: 'n8n-nodes-preview-test.OtherNode',
+				name: 'resin-nodes-preview-test.OtherNode',
 				group: ['transform'],
 				outputs: ['main'],
 			},
@@ -143,15 +143,15 @@ describe('NodeCreator - utils', () => {
 			const result = filterAndSearchNodes(mergedNodes, 'sample');
 
 			expect(result.length).toEqual(1);
-			expect(result[0].key).toEqual('n8n-nodes-preview-test.SampleNode');
+			expect(result[0].key).toEqual('resin-nodes-preview-test.SampleNode');
 		});
 
 		test('should return two nodes', () => {
 			const result = filterAndSearchNodes(mergedNodes, 'node');
 
 			expect(result.length).toEqual(2);
-			expect(result[1].key).toEqual('n8n-nodes-preview-test.SampleNode');
-			expect(result[0].key).toEqual('n8n-nodes-preview-test.OtherNode');
+			expect(result[1].key).toEqual('resin-nodes-preview-test.SampleNode');
+			expect(result[0].key).toEqual('resin-nodes-preview-test.OtherNode');
 		});
 
 		test('should return [] when in HITL subcategory', () => {
@@ -181,7 +181,7 @@ describe('NodeCreator - utils', () => {
 					displayName: 'Other Tool',
 					defaults: { name: 'OtherTool' },
 					description: 'Other tool',
-					name: 'n8n-nodes-preview-other.otherTool',
+					name: 'resin-nodes-preview-other.otherTool',
 					group: ['transform'],
 					outputs: [{ type: 'ai_tool' }],
 				},
@@ -189,7 +189,7 @@ describe('NodeCreator - utils', () => {
 					displayName: 'Acme Language Model',
 					defaults: { name: 'AcmeLM' },
 					description: 'Community language model',
-					name: 'n8n-nodes-preview-acme.acmeLanguageModel',
+					name: 'resin-nodes-preview-acme.acmeLanguageModel',
 					group: ['transform'],
 					outputs: ['ai_languageModel'],
 				},
@@ -212,7 +212,7 @@ describe('NodeCreator - utils', () => {
 				});
 
 				expect(result).toHaveLength(1);
-				expect(result[0].key).toEqual('n8n-nodes-preview-other.otherTool');
+				expect(result[0].key).toEqual('resin-nodes-preview-other.otherTool');
 			});
 
 			test('in the Language Model picker surfaces only AiLanguageModel-output nodes', () => {
@@ -222,7 +222,7 @@ describe('NodeCreator - utils', () => {
 				});
 
 				expect(result).toHaveLength(1);
-				expect(result[0].key).toEqual('n8n-nodes-preview-acme.acmeLanguageModel');
+				expect(result[0].key).toEqual('resin-nodes-preview-acme.acmeLanguageModel');
 			});
 
 			test('does not leak AiTool nodes into the Language Model picker', () => {
@@ -257,7 +257,7 @@ describe('NodeCreator - utils', () => {
 						displayName: 'Dynamic Outputs Node',
 						defaults: { name: 'Dynamic' },
 						description: 'Node with dynamically computed outputs',
-						name: 'n8n-nodes-preview-dynamic.dynamic',
+						name: 'resin-nodes-preview-dynamic.dynamic',
 						group: ['transform'],
 						// INodeTypeDescription.outputs can be an expression string, not an array
 						outputs:
@@ -280,7 +280,7 @@ describe('NodeCreator - utils', () => {
 			setActivePinia(createTestingPinia());
 		});
 		const nodeCreateElement: NodeCreateElement = {
-			key: 'n8n-nodes-preview-test.OtherNode',
+			key: 'resin-nodes-preview-test.OtherNode',
 			properties: {
 				defaults: {
 					name: 'OtherNode',
@@ -288,12 +288,12 @@ describe('NodeCreator - utils', () => {
 				description: 'Other node description',
 				displayName: 'Other Node',
 				group: ['transform'],
-				name: 'n8n-nodes-preview-test.OtherNode',
+				name: 'resin-nodes-preview-test.OtherNode',
 				outputs: ['main'],
 			},
 			subcategory: '*',
 			type: 'node',
-			uuid: 'n8n-nodes-preview-test.OtherNode-32f238f0-2b05-47ce-b43d-7fab6d7ba3cb',
+			uuid: 'resin-nodes-preview-test.OtherNode-32f238f0-2b05-47ce-b43d-7fab6d7ba3cb',
 		};
 
 		test('should return "community-node" view stack', () => {
@@ -303,16 +303,16 @@ describe('NodeCreator - utils', () => {
 				communityNodeDetails: {
 					description: 'Other node description',
 					installed: false,
-					key: 'n8n-nodes-preview-test.OtherNode',
+					key: 'resin-nodes-preview-test.OtherNode',
 					nodeIcon: undefined,
-					packageName: 'n8n-nodes-test',
+					packageName: 'resin-nodes-test',
 					title: 'Other Node',
 					official: false,
 				},
 				hasSearch: false,
 				items: [
 					{
-						key: 'n8n-nodes-preview-test.OtherNode',
+						key: 'resin-nodes-preview-test.OtherNode',
 						properties: {
 							defaults: {
 								name: 'OtherNode',
@@ -320,12 +320,12 @@ describe('NodeCreator - utils', () => {
 							description: 'Other node description',
 							displayName: 'Other Node',
 							group: ['transform'],
-							name: 'n8n-nodes-preview-test.OtherNode',
+							name: 'resin-nodes-preview-test.OtherNode',
 							outputs: ['main'],
 						},
 						subcategory: '*',
 						type: 'node',
-						uuid: 'n8n-nodes-preview-test.OtherNode-32f238f0-2b05-47ce-b43d-7fab6d7ba3cb',
+						uuid: 'resin-nodes-preview-test.OtherNode-32f238f0-2b05-47ce-b43d-7fab6d7ba3cb',
 					},
 				],
 				mode: 'community-node',
@@ -338,7 +338,7 @@ describe('NodeCreator - utils', () => {
 		test('should return "actions" view stack', () => {
 			const nodeActions: ActionTypeDescription[] = [
 				{
-					name: 'n8n-nodes-preview-test.OtherNode',
+					name: 'resin-nodes-preview-test.OtherNode',
 					group: ['trigger'],
 					codex: {
 						label: 'Log Actions',
@@ -362,7 +362,7 @@ describe('NodeCreator - utils', () => {
 					displayName: 'Publish an event',
 				},
 				{
-					name: 'n8n-nodes-preview-test.OtherNode',
+					name: 'resin-nodes-preview-test.OtherNode',
 					group: ['trigger'],
 					codex: {
 						label: 'Insight Actions',
@@ -397,16 +397,16 @@ describe('NodeCreator - utils', () => {
 				communityNodeDetails: {
 					description: 'Other node description',
 					installed: false,
-					key: 'n8n-nodes-preview-test.OtherNode',
+					key: 'resin-nodes-preview-test.OtherNode',
 					nodeIcon: undefined,
-					packageName: 'n8n-nodes-test',
+					packageName: 'resin-nodes-test',
 					title: 'Other Node',
 					official: false,
 				},
 				hasSearch: false,
 				items: [
 					{
-						key: 'n8n-nodes-preview-test.OtherNode',
+						key: 'resin-nodes-preview-test.OtherNode',
 						properties: {
 							actionKey: 'publish',
 							codex: {
@@ -425,7 +425,7 @@ describe('NodeCreator - utils', () => {
 							},
 							group: ['trigger'],
 							iconUrl: 'icons/n8n-nodes-preview-test/dist/nodes/Test/test.svg',
-							name: 'n8n-nodes-preview-test.OtherNode',
+							name: 'resin-nodes-preview-test.OtherNode',
 							outputs: ['main'],
 							values: {
 								operation: 'publish',
@@ -436,7 +436,7 @@ describe('NodeCreator - utils', () => {
 						uuid: expect.any(String),
 					},
 					{
-						key: 'n8n-nodes-preview-test.OtherNode',
+						key: 'resin-nodes-preview-test.OtherNode',
 						properties: {
 							actionKey: 'publish',
 							codex: {
@@ -455,7 +455,7 @@ describe('NodeCreator - utils', () => {
 							},
 							group: ['trigger'],
 							iconUrl: 'icons/n8n-nodes-preview-test/dist/nodes/Test/test.svg',
-							name: 'n8n-nodes-preview-test.OtherNode',
+							name: 'resin-nodes-preview-test.OtherNode',
 							outputs: ['main'],
 							values: {
 								operation: 'publish',

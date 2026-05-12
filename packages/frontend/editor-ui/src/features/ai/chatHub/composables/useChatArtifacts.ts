@@ -1,6 +1,6 @@
 import { computed, ref, watch, type ComputedRef, type Ref } from 'vue';
 import type { ChatMessage } from '../chat.types';
-import { collectChatArtifacts } from '@n8n/chat-hub';
+import { collectChatArtifacts } from '@resin/chat-hub';
 import { useResizablePanel } from '@/app/composables/useResizablePanel';
 
 export function useChatArtifacts(

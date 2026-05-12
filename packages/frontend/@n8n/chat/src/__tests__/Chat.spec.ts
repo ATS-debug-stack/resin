@@ -2,7 +2,7 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
-import { chatEventBus } from '@n8n/chat/event-buses';
+import { chatEventBus } from '@resin/chat/event-buses';
 
 import Chat from '../components/Chat.vue';
 import type { ChatMessage } from '../types/messages';
@@ -55,7 +55,7 @@ const mockOptions = {
 	showWelcomeScreen: false,
 };
 
-vi.mock('@n8n/chat/composables', () => ({
+vi.mock('@resin/chat/composables', () => ({
 	useI18n: () => ({
 		t: (key: string) => key,
 	}),
@@ -68,7 +68,7 @@ vi.mock('@n8n/chat/composables', () => ({
 	useOptions: () => ({ options: mockOptions }),
 }));
 
-vi.mock('@n8n/chat/event-buses', () => ({
+vi.mock('@resin/chat/event-buses', () => ({
 	chatEventBus: {
 		emit: vi.fn(),
 		on: vi.fn(),

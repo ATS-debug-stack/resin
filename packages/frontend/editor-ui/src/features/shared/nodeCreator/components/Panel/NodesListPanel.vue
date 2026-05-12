@@ -16,7 +16,7 @@ import { useNodeCreatorStore } from '@/features/shared/nodeCreator/nodeCreator.s
 import NodeIcon from '@/app/components/NodeIcon.vue';
 import { getNodeIconSize } from '@/app/utils/nodeIcon';
 import { useDebounce } from '@/app/composables/useDebounce';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useKeyboardNavigation } from '../../composables/useKeyboardNavigation';
 import { useViewStacks, type ViewStack } from '../../composables/useViewStacks';
 import {
@@ -37,7 +37,7 @@ import CommunityNodeFooter from '@/features/settings/communityNodes/components/n
 import CommunityNodeInfo from '@/features/settings/communityNodes/components/nodeCreator/CommunityNodeInfo.vue';
 import { useUsersStore } from '@/features/settings/users/users.store';
 
-import { N8nIcon, N8nNotice } from '@n8n/design-system';
+import { N8nIcon, N8nNotice } from '@resin/design-system';
 const i18n = useI18n();
 const { callDebounced } = useDebounce();
 
@@ -412,7 +412,7 @@ function onBackButton() {
 @each $node-type in $supplemental-node-types {
 	.nodes-list-panel-#{$node-type} .nodes-list-panel-header {
 		.n8n-node-icon svg {
-			/* stylelint-disable-next-line @n8n/css-var-naming */
+			/* stylelint-disable-next-line @resin/css-var-naming */
 			color: var(--node-type-#{$node-type}-color);
 		}
 	}

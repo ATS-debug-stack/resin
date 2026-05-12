@@ -4,7 +4,7 @@ import {
 	setGlobalState,
 	type CodeExecutionMode,
 	type IDataObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import fs from 'node:fs';
 import { builtinModules } from 'node:module';
 
@@ -1263,7 +1263,7 @@ describe('JsTaskRunner', () => {
 
 			const allowedCases = [['nanoid', 'require("nanoid").nanoid()', expect.any(String)]];
 
-			const blockedCases = [['n8n-core']];
+			const blockedCases = [['resin-core']];
 
 			test.each(allowedCases)(
 				'should allow requiring %s in runOnceForAllItems mode',

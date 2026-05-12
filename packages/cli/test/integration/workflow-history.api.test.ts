@@ -1,11 +1,11 @@
-import { LicenseState } from '@n8n/backend-common';
-import { createWorkflow, mockInstance, testDb } from '@n8n/backend-test-utils';
-import type { User, WorkflowHistory } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { LicenseState } from '@resin/backend-common';
+import { createWorkflow, mockInstance, testDb } from '@resin/backend-test-utils';
+import type { User, WorkflowHistory } from '@resin/db';
+import { Container } from '@resin/di';
 import { createOwner, createUser } from '@test-integration/db/users';
 import { createWorkflowHistoryItem } from '@test-integration/db/workflow-history';
 import { createWorkflowPublishHistoryItem } from '@test-integration/db/workflow-publish-history';
-import type { IConnections, INode } from 'n8n-workflow';
+import type { IConnections, INode } from 'resin-workflow';
 
 import type { SuperAgentTest } from './shared/types';
 import * as utils from './shared/utils/';
@@ -472,7 +472,7 @@ describe('PATCH /workflow-history/workflow/:workflowId/versions/:versionId', () 
 				name: 'Original Node',
 				parameters: {},
 				position: [0, 0],
-				type: 'n8n-nodes-base.test',
+				type: 'resin-nodes-base.test',
 				typeVersion: 1,
 			},
 		];

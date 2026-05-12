@@ -9,7 +9,7 @@ import type {
 	INodeProperties,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	jsonParse,
 	NodeOperationError,
@@ -19,7 +19,7 @@ import {
 	CHAT_TRIGGER_NODE_TYPE,
 	WAIT_NODE_TYPE,
 	WAIT_INDEFINITELY,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { Readable } from 'stream';
 
 import { getBinaryResponse } from './utils/binary';
@@ -94,7 +94,7 @@ export class RespondToWebhook implements INodeType {
 				'Only works with webhook node (n8n-nodes-base.webhook) with responseMode set to "responseNode"',
 			relatedNodes: [
 				{
-					nodeType: 'n8n-nodes-base.webhook',
+					nodeType: 'resin-nodes-base.webhook',
 					relationHint: 'Required trigger - set responseMode to "responseNode"',
 				},
 			],

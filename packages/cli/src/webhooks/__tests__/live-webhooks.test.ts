@@ -1,5 +1,5 @@
-import { mockLogger } from '@n8n/backend-test-utils';
-import type { WebhookEntity, WorkflowEntity, WorkflowHistory, WorkflowRepository } from '@n8n/db';
+import { mockLogger } from '@resin/backend-test-utils';
+import type { WebhookEntity, WorkflowEntity, WorkflowHistory, WorkflowRepository } from '@resin/db';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
 import type {
@@ -11,7 +11,7 @@ import type {
 	IWorkflowBase,
 	IWorkflowExecuteAdditionalData,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { WebhookNotFoundError } from '@/errors/response-errors/webhook-not-found.error';
 import type { NodeTypes } from '@/node-types';
@@ -59,7 +59,7 @@ describe('LiveWebhooks', () => {
 			const createWebhookNode = (id: string, position: [number, number]): INode => ({
 				id,
 				name: nodeName,
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				typeVersion: 1,
 				position,
 				parameters: { path: webhookPath, httpMethod },
@@ -144,7 +144,7 @@ describe('LiveWebhooks', () => {
 			const createWebhookNode = (id: string, name: string): INode => ({
 				id,
 				name,
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: { path: webhookPath, httpMethod },
@@ -153,7 +153,7 @@ describe('LiveWebhooks', () => {
 			const createSetNode = (id: string, name: string, value: string): INode => ({
 				id,
 				name,
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				typeVersion: 1,
 				position: [200, 0],
 				parameters: {
@@ -271,7 +271,7 @@ describe('LiveWebhooks', () => {
 
 		const setupMocks = (
 			declaredNodeType: 'form' | 'webhook' | 'mcp' | undefined,
-			nodeTypeName = 'n8n-nodes-base.webhook',
+			nodeTypeName = 'resin-nodes-base.webhook',
 		) => {
 			const node: INode = {
 				id: 'trigger-node',
@@ -344,7 +344,7 @@ describe('LiveWebhooks', () => {
 			mock<WebhookRequest>({ method: httpMethod, params: { path: webhookPath } });
 
 		it('executes a form trigger on the form route family', async () => {
-			setupMocks('form', 'n8n-nodes-base.formTrigger');
+			setupMocks('form', 'resin-nodes-base.formTrigger');
 
 			await expect(
 				liveWebhooks.executeWebhook(buildRequest(), mock<Response>(), 'form'),
@@ -352,7 +352,7 @@ describe('LiveWebhooks', () => {
 		});
 
 		it('returns a not-found error when a form trigger is requested on the webhook route family', async () => {
-			setupMocks('form', 'n8n-nodes-base.formTrigger');
+			setupMocks('form', 'resin-nodes-base.formTrigger');
 
 			await expect(
 				liveWebhooks.executeWebhook(buildRequest(), mock<Response>(), 'webhook'),
@@ -376,7 +376,7 @@ describe('LiveWebhooks', () => {
 		});
 
 		it('executes an mcp trigger on the mcp route family', async () => {
-			setupMocks('mcp', '@n8n/n8n-nodes-langchain.mcpTrigger');
+			setupMocks('mcp', '@resin/n8n-nodes-langchain.mcpTrigger');
 
 			await expect(
 				liveWebhooks.executeWebhook(buildRequest(), mock<Response>(), 'mcp'),
@@ -384,7 +384,7 @@ describe('LiveWebhooks', () => {
 		});
 
 		it('returns a not-found error when an mcp trigger is requested on the form route family', async () => {
-			setupMocks('mcp', '@n8n/n8n-nodes-langchain.mcpTrigger');
+			setupMocks('mcp', '@resin/n8n-nodes-langchain.mcpTrigger');
 
 			await expect(
 				liveWebhooks.executeWebhook(buildRequest(), mock<Response>(), 'form'),
@@ -392,7 +392,7 @@ describe('LiveWebhooks', () => {
 		});
 
 		it('executes without family scoping when expectedNodeType is not provided', async () => {
-			setupMocks('form', 'n8n-nodes-base.formTrigger');
+			setupMocks('form', 'resin-nodes-base.formTrigger');
 
 			await expect(
 				liveWebhooks.executeWebhook(buildRequest(), mock<Response>()),

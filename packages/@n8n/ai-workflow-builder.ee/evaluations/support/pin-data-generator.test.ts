@@ -1,4 +1,4 @@
-import type { INode, INodeTypeDescription } from 'n8n-workflow';
+import type { INode, INodeTypeDescription } from 'resin-workflow';
 
 import {
 	identifyPinDataNodes,
@@ -48,18 +48,18 @@ function makeNodeType(
 
 describe('identifyPinDataNodes', () => {
 	const nodeTypes: INodeTypeDescription[] = [
-		makeNodeType('n8n-nodes-base.slack', { credentials: [{ name: 'slackApi' }] }),
-		makeNodeType('n8n-nodes-base.gmail', { credentials: [{ name: 'gmailOAuth2' }] }),
-		makeNodeType('n8n-nodes-base.set'),
-		makeNodeType('n8n-nodes-base.if'),
-		makeNodeType('n8n-nodes-base.httpRequest'),
-		makeNodeType('n8n-nodes-base.webhook'),
+		makeNodeType('resin-nodes-base.slack', { credentials: [{ name: 'slackApi' }] }),
+		makeNodeType('resin-nodes-base.gmail', { credentials: [{ name: 'gmailOAuth2' }] }),
+		makeNodeType('resin-nodes-base.set'),
+		makeNodeType('resin-nodes-base.if'),
+		makeNodeType('resin-nodes-base.httpRequest'),
+		makeNodeType('resin-nodes-base.webhook'),
 	];
 
 	it('should include service nodes with credentials', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
-			nodes: [makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' })],
+			nodes: [makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' })],
 			connections: {},
 		};
 
@@ -72,9 +72,9 @@ describe('identifyPinDataNodes', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'Set', type: 'n8n-nodes-base.set' }),
-				makeNode({ name: 'If', type: 'n8n-nodes-base.if' }),
-				makeNode({ name: 'Merge', type: 'n8n-nodes-base.merge' }),
+				makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
+				makeNode({ name: 'If', type: 'resin-nodes-base.if' }),
+				makeNode({ name: 'Merge', type: 'resin-nodes-base.merge' }),
 			],
 			connections: {},
 		};
@@ -87,8 +87,8 @@ describe('identifyPinDataNodes', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'Code', type: 'n8n-nodes-base.code' }),
-				makeNode({ name: 'Exec', type: 'n8n-nodes-base.executeCommand' }),
+				makeNode({ name: 'Code', type: 'resin-nodes-base.code' }),
+				makeNode({ name: 'Exec', type: 'resin-nodes-base.executeCommand' }),
 			],
 			connections: {},
 		};
@@ -101,7 +101,7 @@ describe('identifyPinDataNodes', () => {
 	it('should include DataTable nodes', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
-			nodes: [makeNode({ name: 'Table', type: 'n8n-nodes-base.dataTable' })],
+			nodes: [makeNode({ name: 'Table', type: 'resin-nodes-base.dataTable' })],
 			connections: {},
 		};
 
@@ -114,10 +114,10 @@ describe('identifyPinDataNodes', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'Chat Trigger', type: '@n8n/n8n-nodes-langchain.chatTrigger' }),
-				makeNode({ name: 'Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-				makeNode({ name: 'OpenAI', type: '@n8n/n8n-nodes-langchain.lmOpenAi' }),
-				makeNode({ name: 'Tool', type: '@n8n/n8n-nodes-langchain.toolCalculator' }),
+				makeNode({ name: 'Chat Trigger', type: '@resin/n8n-nodes-langchain.chatTrigger' }),
+				makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+				makeNode({ name: 'OpenAI', type: '@resin/n8n-nodes-langchain.lmOpenAi' }),
+				makeNode({ name: 'Tool', type: '@resin/n8n-nodes-langchain.toolCalculator' }),
 			],
 			connections: {
 				'Chat Trigger': {
@@ -146,8 +146,8 @@ describe('identifyPinDataNodes', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' }),
-				makeNode({ name: 'Set', type: 'n8n-nodes-base.set' }),
+				makeNode({ name: 'Trigger', type: 'resin-nodes-base.manualTrigger' }),
+				makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
 			],
 			connections: {
 				Trigger: {
@@ -164,8 +164,8 @@ describe('identifyPinDataNodes', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'HTTP', type: 'n8n-nodes-base.httpRequest' }),
-				makeNode({ name: 'Hook', type: 'n8n-nodes-base.webhook' }),
+				makeNode({ name: 'HTTP', type: 'resin-nodes-base.httpRequest' }),
+				makeNode({ name: 'Hook', type: 'resin-nodes-base.webhook' }),
 			],
 			connections: {},
 		};
@@ -177,7 +177,7 @@ describe('identifyPinDataNodes', () => {
 	it('should skip disabled nodes', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
-			nodes: [makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack', disabled: true })],
+			nodes: [makeNode({ name: 'Slack', type: 'resin-nodes-base.slack', disabled: true })],
 			connections: {},
 		};
 
@@ -189,10 +189,10 @@ describe('identifyPinDataNodes', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' }),
-				makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' }),
-				makeNode({ name: 'Set', type: 'n8n-nodes-base.set' }),
-				makeNode({ name: 'Gmail', type: 'n8n-nodes-base.gmail' }),
+				makeNode({ name: 'Trigger', type: 'resin-nodes-base.manualTrigger' }),
+				makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' }),
+				makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
+				makeNode({ name: 'Gmail', type: 'resin-nodes-base.gmail' }),
 			],
 			connections: {},
 		};
@@ -212,7 +212,7 @@ describe('buildSchemaContexts', () => {
 		const nodes: INode[] = [
 			makeNode({
 				name: 'Slack',
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				typeVersion: 2,
 				parameters: { resource: 'message', operation: 'send' },
 			}),
@@ -222,7 +222,7 @@ describe('buildSchemaContexts', () => {
 		expect(contexts).toHaveLength(1);
 		expect(contexts[0]).toMatchObject({
 			nodeName: 'Slack',
-			nodeType: 'n8n-nodes-base.slack',
+			nodeType: 'resin-nodes-base.slack',
 			typeVersion: 2,
 			resource: 'message',
 			operation: 'send',
@@ -233,7 +233,7 @@ describe('buildSchemaContexts', () => {
 		const nodes: INode[] = [
 			makeNode({
 				name: 'HTTP',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: 'https://example.com' },
 			}),
 		];
@@ -247,7 +247,7 @@ describe('buildSchemaContexts', () => {
 		const nodes: INode[] = [
 			makeNode({
 				name: 'Slack',
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				parameters: { resource: 'message', operation: 'send' },
 			}),
 		];
@@ -266,8 +266,8 @@ describe('workflowToMermaid', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' }),
-				makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack', typeVersion: 2 }),
+				makeNode({ name: 'Trigger', type: 'resin-nodes-base.manualTrigger' }),
+				makeNode({ name: 'Slack', type: 'resin-nodes-base.slack', typeVersion: 2 }),
 			],
 			connections: {
 				Trigger: {
@@ -289,7 +289,7 @@ describe('workflowToMermaid', () => {
 			nodes: [
 				makeNode({
 					name: 'Slack',
-					type: 'n8n-nodes-base.slack',
+					type: 'resin-nodes-base.slack',
 					typeVersion: 2,
 					parameters: { resource: 'message', operation: 'send' },
 				}),
@@ -305,7 +305,7 @@ describe('workflowToMermaid', () => {
 	it('should handle empty connections', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
-			nodes: [makeNode({ name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' })],
+			nodes: [makeNode({ name: 'Trigger', type: 'resin-nodes-base.manualTrigger' })],
 			connections: {},
 		};
 
@@ -318,9 +318,9 @@ describe('workflowToMermaid', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'If', type: 'n8n-nodes-base.if' }),
-				makeNode({ name: 'True', type: 'n8n-nodes-base.set' }),
-				makeNode({ name: 'False', type: 'n8n-nodes-base.set' }),
+				makeNode({ name: 'If', type: 'resin-nodes-base.if' }),
+				makeNode({ name: 'True', type: 'resin-nodes-base.set' }),
+				makeNode({ name: 'False', type: 'resin-nodes-base.set' }),
 			],
 			connections: {
 				If: {
@@ -345,9 +345,9 @@ describe('workflowToMermaid', () => {
 
 describe('generateEvalPinData', () => {
 	const nodeTypes: INodeTypeDescription[] = [
-		makeNodeType('n8n-nodes-base.slack', { credentials: [{ name: 'slackApi' }] }),
-		makeNodeType('n8n-nodes-base.linear', { credentials: [{ name: 'linearApi' }] }),
-		makeNodeType('n8n-nodes-base.set'),
+		makeNodeType('resin-nodes-base.slack', { credentials: [{ name: 'slackApi' }] }),
+		makeNodeType('resin-nodes-base.linear', { credentials: [{ name: 'linearApi' }] }),
+		makeNodeType('resin-nodes-base.set'),
 	];
 
 	function createMockLLM(responseContent: string) {
@@ -360,9 +360,9 @@ describe('generateEvalPinData', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'Linear', type: 'n8n-nodes-base.linear' }),
-				makeNode({ name: 'Set', type: 'n8n-nodes-base.set' }),
-				makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' }),
+				makeNode({ name: 'Linear', type: 'resin-nodes-base.linear' }),
+				makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
+				makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' }),
 			],
 			connections: {},
 		};
@@ -385,7 +385,7 @@ describe('generateEvalPinData', () => {
 	it('should return empty object when no service nodes exist', async () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
-			nodes: [makeNode({ name: 'Set', type: 'n8n-nodes-base.set' })],
+			nodes: [makeNode({ name: 'Set', type: 'resin-nodes-base.set' })],
 			connections: {},
 		};
 
@@ -401,7 +401,7 @@ describe('generateEvalPinData', () => {
 	it('should handle markdown-fenced JSON response', async () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
-			nodes: [makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' })],
+			nodes: [makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' })],
 			connections: {},
 		};
 
@@ -418,7 +418,7 @@ describe('generateEvalPinData', () => {
 	it('should wrap raw objects in { json: ... } format', async () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
-			nodes: [makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' })],
+			nodes: [makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' })],
 			connections: {},
 		};
 
@@ -439,7 +439,7 @@ describe('generateEvalPinData', () => {
 	it('should return empty object on LLM failure', async () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
-			nodes: [makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' })],
+			nodes: [makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' })],
 			connections: {},
 		};
 
@@ -454,7 +454,7 @@ describe('generateEvalPinData', () => {
 	it('should return empty object on invalid JSON response', async () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
-			nodes: [makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' })],
+			nodes: [makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' })],
 			connections: {},
 		};
 
@@ -470,8 +470,8 @@ describe('generateEvalPinData', () => {
 		const workflow: SimpleWorkflow = {
 			name: 'Test',
 			nodes: [
-				makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' }),
-				makeNode({ name: 'Linear', type: 'n8n-nodes-base.linear' }),
+				makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' }),
+				makeNode({ name: 'Linear', type: 'resin-nodes-base.linear' }),
 			],
 			connections: {},
 		};

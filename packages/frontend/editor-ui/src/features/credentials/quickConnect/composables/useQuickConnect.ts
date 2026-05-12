@@ -1,4 +1,4 @@
-import type { QuickConnectOption, QuickConnectPineconeOption } from '@n8n/api-types';
+import type { QuickConnectOption, QuickConnectPineconeOption } from '@resin/api-types';
 import { MODAL_CONFIRM } from '@/app/constants';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useSettingsStore } from '@/app/stores/settings.store';
@@ -10,9 +10,9 @@ import type { ICredentialsResponse } from '../../credentials.types';
 import { useCredentialOAuth } from '../../composables/useCredentialOAuth';
 import { useCredentialsStore } from '../../credentials.store';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { getQuickConnectApiKey } from '../quickConnect.api';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useMessage } from '@/app/composables/useMessage';
 import { useUsersStore } from '@/features/settings/users/users.store';
 

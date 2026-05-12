@@ -16,7 +16,7 @@ vi.mock('../N8nTooltip', () => ({
 vi.mock('../N8nIcon', () => ({
 	default: {
 		name: 'N8nIcon',
-		template: '<span data-testid="n8n-icon" :data-icon="icon"></span>',
+		template: '<span data-testid="resin-icon" :data-icon="icon"></span>',
 		props: ['icon'],
 	},
 }));
@@ -45,7 +45,7 @@ describe('NodeIcon', () => {
 			});
 
 			// N8nIcon should be rendered (via IconContent)
-			const icon = container.querySelector('[data-testid="n8n-icon"]');
+			const icon = container.querySelector('[data-testid="resin-icon"]');
 			expect(icon).toBeTruthy();
 			expect(icon?.getAttribute('data-icon')).toBe('check');
 		});

@@ -1,11 +1,11 @@
-import type { PushPayload } from '@n8n/api-types';
-import type { User } from '@n8n/db';
-import { UserRepository } from '@n8n/db';
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { ErrorReporter } from 'n8n-core';
-import type { IWorkflowSettings, Workflow } from 'n8n-workflow';
-import { UnexpectedError } from 'n8n-workflow';
+import type { PushPayload } from '@resin/api-types';
+import type { User } from '@resin/db';
+import { UserRepository } from '@resin/db';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { ErrorReporter } from 'resin-core';
+import type { IWorkflowSettings, Workflow } from 'resin-workflow';
+import { UnexpectedError } from 'resin-workflow';
 
 import type {
 	WorkflowClosedMessage,

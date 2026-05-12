@@ -1,5 +1,5 @@
-import { EmbedLoginBodyDto, EmbedLoginQueryDto } from '@n8n/api-types';
-import { GLOBAL_MEMBER_ROLE, type User } from '@n8n/db';
+import { EmbedLoginBodyDto, EmbedLoginQueryDto } from '@resin/api-types';
+import { GLOBAL_MEMBER_ROLE, type User } from '@resin/db';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
 

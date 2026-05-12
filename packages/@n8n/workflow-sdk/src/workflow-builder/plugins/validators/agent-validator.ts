@@ -18,7 +18,7 @@ import type { ValidatorPlugin, ValidationIssue, PluginContext } from '../types';
 export const agentValidator: ValidatorPlugin = {
 	id: 'core:agent',
 	name: 'Agent Validator',
-	nodeTypes: ['@n8n/n8n-nodes-langchain.agent'],
+	nodeTypes: ['@resin/n8n-nodes-langchain.agent'],
 	priority: 50,
 
 	validateNode(

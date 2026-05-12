@@ -1,4 +1,4 @@
-import type { InstanceAiThreadStatusResponse } from '@n8n/api-types';
+import type { InstanceAiThreadStatusResponse } from '@resin/api-types';
 import { nanoid } from 'nanoid';
 
 import type { InstanceAiTraceContext } from '../types';

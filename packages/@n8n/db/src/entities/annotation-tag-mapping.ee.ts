@@ -1,4 +1,4 @@
-import { Entity, JoinColumn, ManyToOne, PrimaryColumn } from '@n8n/typeorm';
+import { Entity, JoinColumn, ManyToOne, PrimaryColumn } from '@resin/typeorm';
 
 import type { AnnotationTagEntity } from './annotation-tag-entity.ee';
 import type { ExecutionAnnotation } from './execution-annotation.ee';

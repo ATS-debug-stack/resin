@@ -3,8 +3,8 @@ import NDVSubConnections from './NDVSubConnections.vue';
 import { setActivePinia } from 'pinia';
 import { createTestingPinia } from '@pinia/testing';
 import type { INodeUi } from '@/Interface';
-import type { INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { nextTick, shallowRef } from 'vue';
 import { type Mock } from 'vitest';
 import {
@@ -15,7 +15,7 @@ import {
 
 const nodeType: INodeTypeDescription = {
 	displayName: 'OpenAI',
-	name: '@n8n/n8n-nodes-langchain.openAi',
+	name: '@resin/n8n-nodes-langchain.openAi',
 	version: [1],
 	inputs: [
 		{ type: NodeConnectionTypes.Main },
@@ -46,7 +46,7 @@ const node: INodeUi = {
 	},
 	id: 'f30c2cbc-c1b1-4014-87f7-22e6ae7afcc8',
 	name: 'OpenAI',
-	type: '@n8n/n8n-nodes-langchain.openAi',
+	type: '@resin/n8n-nodes-langchain.openAi',
 	typeVersion: 1.6,
 	position: [1300, 540],
 };
@@ -155,12 +155,12 @@ describe('NDVSubConnections', () => {
 		const openAI1Node: INodeUi = {
 			...node,
 			name: 'OpenAI1',
-			type: '@n8n/n8n-nodes-langchain.openAi',
+			type: '@resin/n8n-nodes-langchain.openAi',
 		};
 		const claudeNode: INodeUi = {
 			...node,
 			name: 'Claude',
-			type: '@n8n/n8n-nodes-langchain.claude',
+			type: '@resin/n8n-nodes-langchain.claude',
 		};
 
 		getNodeType.mockReturnValue(multiConnectionNodeType);

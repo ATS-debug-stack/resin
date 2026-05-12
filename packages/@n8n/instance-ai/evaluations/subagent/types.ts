@@ -2,7 +2,7 @@
 // Types for the isolated sub-agent evaluation harness
 // ---------------------------------------------------------------------------
 
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 /**
  * Evaluation feedback item. Compatible with LangSmith scoring.

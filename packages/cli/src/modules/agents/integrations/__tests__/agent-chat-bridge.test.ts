@@ -1,7 +1,7 @@
-import type { StreamChunk } from '@n8n/agents';
-import { Container } from '@n8n/di';
+import type { StreamChunk } from '@resin/agents';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { Logger } from 'n8n-workflow';
+import type { Logger } from 'resin-workflow';
 
 import { AgentChatBridge } from '../agent-chat-bridge';
 import {

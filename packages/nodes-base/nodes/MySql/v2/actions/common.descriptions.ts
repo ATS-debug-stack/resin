@@ -1,4 +1,4 @@
-import type { INodeProperties, INodePropertyOptions } from 'n8n-workflow';
+import type { INodeProperties, INodePropertyOptions } from 'resin-workflow';
 
 import { BATCH_MODE, SINGLE } from '../helpers/interfaces';
 

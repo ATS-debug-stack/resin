@@ -27,7 +27,7 @@ describe('webhookRequestSanitizer', () => {
 	describe('when cookie is present in header', () => {
 		it('should remove cookie from cookie header', () => {
 			mockRequest.headers = {
-				cookie: 'n8n-auth=abc123; other-cookie=value; another-cookie=test',
+				cookie: 'resin-auth=abc123; other-cookie=value; another-cookie=test',
 			};
 
 			sanitizeWebhookRequest(mockRequest);
@@ -37,7 +37,7 @@ describe('webhookRequestSanitizer', () => {
 
 		it('should remove cookie when it is the only cookie', () => {
 			mockRequest.headers = {
-				cookie: 'n8n-auth=abc123',
+				cookie: 'resin-auth=abc123',
 			};
 
 			sanitizeWebhookRequest(mockRequest);
@@ -67,7 +67,7 @@ describe('webhookRequestSanitizer', () => {
 
 		it('should handle multiple n8n-auth cookies', () => {
 			mockRequest.headers = {
-				cookie: 'n8n-auth=abc123; other-cookie=value; n8n-auth=def456',
+				cookie: 'resin-auth=abc123; other-cookie=value; n8n-auth=def456',
 			};
 
 			sanitizeWebhookRequest(mockRequest);
@@ -87,12 +87,12 @@ describe('webhookRequestSanitizer', () => {
 
 		it('should not remove cookies that start with n8n-auth but are not exact match', () => {
 			mockRequest.headers = {
-				cookie: 'n8n-auth-extra=value; other-cookie=value',
+				cookie: 'resin-auth-extra=value; other-cookie=value',
 			};
 
 			sanitizeWebhookRequest(mockRequest);
 
-			expect(mockRequest.headers.cookie).toBe('n8n-auth-extra=value; other-cookie=value');
+			expect(mockRequest.headers.cookie).toBe('resin-auth-extra=value; other-cookie=value');
 		});
 	});
 
@@ -122,7 +122,7 @@ describe('webhookRequestSanitizer', () => {
 	describe('when cookie is present in parsed cookies', () => {
 		it('should remove n8n-auth from parsed cookies object', () => {
 			mockRequest.cookies = {
-				'n8n-auth': 'abc123',
+				'resin-auth': 'abc123',
 				'other-cookie': 'value',
 			};
 
@@ -135,7 +135,7 @@ describe('webhookRequestSanitizer', () => {
 
 		it('should handle when n8n-auth is the only cookie in parsed cookies', () => {
 			mockRequest.cookies = {
-				'n8n-auth': 'abc123',
+				'resin-auth': 'abc123',
 			};
 
 			sanitizeWebhookRequest(mockRequest);
@@ -159,10 +159,10 @@ describe('webhookRequestSanitizer', () => {
 	describe('when both header and parsed cookies contain n8n-auth', () => {
 		it('should remove n8n-auth from both header and parsed cookies', () => {
 			mockRequest.headers = {
-				cookie: 'n8n-auth=abc123; other-cookie=value',
+				cookie: 'resin-auth=abc123; other-cookie=value',
 			};
 			mockRequest.cookies = {
-				'n8n-auth': 'abc123',
+				'resin-auth': 'abc123',
 				'other-cookie': 'value',
 			};
 
@@ -208,7 +208,7 @@ describe('webhookRequestSanitizer', () => {
 
 		it('should handle malformed cookies without equals sign', () => {
 			mockRequest.headers = {
-				cookie: 'n8n-auth; other-cookie=value',
+				cookie: 'resin-auth; other-cookie=value',
 			};
 
 			sanitizeWebhookRequest(mockRequest);
@@ -220,7 +220,7 @@ describe('webhookRequestSanitizer', () => {
 	describe('when n8n-browserId is present in header', () => {
 		it('should remove n8n-browserId from cookie header', () => {
 			mockRequest.headers = {
-				cookie: 'n8n-browserId=abc123; other-cookie=value',
+				cookie: 'resin-browserId=abc123; other-cookie=value',
 			};
 
 			sanitizeWebhookRequest(mockRequest);
@@ -230,7 +230,7 @@ describe('webhookRequestSanitizer', () => {
 
 		it('should remove n8n-browserId from parsed cookies', () => {
 			mockRequest.cookies = {
-				'n8n-browserId': 'abc123',
+				'resin-browserId': 'abc123',
 				'other-cookie': 'value',
 			};
 
@@ -243,7 +243,7 @@ describe('webhookRequestSanitizer', () => {
 
 		it('should remove both n8n-auth and n8n-browserId from cookie header', () => {
 			mockRequest.headers = {
-				cookie: 'n8n-auth=abc123; n8n-browserId=def456; other-cookie=value',
+				cookie: 'resin-auth=abc123; n8n-browserId=def456; other-cookie=value',
 			};
 
 			sanitizeWebhookRequest(mockRequest);
@@ -253,8 +253,8 @@ describe('webhookRequestSanitizer', () => {
 
 		it('should remove both n8n-auth and n8n-browserId from parsed cookies', () => {
 			mockRequest.cookies = {
-				'n8n-auth': 'abc123',
-				'n8n-browserId': 'def456',
+				'resin-auth': 'abc123',
+				'resin-browserId': 'def456',
 				'other-cookie': 'value',
 			};
 

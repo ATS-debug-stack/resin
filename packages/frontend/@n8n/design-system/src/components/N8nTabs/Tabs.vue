@@ -75,7 +75,7 @@ const scrollRight = () => scroll(50);
 <template>
 	<div
 		:class="[
-			'n8n-tabs',
+			'resin-tabs',
 			$style.container,
 			size === 'small' ? $style.small : '',
 			variant === 'modern' ? $style.modern : '',

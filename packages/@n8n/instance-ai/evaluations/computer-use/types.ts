@@ -279,7 +279,7 @@ export interface ScenarioResult {
 export interface RunManifest {
 	/** Repo HEAD SHA, with `-dirty` suffix if the worktree had uncommitted changes. */
 	gitRef: string;
-	/** Version field from `@n8n/computer-use` package.json. */
+	/** Version field from `@resin/computer-use` package.json. */
 	daemonVersion: string;
 	/** Version field from the n8n CLI package.json (the user-facing n8n version). */
 	n8nVersion: string;

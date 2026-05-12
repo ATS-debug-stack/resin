@@ -13,10 +13,10 @@ import {
 	N8nTabs,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
-import type { TabOptions } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import type { Role } from '@n8n/permissions';
+} from '@resin/design-system';
+import type { TabOptions } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import type { Role } from '@resin/permissions';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useAsyncState } from '@vueuse/core';
 import isEqual from 'lodash/isEqual';

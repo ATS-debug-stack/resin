@@ -1,7 +1,7 @@
 /* eslint-disable complexity */
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import { MemorySaver } from '@langchain/langgraph';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import {
 	setupIntegrationLLM,
@@ -223,7 +223,7 @@ function checkQuestionQuality(
 		const text = q.question.toLowerCase();
 
 		// Questions should not use internal n8n terminology
-		if (text.includes('node type') || text.includes('n8n-nodes-base')) {
+		if (text.includes('node type') || text.includes('resin-nodes-base')) {
 			violations.push(`Technical jargon in question: "${q.question}"`);
 		}
 
@@ -254,7 +254,7 @@ function checkQuestionQuality(
 		if (q.options) {
 			for (const opt of q.options) {
 				const optLower = opt.toLowerCase();
-				if (optLower.includes('n8n-nodes-base') || optLower.includes('@n8n/')) {
+				if (optLower.includes('resin-nodes-base') || optLower.includes('@resin/')) {
 					violations.push(`Internal node name in option: "${opt}" for question "${q.question}"`);
 				}
 			}

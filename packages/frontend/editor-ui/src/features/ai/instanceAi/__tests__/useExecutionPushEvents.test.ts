@@ -1,5 +1,5 @@
 import { describe, test, expect, vi, beforeEach } from 'vitest';
-import type { PushMessage } from '@n8n/api-types';
+import type { PushMessage } from '@resin/api-types';
 import { useExecutionPushEvents } from '../useExecutionPushEvents';
 
 // ---------------------------------------------------------------------------

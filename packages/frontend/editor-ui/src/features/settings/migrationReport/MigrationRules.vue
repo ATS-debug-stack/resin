@@ -7,17 +7,17 @@ import {
 	N8nText,
 	N8nTooltip,
 	N8nLoading,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { VIEWS } from '@/app/constants';
-import * as breakingChangesApi from '@n8n/rest-api-client/api/breaking-changes';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import * as breakingChangesApi from '@resin/rest-api-client/api/breaking-changes';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useAsyncState } from '@vueuse/core';
 import { computed, ref, useCssModule } from 'vue';
 import orderBy from 'lodash/orderBy';
 import SeverityTag from './components/SeverityTag.vue';
 import EmptyTab from './components/EmptyTab.vue';
-import { useI18n } from '@n8n/i18n';
-import { MIGRATION_REPORT_TARGET_VERSION } from '@n8n/api-types';
+import { useI18n } from '@resin/i18n';
+import { MIGRATION_REPORT_TARGET_VERSION } from '@resin/api-types';
 
 const $style = useCssModule();
 const rootStore = useRootStore();

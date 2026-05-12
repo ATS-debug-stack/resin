@@ -1,10 +1,14 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { WorkflowEntity, User, Project } from '@n8n/db';
-import { ExecutionRepository, WorkflowPublishHistoryRepository, WorkflowRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { WorkflowEntity, User, Project } from '@resin/db';
+import {
+	ExecutionRepository,
+	WorkflowPublishHistoryRepository,
+	WorkflowRepository,
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { ExternalSecretsProxy } from 'n8n-core';
+import { ExternalSecretsProxy } from 'resin-core';
 import type {
 	IWorkflowBase,
 	IExecuteWorkflowInfo,
@@ -13,8 +17,8 @@ import type {
 	IRun,
 	INodeExecutionData,
 	INode,
-} from 'n8n-workflow';
-import { createRunExecutionData } from 'n8n-workflow';
+} from 'resin-workflow';
+import { createRunExecutionData } from 'resin-workflow';
 import type PCancelable from 'p-cancelable';
 
 import { ActiveExecutions } from '@/active-executions';
@@ -85,9 +89,9 @@ const getCancelablePromise = async (run: IRun) =>
 
 const processRunExecutionData = jest.fn();
 
-jest.mock('n8n-core', () => ({
+jest.mock('resin-core', () => ({
 	__esModule: true,
-	...jest.requireActual('n8n-core'),
+	...jest.requireActual('resin-core'),
 	WorkflowExecute: jest.fn().mockImplementation(() => ({
 		processRunExecutionData,
 	})),
@@ -123,10 +127,10 @@ describe('WorkflowExecuteAdditionalData', () => {
 		const payload = {
 			msg: 'test message',
 			executionId: '123',
-			nodeName: 'n8n-memory',
+			nodeName: 'resin-memory',
 			workflowId: 'workflow-id',
 			workflowName: 'workflow-name',
-			nodeType: 'n8n-memory',
+			nodeType: 'resin-memory',
 		};
 
 		additionalData.logAiEvent(eventName, payload);
@@ -349,7 +353,7 @@ describe('WorkflowExecuteAdditionalData', () => {
 			name: 'test',
 			nodes: [
 				{
-					type: 'n8n-nodes-base.executeWorkflowTrigger',
+					type: 'resin-nodes-base.executeWorkflowTrigger',
 				},
 			],
 			active: false,
@@ -434,7 +438,7 @@ describe('WorkflowExecuteAdditionalData', () => {
 			const activeVersionNodes: INode[] = [
 				mock<INode>({
 					id: 'active-node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					name: 'Active Node',
 					typeVersion: 1,
 					parameters: {},
@@ -445,7 +449,7 @@ describe('WorkflowExecuteAdditionalData', () => {
 			const currentNodes: INode[] = [
 				mock<INode>({
 					id: 'current-node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					name: 'Current Node',
 					typeVersion: 1,
 					parameters: {},
@@ -488,7 +492,7 @@ describe('WorkflowExecuteAdditionalData', () => {
 			const currentNodes: INode[] = [
 				mock<INode>({
 					id: 'current-node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					name: 'Current Node',
 					typeVersion: 1,
 					parameters: {},
@@ -558,7 +562,7 @@ describe('WorkflowExecuteAdditionalData', () => {
 				nodes: [
 					mock<INode>({
 						id: 'node1',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						name: 'Node 1',
 						typeVersion: 1,
 						parameters: {},
@@ -604,7 +608,7 @@ describe('WorkflowExecuteAdditionalData', () => {
 			const activeVersionNodes: INode[] = [
 				mock<INode>({
 					id: 'active-node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					name: 'Active Node',
 					typeVersion: 1,
 					parameters: {},
@@ -615,7 +619,7 @@ describe('WorkflowExecuteAdditionalData', () => {
 			const draftNodes: INode[] = [
 				mock<INode>({
 					id: 'draft-node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					name: 'Draft Node',
 					typeVersion: 1,
 					parameters: {},
@@ -655,7 +659,7 @@ describe('WorkflowExecuteAdditionalData', () => {
 			const draftNodes: INode[] = [
 				mock<INode>({
 					id: 'draft-node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					name: 'Draft Node',
 					typeVersion: 1,
 					parameters: {},

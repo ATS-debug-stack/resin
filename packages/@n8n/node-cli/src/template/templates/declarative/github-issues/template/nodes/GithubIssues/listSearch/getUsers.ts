@@ -2,7 +2,7 @@ import type {
 	ILoadOptionsFunctions,
 	INodeListSearchResult,
 	INodeListSearchItems,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { githubApiRequest } from '../shared/transport';
 
 type UserSearchItem = {

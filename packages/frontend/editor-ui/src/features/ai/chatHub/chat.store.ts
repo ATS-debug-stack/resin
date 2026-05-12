@@ -3,7 +3,7 @@ import { CHAT_SESSIONS_PAGE_SIZE } from './constants';
 import { EnterpriseEditionFeature } from '@/app/constants/enterprise';
 import { computed, ref } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import {
 	fetchChatModelsApi,
 	sendMessageApi,
@@ -34,7 +34,7 @@ import {
 	updateToolApi,
 	deleteToolApi,
 } from './chat.api';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
@@ -73,7 +73,7 @@ import {
 	PROVIDER_CREDENTIAL_TYPE_MAP,
 	type ChatHubN8nModel,
 	type ChatHubSessionType,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import type {
 	CredentialsMap,
 	ChatMessage,
@@ -83,7 +83,7 @@ import type {
 	SemanticSearchReadiness,
 	SemanticSearchCredentialIssue,
 } from './chat.types';
-import { retry } from '@n8n/utils/retry';
+import { retry } from '@resin/utils/retry';
 import {
 	buildUiMessages,
 	createSessionFromStreamingState,
@@ -96,12 +96,12 @@ import {
 } from './chat.utils';
 import { useToast } from '@/app/composables/useToast';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { createRunExecutionData, deepCopy, type INode } from 'n8n-workflow';
+import { createRunExecutionData, deepCopy, type INode } from 'resin-workflow';
 import { IN_PROGRESS_EXECUTION_ID, CHAT_TRIGGER_NODE_TYPE } from '@/app/constants';
 import { convertFileToBinaryData } from '@/app/utils/fileUtils';
-import { ResponseError } from '@n8n/rest-api-client';
-import { STORES } from '@n8n/stores/constants';
-import { appendChunkToParsedMessageItems, DEFAULT_SEMANTIC_SEARCH_SETTINGS } from '@n8n/chat-hub';
+import { ResponseError } from '@resin/rest-api-client';
+import { STORES } from '@resin/stores/constants';
+import { appendChunkToParsedMessageItems, DEFAULT_SEMANTIC_SEARCH_SETTINGS } from '@resin/chat-hub';
 
 export const useChatStore = defineStore(STORES.CHAT_HUB, () => {
 	const rootStore = useRootStore();

@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
 import type IsolatedVM from 'isolated-vm';
 
 // Lazy-loaded isolated-vm — avoids loading the native module at startup.

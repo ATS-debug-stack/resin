@@ -41,7 +41,7 @@ describe('RenameNodeTool', () => {
 	describe('invoke', () => {
 		it('should rename a node successfully', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -82,8 +82,8 @@ describe('RenameNodeTool', () => {
 
 		it('should rename a node that has outgoing connections', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			// Add connection where the renamed node is the source
@@ -121,8 +121,8 @@ describe('RenameNodeTool', () => {
 
 		it('should rename a node that has incoming connections', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			// Add connection where the renamed node is the target
@@ -163,9 +163,9 @@ describe('RenameNodeTool', () => {
 				createNode({
 					id: 'model1',
 					name: 'OpenAI Chat Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
-				createNode({ id: 'agent1', name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
+				createNode({ id: 'agent1', name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
 			]);
 
 			// Add AI connection
@@ -214,7 +214,7 @@ describe('RenameNodeTool', () => {
 
 		it('should return error when node not found', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -241,7 +241,7 @@ describe('RenameNodeTool', () => {
 
 		it('should return error when new name is the same as current name', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -263,8 +263,8 @@ describe('RenameNodeTool', () => {
 
 		it('should return error when new name conflicts with existing node', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -286,7 +286,7 @@ describe('RenameNodeTool', () => {
 
 		it('should throw error when new name is empty', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -307,7 +307,7 @@ describe('RenameNodeTool', () => {
 
 		it('should handle node with no connections', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			// Empty connections
@@ -333,9 +333,9 @@ describe('RenameNodeTool', () => {
 
 		it('should handle renaming a node that is both source and target of connections', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Trigger', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: 'node2', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node3', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Trigger', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: 'node2', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node3', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			// Code is both a target (from Trigger) and source (to HTTP Request)

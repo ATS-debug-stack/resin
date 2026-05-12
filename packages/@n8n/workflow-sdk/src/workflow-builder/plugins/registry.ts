@@ -27,7 +27,7 @@ import type { ValidatorPlugin, CompositeHandlerPlugin, SerializerPlugin } from '
  * });
  *
  * // Use the registry
- * const validators = registry.getValidatorsForNodeType('n8n-nodes-base.httpRequest');
+ * const validators = registry.getValidatorsForNodeType('resin-nodes-base.httpRequest');
  * ```
  */
 export class PluginRegistry {

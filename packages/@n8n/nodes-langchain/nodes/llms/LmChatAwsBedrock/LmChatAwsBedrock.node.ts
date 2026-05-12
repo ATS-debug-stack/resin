@@ -6,7 +6,7 @@ import {
 	makeN8nLlmFailedAttemptHandler,
 	N8nLlmTracing,
 	getConnectionHintNoticeField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 import { NodeHttpHandler } from '@smithy/node-http-handler';
 
 import {
@@ -15,7 +15,7 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class LmChatAwsBedrock implements INodeType {
 	description: INodeTypeDescription = {

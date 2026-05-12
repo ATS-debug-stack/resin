@@ -122,7 +122,7 @@ test.describe(
 					{
 						id: 'manual-trigger',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [100, 200],
 						parameters: {},
 						typeVersion: 1,
@@ -183,7 +183,7 @@ test.describe(
 					{
 						id: 'manual-trigger',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						position: [100, 200],
 						parameters: {},
 						typeVersion: 1,

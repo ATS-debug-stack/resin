@@ -1,5 +1,5 @@
-import type { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
+import type { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import type { InstanceAiAdapterService } from '../../instance-ai.adapter.service';
@@ -23,7 +23,7 @@ function makeAgentResult(
 	};
 }
 
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	// BUILDER_AGENT_PROMPT is imported by sub-agent-roles.ts; provide a stub string.
 	BUILDER_AGENT_PROMPT: 'stub-builder-prompt',
 	MAX_STEPS: { BUILDER: 60 },
@@ -87,7 +87,7 @@ describe('SubAgentEvalService', () => {
 			dataTableService: {} as never,
 		} as never);
 
-		const { createSubAgent, createAllTools } = jest.requireMock('@n8n/instance-ai');
+		const { createSubAgent, createAllTools } = jest.requireMock('@resin/instance-ai');
 		createSubAgent.mockImplementation(() => ({
 			generate: jest.fn(async () => {
 				// The service passes the WRAPPED context to createAllTools — use it to get
@@ -118,7 +118,7 @@ describe('SubAgentEvalService', () => {
 			},
 		} as never);
 
-		const { createSubAgent } = jest.requireMock('@n8n/instance-ai');
+		const { createSubAgent } = jest.requireMock('@resin/instance-ai');
 		createSubAgent.mockReturnValue({
 			generate: jest.fn(
 				async (_prompt: string, opts: { abortSignal: AbortSignal }) =>
@@ -141,7 +141,7 @@ describe('SubAgentEvalService', () => {
 			},
 		} as never);
 
-		const { createSubAgent } = jest.requireMock('@n8n/instance-ai');
+		const { createSubAgent } = jest.requireMock('@resin/instance-ai');
 		createSubAgent.mockReturnValue({
 			generate: jest.fn(async () => ({
 				text: 'ok',

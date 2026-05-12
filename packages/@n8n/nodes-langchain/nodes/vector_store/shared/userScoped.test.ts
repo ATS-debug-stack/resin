@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import { ensureUserId, getUserScopedSlot } from './userScoped';

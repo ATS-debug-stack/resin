@@ -1,5 +1,5 @@
-import { Tool } from '@n8n/agents';
-import { Container } from '@n8n/di';
+import { Tool } from '@resin/agents';
+import { Container } from '@resin/di';
 import { z } from 'zod';
 
 import { ChatIntegrationRegistry } from './agent-chat-integration';

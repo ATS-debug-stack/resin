@@ -5,19 +5,19 @@
  * visible at a time so the modal doesn't need to scroll.
  */
 import { ref, computed, onMounted, watch } from 'vue';
-import { N8nButton, N8nHeading, N8nIcon, N8nText } from '@n8n/design-system';
-import type { IconName } from '@n8n/design-system/components/N8nIcon/icons';
-import N8nSelect from '@n8n/design-system/components/N8nSelect';
-import N8nOption from '@n8n/design-system/components/N8nOption';
+import { N8nButton, N8nHeading, N8nIcon, N8nText } from '@resin/design-system';
+import type { IconName } from '@resin/design-system/components/N8nIcon/icons';
+import N8nSelect from '@resin/design-system/components/N8nSelect';
+import N8nOption from '@resin/design-system/components/N8nOption';
 import Modal from '@/app/components/Modal.vue';
-import { useI18n } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useI18n } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useUIStore } from '@/app/stores/ui.store';
 import { CREDENTIAL_EDIT_MODAL_KEY } from '@/features/credentials/credentials.constants';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
-import { getResourcePermissions } from '@n8n/permissions';
-import { AGENT_SCHEDULE_TRIGGER_TYPE, type ChatIntegrationDescriptor } from '@n8n/api-types';
+import { getResourcePermissions } from '@resin/permissions';
+import { AGENT_SCHEDULE_TRIGGER_TYPE, type ChatIntegrationDescriptor } from '@resin/api-types';
 import { MODAL_CONFIRM } from '@/app/constants';
 import { useAgentIntegrationsCatalog } from '../composables/useAgentIntegrationsCatalog';
 import { useAgentIntegrationStatus } from '../composables/useAgentIntegrationStatus';

@@ -1,7 +1,7 @@
-import { LICENSE_FEATURES } from '@n8n/constants';
-import type { ModuleInterface } from '@n8n/decorators';
-import { BackendModule, OnShutdown } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { LICENSE_FEATURES } from '@resin/constants';
+import type { ModuleInterface } from '@resin/decorators';
+import { BackendModule, OnShutdown } from '@resin/decorators';
+import { Container } from '@resin/di';
 
 function isFeatureFlagEnabled(): boolean {
 	return process.env.N8N_ENV_FEAT_DYNAMIC_CREDENTIALS === 'true';

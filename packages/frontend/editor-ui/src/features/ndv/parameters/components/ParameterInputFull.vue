@@ -8,7 +8,7 @@ import ParameterOptions from './ParameterOptions.vue';
 import FromAiOverrideButton from './ParameterInputOverrides/FromAiOverrideButton.vue';
 import FromAiOverrideField from './ParameterInputOverrides/FromAiOverrideField.vue';
 import ParameterOverrideSelectableList from './ParameterInputOverrides/ParameterOverrideSelectableList.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useToast } from '@/app/composables/useToast';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { getMappedResult } from '@/app/utils/mappingUtils';
@@ -17,13 +17,13 @@ import {
 	hasOnlyListMode,
 	isValueExpression,
 } from '@/app/utils/nodeTypesUtils';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import {
 	isResourceLocatorValue,
 	type INodeProperties,
 	type IParameterLabel,
 	type NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	buildValueFromOverride,
 	type FromAIOverride,
@@ -35,7 +35,7 @@ import { useTelemetry } from '@/app/composables/useTelemetry';
 import { inject } from 'vue';
 import { ChatHubToolContextKey, ExpressionLocalResolveContextSymbol } from '@/app/constants';
 
-import { N8nInputLabel } from '@n8n/design-system';
+import { N8nInputLabel } from '@resin/design-system';
 import { useCollectionOverhaul } from '@/app/composables/useCollectionOverhaul';
 import type { ParameterOptionsOverrides } from '@/features/ndv/shared/ndv.utils';
 

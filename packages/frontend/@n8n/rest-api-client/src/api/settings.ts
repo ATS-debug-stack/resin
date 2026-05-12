@@ -1,4 +1,4 @@
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 
 import type { IRestApiContext } from '../types';
 import { makeRestApiRequest } from '../utils';

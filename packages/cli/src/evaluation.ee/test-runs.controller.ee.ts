@@ -1,11 +1,11 @@
-import { EVAL_PARALLEL_EXECUTION_FLAG, StartTestRunRequestDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { TestCaseExecutionRepository, TestRunRepository } from '@n8n/db';
-import type { User } from '@n8n/db';
-import { Body, Delete, Get, Post, RestController } from '@n8n/decorators';
-import { type Scope } from '@n8n/permissions';
+import { EVAL_PARALLEL_EXECUTION_FLAG, StartTestRunRequestDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { TestCaseExecutionRepository, TestRunRepository } from '@resin/db';
+import type { User } from '@resin/db';
+import { Body, Delete, Get, Post, RestController } from '@resin/decorators';
+import { type Scope } from '@resin/permissions';
 import express from 'express';
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 
 import { ConflictError } from '@/errors/response-errors/conflict.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

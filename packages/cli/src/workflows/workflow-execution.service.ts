@@ -1,10 +1,10 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { Project, User, CreateExecutionPayload } from '@n8n/db';
-import { WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { Project, User, CreateExecutionPayload } from '@resin/db';
+import { WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import type { Response } from 'express';
-import { DirectedGraph, ErrorReporter, anyReachableRootHasRunData } from 'n8n-core';
+import { DirectedGraph, ErrorReporter, anyReachableRootHasRunData } from 'resin-core';
 import type {
 	IDeferredPromise,
 	IExecuteData,
@@ -17,13 +17,13 @@ import type {
 	WorkflowExecuteMode,
 	IWorkflowExecutionDataProcess,
 	IWorkflowBase,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	SubworkflowOperationError,
 	UnexpectedError,
 	Workflow,
 	createRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { EventService } from '@/events/event.service';
 import { ExecutionPersistence } from '@/executions/execution-persistence';
@@ -513,7 +513,7 @@ export class WorkflowExecutionService {
 					!node.disabled &&
 					pinData?.[node.name] &&
 					['trigger', 'webhook'].some((suffix) => node.type.toLowerCase().endsWith(suffix)) &&
-					node.type !== 'n8n-nodes-base.respondToWebhook',
+					node.type !== 'resin-nodes-base.respondToWebhook',
 			)
 			.sort((a) => (a.type.endsWith('webhook') ? -1 : 1));
 	}

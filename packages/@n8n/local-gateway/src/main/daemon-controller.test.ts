@@ -13,7 +13,7 @@ type GatewayClientOptions = {
 
 let lastGatewayOptions: GatewayClientOptions | undefined;
 
-jest.mock('@n8n/computer-use/settings-store', () => ({
+jest.mock('@resin/computer-use/settings-store', () => ({
 	['SettingsStore']: {
 		create: jest.fn(
 			async () =>
@@ -24,13 +24,13 @@ jest.mock('@n8n/computer-use/settings-store', () => ({
 	},
 }));
 
-jest.mock('@n8n/computer-use/gateway-session', () => ({
+jest.mock('@resin/computer-use/gateway-session', () => ({
 	['GatewaySession']: jest.fn().mockImplementation(() => ({
 		flush: mockSessionFlush,
 	})),
 }));
 
-jest.mock('@n8n/computer-use/gateway-client', () => ({
+jest.mock('@resin/computer-use/gateway-client', () => ({
 	['GatewayClient']: jest.fn().mockImplementation((options: GatewayClientOptions) => {
 		lastGatewayOptions = options;
 		return {
@@ -41,7 +41,7 @@ jest.mock('@n8n/computer-use/gateway-client', () => ({
 	}),
 }));
 
-jest.mock('@n8n/computer-use/logger', () => ({
+jest.mock('@resin/computer-use/logger', () => ({
 	logger: {
 		debug: jest.fn(),
 		info: jest.fn(),
@@ -50,7 +50,7 @@ jest.mock('@n8n/computer-use/logger', () => ({
 	},
 }));
 
-import type { GatewayConfig } from '@n8n/computer-use/config';
+import type { GatewayConfig } from '@resin/computer-use/config';
 
 import { DaemonController } from './daemon-controller';
 

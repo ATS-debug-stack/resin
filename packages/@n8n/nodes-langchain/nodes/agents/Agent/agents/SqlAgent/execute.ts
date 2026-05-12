@@ -1,7 +1,7 @@
 import type { BaseChatMemory } from '@langchain/community/memory/chat_memory';
 import type { BaseLanguageModel } from '@langchain/core/language_models/base';
 import { DynamicTool } from '@langchain/core/tools';
-import type { DataSource } from '@n8n/typeorm';
+import type { DataSource } from '@resin/typeorm';
 import type { SqlCreatePromptArgs } from '@langchain/classic/agents/toolkits/sql';
 import { SqlToolkit, createSqlAgent } from '@langchain/classic/agents/toolkits/sql';
 import { SqlDatabase } from '@langchain/classic/sql_db';
@@ -11,7 +11,7 @@ import {
 	NodeConnectionTypes,
 	NodeOperationError,
 	type IDataObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getPromptInputByType, serializeChatHistory } from '@utils/helpers';
 import type { TracingMetadataEntry } from '@utils/tracing';

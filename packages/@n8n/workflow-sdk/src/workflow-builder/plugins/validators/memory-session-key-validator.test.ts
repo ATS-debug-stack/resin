@@ -49,7 +49,7 @@ describe('memorySessionKeyValidator', () => {
 	describe('validateNode', () => {
 		it('returns warning for an AI memory subnode custom session key using $json', () => {
 			const node = createMockNode(
-				'@n8n/n8n-nodes-langchain.memoryBufferWindow',
+				'@resin/n8n-nodes-langchain.memoryBufferWindow',
 				'Conversation Memory',
 				{
 					parameters: {
@@ -76,7 +76,7 @@ describe('memorySessionKeyValidator', () => {
 
 		it('returns warning for legacy memory sessionId parameters using $json', () => {
 			const node = createMockNode(
-				'@n8n/n8n-nodes-langchain.memoryMotorhead',
+				'@resin/n8n-nodes-langchain.memoryMotorhead',
 				'Conversation Memory',
 				{
 					parameters: {
@@ -100,7 +100,7 @@ describe('memorySessionKeyValidator', () => {
 
 		it('returns no warning for explicit node references', () => {
 			const node = createMockNode(
-				'@n8n/n8n-nodes-langchain.memoryBufferWindow',
+				'@resin/n8n-nodes-langchain.memoryBufferWindow',
 				'Conversation Memory',
 				{
 					parameters: {
@@ -119,7 +119,7 @@ describe('memorySessionKeyValidator', () => {
 
 		it('returns no warning for Chat Trigger fromInput memory mode', () => {
 			const node = createMockNode(
-				'@n8n/n8n-nodes-langchain.memoryBufferWindow',
+				'@resin/n8n-nodes-langchain.memoryBufferWindow',
 				'Conversation Memory',
 				{
 					parameters: {
@@ -138,7 +138,7 @@ describe('memorySessionKeyValidator', () => {
 
 		it('returns no warning for non-memory subnodes using $json', () => {
 			const node = createMockNode(
-				'@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				'@resin/n8n-nodes-langchain.lmChatOpenAi',
 				'OpenAI Chat Model',
 				{
 					parameters: {
@@ -158,7 +158,7 @@ describe('memorySessionKeyValidator', () => {
 		});
 
 		it('returns no warning for a regular agent text parameter using $json', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', 'AI Agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', 'AI Agent', {
 				parameters: {
 					text: '={{ $json.chatInput }}',
 				},

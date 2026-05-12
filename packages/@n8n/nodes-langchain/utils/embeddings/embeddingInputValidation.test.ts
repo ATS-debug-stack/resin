@@ -1,6 +1,6 @@
-import { validateEmbedQueryInput, validateEmbedDocumentsInput } from '@n8n/ai-utilities';
-import type { INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import { validateEmbedQueryInput, validateEmbedDocumentsInput } from '@resin/ai-utilities';
+import type { INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 const createMockNode = (): INode => ({
 	id: 'test-node',

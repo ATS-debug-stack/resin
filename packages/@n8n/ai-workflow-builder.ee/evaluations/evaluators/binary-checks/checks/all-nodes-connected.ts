@@ -1,8 +1,8 @@
-import { getChildNodes, mapConnectionsByDestination } from 'n8n-workflow';
+import { getChildNodes, mapConnectionsByDestination } from 'resin-workflow';
 
 import type { BinaryCheck, SimpleWorkflow } from '../types';
 
-const STICKY_NOTE_TYPE = 'n8n-nodes-base.stickyNote';
+const STICKY_NOTE_TYPE = 'resin-nodes-base.stickyNote';
 
 export const allNodesConnected: BinaryCheck = {
 	name: 'all_nodes_connected',
@@ -17,7 +17,7 @@ export const allNodesConnected: BinaryCheck = {
 
 		const connections = workflow.connections ?? {};
 
-		// Use n8n-workflow graph utilities to determine connectivity
+		// Use resin-workflow graph utilities to determine connectivity
 		const connectionsByDest = mapConnectionsByDestination(connections);
 
 		// Build full reachability set: nodes that appear as source or target in any connection,

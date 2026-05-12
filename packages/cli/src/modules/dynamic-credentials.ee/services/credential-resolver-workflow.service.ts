@@ -1,8 +1,8 @@
-import { CredentialsEntity, CredentialsRepository, In, WorkflowRepository } from '@n8n/db';
-import { ICredentialResolver } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { Cipher } from 'n8n-core';
-import { ICredentialContext, jsonParse } from 'n8n-workflow';
+import { CredentialsEntity, CredentialsRepository, In, WorkflowRepository } from '@resin/db';
+import { ICredentialResolver } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { Cipher } from 'resin-core';
+import { ICredentialContext, jsonParse } from 'resin-workflow';
 
 import { DynamicCredentialResolverRegistry } from './credential-resolver-registry.service';
 import { DynamicCredentialResolverRepository } from '../database/repositories/credential-resolver.repository';

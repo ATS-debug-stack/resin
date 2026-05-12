@@ -1,5 +1,5 @@
 import { createPinia, setActivePinia } from 'pinia';
-import type { ITemplatesWorkflowFull } from '@n8n/rest-api-client';
+import type { ITemplatesWorkflowFull } from '@resin/rest-api-client';
 import { mock } from 'vitest-mock-extended';
 import { useRecommendedTemplatesStore, NUMBER_OF_TEMPLATES } from './recommendedTemplates.store';
 import { EMPTY_STATE_EXPERIMENT, VIEWS } from '@/app/constants';
@@ -42,7 +42,7 @@ vi.mock('@/app/stores/posthog.store', () => ({
 	usePostHog: () => mockPostHog,
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: vi.fn(() => ({
 		restApiContext: { baseUrl: '/rest' },
 	})),

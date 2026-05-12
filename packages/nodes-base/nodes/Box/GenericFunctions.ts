@@ -7,8 +7,8 @@ import type {
 	IOAuth2Options,
 	IRequestOptions,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 export async function boxApiRequest(
 	this: IExecuteFunctions | ILoadOptionsFunctions | IHookFunctions,

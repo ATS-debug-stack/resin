@@ -1,5 +1,5 @@
-import type { User } from '@n8n/db';
-import { CredentialResolverError } from '@n8n/decorators';
+import type { User } from '@resin/db';
+import { CredentialResolverError } from '@resin/decorators';
 import { mock } from 'jest-mock-extended';
 
 import type { AuthService } from '@/auth/auth.service';

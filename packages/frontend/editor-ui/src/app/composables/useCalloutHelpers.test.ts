@@ -1,5 +1,5 @@
 import { useCalloutHelpers } from '@/app/composables/useCalloutHelpers';
-import { updateCurrentUserSettings } from '@n8n/rest-api-client/api/users';
+import { updateCurrentUserSettings } from '@resin/rest-api-client/api/users';
 import { createTestingPinia } from '@pinia/testing';
 import { SampleTemplates } from '@/features/workflows/templates/utils/workflowSamples';
 import { VIEWS } from '@/app/constants';
@@ -44,13 +44,13 @@ vi.mock('@/app/stores/workflowsList.store', () => ({
 	}),
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({
 		restApiContext: mocks.restApiContext,
 	}),
 }));
 
-vi.mock('@n8n/rest-api-client/api/users', () => ({
+vi.mock('@resin/rest-api-client/api/users', () => ({
 	updateCurrentUserSettings: vi.fn(),
 }));
 

@@ -7,11 +7,11 @@ import {
 	type INodeProperties,
 	type ISupplyDataFunctions,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { RedisClientOptions } from 'redis';
 import { createClient } from 'redis';
 
-import { createVectorStoreNode } from '@n8n/ai-utilities';
+import { createVectorStoreNode } from '@resin/ai-utilities';
 
 /**
  * Constants for the name of the credentials and Node parameters.

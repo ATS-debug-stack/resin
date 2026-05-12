@@ -1,11 +1,11 @@
-import { getAdditionalKeys } from 'n8n-core';
+import { getAdditionalKeys } from 'resin-core';
 import type {
 	IDataObject,
 	IExecuteData,
 	INodeType,
 	IWorkflowExecuteAdditionalData,
-} from 'n8n-workflow';
-import { Workflow, WorkflowDataProxy } from 'n8n-workflow';
+} from 'resin-workflow';
+import { Workflow, WorkflowDataProxy } from 'resin-workflow';
 
 import { newDataRequestResponse } from '../../__tests__/test-data';
 import { BuiltInsParser } from '../built-ins-parser';

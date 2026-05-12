@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 export const pipelineOperations: INodeProperties[] = [
 	{
@@ -73,7 +73,7 @@ export const pipelineFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		placeholder: 'n8n-io/n8n',
+		placeholder: 'resin-io/n8n',
 		description: 'Project slug in the form org-name/repo-name',
 	},
 

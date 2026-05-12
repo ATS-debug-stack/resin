@@ -3,11 +3,11 @@ const mockLogger = {
 	debug: jest.fn(),
 };
 
-jest.mock('@n8n/backend-common', () => ({
+jest.mock('@resin/backend-common', () => ({
 	Logger: class Logger {},
 }));
 
-jest.mock('@n8n/di', () => ({
+jest.mock('@resin/di', () => ({
 	Container: {
 		get: jest.fn().mockReturnValue(mockLogger),
 	},

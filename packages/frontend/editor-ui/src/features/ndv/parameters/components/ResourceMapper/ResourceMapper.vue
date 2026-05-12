@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ResourceMapperFieldsRequestDto } from '@n8n/api-types';
+import type { ResourceMapperFieldsRequestDto } from '@resin/api-types';
 import type { IUpdateInformation } from '@/Interface';
 import { resolveRequiredParameters } from '@/app/composables/useWorkflowHelpers';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
@@ -12,8 +12,8 @@ import type {
 	ResourceMapperField,
 	ResourceMapperFields,
 	ResourceMapperValue,
-} from 'n8n-workflow';
-import { deepCopy, NodeHelpers } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy, NodeHelpers } from 'resin-workflow';
 import { computed, inject, onMounted, reactive, watch } from 'vue';
 import { ExpressionLocalResolveContextSymbol } from '@/app/constants';
 import MappingModeSelect from './MappingModeSelect.vue';
@@ -25,7 +25,7 @@ import {
 	parseResourceMapperFieldName,
 } from '@/app/utils/nodeTypesUtils';
 import { isFullExecutionResponse, isResourceMapperValue } from '@/app/utils/typeGuards';
-import { i18n as locale } from '@n8n/i18n';
+import { i18n as locale } from '@resin/i18n';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useDocumentVisibility } from '@/app/composables/useDocumentVisibility';
@@ -33,7 +33,7 @@ import isEqual from 'lodash/isEqual';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import ParameterInputFull from '../ParameterInputFull.vue';
 
-import { N8nButton, N8nCallout, N8nIcon, N8nNotice, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nCallout, N8nIcon, N8nNotice, N8nText } from '@resin/design-system';
 type Props = {
 	parameter: INodeProperties;
 	node: INode | null;

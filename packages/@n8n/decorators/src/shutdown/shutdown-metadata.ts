@@ -1,5 +1,5 @@
-import { Service } from '@n8n/di';
-import { UserError } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import { UserError } from 'resin-workflow';
 
 import { HIGHEST_SHUTDOWN_PRIORITY, LOWEST_SHUTDOWN_PRIORITY } from './constants';
 import type { ShutdownHandler } from './types';

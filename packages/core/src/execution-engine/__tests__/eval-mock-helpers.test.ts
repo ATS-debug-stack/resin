@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { IHttpRequestOptions, INode, INodeProperties, IRequestOptions } from 'n8n-workflow';
+import type { IHttpRequestOptions, INode, INodeProperties, IRequestOptions } from 'resin-workflow';
 import { Readable } from 'node:stream';
 
 import {

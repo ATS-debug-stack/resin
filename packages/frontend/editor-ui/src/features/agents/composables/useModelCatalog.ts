@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { getModelCatalog, type ProviderCatalog, type ModelInfo } from './useAgentApi';
 
 const catalog = ref<ProviderCatalog>({});

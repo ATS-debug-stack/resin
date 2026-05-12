@@ -3,7 +3,7 @@ import {
 	DUPLICATE_POSTFFIX,
 	MAX_WORKFLOW_NAME_LENGTH,
 } from '@/app/constants';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import type { INodeUi, IStartRunData, IWorkflowDb } from '@/Interface';
 import type {
 	IExecutionPushResponse,
@@ -11,8 +11,8 @@ import type {
 	IExecutionsListResponse,
 	IExecutionFlattedResponse,
 } from '@/features/execution/executions/executions.types';
-import type { IWorkflowTemplateNode } from '@n8n/rest-api-client/api/templates';
-import type { WorkflowDataCreate, WorkflowDataUpdate } from '@n8n/rest-api-client/api/workflows';
+import type { IWorkflowTemplateNode } from '@resin/rest-api-client/api/templates';
+import type { WorkflowDataCreate, WorkflowDataUpdate } from '@resin/rest-api-client/api/workflows';
 import { defineStore } from 'pinia';
 import type {
 	IDataObject,
@@ -23,26 +23,26 @@ import type {
 	ITaskData,
 	IWorkflowSettings,
 	ITaskStartedData,
-} from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy } from 'resin-workflow';
 
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import * as workflowsApi from '@/app/api/workflows';
 import { useUIStore } from '@/app/stores/ui.store';
-import { makeRestApiRequest, ResponseError, type WorkflowHistory } from '@n8n/rest-api-client';
+import { makeRestApiRequest, ResponseError, type WorkflowHistory } from '@resin/rest-api-client';
 import { unflattenExecutionData } from '@/features/execution/executions/executions.utils';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
-import { i18n } from '@n8n/i18n';
+import { i18n } from '@resin/i18n';
 
 import { computed, ref } from 'vue';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
-import type { ExecutionRedactionQueryDto } from '@n8n/api-types';
+import type { ExecutionRedactionQueryDto } from '@resin/api-types';
 import { useSettingsStore } from './settings.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
-import { updateCurrentUserSettings } from '@n8n/rest-api-client/api/users';
-import type { NodeExecuteBefore } from '@n8n/api-types/push/execution';
+import { updateCurrentUserSettings } from '@resin/rest-api-client/api/users';
+import type { NodeExecuteBefore } from '@resin/api-types/push/execution';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { hasRole } from '@/app/utils/rbac/checks';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import {

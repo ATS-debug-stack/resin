@@ -226,7 +226,7 @@ Use conditional branches (IF nodes) for post-analysis actions:
 - Handle large sheets with batching
 - Consider API rate limits
 
-### AI Agent (@n8n/n8n-nodes-langchain.agent)
+### AI Agent (@resin/n8n-nodes-langchain.agent)
 
 **Purpose**: Leverage AI for text analysis, sentiment detection, complex pattern recognition
 

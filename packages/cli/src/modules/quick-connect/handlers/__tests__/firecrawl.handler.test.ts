@@ -1,4 +1,4 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 import nock from 'nock';
 
@@ -21,7 +21,7 @@ describe('FirecrawlHandler', () => {
 	describe('setConfig', () => {
 		it('should set configuration', () => {
 			const config: FirecrawlQuickConnect = {
-				packageName: '@n8n/firecrawl',
+				packageName: '@resin/firecrawl',
 				credentialType: 'firecrawlApi',
 				text: 'Firecrawl Integration',
 				quickConnectType: 'firecrawl',
@@ -39,7 +39,7 @@ describe('FirecrawlHandler', () => {
 
 	describe('getCredentialData', () => {
 		const mockConfig: FirecrawlQuickConnect = {
-			packageName: '@n8n/firecrawl',
+			packageName: '@resin/firecrawl',
 			credentialType: 'firecrawlApi',
 			text: 'Firecrawl Integration',
 			quickConnectType: 'firecrawl',

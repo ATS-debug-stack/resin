@@ -81,7 +81,7 @@ Pitfalls:
 - Enable "Include Other Input Fields" to preserve binary data
 - Pay attention to data types - mixing types causes unexpected failures
 
-### Information Extractor (@n8n/n8n-nodes-langchain.informationExtractor)
+### Information Extractor (@resin/n8n-nodes-langchain.informationExtractor)
 
 Purpose: AI-powered extraction of structured data from unstructured text
 
@@ -89,7 +89,7 @@ Pitfalls:
 
 - Requires proper schema definition for extraction
 
-### Summarization Chain (@n8n/n8n-nodes-langchain.chainSummarization)
+### Summarization Chain (@resin/n8n-nodes-langchain.chainSummarization)
 
 Purpose: Summarizes large text blocks using AI for condensed information extraction
 

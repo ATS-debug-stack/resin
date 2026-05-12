@@ -5,14 +5,14 @@ import type {
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
 	IRequestOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	jsonParse,
 	NodeApiError,
 	NodeConnectionTypes,
 	NodeOperationError,
 	sleep,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { DiscordAttachment, DiscordWebhook } from './Interfaces';
 import { oldVersionNotice } from '../../../utils/descriptions';

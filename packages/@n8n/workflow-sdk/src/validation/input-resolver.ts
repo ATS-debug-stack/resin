@@ -1,4 +1,4 @@
-import type { INodeTypes } from 'n8n-workflow';
+import type { INodeTypes } from 'resin-workflow';
 
 /**
  * Resolves the number of main inputs for a node type using the provided INodeTypes.
@@ -9,7 +9,7 @@ import type { INodeTypes } from 'n8n-workflow';
  * - Any error occurs during resolution
  *
  * @param nodeTypesProvider - Provider for looking up node types
- * @param nodeType - The node type identifier (e.g., 'n8n-nodes-base.aggregate')
+ * @param nodeType - The node type identifier (e.g., 'resin-nodes-base.aggregate')
  * @param version - The node version number
  * @returns The number of main inputs, or undefined if cannot be determined
  */

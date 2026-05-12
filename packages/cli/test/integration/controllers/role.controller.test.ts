@@ -1,6 +1,6 @@
-import type { CreateRoleDto, UpdateRoleDto } from '@n8n/api-types';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { type Role } from '@n8n/permissions';
+import type { CreateRoleDto, UpdateRoleDto } from '@resin/api-types';
+import { mockInstance } from '@resin/backend-test-utils';
+import { type Role } from '@resin/permissions';
 
 import { RoleService } from '@/services/role.service';
 

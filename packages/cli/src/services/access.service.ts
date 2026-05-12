@@ -1,7 +1,7 @@
-import type { User } from '@n8n/db';
-import { UserRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import type { Workflow } from 'n8n-workflow';
+import type { User } from '@resin/db';
+import { UserRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import type { Workflow } from 'resin-workflow';
 
 import { WorkflowFinderService } from '@/workflows/workflow-finder.service';
 

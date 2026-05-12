@@ -4,8 +4,8 @@ import type {
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, SEND_AND_WAIT_OPERATION } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, SEND_AND_WAIT_OPERATION } from 'resin-workflow';
 
 import * as send from './send.operation';
 import * as sendAndWait from './sendAndWait.operation';

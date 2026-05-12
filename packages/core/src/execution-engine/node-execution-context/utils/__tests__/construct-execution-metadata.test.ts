@@ -1,4 +1,8 @@
-import type { INodeExecutionData, IPairedItemData, NodeExecutionWithMetadata } from 'n8n-workflow';
+import type {
+	INodeExecutionData,
+	IPairedItemData,
+	NodeExecutionWithMetadata,
+} from 'resin-workflow';
 
 import { constructExecutionMetaData } from '../construct-execution-metadata';
 

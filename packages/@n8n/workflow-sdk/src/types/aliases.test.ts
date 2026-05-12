@@ -12,7 +12,7 @@ describe('Type Aliases', () => {
 			// This test verifies the type works at compile time
 			// We use a mock that satisfies the AnyNode interface
 			const node = {
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: '1',
 				id: 'test',
 				name: 'Test',
@@ -26,7 +26,7 @@ describe('Type Aliases', () => {
 				update: jest.fn(),
 			} as unknown as AnyNode;
 
-			expect(node.type).toBe('n8n-nodes-base.set');
+			expect(node.type).toBe('resin-nodes-base.set');
 		});
 	});
 

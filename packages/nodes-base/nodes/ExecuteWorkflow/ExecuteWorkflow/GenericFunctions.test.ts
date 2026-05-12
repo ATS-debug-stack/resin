@@ -1,6 +1,6 @@
 import { readFile as fsReadFile } from 'fs/promises';
 import { mockDeep, type DeepMockProxy } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 
 import { getWorkflowInfo } from './GenericFunctions';
 

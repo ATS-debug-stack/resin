@@ -1,4 +1,4 @@
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	createEvalAgent: jest.fn(),
 	extractText: jest.fn(),
 }));
@@ -7,8 +7,8 @@ jest.mock('../node-config', () => ({
 	extractNodeConfig: jest.fn(),
 }));
 
-import { createEvalAgent, extractText } from '@n8n/instance-ai';
-import type { IConnections, INode, IWorkflowBase } from 'n8n-workflow';
+import { createEvalAgent, extractText } from '@resin/instance-ai';
+import type { IConnections, INode, IWorkflowBase } from 'resin-workflow';
 
 import {
 	generateMockHints,
@@ -46,9 +46,9 @@ function makeWorkflow(nodes: INode[], connections: IConnections = {}): IWorkflow
 describe('identifyNodesForPinData', () => {
 	it('should identify AI root nodes as needing pin data', () => {
 		const nodes = [
-			makeNode({ name: 'ChatOpenAI', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
-			makeNode({ name: 'Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-			makeNode({ name: 'Set', type: 'n8n-nodes-base.set' }),
+			makeNode({ name: 'ChatOpenAI', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
+			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+			makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
 		];
 		const connections: IConnections = {
 			ChatOpenAI: { ai_languageModel: [[{ node: 'Agent', type: 'ai_languageModel', index: 0 }]] },
@@ -64,11 +64,11 @@ describe('identifyNodesForPinData', () => {
 
 	it('should identify protocol/bypass nodes as needing pin data', () => {
 		const nodes = [
-			makeNode({ name: 'My Redis', type: 'n8n-nodes-base.redis' }),
-			makeNode({ name: 'My Postgres', type: 'n8n-nodes-base.postgres' }),
-			makeNode({ name: 'My Kafka', type: 'n8n-nodes-base.kafka' }),
-			makeNode({ name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
-			makeNode({ name: 'Set', type: 'n8n-nodes-base.set' }),
+			makeNode({ name: 'My Redis', type: 'resin-nodes-base.redis' }),
+			makeNode({ name: 'My Postgres', type: 'resin-nodes-base.postgres' }),
+			makeNode({ name: 'My Kafka', type: 'resin-nodes-base.kafka' }),
+			makeNode({ name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
+			makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
 		];
 
 		const result = identifyNodesForPinData(makeWorkflow(nodes));
@@ -83,8 +83,8 @@ describe('identifyNodesForPinData', () => {
 
 	it('should exclude disabled nodes', () => {
 		const nodes = [
-			makeNode({ name: 'My Redis', type: 'n8n-nodes-base.redis', disabled: true }),
-			makeNode({ name: 'Agent', type: '@n8n/n8n-nodes-langchain.agent', disabled: true }),
+			makeNode({ name: 'My Redis', type: 'resin-nodes-base.redis', disabled: true }),
+			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent', disabled: true }),
 		];
 		const connections: IConnections = {
 			ChatOpenAI: { ai_languageModel: [[{ node: 'Agent', type: 'ai_languageModel', index: 0 }]] },
@@ -97,9 +97,9 @@ describe('identifyNodesForPinData', () => {
 
 	it('should return empty for workflow with only logic nodes', () => {
 		const nodes = [
-			makeNode({ name: 'Set', type: 'n8n-nodes-base.set' }),
-			makeNode({ name: 'IF', type: 'n8n-nodes-base.if' }),
-			makeNode({ name: 'Merge', type: 'n8n-nodes-base.merge' }),
+			makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
+			makeNode({ name: 'IF', type: 'resin-nodes-base.if' }),
+			makeNode({ name: 'Merge', type: 'resin-nodes-base.merge' }),
 		];
 
 		const result = identifyNodesForPinData(makeWorkflow(nodes));
@@ -109,10 +109,10 @@ describe('identifyNodesForPinData', () => {
 
 	it('should handle Agent with multiple sub-nodes', () => {
 		const nodes = [
-			makeNode({ name: 'OpenAI', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
-			makeNode({ name: 'Memory', type: '@n8n/n8n-nodes-langchain.memoryBufferWindow' }),
-			makeNode({ name: 'Calculator', type: '@n8n/n8n-nodes-langchain.toolCalculator' }),
-			makeNode({ name: 'Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
+			makeNode({ name: 'OpenAI', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
+			makeNode({ name: 'Memory', type: '@resin/n8n-nodes-langchain.memoryBufferWindow' }),
+			makeNode({ name: 'Calculator', type: '@resin/n8n-nodes-langchain.toolCalculator' }),
+			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' }),
 		];
 		const connections: IConnections = {
 			OpenAI: { ai_languageModel: [[{ node: 'Agent', type: 'ai_languageModel', index: 0 }]] },
@@ -128,22 +128,22 @@ describe('identifyNodesForPinData', () => {
 
 	it('should identify all bypass node types', () => {
 		const bypassTypes = [
-			'n8n-nodes-base.redis',
-			'n8n-nodes-base.mongoDb',
-			'n8n-nodes-base.mySql',
-			'n8n-nodes-base.postgres',
-			'n8n-nodes-base.microsoftSql',
-			'n8n-nodes-base.snowflake',
-			'n8n-nodes-base.kafka',
-			'n8n-nodes-base.rabbitmq',
-			'n8n-nodes-base.mqtt',
-			'n8n-nodes-base.amqp',
-			'n8n-nodes-base.ftp',
-			'n8n-nodes-base.ssh',
-			'n8n-nodes-base.ldap',
-			'n8n-nodes-base.emailSend',
-			'n8n-nodes-base.rssFeedRead',
-			'n8n-nodes-base.git',
+			'resin-nodes-base.redis',
+			'resin-nodes-base.mongoDb',
+			'resin-nodes-base.mySql',
+			'resin-nodes-base.postgres',
+			'resin-nodes-base.microsoftSql',
+			'resin-nodes-base.snowflake',
+			'resin-nodes-base.kafka',
+			'resin-nodes-base.rabbitmq',
+			'resin-nodes-base.mqtt',
+			'resin-nodes-base.amqp',
+			'resin-nodes-base.ftp',
+			'resin-nodes-base.ssh',
+			'resin-nodes-base.ldap',
+			'resin-nodes-base.emailSend',
+			'resin-nodes-base.rssFeedRead',
+			'resin-nodes-base.git',
 		];
 
 		const nodes = bypassTypes.map((type, i) => makeNode({ name: `Node${i}`, type }));
@@ -156,9 +156,9 @@ describe('identifyNodesForPinData', () => {
 describe('identifyNodesForHints', () => {
 	it('should exclude AI sub-nodes from hints', () => {
 		const nodes = [
-			makeNode({ name: 'OpenAI', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
-			makeNode({ name: 'Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-			makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' }),
+			makeNode({ name: 'OpenAI', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
+			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+			makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' }),
 		];
 		const connections: IConnections = {
 			OpenAI: { ai_languageModel: [[{ node: 'Agent', type: 'ai_languageModel', index: 0 }]] },
@@ -174,10 +174,10 @@ describe('identifyNodesForHints', () => {
 
 	it('should exclude pinned bypass nodes from hints', () => {
 		const nodes = [
-			makeNode({ name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-			makeNode({ name: 'Redis', type: 'n8n-nodes-base.redis' }),
-			makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' }),
-			makeNode({ name: 'Set', type: 'n8n-nodes-base.set' }),
+			makeNode({ name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+			makeNode({ name: 'Redis', type: 'resin-nodes-base.redis' }),
+			makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' }),
+			makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
 		];
 
 		const result = identifyNodesForHints(makeWorkflow(nodes));
@@ -191,8 +191,8 @@ describe('identifyNodesForHints', () => {
 
 	it('should exclude disabled nodes', () => {
 		const nodes = [
-			makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack', disabled: true }),
-			makeNode({ name: 'Gmail', type: 'n8n-nodes-base.gmail' }),
+			makeNode({ name: 'Slack', type: 'resin-nodes-base.slack', disabled: true }),
+			makeNode({ name: 'Gmail', type: 'resin-nodes-base.gmail' }),
 		];
 
 		const result = identifyNodesForHints(makeWorkflow(nodes));
@@ -204,12 +204,12 @@ describe('identifyNodesForHints', () => {
 
 	it('should return only HTTP-interceptible nodes for a mixed workflow', () => {
 		const nodes = [
-			makeNode({ name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-			makeNode({ name: 'OpenAI', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
-			makeNode({ name: 'Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-			makeNode({ name: 'Postgres', type: 'n8n-nodes-base.postgres' }),
-			makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' }),
-			makeNode({ name: 'Set', type: 'n8n-nodes-base.set' }),
+			makeNode({ name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+			makeNode({ name: 'OpenAI', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
+			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+			makeNode({ name: 'Postgres', type: 'resin-nodes-base.postgres' }),
+			makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' }),
+			makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
 		];
 		const connections: IConnections = {
 			OpenAI: { ai_languageModel: [[{ node: 'Agent', type: 'ai_languageModel', index: 0 }]] },
@@ -231,8 +231,8 @@ describe('identifyNodesForHints', () => {
 
 describe('generateMockHints', () => {
 	const workflow = makeWorkflow([
-		makeNode({ name: 'Schedule', type: 'n8n-nodes-base.scheduleTrigger' }),
-		makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' }),
+		makeNode({ name: 'Schedule', type: 'resin-nodes-base.scheduleTrigger' }),
+		makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' }),
 	]);
 
 	function mockAgentResponses(...responses: Array<string | Error>) {

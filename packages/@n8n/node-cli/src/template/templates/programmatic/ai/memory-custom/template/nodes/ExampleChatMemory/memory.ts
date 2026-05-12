@@ -1,4 +1,4 @@
-import { BaseChatHistory, Message } from '@n8n/ai-node-sdk';
+import { BaseChatHistory, Message } from '@resin/ai-node-sdk';
 
 /**
  * In-memory chat history storage

@@ -29,10 +29,10 @@ import {
 	updateViewportToContainNodes,
 } from '@/app/utils/nodeViewUtils';
 import { isPresent } from '@/app/utils/typesUtils';
-import { useDeviceSupport } from '@n8n/composables/useDeviceSupport';
-import { useShortKeyPress } from '@n8n/composables/useShortKeyPress';
-import type { EventBus } from '@n8n/utils/event-bus';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { useDeviceSupport } from '@resin/composables/useDeviceSupport';
+import { useShortKeyPress } from '@resin/composables/useShortKeyPress';
+import type { EventBus } from '@resin/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import type {
 	Connection,
 	Dimensions,
@@ -45,7 +45,7 @@ import type {
 import { getRectOfNodes, MarkerType, PanelPosition, useVueFlow, VueFlow } from '@vue-flow/core';
 import { MiniMap } from '@vue-flow/minimap';
 import { onKeyDown, onKeyUp, useThrottleFn } from '@vueuse/core';
-import { NodeConnectionTypes, type IConnections } from 'n8n-workflow';
+import { NodeConnectionTypes, type IConnections } from 'resin-workflow';
 import {
 	computed,
 	nextTick,
@@ -1236,7 +1236,7 @@ defineExpose({
 	}
 
 	&.isExperimentalNdvActive {
-		/* stylelint-disable-next-line @n8n/css-var-naming */
+		/* stylelint-disable-next-line @resin/css-var-naming */
 		--canvas-zoom-compensation-factor: 0.5;
 	}
 }

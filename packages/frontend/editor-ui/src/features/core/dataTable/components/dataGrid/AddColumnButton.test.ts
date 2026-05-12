@@ -34,7 +34,7 @@ vi.mock('@/features/core/dataTable/constants', async (importOriginal) => ({
 	COLUMN_NAME_REGEX: /^[a-zA-Z][a-zA-Z0-9_-]*$/,
 }));
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string, options?: { interpolate?: Record<string, string> }) => {

@@ -35,20 +35,20 @@ import {
 	getExecutionErrorToastConfiguration,
 } from '@/features/execution/executions/executions.utils';
 import { getTriggerNodeServiceName } from '@/app/utils/nodeTypesUtils';
-import type { ExecutionFinished } from '@n8n/api-types/push/execution';
-import { useI18n } from '@n8n/i18n';
+import type { ExecutionFinished } from '@resin/api-types/push/execution';
+import { useI18n } from '@resin/i18n';
 import type {
 	ExecutionStatus,
 	ExpressionError,
 	IDataObject,
 	IRunExecutionData,
 	IWorkflowBase,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	EVALUATION_TRIGGER_NODE_TYPE,
 	TelemetryHelpers,
 	createRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { useRouter } from 'vue-router';
 import { type WorkflowState } from '@/app/composables/useWorkflowState';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';

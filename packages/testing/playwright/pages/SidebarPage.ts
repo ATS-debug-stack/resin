@@ -170,7 +170,7 @@ export class SidebarPage {
 		// First ensure the sidebar is visible before checking if it is expanded
 		await expect(this.getSettings()).toBeVisible();
 
-		const logo = this.container.getByTestId('n8n-logo');
+		const logo = this.container.getByTestId('resin-logo');
 		const isExpanded = await logo.isVisible();
 
 		if (!isExpanded) {

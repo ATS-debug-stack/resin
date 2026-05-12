@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, ILoadOptionsFunctions, IWebhookFunctions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IExecuteFunctions, ILoadOptionsFunctions, IWebhookFunctions } from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import { awsApiRequest, awsApiRequestREST, awsApiRequestSOAP } from '../GenericFunctions';
 
@@ -18,7 +18,7 @@ describe('AWS GenericFunctions', () => {
 		mockExecuteFunctions.getNode.mockReturnValue({
 			id: 'test-node',
 			name: 'Test Node',
-			type: 'n8n-nodes-base.aws',
+			type: 'resin-nodes-base.aws',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},
@@ -139,7 +139,7 @@ describe('AWS GenericFunctions', () => {
 				mockLoadOptionsFunctions.getNode.mockReturnValue({
 					id: 'load-node',
 					name: 'Load Node',
-					type: 'n8n-nodes-base.aws',
+					type: 'resin-nodes-base.aws',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -166,7 +166,7 @@ describe('AWS GenericFunctions', () => {
 				mockWebhookFunctions.getNode.mockReturnValue({
 					id: 'webhook-node',
 					name: 'Webhook Node',
-					type: 'n8n-nodes-base.aws',
+					type: 'resin-nodes-base.aws',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -467,7 +467,7 @@ describe('AWS GenericFunctions', () => {
 				mockLoadOptionsFunctions.getNode.mockReturnValue({
 					id: 'load-node',
 					name: 'Load Node',
-					type: 'n8n-nodes-base.aws',
+					type: 'resin-nodes-base.aws',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -610,7 +610,7 @@ describe('AWS GenericFunctions', () => {
 				mockLoadOptionsFunctions.getNode.mockReturnValue({
 					id: 'load-node',
 					name: 'Load Node',
-					type: 'n8n-nodes-base.aws',
+					type: 'resin-nodes-base.aws',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},

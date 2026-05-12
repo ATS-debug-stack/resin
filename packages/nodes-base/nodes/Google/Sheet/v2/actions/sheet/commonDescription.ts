@@ -1,4 +1,4 @@
-import type { INodeProperties, IParameterBuilderHint } from 'n8n-workflow';
+import type { INodeProperties, IParameterBuilderHint } from 'resin-workflow';
 
 /**
  * Builder hint shared by every Google Sheets `columns` resourceMapper parameter

@@ -6,8 +6,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, BINARY_ENCODING, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, BINARY_ENCODING, NodeOperationError } from 'resin-workflow';
 import { Readable } from 'stream';
 
 import { isoCountryCodes } from '@utils/ISOCountryCodes';

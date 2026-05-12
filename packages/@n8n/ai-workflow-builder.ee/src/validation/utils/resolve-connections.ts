@@ -3,8 +3,8 @@ import type {
 	INodeInputConfiguration,
 	NodeConnectionType,
 	IDataObject,
-} from 'n8n-workflow';
-import { Expression } from 'n8n-workflow';
+} from 'resin-workflow';
+import { Expression } from 'resin-workflow';
 
 import type { NodeResolvedConnectionTypesInfo } from '../types';
 

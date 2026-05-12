@@ -1,4 +1,4 @@
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 
 /**
  * Stable code on `BuilderNotConfiguredError` so the SSE stream / FE can

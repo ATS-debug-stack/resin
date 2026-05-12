@@ -1,7 +1,7 @@
-import { useI18n } from '@n8n/i18n';
-import type { BaseTextKey } from '@n8n/i18n';
-import type { IconName } from '@n8n/design-system';
-import type { InstanceAiToolCallState } from '@n8n/api-types';
+import { useI18n } from '@resin/i18n';
+import type { BaseTextKey } from '@resin/i18n';
+import type { IconName } from '@resin/design-system';
+import type { InstanceAiToolCallState } from '@resin/api-types';
 
 const NO_TOGGLE_TOOLS = new Set(['updateWorkingMemory', 'plan', 'task-control']);
 

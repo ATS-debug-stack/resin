@@ -1,14 +1,14 @@
-import type { InstanceAiEvent } from '@n8n/api-types';
+import type { InstanceAiEvent } from '@resin/api-types';
 
-jest.mock('@n8n/instance-ai', () =>
-	jest.requireActual('../../../../../@n8n/instance-ai/src/runtime/liveness-policy'),
+jest.mock('@resin/instance-ai', () =>
+	jest.requireActual('../../../../../@resin/instance-ai/src/runtime/liveness-policy'),
 );
 
 import {
 	createInstanceAiLivenessPolicyConfig,
 	InstanceAiLivenessPolicy,
 	type InstanceAiLivenessTimeoutReason,
-} from '@n8n/instance-ai';
+} from '@resin/instance-ai';
 
 import { INSTANCE_AI_RUN_TIMEOUT_REASON, InstanceAiLivenessService } from '../liveness';
 

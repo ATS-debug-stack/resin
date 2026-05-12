@@ -1,12 +1,12 @@
-import { testDb } from '@n8n/backend-test-utils';
+import { testDb } from '@resin/backend-test-utils';
 import {
 	AuthIdentity,
 	AuthIdentityRepository,
 	GLOBAL_ADMIN_ROLE,
 	ProjectRepository,
 	UserRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 
 import type { ExternalTokenClaims } from '@/modules/token-exchange/token-exchange.schemas';
 import { IdentityResolutionService } from '@/modules/token-exchange/services/identity-resolution.service';

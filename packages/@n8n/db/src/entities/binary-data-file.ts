@@ -1,4 +1,4 @@
-import { Column, Entity, Index, PrimaryColumn } from '@n8n/typeorm';
+import { Column, Entity, Index, PrimaryColumn } from '@resin/typeorm';
 import { z } from 'zod';
 
 import { BinaryColumn, WithTimestamps } from './abstract-entity';

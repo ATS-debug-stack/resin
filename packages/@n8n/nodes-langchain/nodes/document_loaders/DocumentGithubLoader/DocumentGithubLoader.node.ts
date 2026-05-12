@@ -1,7 +1,7 @@
 import { GithubRepoLoader } from '@langchain/community/document_loaders/web/github';
 import type { TextSplitter } from '@langchain/textsplitters';
 import { RecursiveCharacterTextSplitter } from '@langchain/textsplitters';
-import { logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 import {
 	NodeConnectionTypes,
@@ -11,7 +11,7 @@ import {
 	type SupplyData,
 	type IDataObject,
 	type INodeInputConfiguration,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 /* istanbul ignore next */
 function getInputs(parameters: IDataObject) {

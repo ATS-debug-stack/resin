@@ -7,8 +7,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, deepCopy } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, deepCopy } from 'resin-workflow';
 import { NodeHtmlMarkdown } from 'node-html-markdown';
 import { Converter } from 'showdown';
 

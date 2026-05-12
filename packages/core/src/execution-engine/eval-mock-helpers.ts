@@ -7,7 +7,7 @@
  * type definitions in index.ts (module augmentation).
  */
 
-import type { IHttpRequestOptions, INode, INodeProperties, IRequestOptions } from 'n8n-workflow';
+import type { IHttpRequestOptions, INode, INodeProperties, IRequestOptions } from 'resin-workflow';
 import { Readable } from 'node:stream';
 
 import type { EvalLlmMockHandler, EvalMockHttpResponse } from './index';

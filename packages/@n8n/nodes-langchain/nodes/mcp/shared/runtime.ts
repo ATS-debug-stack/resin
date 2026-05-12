@@ -1,8 +1,8 @@
 import { CallToolResultSchema } from '@modelcontextprotocol/sdk/types.js';
-import { logWrapper } from '@n8n/ai-utilities';
+import { logWrapper } from '@resin/ai-utilities';
 import type { JSONSchema7 } from 'json-schema';
 import pick from 'lodash/pick';
-import { StructuredToolkit } from 'n8n-core';
+import { StructuredToolkit } from 'resin-core';
 import {
 	type IDataObject,
 	type IExecuteFunctions,
@@ -13,7 +13,7 @@ import {
 	NodeOperationError,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	buildMcpToolName,

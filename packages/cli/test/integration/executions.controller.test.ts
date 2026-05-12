@@ -5,8 +5,8 @@ import {
 	shareWorkflowWithUsers,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
 
 import { ConcurrencyControlService } from '@/concurrency/concurrency-control.service';
 import { WaitTracker } from '@/wait-tracker';

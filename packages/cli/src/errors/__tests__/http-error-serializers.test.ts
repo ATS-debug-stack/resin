@@ -4,7 +4,7 @@ import {
 	serializePublicApiError,
 } from '@/errors/http-error-serializers';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
-import { UnexpectedError, UserError } from 'n8n-workflow';
+import { UnexpectedError, UserError } from 'resin-workflow';
 
 describe('http-error-serializers', () => {
 	it('serializePublicApiError: minimal message for ResponseError', () => {

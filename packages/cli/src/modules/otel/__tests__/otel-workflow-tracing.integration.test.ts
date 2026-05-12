@@ -14,8 +14,8 @@ import {
 } from './support/otel-workflow-fixtures';
 import type { OtelTestProvider } from './support/otel-test-provider';
 import type { WorkflowRunner } from '@/workflow-runner';
-import type { ExecutionRepository } from '@n8n/db';
-import { createTeamProject, createWorkflow } from '@n8n/backend-test-utils';
+import type { ExecutionRepository } from '@resin/db';
+import { createTeamProject, createWorkflow } from '@resin/backend-test-utils';
 
 let otel: OtelTestProvider;
 let workflowRunner: WorkflowRunner;

@@ -1,9 +1,9 @@
-import { normalizeItems } from 'n8n-core';
+import { normalizeItems } from 'resin-core';
 import {
 	ApplicationError,
 	type ISupplyDataFunctions,
 	type IWorkflowDataProxyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import { N8nItemListOutputParser } from '@utils/output_parsers/N8nItemListOutputParser';

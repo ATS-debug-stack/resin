@@ -1,4 +1,4 @@
-import type { Constructable } from '@n8n/di';
+import type { Constructable } from '@resin/di';
 import type { ZodObject, ZodTypeAny } from 'zod';
 
 type FlagsSchema = ZodObject<Record<string, ZodTypeAny>>;

@@ -1,8 +1,8 @@
-import type { Logger } from '@n8n/backend-common';
-import type { ContextEstablishmentOptions } from '@n8n/decorators';
+import type { Logger } from '@resin/backend-common';
+import type { ContextEstablishmentOptions } from '@resin/decorators';
 import { mock } from 'jest-mock-extended';
-import type { Cipher } from 'n8n-core';
-import type { INodeExecutionData } from 'n8n-workflow';
+import type { Cipher } from 'resin-core';
+import type { INodeExecutionData } from 'resin-workflow';
 
 import { ChatHubExtractor } from '../chat-hub-extractor';
 

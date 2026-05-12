@@ -1,7 +1,7 @@
-import { isObjectLiteral } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
-import type { ICredentialDataDecryptedObject, ICredentialsEncrypted } from 'n8n-workflow';
-import { ApplicationError, ICredentials, jsonParse } from 'n8n-workflow';
+import { isObjectLiteral } from '@resin/backend-common';
+import { Container } from '@resin/di';
+import type { ICredentialDataDecryptedObject, ICredentialsEncrypted } from 'resin-workflow';
+import { ApplicationError, ICredentials, jsonParse } from 'resin-workflow';
 import * as a from 'node:assert';
 
 import { CREDENTIAL_ERRORS } from '@/constants';

@@ -1,4 +1,4 @@
-import { isExpression } from 'n8n-workflow';
+import { isExpression } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 
@@ -191,9 +191,9 @@ export function validateCredentials(workflow: SimpleWorkflow): ProgrammaticViola
 	}
 
 	for (const node of workflow.nodes) {
-		if (node.type === 'n8n-nodes-base.httpRequest') {
+		if (node.type === 'resin-nodes-base.httpRequest') {
 			validateHttpRequestNode(node, violations);
-		} else if (node.type === 'n8n-nodes-base.set') {
+		} else if (node.type === 'resin-nodes-base.set') {
 			validateSetNode(node, violations);
 		}
 	}

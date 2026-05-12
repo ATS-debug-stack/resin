@@ -1,8 +1,8 @@
-import { LicenseState } from '@n8n/backend-common';
-import type { CredentialsEntity } from '@n8n/db';
-import { CredentialsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
+import { LicenseState } from '@resin/backend-common';
+import type { CredentialsEntity } from '@resin/db';
+import { CredentialsRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
 import { z } from 'zod';
 
 import { CredentialTypes } from '@/credential-types';

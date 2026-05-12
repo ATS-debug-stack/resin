@@ -2,14 +2,14 @@
 
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import type { PushMessage, PushType } from '@n8n/api-types';
-import { Logger, ModuleRegistry } from '@n8n/backend-common';
-import { GlobalConfig, SsrfProtectionConfig } from '@n8n/config';
-import { ExecutionRepository, WorkflowRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { ServiceIdentifier } from '@n8n/di';
-import { ExternalSecretsProxy, WorkflowExecute } from 'n8n-core';
-import { UnexpectedError, Workflow, createRunExecutionData } from 'n8n-workflow';
+import type { PushMessage, PushType } from '@resin/api-types';
+import { Logger, ModuleRegistry } from '@resin/backend-common';
+import { GlobalConfig, SsrfProtectionConfig } from '@resin/config';
+import { ExecutionRepository, WorkflowRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import type { ServiceIdentifier } from '@resin/di';
+import { ExternalSecretsProxy, WorkflowExecute } from 'resin-core';
+import { UnexpectedError, Workflow, createRunExecutionData } from 'resin-workflow';
 import type {
 	AiEvent,
 	IDataObject,
@@ -33,7 +33,7 @@ import type {
 	ExecuteAgentData,
 	RelatedExecution,
 	IRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { ActiveExecutions } from '@/active-executions';
 import { CredentialsHelper } from '@/credentials-helper';

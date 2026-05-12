@@ -3,8 +3,8 @@ import {
 	HumanMessagePromptTemplate,
 	SystemMessagePromptTemplate,
 } from '@langchain/core/prompts';
-import type { IDataObject, INodeInputConfiguration, INodeProperties } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { IDataObject, INodeInputConfiguration, INodeProperties } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import {
 	promptTypeOptions,
@@ -12,7 +12,7 @@ import {
 	textFromGuardrailsNode,
 	textFromPreviousNode,
 } from '@utils/descriptions';
-import { getBatchingOptionFields, getTemplateNoticeField } from '@n8n/ai-utilities';
+import { getBatchingOptionFields, getTemplateNoticeField } from '@resin/ai-utilities';
 
 /**
  * Dynamic input configuration generation based on node parameters

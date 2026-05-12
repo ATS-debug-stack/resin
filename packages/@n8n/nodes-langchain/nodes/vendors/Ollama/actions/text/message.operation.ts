@@ -1,6 +1,6 @@
 import type { Tool } from '@langchain/core/tools';
-import type { IExecuteFunctions, INodeExecutionData, INodeProperties } from 'n8n-workflow';
-import { accumulateTokenUsage, updateDisplayOptions } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeExecutionData, INodeProperties } from 'resin-workflow';
+import { accumulateTokenUsage, updateDisplayOptions } from 'resin-workflow';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 
 import { getConnectedTools } from '@utils/helpers';

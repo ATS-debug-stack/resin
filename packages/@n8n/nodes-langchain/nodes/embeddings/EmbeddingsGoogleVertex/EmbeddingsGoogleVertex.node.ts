@@ -1,16 +1,16 @@
 import { ProjectsClient } from '@google-cloud/resource-manager';
 import { VertexAIEmbeddings } from '@langchain/google-vertexai';
-import { formatPrivateKey } from 'n8n-nodes-base/dist/utils/utilities';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { formatPrivateKey } from 'resin-nodes-base/dist/utils/utilities';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type {
 	ILoadOptionsFunctions,
 	INodeType,
 	INodeTypeDescription,
 	ISupplyDataFunctions,
 	SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 export class EmbeddingsGoogleVertex implements INodeType {
 	methods = {

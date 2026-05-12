@@ -517,7 +517,7 @@ export class McpApiHelper {
 		const initMessage = this.createMessage('initialize', {
 			protocolVersion: '2024-11-05',
 			capabilities: {},
-			clientInfo: { name: 'n8n-e2e-test', version: '1.0.0' },
+			clientInfo: { name: 'resin-e2e-test', version: '1.0.0' },
 		});
 
 		const response = await this.trigger(path, {

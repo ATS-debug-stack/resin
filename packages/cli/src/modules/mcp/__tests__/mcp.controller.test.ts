@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { type AuthenticatedRequest } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { type AuthenticatedRequest } from '@resin/db';
+import { Container } from '@resin/di';
 import type { Request } from 'express';
 import { mock, mockDeep } from 'jest-mock-extended';
 

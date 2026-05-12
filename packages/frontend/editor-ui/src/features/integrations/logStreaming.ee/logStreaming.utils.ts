@@ -2,12 +2,12 @@ import type {
 	INodeCredentials,
 	INodeParameters,
 	MessageEventBusDestinationOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { INodeUi } from '@/Interface';
 
 export function destinationToFakeINodeUi(
 	destination: MessageEventBusDestinationOptions,
-	fakeType = 'n8n-nodes-base.stickyNote',
+	fakeType = 'resin-nodes-base.stickyNote',
 ): INodeUi {
 	return {
 		id: destination.id,

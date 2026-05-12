@@ -2,7 +2,7 @@ const mockGenerate = jest.fn();
 const mockAgent = { tool: jest.fn().mockReturnThis(), generate: mockGenerate };
 const mockExtractText = jest.fn((result: { _text?: string }) => result._text ?? '');
 
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	createEvalAgent: jest.fn(() => mockAgent),
 	extractText: mockExtractText,
 	Tool: jest.fn().mockImplementation(() => ({
@@ -19,7 +19,7 @@ jest.mock('../node-config', () => ({
 	extractNodeConfig: jest.fn().mockReturnValue('{}'),
 }));
 
-jest.mock('@n8n/di', () => ({
+jest.mock('@resin/di', () => ({
 	Container: {
 		get: jest.fn().mockReturnValue({
 			warn: jest.fn(),
@@ -29,7 +29,7 @@ jest.mock('@n8n/di', () => ({
 	},
 }));
 
-import type { IHttpRequestOptions, INode } from 'n8n-workflow';
+import type { IHttpRequestOptions, INode } from 'resin-workflow';
 
 import { createLlmMockHandler } from '../mock-handler';
 
@@ -49,7 +49,7 @@ const baseRequest = {
 	url: 'https://api.slack.com/chat.postMessage',
 	method: 'POST',
 } as IHttpRequestOptions;
-const baseNode = { name: 'Slack', type: 'n8n-nodes-base.slack' } as INode;
+const baseNode = { name: 'Slack', type: 'resin-nodes-base.slack' } as INode;
 
 async function callHandler(
 	handler: ReturnType<typeof createLlmMockHandler>,
@@ -258,8 +258,8 @@ describe('createLlmMockHandler', () => {
 		llmReturns('{"type":"json","body":{}}');
 		const handler = createLlmMockHandler();
 
-		await handler(baseRequest, { name: 'Slack', type: 'n8n-nodes-base.slack' } as INode);
-		await handler(baseRequest, { name: 'Gmail', type: 'n8n-nodes-base.gmail' } as INode);
+		await handler(baseRequest, { name: 'Slack', type: 'resin-nodes-base.slack' } as INode);
+		await handler(baseRequest, { name: 'Gmail', type: 'resin-nodes-base.gmail' } as INode);
 
 		expect(extractNodeConfig).toHaveBeenCalledTimes(2);
 	});
@@ -330,7 +330,7 @@ describe('prompt construction', () => {
 				method: 'POST',
 				body: { query: '{ viewer { id } }' },
 			} as IHttpRequestOptions,
-			{ name: 'GitHub', type: 'n8n-nodes-base.github' } as INode,
+			{ name: 'GitHub', type: 'resin-nodes-base.github' } as INode,
 		);
 
 		const prompt: string = mockGenerate.mock.calls[0][0];
@@ -347,7 +347,7 @@ describe('prompt construction', () => {
 				method: 'POST',
 				body: { query: '{ issues { nodes { id } } }' },
 			} as IHttpRequestOptions,
-			{ name: 'Linear', type: 'n8n-nodes-base.httpRequest' } as INode,
+			{ name: 'Linear', type: 'resin-nodes-base.httpRequest' } as INode,
 		);
 
 		const prompt: string = mockGenerate.mock.calls[0][0];
@@ -422,7 +422,7 @@ describe('service name extraction (via prompt)', () => {
 
 		await handler(
 			{ url: 'https://www.googleapis.com/sheets/v4/spreadsheets' } as IHttpRequestOptions,
-			{ name: 'Sheets', type: 'n8n-nodes-base.googleSheets' } as INode,
+			{ name: 'Sheets', type: 'resin-nodes-base.googleSheets' } as INode,
 		);
 
 		const prompt: string = mockGenerate.mock.calls[0][0];

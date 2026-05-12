@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import type { PushMessage } from '@n8n/api-types';
+import type { PushMessage } from '@resin/api-types';
 
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
 import {
@@ -24,7 +24,7 @@ import {
 	workflowSettingsUpdated,
 } from '@/app/composables/usePushConnection/handlers';
 import { injectWorkflowState, type WorkflowState } from '@/app/composables/useWorkflowState';
-import { createEventQueue } from '@n8n/utils/event-queue';
+import { createEventQueue } from '@resin/utils/event-queue';
 import type { useRouter } from 'vue-router';
 
 export function usePushConnection({

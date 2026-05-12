@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { ref, computed, watch } from 'vue';
 import { useDataTableStore } from '@/features/core/dataTable/dataTable.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useToast } from '@/app/composables/useToast';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { DATA_TABLE_SYSTEM_COLUMNS } from 'n8n-workflow';
+import { DATA_TABLE_SYSTEM_COLUMNS } from 'resin-workflow';
 
-import { N8nButton, N8nIcon, N8nText, N8nCallout } from '@n8n/design-system';
+import { N8nButton, N8nIcon, N8nText, N8nCallout } from '@resin/design-system';
 import Modal from '@/app/components/Modal.vue';
 import { ElUpload } from 'element-plus';
 import type { UploadFile } from 'element-plus';

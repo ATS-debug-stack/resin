@@ -1,11 +1,11 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { DeploymentKey } from '@n8n/db';
-import { DeploymentKeyRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { QueryFailedError } from '@n8n/typeorm';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { DeploymentKey } from '@resin/db';
+import { DeploymentKeyRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { QueryFailedError } from '@resin/typeorm';
 import { exportJWK, generateKeyPair } from 'jose';
 import type { JWK } from 'jose';
-import { Cipher } from 'n8n-core';
+import { Cipher } from 'resin-core';
 
 import { CacheService } from '@/services/cache/cache.service';
 

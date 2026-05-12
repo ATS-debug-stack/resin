@@ -9,7 +9,7 @@ const nonCredFilePath = '/tmp/SomeHelper.ts';
 
 function createCredentialCode(className: string): string {
 	return `
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class ${className} implements ICredentialType {
 	name = 'testApi';

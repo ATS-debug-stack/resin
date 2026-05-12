@@ -7,7 +7,7 @@ import {
 	type INodeExecutionData,
 	type ISupplyDataFunctions,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getMetadataFiltersValues } from './helpers';
 

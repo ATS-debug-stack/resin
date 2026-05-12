@@ -25,7 +25,7 @@ export const AI_X_SPACING = GRID_SIZE * 3; // 48
 export const AI_Y_SPACING = GRID_SIZE * 8; // 128
 export const STICKY_BOTTOM_PADDING = GRID_SIZE * 4; // 64
 
-export const STICKY_NODE_TYPE = 'n8n-nodes-base.stickyNote';
+export const STICKY_NODE_TYPE = 'resin-nodes-base.stickyNote';
 
 // BFS layout constants (used by calculateNodePositions for basic positioning)
 export const NODE_SPACING_X = 200;

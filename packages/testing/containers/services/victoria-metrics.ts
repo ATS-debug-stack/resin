@@ -71,7 +71,7 @@ export const victoriaMetrics: Service<VictoriaMetricsResult> = {
 		for (let i = 1; i <= mains; i++) {
 			const hostname = mains > 1 ? `${projectName}-n8n-main-${i}` : `${projectName}-n8n`;
 			scrapeTargets.push({
-				job: 'n8n-main',
+				job: 'resin-main',
 				instance: `n8n-main-${i}`,
 				host: hostname,
 				port: 5678,
@@ -79,7 +79,7 @@ export const victoriaMetrics: Service<VictoriaMetricsResult> = {
 		}
 		for (let i = 1; i <= workers; i++) {
 			scrapeTargets.push({
-				job: 'n8n-worker',
+				job: 'resin-worker',
 				instance: `n8n-worker-${i}`,
 				host: `${projectName}-n8n-worker-${i}`,
 				port: 5678,

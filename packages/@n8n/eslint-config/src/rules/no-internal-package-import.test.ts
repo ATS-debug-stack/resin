@@ -5,9 +5,9 @@ const ruleTester = new RuleTester();
 
 ruleTester.run('no-internal-package-import', NoInternalPackageImportRule, {
 	valid: [
-		{ code: 'import { SomeDto } from "@n8n/api-types"' },
-		{ code: 'import { Logger } from "@n8n/backend-common"' },
-		{ code: 'import { NodeHelpers } from "@n8n/workflow"' },
+		{ code: 'import { SomeDto } from "@resin/api-types"' },
+		{ code: 'import { Logger } from "@resin/backend-common"' },
+		{ code: 'import { NodeHelpers } from "@resin/workflow"' },
 		{ code: 'import lodash from "lodash"' },
 		{ code: 'import { helper } from "./local-file"' },
 		{ code: 'import { utils } from "../utils"' },
@@ -17,13 +17,13 @@ ruleTester.run('no-internal-package-import', NoInternalPackageImportRule, {
 
 	invalid: [
 		{
-			code: 'import { UpdateDataTableDto } from "@n8n/api-types/src/dto/data-table/update-data-table.dto"',
-			output: 'import { UpdateDataTableDto } from "@n8n/api-types"',
+			code: 'import { UpdateDataTableDto } from "@resin/api-types/src/dto/data-table/update-data-table.dto"',
+			output: 'import { UpdateDataTableDto } from "@resin/api-types"',
 			errors: [{ messageId: 'noInternalPackageImport' }],
 		},
 		{
-			code: 'import { helper } from "@n8n/backend-common/src/utils/helper"',
-			output: 'import { helper } from "@n8n/backend-common"',
+			code: 'import { helper } from "@resin/backend-common/src/utils/helper"',
+			output: 'import { helper } from "@resin/backend-common"',
 			errors: [{ messageId: 'noInternalPackageImport' }],
 		},
 	],

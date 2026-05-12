@@ -7,10 +7,10 @@ import {
 	ManyToMany,
 	ManyToOne,
 	OneToMany,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 import { Length } from 'class-validator';
-import { IConnections, IDataObject, IWorkflowSettings, WorkflowFEMeta } from 'n8n-workflow';
-import type { INode } from 'n8n-workflow';
+import { IConnections, IDataObject, IWorkflowSettings, WorkflowFEMeta } from 'resin-workflow';
+import type { INode } from 'resin-workflow';
 
 import { JsonColumn, WithTimestampsAndStringId, dbType } from './abstract-entity';
 import { type Folder } from './folder';

@@ -1,4 +1,4 @@
-import type { InstanceAiEvent } from '@n8n/api-types';
+import type { InstanceAiEvent } from '@resin/api-types';
 
 /** Stored event with a per-thread monotonic ID for SSE replay. */
 export interface StoredEvent {

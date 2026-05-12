@@ -52,7 +52,7 @@ export const askCredentialInputSchema = z.object({
 	nodeType: z
 		.string()
 		.optional()
-		.describe('The n8n node type requiring this credential, e.g. "n8n-nodes-base.slack"'),
+		.describe('The n8n node type requiring this credential, e.g. "resin-nodes-base.slack"'),
 	credentialType: z
 		.string()
 		.describe(

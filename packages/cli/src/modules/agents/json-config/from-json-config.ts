@@ -6,9 +6,9 @@ import type {
 	ModelConfig,
 	ToolDescriptor,
 	JSONObject,
-} from '@n8n/agents';
-import { Agent, Memory, Tool, wrapToolForApproval } from '@n8n/agents';
-import type { AgentSkill } from '@n8n/api-types';
+} from '@resin/agents';
+import { Agent, Memory, Tool, wrapToolForApproval } from '@resin/agents';
+import type { AgentSkill } from '@resin/api-types';
 import { z } from 'zod';
 
 import type {

@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
 
 import { N8N_VERSION } from '@/constants';
 
@@ -11,7 +11,7 @@ import {
 	parseVersion,
 	versionGte,
 } from './instance-version-history.types';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 @Service()
 export class InstanceVersionHistoryService {

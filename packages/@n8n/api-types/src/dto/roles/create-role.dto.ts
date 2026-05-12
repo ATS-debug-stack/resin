@@ -1,4 +1,4 @@
-import { scopeSchema } from '@n8n/permissions';
+import { scopeSchema } from '@resin/permissions';
 import { z } from 'zod';
 
 import { Z } from '../../zod-class';

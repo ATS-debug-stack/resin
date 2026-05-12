@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from '@n8n/typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from '@resin/typeorm';
 
 import { DateTimeColumn } from './abstract-entity';
 import { StatisticsNames } from './types-db';

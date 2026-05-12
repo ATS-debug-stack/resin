@@ -12,8 +12,8 @@ import type {
 	INodeParameters,
 	INodeProperties,
 	ITelemetryTrackProperties,
-} from 'n8n-workflow';
-import { CREDENTIAL_EMPTY_VALUE, deepCopy, NodeHelpers } from 'n8n-workflow';
+} from 'resin-workflow';
+import { CREDENTIAL_EMPTY_VALUE, deepCopy, NodeHelpers } from 'resin-workflow';
 import CredentialIcon from '../CredentialIcon.vue';
 
 import CredentialConfig from './CredentialConfig.vue';
@@ -34,16 +34,16 @@ import { useUIStore } from '@/app/stores/ui.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import type { Project, ProjectSharingData } from '@/features/collaboration/projects/projects.types';
-import { getResourcePermissions } from '@n8n/permissions';
-import { assert } from '@n8n/utils/assert';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { getResourcePermissions } from '@resin/permissions';
+import { assert } from '@resin/utils/assert';
+import { createEventBus } from '@resin/utils/event-bus';
 
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import { useExternalSecretsStore } from '@/features/integrations/externalSecrets.ee/externalSecrets.ee.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { sendUserEvent, type DynamicNotification } from '@n8n/rest-api-client/api/cloudPlans';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { sendUserEvent, type DynamicNotification } from '@resin/rest-api-client/api/cloudPlans';
 import { isExpression, isTestableExpression } from '@/app/utils/expressions';
 import {
 	getAppNameFromCredType,
@@ -52,7 +52,7 @@ import {
 	updateNodeAuthType,
 } from '@/app/utils/nodeTypesUtils';
 import { isCredentialModalState, isValidCredentialResponse } from '@/app/utils/typeGuards';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useElementSize } from '@vueuse/core';
 import { useRouter } from 'vue-router';
 
@@ -64,7 +64,7 @@ import {
 	N8nTag,
 	N8nText,
 	type IMenuItem,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { setParameterValue } from '@/app/utils/parameterUtils';
 import get from 'lodash/get';
 import { useDynamicCredentials } from '@/features/resolvers/composables/useDynamicCredentials';

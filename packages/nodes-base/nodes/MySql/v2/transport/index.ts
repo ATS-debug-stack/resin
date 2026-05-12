@@ -4,7 +4,7 @@ import type {
 	IDataObject,
 	IExecuteFunctions,
 	ILoadOptionsFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { createServer, type AddressInfo } from 'node:net';
 
 import { LOCALHOST } from '@utils/constants';

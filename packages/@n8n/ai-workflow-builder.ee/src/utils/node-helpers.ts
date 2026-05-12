@@ -1,9 +1,9 @@
-import { type INode, NodeConnectionTypes, type INodeTypeDescription } from 'n8n-workflow';
+import { type INode, NodeConnectionTypes, type INodeTypeDescription } from 'resin-workflow';
 
 /**
  * Checks if a node type string represents a trigger node.
  * This is a heuristic based on the node type name.
- * @param nodeType - The node type string (e.g., 'n8n-nodes-base.webhook')
+ * @param nodeType - The node type string (e.g., 'resin-nodes-base.webhook')
  * @returns true if the node is a trigger node
  */
 export function isTriggerNodeType(nodeType: string): boolean {
@@ -11,7 +11,7 @@ export function isTriggerNodeType(nodeType: string): boolean {
 	return (
 		lower.includes('trigger') ||
 		lower.includes('webhook') ||
-		nodeType === 'n8n-nodes-base.manualTrigger'
+		nodeType === 'resin-nodes-base.manualTrigger'
 	);
 }
 
@@ -26,7 +26,7 @@ export function isSubNode(nodeType: INodeTypeDescription, node?: INode): boolean
 		return true;
 	}
 	// Treating agent as main node always
-	if (nodeType.name === '@n8n/n8n-nodes-langchain.agent') {
+	if (nodeType.name === '@resin/n8n-nodes-langchain.agent') {
 		return false;
 	}
 	// If no inputs at all, it's definitely a sub-node

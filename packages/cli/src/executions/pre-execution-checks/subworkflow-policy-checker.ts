@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { Project } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { type Workflow, type INode, type WorkflowSettings } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { Project } from '@resin/db';
+import { Service } from '@resin/di';
+import { type Workflow, type INode, type WorkflowSettings } from 'resin-workflow';
 
 import { SubworkflowPolicyDenialError } from '@/errors/subworkflow-policy-denial.error';
 import { AccessService } from '@/services/access.service';

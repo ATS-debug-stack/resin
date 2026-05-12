@@ -4,8 +4,8 @@ import type {
 	JsonObject,
 	IHttpRequestOptions,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import type { ElasticsearchApiCredentials } from './types';
 

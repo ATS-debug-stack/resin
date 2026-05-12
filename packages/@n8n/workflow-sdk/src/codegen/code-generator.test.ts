@@ -58,7 +58,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Manual Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
@@ -71,7 +71,7 @@ describe('code-generator', () => {
 				expect(code).toContain("const wf = workflow('");
 				expect(code).toContain("'Single Trigger'");
 				expect(code).toContain('trigger({');
-				expect(code).toContain("type: 'n8n-nodes-base.manualTrigger'");
+				expect(code).toContain("type: 'resin-nodes-base.manualTrigger'");
 				expect(code).toContain('export default wf');
 			});
 
@@ -82,7 +82,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Manual Trigger', // matches default name
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0], // at origin
 							// no parameters, no credentials
@@ -104,21 +104,21 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Process',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [100, 0],
 						},
 						{
 							id: '3',
 							name: 'Final',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 0],
 						},
@@ -152,22 +152,28 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
-						{ id: '2', name: 'IF', type: 'n8n-nodes-base.if', typeVersion: 2, position: [100, 0] },
+						{
+							id: '2',
+							name: 'IF',
+							type: 'resin-nodes-base.if',
+							typeVersion: 2,
+							position: [100, 0],
+						},
 						{
 							id: '3',
 							name: 'TrueHandler',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, -50],
 						},
 						{
 							id: '4',
 							name: 'FalseHandler',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 50],
 						},
@@ -200,15 +206,21 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
-						{ id: '2', name: 'IF', type: 'n8n-nodes-base.if', typeVersion: 2, position: [100, 0] },
+						{
+							id: '2',
+							name: 'IF',
+							type: 'resin-nodes-base.if',
+							typeVersion: 2,
+							position: [100, 0],
+						},
 						{
 							id: '3',
 							name: 'TrueHandler',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, -50],
 						},
@@ -238,28 +250,28 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Branch1',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [100, -50],
 						},
 						{
 							id: '3',
 							name: 'Branch2',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [100, 50],
 						},
 						{
 							id: '4',
 							name: 'Merge',
-							type: 'n8n-nodes-base.merge',
+							type: 'resin-nodes-base.merge',
 							typeVersion: 3,
 							position: [200, 0],
 							parameters: { numberInputs: 2 },
@@ -297,28 +309,28 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'SplitInBatches',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							typeVersion: 3,
 							position: [100, 0],
 						},
 						{
 							id: '3',
 							name: 'DoneHandler',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, -50],
 						},
 						{
 							id: '4',
 							name: 'LoopBody',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 50],
 						},
@@ -356,21 +368,21 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'SplitInBatches',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							typeVersion: 3,
 							position: [100, 0],
 						},
 						{
 							id: '3',
 							name: 'Process',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 0],
 						},
@@ -401,21 +413,21 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'SplitInBatches',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							typeVersion: 3,
 							position: [100, 0],
 						},
 						{
 							id: '3',
 							name: 'Process',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 0],
 						},
@@ -442,29 +454,35 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
-						{ id: '2', name: 'IF', type: 'n8n-nodes-base.if', typeVersion: 2, position: [100, 0] },
+						{
+							id: '2',
+							name: 'IF',
+							type: 'resin-nodes-base.if',
+							typeVersion: 2,
+							position: [100, 0],
+						},
 						{
 							id: '3',
 							name: 'TrueHandler',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, -50],
 						},
 						{
 							id: '4',
 							name: 'FalseHandler',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 50],
 						},
 						{
 							id: '5',
 							name: 'Common',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [300, 0],
 						},
@@ -498,14 +516,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Node A',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [100, 0],
 							parameters: { options: {} },
@@ -514,7 +532,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'Node B',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [200, 0],
 							parameters: { options: {} },
@@ -523,7 +541,7 @@ describe('code-generator', () => {
 						{
 							id: '4',
 							name: 'Error Handler',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [150, 200],
 						},
@@ -663,7 +681,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Line1\nLine2',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [0, 0],
 						},
@@ -684,7 +702,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Node',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {
@@ -722,7 +740,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'When clicking \u2018Execute workflow\u2019', // Unicode smart quotes
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [100, 100],
 						},
@@ -747,14 +765,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [100, 100],
 						},
 						{
 							id: '2',
 							name: 'Note',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [200, 100],
 							parameters: {
@@ -784,7 +802,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Update',
-							type: 'n8n-nodes-base.googleSheets',
+							type: 'resin-nodes-base.googleSheets',
 							typeVersion: 4.5,
 							position: [100, 100],
 							parameters: {
@@ -816,7 +834,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 						},
@@ -838,7 +856,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'My Custom Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 						},
@@ -859,7 +877,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Manual Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
@@ -883,14 +901,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'If', // Matches codegen default but not parser default
-							type: 'n8n-nodes-base.if',
+							type: 'resin-nodes-base.if',
 							typeVersion: 2.2,
 							position: [100, 0],
 							parameters: { conditions: {} },
@@ -898,7 +916,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'TrueHandler',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 0],
 						},
@@ -925,7 +943,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [200, 100],
 						},
@@ -946,7 +964,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 						},
@@ -969,7 +987,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Sticky Note',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [100, 200],
 							parameters: {
@@ -1000,7 +1018,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'My Custom Note',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {
@@ -1024,7 +1042,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'My Sticky',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {
@@ -1035,7 +1053,7 @@ describe('code-generator', () => {
 						{
 							id: '2',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [50, 50],
 						},
@@ -1057,7 +1075,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'My Sticky',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {
@@ -1069,7 +1087,7 @@ describe('code-generator', () => {
 						{
 							id: '2',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [500, 500], // Outside sticky bounds
 						},
@@ -1091,7 +1109,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'My Sticky',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {
@@ -1103,7 +1121,7 @@ describe('code-generator', () => {
 						{
 							id: '2',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [50, 50], // Inside sticky bounds
 						},
@@ -1125,7 +1143,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'My Sticky',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {
@@ -1137,14 +1155,14 @@ describe('code-generator', () => {
 						{
 							id: '2',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [50, 50], // Inside sticky
 						},
 						{
 							id: '3',
 							name: 'Set',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [100, 100], // Inside sticky
 						},
@@ -1166,7 +1184,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Outer Sticky',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {
@@ -1178,7 +1196,7 @@ describe('code-generator', () => {
 						{
 							id: '2',
 							name: 'Inner Sticky',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [50, 50], // Inside outer sticky bounds
 							parameters: {
@@ -1205,7 +1223,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Sticky Note',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {
@@ -1235,7 +1253,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Sticky Note',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {
@@ -1264,14 +1282,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'AI Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							typeVersion: 1.7,
 							position: [200, 0],
 							parameters: {
@@ -1282,7 +1300,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'OpenAI Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							typeVersion: 1.2,
 							position: [200, 200],
 							parameters: {
@@ -1323,14 +1341,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'AI Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							typeVersion: 1.7,
 							position: [200, 0],
 							parameters: {},
@@ -1338,7 +1356,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'OpenAI Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							typeVersion: 1,
 							position: [200, 200],
 							parameters: {},
@@ -1346,7 +1364,7 @@ describe('code-generator', () => {
 						{
 							id: '4',
 							name: 'Code Tool',
-							type: '@n8n/n8n-nodes-langchain.toolCode',
+							type: '@resin/n8n-nodes-langchain.toolCode',
 							typeVersion: 1.1,
 							position: [200, 300],
 							parameters: { code: 'return 1' },
@@ -1354,7 +1372,7 @@ describe('code-generator', () => {
 						{
 							id: '5',
 							name: 'Calculator',
-							type: '@n8n/n8n-nodes-langchain.toolCalculator',
+							type: '@resin/n8n-nodes-langchain.toolCalculator',
 							typeVersion: 1,
 							position: [200, 400],
 							parameters: {},
@@ -1398,14 +1416,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'AI Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							typeVersion: 1.7,
 							position: [200, 0],
 							parameters: {},
@@ -1413,7 +1431,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'Buffer Memory',
-							type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+							type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 							typeVersion: 1.2,
 							position: [200, 200],
 							parameters: { contextWindowLength: 5 },
@@ -1448,14 +1466,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'AI Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							typeVersion: 1.7,
 							position: [200, 0],
 							parameters: {},
@@ -1463,7 +1481,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'OpenAI Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							typeVersion: 1,
 							position: [200, 200],
 							parameters: {},
@@ -1471,7 +1489,7 @@ describe('code-generator', () => {
 						{
 							id: '4',
 							name: 'Shared Node',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [300, 0],
 						},
@@ -1505,14 +1523,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'AI Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							typeVersion: 1.7,
 							position: [200, 0],
 							parameters: {},
@@ -1520,7 +1538,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'Main Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							typeVersion: 1,
 							position: [200, 200],
 							parameters: {},
@@ -1528,7 +1546,7 @@ describe('code-generator', () => {
 						{
 							id: '4',
 							name: 'Summarization Chain',
-							type: '@n8n/n8n-nodes-langchain.chainSummarization',
+							type: '@resin/n8n-nodes-langchain.chainSummarization',
 							typeVersion: 2,
 							position: [200, 300],
 							parameters: {},
@@ -1536,7 +1554,7 @@ describe('code-generator', () => {
 						{
 							id: '5',
 							name: 'Chain Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							typeVersion: 1,
 							position: [200, 400],
 							parameters: { model: 'gpt-3.5-turbo' },
@@ -1584,14 +1602,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'AI Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							typeVersion: 1.7,
 							position: [200, 0],
 							parameters: {
@@ -1602,7 +1620,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'OpenAI Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							typeVersion: 1.2,
 							position: [200, 200],
 							parameters: {
@@ -1627,7 +1645,7 @@ describe('code-generator', () => {
 				expect(code).toContain('subnodes:');
 				// languageModel() should be a variable declaration, not inline
 				expect(code).toMatch(/const \w+ = languageModel\(/);
-				expect(code).toContain("type: '@n8n/n8n-nodes-langchain.lmChatOpenAi'");
+				expect(code).toContain("type: '@resin/n8n-nodes-langchain.lmChatOpenAi'");
 			});
 
 			it('generates subnodes config with tool() calls for multiple tools', () => {
@@ -1638,14 +1656,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'AI Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							typeVersion: 1.7,
 							position: [200, 0],
 							parameters: {},
@@ -1653,7 +1671,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'OpenAI Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							typeVersion: 1,
 							position: [200, 200],
 							parameters: {},
@@ -1661,7 +1679,7 @@ describe('code-generator', () => {
 						{
 							id: '4',
 							name: 'Code Tool',
-							type: '@n8n/n8n-nodes-langchain.toolCode',
+							type: '@resin/n8n-nodes-langchain.toolCode',
 							typeVersion: 1.1,
 							position: [200, 300],
 							parameters: { code: 'return 1' },
@@ -1669,7 +1687,7 @@ describe('code-generator', () => {
 						{
 							id: '5',
 							name: 'Calculator',
-							type: '@n8n/n8n-nodes-langchain.toolCalculator',
+							type: '@resin/n8n-nodes-langchain.toolCalculator',
 							typeVersion: 1,
 							position: [200, 400],
 							parameters: {},
@@ -1708,14 +1726,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'AI Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							typeVersion: 1.7,
 							position: [200, 0],
 							parameters: {},
@@ -1723,7 +1741,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'Buffer Memory',
-							type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+							type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 							typeVersion: 1.2,
 							position: [200, 200],
 							parameters: { contextWindowLength: 5 },
@@ -1754,28 +1772,28 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Source',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [100, 0],
 						},
 						{
 							id: '3',
 							name: 'Target1',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, -50],
 						},
 						{
 							id: '4',
 							name: 'Target2',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 50],
 						},
@@ -1811,42 +1829,42 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Upload',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [100, 0],
 						},
 						{
 							id: '3',
 							name: 'Instagram',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, -100],
 						},
 						{
 							id: '4',
 							name: 'YouTube',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 0],
 						},
 						{
 							id: '5',
 							name: 'TikTok',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 100],
 						},
 						{
 							id: '6',
 							name: 'IG Analytics',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [300, -100],
 						},
@@ -1893,14 +1911,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Switch',
-							type: 'n8n-nodes-base.switch',
+							type: 'resin-nodes-base.switch',
 							typeVersion: 3.2,
 							position: [100, 0],
 							parameters: {
@@ -1928,14 +1946,14 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'Case1',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 0],
 						},
 						{
 							id: '4',
 							name: 'Fallback',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 100],
 						},
@@ -1965,7 +1983,7 @@ describe('code-generator', () => {
 				// Find the Switch node
 				const switchNode = parsedJson.nodes.find((n) => n.name === 'Switch');
 				expect(switchNode).toBeDefined();
-				expect(switchNode?.type).toBe('n8n-nodes-base.switch');
+				expect(switchNode?.type).toBe('resin-nodes-base.switch');
 
 				// Verify parameters are preserved
 				expect(switchNode?.parameters).toBeDefined();
@@ -1981,14 +1999,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'IF',
-							type: 'n8n-nodes-base.if',
+							type: 'resin-nodes-base.if',
 							typeVersion: 2,
 							position: [100, 0],
 							parameters: {
@@ -2010,14 +2028,14 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'True Branch',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, -50],
 						},
 						{
 							id: '4',
 							name: 'False Branch',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 50],
 						},
@@ -2046,7 +2064,7 @@ describe('code-generator', () => {
 				// Find the IF node
 				const ifNode = parsedJson.nodes.find((n) => n.name === 'IF');
 				expect(ifNode).toBeDefined();
-				expect(ifNode?.type).toBe('n8n-nodes-base.if');
+				expect(ifNode?.type).toBe('resin-nodes-base.if');
 
 				// Verify parameters are preserved
 				expect(ifNode?.parameters).toBeDefined();
@@ -2061,7 +2079,7 @@ describe('code-generator', () => {
 
 				// Find the Animation Completed? node in original
 				const originalNode = json.nodes.find((n) => n.name === 'Animation Completed?');
-				expect(originalNode?.type).toBe('n8n-nodes-base.if');
+				expect(originalNode?.type).toBe('resin-nodes-base.if');
 				expect(originalNode?.parameters).toBeDefined();
 
 				// Generate and parse back to JSON
@@ -2089,14 +2107,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Wait Node',
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1.1,
 							position: [100, 0],
 							parameters: { amount: 60 },
@@ -2104,7 +2122,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'Check Status',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [200, 0],
 							parameters: { url: 'https://api.example.com/status' },
@@ -2112,7 +2130,7 @@ describe('code-generator', () => {
 						{
 							id: '4',
 							name: 'Status Check',
-							type: 'n8n-nodes-base.if',
+							type: 'resin-nodes-base.if',
 							typeVersion: 2.2,
 							position: [300, 0],
 							parameters: {
@@ -2143,7 +2161,7 @@ describe('code-generator', () => {
 						{
 							id: '5',
 							name: 'Process Result',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [400, -50],
 							parameters: { options: {} },
@@ -2180,7 +2198,7 @@ describe('code-generator', () => {
 				// Find the IF node (Status Check)
 				const ifNode = parsedJson.nodes.find((n) => n.name === 'Status Check');
 				expect(ifNode).toBeDefined();
-				expect(ifNode?.type).toBe('n8n-nodes-base.if');
+				expect(ifNode?.type).toBe('resin-nodes-base.if');
 
 				// Verify parameters are preserved - THIS IS THE KEY TEST
 				expect(ifNode?.parameters).toBeDefined();
@@ -2203,7 +2221,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Manual Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {},
@@ -2211,7 +2229,7 @@ describe('code-generator', () => {
 						{
 							id: '2',
 							name: 'Schedule Trigger',
-							type: 'n8n-nodes-base.scheduleTrigger',
+							type: 'resin-nodes-base.scheduleTrigger',
 							typeVersion: 1,
 							position: [0, 200],
 							parameters: {},
@@ -2219,7 +2237,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'Branch A',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4,
 							position: [300, 0],
 							parameters: {},
@@ -2227,7 +2245,7 @@ describe('code-generator', () => {
 						{
 							id: '4',
 							name: 'Branch B',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4,
 							position: [300, 200],
 							parameters: {},
@@ -2235,7 +2253,7 @@ describe('code-generator', () => {
 						{
 							id: '5',
 							name: 'Merge',
-							type: 'n8n-nodes-base.merge',
+							type: 'resin-nodes-base.merge',
 							typeVersion: 3,
 							position: [600, 100],
 							parameters: {},
@@ -2243,7 +2261,7 @@ describe('code-generator', () => {
 						{
 							id: '6',
 							name: 'Output',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3,
 							position: [900, 100],
 							parameters: {},
@@ -2305,28 +2323,28 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Branch1',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [100, -50],
 						},
 						{
 							id: '3',
 							name: 'Branch2',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [100, 50],
 						},
 						{
 							id: '4',
 							name: 'Merge: All Sources',
-							type: 'n8n-nodes-base.merge',
+							type: 'resin-nodes-base.merge',
 							typeVersion: 3,
 							position: [200, 0],
 							parameters: { numberInputs: 2 },
@@ -2334,7 +2352,7 @@ describe('code-generator', () => {
 						{
 							id: '5',
 							name: 'Loop Over Items',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							typeVersion: 3,
 							position: [300, 0],
 						},
@@ -2374,28 +2392,28 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Branch A',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, -50],
 						},
 						{
 							id: '3',
 							name: 'Branch B',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 50],
 						},
 						{
 							id: '4',
 							name: 'Combine',
-							type: 'n8n-nodes-base.merge',
+							type: 'resin-nodes-base.merge',
 							typeVersion: 3,
 							position: [400, 0],
 							parameters: { numberInputs: 2 },
@@ -2403,7 +2421,7 @@ describe('code-generator', () => {
 						{
 							id: '5',
 							name: 'Process Result',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [600, 0],
 						},
@@ -2443,14 +2461,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Wait 1',
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1.1,
 							position: [100, 0],
 							parameters: { amount: 1 },
@@ -2458,7 +2476,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'Wait 2',
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1.1,
 							position: [200, 0],
 							parameters: { amount: 2 },
@@ -2466,7 +2484,7 @@ describe('code-generator', () => {
 						{
 							id: '4',
 							name: 'Loop',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							typeVersion: 3,
 							position: [300, 0],
 						},
@@ -2501,14 +2519,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Wait 1',
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1.1,
 							position: [100, 0],
 							parameters: { amount: 1 },
@@ -2516,7 +2534,7 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'Wait 2',
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1.1,
 							position: [200, 0],
 							parameters: { amount: 2 },
@@ -2524,14 +2542,14 @@ describe('code-generator', () => {
 						{
 							id: '4',
 							name: 'Debate Loop',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							typeVersion: 3,
 							position: [300, 0],
 						},
 						{
 							id: '5',
 							name: 'Process',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [400, 50],
 						},
@@ -2572,28 +2590,28 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Outer Loop',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							typeVersion: 3,
 							position: [100, 0],
 						},
 						{
 							id: '3',
 							name: 'Process A',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 50],
 						},
 						{
 							id: '4',
 							name: 'Wait 1',
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1.1,
 							position: [300, 50],
 							parameters: { amount: 1 },
@@ -2601,7 +2619,7 @@ describe('code-generator', () => {
 						{
 							id: '5',
 							name: 'Wait 2',
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1.1,
 							position: [400, 50],
 							parameters: { amount: 2 },
@@ -2609,14 +2627,14 @@ describe('code-generator', () => {
 						{
 							id: '6',
 							name: 'Inner Loop',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							typeVersion: 3,
 							position: [500, 50],
 						},
 						{
 							id: '7',
 							name: 'Inner Process',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [600, 100],
 						},
@@ -2663,28 +2681,28 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'SplitInBatches',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							typeVersion: 3,
 							position: [100, 0],
 						},
 						{
 							id: '3',
 							name: 'Process',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 0],
 						},
 						{
 							id: '4',
 							name: 'Filter',
-							type: 'n8n-nodes-base.filter',
+							type: 'resin-nodes-base.filter',
 							typeVersion: 2,
 							position: [300, 0],
 						},
@@ -2723,7 +2741,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Fetch Users',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 							parameters: { url: 'https://api.example.com/users' },
@@ -2764,14 +2782,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Success Node',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Error Node',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [100, 0],
 						},
@@ -2801,7 +2819,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Set',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [0, 0],
 							parameters: {
@@ -2832,7 +2850,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Set',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [0, 0],
 							parameters: {
@@ -2865,7 +2883,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Set',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [0, 0],
 							parameters: {
@@ -2900,7 +2918,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Set',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [0, 0],
 							parameters: {
@@ -2937,7 +2955,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Edit Fields',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [0, 0],
 							parameters: {
@@ -2986,7 +3004,7 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
@@ -3018,35 +3036,35 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'If',
-							type: 'n8n-nodes-base.if',
+							type: 'resin-nodes-base.if',
 							typeVersion: 2,
 							position: [100, 0],
 						},
 						{
 							id: '3',
 							name: 'True',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, -50],
 						},
 						{
 							id: '4',
 							name: 'False',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [200, 50],
 						},
 						{
 							id: '5',
 							name: 'Merge',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [300, 0],
 						},
@@ -3087,14 +3105,14 @@ describe('code-generator', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
 						{
 							id: '2',
 							name: 'Classifier1',
-							type: '@n8n/n8n-nodes-langchain.textClassifier',
+							type: '@resin/n8n-nodes-langchain.textClassifier',
 							typeVersion: 1,
 							position: [200, 0],
 							parameters: {
@@ -3107,21 +3125,21 @@ describe('code-generator', () => {
 						{
 							id: '3',
 							name: 'NodeA',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [400, -100],
 						},
 						{
 							id: '4',
 							name: 'NodeB',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [400, 100],
 						},
 						{
 							id: '5',
 							name: 'Classifier2',
-							type: '@n8n/n8n-nodes-langchain.textClassifier',
+							type: '@resin/n8n-nodes-langchain.textClassifier',
 							typeVersion: 1,
 							position: [600, 100],
 							parameters: {
@@ -3134,14 +3152,14 @@ describe('code-generator', () => {
 						{
 							id: '6',
 							name: 'NodeC',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [800, 0],
 						},
 						{
 							id: '7',
 							name: 'NodeD',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [800, 200],
 						},

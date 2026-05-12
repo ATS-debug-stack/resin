@@ -1,17 +1,17 @@
-import { proxyFetch } from '@n8n/ai-utilities';
+import { proxyFetch } from '@resin/ai-utilities';
 import {
 	AGENT_BUILDER_DEFAULT_MODEL,
 	agentBuilderAdminSettingsSchema,
 	type AgentBuilderAdminSettings,
 	type AgentBuilderAdminSettingsResponse,
 	type AgentBuilderAdminSettingsUpdateRequest,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { ModelConfig, ResolvedCredential } from '@n8n/agents';
-import type { User } from '@n8n/db';
-import { SettingsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { jsonParse, UnexpectedError } from 'n8n-workflow';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { ModelConfig, ResolvedCredential } from '@resin/agents';
+import type { User } from '@resin/db';
+import { SettingsRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { jsonParse, UnexpectedError } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';

@@ -1,4 +1,4 @@
-// All Instance AI types are defined in @n8n/api-types.
+// All Instance AI types are defined in @resin/api-types.
 // Re-export commonly used types for convenience within this feature.
 export type {
 	InstanceAiEvent,
@@ -10,4 +10,4 @@ export type {
 	InstanceAiSendMessageResponse,
 	InstanceAiConfirmRequest,
 	InstanceAiConfirmRequestKind,
-} from '@n8n/api-types';
+} from '@resin/api-types';

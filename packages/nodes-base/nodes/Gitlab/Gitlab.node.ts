@@ -5,8 +5,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 
 import { gitlabApiRequest, gitlabApiRequestAllItems } from './GenericFunctions';
 
@@ -287,7 +287,7 @@ export class Gitlab implements INodeType {
 				type: 'string',
 				default: '',
 				required: true,
-				placeholder: 'n8n-io',
+				placeholder: 'resin-io',
 				description: 'User, group or namespace of the project',
 			},
 			{

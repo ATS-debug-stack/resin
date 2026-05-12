@@ -1,4 +1,4 @@
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 import { buildCodeBuilderPrompt } from '../../code-builder/prompts/index';
 import type { PlanOutput } from '../../types/planning';
@@ -30,7 +30,7 @@ describe('buildCodeBuilderPrompt', () => {
 					{
 						id: '1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -40,7 +40,7 @@ describe('buildCodeBuilderPrompt', () => {
 			};
 
 			const customCode = `// Custom pre-generated code
-const start = trigger({ type: 'n8n-nodes-base.manualTrigger' });
+const start = trigger({ type: 'resin-nodes-base.manualTrigger' });
 export default workflow('', 'Test').add(start);`;
 
 			const prompt = buildCodeBuilderPrompt(workflow, undefined, {
@@ -71,7 +71,7 @@ export default workflow('', 'Test').add(start);`;
 					{
 						id: '1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -111,7 +111,7 @@ export default workflow('', 'Test').add(start);`;
 					{
 						id: '1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -135,9 +135,9 @@ export default workflow('', 'Test').add(start);`;
 			summary: 'Fetch weather and send Slack alert',
 			trigger: 'Runs every morning at 7 AM',
 			steps: [
-				{ description: 'Fetch weather forecast', suggestedNodes: ['n8n-nodes-base.httpRequest'] },
+				{ description: 'Fetch weather forecast', suggestedNodes: ['resin-nodes-base.httpRequest'] },
 				{ description: 'Check if rain is predicted' },
-				{ description: 'Send Slack notification', suggestedNodes: ['n8n-nodes-base.slack'] },
+				{ description: 'Send Slack notification', suggestedNodes: ['resin-nodes-base.slack'] },
 			],
 			additionalSpecs: ['Use metric units for temperature'],
 		};
@@ -156,7 +156,7 @@ export default workflow('', 'Test').add(start);`;
 			expect(content).toContain('Fetch weather and send Slack alert');
 			expect(content).toContain('Runs every morning at 7 AM');
 			expect(content).toContain('Fetch weather forecast');
-			expect(content).toContain('n8n-nodes-base.httpRequest');
+			expect(content).toContain('resin-nodes-base.httpRequest');
 			expect(content).toContain('Use metric units for temperature');
 		});
 

@@ -1,5 +1,5 @@
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { DateTime, Settings } from 'luxon';
 
 import { createGetEnvironmentTool } from '../environment-tool';

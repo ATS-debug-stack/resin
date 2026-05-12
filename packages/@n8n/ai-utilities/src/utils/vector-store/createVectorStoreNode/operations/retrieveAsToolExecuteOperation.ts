@@ -1,8 +1,8 @@
 import type { Embeddings } from '@langchain/core/embeddings';
 import type { BaseDocumentCompressor } from '@langchain/core/retrievers/document_compressors';
 import type { VectorStore } from '@langchain/core/vectorstores';
-import { assertParamIsBoolean, assertParamIsNumber, NodeConnectionTypes } from 'n8n-workflow';
-import type { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import { assertParamIsBoolean, assertParamIsNumber, NodeConnectionTypes } from 'resin-workflow';
+import type { IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
 
 import { getMetadataFiltersValues } from '../../../helpers';
 import { logAiEvent } from '../../../log-ai-event';

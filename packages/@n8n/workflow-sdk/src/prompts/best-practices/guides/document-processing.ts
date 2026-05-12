@@ -190,25 +190,25 @@ Returns: Structured JSON with line items, totals, dates
 
 ### Data Processing
 
-**AI Agent (@n8n/n8n-nodes-langchain.agent)**
+**AI Agent (@resin/n8n-nodes-langchain.agent)**
 Purpose: Intelligent document parsing and decision making
 Configuration: Include structured output tools for consistent results
 
-**LLM Chain (@n8n/n8n-nodes-langchain.chainLlm)**
+**LLM Chain (@resin/n8n-nodes-langchain.chainLlm)**
 Purpose: Document classification and data extraction
 
-**Document Loader (@n8n/n8n-nodes-langchain.documentLoader)**
+**Document Loader (@resin/n8n-nodes-langchain.documentLoader)**
 Purpose: Load and process documents directly from binary data for AI processing
 Critical: Use the "Binary" data source option to handle binary files directly - no need to convert to JSON first
 Configuration: Select "Binary" as Data Source, specify the binary property name (by default data unless renamed in a previous node)
 Best for: Direct document processing in AI workflows without intermediate extraction steps
 
-**Structured Output Parser (@n8n/n8n-nodes-langchain.outputParserStructured)**
+**Structured Output Parser (@resin/n8n-nodes-langchain.outputParserStructured)**
 Purpose: Ensure AI outputs match expected JSON schema
 Critical for: Database inserts and API calls
 
 ### Vector Storage (for RAG/Semantic Search)
-**Simple Vector Store (@n8n/n8n-nodes-langchain.vectorStore) - RECOMMENDED**
+**Simple Vector Store (@resin/n8n-nodes-langchain.vectorStore) - RECOMMENDED**
 Purpose: Easy-to-setup vector storage for document embeddings
 Advantages:
 - No external dependencies or API keys required

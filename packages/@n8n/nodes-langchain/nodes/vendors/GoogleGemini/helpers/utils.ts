@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { extension } from 'mime-types';
-import type { IDataObject, IExecuteFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IDataObject, IExecuteFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import { Readable } from 'node:stream';
 import type Stream from 'node:stream';
 

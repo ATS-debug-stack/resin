@@ -1,7 +1,7 @@
 import { createTestingPinia } from '@pinia/testing';
 import { screen, waitFor } from '@testing-library/vue';
 import { vi } from 'vitest';
-import { ROLE, type UsersList } from '@n8n/api-types';
+import { ROLE, type UsersList } from '@resin/api-types';
 import SettingsUsersProjectsCell from './SettingsUsersProjectsCell.vue';
 import { createComponentRenderer } from '@/__tests__/render';
 import { getTooltip, hoverTooltipTrigger } from '@/__tests__/utils';

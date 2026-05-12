@@ -1,4 +1,4 @@
-import { mockLogger } from '@n8n/backend-test-utils';
+import { mockLogger } from '@resin/backend-test-utils';
 import {
 	GLOBAL_ADMIN_ROLE,
 	GLOBAL_MEMBER_ROLE,
@@ -10,10 +10,10 @@ import {
 	type Variables,
 	type WorkflowEntity,
 	type WorkflowRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';
 import type { EventService } from '@/events/event.service';

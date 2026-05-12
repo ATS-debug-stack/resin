@@ -1,7 +1,7 @@
 import type { ConnectPayload } from '../shared/types';
 
 /** Registered with the OS for deeplinks (`n8n-computer-use://…`). */
-export const DEEP_LINK_PROTOCOL = 'n8n-computer-use';
+export const DEEP_LINK_PROTOCOL = 'resin-computer-use';
 
 /**
  * Parses `n8n-computer-use://connect?url=…&token=…`. Host must be `connect`. Requires non-empty `token=` after trim.

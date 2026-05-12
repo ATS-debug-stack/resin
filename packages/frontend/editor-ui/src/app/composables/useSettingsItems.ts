@@ -2,13 +2,13 @@ import { useRouter } from 'vue-router';
 import { useUserHelpers } from './useUserHelpers';
 import { useAiGateway } from './useAiGateway';
 import { computed } from 'vue';
-import type { IMenuItem } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import type { IMenuItem } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { VIEWS } from '../constants';
 import { useUIStore } from '../stores/ui.store';
 import { useSettingsStore } from '../stores/settings.store';
 import { hasPermission } from '../utils/rbac/permissions';
-import { MIGRATION_REPORT_TARGET_VERSION } from '@n8n/api-types';
+import { MIGRATION_REPORT_TARGET_VERSION } from '@resin/api-types';
 import { useEnvFeatureFlag } from '@/features/shared/envFeatureFlag/useEnvFeatureFlag';
 
 export function useSettingsItems() {

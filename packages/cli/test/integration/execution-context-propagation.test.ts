@@ -4,12 +4,17 @@
  * error workflows, and preserved during workflow resume scenarios.
  */
 
-import { testDb, createWorkflow, createActiveWorkflow } from '@n8n/backend-test-utils';
-import { ExecutionRepository, type IWorkflowDb } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb, createWorkflow, createActiveWorkflow } from '@resin/backend-test-utils';
+import { ExecutionRepository, type IWorkflowDb } from '@resin/db';
+import { Container } from '@resin/di';
 import { readFileSync } from 'fs';
-import { UnrecognizedNodeTypeError } from 'n8n-core';
-import type { IExecutionContext, INodeType, INodeTypeData, NodeLoadingDetails } from 'n8n-workflow';
+import { UnrecognizedNodeTypeError } from 'resin-core';
+import type {
+	IExecutionContext,
+	INodeType,
+	INodeTypeData,
+	NodeLoadingDetails,
+} from 'resin-workflow';
 import path from 'path';
 
 import { WorkflowExecutionService } from '@/workflows/workflow-execution.service';
@@ -43,9 +48,9 @@ function loadNodesFromDist(nodeNames: string[]): INodeTypeData {
 	) as Record<string, NodeLoadingDetails>;
 
 	for (const nodeName of nodeNames) {
-		const loadInfo = knownNodes[nodeName.replace('n8n-nodes-base.', '')];
+		const loadInfo = knownNodes[nodeName.replace('resin-nodes-base.', '')];
 		if (!loadInfo) {
-			throw new UnrecognizedNodeTypeError('n8n-nodes-base', nodeName);
+			throw new UnrecognizedNodeTypeError('resin-nodes-base', nodeName);
 		}
 		// Load from dist .js files (sourcePath already includes 'dist/')
 		const nodeDistPath = path.join(BASE_DIR, 'nodes-base', loadInfo.sourcePath);
@@ -73,9 +78,9 @@ describe('Execution Context Propagation Integration Tests', () => {
 
 		// Load required node types from dist folder
 		const nodeTypes = loadNodesFromDist([
-			'n8n-nodes-base.manualTrigger',
-			'n8n-nodes-base.executeWorkflow',
-			'n8n-nodes-base.executeWorkflowTrigger',
+			'resin-nodes-base.manualTrigger',
+			'resin-nodes-base.executeWorkflow',
+			'resin-nodes-base.executeWorkflowTrigger',
 		]);
 
 		await utils.initNodeTypes(nodeTypes);

@@ -20,7 +20,7 @@ vi.mock('../composables/useProjectAgentsList', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({ baseText: (k: string) => k }),
 	i18n: { baseText: (k: string) => k },
 }));
@@ -30,7 +30,7 @@ vi.mock('vue-router', () => ({
 	RouterLink: { template: '<a><slot/></a>' },
 }));
 
-vi.mock('@n8n/design-system', () => ({
+vi.mock('@resin/design-system', () => ({
 	N8nIcon: { template: '<i v-bind="$attrs"></i>', props: ['icon', 'size'] },
 	N8nButton: { template: '<button><slot /></button>', props: ['variant', 'size'] },
 	N8nBreadcrumbs: {
@@ -45,7 +45,7 @@ vi.mock('@n8n/design-system', () => ({
 		props: ['items'],
 		emits: ['select'],
 	},
-	'n8n-dropdown-menu': {
+	'resin-dropdown-menu': {
 		name: 'N8nDropdownMenu',
 		template: '<div data-testid="agent-header-switcher"><slot name="trigger" /></div>',
 		props: ['items'],

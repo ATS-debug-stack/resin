@@ -7,9 +7,9 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper } from '@n8n/ai-utilities';
+import { logWrapper } from '@resin/ai-utilities';
 
 export class RetrieverVectorStore implements INodeType {
 	description: INodeTypeDescription = {
@@ -51,7 +51,7 @@ export class RetrieverVectorStore implements INodeType {
 		builderHint: {
 			relatedNodes: [
 				{
-					nodeType: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+					nodeType: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 					relationHint: 'Connect to provide vectors for retrieval in RAG workflows',
 				},
 			],

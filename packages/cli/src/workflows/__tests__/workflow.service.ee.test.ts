@@ -1,6 +1,6 @@
-import type { CredentialsEntity } from '@n8n/db';
+import type { CredentialsEntity } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { EnterpriseWorkflowService } from '@/workflows/workflow.service.ee';
 

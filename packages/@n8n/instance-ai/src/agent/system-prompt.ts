@@ -233,7 +233,7 @@ When \`<background-task-completed>\` is present, a detached background task (bui
 Used by both the checkpoint verification path and the bypassPlan post-build verify step. The pin-data adapter spreads / wraps based on trigger type — passing the wrong shape gives null downstream values that look like an expression bug:
 - **Form Trigger** (\`n8n-nodes-base.formTrigger\`) — flat field map, e.g. \`{name: "Alice", email: "a@b.c"}\`. The production Form Trigger emits each field directly on \`$json\`, so the builder's \`$json.<field>\` expressions are correct. **Do NOT wrap in \`formFields\`** — the adapter will reject the call.
 - **Webhook** (\`n8n-nodes-base.webhook\`) — the body payload, e.g. \`{event: "signup", userId: "..."}\`. The adapter wraps it under \`body\`, so downstream nodes reference \`$json.body.<field>\`.
-- **Chat Trigger** (\`@n8n/n8n-nodes-langchain.chatTrigger\`) — \`{chatInput: "user message"}\`.
+- **Chat Trigger** (\`@resin/n8n-nodes-langchain.chatTrigger\`) — \`{chatInput: "user message"}\`.
 - **Schedule Trigger** (\`n8n-nodes-base.scheduleTrigger\`) — omit \`inputData\`; the adapter emits synthetic timestamp fields.
 
 **Do not patch a workflow first when verify returns null downstream values.** Re-run verify with the corrected \`inputData\` shape. Only patch the workflow if the expression is wrong against the *production* trigger output shape (consult node descriptions), not the \`instanceAi\` pin data path.

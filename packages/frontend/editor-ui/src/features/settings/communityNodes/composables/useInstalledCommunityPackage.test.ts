@@ -8,9 +8,9 @@ import { useInstalledCommunityPackage } from './useInstalledCommunityPackage';
 import { useCommunityNodesStore } from '../communityNodes.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import type { ExtendedPublicInstalledPackage } from '../communityNodes.utils';
-import type * as n8nWorkflow from 'n8n-workflow';
+import type * as n8nWorkflow from 'resin-workflow';
 
-vi.mock('n8n-workflow', async (importOriginal) => {
+vi.mock('resin-workflow', async (importOriginal) => {
 	const original = await importOriginal();
 	return {
 		...(original as typeof n8nWorkflow),
@@ -23,7 +23,7 @@ vi.mock('../communityNodes.utils', () => ({
 }));
 
 // Import mocked functions
-import { isCommunityPackageName } from 'n8n-workflow';
+import { isCommunityPackageName } from 'resin-workflow';
 import { fetchInstalledPackageInfo } from '../communityNodes.utils';
 
 const mockIsCommunityPackageName = vi.mocked(isCommunityPackageName);
@@ -59,10 +59,10 @@ describe('useInstalledCommunityPackage', () => {
 		it('should compute isCommunityNode as false when nodeTypeName is provided but not community', () => {
 			mockIsCommunityPackageName.mockReturnValue(false);
 
-			const { isCommunityNode } = useInstalledCommunityPackage('n8n-nodes-base.HttpRequest');
+			const { isCommunityNode } = useInstalledCommunityPackage('resin-nodes-base.HttpRequest');
 
 			expect(isCommunityNode.value).toBe(false);
-			expect(mockIsCommunityPackageName).toHaveBeenCalledWith('n8n-nodes-base.HttpRequest');
+			expect(mockIsCommunityPackageName).toHaveBeenCalledWith('resin-nodes-base.HttpRequest');
 		});
 
 		it('should compute isCommunityNode as false when nodeTypeName is undefined', () => {
@@ -101,7 +101,9 @@ describe('useInstalledCommunityPackage', () => {
 			usersStore.isAdminOrOwner = true;
 			mockIsCommunityPackageName.mockReturnValue(false);
 
-			const { isUpdateCheckAvailable } = useInstalledCommunityPackage('n8n-nodes-base.HttpRequest');
+			const { isUpdateCheckAvailable } = useInstalledCommunityPackage(
+				'resin-nodes-base.HttpRequest',
+			);
 
 			expect(isUpdateCheckAvailable.value).toBe(false);
 		});
@@ -120,7 +122,7 @@ describe('useInstalledCommunityPackage', () => {
 		it('should return undefined when node is not a community node', async () => {
 			mockIsCommunityPackageName.mockReturnValue(false);
 
-			const { initInstalledPackage } = useInstalledCommunityPackage('n8n-nodes-base.HttpRequest');
+			const { initInstalledPackage } = useInstalledCommunityPackage('resin-nodes-base.HttpRequest');
 
 			const result = await initInstalledPackage();
 

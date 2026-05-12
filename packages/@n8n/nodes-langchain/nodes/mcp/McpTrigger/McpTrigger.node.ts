@@ -1,9 +1,9 @@
 import { McpServer, MCP_LIST_TOOLS_REQUEST_MARKER } from './McpServer';
 import type { CompressionResponse } from './transport';
-import { WebhookAuthorizationError } from 'n8n-nodes-base/dist/nodes/Webhook/error';
-import { validateWebhookAuthentication } from 'n8n-nodes-base/dist/nodes/Webhook/utils';
-import type { INodeTypeDescription, IWebhookFunctions, IWebhookResponseData } from 'n8n-workflow';
-import { NodeConnectionTypes, Node, nodeNameToToolName } from 'n8n-workflow';
+import { WebhookAuthorizationError } from 'resin-nodes-base/dist/nodes/Webhook/error';
+import { validateWebhookAuthentication } from 'resin-nodes-base/dist/nodes/Webhook/utils';
+import type { INodeTypeDescription, IWebhookFunctions, IWebhookResponseData } from 'resin-workflow';
+import { NodeConnectionTypes, Node, nodeNameToToolName } from 'resin-workflow';
 
 import { getConnectedTools } from '@utils/helpers';
 
@@ -158,7 +158,7 @@ export class McpTrigger extends Node {
 		}
 
 		const node = context.getNode();
-		const serverName = node.typeVersion > 1 ? nodeNameToToolName(node) : 'n8n-mcp-server';
+		const serverName = node.typeVersion > 1 ? nodeNameToToolName(node) : 'resin-mcp-server';
 		const mcpServer = McpServer.instance(context.logger);
 
 		if (webhookName === 'setup') {

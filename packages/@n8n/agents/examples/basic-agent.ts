@@ -1,5 +1,5 @@
 /**
- * @n8n/agents — Full API Demonstration
+ * @resin/agents — Full API Demonstration
  *
  * This example demonstrates the complete builder-pattern API for creating
  * and running AI agents. It shows: tools, agents, memory, guardrails,
@@ -106,7 +106,7 @@ const orchestrator = new Agent('orchestrator')
 // ---------------------------------------------------------------------------
 
 async function main() {
-	console.log('=== @n8n/agents ===\n');
+	console.log('=== @resin/agents ===\n');
 
 	// --- 1. Single agent generate ---
 	console.log('1. Single agent generate:');

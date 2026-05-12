@@ -1,4 +1,4 @@
-import type { AuthenticatedRequest } from '@n8n/db';
+import type { AuthenticatedRequest } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import { DynamicTemplatesController } from '@/controllers/dynamic-templates.controller';

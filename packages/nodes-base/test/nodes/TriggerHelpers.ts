@@ -4,9 +4,9 @@ import { mock } from 'jest-mock-extended';
 import get from 'lodash/get';
 import merge from 'lodash/merge';
 import set from 'lodash/set';
-import { PollContext, returnJsonArray } from 'n8n-core';
-import type { InstanceSettings, ExecutionLifecycleHooks, SsrfBridge } from 'n8n-core';
-import { ScheduledTaskManager } from 'n8n-core/dist/execution-engine/scheduled-task-manager';
+import { PollContext, returnJsonArray } from 'resin-core';
+import type { InstanceSettings, ExecutionLifecycleHooks, SsrfBridge } from 'resin-core';
+import { ScheduledTaskManager } from 'resin-core/dist/execution-engine/scheduled-task-manager';
 import {
 	createDeferredPromise,
 	type IBinaryData,
@@ -24,7 +24,7 @@ import {
 	type Workflow,
 	type CronContext,
 	type Cron,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 const logger = mock({
 	scoped: jest.fn().mockReturnValue(

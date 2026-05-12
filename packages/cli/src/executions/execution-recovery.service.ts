@@ -1,19 +1,19 @@
-import { Logger } from '@n8n/backend-common';
-import { ExecutionsConfig } from '@n8n/config';
+import { Logger } from '@resin/backend-common';
+import { ExecutionsConfig } from '@resin/config';
 import {
 	In,
 	type IExecutionResponse,
 	ProjectRelationRepository,
 	WorkflowEntity,
 	User,
-} from '@n8n/db';
-import { ExecutionRepository, WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { PROJECT_ADMIN_ROLE_SLUG, PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
+} from '@resin/db';
+import { ExecutionRepository, WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { PROJECT_ADMIN_ROLE_SLUG, PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
 import type { DateTime } from 'luxon';
-import { InstanceSettings } from 'n8n-core';
-import { createEmptyRunExecutionData, sleep } from 'n8n-workflow';
-import { ExecutionStatus, type IRun, type ITaskData } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { createEmptyRunExecutionData, sleep } from 'resin-workflow';
+import { ExecutionStatus, type IRun, type ITaskData } from 'resin-workflow';
 
 import { ARTIFICIAL_TASK_DATA } from '@/constants';
 import { NodeCrashedError } from '@/errors/node-crashed.error';

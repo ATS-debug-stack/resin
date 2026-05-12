@@ -2,7 +2,7 @@ import {
 	type IExecuteFunctions,
 	type INodeExecutionData,
 	type INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { requestAllFiles } from './helpers';
 import { wrapData } from '../../../../utils/utilities';

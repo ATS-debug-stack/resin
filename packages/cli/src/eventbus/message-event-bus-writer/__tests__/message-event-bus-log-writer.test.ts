@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
-import { EventMessageTypeNames } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { EventMessageTypeNames } from 'resin-workflow';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';

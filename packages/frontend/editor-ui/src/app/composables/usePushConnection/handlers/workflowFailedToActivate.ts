@@ -1,7 +1,7 @@
-import type { WorkflowFailedToActivate } from '@n8n/api-types/push/workflow';
+import type { WorkflowFailedToActivate } from '@resin/api-types/push/workflow';
 import { useToast } from '@/app/composables/useToast';
 import { useActivationError } from '@/app/composables/useActivationError';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 

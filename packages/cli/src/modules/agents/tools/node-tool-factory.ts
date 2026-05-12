@@ -1,14 +1,14 @@
-import type { BuiltTool } from '@n8n/agents';
-import { Tool } from '@n8n/agents';
-import { createZodSchemaFromArgs, extractFromAIParameters } from '@n8n/ai-utilities';
+import type { BuiltTool } from '@resin/agents';
+import { Tool } from '@resin/agents';
+import { createZodSchemaFromArgs, extractFromAIParameters } from '@resin/ai-utilities';
 import type { JSONSchema7 } from 'json-schema';
-import type { IDataObject, INodeParameters } from 'n8n-workflow';
-import { isToolType, nodeNameToToolName } from 'n8n-workflow';
+import type { IDataObject, INodeParameters } from 'resin-workflow';
+import { isToolType, nodeNameToToolName } from 'resin-workflow';
 import type { z } from 'zod';
 
 import type { EphemeralNodeExecutor } from '@/node-execution';
 import { NodeTypes } from '@/node-types';
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 
 import type { AgentJsonToolConfig } from '../json-config/agent-json-config';
 

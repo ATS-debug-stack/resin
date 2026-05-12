@@ -45,7 +45,7 @@ describe('formatPlanAsText', () => {
 				steps: [
 					{
 						description: 'Send email',
-						suggestedNodes: ['n8n-nodes-base.gmail', 'n8n-nodes-base.sendEmail'],
+						suggestedNodes: ['resin-nodes-base.gmail', 'resin-nodes-base.sendEmail'],
 					},
 				],
 			}),
@@ -106,7 +106,7 @@ describe('formatPlanAsText', () => {
 					{
 						description: 'Check conditions and route',
 						subSteps: ['Evaluate temperature threshold'],
-						suggestedNodes: ['n8n-nodes-base.if'],
+						suggestedNodes: ['resin-nodes-base.if'],
 					},
 				],
 			}),

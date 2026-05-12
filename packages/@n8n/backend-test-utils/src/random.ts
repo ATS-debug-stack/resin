@@ -1,6 +1,6 @@
-import { MIN_PASSWORD_CHAR_LENGTH, MAX_PASSWORD_CHAR_LENGTH } from '@n8n/constants';
-import { randomInt, randomString, UPPERCASE_LETTERS } from 'n8n-workflow';
-import type { ICredentialDataDecryptedObject } from 'n8n-workflow';
+import { MIN_PASSWORD_CHAR_LENGTH, MAX_PASSWORD_CHAR_LENGTH } from '@resin/constants';
+import { randomInt, randomString, UPPERCASE_LETTERS } from 'resin-workflow';
+import type { ICredentialDataDecryptedObject } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 export type CredentialPayload = {

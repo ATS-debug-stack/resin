@@ -4,7 +4,7 @@ import type {
 	INode,
 	INodeExecutionData,
 	ITaskDataConnectionsSource,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { DataRequestResponse, InputDataChunkDefinition } from '@/runner-types';
 

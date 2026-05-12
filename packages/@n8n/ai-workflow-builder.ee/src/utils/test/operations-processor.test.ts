@@ -1,4 +1,4 @@
-import type { INode, IConnections } from 'n8n-workflow';
+import type { INode, IConnections } from 'resin-workflow';
 
 import { createNode, createWorkflow } from '../../../test/test-utils';
 import type { SimpleWorkflow, WorkflowOperation } from '../../types/workflow';
@@ -165,7 +165,7 @@ describe('operations-processor', () => {
 				const node = result.nodes.find((n) => n.id === 'node2');
 				expect(node?.name).toBe('Updated Name');
 				expect(node?.position).toEqual([350, 150]);
-				expect(node?.type).toBe('n8n-nodes-base.code'); // preserved
+				expect(node?.type).toBe('resin-nodes-base.code'); // preserved
 			});
 
 			it('should handle non-existent node gracefully', () => {
@@ -915,7 +915,7 @@ describe('operations-processor', () => {
 				const formNode = createNode({
 					id: 'form1',
 					name: 'Form',
-					type: 'n8n-nodes-base.form',
+					type: 'resin-nodes-base.form',
 					parameters: {
 						formFields: {
 							values: [
@@ -958,7 +958,7 @@ describe('operations-processor', () => {
 				const codeNode = createNode({
 					id: 'code1',
 					name: 'Code',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					parameters: {
 						jsCode: "const data = $('Node 1').item.json;\nreturn { result: data };",
 					},

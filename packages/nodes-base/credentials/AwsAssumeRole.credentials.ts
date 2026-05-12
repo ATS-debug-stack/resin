@@ -3,8 +3,8 @@ import type {
 	ICredentialType,
 	IHttpRequestOptions,
 	INodeProperties,
-} from 'n8n-workflow';
-import { ApplicationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError } from 'resin-workflow';
 
 import { type AwsAssumeRoleCredentialsType, type AWSRegion } from './common/aws/types';
 import { awsCustomEndpoints, awsRegionProperty } from './common/aws/descriptions';
@@ -110,7 +110,7 @@ export class AwsAssumeRole implements ICredentialType {
 			description: 'Name for the role session',
 			type: 'string',
 			required: true,
-			default: 'n8n-session',
+			default: 'resin-session',
 		},
 		...awsCustomEndpoints,
 	];

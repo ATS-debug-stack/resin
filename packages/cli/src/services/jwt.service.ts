@@ -1,8 +1,8 @@
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import { createHash } from 'crypto';
 import jwt from 'jsonwebtoken';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 @Service()
 export class JwtService {

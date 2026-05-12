@@ -7,8 +7,8 @@ import type {
 	INodeExecutionData,
 	IRun,
 	ITriggerFunctions,
-} from 'n8n-workflow';
-import { jsonParse, sleep } from 'n8n-workflow';
+} from 'resin-workflow';
+import { jsonParse, sleep } from 'resin-workflow';
 
 import { formatPrivateKey } from '@utils/utilities';
 

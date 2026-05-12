@@ -1,5 +1,5 @@
-import type { ModuleInterface } from '@n8n/decorators';
-import { BackendModule } from '@n8n/decorators';
+import type { ModuleInterface } from '@resin/decorators';
+import { BackendModule } from '@resin/decorators';
 
 @BackendModule({ name: 'workflow-builder', instanceTypes: ['main'] })
 export class WorkflowBuilderModule implements ModuleInterface {

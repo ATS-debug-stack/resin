@@ -4,7 +4,7 @@ import type {
 	ITaskStartedData,
 	NodeConnectionType,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export type ExecutionStarted = {
 	type: 'executionStarted';

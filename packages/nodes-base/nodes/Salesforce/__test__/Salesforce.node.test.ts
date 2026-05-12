@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode, ILoadOptionsFunctions } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+import type { IExecuteFunctions, INode, ILoadOptionsFunctions } from 'resin-workflow';
+import { jsonParse } from 'resin-workflow';
 
 import * as GenericFunctions from '../GenericFunctions';
 import { Salesforce } from '../Salesforce.node';
@@ -34,7 +34,7 @@ describe('Salesforce', () => {
 		mockNode = {
 			id: 'test-node-id',
 			name: 'Salesforce Test',
-			type: 'n8n-nodes-base.salesforce',
+			type: 'resin-nodes-base.salesforce',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

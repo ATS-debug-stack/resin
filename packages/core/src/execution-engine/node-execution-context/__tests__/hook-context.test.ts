@@ -1,4 +1,4 @@
-import { ApplicationError } from '@n8n/errors';
+import { ApplicationError } from '@resin/errors';
 import { mock } from 'jest-mock-extended';
 import type {
 	ICredentialDataDecryptedObject,
@@ -13,7 +13,7 @@ import type {
 	WorkflowActivateMode,
 	WorkflowExecuteMode,
 	WorkflowExpression,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { HookContext } from '../hook-context';
 

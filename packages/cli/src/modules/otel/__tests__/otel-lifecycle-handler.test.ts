@@ -3,9 +3,9 @@ import type {
 	NodeExecuteBeforeContext,
 	WorkflowExecuteAfterContext,
 	WorkflowExecuteBeforeContext,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import { mock } from 'jest-mock-extended';
-import type { IRun, IRunExecutionData } from 'n8n-workflow';
+import type { IRun, IRunExecutionData } from 'resin-workflow';
 
 import type { ExecutionLevelTracer } from '../execution-level-tracer';
 import type { OtelConfig } from '../otel.config';

@@ -3,7 +3,7 @@ import {
 	NodeOperationError,
 	type IExecuteFunctions,
 	type INodeExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getCustomErrorMessage } from '../../helpers/error-handling';
 import type { OpenAiType } from './node.type';

@@ -1,9 +1,9 @@
 import { acceptInvitation } from '../invitation.api';
-import type { IRestApiContext } from '@n8n/rest-api-client';
-import { makeRestApiRequest } from '@n8n/rest-api-client';
+import type { IRestApiContext } from '@resin/rest-api-client';
+import { makeRestApiRequest } from '@resin/rest-api-client';
 import { v4 as uuidv4 } from 'uuid';
 
-vi.mock('@n8n/rest-api-client', () => ({
+vi.mock('@resin/rest-api-client', () => ({
 	makeRestApiRequest: vi.fn(),
 }));
 

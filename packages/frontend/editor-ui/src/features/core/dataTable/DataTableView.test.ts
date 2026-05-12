@@ -5,7 +5,7 @@ import { useProjectPages } from '@/features/collaboration/projects/composables/u
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import DataTableView from '@/features/core/dataTable/DataTableView.vue';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { createTestingPinia } from '@pinia/testing';
 import { createRouter, createWebHistory } from 'vue-router';
 import type { DataTableResource } from '@/features/core/dataTable/types';
@@ -20,7 +20,7 @@ vi.mock('@/features/collaboration/projects/composables/useProjectPages', () => (
 	}),
 }));
 
-vi.mock('@n8n/i18n', async (importOriginal) => {
+vi.mock('@resin/i18n', async (importOriginal) => {
 	const actual = await importOriginal();
 	const actualObj = typeof actual === 'object' && actual !== null ? actual : {};
 	return {

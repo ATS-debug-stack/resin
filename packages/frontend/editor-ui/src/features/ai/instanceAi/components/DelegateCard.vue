@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { N8nBadge, N8nCard, N8nIcon, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nBadge, N8nCard, N8nIcon, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { CollapsibleRoot, CollapsibleTrigger } from 'reka-ui';
 import AnimatedCollapsibleContent from './AnimatedCollapsibleContent.vue';
 import { computed } from 'vue';

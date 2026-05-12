@@ -3,12 +3,12 @@ import type {
 	ChatHubMessageStatus,
 	ChatMessageId,
 	ChatSessionId,
-} from '@n8n/api-types';
-import { User, withTransaction } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { DataSource, EntityManager, Repository } from '@n8n/typeorm';
-import { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
-import { UnexpectedError, type IBinaryData } from 'n8n-workflow';
+} from '@resin/api-types';
+import { User, withTransaction } from '@resin/db';
+import { Service } from '@resin/di';
+import { DataSource, EntityManager, Repository } from '@resin/typeorm';
+import { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
+import { UnexpectedError, type IBinaryData } from 'resin-workflow';
 
 import { ChatHubMessage } from './chat-hub-message.entity';
 import { EditMessagePayload, HumanMessagePayload } from './chat-hub.types';

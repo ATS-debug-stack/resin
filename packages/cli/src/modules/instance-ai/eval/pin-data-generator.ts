@@ -5,16 +5,16 @@
  * via a single LLM call, ensuring cross-node data consistency. The caller
  * decides which nodes need pin data — this module only generates it.
  *
- * NOTE: Adapted from @n8n/ai-workflow-builder.ee/evaluations/support/pin-data-generator.ts
- * This should be extracted to a shared package (e.g., @n8n/eval-utils) for reuse
+ * NOTE: Adapted from @resin/ai-workflow-builder.ee/evaluations/support/pin-data-generator.ts
+ * This should be extracted to a shared package (e.g., @resin/eval-utils) for reuse
  * by MCP, frontend, instance-ai evaluations, and other teams.
  */
 
-import type { WorkflowJSON, NodeJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON, NodeJSON } from '@resin/workflow-sdk';
 import { existsSync, readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 
-import { createEvalAgent, extractText } from '@n8n/instance-ai';
+import { createEvalAgent, extractText } from '@resin/instance-ai';
 
 type PinData = Record<string, Array<Record<string, unknown>>>;
 
@@ -82,7 +82,7 @@ function resolveNodesBasePath(): string | undefined {
 const schemaMapCache = new Map<string, Map<string, string>>();
 
 /**
- * Build a map from node type name (e.g., "n8n-nodes-base.linear") to the
+ * Build a map from node type name (e.g., "resin-nodes-base.linear") to the
  * directory containing its __schema__ folder by scanning .node.ts files.
  */
 function buildSchemaMap(nodesBasePath: string): Map<string, string> {

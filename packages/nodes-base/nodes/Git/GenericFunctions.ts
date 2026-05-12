@@ -1,5 +1,5 @@
-import type { INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import type { ConfigListSummary } from 'simple-git';
 
 /**

@@ -1,9 +1,9 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
+import { mockInstance } from '@resin/backend-test-utils';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
 import {
 	PERSONAL_SPACE_PUBLISHING_SETTING,
 	PERSONAL_SPACE_SHARING_SETTING,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 
 import { SecuritySettingsService } from '@/services/security-settings.service';
 

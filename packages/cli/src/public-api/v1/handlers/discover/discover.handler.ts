@@ -1,5 +1,5 @@
-import { ApiKeyRepository, type AuthenticatedRequest } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { ApiKeyRepository, type AuthenticatedRequest } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { UnauthenticatedError } from '@/errors/response-errors/unauthenticated.error';
 

@@ -3,10 +3,10 @@ import {
 	InstanceMcpClientStatsResponseDto,
 	ListOAuthClientsResponseDto,
 	OAuthClientResponseDto,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Delete, Get, GlobalScope, Param, RestController } from '@n8n/decorators';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { AuthenticatedRequest } from '@resin/db';
+import { Delete, Get, GlobalScope, Param, RestController } from '@resin/decorators';
 import type { Response } from 'express';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

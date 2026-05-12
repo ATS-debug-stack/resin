@@ -1,9 +1,9 @@
-import type { TagEntity } from '@n8n/db';
-import { TagRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { TagEntity } from '@resin/db';
+import { TagRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { FindManyOptions } from '@n8n/typeorm';
+import type { FindManyOptions } from '@resin/typeorm';
 
 import { ConflictError } from '@/errors/response-errors/conflict.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

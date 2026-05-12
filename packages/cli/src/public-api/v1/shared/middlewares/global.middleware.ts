@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
-import type { BooleanLicenseFeature } from '@n8n/constants';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { ApiKeyScope, Scope } from '@n8n/permissions';
+import type { BooleanLicenseFeature } from '@resin/constants';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Container } from '@resin/di';
+import type { ApiKeyScope, Scope } from '@resin/permissions';
 import type express from 'express';
 import type { NextFunction, Request, Response } from 'express';
 

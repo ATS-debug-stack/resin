@@ -2,7 +2,7 @@ import {
 	MANUAL_TRIGGER_NODE_TYPE,
 	createRunExecutionData,
 	isTrimmedNodeExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	ITaskData,
 	ExecutionStatus,
@@ -14,7 +14,7 @@ import type {
 	INodeTypeBaseDescription,
 	INodeExecutionData,
 	IWorkflowDataProxyAdditionalKeys,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { INodeUi, IWorkflowDb } from '@/Interface';
 import type { WorkflowObjectAccessors } from '@/app/types/workflow';
 import type {
@@ -36,8 +36,8 @@ import {
 	WORKFLOW_TRIGGER_NODE_TYPE,
 } from '@/app/constants';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { i18n } from '@n8n/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { i18n } from '@resin/i18n';
 import { h } from 'vue';
 import NodeExecutionErrorMessage from '@/app/components/NodeExecutionErrorMessage.vue';
 import { parse } from 'flatted';

@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
 import type { Client } from 'ldapts';
-import type { IExecuteFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
 
 import * as Helpers from '../Helpers';
 import { Ldap } from '../Ldap.node';
@@ -18,7 +18,7 @@ describe('Ldap', () => {
 
 		executeFunctions.getInputData.mockReturnValue([{ json: {} }]);
 		executeFunctions.getNode.mockReturnValue({
-			type: 'n8n-nodes-base.ldap',
+			type: 'resin-nodes-base.ldap',
 			name: 'LDAP',
 			id: '1',
 		} as ReturnType<IExecuteFunctions['getNode']>);

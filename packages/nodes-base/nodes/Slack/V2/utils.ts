@@ -1,5 +1,5 @@
 /* eslint-disable n8n-nodes-base/node-param-default-missing */
-import type { INodePropertyMode } from 'n8n-workflow';
+import type { INodePropertyMode } from 'resin-workflow';
 
 export const slackChannelModes: INodePropertyMode[] = [
 	{

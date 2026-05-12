@@ -1,5 +1,5 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 
 import { microsoftApiRequest } from '../GenericFunctions';
 
@@ -16,7 +16,7 @@ describe('Microsoft ToDo GenericFunctions', () => {
 		mockNode = {
 			id: 'test-node',
 			name: 'Test ToDo Node',
-			type: 'n8n-nodes-base.microsoftToDo',
+			type: 'resin-nodes-base.microsoftToDo',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

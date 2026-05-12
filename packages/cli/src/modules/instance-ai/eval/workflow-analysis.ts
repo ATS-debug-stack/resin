@@ -4,17 +4,17 @@
  * Identifies which nodes should receive mock hints and generates consistent
  * per-node hints + trigger data via a single LLM call.
  *
- * Adapted from @n8n/instance-ai/evaluations/support/ — this copy lives
+ * Adapted from @resin/instance-ai/evaluations/support/ — this copy lives
  * in the CLI package because it runs in-process during workflow execution.
- * TODO: Extract to a shared @n8n/eval-utils package for reuse by
+ * TODO: Extract to a shared @resin/eval-utils package for reuse by
  * the eval CLI, MCP, and other consumers.
  */
 
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
-import { type INode, type IPinData, type IWorkflowBase, jsonParse } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
+import { type INode, type IPinData, type IWorkflowBase, jsonParse } from 'resin-workflow';
 
-import { createEvalAgent, extractText } from '@n8n/instance-ai';
+import { createEvalAgent, extractText } from '@resin/instance-ai';
 import { extractNodeConfig } from './node-config';
 
 // ---------------------------------------------------------------------------
@@ -26,7 +26,7 @@ import { extractNodeConfig } from './node-config';
  * These are "root" AI nodes whose sub-nodes use vendor SDKs. Pinning the root
  * prevents supplyData() on all connected sub-nodes, avoiding SDK calls entirely.
  *
- * Ported from @n8n/instance-ai/evaluations/support/service-node-classifier.ts
+ * Ported from @resin/instance-ai/evaluations/support/service-node-classifier.ts
  */
 function findAiRootNodeNames(workflow: IWorkflowBase): Set<string> {
 	const roots = new Set<string>();
@@ -51,7 +51,7 @@ function findAiRootNodeNames(workflow: IWorkflowBase): Set<string> {
  * These are sub-nodes handled via their root — they should not be pinned individually
  * or receive mock hints.
  *
- * Ported from @n8n/instance-ai/evaluations/support/service-node-classifier.ts
+ * Ported from @resin/instance-ai/evaluations/support/service-node-classifier.ts
  */
 function findAiSubNodeNames(workflow: IWorkflowBase): Set<string> {
 	const subNodes = new Set<string>();
@@ -72,25 +72,25 @@ function findAiSubNodeNames(workflow: IWorkflowBase): Set<string> {
 
 const BYPASS_NODE_TYPES = new Set([
 	// Databases (TCP/binary protocol)
-	'n8n-nodes-base.redis',
-	'n8n-nodes-base.mongoDb',
-	'n8n-nodes-base.mySql',
-	'n8n-nodes-base.postgres',
-	'n8n-nodes-base.microsoftSql',
-	'n8n-nodes-base.snowflake',
+	'resin-nodes-base.redis',
+	'resin-nodes-base.mongoDb',
+	'resin-nodes-base.mySql',
+	'resin-nodes-base.postgres',
+	'resin-nodes-base.microsoftSql',
+	'resin-nodes-base.snowflake',
 	// Message queues (TCP/binary protocol)
-	'n8n-nodes-base.kafka',
-	'n8n-nodes-base.rabbitmq',
-	'n8n-nodes-base.mqtt',
-	'n8n-nodes-base.amqp',
+	'resin-nodes-base.kafka',
+	'resin-nodes-base.rabbitmq',
+	'resin-nodes-base.mqtt',
+	'resin-nodes-base.amqp',
 	// File/network protocols
-	'n8n-nodes-base.ftp',
-	'n8n-nodes-base.ssh',
-	'n8n-nodes-base.ldap',
-	'n8n-nodes-base.emailSend',
+	'resin-nodes-base.ftp',
+	'resin-nodes-base.ssh',
+	'resin-nodes-base.ldap',
+	'resin-nodes-base.emailSend',
 	// Non-helper HTTP
-	'n8n-nodes-base.rssFeedRead',
-	'n8n-nodes-base.git',
+	'resin-nodes-base.rssFeedRead',
+	'resin-nodes-base.git',
 ]);
 
 /**

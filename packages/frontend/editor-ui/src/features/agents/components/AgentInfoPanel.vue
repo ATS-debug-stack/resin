@@ -6,14 +6,14 @@
  */
 import { ref, computed, watch } from 'vue';
 import { useDebounceFn } from '@vueuse/core';
-import { N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import type {
 	ChatHubConversationModel,
 	ChatHubProvider,
 	ChatModelDto,
 	ChatModelsResponse,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 import { DEBOUNCE_TIME, getDebounceTime } from '@/app/constants/durations';
 import { useUsersStore } from '@/features/settings/users/users.store';

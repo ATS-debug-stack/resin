@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INodeTypeBaseDescription } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeTypeBaseDescription } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { CryptoV2 } from '../CryptoV2.node';
 
@@ -27,7 +27,7 @@ describe('CryptoV2 Node', () => {
 		mockExecuteFunctions.getNode.mockReturnValue({
 			id: 'crypto-node',
 			name: 'Crypto',
-			type: 'n8n-nodes-base.crypto',
+			type: 'resin-nodes-base.crypto',
 			typeVersion: 2,
 			position: [0, 0],
 			parameters: {},

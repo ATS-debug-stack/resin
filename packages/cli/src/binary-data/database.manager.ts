@@ -1,5 +1,5 @@
-import { BinaryDataRepository, In, SourceTypeSchema, type SourceType } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { BinaryDataRepository, In, SourceTypeSchema, type SourceType } from '@resin/db';
+import { Service } from '@resin/di';
 import {
 	BinaryDataConfig,
 	type BinaryData,
@@ -8,7 +8,7 @@ import {
 	FileTooLargeError,
 	InvalidSourceTypeError,
 	MissingSourceIdError,
-} from 'n8n-core';
+} from 'resin-core';
 import { readFile } from 'node:fs/promises';
 import { Readable } from 'node:stream';
 import { v4 as uuid } from 'uuid';

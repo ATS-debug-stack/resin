@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 
 import { getAllowedDomains, updadeQueryParameterConfig } from '../GenericFunctions';
 

@@ -2,12 +2,12 @@ import type {
 	AiApplySuggestionRequestDto,
 	AiAskRequestDto,
 	AiChatRequestDto,
-} from '@n8n/api-types';
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+} from '@resin/api-types';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import { AiAssistantClient } from '@n8n_io/ai-assistant-sdk';
-import { InstanceSettings } from 'n8n-core';
-import { assert, type IUser } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { assert, type IUser } from 'resin-workflow';
 
 import { N8N_VERSION } from '../constants';
 import { License } from '../license';

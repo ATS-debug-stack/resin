@@ -1,6 +1,6 @@
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
-import type { IWorkflowSettings } from 'n8n-workflow';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
+import type { IWorkflowSettings } from 'resin-workflow';
 
 export type ExecutionSaveSettings = {
 	error: boolean | 'all' | 'none';

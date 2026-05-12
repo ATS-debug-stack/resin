@@ -4,8 +4,8 @@ import type {
 	IExecutionDb,
 	ITagBase,
 	IWorkflowDb,
-} from '@n8n/db';
-import type { AssignableGlobalRole } from '@n8n/permissions';
+} from '@resin/db';
+import type { AssignableGlobalRole } from '@resin/permissions';
 import type { Application, Response } from 'express';
 import type {
 	ExecutionError,
@@ -22,7 +22,7 @@ import type {
 	ExecutionSummary,
 	IWorkflowExecutionDataProcess,
 	IExecutionContext,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type PCancelable from 'p-cancelable';
 
 import type { ActiveWorkflowManager } from '@/active-workflow-manager';

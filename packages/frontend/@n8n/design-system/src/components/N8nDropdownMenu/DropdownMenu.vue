@@ -8,8 +8,8 @@ import {
 } from 'reka-ui';
 import { computed, provide, ref, watch, useCssModule, nextTick, toRef, onBeforeUnmount } from 'vue';
 
-import N8nButton from '@n8n/design-system/components/N8nButton/Button.vue';
-import N8nLoading from '@n8n/design-system/components/N8nLoading';
+import N8nButton from '@resin/design-system/components/N8nButton/Button.vue';
+import N8nLoading from '@resin/design-system/components/N8nLoading';
 
 import { useMenuKeyboardNavigation } from './composables/useMenuKeyboardNavigation';
 import { isAlign, isSide } from './DropdownMenu.typeguards';

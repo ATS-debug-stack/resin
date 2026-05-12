@@ -8,9 +8,9 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper, getMetadataFiltersValues, metadataFilterField } from '@n8n/ai-utilities';
+import { logWrapper, getMetadataFiltersValues, metadataFilterField } from '@resin/ai-utilities';
 
 import { pineconeIndexSearch } from '../shared/methods/listSearch';
 import { pineconeIndexRLC } from '../shared/descriptions';

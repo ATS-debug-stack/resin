@@ -1,8 +1,8 @@
-import { Service } from '@n8n/di';
-import type { EntityManager } from '@n8n/typeorm';
-import { DataSource, In, Not, Repository } from '@n8n/typeorm';
-import type { DeepPartial } from '@n8n/typeorm/common/DeepPartial';
-import type { IDataObject } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import type { EntityManager } from '@resin/typeorm';
+import { DataSource, In, Not, Repository } from '@resin/typeorm';
+import type { DeepPartial } from '@resin/typeorm/common/DeepPartial';
+import type { IDataObject } from 'resin-workflow';
 
 import { TestCaseExecution } from '../entities';
 import type { TestCaseExecutionErrorCode } from '../entities/types-db';

@@ -6,8 +6,8 @@ import type {
 	ChatMessageContentChunk,
 	ChatMessageId,
 	ChatModelDto,
-} from '@n8n/api-types';
-import { N8nButton, N8nIcon, N8nIconButton, N8nInput } from '@n8n/design-system';
+} from '@resin/api-types';
+import { N8nButton, N8nIcon, N8nIconButton, N8nInput } from '@resin/design-system';
 import { useElementSize, useSpeechSynthesis } from '@vueuse/core';
 import {
 	computed,
@@ -25,11 +25,11 @@ import {
 	enrichMimeTypesWithExtensions,
 } from '@/features/ai/chatHub/chat.utils';
 import { useChatStore } from '@/features/ai/chatHub/chat.store';
-import ChatFile from '@n8n/chat/components/ChatFile.vue';
+import ChatFile from '@resin/chat/components/ChatFile.vue';
 import { buildChatAttachmentUrl } from '@/features/ai/chatHub/chat.api';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { useDeviceSupport } from '@n8n/composables/useDeviceSupport';
-import { useI18n } from '@n8n/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { useDeviceSupport } from '@resin/composables/useDeviceSupport';
+import { useI18n } from '@resin/i18n';
 import ChatMarkdownChunk from '@/features/ai/chatHub/components/ChatMarkdownChunk.vue';
 import CopyButton from '@/features/ai/chatHub/components/CopyButton.vue';
 

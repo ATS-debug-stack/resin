@@ -1,7 +1,7 @@
-import { getProxyAgent } from '@n8n/ai-utilities';
-import { AiConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
-import type { ILoadOptionsFunctions, INodeListSearchResult } from 'n8n-workflow';
+import { getProxyAgent } from '@resin/ai-utilities';
+import { AiConfig } from '@resin/config';
+import { Container } from '@resin/di';
+import type { ILoadOptionsFunctions, INodeListSearchResult } from 'resin-workflow';
 import OpenAI from 'openai';
 
 import { mergeCustomHeaders } from '../../../../utils/helpers';

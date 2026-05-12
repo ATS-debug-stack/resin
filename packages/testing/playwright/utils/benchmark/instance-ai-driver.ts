@@ -1,5 +1,5 @@
 import type { Page, TestInfo } from '@playwright/test';
-import type { MetricsHelper } from 'n8n-containers';
+import type { MetricsHelper } from 'resin-containers';
 
 import { InstanceAiPage } from '../../pages/InstanceAiPage';
 import type { n8nPage } from '../../pages/n8nPage';

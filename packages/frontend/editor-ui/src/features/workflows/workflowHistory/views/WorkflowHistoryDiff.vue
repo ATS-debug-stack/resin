@@ -2,18 +2,18 @@
 import { computed, ref, watch } from 'vue';
 import type { IWorkflowDb } from '@/Interface';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
-import { N8nText } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nText } from '@resin/design-system';
 import { useWorkflowHistoryStore } from '../workflowHistory.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import WorkflowDiffView from '@/features/workflows/workflowDiff/WorkflowDiffView.vue';
 import omit from 'lodash/omit';
-import type { WorkflowHistory } from '@n8n/rest-api-client/api/workflowHistory';
+import type { WorkflowHistory } from '@resin/rest-api-client/api/workflowHistory';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import WorkflowHistoryVersionSelect from '../components/WorkflowHistoryVersionSelect.vue';
 import { useWorkflowHistoryVersionOptions } from '../useWorkflowHistoryVersionOptions';
 import { telemetry } from '@/app/plugins/telemetry';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 
 const props = defineProps<{
 	workflowId: string;

@@ -9,7 +9,7 @@ import {
 	type IPollFunctions,
 	type IRequestOptions,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { formatPrivateKey } from '@utils/utilities';
 

@@ -1,7 +1,7 @@
 /**
  * Tests for generate-node-defs-cli
  *
- * Run with: cd packages/@n8n/workflow-sdk && pnpm jest generate-node-defs-cli
+ * Run with: cd packages/@resin/workflow-sdk && pnpm jest generate-node-defs-cli
  */
 
 import * as fs from 'fs';
@@ -11,7 +11,7 @@ import * as path from 'path';
 import { computeInputHash, generateNodeDefinitions } from './generate-node-defs-cli';
 
 const MINIMAL_NODE = {
-	name: 'n8n-nodes-base.testCliNode',
+	name: 'resin-nodes-base.testCliNode',
 	displayName: 'Test CLI Node',
 	description: 'A node for CLI testing',
 	group: ['transform'],
@@ -48,13 +48,13 @@ describe('generate-node-defs-cli', () => {
 
 		await generateNodeDefinitions({ nodesJsonPath, outputDir });
 
-		const tsFile = path.join(outputDir, 'nodes', 'n8n-nodes-base', 'testCliNode', 'v1.ts');
+		const tsFile = path.join(outputDir, 'nodes', 'resin-nodes-base', 'testCliNode', 'v1.ts');
 		expect(fs.existsSync(tsFile)).toBe(true);
 
 		const schemaFile = path.join(
 			outputDir,
 			'nodes',
-			'n8n-nodes-base',
+			'resin-nodes-base',
 			'testCliNode',
 			'v1.schema.js',
 		);
@@ -71,13 +71,13 @@ describe('generate-node-defs-cli', () => {
 		await generateNodeDefinitions({
 			nodesJsonPath,
 			outputDir,
-			packageName: 'n8n-nodes-base',
+			packageName: 'resin-nodes-base',
 		});
 
-		const tsFile = path.join(outputDir, 'nodes', 'n8n-nodes-base', 'myNode', 'v1.ts');
+		const tsFile = path.join(outputDir, 'nodes', 'resin-nodes-base', 'myNode', 'v1.ts');
 		expect(fs.existsSync(tsFile)).toBe(true);
 
-		const schemaFile = path.join(outputDir, 'nodes', 'n8n-nodes-base', 'myNode', 'v1.schema.js');
+		const schemaFile = path.join(outputDir, 'nodes', 'resin-nodes-base', 'myNode', 'v1.schema.js');
 		expect(fs.existsSync(schemaFile)).toBe(true);
 	});
 
@@ -101,7 +101,7 @@ describe('generate-node-defs-cli', () => {
 			expect(fs.existsSync(hashFile)).toBe(true);
 
 			// Record file modification time
-			const tsFile = path.join(outputDir, 'nodes', 'n8n-nodes-base', 'testCliNode', 'v1.ts');
+			const tsFile = path.join(outputDir, 'nodes', 'resin-nodes-base', 'testCliNode', 'v1.ts');
 			const firstMtime = (await fs.promises.stat(tsFile)).mtimeMs;
 
 			// Small delay to ensure mtime would differ if file were rewritten
@@ -131,7 +131,7 @@ describe('generate-node-defs-cli', () => {
 			// Modify nodes.json
 			const modifiedNode = {
 				...MINIMAL_NODE,
-				name: 'n8n-nodes-base.modifiedNode',
+				name: 'resin-nodes-base.modifiedNode',
 				displayName: 'Modified Node',
 			};
 			await fs.promises.writeFile(nodesJsonPath, JSON.stringify([modifiedNode]));
@@ -143,7 +143,7 @@ describe('generate-node-defs-cli', () => {
 			expect(hashAfter).not.toBe(hashBefore);
 
 			// New node files should exist
-			const newTsFile = path.join(outputDir, 'nodes', 'n8n-nodes-base', 'modifiedNode', 'v1.ts');
+			const newTsFile = path.join(outputDir, 'nodes', 'resin-nodes-base', 'modifiedNode', 'v1.ts');
 			expect(fs.existsSync(newTsFile)).toBe(true);
 		});
 
@@ -209,7 +209,7 @@ describe('generate-node-defs-cli', () => {
 			// Each node should have v1.ts, v1.schema.js, and index.ts (3 files per node)
 			// Plus a root index.ts
 			for (let i = 0; i < 5; i++) {
-				const nodeDir = path.join(outputDir, 'nodes', 'n8n-nodes-base', `parallelNode${i}`);
+				const nodeDir = path.join(outputDir, 'nodes', 'resin-nodes-base', `parallelNode${i}`);
 				expect(fs.existsSync(path.join(nodeDir, 'v1.ts'))).toBe(true);
 				expect(fs.existsSync(path.join(nodeDir, 'v1.schema.js'))).toBe(true);
 				expect(fs.existsSync(path.join(nodeDir, 'index.ts'))).toBe(true);

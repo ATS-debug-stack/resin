@@ -1,4 +1,4 @@
-import type { InstanceAiEvalMockedCredential } from '@n8n/api-types';
+import type { InstanceAiEvalMockedCredential } from '@resin/api-types';
 import type {
 	ICredentialDataDecryptedObject,
 	ICredentials,
@@ -13,8 +13,8 @@ import type {
 	IWorkflowExecuteAdditionalData,
 	Workflow,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
-import { ICredentialsHelper } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ICredentialsHelper } from 'resin-workflow';
 
 import { CredentialNotFoundError } from '@/errors/credential-not-found.error';
 

@@ -1,4 +1,4 @@
-import type { ISupplyDataFunctions } from 'n8n-workflow';
+import type { ISupplyDataFunctions } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 // Mock external modules that are not needed for these unit tests
@@ -15,7 +15,7 @@ vi.mock('@langchain/qdrant', () => {
 	return { QdrantVectorStore, __state: state };
 });
 
-vi.mock('@n8n/ai-utilities', () => ({
+vi.mock('@resin/ai-utilities', () => ({
 	metadataFilterField: {},
 	getMetadataFiltersValues: vi.fn(),
 	logAiEvent: vi.fn(),

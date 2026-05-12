@@ -5,7 +5,7 @@ import {
 	type INodeProperties,
 	type INodePropertyOptions,
 	type INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 import { createNodeTypeMaps, getNodeTypeForNode } from '@/validation/utils/node-type-map';

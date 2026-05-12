@@ -1,8 +1,8 @@
-import { testDb, createTeamProject, linkUserToProject } from '@n8n/backend-test-utils';
-import type { Project, User } from '@n8n/db';
-import { ProjectRelationRepository, ProjectRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { DATA_TABLE_SYSTEM_COLUMNS } from 'n8n-workflow';
+import { testDb, createTeamProject, linkUserToProject } from '@resin/backend-test-utils';
+import type { Project, User } from '@resin/db';
+import { ProjectRelationRepository, ProjectRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { DATA_TABLE_SYSTEM_COLUMNS } from 'resin-workflow';
 
 import type { DataTable } from '@/modules/data-table/data-table.entity';
 

@@ -1,4 +1,4 @@
-import type { IDataObject, ResourceMapperField } from 'n8n-workflow';
+import type { IDataObject, ResourceMapperField } from 'resin-workflow';
 
 export interface AgentSchemaProperty {
 	description?: string;

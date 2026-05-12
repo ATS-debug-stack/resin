@@ -4,7 +4,7 @@
  * Serializes workflows to n8n's standard JSON format.
  */
 
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 import { randomUUID } from 'node:crypto';
 
 import { foldLegacyErrorConnections } from '../../../types/base';
@@ -29,9 +29,9 @@ import type { SerializerPlugin, SerializerContext } from '../types';
  * Without it, n8n falls back to encoding the node name into the URL path.
  */
 const WEBHOOK_NODE_TYPES = new Set([
-	'n8n-nodes-base.webhook',
-	'n8n-nodes-base.formTrigger',
-	'@n8n/n8n-nodes-langchain.mcpTrigger',
+	'resin-nodes-base.webhook',
+	'resin-nodes-base.formTrigger',
+	'@resin/n8n-nodes-langchain.mcpTrigger',
 ]);
 
 /**

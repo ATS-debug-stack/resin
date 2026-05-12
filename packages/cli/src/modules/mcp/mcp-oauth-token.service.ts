@@ -1,11 +1,11 @@
 import { AuthInfo } from '@modelcontextprotocol/sdk/server/auth/types';
 import { OAuthTokens } from '@modelcontextprotocol/sdk/shared/auth';
-import { Logger } from '@n8n/backend-common';
-import { Time } from '@n8n/constants';
-import { UserRepository, withTransaction } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { MoreThanOrEqual } from '@n8n/typeorm';
-import { ensureError } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Time } from '@resin/constants';
+import { UserRepository, withTransaction } from '@resin/db';
+import { Service } from '@resin/di';
+import { MoreThanOrEqual } from '@resin/typeorm';
+import { ensureError } from 'resin-workflow';
 import { randomBytes, randomUUID } from 'node:crypto';
 
 import { AccessToken } from './database/entities/oauth-access-token.entity';

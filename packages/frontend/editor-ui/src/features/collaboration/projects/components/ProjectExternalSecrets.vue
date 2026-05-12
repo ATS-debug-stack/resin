@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { computed, reactive, ref, watch } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useToast } from '@/app/composables/useToast';
 import { useProjectsStore } from '../projects.store';
 import { useSecretsProvidersList } from '@/features/integrations/secretsProviders.ee/composables/useSecretsProvidersList.ee';
-import type { SecretProviderConnection } from '@n8n/api-types';
+import type { SecretProviderConnection } from '@resin/api-types';
 import { useUIStore } from '@/app/stores/ui.store';
 import { SECRETS_PROVIDER_CONNECTION_MODAL_KEY, VIEWS } from '@/app/constants';
 import { useSettingsStore } from '@/app/stores/settings.store';
@@ -19,8 +19,8 @@ import {
 	N8nHeading,
 	N8nText,
 	N8nDataTableServer,
-} from '@n8n/design-system';
-import type { TableHeader } from '@n8n/design-system/components/N8nDataTableServer';
+} from '@resin/design-system';
+import type { TableHeader } from '@resin/design-system/components/N8nDataTableServer';
 import { useSecretsProviderConnection } from '@/features/integrations/secretsProviders.ee/composables/useSecretsProviderConnection.ee';
 import { useRBACStore } from '@/app/stores/rbac.store';
 

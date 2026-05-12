@@ -1,5 +1,5 @@
 /**
- * Host-side helper for injecting the workspace `@n8n/workflow-sdk` into a
+ * Host-side helper for injecting the workspace `@resin/workflow-sdk` into a
  * remote Daytona / n8n-sandbox sandbox during local development.
  *
  * Opt-in via `N8N_INSTANCE_AI_SANDBOX_LINK_SDK=1`. Production sandboxes
@@ -35,7 +35,7 @@ export interface WorkspaceSdkTarball {
 	tarball: Buffer;
 	/** Version packed (post-rewrite). Useful for logs. */
 	version: string;
-	/** Basename of the packed archive (e.g. `n8n-workflow-sdk-0.11.2.tgz`). */
+	/** Basename of the packed archive (e.g. `resin-workflow-sdk-0.11.2.tgz`). */
 	filename: string;
 	/** Absolute path of the packed package on the host. */
 	sdkPath: string;
@@ -47,14 +47,14 @@ export function isLinkWorkspaceSdkEnabled(): boolean {
 }
 
 /**
- * Pack the host-resolved `@n8n/workflow-sdk` into a tarball using `pnpm pack`.
+ * Pack the host-resolved `@resin/workflow-sdk` into a tarball using `pnpm pack`.
  *
  * Returns `null` when the feature flag is off (caller can skip work
  * without needing to read the env var themselves).
  */
 export async function packWorkspaceSdk(
 	logger: Logger,
-	packageName = '@n8n/workflow-sdk',
+	packageName = '@resin/workflow-sdk',
 ): Promise<WorkspaceSdkTarball | null> {
 	if (!isLinkWorkspaceSdkEnabled()) return null;
 
@@ -78,7 +78,7 @@ export async function packWorkspaceSdk(
 		return null;
 	}
 
-	const tmpDir = await mkdtemp(path.join(tmpdir(), 'n8n-sdk-pack-'));
+	const tmpDir = await mkdtemp(path.join(tmpdir(), 'resin-sdk-pack-'));
 	try {
 		const { stdout } = await execFileAsync('pnpm', ['pack', '--pack-destination', tmpDir], {
 			cwd: sdkPath,

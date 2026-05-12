@@ -5,7 +5,7 @@ import { test } from 'vitest';
 
 async function createTempDir(): Promise<string> {
 	const ostmpdir = os.tmpdir();
-	const tmpdir = path.join(ostmpdir, 'n8n-node-cli-test-');
+	const tmpdir = path.join(ostmpdir, 'resin-node-cli-test-');
 	return await fs.mkdtemp(tmpdir);
 }
 

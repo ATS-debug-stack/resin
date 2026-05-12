@@ -956,7 +956,7 @@ export const DEFAULT_INSTANCE_AI_PERMISSIONS: InstanceAiPermissions = {
  * this set would make the AI stricter than human users on the same instance.
  *
  * When changing this set, also update the read-only section in
- * `packages/@n8n/instance-ai/src/agent/system-prompt.ts` (`getReadOnlySection`).
+ * `packages/@resin/instance-ai/src/agent/system-prompt.ts` (`getReadOnlySection`).
  */
 const BRANCH_READ_ONLY_SAFE_PERMISSIONS: ReadonlySet<keyof InstanceAiPermissions> = new Set([
 	'readFilesystem',

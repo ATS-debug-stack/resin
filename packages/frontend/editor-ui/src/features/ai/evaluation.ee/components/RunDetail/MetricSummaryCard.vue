@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { N8nText, N8nTooltip } from '@n8n/design-system';
+import { N8nText, N8nTooltip } from '@resin/design-system';
 import {
 	formatMetricLabel,
 	formatMetricPercent,

@@ -1,8 +1,8 @@
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useInstanceRegistryStore } from '@/features/instanceRegistry/stores/instanceRegistry.store';
-import { useDeviceSupport } from '@n8n/composables/useDeviceSupport';
-import type { WorkflowSettings } from 'n8n-workflow';
+import { useDeviceSupport } from '@resin/composables/useDeviceSupport';
+import type { WorkflowSettings } from 'resin-workflow';
 
 type ClusterInstanceSummary = {
 	instanceKey: string;

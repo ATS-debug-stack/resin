@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import { SpanStatusCode } from '@opentelemetry/api';
 
 import { OtelTestProvider } from './support/otel-test-provider';
@@ -200,7 +200,7 @@ describe('ExecutionLevelTracer', () => {
 			const httpNode = {
 				id: 'n1',
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				typeVersion: 1,
 			};
 			tracer.startNode({
@@ -229,7 +229,7 @@ describe('ExecutionLevelTracer', () => {
 			// Node span shares the same traceId as the workflow span
 			expect(nodeSpan.spanContext().traceId).toBe(workflowSpan.spanContext().traceId);
 			expect(nodeSpan.attributes['n8n.node.name']).toBe('HTTP Request');
-			expect(nodeSpan.attributes['n8n.node.type']).toBe('n8n-nodes-base.httpRequest');
+			expect(nodeSpan.attributes['n8n.node.type']).toBe('resin-nodes-base.httpRequest');
 			expect(nodeSpan.attributes['n8n.node.items.input']).toBe(1);
 			expect(nodeSpan.attributes['n8n.node.items.output']).toBe(3);
 		});

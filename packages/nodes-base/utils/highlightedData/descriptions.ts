@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 export const autoSaveHighlightedDataProperty: INodeProperties = {
 	displayName: 'Auto-save highlighted data',

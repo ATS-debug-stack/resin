@@ -1,5 +1,5 @@
 import { HumanMessage, AIMessage } from '@langchain/core/messages';
-import type { NodeExecutionSchema, Schema } from 'n8n-workflow';
+import type { NodeExecutionSchema, Schema } from 'resin-workflow';
 
 import { createNode, createWorkflow, createMockRunData } from '../../../test/test-utils';
 import { MAX_AI_RESPONSE_CHARS } from '../../constants';
@@ -613,7 +613,7 @@ describe('buildWorkflowOverview', () => {
 	describe('workflow with nodes', () => {
 		it('should include workflow_overview tags', () => {
 			const workflow = createWorkflow([
-				createNode({ id: '1', name: 'Manual Trigger', type: 'n8n-nodes-base.manualTrigger' }),
+				createNode({ id: '1', name: 'Manual Trigger', type: 'resin-nodes-base.manualTrigger' }),
 			]);
 
 			const result = buildWorkflowOverview(workflow);
@@ -636,8 +636,8 @@ describe('buildWorkflowOverview', () => {
 
 		it('should include trigger info when single trigger exists', () => {
 			const workflow = createWorkflow([
-				createNode({ id: '1', name: 'My Webhook', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: '2', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: '1', name: 'My Webhook', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: '2', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			const result = buildWorkflowOverview(workflow);
@@ -647,9 +647,9 @@ describe('buildWorkflowOverview', () => {
 
 		it('should list all triggers when multiple exist', () => {
 			const workflow = createWorkflow([
-				createNode({ id: '1', name: 'Schedule Trigger', type: 'n8n-nodes-base.scheduleTrigger' }),
-				createNode({ id: '2', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: '3', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: '1', name: 'Schedule Trigger', type: 'resin-nodes-base.scheduleTrigger' }),
+				createNode({ id: '2', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: '3', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			const result = buildWorkflowOverview(workflow);
@@ -661,7 +661,7 @@ describe('buildWorkflowOverview', () => {
 
 		it('should indicate no triggers when none exist', () => {
 			const workflow = createWorkflow([
-				createNode({ id: '1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: '1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			const result = buildWorkflowOverview(workflow);
@@ -671,7 +671,7 @@ describe('buildWorkflowOverview', () => {
 
 		it('should include mermaid diagram', () => {
 			const workflow = createWorkflow([
-				createNode({ id: '1', name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' }),
+				createNode({ id: '1', name: 'Trigger', type: 'resin-nodes-base.manualTrigger' }),
 			]);
 
 			const result = buildWorkflowOverview(workflow);
@@ -686,7 +686,7 @@ describe('buildWorkflowOverview', () => {
 				createNode({
 					id: '1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					parameters: { url: 'https://api.example.com', method: 'GET' },
 				}),
 			]);

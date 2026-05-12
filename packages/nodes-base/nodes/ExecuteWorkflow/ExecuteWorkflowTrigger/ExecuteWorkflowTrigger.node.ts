@@ -7,7 +7,7 @@ import {
 	type INodeTypeDescription,
 	type ITriggerFunctions,
 	type ITriggerResponse,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	INPUT_SOURCE,

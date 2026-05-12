@@ -1,5 +1,5 @@
 import type { Memory } from '@mastra/memory';
-import type { TaskList } from '@n8n/api-types';
+import type { TaskList } from '@resin/api-types';
 
 jest.mock('../thread-patch', () => ({
 	patchThread: jest.fn(),

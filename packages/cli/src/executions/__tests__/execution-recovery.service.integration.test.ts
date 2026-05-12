@@ -4,15 +4,15 @@ import {
 	testDb,
 	mockInstance,
 	getWorkflowById,
-} from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { ExecutionRepository, WorkflowRepository, ProjectRelationRepository } from '@n8n/db';
-import type { Project, User } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { ExecutionRepository, WorkflowRepository, ProjectRelationRepository } from '@resin/db';
+import type { Project, User } from '@resin/db';
+import { Container } from '@resin/di';
 import { stringify } from 'flatted';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
-import { randomInt } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { randomInt } from 'resin-workflow';
 import assert from 'node:assert';
 import { v4 as uuid } from 'uuid';
 
@@ -418,7 +418,7 @@ describe('ExecutionRecoveryService', () => {
 							executionId: execution.id,
 							workflowName: workflow.name,
 							nodeName: 'DebugHelper',
-							nodeType: 'n8n-nodes-base.debugHelper',
+							nodeType: 'resin-nodes-base.debugHelper',
 							nodeId: '123',
 						},
 					}),

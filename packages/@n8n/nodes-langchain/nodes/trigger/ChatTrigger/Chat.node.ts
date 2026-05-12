@@ -1,14 +1,14 @@
 /* eslint-disable n8n-nodes-base/node-dirname-against-convention */
 import type { BaseChatMemory } from '@langchain/classic/memory';
-import { autoSaveHighlightedDataProperty } from 'n8n-nodes-base/dist/utils/highlightedData';
+import { autoSaveHighlightedDataProperty } from 'resin-nodes-base/dist/utils/highlightedData';
 import {
 	limitWaitTimeOption,
 	sendAndWaitWebhooksDescription,
-} from 'n8n-nodes-base/dist/utils/sendAndWait/descriptions';
+} from 'resin-nodes-base/dist/utils/sendAndWait/descriptions';
 import {
 	SEND_AND_WAIT_WAITING_TOOLTIP,
 	sendAndWaitWebhook,
-} from 'n8n-nodes-base/dist/utils/sendAndWait/utils';
+} from 'resin-nodes-base/dist/utils/sendAndWait/utils';
 import {
 	CHAT_TRIGGER_NODE_TYPE,
 	CHAT_WAIT_USER_REPLY,
@@ -18,7 +18,7 @@ import {
 	SEND_AND_WAIT_OPERATION,
 	getHighlightedInputKey,
 	getHighlightedResponseKey,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	INodeExecutionData,
@@ -27,7 +27,7 @@ import type {
 	NodeTypeAndVersion,
 	INode,
 	IDataObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	configureInputs,
@@ -53,7 +53,7 @@ export class Chat implements INodeType {
 		builderHint: {
 			relatedNodes: [
 				{
-					nodeType: '@n8n/n8n-nodes-langchain.chatTrigger',
+					nodeType: '@resin/n8n-nodes-langchain.chatTrigger',
 					relationHint:
 						'Required trigger for this node to work - must set responseMode to "responseNodes"',
 				},

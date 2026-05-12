@@ -1,6 +1,6 @@
 import type { Embeddings } from '@langchain/core/embeddings';
 import type { VectorStore } from '@langchain/core/vectorstores';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	INodeExecutionData,
@@ -9,7 +9,7 @@ import type {
 	ISupplyDataFunctions,
 	INodeType,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 // Import custom types
 import {
@@ -89,7 +89,7 @@ export const createVectorStoreNode = <T extends VectorStore = VectorStore>(
 // Substitute the type literal and provider-specific parameters (e.g. pineconeIndex,
 // qdrantCollection, supabaseTableName) — see the rest of this file for the exact shape.
 const store = vectorStore({
-  type: '@n8n/n8n-nodes-langchain.vectorStoreXxx',
+  type: '@resin/n8n-nodes-langchain.vectorStoreXxx',
   config: {
     name: 'Knowledge Base',
     parameters: {
@@ -110,7 +110,7 @@ const store = vectorStore({
 // Substitute the type literal and provider-specific parameters — see the rest of this file
 // for the exact shape (e.g. pineconeIndex, qdrantCollection, supabaseTableName).
 const knowledgeBase = tool({
-  type: '@n8n/n8n-nodes-langchain.vectorStoreXxx',
+  type: '@resin/n8n-nodes-langchain.vectorStoreXxx',
   config: {
     name: 'Knowledge Base',
     parameters: {
@@ -123,7 +123,7 @@ const knowledgeBase = tool({
 });
 
 const agent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   config: {
     name: 'Support Agent',
     parameters: { promptType: 'define', text: expr('{{ $json.question }}') },
@@ -140,7 +140,7 @@ const agent = node({
 <pattern title="load mode — one-shot similarity search (generic)">
 // Substitute the type literal and provider-specific parameters — see the rest of this file.
 const lookup = vectorStore({
-  type: '@n8n/n8n-nodes-langchain.vectorStoreXxx',
+  type: '@resin/n8n-nodes-langchain.vectorStoreXxx',
   config: {
     name: 'Knowledge Base',
     parameters: {
@@ -161,7 +161,7 @@ const lookup = vectorStore({
 <pattern title="retrieve mode — feed another node as a subnode (generic)">
 // Substitute the type literal and provider-specific parameters — see the rest of this file.
 const store = vectorStore({
-  type: '@n8n/n8n-nodes-langchain.vectorStoreXxx',
+  type: '@resin/n8n-nodes-langchain.vectorStoreXxx',
   config: {
     name: 'Knowledge Base',
     parameters: { mode: 'retrieve' /* + provider-specific parameters */ },
@@ -170,7 +170,7 @@ const store = vectorStore({
 });
 
 const retrieverTool = tool({
-  type: '@n8n/n8n-nodes-langchain.toolVectorStore',
+  type: '@resin/n8n-nodes-langchain.toolVectorStore',
   config: {
     name: 'KB Retriever',
     parameters: { description: 'Search the product knowledge base' },
@@ -187,7 +187,7 @@ const retrieverTool = tool({
 <pattern title="update mode — update document by ID (generic)">
 // Substitute the type literal and provider-specific parameters — see the rest of this file.
 const store = vectorStore({
-  type: '@n8n/n8n-nodes-langchain.vectorStoreXxx',
+  type: '@resin/n8n-nodes-langchain.vectorStoreXxx',
   config: {
     name: 'Knowledge Base',
     parameters: { mode: 'update', id: expr('{{ $json.docId }}') },

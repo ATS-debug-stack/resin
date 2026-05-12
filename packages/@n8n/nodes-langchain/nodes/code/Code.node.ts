@@ -1,9 +1,9 @@
 import type { Tool } from '@langchain/core/tools';
 import { makeResolverFromLegacyOptions } from 'vm2';
-import { JavaScriptSandbox } from 'n8n-nodes-base/dist/nodes/Code/JavaScriptSandbox';
-import { getSandboxContext } from 'n8n-nodes-base/dist/nodes/Code/Sandbox';
-import { standardizeOutput } from 'n8n-nodes-base/dist/nodes/Code/utils';
-import { NodeOperationError, NodeConnectionTypes, LOG_LEVELS } from 'n8n-workflow';
+import { JavaScriptSandbox } from 'resin-nodes-base/dist/nodes/Code/JavaScriptSandbox';
+import { getSandboxContext } from 'resin-nodes-base/dist/nodes/Code/Sandbox';
+import { standardizeOutput } from 'resin-nodes-base/dist/nodes/Code/utils';
+import { NodeOperationError, NodeConnectionTypes, LOG_LEVELS } from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	INodeExecutionData,
@@ -13,11 +13,11 @@ import type {
 	SupplyData,
 	ISupplyDataFunctions,
 	Logger,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 // TODO: Add support for execute function. Got already started but got commented out
 
-import { logWrapper } from '@n8n/ai-utilities';
+import { logWrapper } from '@resin/ai-utilities';
 
 const { NODE_FUNCTION_ALLOW_BUILTIN: builtIn, NODE_FUNCTION_ALLOW_EXTERNAL: external } =
 	process.env;
@@ -163,7 +163,7 @@ export const vmResolver = makeResolverFromLegacyOptions({
 	},
 	resolve(moduleName, parentDirname) {
 		if (moduleName.match(/^langchain\//) ?? moduleName.match(/^@langchain\//)) {
-			return require.resolve(`@n8n/n8n-nodes-langchain/node_modules/${moduleName}.cjs`, {
+			return require.resolve(`@resin/n8n-nodes-langchain/node_modules/${moduleName}.cjs`, {
 				paths: [parentDirname],
 			});
 		}

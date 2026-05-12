@@ -1,4 +1,4 @@
-import { generateNanoId } from '@n8n/utils';
+import { generateNanoId } from '@resin/utils';
 
 import type { ApiKey } from '../../entities';
 import type { MigrationContext, ReversibleMigration } from '../migration-types';

@@ -21,7 +21,7 @@ type MessageIds =
 type Context = TSESLint.RuleContext<MessageIds, []>;
 
 export const N8nObjectValidationRule = createRule<[], MessageIds>({
-	name: 'n8n-object-validation',
+	name: 'resin-object-validation',
 	meta: {
 		type: 'problem',
 		docs: {

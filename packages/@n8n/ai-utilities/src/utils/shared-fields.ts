@@ -1,5 +1,5 @@
-import { NodeConnectionTypes } from 'n8n-workflow';
-import type { IDisplayOptions, INodeProperties } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
+import type { IDisplayOptions, INodeProperties } from 'resin-workflow';
 
 export const metadataFilterField: INodeProperties = {
 	displayName: 'Metadata Filter',

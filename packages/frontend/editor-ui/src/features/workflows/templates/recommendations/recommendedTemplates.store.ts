@@ -7,8 +7,8 @@ import { usePostHog } from '@/app/stores/posthog.store';
 import templateIds from './data/recommendedTemplateIds.json';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import type { ITemplatesWorkflowFull } from '@n8n/rest-api-client';
+import { useRootStore } from '@resin/stores/useRootStore';
+import type { ITemplatesWorkflowFull } from '@resin/rest-api-client';
 import sampleSize from 'lodash/sampleSize';
 import { getDynamicRecommendedTemplates } from './dynamicTemplates.api';
 

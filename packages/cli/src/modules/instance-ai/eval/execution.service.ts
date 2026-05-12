@@ -2,16 +2,16 @@ import type {
 	InstanceAiEvalExecutionRequest,
 	InstanceAiEvalNodeResult,
 	InstanceAiEvalExecutionResult,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { Service } from '@resin/di';
 import {
 	type EvalLlmMockHandler,
 	type EvalMockHttpResponse,
 	ExecutionLifecycleHooks,
 	WorkflowExecute,
-} from 'n8n-core';
+} from 'resin-core';
 import {
 	type IDataObject,
 	type IHttpRequestOptions,
@@ -24,15 +24,15 @@ import {
 	createRunExecutionData,
 	NodeHelpers,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { randomUUID } from 'node:crypto';
 
 import { NodeTypes } from '@/node-types';
 import { getBase } from '@/workflow-execute-additional-data';
 import { WorkflowFinderService } from '@/workflows/workflow-finder.service';
 
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
-import { normalizePinData } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
+import { normalizePinData } from '@resin/workflow-sdk';
 
 import { generatePinData } from './pin-data-generator';
 

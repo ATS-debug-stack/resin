@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/require-await */
-import { Container, Service } from '@n8n/di';
+import { Container, Service } from '@resin/di';
 
 import type { AuthHandlerClass, IPasswordAuthHandler } from '../auth-handler';
 import { AuthHandler, AuthHandlerEntryMetadata } from '../auth-handler-metadata';

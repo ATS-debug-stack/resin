@@ -69,7 +69,7 @@ describe('expressionPathValidator', () => {
 
 	describe('validateNode', () => {
 		it('returns empty array (validation happens at workflow level)', () => {
-			const node = createMockNode('n8n-nodes-base.set', 'Set', {
+			const node = createMockNode('resin-nodes-base.set', 'Set', {
 				parameters: { value: '={{ $json.name }}' },
 			});
 			const ctx = createMockPluginContext(new Map());
@@ -83,13 +83,13 @@ describe('expressionPathValidator', () => {
 	describe('validateWorkflow', () => {
 		it('returns INVALID_EXPRESSION_PATH warning when $json.field does not exist in predecessor output', () => {
 			// Create predecessor node with known output shape
-			const triggerNode = createMockNode('n8n-nodes-base.manualTrigger', 'Trigger');
+			const triggerNode = createMockNode('resin-nodes-base.manualTrigger', 'Trigger');
 			const triggerConns = new Map<string, Map<number, ConnectionTarget[]>>();
 			triggerConns.set('main', new Map([[0, [conn('Consumer', 0)]]]));
 			const triggerGraph = createGraphNode(triggerNode, triggerConns);
 
 			// Create consumer node that references a non-existent field
-			const consumerNode = createMockNode('n8n-nodes-base.set', 'Consumer', {
+			const consumerNode = createMockNode('resin-nodes-base.set', 'Consumer', {
 				parameters: { value: '={{ $json.nonExistent }}' },
 			});
 			const consumerGraph = createGraphNode(consumerNode);
@@ -115,12 +115,12 @@ describe('expressionPathValidator', () => {
 		});
 
 		it('returns no warning when $json.field exists in predecessor output', () => {
-			const triggerNode = createMockNode('n8n-nodes-base.manualTrigger', 'Trigger');
+			const triggerNode = createMockNode('resin-nodes-base.manualTrigger', 'Trigger');
 			const triggerConns = new Map<string, Map<number, ConnectionTarget[]>>();
 			triggerConns.set('main', new Map([[0, [conn('Consumer', 0)]]]));
 			const triggerGraph = createGraphNode(triggerNode, triggerConns);
 
-			const consumerNode = createMockNode('n8n-nodes-base.set', 'Consumer', {
+			const consumerNode = createMockNode('resin-nodes-base.set', 'Consumer', {
 				parameters: { value: '={{ $json.name }}' },
 			});
 			const consumerGraph = createGraphNode(consumerNode);
@@ -140,12 +140,12 @@ describe('expressionPathValidator', () => {
 		});
 
 		it('returns no warning when no pinData or output available', () => {
-			const triggerNode = createMockNode('n8n-nodes-base.manualTrigger', 'Trigger');
+			const triggerNode = createMockNode('resin-nodes-base.manualTrigger', 'Trigger');
 			const triggerConns = new Map<string, Map<number, ConnectionTarget[]>>();
 			triggerConns.set('main', new Map([[0, [conn('Consumer', 0)]]]));
 			const triggerGraph = createGraphNode(triggerNode, triggerConns);
 
-			const consumerNode = createMockNode('n8n-nodes-base.set', 'Consumer', {
+			const consumerNode = createMockNode('resin-nodes-base.set', 'Consumer', {
 				parameters: { value: '={{ $json.anything }}' },
 			});
 			const consumerGraph = createGraphNode(consumerNode);
@@ -162,14 +162,14 @@ describe('expressionPathValidator', () => {
 		});
 
 		it('uses node config output when available instead of pinData', () => {
-			const setNode = createMockNode('n8n-nodes-base.set', 'Set', {
+			const setNode = createMockNode('resin-nodes-base.set', 'Set', {
 				output: [{ processedField: 'value' }],
 			});
 			const setConns = new Map<string, Map<number, ConnectionTarget[]>>();
 			setConns.set('main', new Map([[0, [conn('Consumer', 0)]]]));
 			const setGraph = createGraphNode(setNode, setConns);
 
-			const consumerNode = createMockNode('n8n-nodes-base.httpRequest', 'Consumer', {
+			const consumerNode = createMockNode('resin-nodes-base.httpRequest', 'Consumer', {
 				parameters: { url: '={{ $json.processedField }}' },
 			});
 			const consumerGraph = createGraphNode(consumerNode);
@@ -185,14 +185,14 @@ describe('expressionPathValidator', () => {
 		});
 
 		it('returns no warning when output has json wrapper and field exists inside it', () => {
-			const setNode = createMockNode('n8n-nodes-base.set', 'Set', {
+			const setNode = createMockNode('resin-nodes-base.set', 'Set', {
 				output: [{ json: { processedField: 'value' } }] as unknown as IDataObject[],
 			});
 			const setConns = new Map<string, Map<number, ConnectionTarget[]>>();
 			setConns.set('main', new Map([[0, [conn('Consumer', 0)]]]));
 			const setGraph = createGraphNode(setNode, setConns);
 
-			const consumerNode = createMockNode('n8n-nodes-base.httpRequest', 'Consumer', {
+			const consumerNode = createMockNode('resin-nodes-base.httpRequest', 'Consumer', {
 				parameters: { url: '={{ $json.processedField }}' },
 			});
 			const consumerGraph = createGraphNode(consumerNode);
@@ -208,12 +208,12 @@ describe('expressionPathValidator', () => {
 		});
 
 		it('returns no warning when ctx.pinData has json wrapper', () => {
-			const triggerNode = createMockNode('n8n-nodes-base.manualTrigger', 'Trigger');
+			const triggerNode = createMockNode('resin-nodes-base.manualTrigger', 'Trigger');
 			const triggerConns = new Map<string, Map<number, ConnectionTarget[]>>();
 			triggerConns.set('main', new Map([[0, [conn('Consumer', 0)]]]));
 			const triggerGraph = createGraphNode(triggerNode, triggerConns);
 
-			const consumerNode = createMockNode('n8n-nodes-base.set', 'Consumer', {
+			const consumerNode = createMockNode('resin-nodes-base.set', 'Consumer', {
 				parameters: { value: '={{ $json.name }}' },
 			});
 			const consumerGraph = createGraphNode(consumerNode);
@@ -233,10 +233,10 @@ describe('expressionPathValidator', () => {
 		});
 
 		it('validates $("NodeName").item.json.field references', () => {
-			const triggerNode = createMockNode('n8n-nodes-base.manualTrigger', 'Trigger');
+			const triggerNode = createMockNode('resin-nodes-base.manualTrigger', 'Trigger');
 			const triggerGraph = createGraphNode(triggerNode);
 
-			const consumerNode = createMockNode('n8n-nodes-base.set', 'Consumer', {
+			const consumerNode = createMockNode('resin-nodes-base.set', 'Consumer', {
 				parameters: { value: '={{ $("Trigger").item.json.nonExistent }}' },
 			});
 			const consumerGraph = createGraphNode(consumerNode);
@@ -271,7 +271,7 @@ describe('expressionPathValidator', () => {
 			// NodeB outputs { caption: 'hello' }
 
 			// NodeB connects to NodeC via graphNode.connections (correctly resolved)
-			const nodeB = createMockNode('n8n-nodes-base.set', 'NodeB', {
+			const nodeB = createMockNode('resin-nodes-base.set', 'NodeB', {
 				output: [{ caption: 'hello' }],
 			});
 			const nodeBConns = new Map<string, Map<number, ConnectionTarget[]>>();
@@ -279,7 +279,7 @@ describe('expressionPathValidator', () => {
 
 			// NodeA has a getConnections() that returns a NodeChain target pointing to NodeB→NodeC chain
 			// The chain's .name = 'NodeC' (tail), but head = 'NodeB'
-			const nodeA = createMockNode('n8n-nodes-base.set', 'NodeA', {
+			const nodeA = createMockNode('resin-nodes-base.set', 'NodeA', {
 				output: [{ data: 'value' }],
 			});
 			// Mock getConnections to return a chain-like target
@@ -293,7 +293,7 @@ describe('expressionPathValidator', () => {
 				{ target: chainTarget, outputIndex: 0 },
 			];
 
-			const nodeC = createMockNode('n8n-nodes-base.set', 'NodeC', {
+			const nodeC = createMockNode('resin-nodes-base.set', 'NodeC', {
 				parameters: { value: '={{ $json.caption }}' },
 			});
 
@@ -317,7 +317,7 @@ describe('expressionPathValidator', () => {
 			// Setup: NodeA (has field) connects to NodeC via both paths,
 			// NodeB (no field) also connects to NodeC → triggers PARTIAL
 
-			const nodeA = createMockNode('n8n-nodes-base.set', 'NodeA', {
+			const nodeA = createMockNode('resin-nodes-base.set', 'NodeA', {
 				output: [{ caption: 'hello' }],
 			});
 			// Connection in graphNode.connections
@@ -328,13 +328,13 @@ describe('expressionPathValidator', () => {
 				{ target: { name: 'NodeC' }, outputIndex: 0 },
 			];
 
-			const nodeB = createMockNode('n8n-nodes-base.set', 'NodeB', {
+			const nodeB = createMockNode('resin-nodes-base.set', 'NodeB', {
 				output: [{ other: 'value' }],
 			});
 			const nodeBConns = new Map<string, Map<number, ConnectionTarget[]>>();
 			nodeBConns.set('main', new Map([[0, [conn('NodeC', 0)]]]));
 
-			const nodeC = createMockNode('n8n-nodes-base.set', 'NodeC', {
+			const nodeC = createMockNode('resin-nodes-base.set', 'NodeC', {
 				parameters: { value: '={{ $json.caption }}' },
 			});
 
@@ -359,15 +359,15 @@ describe('expressionPathValidator', () => {
 
 		it('returns PARTIAL_EXPRESSION_PATH when field exists in some but not all predecessors', () => {
 			// Two predecessors connecting directly to Consumer (like after branching)
-			const node1 = createMockNode('n8n-nodes-base.set', 'Set1');
+			const node1 = createMockNode('resin-nodes-base.set', 'Set1');
 			const node1Conns = new Map<string, Map<number, ConnectionTarget[]>>();
 			node1Conns.set('main', new Map([[0, [conn('Consumer', 0)]]]));
 
-			const node2 = createMockNode('n8n-nodes-base.set', 'Set2');
+			const node2 = createMockNode('resin-nodes-base.set', 'Set2');
 			const node2Conns = new Map<string, Map<number, ConnectionTarget[]>>();
 			node2Conns.set('main', new Map([[0, [conn('Consumer', 0)]]]));
 
-			const consumerNode = createMockNode('n8n-nodes-base.set', 'Consumer', {
+			const consumerNode = createMockNode('resin-nodes-base.set', 'Consumer', {
 				parameters: { value: '={{ $json.specificField }}' },
 			});
 

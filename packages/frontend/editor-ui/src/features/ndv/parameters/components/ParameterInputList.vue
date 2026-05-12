@@ -6,13 +6,13 @@ import type {
 	INodeParameters,
 	INodeProperties,
 	NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ADD_FORM_NOTICE,
 	getParameterValueByPath,
 	NodeHelpers,
 	resolveRelativePath,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { computed, defineAsyncComponent, nextTick, onErrorCaptured, ref, watch } from 'vue';
 
 import type { INodeUi, IUpdateInformation } from '@/Interface';
@@ -30,7 +30,7 @@ import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useNodeSettingsParameters } from '@/features/ndv/settings/composables/useNodeSettingsParameters';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { storeToRefs } from 'pinia';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import AssignmentCollection from './AssignmentCollection/AssignmentCollection.vue';
 import ButtonParameter from './ButtonParameter/ButtonParameter.vue';
 import FilterConditions from './FilterConditions/FilterConditions.vue';
@@ -46,7 +46,7 @@ import {
 	getParameterTypeOption,
 	type ParameterOptionsOverrides,
 } from '@/features/ndv/shared/ndv.utils';
-import type { IconName } from '@n8n/design-system/components/N8nIcon/icons';
+import type { IconName } from '@resin/design-system/components/N8nIcon/icons';
 import { captureException } from '@sentry/vue';
 import { throttledWatch } from '@vueuse/core';
 import get from 'lodash/get';
@@ -60,7 +60,7 @@ import {
 	N8nNotice,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 const LazyFixedCollectionParameter = defineAsyncComponent(
 	async () => await import('./FixedCollection/FixedCollectionParameter.vue'),

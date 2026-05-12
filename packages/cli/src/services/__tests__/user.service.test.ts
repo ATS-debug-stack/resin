@@ -1,6 +1,6 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { Project } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { Project } from '@resin/db';
 import {
 	GLOBAL_ADMIN_ROLE,
 	GLOBAL_MEMBER_ROLE,
@@ -10,9 +10,9 @@ import {
 	Role,
 	User,
 	UserRepository,
-} from '@n8n/db';
-import { PROJECT_OWNER_ROLE_SLUG, PROJECT_VIEWER_ROLE_SLUG } from '@n8n/permissions';
-import type { EntityManager } from '@n8n/typeorm';
+} from '@resin/db';
+import { PROJECT_OWNER_ROLE_SLUG, PROJECT_VIEWER_ROLE_SLUG } from '@resin/permissions';
+import type { EntityManager } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
 import { v4 as uuid } from 'uuid';
 
@@ -233,7 +233,7 @@ describe('UserService', () => {
 
 	describe('update', () => {
 		// We need to use `save` so that that the subscriber in
-		// packages/@n8n/db/src/entities/Project.ts receives the full user.
+		// packages/@resin/db/src/entities/Project.ts receives the full user.
 		// With `update` it would only receive the updated fields, e.g. the `id`
 		// would be missing.
 		it('should use `save` instead of `update`', async () => {

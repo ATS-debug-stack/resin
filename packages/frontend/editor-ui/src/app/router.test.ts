@@ -9,7 +9,7 @@ import { useSettingsStore } from '@/app/stores/settings.store';
 import { usePostHog } from '@/app/stores/posthog.store';
 import { useRBACStore } from '@/app/stores/rbac.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
-import type { Scope } from '@n8n/permissions';
+import type { Scope } from '@resin/permissions';
 import type { RouteRecordName } from 'vue-router';
 import * as init from '@/app/init';
 

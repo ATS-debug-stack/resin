@@ -5,7 +5,7 @@ import type { MutablePluginContext } from '../types';
 // Helper to create a mock switch node
 function createMockSwitchNode(name = 'Switch Node'): NodeInstance<string, string, unknown> {
 	return {
-		type: 'n8n-nodes-base.switch',
+		type: 'resin-nodes-base.switch',
 		name,
 		version: '3',
 		config: { parameters: {} },
@@ -15,7 +15,7 @@ function createMockSwitchNode(name = 'Switch Node'): NodeInstance<string, string
 // Helper to create a mock node
 function createMockNode(name: string): NodeInstance<string, string, unknown> {
 	return {
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		name,
 		version: '1',
 		config: { parameters: {} },

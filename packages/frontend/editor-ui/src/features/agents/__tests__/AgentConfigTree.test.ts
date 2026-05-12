@@ -12,7 +12,7 @@ import {
 import type { AgentJsonConfig } from '../types';
 import AgentConfigTree from '../components/AgentConfigTree.vue';
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({ baseText: (key: string) => key }),
 }));
 

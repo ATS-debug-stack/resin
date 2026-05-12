@@ -21,9 +21,9 @@ import { assertPlainObject } from '../validation-helpers';
  * Internal split in batches node implementation
  */
 class SplitInBatchesNodeInstance
-	implements NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>
+	implements NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>
 {
-	readonly type = 'n8n-nodes-base.splitInBatches' as const;
+	readonly type = 'resin-nodes-base.splitInBatches' as const;
 	readonly version: string;
 	readonly config: NodeConfig;
 	readonly id: string;
@@ -42,7 +42,7 @@ class SplitInBatchesNodeInstance
 
 	update(
 		config: Partial<NodeConfig>,
-	): NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown> {
+	): NodeInstance<'resin-nodes-base.splitInBatches', string, unknown> {
 		return new SplitInBatchesNodeInstance({
 			version: this.version,
 			config: {
@@ -56,14 +56,14 @@ class SplitInBatchesNodeInstance
 		throw new Error('SplitInBatches node input connections are managed by SplitInBatchesBuilder');
 	}
 
-	output(_index: number): OutputSelector<'n8n-nodes-base.splitInBatches', string, unknown> {
+	output(_index: number): OutputSelector<'resin-nodes-base.splitInBatches', string, unknown> {
 		throw new Error('SplitInBatches node output connections are managed by SplitInBatchesBuilder');
 	}
 
 	to<T extends NodeInstance<string, string, unknown>>(
 		_target: T | T[] | InputTarget,
 		_outputIndex?: number,
-	): NodeChain<NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>, T> {
+	): NodeChain<NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>, T> {
 		throw new Error('SplitInBatches node connections are managed by SplitInBatchesBuilder');
 	}
 
@@ -119,7 +119,7 @@ export interface SplitInBatchesBranches {
  * Internal split in batches builder implementation
  */
 class SplitInBatchesBuilderImpl implements SplitInBatchesBuilder<unknown> {
-	readonly sibNode: NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>;
+	readonly sibNode: NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>;
 	_doneNodes: Array<NodeInstance<string, string, unknown>> = [];
 	_eachNodes: Array<NodeInstance<string, string, unknown>> = [];
 	_doneBatches: NodeBatch[] = [];
@@ -213,7 +213,7 @@ class SplitInBatchesBuilderImpl implements SplitInBatchesBuilder<unknown> {
  * Split in batches builder implementation that wraps an existing node instance
  */
 class SplitInBatchesBuilderWithExistingNode implements SplitInBatchesBuilder<unknown> {
-	readonly sibNode: NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>;
+	readonly sibNode: NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>;
 	_doneNodes: Array<NodeInstance<string, string, unknown>> = [];
 	_eachNodes: Array<NodeInstance<string, string, unknown>> = [];
 	_doneBatches: NodeBatch[] = [];
@@ -224,7 +224,7 @@ class SplitInBatchesBuilderWithExistingNode implements SplitInBatchesBuilder<unk
 	_doneTarget?: BranchTarget;
 	_eachTarget?: BranchTarget;
 
-	constructor(existingNode: NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>) {
+	constructor(existingNode: NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>) {
 		this.sibNode = existingNode;
 	}
 
@@ -307,7 +307,7 @@ class SplitInBatchesBuilderWithExistingNode implements SplitInBatchesBuilder<unk
  * ```typescript
  * // Fluent API (recommended):
  * const sibNode = node({
- *   type: 'n8n-nodes-base.splitInBatches',
+ *   type: 'resin-nodes-base.splitInBatches',
  *   version: 3,
  *   config: { name: 'Loop', parameters: { batchSize: 10 } }
  * });
@@ -345,7 +345,7 @@ class SplitInBatchesBuilderWithExistingNode implements SplitInBatchesBuilder<unk
 export function splitInBatches(
 	configOrNode:
 		| SplitInBatchesFactoryConfig
-		| NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>,
+		| NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>,
 	branches?: SplitInBatchesBranches,
 ): SplitInBatchesBuilder<unknown> {
 	assertPlainObject(
@@ -361,7 +361,7 @@ export function splitInBatches(
 		isSplitInBatchesType(configOrNode.type)
 	) {
 		return new SplitInBatchesNamedSyntaxBuilder(
-			configOrNode as NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>,
+			configOrNode as NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>,
 			branches,
 		);
 	}
@@ -369,7 +369,7 @@ export function splitInBatches(
 	// Check if the argument is a NodeInstance (pre-declared SplitInBatches node)
 	if (isNodeInstance(configOrNode) && isSplitInBatchesType(configOrNode.type)) {
 		return new SplitInBatchesBuilderWithExistingNode(
-			configOrNode as NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>,
+			configOrNode as NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>,
 		);
 	}
 	// Otherwise, treat it as a SplitInBatchesFactoryConfig (new { version, config } pattern)
@@ -441,7 +441,7 @@ function extractNodesFromTarget(
  * NamedSyntax). Covers all three classes because they all expose the same shape.
  */
 function isSplitInBatchesBuilderShape(value: unknown): value is {
-	sibNode: NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>;
+	sibNode: NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>;
 	_doneBatches: NodeBatch[];
 	_eachBatches: NodeBatch[];
 	_doneTarget?: BranchTarget;
@@ -490,7 +490,7 @@ function getFirstNodes(target: BranchTarget): Array<NodeInstance<string, string,
  * This is created via splitInBatches(node, { done, each }).
  */
 class SplitInBatchesNamedSyntaxBuilder implements SplitInBatchesBuilder<unknown> {
-	readonly sibNode: NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>;
+	readonly sibNode: NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>;
 	readonly _doneTarget: BranchTarget;
 	readonly _eachTarget: BranchTarget;
 	_doneNodes: Array<NodeInstance<string, string, unknown>> = [];
@@ -500,7 +500,7 @@ class SplitInBatchesNamedSyntaxBuilder implements SplitInBatchesBuilder<unknown>
 	_hasLoop = false;
 
 	constructor(
-		sibNode: NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>,
+		sibNode: NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>,
 		branches: SplitInBatchesBranches,
 	) {
 		this.sibNode = sibNode;

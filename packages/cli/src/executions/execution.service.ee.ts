@@ -1,6 +1,6 @@
-import type { WorkflowWithSharingsAndCredentials } from '@n8n/db';
-import { WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { WorkflowWithSharingsAndCredentials } from '@resin/db';
+import { WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
 
 import type { IExecutionFlattedResponse } from '@/interfaces';
 

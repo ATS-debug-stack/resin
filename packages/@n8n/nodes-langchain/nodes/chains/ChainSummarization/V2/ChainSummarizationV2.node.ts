@@ -6,10 +6,10 @@ import type {
 	INodeTypeDescription,
 	IDataObject,
 	INodeInputConfiguration,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, sleep } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, sleep } from 'resin-workflow';
 
-import { getBatchingOptionFields, getTemplateNoticeField } from '@n8n/ai-utilities';
+import { getBatchingOptionFields, getTemplateNoticeField } from '@resin/ai-utilities';
 
 import { processItem } from './processItem';
 import { REFINE_PROMPT_TEMPLATE, DEFAULT_PROMPT_TEMPLATE } from '../prompt';

@@ -2,15 +2,15 @@ import type { VIEWS } from '@/app/constants';
 import { CODE_WORKFLOW_BUILDER_EXPERIMENT } from '@/app/constants';
 import { BUILDER_ENABLED_VIEWS } from './constants';
 import { usePostHog } from '@/app/stores/posthog.store';
-import { STORES } from '@n8n/stores';
-import type { ChatUI } from '@n8n/design-system/types/assistant';
-import { isToolMessage, isWorkflowUpdatedMessage } from '@n8n/design-system/types/assistant';
+import { STORES } from '@resin/stores';
+import type { ChatUI } from '@resin/design-system/types/assistant';
+import { isToolMessage, isWorkflowUpdatedMessage } from '@resin/design-system/types/assistant';
 import { defineStore } from 'pinia';
 import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import { assert } from '@n8n/utils/assert';
-import { useI18n } from '@n8n/i18n';
+import { assert } from '@resin/utils/assert';
+import { useI18n } from '@resin/i18n';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import {
@@ -33,11 +33,11 @@ import {
 	enrichMessagesWithRevertVersion,
 } from './builder.utils';
 import { useBuilderTodos, type TodosTrackingPayload } from './composables/useBuilderTodos';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { type IPinData, type ITelemetryTrackProperties } from 'n8n-workflow';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { type IPinData, type ITelemetryTrackProperties } from 'resin-workflow';
 import { stringSizeInBytes } from '@/app/utils/typesUtils';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
-import { dedupe } from 'n8n-workflow';
+import { dedupe } from 'resin-workflow';
 import { useWorkflowHistoryStore } from '@/features/workflows/workflowHistory/workflowHistory.store';
 import type { IWorkflowDb } from '@/Interface';
 import { useWorkflowSaving } from '@/app/composables/useWorkflowSaving';
@@ -45,7 +45,7 @@ import { useUIStore } from '@/app/stores/ui.store';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { useBrowserNotifications } from '@/app/composables/useBrowserNotifications';
 import { AI_BUILDER_PLAN_MODE_EXPERIMENT } from '@/app/constants/experiments';
-import type { QuickReplyType } from '@n8n/api-types';
+import type { QuickReplyType } from '@resin/api-types';
 import {
 	isVersionCardMessage,
 	type PlanMode,
@@ -58,7 +58,7 @@ import {
 } from '@/features/ai/assistant/assistant.types';
 import { useFocusedNodesStore } from '@/features/ai/assistant/focusedNodes.store';
 import { useCodeDiff } from '@/features/ai/assistant/composables/useCodeDiff';
-import { UNLIMITED_CREDITS } from '@n8n/api-types';
+import { UNLIMITED_CREDITS } from '@resin/api-types';
 export const ENABLED_VIEWS = BUILDER_ENABLED_VIEWS;
 
 /** Tool names that indicate the AI modified the workflow (used during session reload) */

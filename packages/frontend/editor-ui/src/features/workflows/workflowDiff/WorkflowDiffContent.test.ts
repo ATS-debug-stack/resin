@@ -69,7 +69,7 @@ vi.mock('@/features/workflows/workflowDiff/useViewportSync', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', async (importOriginal) => {
+vi.mock('@resin/i18n', async (importOriginal) => {
 	const actual = (await importOriginal()) as object;
 	return {
 		...actual,
@@ -216,7 +216,7 @@ describe('WorkflowDiffContent', () => {
 			const selectedNode: INodeUi = {
 				id: 'node-1',
 				name: 'Test Node',
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},

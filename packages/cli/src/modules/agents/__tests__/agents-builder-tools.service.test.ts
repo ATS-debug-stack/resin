@@ -1,6 +1,6 @@
-import type { CredentialProvider } from '@n8n/agents';
-import { AGENT_SKILL_INSTRUCTIONS_MAX_LENGTH } from '@n8n/api-types';
-import type { User, WorkflowRepository } from '@n8n/db';
+import type { CredentialProvider } from '@resin/agents';
+import { AGENT_SKILL_INSTRUCTIONS_MAX_LENGTH } from '@resin/api-types';
+import type { User, WorkflowRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import type { AgentsToolsService } from '../agents-tools.service';

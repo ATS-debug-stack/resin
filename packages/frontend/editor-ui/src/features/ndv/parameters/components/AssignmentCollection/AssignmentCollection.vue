@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDebounce } from '@/app/composables/useDebounce';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import isEqual from 'lodash/isEqual';
 import type {
@@ -9,7 +9,7 @@ import type {
 	FieldTypeMap,
 	INode,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { computed, inject, reactive, useTemplateRef, watch } from 'vue';
 import DropArea from '@/app/components/DropArea/DropArea.vue';
 import ParameterOptions from '../ParameterOptions.vue';
@@ -21,7 +21,7 @@ import ExperimentalEmbeddedNdvMapper from '@/features/workflows/canvas/experimen
 import { ExpressionLocalResolveContextSymbol } from '@/app/constants';
 import { useExperimentalNdvStore } from '@/features/workflows/canvas/experimental/experimentalNdv.store';
 
-import { N8nInputLabel } from '@n8n/design-system';
+import { N8nInputLabel } from '@resin/design-system';
 interface Props {
 	parameter: INodeProperties;
 	value: AssignmentCollectionValue;

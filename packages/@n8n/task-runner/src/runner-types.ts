@@ -13,7 +13,7 @@ import type {
 	Workflow,
 	WorkflowExecuteMode,
 	WorkflowParameters,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export interface InputDataChunkDefinition {
 	startIndex: number;

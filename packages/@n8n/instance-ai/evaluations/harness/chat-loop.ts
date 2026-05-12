@@ -10,7 +10,7 @@
 // flows automatically.
 // ---------------------------------------------------------------------------
 
-import type { InstanceAiConfirmRequest } from '@n8n/api-types';
+import type { InstanceAiConfirmRequest } from '@resin/api-types';
 import { setTimeout as delay } from 'node:timers/promises';
 
 import type { EvalLogger } from './logger';

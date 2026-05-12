@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 import { mockDeep } from 'vitest-mock-extended';
 
 import * as audio from './audio';

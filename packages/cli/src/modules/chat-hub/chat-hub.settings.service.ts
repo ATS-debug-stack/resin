@@ -6,14 +6,14 @@ import {
 	ChatProviderSettingsDto,
 	VECTOR_STORE_PROVIDER_CREDENTIAL_TYPE_MAP,
 	type ChatHubSemanticSearchSettings,
-} from '@n8n/api-types';
-import { SettingsRepository } from '@n8n/db';
-import type { EntityManager } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { jsonParse } from 'n8n-workflow';
+} from '@resin/api-types';
+import { SettingsRepository } from '@resin/db';
+import type { EntityManager } from '@resin/db';
+import { Service } from '@resin/di';
+import { jsonParse } from 'resin-workflow';
 import type { SemanticSearchOptions } from './chat-hub.types';
 import { VECTOR_STORE_NODE_TYPE_MAP } from './chat-hub.constants';
-import { DEFAULT_SEMANTIC_SEARCH_SETTINGS } from '@n8n/chat-hub';
+import { DEFAULT_SEMANTIC_SEARCH_SETTINGS } from '@resin/chat-hub';
 
 const CHAT_PROVIDER_SETTINGS_KEY_PREFIX = 'chat.provider.';
 const CHAT_PROVIDER_SETTINGS_KEY = (provider: ChatHubLLMProvider) =>

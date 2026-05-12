@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed, ref, toRefs, onMounted } from 'vue';
 
-import { useOptions } from '@n8n/chat/composables';
-import type { ChatMessage, ChatMessageText } from '@n8n/chat/types';
+import { useOptions } from '@resin/chat/composables';
+import type { ChatMessage, ChatMessageText } from '@resin/chat/types';
 
 import ChatFile from './ChatFile.vue';
 import MarkdownRenderer from './MarkdownRenderer.vue';

@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions, INodePropertyOptions } from 'n8n-workflow';
+import type { ILoadOptionsFunctions, INodePropertyOptions } from 'resin-workflow';
 
 import { pipedriveApiRequest, sortOptionParameters } from '../transport';
 

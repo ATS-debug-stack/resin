@@ -1,11 +1,11 @@
-import type { OidcConfigDto } from '@n8n/api-types';
-import type { Logger } from '@n8n/backend-common';
-import { mockInstance, mockLogger } from '@n8n/backend-test-utils';
-import type { GlobalConfig } from '@n8n/config';
-import type { AuthIdentityRepository, SettingsRepository, User, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { OidcConfigDto } from '@resin/api-types';
+import type { Logger } from '@resin/backend-common';
+import { mockInstance, mockLogger } from '@resin/backend-test-utils';
+import type { GlobalConfig } from '@resin/config';
+import type { AuthIdentityRepository, SettingsRepository, User, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { Cipher, InstanceSettings } from 'n8n-core';
+import type { Cipher, InstanceSettings } from 'resin-core';
 import * as client from 'openid-client';
 import { EnvHttpProxyAgent } from 'undici';
 

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import { STORES } from '@n8n/stores';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { STORES } from '@resin/stores';
+import { useRootStore } from '@resin/stores/useRootStore';
 import * as favoritesApi from '@/app/api/favorites';
 import type { FavoriteResourceType, UserFavorite } from '@/app/api/favorites';
 import { useTelemetry } from '@/app/composables/useTelemetry';

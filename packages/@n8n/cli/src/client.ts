@@ -37,7 +37,7 @@ export class N8nClient {
 			'X-N8N-API-KEY': options.apiKey,
 			'Content-Type': 'application/json',
 			Accept: 'application/json',
-			'User-Agent': 'n8n-cli',
+			'User-Agent': 'resin-cli',
 		});
 		this.debug = options.debug;
 	}
@@ -93,7 +93,7 @@ export class N8nClient {
 					: `Request failed (${response.status})`;
 			const hint =
 				response.status === 401
-					? "Check your API key. Run 'n8n-cli config set-api-key <key>' or set N8N_API_KEY."
+					? "Check your API key. Run 'resin-cli config set-api-key <key>' or set N8N_API_KEY."
 					: response.status === 404
 						? 'Resource not found. Verify the ID is correct.'
 						: undefined;

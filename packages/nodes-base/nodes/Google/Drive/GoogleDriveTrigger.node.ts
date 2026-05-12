@@ -7,8 +7,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeApiError } from 'resin-workflow';
 
 import { GOOGLE_DRIVE_FILE_URL_REGEX, GOOGLE_DRIVE_FOLDER_URL_REGEX } from '../constants';
 import { extractId, googleApiRequest, googleApiRequestAllItems } from './v1/GenericFunctions';

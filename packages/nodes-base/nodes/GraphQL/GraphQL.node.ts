@@ -9,8 +9,8 @@ import type {
 	IRequestOptionsSimplified,
 	IRequestOptions,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { NodeApiError, NodeConnectionTypes, NodeOperationError, jsonParse } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeConnectionTypes, NodeOperationError, jsonParse } from 'resin-workflow';
 
 export class GraphQL implements INodeType {
 	description: INodeTypeDescription = {

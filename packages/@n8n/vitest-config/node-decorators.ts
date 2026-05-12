@@ -15,7 +15,7 @@ const swcPlugin = swc.vite({
 		},
 		target: 'es2022',
 	},
-	// Include node_modules TypeScript files (like @n8n/tournament)
+	// Include node_modules TypeScript files (like @resin/tournament)
 	exclude: [],
 });
 

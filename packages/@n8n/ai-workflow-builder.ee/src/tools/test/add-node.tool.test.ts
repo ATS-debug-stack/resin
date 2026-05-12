@@ -1,5 +1,5 @@
 import { getCurrentTaskInput } from '@langchain/langgraph';
-import type { INodeTypeDescription, INode } from 'n8n-workflow';
+import type { INodeTypeDescription, INode } from 'resin-workflow';
 
 import {
 	createNode,
@@ -63,7 +63,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					name: 'Process Data',
 					initialParametersReasoning: REASONING.STATIC_NODE,
 				}),
@@ -74,7 +74,7 @@ describe('AddNodeTool', () => {
 
 			expectNodeAdded(content, {
 				name: 'Process Data',
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				parameters: {},
 			});
 
@@ -94,7 +94,7 @@ describe('AddNodeTool', () => {
 			const startMessage = findProgressMessage(progressCalls, 'running', 'input');
 			expect(startMessage).toBeDefined();
 			expect(startMessage?.updates[0]?.data).toMatchObject({
-				nodeType: 'n8n-nodes-base.code',
+				nodeType: 'resin-nodes-base.code',
 				name: 'Process Data',
 			});
 
@@ -113,7 +113,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					name: 'Code',
 				}),
 				mockConfig,
@@ -131,7 +131,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: '@n8n/n8n-nodes-langchain.agent',
+					nodeType: '@resin/n8n-nodes-langchain.agent',
 					name: 'AI Assistant',
 					initialParametersReasoning: REASONING.DYNAMIC_AI_NODE + ', setting hasOutputParser:true',
 					initialParameters: { hasOutputParser: true },
@@ -143,7 +143,7 @@ describe('AddNodeTool', () => {
 
 			expectNodeAdded(content, {
 				name: 'AI Assistant',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				parameters: { hasOutputParser: true },
 			});
 		});
@@ -156,7 +156,7 @@ describe('AddNodeTool', () => {
 			try {
 				await addNodeTool.invoke(
 					{
-						nodeType: 'n8n-nodes-base.code',
+						nodeType: 'resin-nodes-base.code',
 					} as Parameters<typeof addNodeTool.invoke>[0],
 					mockConfig,
 				);
@@ -175,7 +175,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.unknown',
+					nodeType: 'resin-nodes-base.unknown',
 					name: 'Unknown Node',
 					initialParametersReasoning: 'Testing unknown node',
 				}),
@@ -183,7 +183,7 @@ describe('AddNodeTool', () => {
 			);
 
 			const content = parseToolResult<ParsedToolContent>(result);
-			expectToolError(content, 'Error: Node type "n8n-nodes-base.unknown" not found');
+			expectToolError(content, 'Error: Node type "resin-nodes-base.unknown" not found');
 		});
 
 		it('should calculate correct position for nodes', async () => {
@@ -197,7 +197,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					name: 'Fetch Data',
 				}),
 				mockConfig,
@@ -217,7 +217,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.webhook',
+					nodeType: 'resin-nodes-base.webhook',
 					name: 'Incoming Webhook',
 					initialParametersReasoning: REASONING.WEBHOOK_NODE,
 				}),
@@ -229,7 +229,7 @@ describe('AddNodeTool', () => {
 			const addedNode = content.update.workflowOperations?.[0]?.nodes?.[0] as INode & {
 				webhookId?: string;
 			};
-			expect(addedNode?.type).toBe('n8n-nodes-base.webhook');
+			expect(addedNode?.type).toBe('resin-nodes-base.webhook');
 			expect(addedNode?.webhookId).toBeDefined();
 			expect(typeof addedNode?.webhookId).toBe('string');
 		});
@@ -241,7 +241,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					name: 'My Custom Code Node',
 				}),
 				mockConfig,
@@ -264,7 +264,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					name: 'Code',
 				}),
 				mockConfig,
@@ -284,7 +284,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: '@n8n/n8n-nodes-langchain.agent',
+					nodeType: '@resin/n8n-nodes-langchain.agent',
 					name: 'AI Agent',
 					initialParametersReasoning: 'Agent node for AI processing',
 				}),
@@ -329,7 +329,7 @@ describe('AddNodeTool', () => {
 			// Request version 2 specifically
 			const result = await toolWithMultipleVersions.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					nodeVersion: 2,
 					name: 'HTTP Request V2',
 					initialParametersReasoning: 'Need version 2 for specific features',
@@ -341,7 +341,7 @@ describe('AddNodeTool', () => {
 
 			expectNodeAdded(content, {
 				name: 'HTTP Request V2',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 			});
 
 			const addedNode = content.update.workflowOperations?.[0]?.nodes?.[0];
@@ -356,7 +356,7 @@ describe('AddNodeTool', () => {
 
 			const result = await addNodeTool.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.code',
+					nodeType: 'resin-nodes-base.code',
 					nodeVersion: 99, // Non-existent version
 					name: 'Code V99',
 					initialParametersReasoning: 'Requesting non-existent version',
@@ -365,14 +365,14 @@ describe('AddNodeTool', () => {
 			);
 
 			const content = parseToolResult<ParsedToolContent>(result);
-			expectToolError(content, 'Error: Node type "n8n-nodes-base.code" not found');
+			expectToolError(content, 'Error: Node type "resin-nodes-base.code" not found');
 		});
 
 		it('should add correct version from array version node type', async () => {
 			// Create a node type that supports multiple versions in an array
 			const multiVersionNode = {
 				...nodeTypes.code,
-				name: 'n8n-nodes-base.multiVersionCode',
+				name: 'resin-nodes-base.multiVersionCode',
 				displayName: 'Multi Version Code',
 				version: [1, 2, 3],
 				properties: [
@@ -397,7 +397,7 @@ describe('AddNodeTool', () => {
 			// Request version 2 from the array [1, 2, 3]
 			const result = await toolWithArrayVersion.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.multiVersionCode',
+					nodeType: 'resin-nodes-base.multiVersionCode',
 					nodeVersion: 2,
 					name: 'Multi Version Code V2',
 					initialParametersReasoning: 'Need version 2 from array versions',
@@ -409,7 +409,7 @@ describe('AddNodeTool', () => {
 
 			expectNodeAdded(content, {
 				name: 'Multi Version Code V2',
-				type: 'n8n-nodes-base.multiVersionCode',
+				type: 'resin-nodes-base.multiVersionCode',
 			});
 
 			const addedNode = content.update.workflowOperations?.[0]?.nodes?.[0];
@@ -421,7 +421,7 @@ describe('AddNodeTool', () => {
 			// Create a node type that supports versions [1, 2, 3]
 			const multiVersionNode = {
 				...nodeTypes.code,
-				name: 'n8n-nodes-base.multiVersionCode',
+				name: 'resin-nodes-base.multiVersionCode',
 				displayName: 'Multi Version Code',
 				version: [1, 2, 3],
 			} as INodeTypeDescription;
@@ -435,7 +435,7 @@ describe('AddNodeTool', () => {
 			// Request version 4 which is not in the array [1, 2, 3]
 			const result = await toolWithArrayVersion.invoke(
 				buildAddNodeInput({
-					nodeType: 'n8n-nodes-base.multiVersionCode',
+					nodeType: 'resin-nodes-base.multiVersionCode',
 					nodeVersion: 4,
 					name: 'Multi Version Code V4',
 					initialParametersReasoning: 'Requesting version not in array',
@@ -444,7 +444,7 @@ describe('AddNodeTool', () => {
 			);
 
 			const content = parseToolResult<ParsedToolContent>(result);
-			expectToolError(content, 'Error: Node type "n8n-nodes-base.multiVersionCode" not found');
+			expectToolError(content, 'Error: Node type "resin-nodes-base.multiVersionCode" not found');
 		});
 	});
 
@@ -452,7 +452,7 @@ describe('AddNodeTool', () => {
 		it('should return node display name when nodeType exists', () => {
 			const tool = createAddNodeTool(nodeTypesList);
 			const result = tool.getCustomDisplayTitle?.({
-				nodeType: 'n8n-nodes-base.code',
+				nodeType: 'resin-nodes-base.code',
 				name: 'My Code',
 			});
 

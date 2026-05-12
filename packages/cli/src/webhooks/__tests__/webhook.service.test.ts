@@ -1,5 +1,5 @@
-import { WebhookEntity } from '@n8n/db';
-import type { WebhookRepository } from '@n8n/db';
+import { WebhookEntity } from '@resin/db';
+import type { WebhookRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 import type {
 	INode,
@@ -7,8 +7,8 @@ import type {
 	INodeType,
 	IWebhookData,
 	IWorkflowExecuteAdditionalData,
-} from 'n8n-workflow';
-import { Workflow } from 'n8n-workflow';
+} from 'resin-workflow';
+import { Workflow } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import config from '@/config';
@@ -152,7 +152,7 @@ describe('WebhookService', () => {
 				id: '1',
 				webhookId: 'webhook1',
 				name: 'Webhook1',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				disabled: false,
 				parameters: {
 					path: 'conflicting-path',
@@ -163,7 +163,7 @@ describe('WebhookService', () => {
 				id: '2',
 				webhookId: 'webhook2',
 				name: 'Webhook2',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				disabled: false,
 				parameters: {
 					path: 'conflicting-path',
@@ -210,7 +210,7 @@ describe('WebhookService', () => {
 				id: '1',
 				webhookId: 'webhook1',
 				name: 'Webhook1',
-				type: 'n8n-nodes-base.wait',
+				type: 'resin-nodes-base.wait',
 				disabled: false,
 				parameters: {
 					resume: 'webhook',
@@ -224,7 +224,7 @@ describe('WebhookService', () => {
 				id: '2',
 				webhookId: 'webhook2',
 				name: 'Webhook2',
-				type: 'n8n-nodes-base.wait',
+				type: 'resin-nodes-base.wait',
 				disabled: false,
 				parameters: {
 					resume: 'webhook',
@@ -368,7 +368,7 @@ describe('WebhookService', () => {
 		test('should return webhooks for node with webhook definitions', async () => {
 			const node = {
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				disabled: false,
 			} as INode;
 
@@ -405,7 +405,7 @@ describe('WebhookService', () => {
 			nodes: [
 				mock<INode>({
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 1,
 					parameters: {},
 				}),
@@ -585,7 +585,7 @@ describe('WebhookService', () => {
 
 			const node = mock<INode>({
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 			});
 
 			const nodeType = mock<INodeType>({
@@ -621,7 +621,7 @@ describe('WebhookService', () => {
 
 			const nodeWithWebhookId = mock<INode>({
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 			});
 
 			const nodeType = mock<INodeType>({
@@ -657,7 +657,7 @@ describe('WebhookService', () => {
 
 			const nodeWithWebhookId = mock<INode>({
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				disabled: false,
 				webhookId: 'test-webhook-id',
 			});

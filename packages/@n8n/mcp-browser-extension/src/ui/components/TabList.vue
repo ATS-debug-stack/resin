@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { N8nCheckbox } from '@n8n/design-system';
+import { N8nCheckbox } from '@resin/design-system';
 import TabItem from './TabItem.vue';
 
 const props = withDefaults(

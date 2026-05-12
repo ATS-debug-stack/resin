@@ -38,7 +38,7 @@ export const ACTION_RECORDED_PAGE = `
 						<p>This page can be closed now</p>
 					</div>
 				</div>
-				<div class='n8n-link'>
+				<div class='resin-link'>
 					<a
 						href='https://n8n.io/?utm_source=n8n-internal&amp;utm_medium=send-and-wait'
 						target='_blank'

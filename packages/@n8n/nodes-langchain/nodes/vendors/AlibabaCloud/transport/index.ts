@@ -3,8 +3,8 @@ import type {
 	IExecuteFunctions,
 	IHttpRequestMethods,
 	ILoadOptionsFunctions,
-} from 'n8n-workflow';
-import { NodeOperationError, sleep } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, sleep } from 'resin-workflow';
 
 type RequestParameters = {
 	headers?: IDataObject;

@@ -32,7 +32,7 @@ describe('GetExpressionDataMappingTool', () => {
 	describe('no expression data', () => {
 		it('should return no data message when workflowContext has no expressions', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, { workflow });
@@ -48,7 +48,7 @@ describe('GetExpressionDataMappingTool', () => {
 
 		it('should return no data message when expressionValues is empty object', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -69,8 +69,8 @@ describe('GetExpressionDataMappingTool', () => {
 	describe('expression data retrieval', () => {
 		it('should return expression data for all nodes when no filter', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -102,7 +102,7 @@ describe('GetExpressionDataMappingTool', () => {
 
 		it('should return expression data with complex resolved values', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -134,8 +134,8 @@ describe('GetExpressionDataMappingTool', () => {
 	describe('filtering by nodeName', () => {
 		it('should filter expression data to specific node', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -161,8 +161,8 @@ describe('GetExpressionDataMappingTool', () => {
 
 		it('should return not found message when filtered node has no expressions', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -185,10 +185,10 @@ describe('GetExpressionDataMappingTool', () => {
 	describe('multiple nodes with expressions', () => {
 		it('should handle multiple nodes with expressions', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'trigger1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
-				createNode({ id: 'set1', name: 'Set', type: 'n8n-nodes-base.set' }),
+				createNode({ id: 'trigger1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
+				createNode({ id: 'set1', name: 'Set', type: 'resin-nodes-base.set' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {

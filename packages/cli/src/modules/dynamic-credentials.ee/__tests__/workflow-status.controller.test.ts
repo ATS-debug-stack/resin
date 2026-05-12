@@ -6,7 +6,7 @@ import type { DynamicCredentialWebService } from '../services/dynamic-credential
 import { WorkflowStatusController } from '../workflow-status.controller';
 import type { CredentialResolverWorkflowService } from '../services/credential-resolver-workflow.service';
 import type { UrlService } from '@/services/url.service';
-import type { GlobalConfig } from '@n8n/config';
+import type { GlobalConfig } from '@resin/config';
 
 jest.mock('../utils', () => ({
 	getDynamicCredentialMiddlewares: jest.fn(() => undefined),

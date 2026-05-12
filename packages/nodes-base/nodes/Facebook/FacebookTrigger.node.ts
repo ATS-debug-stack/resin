@@ -10,8 +10,8 @@ import type {
 	IWebhookFunctions,
 	IWebhookResponseData,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { facebookApiRequest, getAllFields, getFields } from './GenericFunctions';

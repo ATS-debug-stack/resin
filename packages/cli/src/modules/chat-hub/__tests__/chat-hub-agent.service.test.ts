@@ -1,5 +1,5 @@
-import type { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
+import type { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 import { v4 as uuid } from 'uuid';
 
@@ -12,8 +12,8 @@ import type { ChatHubExecutionService } from '../chat-hub-execution.service';
 import type { ChatHubSettingsService } from '../chat-hub.settings.service';
 import type { ChatHubToolService } from '../chat-hub-tool.service';
 import type { ChatHubWorkflowService } from '../chat-hub-workflow.service';
-import type { ChatHubAgentKnowledgeItem } from '@n8n/api-types';
-import type { IRunExecutionData, IWorkflowBase } from 'n8n-workflow';
+import type { ChatHubAgentKnowledgeItem } from '@resin/api-types';
+import type { IRunExecutionData, IWorkflowBase } from 'resin-workflow';
 import type { SemanticSearchOptions } from '../chat-hub.types';
 import type { DynamicNodeParametersService } from '@/services/dynamic-node-parameters.service';
 import type { WorkflowExecutionService } from '@/workflows/workflow-execution.service';

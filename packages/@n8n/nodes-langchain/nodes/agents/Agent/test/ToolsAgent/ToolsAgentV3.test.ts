@@ -4,7 +4,7 @@ import {
 	type INode,
 	type EngineRequest,
 	type EngineResponse,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import type { RequestResponseMetadata } from '@utils/agent-execution';
@@ -32,8 +32,8 @@ vi.mock('@langchain/core/runnables', () => ({
 	},
 }));
 
-vi.mock('n8n-workflow', async () => ({
-	...(await vi.importActual('n8n-workflow')),
+vi.mock('resin-workflow', async () => ({
+	...(await vi.importActual('resin-workflow')),
 	sleep: vi.fn(),
 }));
 

@@ -9,4 +9,4 @@ Memory nodes: Include with chatbot AI Agents to maintain conversation context ac
 Structured Output Parser: Prefer this over manually extracting/parsing AI output with Set or Code nodes. Define the desired schema and the LLM handles parsing automatically. Use for classification, data extraction, or any workflow where AI output feeds into database storage, API calls, or Switch routing.
 
 Multi-agent systems:
-AI Agent Tool (@n8n/n8n-nodes-langchain.agentTool) contains an embedded AI Agent — it's a complete sub-agent that the main agent can call through tool(). Each AgentTool needs its own Chat Model. Node selection: 1 AI Agent + N AgentTools + (N+1) Chat Models.`;
+AI Agent Tool (@resin/n8n-nodes-langchain.agentTool) contains an embedded AI Agent — it's a complete sub-agent that the main agent can call through tool(). Each AgentTool needs its own Chat Model. Node selection: 1 AI Agent + N AgentTools + (N+1) Chat Models.`;

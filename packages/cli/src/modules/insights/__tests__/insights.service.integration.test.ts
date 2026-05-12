@@ -1,19 +1,19 @@
-import type { LicenseState } from '@n8n/backend-common';
+import type { LicenseState } from '@resin/backend-common';
 import {
 	createTeamProject,
 	createWorkflow,
 	mockLogger,
 	testDb,
 	testModules,
-} from '@n8n/backend-test-utils';
-import type { InstanceType } from '@n8n/constants';
-import type { IWorkflowDb, Project, WorkflowEntity } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import type { InstanceType } from '@resin/constants';
+import type { IWorkflowDb, Project, WorkflowEntity } from '@resin/db';
+import { Container } from '@resin/di';
 import type { MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
 import { DateTime } from 'luxon';
-import type { InstanceSettings } from 'n8n-core';
-import { UserError } from 'n8n-workflow';
+import type { InstanceSettings } from 'resin-core';
+import { UserError } from 'resin-workflow';
 
 import { createCompactedInsightsEvent } from '../database/entities/__tests__/db-utils';
 import type { InsightsByPeriodRepository } from '../database/repositories/insights-by-period.repository';

@@ -1,4 +1,4 @@
-import type { INodeCredentials, INodeParameters, INodeTypeNameVersion } from 'n8n-workflow';
+import type { INodeCredentials, INodeParameters, INodeTypeNameVersion } from 'resin-workflow';
 import { z } from 'zod';
 
 import { nodeVersionSchema } from '../../schemas/node-version.schema';

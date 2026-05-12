@@ -1,4 +1,4 @@
-import type { AgentSnapshot, ToolDescriptor } from '@n8n/agents';
+import type { AgentSnapshot, ToolDescriptor } from '@resin/agents';
 import type { JSONSchema7 } from 'json-schema';
 
 import type { AgentJsonConfig } from '../json-config/agent-json-config';
@@ -305,7 +305,11 @@ describe('buildFromJson()', () => {
 					type: 'node',
 					name: 'my_node_tool',
 					description: 'A node tool',
-					node: { nodeType: 'n8n-nodes-base.httpRequest', nodeTypeVersion: 1, nodeParameters: {} },
+					node: {
+						nodeType: 'resin-nodes-base.httpRequest',
+						nodeTypeVersion: 1,
+						nodeParameters: {},
+					},
 					requireApproval: true,
 				},
 			],
@@ -610,7 +614,7 @@ describe('AgentJsonConfigSchema', () => {
 					name: 'http_request',
 					description: 'Make an HTTP request',
 					node: {
-						nodeType: 'n8n-nodes-base.httpRequestTool',
+						nodeType: 'resin-nodes-base.httpRequestTool',
 						nodeTypeVersion: 4,
 						nodeParameters: {
 							url: "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('url', 'The URL to request', 'string') }}",
@@ -641,7 +645,7 @@ describe('AgentJsonConfigSchema', () => {
 					name: 'http_request',
 					description: 'Make an HTTP request',
 					node: {
-						nodeType: 'n8n-nodes-base.httpRequestTool',
+						nodeType: 'resin-nodes-base.httpRequestTool',
 						nodeTypeVersion: 4,
 						nodeParameters: {
 							url: "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('url', 'The URL to request', 'string') }}",

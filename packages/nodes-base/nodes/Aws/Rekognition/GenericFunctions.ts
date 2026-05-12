@@ -8,8 +8,8 @@ import type {
 	IWebhookFunctions,
 	IHttpRequestOptions,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { sanitizeXmlName } from 'n8n-workflow';
+} from 'resin-workflow';
+import { sanitizeXmlName } from 'resin-workflow';
 import { parseString } from 'xml2js';
 import { getAwsCredentials } from '../GenericFunctions';
 

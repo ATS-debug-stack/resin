@@ -7,7 +7,7 @@
 // falls back to a direct loop with the same eval-results.json output.
 // ---------------------------------------------------------------------------
 
-import type { InstanceAiEvalExecutionResult } from '@n8n/api-types';
+import type { InstanceAiEvalExecutionResult } from '@resin/api-types';
 import { mkdirSync, writeFileSync } from 'fs';
 import { Client } from 'langsmith';
 import { evaluate } from 'langsmith/evaluation';

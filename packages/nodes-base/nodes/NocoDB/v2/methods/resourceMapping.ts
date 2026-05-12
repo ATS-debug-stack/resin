@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions, ResourceMapperFields } from 'n8n-workflow';
+import type { ILoadOptionsFunctions, ResourceMapperFields } from 'resin-workflow';
 
 import { ColumnsFetcher } from '../helpers/columns-fetcher';
 

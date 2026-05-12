@@ -20,7 +20,7 @@ import type { ValidatorPlugin, ValidationIssue, PluginContext } from '../types';
 export const chainLlmValidator: ValidatorPlugin = {
 	id: 'core:chain-llm',
 	name: 'Chain LLM Validator',
-	nodeTypes: ['@n8n/n8n-nodes-langchain.chainLlm'],
+	nodeTypes: ['@resin/n8n-nodes-langchain.chainLlm'],
 	priority: 50,
 
 	validateNode(

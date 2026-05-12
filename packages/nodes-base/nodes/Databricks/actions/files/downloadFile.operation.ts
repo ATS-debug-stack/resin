@@ -1,6 +1,6 @@
 import mime from 'mime-types';
-import { NodeOperationError } from 'n8n-workflow';
-import type { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
+import type { IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
 
 import { getActiveCredentialType, getHost } from '../helpers';
 

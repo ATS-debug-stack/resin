@@ -41,8 +41,8 @@ describe('RemoveConnectionTool', () => {
 	describe('invoke', () => {
 		it('should remove a main connection between two nodes', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			// Add existing connection
@@ -106,9 +106,9 @@ describe('RemoveConnectionTool', () => {
 				createNode({
 					id: 'model1',
 					name: 'OpenAI Chat Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
-				createNode({ id: 'agent1', name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
+				createNode({ id: 'agent1', name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
 			]);
 
 			// Add existing AI connection
@@ -158,8 +158,8 @@ describe('RemoveConnectionTool', () => {
 
 		it('should remove connection at specific output/input indices', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'If', type: 'n8n-nodes-base.if' }),
-				createNode({ id: 'node2', name: 'Set', type: 'n8n-nodes-base.set' }),
+				createNode({ id: 'node1', name: 'If', type: 'resin-nodes-base.if' }),
+				createNode({ id: 'node2', name: 'Set', type: 'resin-nodes-base.set' }),
 			]);
 
 			// Add connection at output index 1 (false branch)
@@ -207,9 +207,9 @@ describe('RemoveConnectionTool', () => {
 
 		it('should handle removing one connection when multiple exist', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'Set 1', type: 'n8n-nodes-base.set' }),
-				createNode({ id: 'node3', name: 'Set 2', type: 'n8n-nodes-base.set' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'Set 1', type: 'resin-nodes-base.set' }),
+				createNode({ id: 'node3', name: 'Set 2', type: 'resin-nodes-base.set' }),
 			]);
 
 			// Add multiple connections from same source
@@ -261,7 +261,7 @@ describe('RemoveConnectionTool', () => {
 
 		it('should return error when source node not found', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -288,7 +288,7 @@ describe('RemoveConnectionTool', () => {
 
 		it('should return error when target node not found', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
@@ -310,8 +310,8 @@ describe('RemoveConnectionTool', () => {
 
 		it('should return error when source node has no connections', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			// No connections at all
@@ -336,8 +336,8 @@ describe('RemoveConnectionTool', () => {
 
 		it('should return error when connection type does not exist', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			// Only main connections exist
@@ -375,8 +375,8 @@ describe('RemoveConnectionTool', () => {
 
 		it('should return error when output index does not exist', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			existingWorkflow.connections = {
@@ -414,9 +414,9 @@ describe('RemoveConnectionTool', () => {
 
 		it('should return error when specific connection does not exist', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
-				createNode({ id: 'node3', name: 'Set', type: 'n8n-nodes-base.set' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
+				createNode({ id: 'node3', name: 'Set', type: 'resin-nodes-base.set' }),
 			]);
 
 			// Connection exists, but to a different node
@@ -454,8 +454,8 @@ describe('RemoveConnectionTool', () => {
 
 		it('should default connectionType to "main" when not specified', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			existingWorkflow.connections = {
@@ -494,8 +494,8 @@ describe('RemoveConnectionTool', () => {
 
 		it('should default indices to 0 when not specified', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'node2', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'node2', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			existingWorkflow.connections = {

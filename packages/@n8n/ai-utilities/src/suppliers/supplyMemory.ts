@@ -1,4 +1,4 @@
-import type { ISupplyDataFunctions, SupplyData } from 'n8n-workflow';
+import type { ISupplyDataFunctions, SupplyData } from 'resin-workflow';
 
 import { LangchainMemoryAdapter } from '../adapters/langchain-memory';
 import type { ChatMemory } from '../types/memory';

@@ -1,5 +1,5 @@
 import type { RawAxiosRequestHeaders } from 'axios';
-import type { INode, INodeCredentialsDetails } from 'n8n-workflow';
+import type { INode, INodeCredentialsDetails } from 'resin-workflow';
 
 import type { VersionNode } from './versions';
 import type { WorkflowData } from './workflows';

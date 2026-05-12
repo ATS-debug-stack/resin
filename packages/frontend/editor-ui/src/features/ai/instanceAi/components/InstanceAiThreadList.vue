@@ -7,9 +7,9 @@ import {
 	N8nScrollArea,
 	N8nTooltip,
 	TOOLTIP_DELAY_MS,
-} from '@n8n/design-system';
-import type { ActionDropdownItem } from '@n8n/design-system/types';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import type { ActionDropdownItem } from '@resin/design-system/types';
+import { useI18n } from '@resin/i18n';
 import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { INSTANCE_AI_VIEW, INSTANCE_AI_THREAD_VIEW } from '../constants';

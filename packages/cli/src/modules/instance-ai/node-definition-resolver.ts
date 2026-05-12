@@ -6,7 +6,7 @@
  * pure functions without LangChain dependencies.
  */
 
-import { safeJoinPath } from '@n8n/backend-common';
+import { safeJoinPath } from '@resin/backend-common';
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { dirname } from 'node:path';
 
@@ -23,7 +23,7 @@ function isValidPathComponent(component: string): boolean {
 // ── Path resolution ──────────────────────────────────────────────────────────
 
 function parseNodeId(nodeId: string): { packageName: string; nodeName: string } | null {
-	if (nodeId.startsWith('@n8n/')) {
+	if (nodeId.startsWith('@resin/')) {
 		const withoutPrefix = nodeId.slice(5);
 		const dotIndex = withoutPrefix.indexOf('.');
 		if (dotIndex === -1) return null;
@@ -395,7 +395,7 @@ export function resolveNodeTypeDefinition(
  */
 export function resolveBuiltinNodeDefinitionDirs(): string[] {
 	const dirs: string[] = [];
-	for (const packageId of ['n8n-nodes-base', '@n8n/n8n-nodes-langchain']) {
+	for (const packageId of ['resin-nodes-base', '@resin/n8n-nodes-langchain']) {
 		try {
 			const packageJsonPath = require.resolve(`${packageId}/package.json`);
 			const distDir = dirname(packageJsonPath);

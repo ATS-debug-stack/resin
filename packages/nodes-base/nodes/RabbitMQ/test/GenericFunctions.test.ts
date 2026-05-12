@@ -6,7 +6,7 @@ import type {
 	IRun,
 	ITriggerFunctions,
 	IWorkflowMetadata,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 const mockChannel = mock<Channel>();
 const mockConnection = mock<Connection>({ createChannel: async () => mockChannel });

@@ -1,5 +1,5 @@
-import { Patch, RestController } from '@n8n/decorators';
-import type { NpsSurveyState } from 'n8n-workflow';
+import { Patch, RestController } from '@resin/decorators';
+import type { NpsSurveyState } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { NpsSurveyRequest } from '@/requests';

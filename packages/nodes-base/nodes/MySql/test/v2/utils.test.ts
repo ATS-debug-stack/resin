@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 
 import type { SortRule, WhereClause } from '../../v2/helpers/interfaces';
 import * as utils from '../../v2/helpers/utils';
@@ -17,7 +17,7 @@ const mySqlMockNode: INode = {
 	id: '1',
 	name: 'MySQL node',
 	typeVersion: 2,
-	type: 'n8n-nodes-base.mySql',
+	type: 'resin-nodes-base.mySql',
 	position: [60, 760],
 	parameters: {
 		operation: 'select',

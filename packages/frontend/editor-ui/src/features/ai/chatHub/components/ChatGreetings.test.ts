@@ -1,7 +1,7 @@
 import { createComponentRenderer } from '@/__tests__/render';
 import { createTestingPinia } from '@pinia/testing';
 import ChatGreetings from './ChatGreetings.vue';
-import type { ChatModelDto } from '@n8n/api-types';
+import type { ChatModelDto } from '@resin/api-types';
 import userEvent from '@testing-library/user-event';
 
 const renderComponent = createComponentRenderer(ChatGreetings, {

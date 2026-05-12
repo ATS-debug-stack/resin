@@ -1,4 +1,4 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import {
 	FolderRepository,
 	ProjectRepository,
@@ -6,9 +6,9 @@ import {
 	WorkflowRepository,
 	type Project,
 	type User,
-} from '@n8n/db';
-import { hasGlobalScope } from '@n8n/permissions';
-import { In } from '@n8n/typeorm';
+} from '@resin/db';
+import { hasGlobalScope } from '@resin/permissions';
+import { In } from '@resin/typeorm';
 
 import { UserFavoriteRepository } from './database/repositories/user-favorite.repository';
 
@@ -16,7 +16,7 @@ import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 import { DataTableRepository } from '@/modules/data-table/data-table.repository';
 
-import type { FavoriteResourceType } from '@n8n/api-types';
+import type { FavoriteResourceType } from '@resin/api-types';
 
 type ResourceMeta = { name: string; projectId: string };
 

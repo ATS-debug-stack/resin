@@ -2,10 +2,10 @@
 import { computed } from 'vue';
 import { getAgentRoute } from '@/features/ai/chatHub/chat.utils';
 import ChatAgentAvatar from '@/features/ai/chatHub/components/ChatAgentAvatar.vue';
-import type { ChatModelDto } from '@n8n/api-types';
-import { N8nActionDropdown, N8nIconButton, N8nText } from '@n8n/design-system';
-import type { ActionDropdownItem } from '@n8n/design-system/types';
-import { useI18n } from '@n8n/i18n';
+import type { ChatModelDto } from '@resin/api-types';
+import { N8nActionDropdown, N8nIconButton, N8nText } from '@resin/design-system';
+import type { ActionDropdownItem } from '@resin/design-system/types';
+import { useI18n } from '@resin/i18n';
 import { RouterLink } from 'vue-router';
 
 const { agent } = defineProps<{

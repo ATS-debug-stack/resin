@@ -1,4 +1,4 @@
-import type { N8nInput } from '@n8n/design-system';
+import type { N8nInput } from '@resin/design-system';
 import type {
 	ExecutionError,
 	GenericValue,
@@ -11,7 +11,7 @@ import type {
 	NodeParameterValueType,
 	IDestinationNode,
 	StartNodeData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { RouteLocation } from 'vue-router';
 import type {
 	INodeCreateElement,
@@ -20,8 +20,8 @@ import type {
 	IWorkflowDb,
 	NodeFilterType,
 } from '@/Interface';
-import type { IPersonalizationLatestVersion } from '@n8n/rest-api-client/api/users';
-import type { IWorkflowTemplateNode } from '@n8n/rest-api-client/api/templates';
+import type { IPersonalizationLatestVersion } from '@resin/rest-api-client/api/users';
+import type { IWorkflowTemplateNode } from '@resin/rest-api-client/api/templates';
 import type { ComponentPublicInstance } from 'vue';
 import type { useWebhooksStore } from '@/app/stores/webhooks.store';
 

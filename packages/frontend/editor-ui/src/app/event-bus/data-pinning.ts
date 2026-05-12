@@ -1,5 +1,5 @@
-import { createEventBus } from '@n8n/utils/event-bus';
-import type { IPinData } from 'n8n-workflow';
+import { createEventBus } from '@resin/utils/event-bus';
+import type { IPinData } from 'resin-workflow';
 
 export type DataPinningDiscoveryEvent = {
 	isTooltipVisible: boolean;

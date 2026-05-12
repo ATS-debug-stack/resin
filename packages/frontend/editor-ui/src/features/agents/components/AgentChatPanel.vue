@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, toRef, watch, onMounted, onBeforeUnmount } from 'vue';
-import { N8nButton, N8nCallout, N8nIconButton } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nCallout, N8nIconButton } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import ChatInputBase from '@/features/ai/shared/components/ChatInputBase.vue';
 import { useAgentChatStream } from '../composables/useAgentChatStream';
 import AgentChatEmptyState from './AgentChatEmptyState.vue';

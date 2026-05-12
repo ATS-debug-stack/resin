@@ -1,5 +1,5 @@
 import type { VectorStore } from '@langchain/core/vectorstores';
-import type { INodeProperties, INodePropertyOptions } from 'n8n-workflow';
+import type { INodeProperties, INodePropertyOptions } from 'resin-workflow';
 
 import { DEFAULT_OPERATION_MODES, OPERATION_MODE_DESCRIPTIONS } from './constants';
 import type { NodeOperationMode, VectorStoreNodeConstructorArgs } from './types';

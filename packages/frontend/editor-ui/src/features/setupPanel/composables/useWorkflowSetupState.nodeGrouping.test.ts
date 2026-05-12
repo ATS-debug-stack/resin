@@ -101,7 +101,7 @@ vi.mock('vue-router', async () => {
 const createNode = (overrides: Partial<INodeUi> = {}): INodeUi =>
 	createTestNode({
 		name: 'TestNode',
-		type: 'n8n-nodes-base.testNode',
+		type: 'resin-nodes-base.testNode',
 		typeVersion: 1,
 		position: [0, 0],
 		...overrides,
@@ -145,18 +145,18 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should create a node group for an agent with an LLM sub-node', () => {
 		const agentNode = createNode({
 			name: 'AI Agent',
-			type: '@n8n/n8n-nodes-langchain.agent',
+			type: '@resin/n8n-nodes-langchain.agent',
 		});
 		const llmNode = createNode({
 			name: 'OpenAI Chat Model',
-			type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [agentNode, llmNode];
 
 		// LLM node needs openAiApi credential
 		mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
-			if ((node as INodeUi).type === '@n8n/n8n-nodes-langchain.lmChatOpenAi')
+			if ((node as INodeUi).type === '@resin/n8n-nodes-langchain.lmChatOpenAi')
 				return [{ name: 'openAiApi' }];
 			return [];
 		});
@@ -190,18 +190,18 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should create a node group for a chain with an LLM sub-node', () => {
 		const chainNode = createNode({
 			name: 'Basic LLM Chain',
-			type: '@n8n/n8n-nodes-langchain.chainLlm',
+			type: '@resin/n8n-nodes-langchain.chainLlm',
 		});
 		const llmNode = createNode({
 			name: 'OpenAI Chat Model',
-			type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [chainNode, llmNode];
 
 		// LLM node needs openAiApi credential
 		mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
-			if ((node as INodeUi).type === '@n8n/n8n-nodes-langchain.lmChatOpenAi')
+			if ((node as INodeUi).type === '@resin/n8n-nodes-langchain.lmChatOpenAi')
 				return [{ name: 'openAiApi' }];
 			return [];
 		});
@@ -235,26 +235,26 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should recursively collect transitive sub-nodes into one group', () => {
 		const chainNode = createNode({
 			name: 'Basic LLM Chain',
-			type: '@n8n/n8n-nodes-langchain.chainLlm',
+			type: '@resin/n8n-nodes-langchain.chainLlm',
 		});
 		const retrieverNode = createNode({
 			name: 'Retriever',
-			type: '@n8n/n8n-nodes-langchain.retrieverVectorStore',
+			type: '@resin/n8n-nodes-langchain.retrieverVectorStore',
 		});
 		const vectorStoreNode = createNode({
 			name: 'Vector Store',
-			type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+			type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 		});
 		const embeddingNode = createNode({
 			name: 'Embedding',
-			type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+			type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [chainNode, retrieverNode, vectorStoreNode, embeddingNode];
 
 		// Only Embedding needs credential
 		mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
-			if ((node as INodeUi).type === '@n8n/n8n-nodes-langchain.embeddingsOpenAi')
+			if ((node as INodeUi).type === '@resin/n8n-nodes-langchain.embeddingsOpenAi')
 				return [{ name: 'openAiApi' }];
 			return [];
 		});
@@ -299,26 +299,26 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should not create a separate group for a node that is both parent and sub-node', () => {
 		const agentNode = createNode({
 			name: 'AI Agent',
-			type: '@n8n/n8n-nodes-langchain.agent',
+			type: '@resin/n8n-nodes-langchain.agent',
 		});
 		const toolCodeNode = createNode({
 			name: 'Tool Code',
-			type: '@n8n/n8n-nodes-langchain.toolCode',
+			type: '@resin/n8n-nodes-langchain.toolCode',
 		});
 		const vectorStoreNode = createNode({
 			name: 'Vector Store',
-			type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+			type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 		});
 		const embeddingNode = createNode({
 			name: 'Embedding',
-			type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+			type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [agentNode, toolCodeNode, vectorStoreNode, embeddingNode];
 
 		// Only Embedding needs credential
 		mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
-			if ((node as INodeUi).type === '@n8n/n8n-nodes-langchain.embeddingsOpenAi')
+			if ((node as INodeUi).type === '@resin/n8n-nodes-langchain.embeddingsOpenAi')
 				return [{ name: 'openAiApi' }];
 			return [];
 		});
@@ -357,22 +357,22 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should not group regular nodes without AI connections', () => {
 		const scheduleTrigger = createNode({
 			name: 'Schedule Trigger',
-			type: 'n8n-nodes-base.scheduleTrigger',
+			type: 'resin-nodes-base.scheduleTrigger',
 		});
 		const slackNode = createNode({
 			name: 'Slack',
-			type: 'n8n-nodes-base.slack',
+			type: 'resin-nodes-base.slack',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [scheduleTrigger, slackNode];
 		nodeTypesStore.isTriggerNode = vi.fn(
-			(type: string) => type === 'n8n-nodes-base.scheduleTrigger',
+			(type: string) => type === 'resin-nodes-base.scheduleTrigger',
 		);
 		nodeTypesStore.getNodeType = vi.fn().mockReturnValue({});
 
 		// Slack needs slackApi credential
 		mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
-			if ((node as INodeUi).type === 'n8n-nodes-base.slack') return [{ name: 'slackApi' }];
+			if ((node as INodeUi).type === 'resin-nodes-base.slack') return [{ name: 'slackApi' }];
 			return [];
 		});
 		credentialsStore.getCredentialTypeByName = vi.fn().mockReturnValue({
@@ -406,11 +406,11 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should keep parent node as regular card if no sub-nodes need setup', () => {
 		const agentNode = createNode({
 			name: 'AI Agent',
-			type: '@n8n/n8n-nodes-langchain.agent',
+			type: '@resin/n8n-nodes-langchain.agent',
 		});
 		const toolCodeNode = createNode({
 			name: 'Tool Code',
-			type: '@n8n/n8n-nodes-langchain.toolCode',
+			type: '@resin/n8n-nodes-langchain.toolCode',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [agentNode, toolCodeNode];

@@ -4,9 +4,9 @@ import type {
 	ExecutionSummary,
 	WorkflowExecuteMode,
 	IRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { IWorkflowDb } from '@/Interface';
-import type { Scope } from '@n8n/permissions';
+import type { Scope } from '@resin/permissions';
 
 export type ExecutionFilterMetadata = {
 	key: string;

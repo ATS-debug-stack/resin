@@ -34,7 +34,7 @@ describe('GetExecutionLogsTool', () => {
 	describe('no execution data', () => {
 		it('should return no logs message when execution data is undefined', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, { workflow });
@@ -50,7 +50,7 @@ describe('GetExecutionLogsTool', () => {
 
 		it('should return no logs message when runData is empty and no error', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -71,7 +71,7 @@ describe('GetExecutionLogsTool', () => {
 	describe('error handling', () => {
 		it('should include error information when execution has error', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -100,7 +100,7 @@ describe('GetExecutionLogsTool', () => {
 
 		it('should handle error with no lastNodeExecuted', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -125,7 +125,7 @@ describe('GetExecutionLogsTool', () => {
 	describe('runData handling', () => {
 		it('should include runData when present', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -150,8 +150,8 @@ describe('GetExecutionLogsTool', () => {
 
 		it('should include both error and runData when both present', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -179,8 +179,8 @@ describe('GetExecutionLogsTool', () => {
 	describe('filtering by nodeName', () => {
 		it('should filter runData to specific node', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -206,8 +206,8 @@ describe('GetExecutionLogsTool', () => {
 
 		it('should show message when filtered node has no data', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -230,7 +230,7 @@ describe('GetExecutionLogsTool', () => {
 
 		it('should show not found message when node has no execution logs', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -251,7 +251,7 @@ describe('GetExecutionLogsTool', () => {
 	describe('truncation of large data', () => {
 		it('should truncate large execution data', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			// Create large data that exceeds MAX_EXECUTION_DATA_CHARS (10000)

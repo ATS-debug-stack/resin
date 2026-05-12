@@ -6,22 +6,22 @@
  *
  * @example
  * ```typescript
- * import { languageModel, tool, node } from '@n8n/workflow-sdk';
+ * import { languageModel, tool, node } from '@resin/workflow-sdk';
  *
  * const model = languageModel({
- *   type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+ *   type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
  *   version: 1.2,
  *   config: { parameters: { model: 'gpt-4' } }
  * });
  *
  * const codeRunner = tool({
- *   type: '@n8n/n8n-nodes-langchain.toolCode',
+ *   type: '@resin/n8n-nodes-langchain.toolCode',
  *   version: 1.1,
  *   config: { parameters: { code: 'return "hello"' } }
  * });
  *
  * const agent = node({
- *   type: '@n8n/n8n-nodes-langchain.agent',
+ *   type: '@resin/n8n-nodes-langchain.agent',
  *   version: 1.7,
  *   config: {
  *     subnodes: { model, tools: [codeRunner] }
@@ -171,7 +171,7 @@ class SubnodeInstanceImpl<
  * @example
  * ```typescript
  * const model = languageModel({
- *   type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+ *   type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
  *   version: 1.2,
  *   config: {
  *     parameters: { model: 'gpt-4', temperature: 0.7 },
@@ -201,7 +201,7 @@ export function languageModel<TNode extends NodeInput>(
  * @example
  * ```typescript
  * const mem = memory({
- *   type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+ *   type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
  *   version: 1.2,
  *   config: { parameters: { contextWindowLength: 5 } }
  * });
@@ -234,7 +234,7 @@ export function memory<TNode extends NodeInput>(
  * @example Static config
  * ```typescript
  * const calc = tool({
- *   type: '@n8n/n8n-nodes-langchain.toolCalculator',
+ *   type: '@resin/n8n-nodes-langchain.toolCalculator',
  *   version: 1,
  *   config: { parameters: {} }
  * });
@@ -242,10 +242,10 @@ export function memory<TNode extends NodeInput>(
  *
  * @example With fromAi() for AI-driven parameters
  * ```typescript
- * import { tool, fromAi } from '@n8n/workflow-sdk';
+ * import { tool, fromAi } from '@resin/workflow-sdk';
  *
  * const gmail = tool({
- *   type: 'n8n-nodes-base.gmailTool',
+ *   type: 'resin-nodes-base.gmailTool',
  *   version: 1,
  *   config: {
  *     parameters: {
@@ -278,7 +278,7 @@ export function tool<TNode extends NodeInput>(
  * @example
  * ```typescript
  * const parser = outputParser({
- *   type: '@n8n/n8n-nodes-langchain.outputParserStructured',
+ *   type: '@resin/n8n-nodes-langchain.outputParserStructured',
  *   version: 1,
  *   config: { parameters: { schemaType: 'manual' } }
  * });
@@ -305,7 +305,7 @@ export function outputParser<TNode extends NodeInput>(
  * @example
  * ```typescript
  * const emb = embedding({
- *   type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+ *   type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
  *   version: 1,
  *   config: { parameters: { model: 'text-embedding-ada-002' } }
  * });
@@ -332,7 +332,7 @@ export function embedding<TNode extends NodeInput>(
  * @example
  * ```typescript
  * const vs = vectorStore({
- *   type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+ *   type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
  *   version: 1,
  *   config: { parameters: { indexName: 'my-index' } }
  * });
@@ -359,7 +359,7 @@ export function vectorStore<TNode extends NodeInput>(
  * @example
  * ```typescript
  * const ret = retriever({
- *   type: '@n8n/n8n-nodes-langchain.retrieverVectorStore',
+ *   type: '@resin/n8n-nodes-langchain.retrieverVectorStore',
  *   version: 1,
  *   config: {}
  * });
@@ -386,7 +386,7 @@ export function retriever<TNode extends NodeInput>(
  * @example
  * ```typescript
  * const loader = documentLoader({
- *   type: '@n8n/n8n-nodes-langchain.documentDefaultDataLoader',
+ *   type: '@resin/n8n-nodes-langchain.documentDefaultDataLoader',
  *   version: 1,
  *   config: {}
  * });
@@ -413,7 +413,7 @@ export function documentLoader<TNode extends NodeInput>(
  * @example
  * ```typescript
  * const splitter = textSplitter({
- *   type: '@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter',
+ *   type: '@resin/n8n-nodes-langchain.textSplitterCharacterTextSplitter',
  *   version: 1,
  *   config: { parameters: { chunkSize: 1000 } }
  * });
@@ -440,7 +440,7 @@ export function textSplitter<TNode extends NodeInput>(
  * @example
  * ```typescript
  * const rerank = reranker({
- *   type: '@n8n/n8n-nodes-langchain.rerankerCohere',
+ *   type: '@resin/n8n-nodes-langchain.rerankerCohere',
  *   version: 1,
  *   config: { parameters: { topN: 5 } }
  * });
@@ -502,7 +502,7 @@ export type EmbeddingsFn = EmbeddingFn;
  * @example Old pattern (deprecated):
  * ```typescript
  * tool({
- *   type: 'n8n-nodes-base.gmailTool',
+ *   type: 'resin-nodes-base.gmailTool',
  *   version: 1,
  *   config: ($) => ({ parameters: { sendTo: $.fromAI('to', 'Email recipient') } })
  * })
@@ -511,7 +511,7 @@ export type EmbeddingsFn = EmbeddingFn;
  * @example New pattern:
  * ```typescript
  * tool({
- *   type: 'n8n-nodes-base.gmailTool',
+ *   type: 'resin-nodes-base.gmailTool',
  *   version: 1,
  *   config: { parameters: { sendTo: fromAi('to', 'Email recipient') } }
  * })

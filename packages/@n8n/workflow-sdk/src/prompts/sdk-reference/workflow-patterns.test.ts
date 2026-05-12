@@ -4,7 +4,7 @@ describe('WORKFLOW_SDK_PATTERNS', () => {
 	it('does not show empty parameter blocks for Set node examples', () => {
 		const setNodeExamples = [
 			...WORKFLOW_SDK_PATTERNS.matchAll(
-				/node\(\{\n\s+type: 'n8n-nodes-base\.set',[^\n]*[\s\S]*?\n\}\);/g,
+				/node\(\{\n\s+type: 'resin-nodes-base\.set',[^\n]*[\s\S]*?\n\}\);/g,
 			),
 		];
 

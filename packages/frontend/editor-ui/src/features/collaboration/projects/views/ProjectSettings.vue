@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import type { Role } from '@n8n/permissions';
+import type { Role } from '@resin/permissions';
 import { computed, ref, watch, onBeforeMount, onMounted, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 import { useDebounceFn } from '@vueuse/core';
 import { useUsersStore } from '@/features/settings/users/users.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { type ResourceCounts, useProjectsStore } from '../projects.store';
 import type { Project, ProjectRelation, ProjectMemberData } from '../projects.types';
 import { useToast } from '@/app/composables/useToast';
@@ -14,19 +14,22 @@ import ProjectDeleteDialog from '../components/ProjectDeleteDialog.vue';
 import ProjectRoleUpgradeDialog from '../components/ProjectRoleUpgradeDialog.vue';
 import ProjectMembersTable from '../components/ProjectMembersTable.vue';
 import { useRolesStore } from '@/app/stores/roles.store';
-import { ROLE } from '@n8n/api-types';
+import { ROLE } from '@resin/api-types';
 import { useCloudPlanStore } from '@/app/stores/cloudPlan.store';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import ProjectHeader from '../components/ProjectHeader.vue';
-import { isIconOrEmoji, type IconOrEmoji } from '@n8n/design-system/components/N8nIconPicker/types';
-import type { TableOptions } from '@n8n/design-system/components/N8nDataTableServer';
-import type { UserAction } from '@n8n/design-system';
+import {
+	isIconOrEmoji,
+	type IconOrEmoji,
+} from '@resin/design-system/components/N8nIconPicker/types';
+import type { TableOptions } from '@resin/design-system/components/N8nDataTableServer';
+import type { UserAction } from '@resin/design-system';
 import { isProjectRole } from '@/app/utils/typeGuards';
 import { useUserRoleProvisioningStore } from '@/features/settings/sso/provisioning/composables/userRoleProvisioning.store';
-import { N8nAlert } from '@n8n/design-system';
+import { N8nAlert } from '@resin/design-system';
 import ProjectExternalSecrets from '../components/ProjectExternalSecrets.vue';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 
 import {
 	N8nButton,
@@ -36,7 +39,7 @@ import {
 	N8nInput,
 	N8nText,
 	N8nUserSelect,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 type FormDataDiff = {
 	name?: string;
 	description?: string;

@@ -240,7 +240,7 @@ export async function fetchUrl(url: string, signal?: AbortSignal): Promise<Fetch
 			redirect: 'follow',
 			headers: {
 				// eslint-disable-next-line @typescript-eslint/naming-convention
-				'User-Agent': 'n8n-workflow-builder/1.0',
+				'User-Agent': 'resin-workflow-builder/1.0',
 				Accept: 'text/html,application/xhtml+xml,*/*',
 			},
 		});

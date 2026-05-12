@@ -5,7 +5,7 @@ import type { MutablePluginContext } from '../types';
 // Helper to create a mock split-in-batches node
 function createMockSibNode(name = 'Split In Batches'): NodeInstance<string, string, unknown> {
 	return {
-		type: 'n8n-nodes-base.splitInBatches',
+		type: 'resin-nodes-base.splitInBatches',
 		name,
 		version: '3',
 		config: { parameters: { batchSize: 10 } },
@@ -15,7 +15,7 @@ function createMockSibNode(name = 'Split In Batches'): NodeInstance<string, stri
 // Helper to create a mock node
 function createMockNode(name: string): NodeInstance<string, string, unknown> {
 	return {
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		name,
 		version: '1',
 		config: { parameters: {} },

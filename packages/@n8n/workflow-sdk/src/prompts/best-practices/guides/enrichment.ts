@@ -119,7 +119,7 @@ export class EnrichmentBestPractices implements BestPracticesDocument {
 - Use cases: Get company logos, colors, brand assets
 - Best practices: Cache brand data, handle missing brands
 
-**OpenAI** (@n8n/n8n-nodes-langchain.openAi):
+**OpenAI** (@resin/n8n-nodes-langchain.openAi):
 - Purpose: AI-powered data enrichment
 - Use cases: Extract insights, classify data, generate descriptions
 - Best practices: Minimize token usage, batch similar requests

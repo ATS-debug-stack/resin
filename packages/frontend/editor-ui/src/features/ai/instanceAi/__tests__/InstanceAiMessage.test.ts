@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { createThreadComponentRenderer } from './createThreadComponentRenderer';
 import { createTestingPinia } from '@pinia/testing';
 import InstanceAiMessageComponent from '../components/InstanceAiMessage.vue';
-import type { InstanceAiMessage, InstanceAiAgentNode } from '@n8n/api-types';
+import type { InstanceAiMessage, InstanceAiAgentNode } from '@resin/api-types';
 
 vi.mock('@/features/ai/chatHub/components/ChatMarkdownChunk.vue', () => ({
 	default: {

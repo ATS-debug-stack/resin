@@ -4,7 +4,7 @@ import type { Router } from 'vue-router';
 import { VIEWS } from '@/app/constants';
 
 import type { IWorkflowDb, WorkflowListResource } from '@/Interface';
-import type { NodeParameterValue } from 'n8n-workflow';
+import type { NodeParameterValue } from 'resin-workflow';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useCanvasOperations } from '@/app/composables/useCanvasOperations';
 
@@ -77,7 +77,7 @@ export function useWorkflowResourcesLocator(router: Router) {
 			'updatedAt:desc',
 			{
 				...(searchFilter.value ? { query: searchFilter.value } : {}),
-				triggerNodeTypes: ['n8n-nodes-base.executeWorkflowTrigger'],
+				triggerNodeTypes: ['resin-nodes-base.executeWorkflowTrigger'],
 			},
 		);
 		totalCount.value = workflowsListStore.totalWorkflowCount;

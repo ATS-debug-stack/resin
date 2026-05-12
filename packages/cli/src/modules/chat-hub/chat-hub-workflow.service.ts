@@ -5,14 +5,14 @@ import {
 	type ChatHubBaseLLMModel,
 	type ChatProviderSettingsDto,
 	type ChatHubAgentKnowledgeItem,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
 import {
 	DEFAULT_CONTEXT_WINDOW_LENGTH,
 	EMBEDDINGS_NODE_TYPE_MAP,
 	parseMessage,
 	collectChatArtifacts,
-} from '@n8n/chat-hub';
+} from '@resin/chat-hub';
 import {
 	SharedWorkflow,
 	SharedWorkflowRepository,
@@ -20,11 +20,11 @@ import {
 	withTransaction,
 	WorkflowEntity,
 	WorkflowRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { EntityManager } from '@n8n/typeorm';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { EntityManager } from '@resin/typeorm';
 import { DateTime } from 'luxon';
-import { Cipher } from 'n8n-core';
+import { Cipher } from 'resin-core';
 import {
 	CHAT_NODE_TYPE,
 	AGENT_LANGCHAIN_NODE_TYPE,
@@ -46,7 +46,7 @@ import {
 	OperationalError,
 	type IBinaryData,
 	type NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuidv4 } from 'uuid';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

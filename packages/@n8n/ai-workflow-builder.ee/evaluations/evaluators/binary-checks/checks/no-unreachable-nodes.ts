@@ -1,11 +1,11 @@
-import type { INodeTypeDescription } from 'n8n-workflow';
-import { getChildNodes } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
+import { getChildNodes } from 'resin-workflow';
 
 import { createNodeTypeMaps, getNodeTypeForNode } from '@/validation/utils/node-type-map';
 
 import type { BinaryCheck, BinaryCheckContext, SimpleWorkflow } from '../types';
 
-const STICKY_NOTE_TYPE = 'n8n-nodes-base.stickyNote';
+const STICKY_NOTE_TYPE = 'resin-nodes-base.stickyNote';
 
 function findTriggerNames(workflow: SimpleWorkflow, nodeTypes: INodeTypeDescription[]): string[] {
 	const { nodeTypeMap, nodeTypesByName } = createNodeTypeMaps(nodeTypes);
@@ -85,7 +85,7 @@ export const noUnreachableNodes: BinaryCheck = {
 			};
 		}
 
-		// Forward BFS from triggers using n8n-workflow's getChildNodes (ALL connection types)
+		// Forward BFS from triggers using resin-workflow's getChildNodes (ALL connection types)
 		const reachable = new Set<string>(triggers);
 		for (const trigger of triggers) {
 			for (const child of getChildNodes(connections, trigger, 'ALL', -1)) {

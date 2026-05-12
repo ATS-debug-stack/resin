@@ -1,10 +1,10 @@
-import type { EvaluationConfig } from '@n8n/db';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { EvaluationConfig } from '@resin/db';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { LlmJudgeProviderRegistry } from '../../llm-judge-provider-registry';
 import { WorkflowCompilerService } from '../workflow-compiler.service';
 
-const EVALUATION_TRIGGER_NODE_TYPE = 'n8n-nodes-base.evaluationTrigger';
+const EVALUATION_TRIGGER_NODE_TYPE = 'resin-nodes-base.evaluationTrigger';
 
 function baseWorkflow(): IWorkflowBase {
 	return {
@@ -19,7 +19,7 @@ function baseWorkflow(): IWorkflowBase {
 			{
 				id: 'n-trigger',
 				name: 'UserTrigger',
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -27,7 +27,7 @@ function baseWorkflow(): IWorkflowBase {
 			{
 				id: 'n-agent',
 				name: 'Agent',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				typeVersion: 1,
 				position: [200, 0],
 				parameters: {},
@@ -74,7 +74,7 @@ describe('WorkflowCompilerService', () => {
 
 		// User trigger preserved as-is.
 		const userTrigger = compiled.nodes.find((n) => n.name === 'UserTrigger')!;
-		expect(userTrigger.type).toBe('n8n-nodes-base.manualTrigger');
+		expect(userTrigger.type).toBe('resin-nodes-base.manualTrigger');
 
 		const evalTrigger = compiled.nodes.find((n) => n.name === '__eval_trigger')!;
 		expect(evalTrigger.type).toBe(EVALUATION_TRIGGER_NODE_TYPE);
@@ -149,7 +149,7 @@ describe('WorkflowCompilerService', () => {
 				config: {
 					preset: 'correctness',
 					prompt: 'You are a judge',
-					provider: '@n8n/n8n-nodes-langchain.lmChatAnthropic',
+					provider: '@resin/n8n-nodes-langchain.lmChatAnthropic',
 					credentialId: 'cred-anth',
 					model: 'claude-sonnet-4-6',
 					outputType: 'numeric',
@@ -171,7 +171,7 @@ describe('WorkflowCompilerService', () => {
 		expect(metric.parameters.options).toEqual({ metricName: 'Answer correctness' });
 
 		const model = compiled.nodes.find((n) => n.name === '__eval_model_m-judge')!;
-		expect(model.type).toBe('@n8n/n8n-nodes-langchain.lmChatAnthropic');
+		expect(model.type).toBe('@resin/n8n-nodes-langchain.lmChatAnthropic');
 		expect(model.parameters.model).toBe('claude-sonnet-4-6');
 		expect(model.credentials).toEqual({ anthropicApi: { id: 'cred-anth', name: '' } });
 
@@ -185,7 +185,7 @@ describe('WorkflowCompilerService', () => {
 		wf.nodes.push({
 			id: 'n-post',
 			name: 'Post',
-			type: 'n8n-nodes-base.set',
+			type: 'resin-nodes-base.set',
 			typeVersion: 1,
 			position: [400, 0],
 			parameters: {},
@@ -200,7 +200,7 @@ describe('WorkflowCompilerService', () => {
 
 		// UserTrigger stays as-is; __eval_trigger is inserted and now feeds Agent directly.
 		const userTrigger = compiled.nodes.find((n) => n.name === 'UserTrigger')!;
-		expect(userTrigger.type).toBe('n8n-nodes-base.manualTrigger');
+		expect(userTrigger.type).toBe('resin-nodes-base.manualTrigger');
 		expect(compiled.connections.UserTrigger).toBeUndefined();
 		expect(compiled.connections.__eval_trigger).toEqual({
 			main: [[{ node: 'Agent', type: 'main', index: 0 }]],
@@ -228,7 +228,7 @@ describe('WorkflowCompilerService', () => {
 				config: {
 					preset: 'correctness',
 					prompt: 'p',
-					provider: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					provider: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					credentialId: 'c',
 					model: 'gpt-4o',
 					outputType: 'numeric',
@@ -266,7 +266,7 @@ describe('WorkflowCompilerService', () => {
 		wf.nodes.push({
 			id: 'n-after-end',
 			name: 'AfterEnd',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 1,
 			position: [400, 0],
 			parameters: {},
@@ -305,7 +305,7 @@ describe('WorkflowCompilerService', () => {
 		wf.nodes.push({
 			id: 'x',
 			name: '__eval_something',
-			type: 'n8n-nodes-base.noOp',
+			type: 'resin-nodes-base.noOp',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},
@@ -318,7 +318,7 @@ describe('WorkflowCompilerService', () => {
 		wf.nodes.push({
 			id: 'n-b',
 			name: 'Branch',
-			type: 'n8n-nodes-base.noOp',
+			type: 'resin-nodes-base.noOp',
 			typeVersion: 1,
 			position: [200, 100],
 			parameters: {},
@@ -347,7 +347,7 @@ describe('WorkflowCompilerService', () => {
 					config: {
 						preset: 'correctness',
 						prompt: 'Judge it',
-						provider: '@n8n/n8n-nodes-langchain.lmChatGroq',
+						provider: '@resin/n8n-nodes-langchain.lmChatGroq',
 						credentialId: 'cred-grok',
 						model: 'llama3-8b-8192',
 						outputType: 'numeric',
@@ -373,7 +373,7 @@ describe('WorkflowCompilerService', () => {
 					config: {
 						preset: 'correctness',
 						prompt: 'Judge it',
-						provider: '@n8n/n8n-nodes-langchain.lmChatNotReal',
+						provider: '@resin/n8n-nodes-langchain.lmChatNotReal',
 						credentialId: 'cred',
 						model: 'm',
 						outputType: 'numeric',
@@ -413,7 +413,7 @@ describe('WorkflowCompilerService', () => {
 					{
 						id: 'n-true',
 						name: 'AfterTrue',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [400, -50],
 						parameters: {},
@@ -421,7 +421,7 @@ describe('WorkflowCompilerService', () => {
 					{
 						id: 'n-false',
 						name: 'AfterFalse',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [400, 50],
 						parameters: {},

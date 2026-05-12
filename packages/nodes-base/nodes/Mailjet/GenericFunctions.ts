@@ -5,7 +5,7 @@ import type {
 	IHookFunctions,
 	IHttpRequestMethods,
 	IRequestOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export async function mailjetApiRequest(
 	this: IExecuteFunctions | IHookFunctions | ILoadOptionsFunctions,

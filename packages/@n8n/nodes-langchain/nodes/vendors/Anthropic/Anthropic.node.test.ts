@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, IBinaryData } from 'n8n-workflow';
+import type { IExecuteFunctions, IBinaryData } from 'resin-workflow';
 import { mockDeep } from 'vitest-mock-extended';
 
 import * as helpers from '@utils/helpers';

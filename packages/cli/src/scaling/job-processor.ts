@@ -1,14 +1,14 @@
-import type { RunningJobSummary } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { ExecutionsConfig } from '@n8n/config';
-import { ExecutionRepository, WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { RunningJobSummary } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { ExecutionsConfig } from '@resin/config';
+import { ExecutionRepository, WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import {
 	WorkflowHasIssuesError,
 	InstanceSettings,
 	WorkflowExecute,
 	SupplyDataContext,
-} from 'n8n-core';
+} from 'resin-core';
 import type { Tool } from '@langchain/core/tools';
 import type {
 	ExecutionStatus,
@@ -22,7 +22,7 @@ import type {
 	StructuredChunk,
 	CloseFunction,
 	GenericValue,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	BINARY_ENCODING,
 	ManualExecutionCancelledError,
@@ -30,7 +30,7 @@ import {
 	Workflow,
 	UnexpectedError,
 	createRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type PCancelable from 'p-cancelable';
 
 import { EventService } from '@/events/event.service';

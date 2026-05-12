@@ -1,4 +1,4 @@
-import type { INodeTypeData } from 'n8n-workflow';
+import type { INodeTypeData } from 'resin-workflow';
 
 export function mockNodeTypesData(
 	nodeNames: string[],

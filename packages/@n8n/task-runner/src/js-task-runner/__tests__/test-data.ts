@@ -1,5 +1,5 @@
-import type { IDataObject, INode, INodeExecutionData, ITaskData } from 'n8n-workflow';
-import { createRunExecutionData, NodeConnectionTypes } from 'n8n-workflow';
+import type { IDataObject, INode, INodeExecutionData, ITaskData } from 'resin-workflow';
+import { createRunExecutionData, NodeConnectionTypes } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
 import type { JSExecSettings } from '@/js-task-runner/js-task-runner';
@@ -29,7 +29,7 @@ export const newNode = (opts: Partial<INode> = {}): INode => ({
 	name: 'Test Node' + nanoid(),
 	parameters: {},
 	position: [0, 0],
-	type: 'n8n-nodes-base.code',
+	type: 'resin-nodes-base.code',
 	typeVersion: 1,
 	...opts,
 });
@@ -61,12 +61,12 @@ export const newDataRequestResponse = (
 			language: 'javaScript',
 			jsCode: 'return item',
 		},
-		type: 'n8n-nodes-base.code',
+		type: 'resin-nodes-base.code',
 		typeVersion: 2,
 	});
 	const manualTriggerNode = newNode({
 		name: 'Trigger',
-		type: 'n8n-nodes-base.manualTrigger',
+		type: 'resin-nodes-base.manualTrigger',
 		parameters: {
 			manualTriggerParam: 'empty',
 		},

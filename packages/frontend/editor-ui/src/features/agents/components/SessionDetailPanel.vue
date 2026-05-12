@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import VueMarkdown from 'vue-markdown-render';
 import {
 	N8nButton,
@@ -10,8 +10,8 @@ import {
 	N8nCard,
 	N8nIcon,
 	N8nTooltip,
-} from '@n8n/design-system';
-import type { IconName } from '@n8n/design-system/components/N8nIcon/icons';
+} from '@resin/design-system';
+import type { IconName } from '@resin/design-system/components/N8nIcon/icons';
 import { convertToDisplayDate } from '@/app/utils/formatters/dateFormatter';
 import { VIEWS } from '@/app/constants/navigation';
 import RichInteractionCard from './RichInteractionCard.vue';
@@ -371,7 +371,7 @@ const workflowFormOutput = computed((): { formUrl: string; message: string } | n
 </template>
 
 <style module lang="scss">
-@use '@n8n/design-system/css/mixins' as ds-mixins;
+@use '@resin/design-system/css/mixins' as ds-mixins;
 
 .panel {
 	display: flex;

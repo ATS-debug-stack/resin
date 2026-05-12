@@ -46,13 +46,13 @@ describe('agentValidator', () => {
 		});
 
 		it('nodeTypes includes agent node type', () => {
-			expect(agentValidator.nodeTypes).toContain('@n8n/n8n-nodes-langchain.agent');
+			expect(agentValidator.nodeTypes).toContain('@resin/n8n-nodes-langchain.agent');
 		});
 	});
 
 	describe('validateNode', () => {
 		it('returns AGENT_STATIC_PROMPT warning when promptType is define but text has no expression', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: { promptType: 'define', text: 'static text' },
 			});
 			const ctx = createMockPluginContext();
@@ -68,7 +68,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns AGENT_STATIC_PROMPT warning when promptType is define and text is empty', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: { promptType: 'define', text: '' },
 			});
 			const ctx = createMockPluginContext();
@@ -84,7 +84,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns no AGENT_STATIC_PROMPT warning when text contains expression', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: { promptType: 'define', text: '={{ $json.input }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -95,7 +95,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns AGENT_NO_SYSTEM_MESSAGE warning when options.systemMessage is empty', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: { promptType: 'define', text: '={{ $json.input }}', options: {} },
 			});
 			const ctx = createMockPluginContext();
@@ -111,7 +111,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns AGENT_NO_SYSTEM_MESSAGE warning when options.systemMessage is whitespace-only', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: {
 					promptType: 'define',
 					text: '={{ $json.input }}',
@@ -131,7 +131,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns no AGENT_NO_SYSTEM_MESSAGE warning when systemMessage is set', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: {
 					promptType: 'define',
 					text: '={{ $json.input }}',
@@ -146,7 +146,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns no AGENT_NO_SYSTEM_MESSAGE warning when systemMessage is at top level of params', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: {
 					promptType: 'define',
 					text: '={{ $json.input }}',
@@ -161,7 +161,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns no issues when promptType is auto', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: { promptType: 'auto' },
 			});
 			const ctx = createMockPluginContext();
@@ -172,7 +172,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns no issues when promptType is undefined (defaults to auto)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -183,7 +183,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns no issues when promptType is guardrails', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: { promptType: 'guardrails' },
 			});
 			const ctx = createMockPluginContext();
@@ -194,7 +194,7 @@ describe('agentValidator', () => {
 		});
 
 		it('returns no issues when parameters is undefined', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {});
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {});
 			const ctx = createMockPluginContext();
 
 			const issues = agentValidator.validateNode(node, createGraphNode(node), ctx);
@@ -203,7 +203,7 @@ describe('agentValidator', () => {
 		});
 
 		it('includes nodeName in issues', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.agent', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.agent', {
 				parameters: { promptType: 'define', text: 'static' },
 			});
 			// Override name using Object.assign to bypass readonly

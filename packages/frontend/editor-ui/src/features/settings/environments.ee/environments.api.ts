@@ -3,9 +3,9 @@ import type {
 	EnvironmentVariable,
 	UpdateEnvironmentVariable,
 } from './environments.types';
-import type { IRestApiContext } from '@n8n/rest-api-client';
-import { makeRestApiRequest } from '@n8n/rest-api-client';
-import type { IDataObject } from 'n8n-workflow';
+import type { IRestApiContext } from '@resin/rest-api-client';
+import { makeRestApiRequest } from '@resin/rest-api-client';
+import type { IDataObject } from 'resin-workflow';
 
 export async function getVariables(context: IRestApiContext): Promise<EnvironmentVariable[]> {
 	return await makeRestApiRequest(context, 'GET', '/variables');

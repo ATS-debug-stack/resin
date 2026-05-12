@@ -6,7 +6,7 @@ const ruleTester = new RuleTester();
 
 function createCredentialCode(documentationUrl: string): string {
 	return `
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class TestCredential implements ICredentialType {
 	name = 'testApi';
@@ -19,7 +19,7 @@ export class TestCredential implements ICredentialType {
 
 function createCredentialWithoutDocUrl(): string {
 	return `
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class TestCredential implements ICredentialType {
 	name = 'testApi';

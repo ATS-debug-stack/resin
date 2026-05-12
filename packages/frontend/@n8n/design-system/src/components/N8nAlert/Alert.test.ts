@@ -25,7 +25,7 @@ describe('components', () => {
 				global: {
 					components: {
 						N8nIcon: {
-							template: '<span class="n8n-icon" />',
+							template: '<span class="resin-icon" />',
 							props: ['icon'],
 						},
 					},

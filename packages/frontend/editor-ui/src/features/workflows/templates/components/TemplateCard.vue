@@ -2,11 +2,11 @@
 import { abbreviateNumber } from '@/app/utils/typesUtils';
 import NodeList from '@/app/components/NodeList.vue';
 import TimeAgo from '@/app/components/TimeAgo.vue';
-import type { ITemplatesWorkflow } from '@n8n/rest-api-client/api/templates';
-import { useI18n } from '@n8n/i18n';
-import type { BaseTextKey } from '@n8n/i18n';
+import type { ITemplatesWorkflow } from '@resin/rest-api-client/api/templates';
+import { useI18n } from '@resin/i18n';
+import type { BaseTextKey } from '@resin/i18n';
 
-import { N8nButton, N8nHeading, N8nIcon, N8nLoading, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nHeading, N8nIcon, N8nLoading, N8nText } from '@resin/design-system';
 const i18n = useI18n();
 
 const nodesToBeShown = 5;

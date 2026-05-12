@@ -90,7 +90,7 @@ async function main() {
 				}
 			};
 
-			const mcpServer = new McpServer({ name: 'n8n-browser', version: '1.0.0' });
+			const mcpServer = new McpServer({ name: 'resin-browser', version: '1.0.0' });
 			registerTools(mcpServer, tools);
 
 			void mcpServer.connect(transport).then(() => {
@@ -102,7 +102,7 @@ async function main() {
 			console.debug(`n8n-browser MCP server listening on http://localhost:${port}`);
 		});
 	} else {
-		const server = new McpServer({ name: 'n8n-browser', version: '1.0.0' });
+		const server = new McpServer({ name: 'resin-browser', version: '1.0.0' });
 		registerTools(server, tools);
 		const transport = new StdioServerTransport();
 		await server.connect(transport);

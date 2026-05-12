@@ -1,4 +1,4 @@
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { test, expect } from '../../../fixtures/base';
 
@@ -162,7 +162,7 @@ test.describe(
 									},
 								},
 							},
-							type: 'n8n-nodes-base.formTrigger',
+							type: 'resin-nodes-base.formTrigger',
 							typeVersion: 2.5,
 							position: [0, 0],
 							id: '49b31a69-3fc9-43d0-944e-990783330e7a',
@@ -225,7 +225,7 @@ test.describe(
 								authentication: 'basicAuth',
 								formTitle: 'Test',
 							},
-							type: 'n8n-nodes-base.formTrigger',
+							type: 'resin-nodes-base.formTrigger',
 							typeVersion: 2.5,
 							position: [0, 0],
 							id: '49b31a69-3fc9-43d0-944e-990783330e7a',
@@ -244,7 +244,7 @@ test.describe(
 									formDescription: 'Step 2',
 								},
 							},
-							type: 'n8n-nodes-base.form',
+							type: 'resin-nodes-base.form',
 							typeVersion: 2.5,
 							position: [208, 0],
 							id: 'e748b959-faeb-4476-aa30-1c7a6434843a',
@@ -258,7 +258,7 @@ test.describe(
 								completionMessage: 'This worked',
 								options: {},
 							},
-							type: 'n8n-nodes-base.form',
+							type: 'resin-nodes-base.form',
 							typeVersion: 2.5,
 							position: [416, 0],
 							id: '2e52c834-e08a-4848-bd86-be1f7909a956',

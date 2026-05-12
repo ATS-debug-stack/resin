@@ -1,5 +1,5 @@
 import moment from 'moment-timezone';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 
 import * as GenericFunctions from '../shared/GenericFunctions';
 

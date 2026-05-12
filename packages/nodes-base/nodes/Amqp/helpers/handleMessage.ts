@@ -4,7 +4,7 @@ import {
 	type IRun,
 	type ITriggerFunctions,
 	jsonParse,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { EventContext } from 'rhea';
 
 type MessageId = string | number | Buffer | undefined;

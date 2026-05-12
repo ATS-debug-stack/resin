@@ -1,18 +1,18 @@
 import type { BaseLanguageModel } from '@langchain/core/language_models/base';
 import { PromptTemplate } from '@langchain/core/prompts';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type {
 	ISupplyDataFunctions,
 	INodeType,
 	INodeTypeDescription,
 	SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	N8nOutputFixingParser,
 	type N8nStructuredOutputParser,
 } from '@utils/output_parsers/N8nOutputParser';
-import { getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 import { NAIVE_FIX_PROMPT } from './prompt';
 

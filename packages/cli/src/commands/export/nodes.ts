@@ -1,8 +1,8 @@
-import { Command } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { Command } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
-import type { INodeTypeBaseDescription } from 'n8n-workflow';
+import type { INodeTypeBaseDescription } from 'resin-workflow';
 import path from 'path';
 import z from 'zod';
 

@@ -5,13 +5,13 @@ import {
 	randomValidPassword,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
-import { GLOBAL_MEMBER_ROLE, GLOBAL_OWNER_ROLE, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
+import { GLOBAL_MEMBER_ROLE, GLOBAL_OWNER_ROLE, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { compare } from 'bcryptjs';
 import { mock } from 'jest-mock-extended';
-import { randomString } from 'n8n-workflow';
+import { randomString } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { AuthService } from '@/auth/auth.service';

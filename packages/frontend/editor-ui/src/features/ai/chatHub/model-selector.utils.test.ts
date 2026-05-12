@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import type { I18nClass } from '@n8n/i18n';
+import type { I18nClass } from '@resin/i18n';
 import {
 	createMockAgent,
 	createMockModelsResponse,

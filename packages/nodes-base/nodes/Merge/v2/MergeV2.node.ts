@@ -8,7 +8,7 @@ import {
 	type INodeTypeDescription,
 	type IPairedItemData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { preparePairedItemDataArray } from '@utils/utilities';
 

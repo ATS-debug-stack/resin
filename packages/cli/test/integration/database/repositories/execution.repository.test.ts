@@ -1,8 +1,8 @@
-import { createWorkflow, testDb } from '@n8n/backend-test-utils';
-import { ExecutionDataRepository, ExecutionRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { createWorkflow, testDb } from '@resin/backend-test-utils';
+import { ExecutionDataRepository, ExecutionRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { stringify } from 'flatted';
-import type { IRunExecutionData, IRunExecutionDataAll } from 'n8n-workflow';
+import type { IRunExecutionData, IRunExecutionDataAll } from 'resin-workflow';
 
 describe('ExecutionRepository', () => {
 	beforeAll(async () => {

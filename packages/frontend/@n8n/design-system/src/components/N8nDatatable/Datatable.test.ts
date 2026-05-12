@@ -1,6 +1,6 @@
 import { render } from '@testing-library/vue';
 
-import { removeDynamicAttributes } from '@n8n/design-system/utils';
+import { removeDynamicAttributes } from '@resin/design-system/utils';
 
 import { rows, columns } from './__tests__/data';
 import N8nDatatable from './Datatable.vue';
@@ -11,8 +11,8 @@ const stubs = [
 	// Ideally we'd like to stub N8nSelect & N8nPagination, but it doesn't work
 	// after migrating to setup script:
 	// https://github.com/vuejs/vue-test-utils/issues/2048
-	// 'n8n-select',
-	// 'n8n-pagination',
+	// 'resin-select',
+	// 'resin-pagination',
 ];
 
 describe('components', () => {

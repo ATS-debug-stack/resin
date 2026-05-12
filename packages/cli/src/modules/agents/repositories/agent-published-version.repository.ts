@@ -1,7 +1,7 @@
-import { Service } from '@n8n/di';
-import type { EntityManager } from '@n8n/typeorm';
-import { DataSource, Repository } from '@n8n/typeorm';
-import type { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
+import { Service } from '@resin/di';
+import type { EntityManager } from '@resin/typeorm';
+import { DataSource, Repository } from '@resin/typeorm';
+import type { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
 
 import { AgentPublishedVersion } from '../entities/agent-published-version.entity';
 import type { Agent } from '../entities/agent.entity';

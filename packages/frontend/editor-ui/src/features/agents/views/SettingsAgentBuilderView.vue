@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { N8nHeading, N8nIcon, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nHeading, N8nIcon, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { onMounted } from 'vue';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { useToast } from '@/app/composables/useToast';

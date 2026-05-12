@@ -1,16 +1,16 @@
 import { OpenAI, type ClientOptions } from '@langchain/openai';
-import { getProxyAgent, makeN8nLlmFailedAttemptHandler, N8nLlmTracing } from '@n8n/ai-utilities';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { getProxyAgent, makeN8nLlmFailedAttemptHandler, N8nLlmTracing } from '@resin/ai-utilities';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type {
 	INodeType,
 	INodeTypeDescription,
 	ISupplyDataFunctions,
 	SupplyData,
 	ILoadOptionsFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { Container } from '@n8n/di';
-import { AiConfig } from '@n8n/config';
+import { Container } from '@resin/di';
+import { AiConfig } from '@resin/config';
 import { mergeCustomHeaders } from '@utils/helpers';
 
 type LmOpenAiOptions = {

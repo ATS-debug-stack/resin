@@ -1,10 +1,10 @@
-import type { OidcConfigDto } from '@n8n/api-types';
+import type { OidcConfigDto } from '@resin/api-types';
 import { createPinia, setActivePinia } from 'pinia';
 import { useSSOStore, SupportedProtocols } from '@/features/settings/sso/sso.store';
 import type { UserManagementAuthenticationMethod } from '@/Interface';
-import * as ssoApi from '@n8n/rest-api-client/api/sso';
+import * as ssoApi from '@resin/rest-api-client/api/sso';
 
-vi.mock('@n8n/rest-api-client/api/sso');
+vi.mock('@resin/rest-api-client/api/sso');
 
 let ssoStore: ReturnType<typeof useSSOStore>;
 

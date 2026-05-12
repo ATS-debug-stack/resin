@@ -6,8 +6,8 @@ import type {
 	AnnotationVote,
 	ExecutionStatus,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
-import type { ExecutionRedactionQueryDto } from '@n8n/api-types';
+} from 'resin-workflow';
+import type { ExecutionRedactionQueryDto } from '@resin/api-types';
 import type {
 	ExecutionFilterType,
 	ExecutionsQueryFilter,
@@ -18,8 +18,8 @@ import type {
 	IExecutionsListResponse,
 	IExecutionsStopData,
 } from './executions.types';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { makeRestApiRequest } from '@n8n/rest-api-client';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { makeRestApiRequest } from '@resin/rest-api-client';
 import {
 	unflattenExecutionData,
 	executionFilterToQueryFilter,

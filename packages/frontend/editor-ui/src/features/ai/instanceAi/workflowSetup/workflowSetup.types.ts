@@ -1,5 +1,5 @@
-import type { InstanceAiWorkflowSetupNode } from '@n8n/api-types';
-import type { INodeParameters } from 'n8n-workflow';
+import type { InstanceAiWorkflowSetupNode } from '@resin/api-types';
+import type { INodeParameters } from 'resin-workflow';
 
 /**
  * One form unit (per `node × credential-or-parameters`).

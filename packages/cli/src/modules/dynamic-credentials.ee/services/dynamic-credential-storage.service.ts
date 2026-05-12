@@ -1,12 +1,12 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { Cipher } from 'n8n-core';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { Cipher } from 'resin-core';
 import {
 	type ICredentialContext,
 	type ICredentialDataDecryptedObject,
 	type IWorkflowSettings,
 	jsonParse,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { DynamicCredentialResolverRegistry } from './credential-resolver-registry.service';
 import { extractSharedFields } from './shared-fields';

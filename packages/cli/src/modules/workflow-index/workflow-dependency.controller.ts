@@ -1,7 +1,7 @@
-import { GetResourceDependenciesDto, GetResourceDependencyCountsDto } from '@n8n/api-types';
-import { WorkflowsConfig } from '@n8n/config';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Body, Post, RestController } from '@n8n/decorators';
+import { GetResourceDependenciesDto, GetResourceDependencyCountsDto } from '@resin/api-types';
+import { WorkflowsConfig } from '@resin/config';
+import { AuthenticatedRequest } from '@resin/db';
+import { Body, Post, RestController } from '@resin/decorators';
 
 import { ServiceUnavailableError } from '@/errors/response-errors/service-unavailable.error';
 

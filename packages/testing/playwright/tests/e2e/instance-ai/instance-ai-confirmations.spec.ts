@@ -1,4 +1,4 @@
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { test, expect, instanceAiTestConfig } from './fixtures';
 
@@ -22,7 +22,7 @@ function seededEditableWorkflow(name: string): Partial<IWorkflowBase> {
 			{
 				id: 'manual',
 				name: 'Manual Trigger',
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -30,7 +30,7 @@ function seededEditableWorkflow(name: string): Partial<IWorkflowBase> {
 			{
 				id: 'status-marker',
 				name: 'Status Marker',
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				typeVersion: 3.4,
 				position: [240, 0],
 				parameters: {

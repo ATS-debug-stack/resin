@@ -9,7 +9,7 @@ import {
 	type INodeType,
 	type INodeTypeDescription,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { shuffleArray } from '@utils/utilities';
 

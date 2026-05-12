@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { N8nButton, N8nDropdownMenu, N8nHeading, N8nIcon } from '@n8n/design-system';
-import type { DropdownMenuItemProps, IconName } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nDropdownMenu, N8nHeading, N8nIcon } from '@resin/design-system';
+import type { DropdownMenuItemProps, IconName } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useUIStore } from '@/app/stores/ui.store';
 import {
 	INSTANCE_AI_BROWSER_USE_SETUP_MODAL_KEY,

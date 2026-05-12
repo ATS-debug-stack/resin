@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
 
 import { AgentChatIntegration, type AgentChatIntegrationContext } from '../agent-chat-integration';
 import { loadLinearAdapter } from '../esm-loader';

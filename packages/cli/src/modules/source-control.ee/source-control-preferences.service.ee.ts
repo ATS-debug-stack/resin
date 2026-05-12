@@ -1,11 +1,11 @@
-import { Logger } from '@n8n/backend-common';
-import { SettingsRepository } from '@n8n/db';
-import { Container, Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { SettingsRepository } from '@resin/db';
+import { Container, Service } from '@resin/di';
 import type { ValidationError } from 'class-validator';
 import { validate } from 'class-validator';
 import { rm as fsRm } from 'fs/promises';
-import { Cipher, InstanceSettings } from 'n8n-core';
-import { jsonParse, UnexpectedError } from 'n8n-workflow';
+import { Cipher, InstanceSettings } from 'resin-core';
+import { jsonParse, UnexpectedError } from 'resin-workflow';
 import { readFile, writeFile } from 'node:fs/promises';
 import * as path from 'path';
 

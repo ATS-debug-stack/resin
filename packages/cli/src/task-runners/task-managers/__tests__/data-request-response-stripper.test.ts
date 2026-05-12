@@ -1,11 +1,11 @@
-import type { DataRequestResponse, TaskDataRequestParams } from '@n8n/task-runner';
+import type { DataRequestResponse, TaskDataRequestParams } from '@resin/task-runner';
 import { mock } from 'jest-mock-extended';
 import {
 	type IWorkflowExecuteAdditionalData,
 	type INode,
 	type INodeExecutionData,
 	createRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { DataRequestResponseStripper } from '../data-request-response-stripper';
 

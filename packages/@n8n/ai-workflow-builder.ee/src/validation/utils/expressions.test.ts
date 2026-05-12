@@ -1,4 +1,4 @@
-import type { INodeParameters } from 'n8n-workflow';
+import type { INodeParameters } from 'resin-workflow';
 
 import { containsExpression, nodeParametersContainExpression } from './expressions';
 

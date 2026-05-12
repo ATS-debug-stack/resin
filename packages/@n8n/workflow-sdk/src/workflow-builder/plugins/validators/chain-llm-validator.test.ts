@@ -47,13 +47,13 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('nodeTypes includes chainLlm node type', () => {
-			expect(chainLlmValidator.nodeTypes).toContain('@n8n/n8n-nodes-langchain.chainLlm');
+			expect(chainLlmValidator.nodeTypes).toContain('@resin/n8n-nodes-langchain.chainLlm');
 		});
 	});
 
 	describe('validateNode', () => {
 		it('returns AGENT_STATIC_PROMPT warning when promptType is define but text has no expression (v1.4+)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.4', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.4', {
 				parameters: { promptType: 'define', text: 'static text' },
 			});
 			const ctx = createMockPluginContext();
@@ -69,7 +69,7 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('returns AGENT_STATIC_PROMPT warning when promptType is define and text is empty (v1.4+)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.4', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.4', {
 				parameters: { promptType: 'define', text: '' },
 			});
 			const ctx = createMockPluginContext();
@@ -85,7 +85,7 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('returns no AGENT_STATIC_PROMPT warning when text contains expression', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.4', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.4', {
 				parameters: { promptType: 'define', text: '={{ $json.input }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -96,7 +96,7 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('returns no issues when promptType is not define', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.4', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.4', {
 				parameters: { promptType: 'auto' },
 			});
 			const ctx = createMockPluginContext();
@@ -107,7 +107,7 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('returns no issues when promptType is undefined', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.4', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.4', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -118,7 +118,7 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('returns no issues for versions < 1.4 (promptType was not introduced yet)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.3', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.3', {
 				parameters: { promptType: 'define', text: 'static text' },
 			});
 			const ctx = createMockPluginContext();
@@ -129,7 +129,7 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('returns no issues for version 1.0', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.0', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.0', {
 				parameters: { promptType: 'define', text: 'static text' },
 			});
 			const ctx = createMockPluginContext();
@@ -140,7 +140,7 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('validates version 1.5 (>= 1.4)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.5', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.5', {
 				parameters: { promptType: 'define', text: 'static text' },
 			});
 			const ctx = createMockPluginContext();
@@ -156,7 +156,7 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('returns no issues when parameters is undefined', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.4', {});
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.4', {});
 			const ctx = createMockPluginContext();
 
 			const issues = chainLlmValidator.validateNode(node, createGraphNode(node), ctx);
@@ -165,7 +165,7 @@ describe('chainLlmValidator', () => {
 		});
 
 		it('includes nodeName in issues', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.chainLlm', '1.4', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.chainLlm', '1.4', {
 				parameters: { promptType: 'define', text: 'static' },
 			});
 			Object.assign(node, { name: 'My Chain LLM' });

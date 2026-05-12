@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { IHookFunctions, INode, Workflow } from 'n8n-workflow';
+import type { IHookFunctions, INode, Workflow } from 'resin-workflow';
 
 import { testWebhookTriggerNode } from '@test/nodes/TriggerHelpers';
 

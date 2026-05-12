@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, ExecuteAgentData } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, ExecuteAgentData } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { MessageAnAgent } from '../MessageAnAgent.node';
 
@@ -35,7 +35,7 @@ describe('MessageAnAgent Node', () => {
 		executeFunctions.getNode.mockReturnValue({
 			id: 'test-node-id',
 			name: 'Message an Agent',
-			type: 'n8n-nodes-base.messageAnAgent',
+			type: 'resin-nodes-base.messageAnAgent',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

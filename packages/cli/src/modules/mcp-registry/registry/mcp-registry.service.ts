@@ -1,4 +1,4 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 
 import type { McpRegistryServer } from './mcp-registry.types';
 import { notionMockServer, linearMockServer } from './mock-servers';

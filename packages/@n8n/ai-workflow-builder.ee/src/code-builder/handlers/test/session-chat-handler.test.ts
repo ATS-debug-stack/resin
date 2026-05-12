@@ -1,6 +1,6 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import type { MemorySaver } from '@langchain/langgraph';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 
 import type { StreamOutput } from '../../../types/streaming';
 import type { ChatPayload } from '../../../workflow-builder-agent';

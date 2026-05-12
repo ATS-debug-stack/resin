@@ -1,4 +1,4 @@
-import { Container, Service } from '@n8n/di';
+import { Container, Service } from '@resin/di';
 
 import { ContextEstablishmentHookClass } from './context-establishment-hook';
 
@@ -157,7 +157,7 @@ export class ContextEstablishmentHookMetadata {
  *   }
  *
  *   isApplicableToTriggerNode(nodeType: string) {
- *     return nodeType === 'n8n-nodes-base.webhook';
+ *     return nodeType === 'resin-nodes-base.webhook';
  *   }
  * }
  * ```

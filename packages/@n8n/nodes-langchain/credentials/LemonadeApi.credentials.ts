@@ -4,7 +4,7 @@ import type {
 	INodeProperties,
 	IHttpRequestOptions,
 	ICredentialDataDecryptedObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export type LemonadeApiCredentialsType = {
 	baseUrl: string;

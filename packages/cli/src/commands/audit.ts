@@ -1,7 +1,7 @@
-import { SecurityConfig } from '@n8n/config';
-import { Command } from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import { UserError } from 'n8n-workflow';
+import { SecurityConfig } from '@resin/config';
+import { Command } from '@resin/decorators';
+import { Container } from '@resin/di';
+import { UserError } from 'resin-workflow';
 import z from 'zod';
 
 import { RISK_CATEGORIES } from '@/security-audit/constants';

@@ -1,5 +1,5 @@
-import type { INode, NodeApiError, Workflow } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INode, NodeApiError, Workflow } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { setActivePinia } from 'pinia';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
@@ -25,15 +25,15 @@ import {
 	useWorkflowDocumentStore,
 	createWorkflowDocumentId,
 } from '@/app/stores/workflowDocument.store';
-import type { IPinData } from 'n8n-workflow';
+import type { IPinData } from 'resin-workflow';
 import {
 	CanvasConnectionMode,
 	CanvasNodeRenderType,
 	type CanvasNodeDefaultRender,
 } from '../canvas.types';
 import { createCanvasConnectionHandleString, createCanvasConnectionId } from '../canvas.utils';
-import { STORES } from '@n8n/stores';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { STORES } from '@resin/stores';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { createTestingPinia } from '@pinia/testing';
 import { MarkerType } from '@vue-flow/core';
 import { mock } from 'vitest-mock-extended';
@@ -44,7 +44,7 @@ import {
 	type WorkflowState,
 } from '@/app/composables/useWorkflowState';
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		shortNodeType: (nodeType: string) => nodeType,
@@ -92,7 +92,7 @@ beforeEach(() => {
 						1: mockNodeTypeDescription({
 							name: FORM_TRIGGER_NODE_TYPE,
 							group: ['trigger'],
-							eventTriggerDescription: 'n8n-nodes-base.formTrigger',
+							eventTriggerDescription: 'resin-nodes-base.formTrigger',
 						}),
 					},
 					[SET_NODE_TYPE]: {
@@ -1222,7 +1222,7 @@ describe('useCanvasMapping', () => {
 
 				expect(mappedNodes.value[0]?.data?.issues).toEqual({
 					execution: [],
-					validation: ['Node Type "n8n-nodes-base.set" is not known.'],
+					validation: ['Node Type "resin-nodes-base.set" is not known.'],
 					visible: true,
 				});
 			});
@@ -1262,7 +1262,7 @@ describe('useCanvasMapping', () => {
 
 				expect(mappedNodes.value[0]?.data?.issues).toEqual({
 					execution: ['Execution error (Error description)'],
-					validation: ['Node Type "n8n-nodes-base.set" is not known.'],
+					validation: ['Node Type "resin-nodes-base.set" is not known.'],
 					visible: true,
 				});
 			});
@@ -1303,7 +1303,7 @@ describe('useCanvasMapping', () => {
 
 				expect(mappedNodes.value[0]?.data?.issues).toEqual({
 					execution: [],
-					validation: ['Node Type "n8n-nodes-base.set" is not known.'],
+					validation: ['Node Type "resin-nodes-base.set" is not known.'],
 					visible: true,
 				});
 				expect(mappedNodes.value[1]?.data?.issues).toEqual({
@@ -1986,7 +1986,7 @@ describe('useCanvasMapping', () => {
 				});
 
 				const renderOptions = mappedNodes.value[0]?.data?.render as CanvasNodeDefaultRender;
-				expect(renderOptions.options.tooltip).toBe('n8n-nodes-base.formTrigger');
+				expect(renderOptions.options.tooltip).toBe('resin-nodes-base.formTrigger');
 			});
 		});
 

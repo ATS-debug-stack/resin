@@ -5,17 +5,17 @@ import { usePostHog } from '@/app/stores/posthog.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useTemplatesStore } from '@/features/workflows/templates/templates.store';
 import { useReadyToRunStore } from '@/features/workflows/readyToRun/stores/readyToRun.store';
-import type { ITemplatesWorkflowFull } from '@n8n/rest-api-client/api/templates';
-import type { WorkflowDataCreate } from '@n8n/rest-api-client';
+import type { ITemplatesWorkflowFull } from '@resin/rest-api-client/api/templates';
+import type { WorkflowDataCreate } from '@resin/rest-api-client';
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { OPEN_AI_API_CREDENTIAL_TYPE, deepCopy } from 'n8n-workflow';
+import { OPEN_AI_API_CREDENTIAL_TYPE, deepCopy } from 'resin-workflow';
 import { quickStartWorkflows } from '../data/quickStartWorkflows';
 
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'N8N_READY_TO_RUN_OPENAI_CREDENTIAL_ID';
-const TOOLTIP_STORAGE_KEY = 'n8n-resourceCenter-tooltipDismissed';
-const SIDEBAR_AUTO_EXPANDED_KEY = 'n8n-resourceCenter-sidebarAutoExpanded';
+const TOOLTIP_STORAGE_KEY = 'resin-resourceCenter-tooltipDismissed';
+const SIDEBAR_AUTO_EXPANDED_KEY = 'resin-resourceCenter-sidebarAutoExpanded';
 
 export const useResourceCenterStore = defineStore('resourceCenter', () => {
 	const posthogStore = usePostHog();

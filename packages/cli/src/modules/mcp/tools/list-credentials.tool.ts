@@ -1,4 +1,4 @@
-import type { ListQueryDb, ScopesField, User } from '@n8n/db';
+import type { ListQueryDb, ScopesField, User } from '@resin/db';
 import z from 'zod';
 
 import type { CredentialsService } from '@/credentials/credentials.service';

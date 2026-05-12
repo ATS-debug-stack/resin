@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { N8nIcon, N8nText } from '@n8n/design-system';
+import { N8nIcon, N8nText } from '@resin/design-system';
 
 const props = defineProps<{
 	endpoint: 'build' | 'chat';

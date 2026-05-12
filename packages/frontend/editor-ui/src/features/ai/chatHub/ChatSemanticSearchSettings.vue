@@ -9,10 +9,17 @@ import {
 	type ChatHubLLMProvider,
 	type ChatHubSemanticSearchSettings,
 	type ChatHubVectorStoreProvider,
-} from '@n8n/api-types';
-import { N8nHeading, N8nIcon, N8nOption, N8nSelect, N8nText, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
+} from '@resin/api-types';
+import {
+	N8nHeading,
+	N8nIcon,
+	N8nOption,
+	N8nSelect,
+	N8nText,
+	N8nTooltip,
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { computed, ref, watch } from 'vue';
 import { useChatStore } from './chat.store';
 import { storeToRefs } from 'pinia';
@@ -21,8 +28,8 @@ import { updateSemanticSearchSettingsApi } from './chat.api';
 import { useToast } from '@/app/composables/useToast';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { providerDisplayNames, vectorStoreProviderDisplayNames } from './constants';
-import { DEFAULT_SEMANTIC_SEARCH_SETTINGS, EMBEDDINGS_NODE_TYPE_MAP } from '@n8n/chat-hub';
-import { deepCopy } from 'n8n-workflow';
+import { DEFAULT_SEMANTIC_SEARCH_SETTINGS, EMBEDDINGS_NODE_TYPE_MAP } from '@resin/chat-hub';
+import { deepCopy } from 'resin-workflow';
 
 const i18n = useI18n();
 const message = useMessage();

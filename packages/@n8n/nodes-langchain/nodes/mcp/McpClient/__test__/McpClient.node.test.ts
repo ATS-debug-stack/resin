@@ -1,5 +1,5 @@
 import type { Client } from '@modelcontextprotocol/sdk/client/index.js';
-import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions, ILoadOptionsFunctions } from 'resin-workflow';
 import { mock, mockDeep } from 'vitest-mock-extended';
 
 import * as sharedUtils from '../../shared/utils';
@@ -28,7 +28,7 @@ describe('McpClient', () => {
 		executeFunctions.getNode.mockReturnValue({
 			id: '123',
 			name: 'MCP Client',
-			type: '@n8n/n8n-nodes-langchain.mcpClient',
+			type: '@resin/n8n-nodes-langchain.mcpClient',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},
@@ -309,7 +309,7 @@ describe('McpClient', () => {
 				getNode: vi.fn().mockReturnValue({
 					id: '123',
 					name: 'MCP Client',
-					type: '@n8n/n8n-nodes-langchain.mcpClient',
+					type: '@resin/n8n-nodes-langchain.mcpClient',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -336,7 +336,7 @@ describe('McpClient', () => {
 				getNode: vi.fn().mockReturnValue({
 					id: '123',
 					name: 'MCP Client',
-					type: '@n8n/n8n-nodes-langchain.mcpClient',
+					type: '@resin/n8n-nodes-langchain.mcpClient',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -378,7 +378,7 @@ describe('McpClient', () => {
 				getNode: vi.fn().mockReturnValue({
 					id: '123',
 					name: 'MCP Client',
-					type: '@n8n/n8n-nodes-langchain.mcpClient',
+					type: '@resin/n8n-nodes-langchain.mcpClient',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -406,7 +406,7 @@ describe('McpClient', () => {
 				getNode: vi.fn().mockReturnValue({
 					id: '123',
 					name: 'MCP Client',
-					type: '@n8n/n8n-nodes-langchain.mcpClient',
+					type: '@resin/n8n-nodes-langchain.mcpClient',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -444,7 +444,7 @@ describe('McpClient', () => {
 				getNode: vi.fn().mockReturnValue({
 					id: '123',
 					name: 'MCP Client',
-					type: '@n8n/n8n-nodes-langchain.mcpClient',
+					type: '@resin/n8n-nodes-langchain.mcpClient',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},

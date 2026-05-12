@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryColumn, Unique } from '@n8n/typeorm';
+import { Column, Entity, ManyToOne, PrimaryColumn, Unique } from '@resin/typeorm';
 
 import { WithTimestamps } from './abstract-entity';
 import { AuthProviderType } from './types-db';

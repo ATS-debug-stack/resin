@@ -1,4 +1,4 @@
-import type { WorkflowHistoryActionTypes, WorkflowVersionId } from '@n8n/rest-api-client';
+import type { WorkflowHistoryActionTypes, WorkflowVersionId } from '@resin/rest-api-client';
 
 export type WorkflowHistoryAction = {
 	action: WorkflowHistoryActionTypes[number];

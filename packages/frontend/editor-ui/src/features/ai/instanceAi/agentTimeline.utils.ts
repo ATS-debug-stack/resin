@@ -1,4 +1,4 @@
-import type { InstanceAiAgentNode } from '@n8n/api-types';
+import type { InstanceAiAgentNode } from '@resin/api-types';
 
 /** Tool calls that are internal bookkeeping and should not be shown to the user. */
 export const HIDDEN_TOOLS = new Set(['updateWorkingMemory']);

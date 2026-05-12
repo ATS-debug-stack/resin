@@ -72,7 +72,7 @@ describe('useWorkflowSetupSections', () => {
 
 	it('resolves hidden parameter defaults from the node type', () => {
 		nodeTypesStore.getNodeType.mockReturnValue({
-			name: 'n8n-nodes-base.httpRequest',
+			name: 'resin-nodes-base.httpRequest',
 			properties: [
 				{ displayName: 'Method', name: 'method', type: 'options', default: 'GET' },
 				{ displayName: 'URL', name: 'url', type: 'string', default: '' },
@@ -178,8 +178,8 @@ describe('useWorkflowSetupSections', () => {
 		expect(sections.value).toHaveLength(1);
 		expect(sections.value[0]).toMatchObject({ id: 'First:httpBasicAuth', targetNodeName: 'First' });
 		expect(sections.value[0].credentialTargetNodes).toEqual([
-			{ id: 'first', name: 'First', type: 'n8n-nodes-base.httpRequest' },
-			{ id: 'second', name: 'Second', type: 'n8n-nodes-base.httpRequest' },
+			{ id: 'first', name: 'First', type: 'resin-nodes-base.httpRequest' },
+			{ id: 'second', name: 'Second', type: 'resin-nodes-base.httpRequest' },
 		]);
 	});
 
@@ -329,11 +329,11 @@ describe('useWorkflowSetupSections', () => {
 	it('groups non-HTTP requests only by credential type', () => {
 		const setupRequests = ref([
 			makeSetupRequest({
-				node: { id: 'first', name: 'First', type: 'n8n-nodes-base.slack' },
+				node: { id: 'first', name: 'First', type: 'resin-nodes-base.slack' },
 				credentialType: 'slackApi',
 			}),
 			makeSetupRequest({
-				node: { id: 'second', name: 'Second', type: 'n8n-nodes-base.slack' },
+				node: { id: 'second', name: 'Second', type: 'resin-nodes-base.slack' },
 				credentialType: 'slackApi',
 			}),
 		]);
@@ -355,11 +355,11 @@ describe('useWorkflowSetupSections', () => {
 			const setupRequests = ref([
 				makeSetupRequest({
 					subnodeRootNode: agentA,
-					node: { id: 'tool-a', name: 'Tool A', type: 'n8n-nodes-base.httpRequestTool' },
+					node: { id: 'tool-a', name: 'Tool A', type: 'resin-nodes-base.httpRequestTool' },
 				}),
 				makeSetupRequest({
 					subnodeRootNode: agentB,
-					node: { id: 'tool-b', name: 'Tool B', type: 'n8n-nodes-base.httpRequestTool' },
+					node: { id: 'tool-b', name: 'Tool B', type: 'resin-nodes-base.httpRequestTool' },
 				}),
 			]);
 
@@ -378,12 +378,12 @@ describe('useWorkflowSetupSections', () => {
 			const setupRequests = ref([
 				makeSetupRequest({
 					subnodeRootNode: agentA,
-					node: { id: 'tool-1', name: 'Tool 1', type: 'n8n-nodes-base.slack' },
+					node: { id: 'tool-1', name: 'Tool 1', type: 'resin-nodes-base.slack' },
 					credentialType: 'slackApi',
 				}),
 				makeSetupRequest({
 					subnodeRootNode: agentA,
-					node: { id: 'tool-2', name: 'Tool 2', type: 'n8n-nodes-base.slack' },
+					node: { id: 'tool-2', name: 'Tool 2', type: 'resin-nodes-base.slack' },
 					credentialType: 'slackApi',
 				}),
 			]);
@@ -404,7 +404,7 @@ describe('useWorkflowSetupSections', () => {
 				}),
 				makeSetupRequest({
 					subnodeRootNode: agentA,
-					node: { id: 'tool-a', name: 'Tool A', type: 'n8n-nodes-base.httpRequestTool' },
+					node: { id: 'tool-a', name: 'Tool A', type: 'resin-nodes-base.httpRequestTool' },
 				}),
 			]);
 

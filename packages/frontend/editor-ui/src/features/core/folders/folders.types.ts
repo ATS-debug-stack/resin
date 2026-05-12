@@ -1,6 +1,6 @@
-import type { PathItem } from '@n8n/design-system/components/N8nBreadcrumbs/Breadcrumbs.vue';
-import type { ITag } from '@n8n/rest-api-client';
-import type { ProjectSharingData } from 'n8n-workflow';
+import type { PathItem } from '@resin/design-system/components/N8nBreadcrumbs/Breadcrumbs.vue';
+import type { ITag } from '@resin/rest-api-client';
+import type { ProjectSharingData } from 'resin-workflow';
 import type { BaseResource } from '@/Interface';
 import type { ProjectListItem } from '@/features/collaboration/projects/projects.types';
 import type { ResourceType } from '@/features/collaboration/projects/projects.utils';

@@ -1,9 +1,9 @@
-import { mockInstance, testDb } from '@n8n/backend-test-utils';
-import { DeploymentKeyRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { mockInstance, testDb } from '@resin/backend-test-utils';
+import { DeploymentKeyRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import type { CryptoKey } from 'jose';
 import { CompactEncrypt, compactDecrypt, importJWK } from 'jose';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import { CacheService } from '@/services/cache/cache.service';
 

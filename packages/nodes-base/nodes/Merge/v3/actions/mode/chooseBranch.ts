@@ -1,5 +1,5 @@
-import { NodeOperationError } from 'n8n-workflow';
-import type { IExecuteFunctions, INodeExecutionData, INodeProperties } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
+import type { IExecuteFunctions, INodeExecutionData, INodeProperties } from 'resin-workflow';
 
 import { preparePairedItemDataArray, updateDisplayOptions } from '@utils/utilities';
 

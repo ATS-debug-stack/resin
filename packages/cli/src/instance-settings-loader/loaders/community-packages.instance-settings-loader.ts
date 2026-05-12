@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import { WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { ensureError } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import { WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { ensureError } from 'resin-workflow';
 import { z } from 'zod';
 
 import { CommunityNodeTypesService } from '@/modules/community-packages/community-node-types.service';

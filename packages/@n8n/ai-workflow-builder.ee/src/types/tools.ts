@@ -1,4 +1,4 @@
-import type { INodeParameters } from 'n8n-workflow';
+import type { INodeParameters } from 'resin-workflow';
 import type { ZodIssue } from 'zod';
 
 import type { AddedNode, NodeDetails, NodeSearchResult } from './nodes';
@@ -177,7 +177,7 @@ export interface NodeConfigurationEntry {
 
 /**
  * Map of node type to array of parameter configurations with version info
- * Key: node type (e.g., 'n8n-nodes-base.telegram')
+ * Key: node type (e.g., 'resin-nodes-base.telegram')
  * Value: array of configuration entries with version and parameters
  */
 export type NodeConfigurationsMap = Record<string, NodeConfigurationEntry[]>;

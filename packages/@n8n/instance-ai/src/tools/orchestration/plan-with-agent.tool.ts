@@ -15,7 +15,7 @@
 import { Agent } from '@mastra/core/agent';
 import type { ToolsInput } from '@mastra/core/agent';
 import { createTool } from '@mastra/core/tools';
-import type { InstanceAiEvent } from '@n8n/api-types';
+import type { InstanceAiEvent } from '@resin/api-types';
 import { DateTime } from 'luxon';
 import { nanoid } from 'nanoid';
 import { z } from 'zod';

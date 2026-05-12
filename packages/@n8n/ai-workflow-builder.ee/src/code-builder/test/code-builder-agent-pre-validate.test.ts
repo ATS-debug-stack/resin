@@ -7,14 +7,14 @@
 
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import { AIMessage } from '@langchain/core/messages';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { CodeBuilderAgent } from '../code-builder-agent';
 
 const mockFromJSON = jest.fn();
 
 // Mock workflow-sdk to control parse/validate behavior
-jest.mock('@n8n/workflow-sdk', () => ({
+jest.mock('@resin/workflow-sdk', () => ({
 	parseWorkflowCodeToBuilder: jest.fn(),
 	validateWorkflow: jest.fn(),
 	generateWorkflowCode: jest.fn().mockReturnValue('// generated code'),
@@ -30,7 +30,7 @@ jest.mock('../prompts', () => ({
 }));
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const { parseWorkflowCodeToBuilder, validateWorkflow } = require('@n8n/workflow-sdk') as {
+const { parseWorkflowCodeToBuilder, validateWorkflow } = require('@resin/workflow-sdk') as {
 	parseWorkflowCodeToBuilder: jest.Mock;
 	validateWorkflow: jest.Mock;
 };
@@ -42,7 +42,7 @@ const MOCK_WORKFLOW: Partial<IWorkflowBase> = {
 		{
 			id: 'node-1',
 			name: 'Manual Trigger',
-			type: 'n8n-nodes-base.manualTrigger',
+			type: 'resin-nodes-base.manualTrigger',
 			typeVersion: 1.1,
 			position: [240, 300],
 			parameters: {},

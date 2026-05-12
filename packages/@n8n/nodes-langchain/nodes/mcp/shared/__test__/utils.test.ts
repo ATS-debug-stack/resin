@@ -1,8 +1,8 @@
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { SSEClientTransport } from '@modelcontextprotocol/sdk/client/sse.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
-import { proxyFetch } from '@n8n/ai-utilities';
-import type { IExecuteFunctions } from 'n8n-workflow';
+import { proxyFetch } from '@resin/ai-utilities';
+import type { IExecuteFunctions } from 'resin-workflow';
 import type { Mock, MockedClass, MockedFunction } from 'vitest';
 import { mockDeep } from 'vitest-mock-extended';
 import { expect } from 'vitest';
@@ -13,7 +13,7 @@ import { connectMcpClient, getAuthHeaders, tryRefreshOAuth2Token } from '../util
 vi.mock('@modelcontextprotocol/sdk/client/index.js');
 vi.mock('@modelcontextprotocol/sdk/client/streamableHttp.js');
 vi.mock('@modelcontextprotocol/sdk/client/sse.js');
-vi.mock('@n8n/ai-utilities', () => ({
+vi.mock('@resin/ai-utilities', () => ({
 	proxyFetch: vi.fn(),
 }));
 

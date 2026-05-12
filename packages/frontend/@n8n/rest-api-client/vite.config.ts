@@ -1,5 +1,5 @@
 import { defineConfig, mergeConfig } from 'vite';
-import { createVitestConfig } from '@n8n/vitest-config/frontend';
+import { createVitestConfig } from '@resin/vitest-config/frontend';
 
 export default mergeConfig(
 	defineConfig({}),

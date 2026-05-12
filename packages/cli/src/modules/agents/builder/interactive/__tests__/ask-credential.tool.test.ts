@@ -1,4 +1,4 @@
-import type { CredentialListItem, CredentialProvider } from '@n8n/agents';
+import type { CredentialListItem, CredentialProvider } from '@resin/agents';
 import { buildAskCredentialTool } from '../ask-credential.tool';
 
 interface TestCtx {

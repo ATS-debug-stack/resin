@@ -15,7 +15,7 @@ const stickyNode: LoadedClass<INodeType> = {
 	type: {
 		description: {
 			displayName: 'Sticky Note',
-			name: 'n8n-nodes-base.stickyNote',
+			name: 'resin-nodes-base.stickyNote',
 			icon: 'fa:sticky-note',
 			group: ['input'],
 			version: 1,
@@ -901,7 +901,7 @@ const manualTriggerNode: LoadedClass<INodeType> = {
 	type: {
 		description: {
 			displayName: 'Manual Trigger',
-			name: 'n8n-nodes-base.manualTrigger',
+			name: 'resin-nodes-base.manualTrigger',
 			icon: 'fa:mouse-pointer',
 			group: ['trigger'],
 			version: 1,
@@ -930,7 +930,7 @@ const manualTriggerNode: LoadedClass<INodeType> = {
 const executeWorkflowNode: LoadedClass<INodeType> = {
 	type: {
 		description: {
-			name: 'n8n-nodes-base.executeWorkflow',
+			name: 'resin-nodes-base.executeWorkflow',
 			displayName: 'Execute Sub-workflow',
 			icon: 'fa:sign-in-alt',
 			iconColor: 'orange-red',
@@ -1156,7 +1156,7 @@ const aiAgentNode: LoadedClass<INodeType> = {
 	type: {
 		description: {
 			displayName: 'AI Agent',
-			name: '@n8n/n8n-nodes-langchain.agent',
+			name: '@resin/n8n-nodes-langchain.agent',
 			icon: 'fa:robot',
 			iconColor: 'black',
 			group: ['transform'],
@@ -1183,7 +1183,7 @@ const wikipediaTool: LoadedClass<INodeType> = {
 	type: {
 		description: {
 			displayName: 'Wikipedia',
-			name: '@n8n/n8n-nodes-langchain.toolWikipedia',
+			name: '@resin/n8n-nodes-langchain.toolWikipedia',
 			icon: 'file:wikipedia.svg',
 			group: ['transform'],
 			version: 1,
@@ -1203,7 +1203,7 @@ const calculatorTool: LoadedClass<INodeType> = {
 	type: {
 		description: {
 			displayName: 'Calculator',
-			name: '@n8n/n8n-nodes-langchain.toolCalculator',
+			name: '@resin/n8n-nodes-langchain.toolCalculator',
 			icon: 'fa:calculator',
 			iconColor: 'black',
 			group: ['transform'],
@@ -1224,7 +1224,7 @@ const googleCalendarTool: LoadedClass<INodeType> = {
 	type: {
 		description: {
 			displayName: 'Google Calendar',
-			name: 'n8n-nodes-base.googleCalendarTool',
+			name: 'resin-nodes-base.googleCalendarTool',
 			icon: 'file:googleCalendar.svg',
 			group: ['input'],
 			version: [1, 1.1, 1.2, 1.3],
@@ -1326,14 +1326,14 @@ const googleCalendarTool: LoadedClass<INodeType> = {
 
 export class NodeTypes implements INodeTypes {
 	nodeTypes: INodeTypeData = {
-		'n8n-nodes-base.stickyNote': stickyNode,
-		'n8n-nodes-base.set': setNode,
-		'n8n-nodes-base.code': codeNode,
-		'n8n-nodes-base.html': htmlNode,
-		'n8n-nodes-base.form': formNode,
+		'resin-nodes-base.stickyNote': stickyNode,
+		'resin-nodes-base.set': setNode,
+		'resin-nodes-base.code': codeNode,
+		'resin-nodes-base.html': htmlNode,
+		'resin-nodes-base.form': formNode,
 		'test.googleSheets': googleSheetsNode,
 		'test.set': setNode,
-		'n8n-nodes-base.executeWorkflow': executeWorkflowNode,
+		'resin-nodes-base.executeWorkflow': executeWorkflowNode,
 		'test.setMulti': {
 			sourcePath: '',
 			type: {
@@ -1385,11 +1385,11 @@ export class NodeTypes implements INodeTypes {
 				},
 			},
 		},
-		'n8n-nodes-base.manualTrigger': manualTriggerNode,
-		'@n8n/n8n-nodes-langchain.agent': aiAgentNode,
-		'n8n-nodes-base.googleCalendarTool': googleCalendarTool,
-		'@n8n/n8n-nodes-langchain.toolCalculator': calculatorTool,
-		'@n8n/n8n-nodes-langchain.toolWikipedia': wikipediaTool,
+		'resin-nodes-base.manualTrigger': manualTriggerNode,
+		'@resin/n8n-nodes-langchain.agent': aiAgentNode,
+		'resin-nodes-base.googleCalendarTool': googleCalendarTool,
+		'@resin/n8n-nodes-langchain.toolCalculator': calculatorTool,
+		'@resin/n8n-nodes-langchain.toolWikipedia': wikipediaTool,
 	};
 
 	getByName(nodeType: string): INodeType | IVersionedNodeType {

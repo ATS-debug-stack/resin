@@ -1,9 +1,9 @@
-import { inProduction, Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import { inProduction, Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 import { existsSync } from 'fs';
 import { mkdir, utimes, open, rm } from 'fs/promises';
-import { InstanceSettings } from 'n8n-core';
-import { sleep } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { sleep } from 'resin-workflow';
 import { join, dirname } from 'path';
 
 export const touchFile = async (filePath: string): Promise<void> => {

@@ -1,14 +1,14 @@
-import type { IExecutionResponse } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { IExecutionResponse } from '@resin/db';
+import { Service } from '@resin/di';
 import type express from 'express';
-import type { IRunData } from 'n8n-workflow';
-import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'n8n-core';
+import type { IRunData } from 'resin-workflow';
+import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'resin-core';
 import {
 	FORM_NODE_TYPE,
 	WAIT_NODE_TYPE,
 	WAITING_FORMS_EXECUTION_STATUS,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { ConflictError } from '@/errors/response-errors/conflict.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

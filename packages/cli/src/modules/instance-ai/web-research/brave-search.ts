@@ -1,4 +1,4 @@
-import type { WebSearchResponse } from '@n8n/instance-ai';
+import type { WebSearchResponse } from '@resin/instance-ai';
 
 const BRAVE_SEARCH_PATH = '/res/v1/web/search';
 const BRAVE_SEARCH_URL = `https://api.search.brave.com${BRAVE_SEARCH_PATH}`;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { QuickConnectDisclaimer } from '@n8n/api-types';
-import { N8nCallout } from '@n8n/design-system';
+import type { QuickConnectDisclaimer } from '@resin/api-types';
+import { N8nCallout } from '@resin/design-system';
 import { computed } from 'vue';
 
 const { text, disclaimer } = defineProps<{

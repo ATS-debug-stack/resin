@@ -2,10 +2,10 @@ import './main.scss';
 
 import { createApp } from 'vue';
 
-import { defaultMountingTarget, defaultOptions } from '@n8n/chat/constants';
-import { ChatPlugin } from '@n8n/chat/plugins';
-import type { ChatOptions } from '@n8n/chat/types';
-import { createDefaultMountingTarget } from '@n8n/chat/utils';
+import { defaultMountingTarget, defaultOptions } from '@resin/chat/constants';
+import { ChatPlugin } from '@resin/chat/plugins';
+import type { ChatOptions } from '@resin/chat/types';
+import { createDefaultMountingTarget } from '@resin/chat/utils';
 
 import App from './App.vue';
 

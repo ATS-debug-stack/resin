@@ -1,5 +1,5 @@
 /**
- * Browser stub for @n8n/expression-runtime.
+ * Browser stub for @resin/expression-runtime.
  * The real implementation uses isolated-vm (a Node.js-only native module).
  * IS_FRONTEND guards in expression.ts prevent these from ever being instantiated.
  */

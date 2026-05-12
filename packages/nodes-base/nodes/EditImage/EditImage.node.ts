@@ -11,8 +11,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeOperationError, NodeConnectionTypes, deepCopy } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, NodeConnectionTypes, deepCopy } from 'resin-workflow';
 import { parse as pathParse } from 'path';
 import { file } from 'tmp-promise';
 

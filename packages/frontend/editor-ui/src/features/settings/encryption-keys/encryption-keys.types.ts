@@ -1,7 +1,7 @@
 import type {
 	EncryptionKey as EncryptionKeyApiType,
 	EncryptionKeysSortOption,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export type EncryptionKeyStatus = 'active' | 'inactive';
 

@@ -1,4 +1,4 @@
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 
 import { WorkflowEntity } from '../../entities';
 import type { IrreversibleMigration, MigrationContext } from '../migration-types';

@@ -1,4 +1,4 @@
-import { getPersonalProject, testDb } from '@n8n/backend-test-utils';
+import { getPersonalProject, testDb } from '@resin/backend-test-utils';
 
 import * as helpers from '@/modules/sso-saml/saml-helpers';
 import type { SamlUserAttributes } from '@/modules/sso-saml/types';

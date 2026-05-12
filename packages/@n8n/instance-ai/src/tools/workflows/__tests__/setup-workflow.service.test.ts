@@ -1,4 +1,4 @@
-import type { WorkflowJSON, NodeJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON, NodeJSON } from '@resin/workflow-sdk';
 
 import type { InstanceAiContext } from '../../../types';
 import {
@@ -71,7 +71,7 @@ function createMockContext(overrides?: Partial<InstanceAiContext>): InstanceAiCo
 function makeNode(overrides: Partial<NodeJSON> = {}): NodeJSON {
 	return {
 		name: 'Slack',
-		type: 'n8n-nodes-base.slack',
+		type: 'resin-nodes-base.slack',
 		typeVersion: 2,
 		parameters: {},
 		position: [250, 300] as [number, number],
@@ -172,7 +172,7 @@ describe('buildSetupRequests', () => {
 		});
 		(context.credentialService.list as jest.Mock).mockResolvedValue([]);
 
-		const node = makeNode({ type: 'n8n-nodes-base.httpRequest', typeVersion: 4.4 });
+		const node = makeNode({ type: 'resin-nodes-base.httpRequest', typeVersion: 4.4 });
 		const result = await buildSetupRequests(context, node);
 
 		// displayOptions require provideSslCertificates=true, but it's not set
@@ -192,7 +192,7 @@ describe('buildSetupRequests', () => {
 		(context.credentialService.list as jest.Mock).mockResolvedValue([]);
 
 		const node = makeNode({
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: { provideSslCertificates: true },
 		});
@@ -214,7 +214,7 @@ describe('buildSetupRequests', () => {
 		(context.credentialService.list as jest.Mock).mockResolvedValue([]);
 
 		const node = makeNode({
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: {
 				authentication: 'genericCredentialType',
@@ -240,7 +240,7 @@ describe('buildSetupRequests', () => {
 		(context.credentialService.list as jest.Mock).mockResolvedValue([]);
 
 		const node = makeNode({
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: {
 				authentication: 'predefinedCredentialType',
@@ -433,7 +433,7 @@ describe('buildSetupRequests', () => {
 
 		const node = makeNode({
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: { authentication: 'none', url: 'https://api.example.com' },
 			credentials: { httpHeaderAuth: { id: 'old-cred', name: 'Stale Header Auth' } },
@@ -459,7 +459,7 @@ describe('buildSetupRequests', () => {
 
 		const node = makeNode({
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: { authentication: 'none', url: 'https://api.example.com' },
 			credentials: { httpHeaderAuth: { id: 'old-cred', name: 'Stale Header Auth' } },
@@ -571,7 +571,7 @@ describe('analyzeWorkflow', () => {
 
 	it('returns empty array for workflow with no actionable nodes', async () => {
 		(context.workflowService.getAsWorkflowJSON as jest.Mock).mockResolvedValue(
-			makeWorkflowJSON([makeNode({ name: 'NoOp', type: 'n8n-nodes-base.noOp' })]),
+			makeWorkflowJSON([makeNode({ name: 'NoOp', type: 'resin-nodes-base.noOp' })]),
 		);
 		(context.nodeService.getDescription as jest.Mock).mockResolvedValue({
 			group: [],
@@ -646,7 +646,7 @@ describe('analyzeWorkflow', () => {
 	it('keeps testable trigger requests even when their credential is already valid', async () => {
 		const trigger = makeNode({
 			name: 'Webhook',
-			type: 'n8n-nodes-base.webhook',
+			type: 'resin-nodes-base.webhook',
 			id: 'n-trigger',
 			credentials: { httpHeaderAuth: { id: 'cred-1', name: 'My Auth' } },
 		});
@@ -703,13 +703,13 @@ describe('analyzeWorkflow', () => {
 	it('sorts by execution order with triggers first', async () => {
 		const trigger = makeNode({
 			name: 'Webhook',
-			type: 'n8n-nodes-base.webhook',
+			type: 'resin-nodes-base.webhook',
 			id: 'n-trigger',
 			position: [100, 100] as [number, number],
 		});
 		const action = makeNode({
 			name: 'Slack',
-			type: 'n8n-nodes-base.slack',
+			type: 'resin-nodes-base.slack',
 			id: 'n-action',
 			position: [400, 100] as [number, number],
 		});
@@ -719,7 +719,7 @@ describe('analyzeWorkflow', () => {
 			}),
 		);
 		(context.nodeService.getDescription as jest.Mock).mockImplementation(async (type: string) => {
-			if (type === 'n8n-nodes-base.webhook') {
+			if (type === 'resin-nodes-base.webhook') {
 				return await Promise.resolve({
 					group: ['trigger'],
 					credentials: [],
@@ -741,19 +741,19 @@ describe('analyzeWorkflow', () => {
 		it('stamps subnodeRootNode on every sub-node connected to an agent', async () => {
 			const agent = makeNode({
 				name: 'Agent',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				typeVersion: 1,
 				id: 'agent-1',
 			});
 			const model = makeNode({
 				name: 'OpenAI Model',
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				id: 'model-1',
 			});
 			const memory = makeNode({
 				name: 'Memory',
-				type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+				type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 				typeVersion: 1,
 				id: 'memory-1',
 			});
@@ -766,13 +766,13 @@ describe('analyzeWorkflow', () => {
 				}),
 			);
 			(context.nodeService.getDescription as jest.Mock).mockImplementation(async (type: string) => {
-				if (type === '@n8n/n8n-nodes-langchain.lmChatOpenAi') {
+				if (type === '@resin/n8n-nodes-langchain.lmChatOpenAi') {
 					return await Promise.resolve({
 						group: [],
 						credentials: [{ name: 'openAiApi' }],
 					});
 				}
-				if (type === '@n8n/n8n-nodes-langchain.memoryBufferWindow') {
+				if (type === '@resin/n8n-nodes-langchain.memoryBufferWindow') {
 					return await Promise.resolve({ group: [], credentials: [] });
 				}
 				return await Promise.resolve({ group: [], credentials: [] });
@@ -784,7 +784,7 @@ describe('analyzeWorkflow', () => {
 			const modelReq = result.find((r) => r.node.name === 'OpenAI Model');
 			expect(modelReq?.subnodeRootNode).toEqual({
 				name: 'Agent',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				typeVersion: 1,
 				id: 'agent-1',
 			});
@@ -793,19 +793,19 @@ describe('analyzeWorkflow', () => {
 		it('stamps the topmost root node for transitively nested sub-agents', async () => {
 			const agent = makeNode({
 				name: 'Agent',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				typeVersion: 1,
 				id: 'agent-1',
 			});
 			const tool = makeNode({
 				name: 'Tool',
-				type: '@n8n/n8n-nodes-langchain.toolWorkflow',
+				type: '@resin/n8n-nodes-langchain.toolWorkflow',
 				typeVersion: 1,
 				id: 'tool-1',
 			});
 			const subModel = makeNode({
 				name: 'Sub Model',
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				id: 'sub-model-1',
 			});
@@ -818,7 +818,7 @@ describe('analyzeWorkflow', () => {
 				}),
 			);
 			(context.nodeService.getDescription as jest.Mock).mockImplementation(async (type: string) => {
-				if (type === '@n8n/n8n-nodes-langchain.lmChatOpenAi') {
+				if (type === '@resin/n8n-nodes-langchain.lmChatOpenAi') {
 					return await Promise.resolve({
 						group: [],
 						credentials: [{ name: 'openAiApi' }],
@@ -837,13 +837,13 @@ describe('analyzeWorkflow', () => {
 		it('keeps subnodeRootNode metadata even when the root node itself produced no setup request', async () => {
 			const agent = makeNode({
 				name: 'Agent',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				typeVersion: 1,
 				id: 'agent-1',
 			});
 			const model = makeNode({
 				name: 'Model',
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				id: 'model-1',
 			});
@@ -853,7 +853,7 @@ describe('analyzeWorkflow', () => {
 				}),
 			);
 			(context.nodeService.getDescription as jest.Mock).mockImplementation(async (type: string) => {
-				if (type === '@n8n/n8n-nodes-langchain.lmChatOpenAi') {
+				if (type === '@resin/n8n-nodes-langchain.lmChatOpenAi') {
 					return await Promise.resolve({
 						group: [],
 						credentials: [{ name: 'openAiApi' }],
@@ -870,7 +870,7 @@ describe('analyzeWorkflow', () => {
 			const modelReq = result.find((r) => r.node.name === 'Model');
 			expect(modelReq?.subnodeRootNode).toEqual({
 				name: 'Agent',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				typeVersion: 1,
 				id: 'agent-1',
 			});
@@ -879,27 +879,27 @@ describe('analyzeWorkflow', () => {
 		it('attaches a multi-root sub-node to the first root node in execution order', async () => {
 			const trigger = makeNode({
 				name: 'Trigger',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				id: 'trigger-1',
 				position: [0, 0] as [number, number],
 			});
 			const agentA = makeNode({
 				name: 'Agent A',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				typeVersion: 1,
 				id: 'agent-a',
 				position: [200, 0] as [number, number],
 			});
 			const agentB = makeNode({
 				name: 'Agent B',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				typeVersion: 1,
 				id: 'agent-b',
 				position: [400, 0] as [number, number],
 			});
 			const sharedModel = makeNode({
 				name: 'Shared Model',
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				id: 'shared-1',
 			});
@@ -924,14 +924,14 @@ describe('analyzeWorkflow', () => {
 				}),
 			);
 			(context.nodeService.getDescription as jest.Mock).mockImplementation(async (type: string) => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return await Promise.resolve({
 						group: ['trigger'],
 						credentials: [],
 						webhooks: [{}],
 					});
 				}
-				if (type === '@n8n/n8n-nodes-langchain.lmChatOpenAi') {
+				if (type === '@resin/n8n-nodes-langchain.lmChatOpenAi') {
 					return await Promise.resolve({
 						group: [],
 						credentials: [{ name: 'openAiApi' }],
@@ -951,13 +951,13 @@ describe('analyzeWorkflow', () => {
 		it('does not classify a sub-node by following a Main edge', async () => {
 			const trigger = makeNode({
 				name: 'Trigger',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				id: 'trigger-1',
 				position: [0, 0] as [number, number],
 			});
 			const httpAction = makeNode({
 				name: 'HTTP',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				id: 'http-1',
 				position: [200, 0] as [number, number],
 			});
@@ -967,7 +967,7 @@ describe('analyzeWorkflow', () => {
 				}),
 			);
 			(context.nodeService.getDescription as jest.Mock).mockImplementation(async (type: string) => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return await Promise.resolve({
 						group: ['trigger'],
 						credentials: [],
@@ -1003,7 +1003,7 @@ describe('applyNodeChanges', () => {
 	it('applies credentials and parameters atomically', async () => {
 		const wfJson = makeWorkflowJSON([
 			makeNode({ name: 'Slack', id: 'n1' }),
-			makeNode({ name: 'Gmail', id: 'n2', type: 'n8n-nodes-base.gmail' }),
+			makeNode({ name: 'Gmail', id: 'n2', type: 'resin-nodes-base.gmail' }),
 		]);
 		(context.workflowService.getAsWorkflowJSON as jest.Mock).mockResolvedValue(wfJson);
 		(context.credentialService.get as jest.Mock).mockImplementation(
@@ -1062,7 +1062,7 @@ describe('applyNodeChanges', () => {
 	it('strips credentials not valid for the current parameters', async () => {
 		const node = makeNode({
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: { authentication: 'none', url: 'https://api.example.com' },
 			credentials: { httpHeaderAuth: { id: 'stale', name: 'Stale Header Auth' } },
@@ -1093,7 +1093,7 @@ describe('applyNodeChanges', () => {
 	it('preserves just-applied credentials even if description would exclude them', async () => {
 		const node = makeNode({
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: { authentication: 'none' },
 		});
@@ -1128,7 +1128,7 @@ describe('applyNodeChanges', () => {
 		// the saved workflow still had the original (empty) parameter value.
 		const node = makeNode({
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.2,
 			parameters: { method: 'GET', url: '', authentication: 'none' },
 		});
@@ -1162,7 +1162,7 @@ describe('applyNodeChanges', () => {
 	it('keeps credentials matching description displayOptions', async () => {
 		const node = makeNode({
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: {
 				authentication: 'genericCredentialType',
@@ -1240,7 +1240,7 @@ describe('stripStaleCredentialsFromWorkflow', () => {
 	it('removes credential entries that no longer match the node parameters', async () => {
 		const node = makeNode({
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: { authentication: 'none', url: 'https://api.example.com' },
 			credentials: { httpHeaderAuth: { id: 'stale', name: 'Stale Header Auth' } },
@@ -1264,7 +1264,7 @@ describe('stripStaleCredentialsFromWorkflow', () => {
 	it('keeps credential entries that match the current parameters', async () => {
 		const node = makeNode({
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: {
 				authentication: 'genericCredentialType',
@@ -1288,7 +1288,7 @@ describe('stripStaleCredentialsFromWorkflow', () => {
 	it('strips per-node — clean nodes are unaffected, stale nodes are scrubbed', async () => {
 		const cleanNode = makeNode({
 			name: 'OpenRouter',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: {
 				authentication: 'genericCredentialType',
@@ -1299,7 +1299,7 @@ describe('stripStaleCredentialsFromWorkflow', () => {
 		const staleNode = makeNode({
 			name: 'Joke API',
 			id: 'node-2',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.4,
 			parameters: { authentication: 'none', url: 'https://icanhazdadjoke.com/' },
 			credentials: { httpHeaderAuth: { id: 'cred-1', name: 'OpenRouter Auth' } },
@@ -1358,7 +1358,7 @@ describe('applyNodeCredentials — credential ownership revalidation', () => {
 	});
 
 	it('applies a credential the user is allowed to read', async () => {
-		const node = makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' });
+		const node = makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' });
 		const wfJson = makeWorkflowJSON([node]);
 		(context.workflowService.getAsWorkflowJSON as jest.Mock).mockResolvedValue(wfJson);
 		(context.credentialService.get as jest.Mock).mockResolvedValue({
@@ -1379,7 +1379,7 @@ describe('applyNodeCredentials — credential ownership revalidation', () => {
 	});
 
 	it('does not write a credential the user cannot access', async () => {
-		const node = makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' });
+		const node = makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' });
 		const wfJson = makeWorkflowJSON([node]);
 		(context.workflowService.getAsWorkflowJSON as jest.Mock).mockResolvedValue(wfJson);
 		(context.credentialService.get as jest.Mock).mockRejectedValue(
@@ -1398,8 +1398,8 @@ describe('applyNodeCredentials — credential ownership revalidation', () => {
 	});
 
 	it('applies allowed credentials and rejects forbidden ones in a mixed payload', async () => {
-		const slack = makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' });
-		const github = makeNode({ name: 'GitHub', type: 'n8n-nodes-base.github', id: 'node-2' });
+		const slack = makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' });
+		const github = makeNode({ name: 'GitHub', type: 'resin-nodes-base.github', id: 'node-2' });
 		const wfJson = makeWorkflowJSON([slack, github]);
 		(context.workflowService.getAsWorkflowJSON as jest.Mock).mockResolvedValue(wfJson);
 		(context.credentialService.get as jest.Mock).mockImplementation(async (credId: string) => {
@@ -1422,7 +1422,7 @@ describe('applyNodeCredentials — credential ownership revalidation', () => {
 	});
 
 	it('marks a node as failed when any of its credentials are rejected', async () => {
-		const node = makeNode({ name: 'HTTP', type: 'n8n-nodes-base.httpRequest' });
+		const node = makeNode({ name: 'HTTP', type: 'resin-nodes-base.httpRequest' });
 		const wfJson = makeWorkflowJSON([node]);
 		(context.workflowService.getAsWorkflowJSON as jest.Mock).mockResolvedValue(wfJson);
 		(context.credentialService.get as jest.Mock).mockImplementation(async (credId: string) => {
@@ -1445,7 +1445,7 @@ describe('applyNodeCredentials — credential ownership revalidation', () => {
 	});
 
 	it('skips credentials for nodes not present in the workflow', async () => {
-		const node = makeNode({ name: 'Slack', type: 'n8n-nodes-base.slack' });
+		const node = makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' });
 		const wfJson = makeWorkflowJSON([node]);
 		(context.workflowService.getAsWorkflowJSON as jest.Mock).mockResolvedValue(wfJson);
 

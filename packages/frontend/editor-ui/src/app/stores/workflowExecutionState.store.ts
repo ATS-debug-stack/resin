@@ -1,8 +1,8 @@
 import { defineStore, getActivePinia } from 'pinia';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { computed, inject, readonly, ref } from 'vue';
 import { createEventHook } from '@vueuse/core';
-import type { ExecutionSummary } from 'n8n-workflow';
+import type { ExecutionSummary } from 'resin-workflow';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
 import { WorkflowExecutionStateStoreKey } from '@/app/constants/injectionKeys';
 import { IN_PROGRESS_EXECUTION_ID } from '@/app/constants/placeholders';

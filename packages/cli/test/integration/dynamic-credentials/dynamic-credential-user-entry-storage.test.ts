@@ -1,6 +1,6 @@
-import { testDb, testModules } from '@n8n/backend-test-utils';
-import { UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb, testModules } from '@resin/backend-test-utils';
+import { UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { DynamicCredentialUserEntryStorage } from '@/modules/dynamic-credentials.ee/credential-resolvers/storage/dynamic-credential-user-entry-storage';
 

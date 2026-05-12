@@ -1,6 +1,6 @@
 import type { ServerTool } from '@langchain/core/tools';
 import { ChatOpenAI, type ClientOptions } from '@langchain/openai';
-import type { ISupplyDataFunctions, SupplyData } from 'n8n-workflow';
+import type { ISupplyDataFunctions, SupplyData } from 'resin-workflow';
 
 import { LangchainChatModelAdapter } from '../adapters/langchain-chat-model';
 import { BaseChatModel } from '../chat-model/base';

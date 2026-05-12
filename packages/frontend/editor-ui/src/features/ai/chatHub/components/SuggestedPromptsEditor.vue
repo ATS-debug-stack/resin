@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { AgentIconOrEmoji } from '@n8n/api-types';
-import { N8nButton, N8nIconPicker, N8nInput } from '@n8n/design-system';
-import type { IconOrEmoji } from '@n8n/design-system/components/N8nIconPicker/types';
-import { useI18n } from '@n8n/i18n';
+import type { AgentIconOrEmoji } from '@resin/api-types';
+import { N8nButton, N8nIconPicker, N8nInput } from '@resin/design-system';
+import type { IconOrEmoji } from '@resin/design-system/components/N8nIconPicker/types';
+import { useI18n } from '@resin/i18n';
 import { nextTick, ref } from 'vue';
 
 const MAX_PROMPTS = 6;

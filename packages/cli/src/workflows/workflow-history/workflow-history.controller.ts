@@ -2,9 +2,9 @@ import {
 	PaginationDto,
 	WorkflowHistoryVersionsByIdsDto,
 	UpdateWorkflowHistoryVersionDto,
-} from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
-import { RestController, Get, Post, Query, Body, Patch, Param, Licensed } from '@n8n/decorators';
+} from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
+import { RestController, Get, Post, Query, Body, Patch, Param, Licensed } from '@resin/decorators';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 import { SharedWorkflowNotFoundError } from '@/errors/shared-workflow-not-found.error';

@@ -5,8 +5,8 @@ import type {
 	INodeExecutionData,
 	INodePropertyOptions,
 	NodeParameterValueType,
-} from 'n8n-workflow';
-import { NodeOperationError, deepCopy, jsonParse } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, deepCopy, jsonParse } from 'resin-workflow';
 
 import type {
 	ColumnInfo,

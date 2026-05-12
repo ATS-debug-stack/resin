@@ -1,5 +1,5 @@
 import type { TestInfo } from '@playwright/test';
-import type { MetricsHelper } from 'n8n-containers';
+import type { MetricsHelper } from 'resin-containers';
 
 import { attachMetric } from '../performance-helper';
 
@@ -57,7 +57,7 @@ const EXPECTED_KEYS: Array<keyof DiagnosticsResult> = [
  * reliable than regex-matching on `name`, which varies by Docker version,
  * Docker Desktop, and Compose project name.
  */
-const TRACKED_SERVICES = ['postgres', 'n8n-main', 'n8n-worker', 'redis', 'kafka', 'cadvisor'];
+const TRACKED_SERVICES = ['postgres', 'resin-main', 'resin-worker', 'redis', 'kafka', 'cadvisor'];
 
 async function queryContainerStats(
 	metrics: MetricsHelper,

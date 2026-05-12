@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 import * as create from './create.operation';
 import * as deleteLead from './delete.operation';

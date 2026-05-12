@@ -1,6 +1,6 @@
 import type { BaseMessage } from '@langchain/core/messages';
 import type { Client as LangsmithClient } from 'langsmith/client';
-import type { IPinData } from 'n8n-workflow';
+import type { IPinData } from 'resin-workflow';
 import type pLimit from 'p-limit';
 
 import type { EvalLogger } from './logger';

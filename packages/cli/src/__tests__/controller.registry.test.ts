@@ -1,11 +1,11 @@
-jest.mock('@n8n/backend-common', () => {
+jest.mock('@resin/backend-common', () => {
 	return {
-		...jest.requireActual('@n8n/backend-common'),
+		...jest.requireActual('@resin/backend-common'),
 		inProduction: true,
 	};
 });
 
-import type { GlobalConfig } from '@n8n/config';
+import type { GlobalConfig } from '@resin/config';
 import {
 	ControllerRegistryMetadata,
 	Param,
@@ -17,12 +17,12 @@ import {
 	RootLevelController,
 	createBodyKeyedRateLimiter,
 	createUserKeyedRateLimiter,
-} from '@n8n/decorators';
-import { Container } from '@n8n/di';
+} from '@resin/decorators';
+import { Container } from '@resin/di';
 import express, { json } from 'express';
 import { mock } from 'jest-mock-extended';
 import { agent as testAgent } from 'supertest';
-import { Z } from '@n8n/api-types';
+import { Z } from '@resin/api-types';
 import { z } from 'zod';
 
 import type { AuthService } from '@/auth/auth.service';

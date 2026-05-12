@@ -2,7 +2,7 @@
 /**
  * Configure a single tool (node or workflow) on an agent.
  *
- * Takes an `AgentJsonToolRef` (the persisted shape from `@n8n/api-types`) and
+ * Takes an `AgentJsonToolRef` (the persisted shape from `@resin/api-types`) and
  * renders the appropriate form:
  *   - `type: 'node'`   → shared `NodeToolSettingsContent` (NDV-style param form)
  *   - `type: 'workflow'` → small `WorkflowToolConfigContent` (description +
@@ -25,9 +25,9 @@ import {
 	N8nInlineTextEdit,
 	N8nRadioButtons,
 	N8nText,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import type { INode } from 'n8n-workflow';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import type { INode } from 'resin-workflow';
 
 import type { AgentJsonToolRef, CustomToolEntry } from '../types';
 import {

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import StepIndicator from './StepIndicator.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
-import { N8nBadge, N8nText } from '@n8n/design-system';
+import { N8nBadge, N8nText } from '@resin/design-system';
 defineProps<{
 	stepNumber: number;
 	title: string;

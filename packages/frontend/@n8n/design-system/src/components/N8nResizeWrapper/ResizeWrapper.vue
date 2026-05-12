@@ -145,7 +145,7 @@ const cleanupResize = (): boolean => {
 	w.removeEventListener('mouseup', mouseUp);
 	w.removeEventListener('blur', onBlur);
 	document.body.style.cursor = 'unset';
-	document.body.classList.remove('n8n-resizing');
+	document.body.classList.remove('resin-resizing');
 	state.dir.value = '';
 	return true;
 };
@@ -178,7 +178,7 @@ const resizerMove = (event: MouseEvent) => {
 	}
 
 	document.body.style.cursor = directionsCursorMaps[state.dir.value as Direction];
-	document.body.classList.add('n8n-resizing');
+	document.body.classList.add('resin-resizing');
 
 	state.x.value = event.pageX;
 	state.y.value = event.pageY;

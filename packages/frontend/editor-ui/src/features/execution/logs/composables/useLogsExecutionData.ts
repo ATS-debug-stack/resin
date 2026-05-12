@@ -1,6 +1,6 @@
 import { watch, computed, ref, type ComputedRef } from 'vue';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
-import { Workflow, type IRunExecutionData, type ITaskStartedData } from 'n8n-workflow';
+import { Workflow, type IRunExecutionData, type ITaskStartedData } from 'resin-workflow';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
@@ -17,7 +17,7 @@ import { CHAT_TRIGGER_NODE_TYPE, LOGS_EXECUTION_DATA_THROTTLE_DURATION } from '@
 import { useChatHubPanelStore } from '@/features/ai/chatHub/chatHubPanel.store';
 import { useThrottleFn } from '@vueuse/core';
 import { injectWorkflowState } from '@/app/composables/useWorkflowState';
-import { useThrottleWithReactiveDelay } from '@n8n/composables/useThrottleWithReactiveDelay';
+import { useThrottleWithReactiveDelay } from '@resin/composables/useThrottleWithReactiveDelay';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 
 interface UseLogsExecutionDataOptions {

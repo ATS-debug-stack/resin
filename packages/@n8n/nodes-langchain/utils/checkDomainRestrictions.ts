@@ -2,8 +2,8 @@ import type {
 	ICredentialDataDecryptedObject,
 	ISupplyDataFunctions,
 	IExecuteFunctions,
-} from 'n8n-workflow';
-import { isDomainAllowed, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { isDomainAllowed, NodeOperationError } from 'resin-workflow';
 
 /**
  * Checks if the URL is allowed based on the allowed domains type and the allowed domains.

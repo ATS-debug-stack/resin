@@ -1,13 +1,13 @@
 import { EventService } from '@/events/event.service';
 import { RelayEventMap } from '@/events/maps/relay.event-map';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig, WorkflowHistoryCompactionConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { DbConnection, WorkflowHistoryRepository } from '@n8n/db';
-import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
-import { DiffMetaData, DiffRule, ensureError, RULES, SKIP_RULES, sleep } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig, WorkflowHistoryCompactionConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { DbConnection, WorkflowHistoryRepository } from '@resin/db';
+import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
+import { DiffMetaData, DiffRule, ensureError, RULES, SKIP_RULES, sleep } from 'resin-workflow';
 import { strict } from 'node:assert';
 
 /**

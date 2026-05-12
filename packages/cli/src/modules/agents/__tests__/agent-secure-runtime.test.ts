@@ -1,4 +1,4 @@
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import { existsSync } from 'fs';
 import type ivm from 'isolated-vm';
 import { mock } from 'jest-mock-extended';
@@ -28,7 +28,7 @@ async function ensureLibraryBundle() {
 const logger = mock<Logger>();
 
 const SIMPLE_TOOL_CODE = `
-import { Tool } from '@n8n/agents';
+import { Tool } from '@resin/agents';
 import { z } from 'zod';
 
 export default new Tool('double')

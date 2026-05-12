@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { ChatModelDto } from '@n8n/api-types';
-import ChatFile from '@n8n/chat/components/ChatFile.vue';
-import { N8nIconButton, N8nInput, N8nTooltip } from '@n8n/design-system';
+import type { ChatModelDto } from '@resin/api-types';
+import ChatFile from '@resin/chat/components/ChatFile.vue';
+import { N8nIconButton, N8nInput, N8nTooltip } from '@resin/design-system';
 import { useElementSize } from '@vueuse/core';
 import { useTemplateRef } from 'vue';
 import ToolsSelector from './ToolsSelector.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import type { MessagingState } from '@/features/ai/chatHub/chat.types';
 
 const props = defineProps<{

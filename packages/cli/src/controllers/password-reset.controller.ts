@@ -2,10 +2,10 @@ import {
 	ChangePasswordRequestDto,
 	ForgotPasswordRequestDto,
 	ResolvePasswordTokenQueryDto,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GLOBAL_OWNER_ROLE, UserRepository } from '@n8n/db';
-import { Time } from '@n8n/constants';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GLOBAL_OWNER_ROLE, UserRepository } from '@resin/db';
+import { Time } from '@resin/constants';
 import {
 	Body,
 	createBodyKeyedRateLimiter,
@@ -13,13 +13,13 @@ import {
 	Post,
 	Query,
 	RestController,
-} from '@n8n/decorators';
-import { hasGlobalScope } from '@n8n/permissions';
+} from '@resin/decorators';
+import { hasGlobalScope } from '@resin/permissions';
 import { Response } from 'express';
 
 import { AuthService } from '@/auth/auth.service';
 import { RESPONSE_ERROR_MESSAGES } from '@/constants';
-import { ErrorReporter } from 'n8n-core';
+import { ErrorReporter } from 'resin-core';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';
 import { InternalServerError } from '@/errors/response-errors/internal-server.error';

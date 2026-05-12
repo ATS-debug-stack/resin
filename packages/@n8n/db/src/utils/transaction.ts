@@ -1,4 +1,4 @@
-import type { EntityManager } from '@n8n/typeorm';
+import type { EntityManager } from '@resin/typeorm';
 
 type Tx = EntityManager | null | undefined;
 

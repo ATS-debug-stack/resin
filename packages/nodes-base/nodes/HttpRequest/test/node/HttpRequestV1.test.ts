@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, INodeTypeBaseDescription } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeTypeBaseDescription } from 'resin-workflow';
 
 import { HttpRequestV1 } from '../../V1/HttpRequestV1.node';
 
@@ -18,7 +18,7 @@ describe('HttpRequestV1', () => {
 			getInputData: jest.fn(() => [{ json: {} }]),
 			getNodeParameter: jest.fn(),
 			getNode: jest.fn(() => ({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				typeVersion: 1,
 			})),
 			getCredentials: jest.fn(),

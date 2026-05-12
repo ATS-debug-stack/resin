@@ -11,13 +11,13 @@ import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { ref } from 'vue';
 import { useCollaborationStore } from '@/features/collaboration/collaboration/collaboration.store';
 import { useActivationError } from '@/app/composables/useActivationError';
-import type { INode } from 'n8n-workflow';
-import type { ResponseError } from '@n8n/rest-api-client/utils';
-import type { findWebhook } from '@n8n/rest-api-client/api/webhooks';
+import type { INode } from 'resin-workflow';
+import type { ResponseError } from '@resin/rest-api-client/utils';
+import type { findWebhook } from '@resin/rest-api-client/api/webhooks';
 import {
 	useWorkflowDocumentStore,
 	createWorkflowDocumentId,

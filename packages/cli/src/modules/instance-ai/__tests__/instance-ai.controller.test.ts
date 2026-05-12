@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	createMemory: jest.fn(),
 	workflowLoopStateSchema: z.string(),
 	attemptRecordSchema: z.object({}),
@@ -19,7 +19,7 @@ jest.mock('@n8n/instance-ai', () => ({
 
 // The controller imports validation helpers via the parsers subpath so they
 // don't pull in Mastra. Re-export the real implementation for the test.
-jest.mock('@n8n/instance-ai/parsers', () => jest.requireActual('@n8n/instance-ai/parsers'));
+jest.mock('@resin/instance-ai/parsers', () => jest.requireActual('@resin/instance-ai/parsers'));
 
 jest.mock('../eval/execution.service', () => ({
 	EvalExecutionService: jest.fn(),
@@ -45,13 +45,13 @@ import type {
 	InstanceAiThreadMessagesResponse,
 	InstanceAiEvalSubAgentRequest,
 	InstanceAiEvalSubAgentResponse,
-} from '@n8n/api-types';
-import type { ModuleRegistry } from '@n8n/backend-common';
-import type { GlobalConfig } from '@n8n/config';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { ControllerRegistryMetadata } from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import type { Scope } from '@n8n/permissions';
+} from '@resin/api-types';
+import type { ModuleRegistry } from '@resin/backend-common';
+import type { GlobalConfig } from '@resin/config';
+import type { AuthenticatedRequest } from '@resin/db';
+import { ControllerRegistryMetadata } from '@resin/decorators';
+import { Container } from '@resin/di';
+import type { Scope } from '@resin/permissions';
 import type { Request, Response } from 'express';
 import { mock } from 'jest-mock-extended';
 
@@ -907,7 +907,7 @@ describe('InstanceAiController', () => {
 
 			expect(result).toEqual({
 				token: 'pairing-token',
-				command: 'npx @n8n/computer-use https://myinstance.n8n.cloud pairing-token',
+				command: 'npx @resin/computer-use https://myinstance.n8n.cloud pairing-token',
 				expiresAt: '2026-01-01T00:05:00.000Z',
 				ttlSeconds: 300,
 			});

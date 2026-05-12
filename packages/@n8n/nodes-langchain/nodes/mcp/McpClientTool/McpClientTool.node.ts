@@ -1,4 +1,4 @@
-import { getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getConnectionHintNoticeField } from '@resin/ai-utilities';
 import {
 	type IExecuteFunctions,
 	type INodeExecutionData,
@@ -7,7 +7,7 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getTools } from './loadOptions';
 import type { McpToolIncludeMode } from './types';

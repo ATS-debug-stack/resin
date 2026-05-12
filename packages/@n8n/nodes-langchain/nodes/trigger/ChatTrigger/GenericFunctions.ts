@@ -1,5 +1,5 @@
 import basicAuth from 'basic-auth';
-import type { ICredentialDataDecryptedObject, IWebhookFunctions } from 'n8n-workflow';
+import type { ICredentialDataDecryptedObject, IWebhookFunctions } from 'resin-workflow';
 
 import { ChatTriggerAuthorizationError } from './error';
 import type { AuthenticationChatOption } from './types';
@@ -48,7 +48,7 @@ export async function validateAuth(context: IWebhookFunctions) {
 				return '';
 			}
 
-			const authCookie = getCookie('n8n-auth');
+			const authCookie = getCookie('resin-auth');
 			if (!authCookie) {
 				throw new ChatTriggerAuthorizationError(401, 'User not authenticated!');
 			}

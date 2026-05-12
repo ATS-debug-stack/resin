@@ -3,10 +3,10 @@ import {
 	createWorkflowHistory,
 	createWorkflowWithHistory,
 	testDb,
-} from '@n8n/backend-test-utils';
-import { WorkflowHistoryRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { RULES, type INode } from 'n8n-workflow';
+} from '@resin/backend-test-utils';
+import { WorkflowHistoryRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { RULES, type INode } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 describe('WorkflowHistoryRepository', () => {

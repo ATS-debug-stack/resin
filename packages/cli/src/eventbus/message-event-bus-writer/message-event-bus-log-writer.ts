@@ -1,11 +1,11 @@
-import { inTest, Logger, safeJoinPath } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { inTest, Logger, safeJoinPath } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { once as eventOnce } from 'events';
 import { createReadStream, existsSync, rmSync } from 'fs';
 import remove from 'lodash/remove';
-import { InstanceSettings } from 'n8n-core';
-import { EventMessageTypeNames, jsonParse } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { EventMessageTypeNames, jsonParse } from 'resin-workflow';
 import { parse } from 'path';
 import readline from 'readline';
 import { Worker } from 'worker_threads';

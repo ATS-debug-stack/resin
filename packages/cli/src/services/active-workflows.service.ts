@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { SharedWorkflowRepository, WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
+import { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { SharedWorkflowRepository, WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
 
 import { ActivationErrorsService } from '@/activation-errors.service';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

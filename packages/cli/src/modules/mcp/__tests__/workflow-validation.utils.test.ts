@@ -1,5 +1,5 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { User } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { User } from '@resin/db';
 
 import { WorkflowFinderService } from '@/workflows/workflow-finder.service';
 
@@ -7,7 +7,7 @@ import { createWorkflow } from './mock.utils';
 import { WorkflowAccessError } from '../mcp.errors';
 import { getMcpWorkflow, getSdkReferenceHint } from '../tools/workflow-validation.utils';
 
-jest.mock('@n8n/ai-workflow-builder', () => ({
+jest.mock('@resin/ai-workflow-builder', () => ({
 	MCP_GET_SDK_REFERENCE_TOOL: { toolName: 'get_sdk_reference', displayTitle: 'SDK Ref' },
 	CODE_BUILDER_VALIDATE_TOOL: { toolName: 'validate_workflow', displayTitle: 'Validate' },
 }));

@@ -2,7 +2,7 @@
 import TimeAgo from '@/app/components/TimeAgo.vue';
 import ResourceFiltersDropdown from '@/app/components/forms/ResourceFiltersDropdown.vue';
 import { DEBOUNCE_TIME, getDebounceTime, VIEWS } from '@/app/constants';
-import type { BreakingChangeWorkflowRuleResult } from '@n8n/api-types';
+import type { BreakingChangeWorkflowRuleResult } from '@resin/api-types';
 import {
 	N8nButton,
 	N8nDataTableServer,
@@ -15,11 +15,11 @@ import {
 	N8nSelect,
 	N8nTag,
 	N8nText,
-} from '@n8n/design-system';
-import type { TableHeader } from '@n8n/design-system/components/N8nDataTableServer';
-import * as breakingChangesApi from '@n8n/rest-api-client/api/breaking-changes';
-import { useI18n } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
+} from '@resin/design-system';
+import type { TableHeader } from '@resin/design-system/components/N8nDataTableServer';
+import * as breakingChangesApi from '@resin/rest-api-client/api/breaking-changes';
+import { useI18n } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useAsyncState, useDebounceFn } from '@vueuse/core';
 import orderBy from 'lodash/orderBy';
 import { computed, ref } from 'vue';

@@ -12,9 +12,9 @@ import {
 	type ChatHubLLMProvider,
 	type ChatProviderSettingsDto,
 	PROVIDER_CREDENTIAL_TYPE_MAP,
-} from '@n8n/api-types';
-import { N8nHeading } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/api-types';
+import { N8nHeading } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { computed, onMounted } from 'vue';
 import { useChatStore } from './chat.store';
 import ChatProvidersTable from './components/ChatProvidersTable.vue';

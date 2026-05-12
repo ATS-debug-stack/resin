@@ -18,13 +18,13 @@ import type {
 	ISupplyDataFunctions,
 	ITaskMetadata,
 	NodeConnectionType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	NodeOperationError,
 	NodeConnectionTypes,
 	parseErrorMetadata,
 	deepCopy,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { isToolsInstance, isBaseChatMemory, isBaseChatMessageHistory } from '../guards';
 import {

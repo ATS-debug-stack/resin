@@ -1,8 +1,8 @@
-import { createTeamProject, linkUserToProject, testDb } from '@n8n/backend-test-utils';
-import type { Project, User } from '@n8n/db';
-import { ProjectRelationRepository, ProjectRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { ApiKeyScope } from '@n8n/permissions';
+import { createTeamProject, linkUserToProject, testDb } from '@resin/backend-test-utils';
+import type { Project, User } from '@resin/db';
+import { ProjectRelationRepository, ProjectRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import type { ApiKeyScope } from '@resin/permissions';
 
 import { FolderService } from '@/services/folder.service';
 

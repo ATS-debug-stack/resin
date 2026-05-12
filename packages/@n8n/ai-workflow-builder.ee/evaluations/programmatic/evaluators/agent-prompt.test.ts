@@ -22,7 +22,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'Chat Trigger',
-					type: 'n8n-nodes-base.chatTrigger',
+					type: 'resin-nodes-base.chatTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -30,7 +30,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '2',
 					name: 'Code Node',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					typeVersion: 1,
 					position: [100, 0],
 					parameters: {},
@@ -50,7 +50,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {
@@ -82,7 +82,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {
@@ -107,7 +107,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'Agent 1',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {
@@ -120,7 +120,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '2',
 					name: 'Agent 2',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [100, 0],
 					parameters: {
@@ -133,7 +133,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '3',
 					name: 'Agent 3',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {
@@ -158,7 +158,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {
@@ -180,7 +180,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {
@@ -203,7 +203,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {
@@ -226,7 +226,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {
@@ -253,7 +253,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {},
@@ -275,7 +275,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '1',
 					name: 'Agent 1',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {
@@ -288,7 +288,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '2',
 					name: 'Agent 2',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [100, 0],
 					parameters: {
@@ -301,7 +301,7 @@ describe('evaluateAgentPrompt', () => {
 				{
 					id: '3',
 					name: 'Agent 3',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {
@@ -329,7 +329,7 @@ describe('evaluateAgentPrompt', () => {
 					{
 						id: '1',
 						name: 'Orchestrator Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {
@@ -359,7 +359,7 @@ describe('evaluateAgentPrompt', () => {
 					{
 						id: '1',
 						name: 'Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {
@@ -389,7 +389,7 @@ describe('evaluateAgentPrompt', () => {
 					{
 						id: '1',
 						name: 'Orchestrator Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {
@@ -425,7 +425,7 @@ describe('evaluateAgentPrompt', () => {
 						{
 							id: `test-${index}`,
 							name: `Test Agent ${index}`,
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							typeVersion: 3,
 							position: [0, 0],
 							parameters: {
@@ -452,7 +452,7 @@ describe('evaluateAgentPrompt', () => {
 					{
 						id: '1',
 						name: 'Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {

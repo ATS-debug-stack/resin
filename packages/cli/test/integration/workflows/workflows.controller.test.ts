@@ -11,7 +11,7 @@ import {
 	randomCredentialPayload,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
+} from '@resin/backend-test-utils';
 import type {
 	User,
 	ListQueryDb,
@@ -19,16 +19,16 @@ import type {
 	Role,
 	WorkflowHistory,
 	WorkflowEntity,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	ProjectRepository,
 	WorkflowHistoryRepository,
 	SharedWorkflowRepository,
 	WorkflowRepository,
 	WorkflowPublishHistoryRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { Scope } from '@n8n/permissions';
+} from '@resin/db';
+import { Container } from '@resin/di';
+import type { Scope } from '@resin/permissions';
 import { WorkflowValidationService } from '@/workflows/workflow-validation.service';
 import { createFolder } from '@test-integration/db/folders';
 import { DateTime } from 'luxon';
@@ -38,7 +38,7 @@ import {
 	type INode,
 	type IPinData,
 	type IWorkflowBase,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { saveCredential } from '../shared/db/credentials';
@@ -194,7 +194,7 @@ describe('POST /workflows', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -246,7 +246,7 @@ describe('POST /workflows', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -279,7 +279,7 @@ describe('POST /workflows', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -326,7 +326,7 @@ describe('POST /workflows', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -365,7 +365,7 @@ describe('POST /workflows', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -810,7 +810,7 @@ describe('POST /workflows', () => {
 					{
 						id: 'test-node',
 						name: 'Test Node',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [250, 300],
 						parameters: {},
@@ -1008,7 +1008,7 @@ describe('GET /workflows', () => {
 			{
 				id: uuid(),
 				name: 'Action Network',
-				type: 'n8n-nodes-base.actionNetwork',
+				type: 'resin-nodes-base.actionNetwork',
 				parameters: {},
 				typeVersion: 1,
 				position: [0, 0],
@@ -1094,7 +1094,7 @@ describe('GET /workflows', () => {
 			{
 				id: uuid(),
 				name: 'Action Network',
-				type: 'n8n-nodes-base.actionNetwork',
+				type: 'resin-nodes-base.actionNetwork',
 				parameters: {},
 				typeVersion: 1,
 				position: [0, 0],
@@ -1443,7 +1443,7 @@ describe('GET /workflows', () => {
 						{
 							id: uuid(),
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							parameters: {},
 							typeVersion: 1,
 							position: [0, 0],
@@ -1460,7 +1460,7 @@ describe('GET /workflows', () => {
 						{
 							id: uuid(),
 							name: 'Slack',
-							type: 'n8n-nodes-base.slack',
+							type: 'resin-nodes-base.slack',
 							parameters: {},
 							typeVersion: 1,
 							position: [0, 0],
@@ -1477,7 +1477,7 @@ describe('GET /workflows', () => {
 						{
 							id: uuid(),
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							parameters: {},
 							typeVersion: 1,
 							position: [0, 0],
@@ -1485,7 +1485,7 @@ describe('GET /workflows', () => {
 						{
 							id: uuid(),
 							name: 'Slack',
-							type: 'n8n-nodes-base.slack',
+							type: 'resin-nodes-base.slack',
 							parameters: {},
 							typeVersion: 1,
 							position: [100, 0],
@@ -1498,7 +1498,7 @@ describe('GET /workflows', () => {
 			// Filter by single node type
 			const httpResponse = await authOwnerAgent
 				.get('/workflows')
-				.query('filter={ "nodeTypes": ["n8n-nodes-base.httpRequest"] }&select=["nodes"]')
+				.query('filter={ "nodeTypes": ["resin-nodes-base.httpRequest"] }&select=["nodes"]')
 				.expect(200);
 
 			expect(httpResponse.body.data).toHaveLength(2);
@@ -1511,7 +1511,7 @@ describe('GET /workflows', () => {
 			// Filter by multiple node types (OR operation - returns workflows containing ANY of the specified node types)
 			const multipleResponse = await authOwnerAgent
 				.get('/workflows')
-				.query('filter={ "nodeTypes": ["n8n-nodes-base.httpRequest", "n8n-nodes-base.slack"] }')
+				.query('filter={ "nodeTypes": ["resin-nodes-base.httpRequest", "resin-nodes-base.slack"] }')
 				.expect(200);
 
 			expect(multipleResponse.body.data).toHaveLength(3);
@@ -1523,7 +1523,7 @@ describe('GET /workflows', () => {
 			// Filter by non-existent node type
 			const emptyResponse = await authOwnerAgent
 				.get('/workflows')
-				.query('filter={ "nodeTypes": ["n8n-nodes-base.nonExistent"] }')
+				.query('filter={ "nodeTypes": ["resin-nodes-base.nonExistent"] }')
 				.expect(200);
 
 			expect(emptyResponse.body.data).toHaveLength(0);
@@ -1537,7 +1537,7 @@ describe('GET /workflows', () => {
 						{
 							id: uuid(),
 							name: 'When Executed by Another Workflow',
-							type: 'n8n-nodes-base.executeWorkflowTrigger',
+							type: 'resin-nodes-base.executeWorkflowTrigger',
 							parameters: {
 								inputSource: 'passthrough',
 							},
@@ -1556,7 +1556,7 @@ describe('GET /workflows', () => {
 						{
 							id: uuid(),
 							name: 'When Workflow Errors',
-							type: 'n8n-nodes-base.errorTrigger',
+							type: 'resin-nodes-base.errorTrigger',
 							parameters: {},
 							typeVersion: 1,
 							position: [0, 0],
@@ -1573,7 +1573,7 @@ describe('GET /workflows', () => {
 						{
 							id: uuid(),
 							name: 'Schedule Trigger',
-							type: 'n8n-nodes-base.scheduleTrigger',
+							type: 'resin-nodes-base.scheduleTrigger',
 							parameters: {},
 							typeVersion: 1,
 							position: [0, 0],
@@ -1586,7 +1586,7 @@ describe('GET /workflows', () => {
 			// Filter by Execute Workflow Trigger (single type in array)
 			const executeWorkflowResponse = await authOwnerAgent
 				.get('/workflows')
-				.query('filter={ "triggerNodeTypes": ["n8n-nodes-base.executeWorkflowTrigger"] }')
+				.query('filter={ "triggerNodeTypes": ["resin-nodes-base.executeWorkflowTrigger"] }')
 				.expect(200);
 
 			expect(executeWorkflowResponse.body.data).toHaveLength(1);
@@ -1596,7 +1596,7 @@ describe('GET /workflows', () => {
 			// Filter by Error Trigger (single type in array)
 			const errorTriggerResponse = await authOwnerAgent
 				.get('/workflows')
-				.query('filter={ "triggerNodeTypes": ["n8n-nodes-base.errorTrigger"] }')
+				.query('filter={ "triggerNodeTypes": ["resin-nodes-base.errorTrigger"] }')
 				.expect(200);
 
 			expect(errorTriggerResponse.body.data).toHaveLength(1);
@@ -1607,7 +1607,7 @@ describe('GET /workflows', () => {
 			const multiTriggerResponse = await authOwnerAgent
 				.get('/workflows')
 				.query(
-					'filter={ "triggerNodeTypes": ["n8n-nodes-base.executeWorkflowTrigger", "n8n-nodes-base.scheduleTrigger"] }',
+					'filter={ "triggerNodeTypes": ["resin-nodes-base.executeWorkflowTrigger", "resin-nodes-base.scheduleTrigger"] }',
 				)
 				.expect(200);
 
@@ -1622,7 +1622,7 @@ describe('GET /workflows', () => {
 			// Filter by non-existent trigger type
 			const emptyResponse = await authOwnerAgent
 				.get('/workflows')
-				.query('filter={ "triggerNodeTypes": ["n8n-nodes-base.nonExistentTrigger"] }')
+				.query('filter={ "triggerNodeTypes": ["resin-nodes-base.nonExistentTrigger"] }')
 				.expect(200);
 
 			expect(emptyResponse.body.data).toHaveLength(0);
@@ -1636,7 +1636,7 @@ describe('GET /workflows', () => {
 						{
 							id: uuid(),
 							name: 'Start',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							parameters: {},
 							typeVersion: 1,
 							position: [0, 0],
@@ -2096,7 +2096,7 @@ describe('GET /workflows?includeFolders=true', () => {
 			{
 				id: uuid(),
 				name: 'Action Network',
-				type: 'n8n-nodes-base.actionNetwork',
+				type: 'resin-nodes-base.actionNetwork',
 				parameters: {},
 				typeVersion: 1,
 				position: [0, 0],
@@ -2260,7 +2260,7 @@ describe('GET /workflows?includeFolders=true', () => {
 			{
 				id: uuid(),
 				name: 'Action Network',
-				type: 'n8n-nodes-base.actionNetwork',
+				type: 'resin-nodes-base.actionNetwork',
 				parameters: {},
 				typeVersion: 1,
 				position: [0, 0],
@@ -2643,7 +2643,7 @@ describe('GET /workflows?includeFolders=true', () => {
 						{
 							id: uuid(),
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							parameters: {},
 							typeVersion: 1,
 							position: [0, 0],
@@ -2660,7 +2660,7 @@ describe('GET /workflows?includeFolders=true', () => {
 						{
 							id: uuid(),
 							name: 'Slack',
-							type: 'n8n-nodes-base.slack',
+							type: 'resin-nodes-base.slack',
 							parameters: {},
 							typeVersion: 1,
 							position: [0, 0],
@@ -2674,7 +2674,7 @@ describe('GET /workflows?includeFolders=true', () => {
 
 			const response = await authOwnerAgent
 				.get('/workflows')
-				.query('filter={ "nodeTypes": ["n8n-nodes-base.httpRequest"] }&includeFolders=true')
+				.query('filter={ "nodeTypes": ["resin-nodes-base.httpRequest"] }&includeFolders=true')
 				.expect(200);
 
 			expect(response.body.data).toHaveLength(2); // 1 folder + 1 matching workflow
@@ -2936,7 +2936,7 @@ describe('PATCH /workflows/:workflowId', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -2944,7 +2944,7 @@ describe('PATCH /workflows/:workflowId', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Cron',
-					type: 'n8n-nodes-base.cron',
+					type: 'resin-nodes-base.cron',
 					typeVersion: 1,
 					position: [400, 300],
 				},
@@ -3044,7 +3044,7 @@ describe('PATCH /workflows/:workflowId', () => {
 					id: 'uuid-5678',
 					parameters: {},
 					name: 'Cron',
-					type: 'n8n-nodes-base.cron',
+					type: 'resin-nodes-base.cron',
 					typeVersion: 1,
 					position: [400, 300],
 				},
@@ -3076,7 +3076,7 @@ describe('PATCH /workflows/:workflowId', () => {
 					id: 'uuid-5678',
 					parameters: {},
 					name: 'Cron',
-					type: 'n8n-nodes-base.cron',
+					type: 'resin-nodes-base.cron',
 					typeVersion: 1,
 					position: [400, 300],
 				},
@@ -3466,7 +3466,7 @@ describe('PATCH /workflows/:workflowId', () => {
 					{
 						id: 'test-node',
 						name: 'Test Node',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [250, 300],
 						parameters: {},
@@ -4249,7 +4249,7 @@ describe('POST /workflows/:workflowId/run', () => {
 					{
 						id: uuid(),
 						name: 'Start',
-						type: 'n8n-nodes-base.start',
+						type: 'resin-nodes-base.start',
 						parameters: {},
 						typeVersion: 1,
 						position: [240, 300],
@@ -4268,7 +4268,7 @@ describe('POST /workflows/:workflowId/run', () => {
 				{
 					id: uuid(),
 					name: 'Injected',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					parameters: {},
 					typeVersion: 1,
 					position: [500, 300],
@@ -4613,7 +4613,7 @@ describe('POST /workflows/:workflowId/unarchive', () => {
 						id: 'trigger-1',
 						parameters: {},
 						name: 'Schedule Trigger',
-						type: 'n8n-nodes-base.scheduleTrigger',
+						type: 'resin-nodes-base.scheduleTrigger',
 						typeVersion: 1,
 						position: [240, 300],
 					},

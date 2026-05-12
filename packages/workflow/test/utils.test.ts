@@ -1,5 +1,5 @@
 import { ALPHABET } from '../src/constants';
-import { ApplicationError } from '@n8n/errors';
+import { ApplicationError } from '@resin/errors';
 import { ManualExecutionCancelledError } from '../src/errors/execution-cancelled.error';
 import {
 	jsonParse,
@@ -947,9 +947,9 @@ describe('getCredentialAllowedDomains', () => {
 describe('isCommunityPackageName', () => {
 	// Standard community package names
 	it('should identify standard community node package names', () => {
-		expect(isCommunityPackageName('n8n-nodes-example')).toBe(true);
-		expect(isCommunityPackageName('n8n-nodes-custom')).toBe(true);
-		expect(isCommunityPackageName('n8n-nodes-test')).toBe(true);
+		expect(isCommunityPackageName('resin-nodes-example')).toBe(true);
+		expect(isCommunityPackageName('resin-nodes-custom')).toBe(true);
+		expect(isCommunityPackageName('resin-nodes-test')).toBe(true);
 	});
 
 	// Scoped package names
@@ -960,7 +960,7 @@ describe('isCommunityPackageName', () => {
 	});
 
 	it('should identify scoped packages with other characters', () => {
-		expect(isCommunityPackageName('n8n-nodes-my_package')).toBe(true);
+		expect(isCommunityPackageName('resin-nodes-my_package')).toBe(true);
 		expect(isCommunityPackageName('@user/n8n-nodes-with_underscore')).toBe(true);
 		expect(isCommunityPackageName('@user_name/n8n-nodes-example')).toBe(true);
 		expect(isCommunityPackageName('@n8n-io/n8n-nodes-test')).toBe(true);
@@ -975,25 +975,25 @@ describe('isCommunityPackageName', () => {
 
 	// Official n8n packages that should not be identified as community packages
 	it('should not identify official n8n packages as community nodes', () => {
-		expect(isCommunityPackageName('@n8n/n8n-nodes-example')).toBe(false);
-		expect(isCommunityPackageName('n8n-nodes-base')).toBe(false);
+		expect(isCommunityPackageName('@resin/n8n-nodes-example')).toBe(false);
+		expect(isCommunityPackageName('resin-nodes-base')).toBe(false);
 	});
 
 	// Additional edge cases
 	it('should handle edge cases correctly', () => {
 		// Non-matching patterns
 		expect(isCommunityPackageName('not-n8n-nodes')).toBe(false);
-		expect(isCommunityPackageName('n8n-core')).toBe(false);
+		expect(isCommunityPackageName('resin-core')).toBe(false);
 
 		// With node name after package
-		expect(isCommunityPackageName('n8n-nodes-example.NodeName')).toBe(true);
+		expect(isCommunityPackageName('resin-nodes-example.NodeName')).toBe(true);
 		expect(isCommunityPackageName('@user/n8n-nodes-example.NodeName')).toBe(true);
 	});
 
 	// Multiple executions to test regex state
 	it('should work correctly with multiple consecutive calls', () => {
 		expect(isCommunityPackageName('@user/n8n-nodes-example')).toBe(true);
-		expect(isCommunityPackageName('n8n-nodes-base')).toBe(false);
+		expect(isCommunityPackageName('resin-nodes-base')).toBe(false);
 		expect(isCommunityPackageName('@test-scope/n8n-nodes-test')).toBe(true);
 	});
 });

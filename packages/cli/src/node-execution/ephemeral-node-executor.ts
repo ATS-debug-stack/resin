@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { CredentialsRepository, SharedCredentialsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { CredentialsRepository, SharedCredentialsRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import type { Tool } from '@langchain/core/tools';
-import { ExecuteContext, StructuredToolkit, SupplyDataContext } from 'n8n-core';
+import { ExecuteContext, StructuredToolkit, SupplyDataContext } from 'resin-core';
 import type {
 	CloseFunction,
 	IExecuteData,
@@ -12,7 +12,7 @@ import type {
 	INodeParameters,
 	ITaskDataConnections,
 	NodeOutput,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	Workflow,
 	Node,
@@ -21,7 +21,7 @@ import {
 	createEmptyRunExecutionData,
 	NodeConnectionTypes,
 	SEND_AND_WAIT_OPERATION,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { NodeTypes } from '@/node-types';
@@ -389,7 +389,7 @@ export class EphemeralNodeExecutor {
 	 *
 	 * `supplyData` legitimately returns either a single LangChain `Tool` or a
 	 * `StructuredToolkit` (the shape MCP client nodes produce — see
-	 * `SupplyDataToolResponse` in `@n8n/core`). Callers branch on which shape
+	 * `SupplyDataToolResponse` in `@resin/core`). Callers branch on which shape
 	 * arrived; a `null`/malformed response is treated as an error.
 	 */
 	private async withSupplyDataTool<T>(

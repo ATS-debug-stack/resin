@@ -5,14 +5,14 @@ import {
 	WorkflowRepository,
 	UserRepository,
 	GLOBAL_OWNER_ROLE,
-} from '@n8n/db';
-import { Command } from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import { PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
+} from '@resin/db';
+import { Command } from '@resin/decorators';
+import { Container } from '@resin/di';
+import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
 import glob from 'fast-glob';
 import fs from 'fs';
-import type { IWorkflowBase, WorkflowId } from 'n8n-workflow';
-import { jsonParse, UserError } from 'n8n-workflow';
+import type { IWorkflowBase, WorkflowId } from 'resin-workflow';
+import { jsonParse, UserError } from 'resin-workflow';
 import { z } from 'zod';
 
 import { BaseCommand } from '../base-command';

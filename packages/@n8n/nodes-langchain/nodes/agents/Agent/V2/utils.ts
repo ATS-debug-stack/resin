@@ -4,7 +4,7 @@ import {
 	type INodeInputConfiguration,
 	type INodeFilter,
 	type NodeConnectionType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 // display based on the agent type
 /* istanbul ignore next */
@@ -48,10 +48,10 @@ export function getInputs(
 			required: true,
 			filter: {
 				excludedNodes: [
-					'@n8n/n8n-nodes-langchain.lmCohere',
-					'@n8n/n8n-nodes-langchain.lmOllama',
+					'@resin/n8n-nodes-langchain.lmCohere',
+					'@resin/n8n-nodes-langchain.lmOllama',
 					'n8n/n8n-nodes-langchain.lmOpenAi',
-					'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+					'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 				],
 			},
 		},
@@ -61,10 +61,10 @@ export function getInputs(
 			required: true,
 			filter: {
 				excludedNodes: [
-					'@n8n/n8n-nodes-langchain.lmCohere',
-					'@n8n/n8n-nodes-langchain.lmOllama',
+					'@resin/n8n-nodes-langchain.lmCohere',
+					'@resin/n8n-nodes-langchain.lmOllama',
 					'n8n/n8n-nodes-langchain.lmOpenAi',
-					'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+					'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 				],
 			},
 		},

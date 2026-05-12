@@ -1,4 +1,4 @@
-import type { DataRequestResponse, BrokerMessage } from '@n8n/task-runner';
+import type { DataRequestResponse, BrokerMessage } from '@resin/task-runner';
 import {
 	createRunExecutionData,
 	type EnvProviderState,
@@ -6,7 +6,7 @@ import {
 	type IRunData,
 	type IRunExecutionData,
 	type ITaskDataConnections,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import * as a from 'node:assert/strict';
 
 /**

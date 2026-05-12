@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
 import { mockDeep } from 'vitest-mock-extended';
 
 import { apiRequest } from '.';

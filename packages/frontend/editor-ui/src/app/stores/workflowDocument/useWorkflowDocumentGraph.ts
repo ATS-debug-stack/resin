@@ -7,7 +7,7 @@ import {
 	type INodeConnection,
 	type NodeConnectionType,
 	type Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { type Ref } from 'vue';
 
 // --- Composable ---

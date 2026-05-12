@@ -1,8 +1,8 @@
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { SSEClientTransport } from '@modelcontextprotocol/sdk/client/sse.js';
 import { McpError, ErrorCode, CallToolResultSchema } from '@modelcontextprotocol/sdk/types.js';
-import { proxyFetch } from '@n8n/ai-utilities';
-import { StructuredToolkit } from 'n8n-core';
+import { proxyFetch } from '@resin/ai-utilities';
+import { StructuredToolkit } from 'resin-core';
 import {
 	type IExecuteFunctions,
 	NodeConnectionTypes,
@@ -11,7 +11,7 @@ import {
 	type INode,
 	type ISupplyDataFunctions,
 	jsonParse,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { mock, mockDeep } from 'vitest-mock-extended';
 
 import { getTools } from '../loadOptions';
@@ -21,8 +21,8 @@ import type { MockedFunction } from 'vitest';
 
 vi.mock('@modelcontextprotocol/sdk/client/sse.js');
 vi.mock('@modelcontextprotocol/sdk/client/index.js');
-vi.mock('@n8n/ai-utilities', async () => ({
-	...(await vi.importActual('@n8n/ai-utilities')),
+vi.mock('@resin/ai-utilities', async () => ({
+	...(await vi.importActual('@resin/ai-utilities')),
 	proxyFetch: vi.fn(),
 }));
 

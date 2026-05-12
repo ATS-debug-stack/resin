@@ -1,7 +1,7 @@
 import { mock } from 'jest-mock-extended';
 import { CompactEncrypt, generateKeyPair } from 'jose';
 import type { CryptoKey } from 'jose';
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 
 import { OAuthJweDecryptService } from '../oauth-jwe-decrypt.service';
 import type { OAuthJweKeyService } from '../oauth-jwe-key.service';

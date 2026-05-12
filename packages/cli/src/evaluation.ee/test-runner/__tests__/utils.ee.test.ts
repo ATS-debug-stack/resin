@@ -1,6 +1,6 @@
 import { mock } from 'jest-mock-extended';
-import { NodeConnectionTypes } from 'n8n-workflow';
-import type { IRunData } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
+import type { IRunData } from 'resin-workflow';
 
 import { extractTokenUsage } from '../utils.ee';
 

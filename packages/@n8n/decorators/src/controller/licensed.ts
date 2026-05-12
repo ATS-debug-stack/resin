@@ -1,5 +1,5 @@
-import type { BooleanLicenseFeature } from '@n8n/constants';
-import { Container } from '@n8n/di';
+import type { BooleanLicenseFeature } from '@resin/constants';
+import { Container } from '@resin/di';
 
 import { ControllerRegistryMetadata } from './controller-registry-metadata';
 import type { Controller } from './types';

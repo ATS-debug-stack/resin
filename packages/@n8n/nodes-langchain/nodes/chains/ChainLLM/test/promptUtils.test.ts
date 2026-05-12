@@ -2,8 +2,8 @@ import type { AgentAction, AgentFinish } from '@langchain/core/agents';
 import { HumanMessage } from '@langchain/core/messages';
 import { ChatPromptTemplate, PromptTemplate } from '@langchain/core/prompts';
 import { FakeLLM, FakeChatModel } from '@langchain/core/utils/testing';
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { OperationalError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { OperationalError } from 'resin-workflow';
 import type { Mock, Mocked } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 

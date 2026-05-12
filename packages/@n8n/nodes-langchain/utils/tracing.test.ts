@@ -1,5 +1,5 @@
 import type { CallbackManager } from '@langchain/core/callbacks/manager';
-import type { IExecuteFunctions, ISupplyDataFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions, ISupplyDataFunctions } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import { buildTracingMetadata, getTracingConfig } from './tracing';
@@ -13,7 +13,7 @@ describe('getTracingConfig', () => {
 
 	const mockNode = {
 		name: 'AI Agent',
-		type: 'n8n-nodes-langchain.agent',
+		type: 'resin-nodes-langchain.agent',
 		typeVersion: 3,
 	};
 

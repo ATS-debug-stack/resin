@@ -6,7 +6,7 @@ import { convertToDisplayDate } from '@/app/utils/formatters/dateFormatter';
 import { useAgentSessionsStore } from '@/features/agents/agentSessions.store';
 import { AGENT_SESSION_DETAIL_VIEW } from '@/features/agents/constants';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed, onBeforeUnmount, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -17,7 +17,7 @@ import {
 	N8nIconButton,
 	N8nTableBase,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { ElSkeletonItem } from 'element-plus';
 
 const i18n = useI18n();

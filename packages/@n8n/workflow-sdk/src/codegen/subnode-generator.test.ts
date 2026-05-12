@@ -1,5 +1,5 @@
 import { describe, it, expect } from '@jest/globals';
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
 
 import { generateSubnodeCall, generateSubnodesConfig, formatValue } from './subnode-generator';
 import type { SemanticGraph, SemanticNode, AiConnectionType } from './types';
@@ -53,7 +53,7 @@ function createGenerationContext(graph: SemanticGraph) {
 
 describe('generateSubnodeCall', () => {
 	it('generates inline subnode call with type and version', () => {
-		const node = createSemanticNode('Model', '@n8n/n8n-nodes-langchain.lmChatOpenAi');
+		const node = createSemanticNode('Model', '@resin/n8n-nodes-langchain.lmChatOpenAi');
 		const graph: SemanticGraph = {
 			nodes: new Map([['Model', node]]),
 			roots: [],
@@ -63,13 +63,13 @@ describe('generateSubnodeCall', () => {
 
 		const result = generateSubnodeCall(node, 'languageModel', ctx, { useVarRefs: false });
 
-		expect(result).toContain("type: '@n8n/n8n-nodes-langchain.lmChatOpenAi'");
+		expect(result).toContain("type: '@resin/n8n-nodes-langchain.lmChatOpenAi'");
 		expect(result).toContain('version: 1');
 		expect(result).toContain('languageModel({');
 	});
 
 	it('includes name when different from default', () => {
-		const node = createSemanticNode('MyCustomModel', '@n8n/n8n-nodes-langchain.lmChatOpenAi');
+		const node = createSemanticNode('MyCustomModel', '@resin/n8n-nodes-langchain.lmChatOpenAi');
 		const graph: SemanticGraph = {
 			nodes: new Map([['MyCustomModel', node]]),
 			roots: [],
@@ -83,7 +83,7 @@ describe('generateSubnodeCall', () => {
 	});
 
 	it('includes parameters when present', () => {
-		const node = createSemanticNode('Model', '@n8n/n8n-nodes-langchain.lmChatOpenAi', [], {
+		const node = createSemanticNode('Model', '@resin/n8n-nodes-langchain.lmChatOpenAi', [], {
 			temperature: 0.7,
 		});
 		const graph: SemanticGraph = {
@@ -102,7 +102,7 @@ describe('generateSubnodeCall', () => {
 	it('includes position when non-zero', () => {
 		const node = createSemanticNode(
 			'Model',
-			'@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			'@resin/n8n-nodes-langchain.lmChatOpenAi',
 			[],
 			undefined,
 			[100, 200],
@@ -123,9 +123,9 @@ describe('generateSubnodeCall', () => {
 		// Create parent with nested subnode
 		const nestedSubnode = createSemanticNode(
 			'NestedModel',
-			'@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			'@resin/n8n-nodes-langchain.lmChatOpenAi',
 		);
-		const parentSubnode = createSemanticNode('Tool', '@n8n/n8n-nodes-langchain.toolWorkflow', [
+		const parentSubnode = createSemanticNode('Tool', '@resin/n8n-nodes-langchain.toolWorkflow', [
 			{ connectionType: 'ai_languageModel', subnodeName: 'NestedModel', index: 0 },
 		]);
 
@@ -151,8 +151,8 @@ describe('generateSubnodeCall', () => {
 
 describe('generateSubnodesConfig', () => {
 	it('generates config for single subnode', () => {
-		const subnode = createSemanticNode('Model', '@n8n/n8n-nodes-langchain.lmChatOpenAi');
-		const parent = createSemanticNode('Agent', '@n8n/n8n-nodes-langchain.agent', [
+		const subnode = createSemanticNode('Model', '@resin/n8n-nodes-langchain.lmChatOpenAi');
+		const parent = createSemanticNode('Agent', '@resin/n8n-nodes-langchain.agent', [
 			{ connectionType: 'ai_languageModel', subnodeName: 'Model', index: 0 },
 		]);
 
@@ -174,9 +174,9 @@ describe('generateSubnodesConfig', () => {
 	});
 
 	it('generates config for multiple tools as array', () => {
-		const tool1 = createSemanticNode('Tool1', '@n8n/n8n-nodes-langchain.toolWorkflow');
-		const tool2 = createSemanticNode('Tool2', '@n8n/n8n-nodes-langchain.toolWorkflow');
-		const parent = createSemanticNode('Agent', '@n8n/n8n-nodes-langchain.agent', [
+		const tool1 = createSemanticNode('Tool1', '@resin/n8n-nodes-langchain.toolWorkflow');
+		const tool2 = createSemanticNode('Tool2', '@resin/n8n-nodes-langchain.toolWorkflow');
+		const parent = createSemanticNode('Agent', '@resin/n8n-nodes-langchain.agent', [
 			{ connectionType: 'ai_tool', subnodeName: 'Tool1', index: 0 },
 			{ connectionType: 'ai_tool', subnodeName: 'Tool2', index: 1 },
 		]);
@@ -199,7 +199,7 @@ describe('generateSubnodesConfig', () => {
 	});
 
 	it('returns null when no subnodes', () => {
-		const node = createSemanticNode('Node', 'n8n-nodes-base.noOp');
+		const node = createSemanticNode('Node', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([['Node', node]]),
@@ -214,8 +214,8 @@ describe('generateSubnodesConfig', () => {
 	});
 
 	it('uses variable names when useVarRefs=true', () => {
-		const subnode = createSemanticNode('Model', '@n8n/n8n-nodes-langchain.lmChatOpenAi');
-		const parent = createSemanticNode('Agent', '@n8n/n8n-nodes-langchain.agent', [
+		const subnode = createSemanticNode('Model', '@resin/n8n-nodes-langchain.lmChatOpenAi');
+		const parent = createSemanticNode('Agent', '@resin/n8n-nodes-langchain.agent', [
 			{ connectionType: 'ai_languageModel', subnodeName: 'Model', index: 0 },
 		]);
 

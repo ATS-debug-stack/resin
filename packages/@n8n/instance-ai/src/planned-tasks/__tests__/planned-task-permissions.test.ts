@@ -1,4 +1,4 @@
-import { DEFAULT_INSTANCE_AI_PERMISSIONS } from '@n8n/api-types';
+import { DEFAULT_INSTANCE_AI_PERMISSIONS } from '@resin/api-types';
 
 import type { InstanceAiContext, PlannedTaskKind } from '../../types';
 import { applyPlannedTaskPermissions } from '../planned-task-permissions';

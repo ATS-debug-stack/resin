@@ -1,7 +1,7 @@
 import { setActivePinia, createPinia } from 'pinia';
 import { vi } from 'vitest';
 import { useExternalSecretsStore } from './externalSecrets.ee.store';
-import type { ExternalSecretsProvider } from '@n8n/api-types';
+import type { ExternalSecretsProvider } from '@resin/api-types';
 import { EnterpriseEditionFeature } from '@/app/constants/enterprise';
 
 // Hoisted mocks for API functions
@@ -33,7 +33,7 @@ const {
 const mockModuleSettings: Record<string, unknown> = {};
 
 // Mock API client module
-vi.mock('@n8n/rest-api-client', () => ({
+vi.mock('@resin/rest-api-client', () => ({
 	getExternalSecrets,
 	getGlobalExternalSecrets,
 	getGlobalExternalSecretsForProject,
@@ -47,7 +47,7 @@ vi.mock('@n8n/rest-api-client', () => ({
 }));
 
 // Mock root store
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: vi.fn(() => ({
 		restApiContext: { baseUrl: 'http://localhost:5678', sessionId: 'test-session' },
 	})),

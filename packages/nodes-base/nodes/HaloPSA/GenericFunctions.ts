@@ -9,8 +9,8 @@ import type {
 	IPollFunctions,
 	IRequestOptions,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 // Interfaces and Types -------------------------------------------------------------
 interface IHaloPSATokens {

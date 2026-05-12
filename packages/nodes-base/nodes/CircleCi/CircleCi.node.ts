@@ -4,8 +4,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { circleciApiRequest, circleciApiRequestAllItems } from './GenericFunctions';
 import { pipelineFields, pipelineOperations } from './PipelineDescription';

@@ -5,7 +5,7 @@ import { telemetry } from '@/app/plugins/telemetry';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import type { IUpdateInformation } from '@/Interface';
-import type { DropdownMenuItemProps } from '@n8n/design-system';
+import type { DropdownMenuItemProps } from '@resin/design-system';
 import {
 	N8nButton,
 	N8nCollapsiblePanel,
@@ -14,8 +14,8 @@ import {
 	N8nSectionHeader,
 	N8nTooltip,
 	TOOLTIP_DELAY_MS,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import type {
@@ -23,8 +23,8 @@ import type {
 	INodeProperties,
 	INodePropertyCollection,
 	NodeParameterValueType,
-} from 'n8n-workflow';
-import { deepCopy, isINodePropertyCollectionList } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy, isINodePropertyCollectionList } from 'resin-workflow';
 import { storeToRefs } from 'pinia';
 import { computed, nextTick, onBeforeMount, ref, useTemplateRef, watch } from 'vue';
 import ParameterInputList from '../ParameterInputList.vue';
@@ -669,7 +669,7 @@ const onAddButtonClick = () => {
 
 			<div v-if="shouldShowAddAtBottom" :class="$style.controls">
 				<N8nButton
-					class="n8n-button--highlightFill"
+					class="resin-button--highlightFill"
 					variant="subtle"
 					v-if="hasSingleOption"
 					icon="plus"
@@ -689,7 +689,7 @@ const onAddButtonClick = () => {
 				>
 					<template #trigger>
 						<N8nButton
-							class="n8n-button--highlightFill"
+							class="resin-button--highlightFill"
 							variant="subtle"
 							icon="plus"
 							size="small"
@@ -771,7 +771,7 @@ const onAddButtonClick = () => {
 
 					<div v-if="shouldShowAddAtBottom" :class="$style.controls">
 						<N8nButton
-							class="n8n-button--highlightFill"
+							class="resin-button--highlightFill"
 							variant="subtle"
 							v-if="hasSingleOption"
 							icon="plus"
@@ -789,7 +789,7 @@ const onAddButtonClick = () => {
 						>
 							<template #trigger>
 								<N8nButton
-									class="n8n-button--highlightFill"
+									class="resin-button--highlightFill"
 									variant="subtle"
 									icon="plus"
 									size="small"

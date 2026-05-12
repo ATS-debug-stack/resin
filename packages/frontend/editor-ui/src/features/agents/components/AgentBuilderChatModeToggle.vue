@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { N8nIcon, N8nRadioButtons, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nIcon, N8nRadioButtons, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 
 import type { ChatMode } from '../composables/useAgentChatMode';
 

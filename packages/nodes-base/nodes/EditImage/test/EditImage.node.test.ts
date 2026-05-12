@@ -1,5 +1,5 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode, INodeExecutionData } from 'n8n-workflow';
+import type { IExecuteFunctions, INode, INodeExecutionData } from 'resin-workflow';
 import { EditImage } from '../EditImage.node';
 
 const createTestBuffer = () =>
@@ -107,7 +107,7 @@ describe('EditImage Node', () => {
 		mockNode = {
 			id: 'test-node-id',
 			name: 'EditImage',
-			type: 'n8n-nodes-base.editImage',
+			type: 'resin-nodes-base.editImage',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

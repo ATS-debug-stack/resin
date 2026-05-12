@@ -7,10 +7,10 @@ import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import useEnvironmentsStore from '@/features/settings/environments.ee/environments.store';
 import NodeToolSettingsContent from '../NodeToolSettingsContent.vue';
-import { NodeHelpers, type INode, type INodeTypeDescription } from 'n8n-workflow';
+import { NodeHelpers, type INode, type INodeTypeDescription } from 'resin-workflow';
 import { waitFor } from '@testing-library/vue';
 
-vi.mock('@n8n/i18n', () => {
+vi.mock('@resin/i18n', () => {
 	const i18n = {
 		baseText: (key: string) => key,
 		nodeText: () => ({
@@ -43,7 +43,7 @@ vi.mock('vue-router', () => ({
 
 const MOCK_NODE_TYPE: INodeTypeDescription = {
 	displayName: 'Test Tool',
-	name: 'n8n-nodes-base.testTool',
+	name: 'resin-nodes-base.testTool',
 	group: ['transform'],
 	version: 1,
 	description: 'A test tool',
@@ -86,7 +86,7 @@ const MOCK_NODE_TYPE: INodeTypeDescription = {
 
 const MOCK_NODE_TYPE_NO_PARAMS: INodeTypeDescription = {
 	...MOCK_NODE_TYPE,
-	name: 'n8n-nodes-base.noParamsTool',
+	name: 'resin-nodes-base.noParamsTool',
 	displayName: 'No Params Tool',
 	defaults: { name: 'No Params Tool' },
 	properties: [
@@ -104,7 +104,7 @@ function createMockNode(overrides: Partial<INode> = {}): INode {
 	return {
 		id: 'test-node-id',
 		name: 'Test Tool',
-		type: 'n8n-nodes-base.testTool',
+		type: 'resin-nodes-base.testTool',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {
@@ -213,7 +213,7 @@ describe('NodeToolSettingsContent', () => {
 		const { getByText } = renderComponent({
 			props: {
 				initialNode: createMockNode({
-					type: 'n8n-nodes-base.noParamsTool',
+					type: 'resin-nodes-base.noParamsTool',
 					parameters: {},
 				}),
 			},

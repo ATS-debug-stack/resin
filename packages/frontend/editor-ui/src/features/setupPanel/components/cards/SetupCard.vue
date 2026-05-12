@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch, onBeforeUnmount } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { N8nCallout, N8nIcon, N8nText } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nCallout, N8nIcon, N8nText } from '@resin/design-system';
 
 import type { INodeUi } from '@/Interface';
 import { CHAT_TRIGGER_NODE_TYPE } from '@/app/constants/nodeTypes';

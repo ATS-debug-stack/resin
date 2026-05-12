@@ -3,9 +3,9 @@ import type {
 	INodeTypeDescription,
 	ISupplyDataFunctions,
 	IDataObject,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
-import { ProviderTool, supplyModel } from '@n8n/ai-node-sdk';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
+import { ProviderTool, supplyModel } from '@resin/ai-node-sdk';
 import { OpenAIChatModel } from './model';
 import { openAiProperties } from './properties';
 import { formatBuiltInTools } from './common';

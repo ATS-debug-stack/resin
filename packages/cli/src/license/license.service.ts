@@ -1,9 +1,9 @@
-import { LicenseState, Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { LicenseState, Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import axios, { AxiosError } from 'axios';
-import { ensureError } from 'n8n-workflow';
+import { ensureError } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { LicenseEulaRequiredError } from '@/errors/response-errors/license-eula-required.error';

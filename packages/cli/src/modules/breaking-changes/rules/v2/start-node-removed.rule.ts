@@ -1,8 +1,11 @@
-import type { BreakingChangeAffectedWorkflow, BreakingChangeRecommendation } from '@n8n/api-types';
-import type { WorkflowEntity } from '@n8n/db';
-import type { INode } from 'n8n-workflow';
+import type {
+	BreakingChangeAffectedWorkflow,
+	BreakingChangeRecommendation,
+} from '@resin/api-types';
+import type { WorkflowEntity } from '@resin/db';
+import type { INode } from 'resin-workflow';
 
-import { BreakingChangeRule } from '@n8n/decorators';
+import { BreakingChangeRule } from '@resin/decorators';
 import type {
 	BreakingChangeRuleMetadata,
 	IBreakingChangeWorkflowRule,
@@ -12,7 +15,7 @@ import { BreakingChangeCategory } from '../../types';
 
 @BreakingChangeRule({ version: 'v2' })
 export class StartNodeRemovedRule implements IBreakingChangeWorkflowRule {
-	private readonly START_NODE_TYPE = 'n8n-nodes-base.start';
+	private readonly START_NODE_TYPE = 'resin-nodes-base.start';
 
 	id: string = 'start-node-removed-v2';
 

@@ -1,5 +1,5 @@
-import type { User } from '@n8n/db';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { User } from '@resin/db';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import type { CredentialsService } from '@/credentials/credentials.service';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

@@ -1,5 +1,5 @@
-import { Service } from '@n8n/di';
-import { DataSource, Repository } from '@n8n/typeorm';
+import { Service } from '@resin/di';
+import { DataSource, Repository } from '@resin/typeorm';
 
 import { AgentResourceEntity } from '../entities/agent-resource.entity';
 

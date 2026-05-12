@@ -1,16 +1,16 @@
-import { Logger } from '@n8n/backend-common';
-import { WorkflowsConfig } from '@n8n/config';
-import type { IWorkflowDb } from '@n8n/db';
-import { WorkflowDependencies, WorkflowDependencyRepository, WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { ErrorReporter, SpanStatus, Tracing } from 'n8n-core';
+import { Logger } from '@resin/backend-common';
+import { WorkflowsConfig } from '@resin/config';
+import type { IWorkflowDb } from '@resin/db';
+import { WorkflowDependencies, WorkflowDependencyRepository, WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { ErrorReporter, SpanStatus, Tracing } from 'resin-core';
 import {
 	DATA_TABLE_NODE_TYPES,
 	ensureError,
 	INode,
 	IWorkflowBase,
 	IWorkflowSettings,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { EventService } from '@/events/event.service';
 
@@ -304,7 +304,7 @@ export class WorkflowIndexService {
 	}
 
 	private addWorkflowCallDependencies(node: INode, dependencyUpdates: WorkflowDependencies): void {
-		if (node.type !== 'n8n-nodes-base.executeWorkflow') {
+		if (node.type !== 'resin-nodes-base.executeWorkflow') {
 			return;
 		}
 		const calledWorkflowId: string | undefined = this.getCalledWorkflowIdFrom(node);
@@ -319,7 +319,7 @@ export class WorkflowIndexService {
 	}
 
 	private addWebhookPathDependencies(node: INode, dependencyUpdates: WorkflowDependencies): void {
-		if (node.type !== 'n8n-nodes-base.webhook') {
+		if (node.type !== 'resin-nodes-base.webhook') {
 			return;
 		}
 		const webhookPath = node.parameters.path as string;

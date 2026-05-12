@@ -1,5 +1,5 @@
 import { readFileSync, existsSync } from 'fs';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 // We need to mock the fs module before importing the module under test
 jest.mock('fs', () => ({
@@ -30,7 +30,7 @@ describe('loadNodesFromFile', () => {
 			// A workflow using typeVersion 1.1 should still be able to validate
 			const nodesData: Array<Partial<INodeTypeDescription>> = [
 				{
-					name: 'n8n-nodes-base.removeDuplicates',
+					name: 'resin-nodes-base.removeDuplicates',
 					displayName: 'Remove Duplicates',
 					version: [1, 1.1],
 					defaultVersion: 2,
@@ -38,7 +38,7 @@ describe('loadNodesFromFile', () => {
 					outputs: ['main'],
 				},
 				{
-					name: 'n8n-nodes-base.removeDuplicates',
+					name: 'resin-nodes-base.removeDuplicates',
 					displayName: 'Remove Duplicates',
 					version: [2],
 					defaultVersion: 2,
@@ -54,7 +54,7 @@ describe('loadNodesFromFile', () => {
 			// The result should contain entries that cover ALL versions (1, 1.1, and 2)
 			// so that workflows using any of these versions can be validated
 			const removeDuplicatesEntries = result.filter(
-				(n) => n.name === 'n8n-nodes-base.removeDuplicates',
+				(n) => n.name === 'resin-nodes-base.removeDuplicates',
 			);
 
 			// We need at least the versions to be available for lookup
@@ -71,7 +71,7 @@ describe('loadNodesFromFile', () => {
 		it('should handle single-version nodes correctly', () => {
 			const nodesData: Array<Partial<INodeTypeDescription>> = [
 				{
-					name: 'n8n-nodes-base.code',
+					name: 'resin-nodes-base.code',
 					displayName: 'Code',
 					version: 1,
 					inputs: ['main'],
@@ -82,7 +82,7 @@ describe('loadNodesFromFile', () => {
 			mockedReadFileSync.mockReturnValue(JSON.stringify(nodesData));
 
 			const result = loadNodesFromFile();
-			const codeNode = result.find((n) => n.name === 'n8n-nodes-base.code');
+			const codeNode = result.find((n) => n.name === 'resin-nodes-base.code');
 
 			expect(codeNode).toBeDefined();
 			expect(codeNode?.version).toBe(1);
@@ -91,7 +91,7 @@ describe('loadNodesFromFile', () => {
 		it('should handle nodes with version array but no defaultVersion', () => {
 			const nodesData: Array<Partial<INodeTypeDescription>> = [
 				{
-					name: 'n8n-nodes-base.httpRequest',
+					name: 'resin-nodes-base.httpRequest',
 					displayName: 'HTTP Request',
 					version: [1, 2, 3],
 					inputs: ['main'],
@@ -102,7 +102,7 @@ describe('loadNodesFromFile', () => {
 			mockedReadFileSync.mockReturnValue(JSON.stringify(nodesData));
 
 			const result = loadNodesFromFile();
-			const httpNode = result.find((n) => n.name === 'n8n-nodes-base.httpRequest');
+			const httpNode = result.find((n) => n.name === 'resin-nodes-base.httpRequest');
 
 			expect(httpNode).toBeDefined();
 			// All versions should be available
@@ -117,14 +117,14 @@ describe('loadNodesFromFile', () => {
 		it('should filter out ignored node types', () => {
 			const nodesData: Array<Partial<INodeTypeDescription>> = [
 				{
-					name: '@n8n/n8n-nodes-langchain.toolVectorStore',
+					name: '@resin/n8n-nodes-langchain.toolVectorStore',
 					displayName: 'Vector Store Tool',
 					version: 1,
 					inputs: [],
 					outputs: ['ai_tool'],
 				},
 				{
-					name: 'n8n-nodes-base.code',
+					name: 'resin-nodes-base.code',
 					displayName: 'Code',
 					version: 1,
 					inputs: ['main'],
@@ -137,15 +137,15 @@ describe('loadNodesFromFile', () => {
 			const result = loadNodesFromFile();
 
 			expect(
-				result.find((n) => n.name === '@n8n/n8n-nodes-langchain.toolVectorStore'),
+				result.find((n) => n.name === '@resin/n8n-nodes-langchain.toolVectorStore'),
 			).toBeUndefined();
-			expect(result.find((n) => n.name === 'n8n-nodes-base.code')).toBeDefined();
+			expect(result.find((n) => n.name === 'resin-nodes-base.code')).toBeDefined();
 		});
 
 		it('should filter out hidden nodes except dataTable', () => {
 			const nodesData: Array<Partial<INodeTypeDescription>> = [
 				{
-					name: 'n8n-nodes-base.hiddenNode',
+					name: 'resin-nodes-base.hiddenNode',
 					displayName: 'Hidden Node',
 					version: 1,
 					hidden: true,
@@ -153,7 +153,7 @@ describe('loadNodesFromFile', () => {
 					outputs: ['main'],
 				},
 				{
-					name: 'n8n-nodes-base.dataTable',
+					name: 'resin-nodes-base.dataTable',
 					displayName: 'Data Table',
 					version: 1,
 					hidden: true,
@@ -166,8 +166,8 @@ describe('loadNodesFromFile', () => {
 
 			const result = loadNodesFromFile();
 
-			expect(result.find((n) => n.name === 'n8n-nodes-base.hiddenNode')).toBeUndefined();
-			expect(result.find((n) => n.name === 'n8n-nodes-base.dataTable')).toBeDefined();
+			expect(result.find((n) => n.name === 'resin-nodes-base.hiddenNode')).toBeUndefined();
+			expect(result.find((n) => n.name === 'resin-nodes-base.dataTable')).toBeDefined();
 		});
 	});
 });

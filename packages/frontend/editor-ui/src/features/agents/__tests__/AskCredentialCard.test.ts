@@ -11,7 +11,7 @@ vi.mock('@/features/credentials/credentials.store', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', () => {
+vi.mock('@resin/i18n', () => {
 	const baseText = (k: string, opts?: { interpolate?: Record<string, string> }) => {
 		if (opts?.interpolate) return `${k}:${Object.values(opts.interpolate).join(',')}`;
 		return k;

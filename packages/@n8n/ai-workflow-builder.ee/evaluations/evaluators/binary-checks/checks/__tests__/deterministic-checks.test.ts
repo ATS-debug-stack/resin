@@ -1,4 +1,4 @@
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import type { BinaryCheckContext } from '../../types';
 import { allNodesConnected } from '../all-nodes-connected';
@@ -21,7 +21,7 @@ import {
 // Minimal trigger node type for tests
 const triggerNodeType: INodeTypeDescription = {
 	displayName: 'Manual Trigger',
-	name: 'n8n-nodes-base.manualTrigger',
+	name: 'resin-nodes-base.manualTrigger',
 	group: ['trigger'],
 	version: 1,
 	defaults: { name: 'When clicking' },
@@ -33,7 +33,7 @@ const triggerNodeType: INodeTypeDescription = {
 
 const regularNodeType: INodeTypeDescription = {
 	displayName: 'Set',
-	name: 'n8n-nodes-base.set',
+	name: 'resin-nodes-base.set',
 	group: ['transform'],
 	version: [3, 3.2, 3.4],
 	defaults: { name: 'Edit Fields' },
@@ -45,7 +45,7 @@ const regularNodeType: INodeTypeDescription = {
 
 const codeNodeType: INodeTypeDescription = {
 	displayName: 'Code',
-	name: 'n8n-nodes-base.code',
+	name: 'resin-nodes-base.code',
 	group: ['transform'],
 	version: 1,
 	defaults: { name: 'Code' },
@@ -70,7 +70,7 @@ describe('has_nodes', () => {
 	it('passes when workflow has nodes', async () => {
 		const result = await hasNodes.run(
 			makeWorkflow({
-				nodes: [{ name: 'A', type: 'n8n-nodes-base.set', typeVersion: 3, position: [0, 0] }],
+				nodes: [{ name: 'A', type: 'resin-nodes-base.set', typeVersion: 3, position: [0, 0] }],
 			}),
 			makeCtx(),
 		);
@@ -91,7 +91,7 @@ describe('has_trigger', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
@@ -105,7 +105,7 @@ describe('has_trigger', () => {
 	it('fails when no trigger node', async () => {
 		const result = await hasTrigger.run(
 			makeWorkflow({
-				nodes: [{ name: 'A', type: 'n8n-nodes-base.set', typeVersion: 3, position: [0, 0] }],
+				nodes: [{ name: 'A', type: 'resin-nodes-base.set', typeVersion: 3, position: [0, 0] }],
 			}),
 			makeCtx(),
 		);
@@ -122,7 +122,7 @@ describe('all_nodes_connected', () => {
 	it('fails for single disconnected node', async () => {
 		const result = await allNodesConnected.run(
 			makeWorkflow({
-				nodes: [{ name: 'Orphan', type: 'n8n-nodes-base.set', typeVersion: 3, position: [0, 0] }],
+				nodes: [{ name: 'Orphan', type: 'resin-nodes-base.set', typeVersion: 3, position: [0, 0] }],
 				connections: {},
 			}),
 			makeCtx(),
@@ -137,11 +137,11 @@ describe('all_nodes_connected', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
-					{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
+					{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
 				],
 				connections: {
 					Trigger: { main: [[{ node: 'Set', type: 'main', index: 0 }]] },
@@ -158,14 +158,14 @@ describe('all_nodes_connected', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
-					{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
+					{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
 					{
 						name: 'Note',
-						type: 'n8n-nodes-base.stickyNote',
+						type: 'resin-nodes-base.stickyNote',
 						typeVersion: 1,
 						position: [400, 200],
 					},
@@ -185,12 +185,12 @@ describe('all_nodes_connected', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
-					{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
-					{ name: 'Orphan', type: 'n8n-nodes-base.set', typeVersion: 3, position: [400, 0] },
+					{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
+					{ name: 'Orphan', type: 'resin-nodes-base.set', typeVersion: 3, position: [400, 0] },
 				],
 				connections: {
 					Trigger: { main: [[{ node: 'Set', type: 'main', index: 0 }]] },
@@ -212,7 +212,7 @@ describe('no_unreachable_nodes', () => {
 	it('fails when no trigger exists (all nodes unreachable)', async () => {
 		const result = await noUnreachableNodes.run(
 			makeWorkflow({
-				nodes: [{ name: 'A', type: 'n8n-nodes-base.set', typeVersion: 3, position: [0, 0] }],
+				nodes: [{ name: 'A', type: 'resin-nodes-base.set', typeVersion: 3, position: [0, 0] }],
 			}),
 			makeCtx(),
 		);
@@ -226,11 +226,11 @@ describe('no_unreachable_nodes', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
-					{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
+					{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
 				],
 				connections: {
 					Trigger: { main: [[{ node: 'Set', type: 'main', index: 0 }]] },
@@ -247,12 +247,12 @@ describe('no_unreachable_nodes', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
-					{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
-					{ name: 'Orphan', type: 'n8n-nodes-base.set', typeVersion: 3, position: [400, 0] },
+					{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
+					{ name: 'Orphan', type: 'resin-nodes-base.set', typeVersion: 3, position: [400, 0] },
 				],
 				connections: {
 					Trigger: { main: [[{ node: 'Set', type: 'main', index: 0 }]] },
@@ -270,14 +270,14 @@ describe('no_unreachable_nodes', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
-					{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
+					{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
 					{
 						name: 'Note',
-						type: 'n8n-nodes-base.stickyNote',
+						type: 'resin-nodes-base.stickyNote',
 						typeVersion: 1,
 						position: [400, 200],
 					},
@@ -298,37 +298,37 @@ describe('no_unreachable_nodes', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
 					{
 						name: 'Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3.1,
 						position: [200, 0],
 					},
 					{
 						name: 'LLM',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [200, 200],
 					},
 					{
 						name: 'SubAgent',
-						type: '@n8n/n8n-nodes-langchain.agentTool',
+						type: '@resin/n8n-nodes-langchain.agentTool',
 						typeVersion: 3,
 						position: [400, 200],
 					},
 					{
 						name: 'SubLLM',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [400, 400],
 					},
 					{
 						name: 'SearchTool',
-						type: '@n8n/n8n-nodes-langchain.toolSerpApi',
+						type: '@resin/n8n-nodes-langchain.toolSerpApi',
 						typeVersion: 1,
 						position: [500, 400],
 					},
@@ -354,7 +354,7 @@ describe('no_empty_set_nodes', () => {
 		const result = await noEmptySetNodes.run(
 			makeWorkflow({
 				nodes: [
-					{ name: 'A', type: 'n8n-nodes-base.manualTrigger', typeVersion: 1, position: [0, 0] },
+					{ name: 'A', type: 'resin-nodes-base.manualTrigger', typeVersion: 1, position: [0, 0] },
 				],
 			}),
 			makeCtx(),
@@ -368,7 +368,7 @@ describe('no_empty_set_nodes', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [0, 0],
 						parameters: {
@@ -390,7 +390,7 @@ describe('no_empty_set_nodes', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.2,
 						position: [0, 0],
 						parameters: {
@@ -412,7 +412,7 @@ describe('no_empty_set_nodes', () => {
 				nodes: [
 					{
 						name: 'Empty Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {},
@@ -431,7 +431,7 @@ describe('no_empty_set_nodes', () => {
 				nodes: [
 					{
 						name: 'EmptyAssign',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [0, 0],
 						parameters: {
@@ -450,7 +450,7 @@ describe('no_hardcoded_credentials', () => {
 	it('passes when no hardcoded credentials', async () => {
 		const result = await noHardcodedCredentials.run(
 			makeWorkflow({
-				nodes: [{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [0, 0] }],
+				nodes: [{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [0, 0] }],
 			}),
 			makeCtx(),
 		);
@@ -462,7 +462,7 @@ describe('no_unnecessary_code_nodes', () => {
 	it('passes when no code nodes', async () => {
 		const result = await noUnnecessaryCodeNodes.run(
 			makeWorkflow({
-				nodes: [{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [0, 0] }],
+				nodes: [{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [0, 0] }],
 			}),
 			makeCtx(),
 		);
@@ -472,7 +472,7 @@ describe('no_unnecessary_code_nodes', () => {
 	it('fails when code node exists without annotation', async () => {
 		const result = await noUnnecessaryCodeNodes.run(
 			makeWorkflow({
-				nodes: [{ name: 'Code', type: 'n8n-nodes-base.code', typeVersion: 1, position: [0, 0] }],
+				nodes: [{ name: 'Code', type: 'resin-nodes-base.code', typeVersion: 1, position: [0, 0] }],
 			}),
 			makeCtx(),
 		);
@@ -483,7 +483,7 @@ describe('no_unnecessary_code_nodes', () => {
 	it('passes when code node exists with code_necessary annotation', async () => {
 		const result = await noUnnecessaryCodeNodes.run(
 			makeWorkflow({
-				nodes: [{ name: 'Code', type: 'n8n-nodes-base.code', typeVersion: 1, position: [0, 0] }],
+				nodes: [{ name: 'Code', type: 'resin-nodes-base.code', typeVersion: 1, position: [0, 0] }],
 			}),
 			makeCtx({ annotations: { code_necessary: true } }),
 		);
@@ -503,11 +503,11 @@ describe('has_start_node', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
-					{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [200, 0] },
+					{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [200, 0] },
 				],
 				connections: {
 					Trigger: { main: [[{ node: 'Set', type: 'main', index: 0 }]] },
@@ -524,7 +524,7 @@ describe('has_start_node', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
@@ -544,13 +544,13 @@ describe('expressions_reference_existing_nodes', () => {
 				nodes: [
 					{
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [200, 0],
 						parameters: {
@@ -577,7 +577,7 @@ describe('expressions_reference_existing_nodes', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {
@@ -607,7 +607,7 @@ describe('expressions_reference_existing_nodes', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: { mode: 'manual' },
@@ -625,7 +625,7 @@ describe('expressions_reference_existing_nodes', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {
@@ -647,7 +647,7 @@ describe('expressions_reference_existing_nodes', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {
@@ -676,7 +676,7 @@ describe('expressions_reference_existing_nodes', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {
@@ -705,7 +705,7 @@ describe('expressions_reference_existing_nodes', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: {
@@ -734,13 +734,13 @@ describe('expressions_reference_existing_nodes', () => {
 				nodes: [
 					{
 						name: "Node's Data",
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 					},
 					{
 						name: 'Consumer',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [200, 0],
 						parameters: {
@@ -774,7 +774,7 @@ describe('expressions_reference_existing_nodes', () => {
 describe('valid_required_parameters', () => {
 	const nodeTypeWithRequired: INodeTypeDescription = {
 		displayName: 'HTTP Request',
-		name: 'n8n-nodes-base.httpRequest',
+		name: 'resin-nodes-base.httpRequest',
 		group: ['transform'],
 		version: 1,
 		defaults: { name: 'HTTP Request' },
@@ -798,7 +798,7 @@ describe('valid_required_parameters', () => {
 				nodes: [
 					{
 						name: 'HTTP',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: { url: 'https://example.com' },
@@ -816,7 +816,7 @@ describe('valid_required_parameters', () => {
 				nodes: [
 					{
 						name: 'HTTP',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -833,7 +833,7 @@ describe('valid_required_parameters', () => {
 describe('valid_options_values', () => {
 	const nodeTypeWithOptions: INodeTypeDescription = {
 		displayName: 'HTTP Request',
-		name: 'n8n-nodes-base.httpRequest',
+		name: 'resin-nodes-base.httpRequest',
 		group: ['transform'],
 		version: 1,
 		defaults: { name: 'HTTP Request' },
@@ -861,7 +861,7 @@ describe('valid_options_values', () => {
 				nodes: [
 					{
 						name: 'HTTP',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: { method: 'POST' },
@@ -879,7 +879,7 @@ describe('valid_options_values', () => {
 				nodes: [
 					{
 						name: 'HTTP',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: { method: 'INVALID' },
@@ -896,7 +896,7 @@ describe('valid_options_values', () => {
 describe('no_invalid_from_ai', () => {
 	const toolNodeType: INodeTypeDescription = {
 		displayName: 'HTTP Tool',
-		name: 'n8n-nodes-base.httpRequestTool',
+		name: 'resin-nodes-base.httpRequestTool',
 		group: ['transform'],
 		version: 1,
 		defaults: { name: 'HTTP Tool' },
@@ -913,7 +913,7 @@ describe('no_invalid_from_ai', () => {
 				nodes: [
 					{
 						name: 'Tool',
-						type: 'n8n-nodes-base.httpRequestTool',
+						type: 'resin-nodes-base.httpRequestTool',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: { url: '={{ $fromAI("url", "The URL to fetch") }}' },
@@ -931,7 +931,7 @@ describe('no_invalid_from_ai', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: { value: '={{ $fromAI("name", "User name") }}' },
@@ -951,7 +951,7 @@ describe('no_invalid_from_ai', () => {
 				nodes: [
 					{
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3,
 						position: [0, 0],
 						parameters: { value: '={{ $json.name }}' },
@@ -967,7 +967,7 @@ describe('no_invalid_from_ai', () => {
 describe('tools_have_parameters', () => {
 	const toolNodeType: INodeTypeDescription = {
 		displayName: 'HTTP Tool',
-		name: 'n8n-nodes-base.httpRequestTool',
+		name: 'resin-nodes-base.httpRequestTool',
 		group: ['transform'],
 		version: 1,
 		defaults: { name: 'HTTP Tool' },
@@ -980,7 +980,7 @@ describe('tools_have_parameters', () => {
 
 	const excludedToolType: INodeTypeDescription = {
 		displayName: 'Calculator',
-		name: '@n8n/n8n-nodes-langchain.toolCalculator',
+		name: '@resin/n8n-nodes-langchain.toolCalculator',
 		group: ['transform'],
 		version: 1,
 		defaults: { name: 'Calculator' },
@@ -997,7 +997,7 @@ describe('tools_have_parameters', () => {
 				nodes: [
 					{
 						name: 'Tool',
-						type: 'n8n-nodes-base.httpRequestTool',
+						type: 'resin-nodes-base.httpRequestTool',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: { url: 'https://example.com' },
@@ -1015,7 +1015,7 @@ describe('tools_have_parameters', () => {
 				nodes: [
 					{
 						name: 'Tool',
-						type: 'n8n-nodes-base.httpRequestTool',
+						type: 'resin-nodes-base.httpRequestTool',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1034,7 +1034,7 @@ describe('tools_have_parameters', () => {
 				nodes: [
 					{
 						name: 'Calc',
-						type: '@n8n/n8n-nodes-langchain.toolCalculator',
+						type: '@resin/n8n-nodes-langchain.toolCalculator',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1051,7 +1051,7 @@ describe('no_code_imports', () => {
 	it('passes when no code nodes', async () => {
 		const result = await noCodeImports.run(
 			makeWorkflow({
-				nodes: [{ name: 'Set', type: 'n8n-nodes-base.set', typeVersion: 3, position: [0, 0] }],
+				nodes: [{ name: 'Set', type: 'resin-nodes-base.set', typeVersion: 3, position: [0, 0] }],
 			}),
 			makeCtx(),
 		);
@@ -1064,7 +1064,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'Code',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {
@@ -1085,7 +1085,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'Code',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {
@@ -1107,7 +1107,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'Code',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {
@@ -1129,7 +1129,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'Code',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {
@@ -1151,7 +1151,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'PyCode',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {
@@ -1173,7 +1173,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'PyCode',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {
@@ -1195,7 +1195,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'PyCode',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {
@@ -1217,7 +1217,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'PyCode',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {
@@ -1238,7 +1238,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'Code',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {
@@ -1259,7 +1259,7 @@ describe('no_code_imports', () => {
 				nodes: [
 					{
 						name: 'Code1',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {
@@ -1269,7 +1269,7 @@ describe('no_code_imports', () => {
 					},
 					{
 						name: 'Code2',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [200, 0],
 						parameters: {

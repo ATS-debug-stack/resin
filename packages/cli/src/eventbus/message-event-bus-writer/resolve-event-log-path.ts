@@ -1,5 +1,5 @@
-import { safeJoinPath } from '@n8n/backend-common';
-import { UserError } from 'n8n-workflow';
+import { safeJoinPath } from '@resin/backend-common';
+import { UserError } from 'resin-workflow';
 import { existsSync, mkdirSync } from 'node:fs';
 import { dirname, isAbsolute } from 'node:path';
 

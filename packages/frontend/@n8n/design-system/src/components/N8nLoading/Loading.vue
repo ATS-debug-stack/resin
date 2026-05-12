@@ -38,7 +38,7 @@ withDefaults(defineProps<LoadingProps>(), {
 	<ElSkeleton
 		:loading="loading"
 		:animated="animated"
-		:class="['n8n-loading', `n8n-loading-${variant}`]"
+		:class="['resin-loading', `n8n-loading-${variant}`]"
 	>
 		<template v-if="cols" #template>
 			<ElSkeletonItem v-for="i in cols" :key="i" />

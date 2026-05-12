@@ -51,10 +51,10 @@ function makeCompactionInput(
 		workItemId: 'wi-1',
 		sourceFilePath: '/home/daytona/workspace/src/workflow.ts',
 		nodeSummaries: [
-			{ name: 'Manual Trigger', type: 'n8n-nodes-base.manualTrigger' },
-			{ name: 'Slack', type: 'n8n-nodes-base.slack' },
+			{ name: 'Manual Trigger', type: 'resin-nodes-base.manualTrigger' },
+			{ name: 'Slack', type: 'resin-nodes-base.slack' },
 		],
-		triggerNodes: [{ nodeName: 'Manual Trigger', nodeType: 'n8n-nodes-base.manualTrigger' }],
+		triggerNodes: [{ nodeName: 'Manual Trigger', nodeType: 'resin-nodes-base.manualTrigger' }],
 		mockedNodeNames: ['Slack'],
 		mockedCredentialTypes: ['slackApi'],
 		mockedCredentialsByNode: { Slack: ['slackApi'] },

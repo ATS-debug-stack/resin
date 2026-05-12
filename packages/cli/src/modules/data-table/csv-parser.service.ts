@@ -1,6 +1,6 @@
-import { safeJoinPath } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { safeJoinPath } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import { parse } from 'csv-parse';
 import { createReadStream } from 'fs';
 

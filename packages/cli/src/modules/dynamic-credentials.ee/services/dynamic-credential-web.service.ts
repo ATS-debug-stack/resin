@@ -1,8 +1,8 @@
 import { AuthService } from '@/auth/auth.service';
-import { Service } from '@n8n/di';
-import { Z } from '@n8n/api-types';
+import { Service } from '@resin/di';
+import { Z } from '@resin/api-types';
 import { z } from 'zod';
-import { ICredentialContext } from 'n8n-workflow';
+import { ICredentialContext } from 'resin-workflow';
 import { Request } from 'express';
 import { UnauthenticatedError } from '@/errors/response-errors/unauthenticated.error';
 

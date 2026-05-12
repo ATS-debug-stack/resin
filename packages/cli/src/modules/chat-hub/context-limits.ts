@@ -1,4 +1,4 @@
-import type { ChatHubLLMProvider } from '@n8n/api-types';
+import type { ChatHubLLMProvider } from '@resin/api-types';
 
 /* eslint-disable @typescript-eslint/naming-convention */
 

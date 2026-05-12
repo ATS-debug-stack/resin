@@ -62,7 +62,7 @@ export const rules = {
 	'node-operation-error-itemindex': NodeOperationErrorItemIndexRule,
 	'missing-paired-item': MissingPairedItemRule,
 	'no-builder-hint-leakage': NoBuilderHintLeakageRule,
-	'n8n-object-validation': N8nObjectValidationRule,
+	'resin-object-validation': N8nObjectValidationRule,
 	'require-community-node-keyword': RequireCommunityNodeKeywordRule,
 	'require-continue-on-fail': RequireContinueOnFailRule,
 	'require-node-api-error': RequireNodeApiErrorRule,

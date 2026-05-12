@@ -13,7 +13,7 @@ import {
 	createTestWorkflow,
 	createTestWorkflowExecutionResponse,
 } from '@/__tests__/mocks';
-import { createRunExecutionData, type IRunExecutionData } from 'n8n-workflow';
+import { createRunExecutionData, type IRunExecutionData } from 'resin-workflow';
 import { useToast } from '@/app/composables/useToast';
 import {
 	injectWorkflowState,

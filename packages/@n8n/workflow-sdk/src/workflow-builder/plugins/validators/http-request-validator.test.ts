@@ -42,13 +42,13 @@ describe('httpRequestValidator', () => {
 		});
 
 		it('nodeTypes includes httpRequest node type', () => {
-			expect(httpRequestValidator.nodeTypes).toContain('n8n-nodes-base.httpRequest');
+			expect(httpRequestValidator.nodeTypes).toContain('resin-nodes-base.httpRequest');
 		});
 	});
 
 	describe('validateNode - sensitive headers', () => {
 		it('returns HARDCODED_CREDENTIALS warning for Authorization header with static value', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					headerParameters: {
 						parameters: [{ name: 'Authorization', value: 'Bearer secret123' }],
@@ -69,7 +69,7 @@ describe('httpRequestValidator', () => {
 		});
 
 		it('returns no warning for Authorization header with expression', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					headerParameters: {
 						parameters: [{ name: 'Authorization', value: '={{ $json.token }}' }],
@@ -84,7 +84,7 @@ describe('httpRequestValidator', () => {
 		});
 
 		it('detects X-API-Key header', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					headerParameters: {
 						parameters: [{ name: 'X-API-Key', value: 'my-secret-key' }],
@@ -99,7 +99,7 @@ describe('httpRequestValidator', () => {
 		});
 
 		it('detects x-auth-token header (case insensitive)', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					headerParameters: {
 						parameters: [{ name: 'x-auth-token', value: 'my-token' }],
@@ -116,7 +116,7 @@ describe('httpRequestValidator', () => {
 
 	describe('validateNode - credential query parameters', () => {
 		it('returns HARDCODED_CREDENTIALS warning for api_key query parameter', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					queryParameters: {
 						parameters: [{ name: 'api_key', value: 'my-api-key' }],
@@ -137,7 +137,7 @@ describe('httpRequestValidator', () => {
 		});
 
 		it('returns no warning for api_key with expression', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					queryParameters: {
 						parameters: [{ name: 'api_key', value: '={{ $env.API_KEY }}' }],
@@ -152,7 +152,7 @@ describe('httpRequestValidator', () => {
 		});
 
 		it('detects access_token query parameter', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					queryParameters: {
 						parameters: [{ name: 'access_token', value: 'secret' }],
@@ -169,7 +169,7 @@ describe('httpRequestValidator', () => {
 
 	describe('validateNode - edge cases', () => {
 		it('returns no issues when parameters is undefined', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {});
+			const node = createMockNode('resin-nodes-base.httpRequest', {});
 			const ctx = createMockPluginContext();
 
 			const issues = httpRequestValidator.validateNode(node, createGraphNode(node), ctx);
@@ -178,7 +178,7 @@ describe('httpRequestValidator', () => {
 		});
 
 		it('returns no issues when headerParameters is undefined', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: { url: 'https://example.com' },
 			});
 			const ctx = createMockPluginContext();
@@ -189,7 +189,7 @@ describe('httpRequestValidator', () => {
 		});
 
 		it('handles non-sensitive headers without warning', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					headerParameters: {
 						parameters: [{ name: 'Content-Type', value: 'application/json' }],

@@ -12,12 +12,12 @@ import {
 	type INodeProperties,
 	type IExecuteFunctions,
 	type ISupplyDataFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { createVectorStoreNode } from '@n8n/ai-utilities';
+import { createVectorStoreNode } from '@resin/ai-utilities';
 
 // User agent for usage tracking
-const USER_AGENT_PREFIX = 'n8n-azure-ai-search';
+const USER_AGENT_PREFIX = 'resin-azure-ai-search';
 
 export const AZURE_AI_SEARCH_CREDENTIALS = 'azureAiSearchApi';
 export const INDEX_NAME = 'indexName';
@@ -29,7 +29,7 @@ const indexNameField: INodeProperties = {
 	displayName: 'Index Name',
 	name: INDEX_NAME,
 	type: 'string',
-	default: 'n8n-vectorstore',
+	default: 'resin-vectorstore',
 	description:
 		'The name of the Azure AI Search index. Will be created automatically if it does not exist.',
 	required: true,

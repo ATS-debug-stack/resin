@@ -1,13 +1,13 @@
 import type { DateTimeUnit, DurationUnit } from 'luxon';
 import { DateTime } from 'luxon';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { AddToDateDescription } from './AddToDateDescription';
 import { CurrentDateDescription } from './CurrentDateDescription';

@@ -103,7 +103,7 @@ Use \`respondToWebhook\` with \`respondWith: "text"\`, put the HTML in \`respons
 **src/workflow.ts** — the workflow with 4 webhook routes:
 
 \`\`\`javascript
-import { workflow, node, trigger, expr } from '@n8n/workflow-sdk';
+import { workflow, node, trigger, expr } from '@resin/workflow-sdk';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
@@ -112,34 +112,34 @@ const htmlTemplate = readFileSync(join(__dirname, '../chunks/dashboard.html'), '
 
 // ── Webhooks ──────────────────────────────────────────────
 const pageWebhook = trigger({
-  type: 'n8n-nodes-base.webhook', version: 2.1,
+  type: 'resin-nodes-base.webhook', version: 2.1,
   config: { name: 'GET /app', parameters: { httpMethod: 'GET', path: 'app', responseMode: 'responseNode', options: {} } }
 });
 const getItemsWebhook = trigger({
-  type: 'n8n-nodes-base.webhook', version: 2.1,
+  type: 'resin-nodes-base.webhook', version: 2.1,
   config: { name: 'GET /app/items', parameters: { httpMethod: 'GET', path: 'app/items', responseMode: 'responseNode', options: {} } }
 });
 const toggleWebhook = trigger({
-  type: 'n8n-nodes-base.webhook', version: 2.1,
+  type: 'resin-nodes-base.webhook', version: 2.1,
   config: { name: 'POST /app/items/toggle', parameters: { httpMethod: 'POST', path: 'app/items/toggle', responseMode: 'responseNode', options: {} } }
 });
 const addWebhook = trigger({
-  type: 'n8n-nodes-base.webhook', version: 2.1,
+  type: 'resin-nodes-base.webhook', version: 2.1,
   config: { name: 'POST /app/items/add', parameters: { httpMethod: 'POST', path: 'app/items/add', responseMode: 'responseNode', options: {} } }
 });
 
 // ── Route 1: Serve HTML page with pre-loaded data ─────────
 const fetchAllItems = node({
-  type: 'n8n-nodes-base.dataTable', version: 1.1,
+  type: 'resin-nodes-base.dataTable', version: 1.1,
   config: { name: 'Fetch Items', parameters: { resource: 'row', operation: 'get', dataTableId: { __rl: true, mode: 'name', value: 'items' }, returnAll: true, options: {} } }
 });
 const aggregateItems = node({
-  type: 'n8n-nodes-base.aggregate', version: 1,
+  type: 'resin-nodes-base.aggregate', version: 1,
   config: { name: 'Aggregate', parameters: { aggregate: 'aggregateAllItemData', destinationFieldName: 'data', options: {} } }
 });
 // JSON.stringify in the SDK code creates a safe JS string literal — no escaping issues
 const buildPage = node({
-  type: 'n8n-nodes-base.code', version: 2,
+  type: 'resin-nodes-base.code', version: 2,
   config: {
     name: 'Build Page',
     parameters: {
@@ -152,37 +152,37 @@ const buildPage = node({
   }
 });
 const respondHtml = node({
-  type: 'n8n-nodes-base.respondToWebhook', version: 1.1,
+  type: 'resin-nodes-base.respondToWebhook', version: 1.1,
   config: { name: 'Respond HTML', parameters: { respondWith: 'text', responseBody: expr('{{ $json.html }}'), options: { responseHeaders: { entries: [{ name: 'Content-Type', value: 'text/html; charset=utf-8' }] } } } }
 });
 
 // ── Route 2: GET items as JSON ────────────────────────────
 const fetchItemsJson = node({
-  type: 'n8n-nodes-base.dataTable', version: 1.1,
+  type: 'resin-nodes-base.dataTable', version: 1.1,
   config: { name: 'Get Items JSON', parameters: { resource: 'row', operation: 'get', dataTableId: { __rl: true, mode: 'name', value: 'items' }, returnAll: true, options: {} } }
 });
 const respondItems = node({
-  type: 'n8n-nodes-base.respondToWebhook', version: 1.1,
+  type: 'resin-nodes-base.respondToWebhook', version: 1.1,
   config: { name: 'Respond Items', parameters: { respondWith: 'allEntries', options: {} } }
 });
 
 // ── Route 3: Toggle item completion ───────────────────────
 const updateItem = node({
-  type: 'n8n-nodes-base.dataTable', version: 1.1,
+  type: 'resin-nodes-base.dataTable', version: 1.1,
   config: { name: 'Update Item', parameters: { resource: 'row', operation: 'update', dataTableId: { __rl: true, mode: 'name', value: 'items' }, matchingColumns: ['id'], columns: { mappingMode: 'defineBelow', value: { id: expr('{{ $json.body.id }}'), completed: expr('{{ $json.body.completed }}') }, schema: [{ id: 'id', displayName: 'id', required: false, defaultMatch: true, display: true, type: 'string', canBeUsedToMatch: true }, { id: 'completed', displayName: 'completed', required: false, defaultMatch: false, display: true, type: 'boolean', canBeUsedToMatch: false }] }, options: {} } }
 });
 const respondToggle = node({
-  type: 'n8n-nodes-base.respondToWebhook', version: 1.1,
+  type: 'resin-nodes-base.respondToWebhook', version: 1.1,
   config: { name: 'Respond Toggle', parameters: { respondWith: 'allEntries', options: {} } }
 });
 
 // ── Route 4: Add new item ─────────────────────────────────
 const insertItem = node({
-  type: 'n8n-nodes-base.dataTable', version: 1.1,
+  type: 'resin-nodes-base.dataTable', version: 1.1,
   config: { name: 'Insert Item', parameters: { resource: 'row', operation: 'insert', dataTableId: { __rl: true, mode: 'name', value: 'items' }, columns: { mappingMode: 'defineBelow', value: { title: expr('{{ $json.body.title }}'), completed: false }, schema: [{ id: 'title', displayName: 'title', required: false, defaultMatch: false, display: true, type: 'string', canBeUsedToMatch: true }, { id: 'completed', displayName: 'completed', required: false, defaultMatch: false, display: true, type: 'boolean', canBeUsedToMatch: false }] }, options: {} } }
 });
 const respondAdd = node({
-  type: 'n8n-nodes-base.respondToWebhook', version: 1.1,
+  type: 'resin-nodes-base.respondToWebhook', version: 1.1,
   config: { name: 'Respond Add', parameters: { respondWith: 'allEntries', options: {} } }
 });
 

@@ -1,7 +1,7 @@
-import type { Logger, ModuleRegistry } from '@n8n/backend-common';
-import { CliParser } from '@n8n/backend-common';
-import { CommandMetadata } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import type { Logger, ModuleRegistry } from '@resin/backend-common';
+import { CliParser } from '@resin/backend-common';
+import { CommandMetadata } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import { z } from 'zod';
 

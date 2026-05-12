@@ -1,6 +1,6 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryColumn, Relation } from '@n8n/typeorm';
-import { IConnections } from 'n8n-workflow';
-import type { INode } from 'n8n-workflow';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryColumn, Relation } from '@resin/typeorm';
+import { IConnections } from 'resin-workflow';
+import type { INode } from 'resin-workflow';
 
 import { JsonColumn, WithTimestamps } from './abstract-entity';
 import { WorkflowEntity } from './workflow-entity';

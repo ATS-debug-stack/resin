@@ -22,7 +22,7 @@ vi.mock('vue-router', () => ({
 	useRouter: vi.fn(() => ({})),
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: vi.fn(() => ({
 		restApiContext: { baseUrl: 'http://localhost:5678', sessionId: '' },
 	})),

@@ -16,7 +16,7 @@ export interface CustomToolEntry {
 	descriptor: ToolDescriptor;
 }
 
-import type { AgentPublishedVersionDto, AgentSkill } from '@n8n/api-types';
+import type { AgentPublishedVersionDto, AgentSkill } from '@resin/api-types';
 
 export type AgentPublishedVersion = AgentPublishedVersionDto;
 

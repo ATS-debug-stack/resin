@@ -23,7 +23,7 @@ defineSlots<{ default?: {} }>();
 		role="radio"
 		tabindex="-1"
 		:class="{
-			'n8n-radio-button': true,
+			'resin-radio-button': true,
 			[$style.container]: true,
 			[$style.hoverable]: !disabled,
 			[$style.square]: square,

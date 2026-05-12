@@ -1,29 +1,29 @@
-import { LicenseState } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
+import { LicenseState } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
 import {
 	CredentialsRepository,
 	ProjectRelationRepository,
 	SharedWorkflowRepository,
 	WorkflowRepository,
 	type IWorkflowDb,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
 import { snakeCase } from 'change-case';
-import { BinaryDataConfig, InstanceSettings } from 'n8n-core';
+import { BinaryDataConfig, InstanceSettings } from 'resin-core';
 import type {
 	ExecutionStatus,
 	INode,
 	INodesGraphResult,
 	ITelemetryTrackProperties,
 	JsonValue,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	hasCredentialChanges,
 	hasNonPositionalChanges,
 	TelemetryHelpers,
 	toExecutionContextEstablishmentHookParameter,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import os from 'node:os';
 import semver from 'semver';
 

@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { onClickOutside, useElementBounding } from '@vueuse/core';
-import { useI18n } from '@n8n/i18n';
-import { N8nActionDropdown, N8nIcon } from '@n8n/design-system';
-import type { ActionDropdownItem } from '@n8n/design-system/types';
+import { useI18n } from '@resin/i18n';
+import { N8nActionDropdown, N8nIcon } from '@resin/design-system';
+import type { ActionDropdownItem } from '@resin/design-system/types';
 import NodeIcon from '@/app/components/NodeIcon.vue';
 import DiffBadge from '@/features/workflows/workflowDiff/DiffBadge.vue';
-import { RestoreVersionConfirm } from '@n8n/design-system/components/AskAssistantChat';
+import { RestoreVersionConfirm } from '@resin/design-system/components/AskAssistantChat';
 import type { NodeChangeEntry } from '@/features/ai/assistant/composables/useReviewChanges';
 
 type VersionCardAction = 'openDiff' | 'restore' | 'showInHistory';

@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import Modal from './Modal.vue';
 import { ABOUT_MODAL_KEY } from '../constants';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useToast } from '@/app/composables/useToast';
 import { useClipboard } from '@/app/composables/useClipboard';
 import { useDebugInfo } from '@/app/composables/useDebugInfo';
 import { useInstanceRegistryStore } from '@/features/instanceRegistry/stores/instanceRegistry.store';
-import { useI18n } from '@n8n/i18n';
-import { getThirdPartyLicenses } from '@n8n/rest-api-client';
+import { useI18n } from '@resin/i18n';
+import { getThirdPartyLicenses } from '@resin/rest-api-client';
 
 import { ElCol, ElRow } from 'element-plus';
-import { N8nButton, N8nLink, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nLink, N8nText } from '@resin/design-system';
 const modalBus = createEventBus();
 const toast = useToast();
 const i18n = useI18n();

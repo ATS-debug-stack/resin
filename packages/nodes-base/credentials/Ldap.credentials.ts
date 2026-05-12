@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 // eslint-disable-next-line n8n-nodes-base/cred-class-name-unsuffixed
 export class Ldap implements ICredentialType {

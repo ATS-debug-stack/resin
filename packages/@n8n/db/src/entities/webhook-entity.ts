@@ -1,5 +1,5 @@
-import { Column, Entity, Index, PrimaryColumn } from '@n8n/typeorm';
-import { IHttpRequestMethods } from 'n8n-workflow';
+import { Column, Entity, Index, PrimaryColumn } from '@resin/typeorm';
+import { IHttpRequestMethods } from 'resin-workflow';
 
 @Entity()
 @Index(['webhookId', 'method', 'pathLength'])

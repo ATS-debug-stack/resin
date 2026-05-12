@@ -1,10 +1,10 @@
-import { NodeConnectionTypes, parseErrorMetadata, sleep } from 'n8n-workflow';
+import { NodeConnectionTypes, parseErrorMetadata, sleep } from 'resin-workflow';
 import {
 	type IExecuteFunctions,
 	type INodeExecutionData,
 	type INodeType,
 	type INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	promptTypeOptions,
@@ -12,7 +12,7 @@ import {
 	textFromGuardrailsNode,
 	textFromPreviousNode,
 } from '@utils/descriptions';
-import { getBatchingOptionFields, getTemplateNoticeField } from '@n8n/ai-utilities';
+import { getBatchingOptionFields, getTemplateNoticeField } from '@resin/ai-utilities';
 
 import { INPUT_TEMPLATE_KEY, LEGACY_INPUT_TEMPLATE_KEY, systemPromptOption } from './constants';
 import { processItem } from './processItem';

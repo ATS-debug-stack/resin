@@ -1,4 +1,4 @@
-import { Config, Env, Nested } from '@n8n/config';
+import { Config, Env, Nested } from '@resin/config';
 
 @Config
 class HealthcheckServerConfig {

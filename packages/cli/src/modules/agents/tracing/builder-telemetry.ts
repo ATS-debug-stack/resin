@@ -1,5 +1,5 @@
-import { LangSmithTelemetry } from '@n8n/agents';
-import type { ModelConfig } from '@n8n/agents';
+import { LangSmithTelemetry } from '@resin/agents';
+import type { ModelConfig } from '@resin/agents';
 
 const DEFAULT_PROJECT_NAME = 'agent-builder';
 const UNKNOWN_MODEL_ID = 'unknown';

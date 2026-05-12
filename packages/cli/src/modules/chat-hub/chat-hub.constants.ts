@@ -2,13 +2,13 @@ import type {
 	ChatHubLLMProvider,
 	ChatHubVectorStoreProvider,
 	ChatModelMetadataDto,
-} from '@n8n/api-types';
-import type { ExecutionStatus, INodeTypeNameVersion } from 'n8n-workflow';
+} from '@resin/api-types';
+import type { ExecutionStatus, INodeTypeNameVersion } from 'resin-workflow';
 import {
 	CHAT_HUB_VECTOR_STORE_PG_VECTOR_NODE_TYPE,
 	CHAT_HUB_VECTOR_STORE_PINECONE_NODE_TYPE,
 	CHAT_HUB_VECTOR_STORE_QDRANT_NODE_TYPE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { ChatTriggerResponseMode } from './chat-hub.types';
 
@@ -38,59 +38,59 @@ export const CHAT_TRIGGER_NODE_MIN_VERSION = 1.2;
 
 export const PROVIDER_NODE_TYPE_MAP: Record<ChatHubLLMProvider, INodeTypeNameVersion> = {
 	openai: {
-		name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+		name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 		version: 1.3,
 	},
 	anthropic: {
-		name: '@n8n/n8n-nodes-langchain.lmChatAnthropic',
+		name: '@resin/n8n-nodes-langchain.lmChatAnthropic',
 		version: 1.3,
 	},
 	google: {
-		name: '@n8n/n8n-nodes-langchain.lmChatGoogleGemini',
+		name: '@resin/n8n-nodes-langchain.lmChatGoogleGemini',
 		version: 1.2,
 	},
 	ollama: {
-		name: '@n8n/n8n-nodes-langchain.lmChatOllama',
+		name: '@resin/n8n-nodes-langchain.lmChatOllama',
 		version: 1,
 	},
 	azureOpenAi: {
-		name: '@n8n/n8n-nodes-langchain.lmChatAzureOpenAi',
+		name: '@resin/n8n-nodes-langchain.lmChatAzureOpenAi',
 		version: 1,
 	},
 	azureEntraId: {
-		name: '@n8n/n8n-nodes-langchain.lmChatAzureOpenAi',
+		name: '@resin/n8n-nodes-langchain.lmChatAzureOpenAi',
 		version: 1,
 	},
 	awsBedrock: {
-		name: '@n8n/n8n-nodes-langchain.lmChatAwsBedrock',
+		name: '@resin/n8n-nodes-langchain.lmChatAwsBedrock',
 		version: 1.1,
 	},
 	vercelAiGateway: {
-		name: '@n8n/n8n-nodes-langchain.lmChatVercelAiGateway',
+		name: '@resin/n8n-nodes-langchain.lmChatVercelAiGateway',
 		version: 1,
 	},
 	xAiGrok: {
-		name: '@n8n/n8n-nodes-langchain.lmChatXAiGrok',
+		name: '@resin/n8n-nodes-langchain.lmChatXAiGrok',
 		version: 1,
 	},
 	groq: {
-		name: '@n8n/n8n-nodes-langchain.lmChatGroq',
+		name: '@resin/n8n-nodes-langchain.lmChatGroq',
 		version: 1,
 	},
 	openRouter: {
-		name: '@n8n/n8n-nodes-langchain.lmChatOpenRouter',
+		name: '@resin/n8n-nodes-langchain.lmChatOpenRouter',
 		version: 1,
 	},
 	deepSeek: {
-		name: '@n8n/n8n-nodes-langchain.lmChatDeepSeek',
+		name: '@resin/n8n-nodes-langchain.lmChatDeepSeek',
 		version: 1,
 	},
 	cohere: {
-		name: '@n8n/n8n-nodes-langchain.lmChatCohere',
+		name: '@resin/n8n-nodes-langchain.lmChatCohere',
 		version: 1,
 	},
 	mistralCloud: {
-		name: '@n8n/n8n-nodes-langchain.lmChatMistralCloud',
+		name: '@resin/n8n-nodes-langchain.lmChatMistralCloud',
 		version: 1,
 	},
 };

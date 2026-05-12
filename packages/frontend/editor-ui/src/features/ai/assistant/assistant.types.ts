@@ -9,9 +9,9 @@ import type {
 	INodeParameters,
 	IRunExecutionData,
 	ITaskData,
-} from 'n8n-workflow';
-import type { ChatUI } from '@n8n/design-system/types/assistant';
-import type { FrontendSettings, QuickReplyType } from '@n8n/api-types';
+} from 'resin-workflow';
+import type { ChatUI } from '@resin/design-system/types/assistant';
+import type { FrontendSettings, QuickReplyType } from '@resin/api-types';
 
 export namespace ChatRequest {
 	export interface NodeExecutionSchema {

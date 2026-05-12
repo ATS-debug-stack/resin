@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { saveAs } from 'file-saver';
-import { N8nButton } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 
 /**
  * Maximum number of characters to render in the DOM.

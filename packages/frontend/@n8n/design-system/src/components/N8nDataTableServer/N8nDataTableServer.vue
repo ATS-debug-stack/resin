@@ -43,7 +43,7 @@ import { ElOption, ElSelect, ElSkeletonItem } from 'element-plus';
 import get from 'lodash/get';
 import { computed, h, ref, shallowRef, useSlots, watch } from 'vue';
 
-import N8nCheckbox from '@n8n/design-system/v2/components/Checkbox/Checkbox.vue';
+import N8nCheckbox from '@resin/design-system/v2/components/Checkbox/Checkbox.vue';
 
 import N8nPagination from '../N8nPagination';
 
@@ -390,10 +390,10 @@ const table = useVueTable({
 
 <template>
 	<div>
-		<div class="n8n-data-table-server-wrapper">
+		<div class="resin-data-table-server-wrapper">
 			<div class="table-scroll">
 				<table
-					class="n8n-data-table-server"
+					class="resin-data-table-server"
 					:class="{ 'table--loading': loading }"
 					:style="{
 						width: `${table.getCenterTotalSize()}px`,

@@ -46,7 +46,7 @@ function stubRun(...responses: RunResponse[]): void {
 
 /**
  * Return the action-specific args for the Nth execFileAsync call.
- * Strips the shared prefix ['--json', '--session', 'n8n-computer-use'].
+ * Strips the shared prefix ['--json', '--session', 'resin-computer-use'].
  */
 function getRunArgs(callIndex: number): string[] {
 	const call = execFileAsyncMock.mock.calls[callIndex] as [string, string[], object];

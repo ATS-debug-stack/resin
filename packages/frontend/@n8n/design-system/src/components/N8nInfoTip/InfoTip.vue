@@ -65,7 +65,7 @@ const iconData = computed<{ icon: IconName; color: IconColor }>(() => {
 <template>
 	<div
 		:class="{
-			'n8n-info-tip': true,
+			'resin-info-tip': true,
 			[$style.infoTip]: true,
 			[$style[theme]]: true,
 			[$style[type]]: true,

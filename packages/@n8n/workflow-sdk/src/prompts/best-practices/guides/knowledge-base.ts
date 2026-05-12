@@ -77,19 +77,19 @@ export class KnowledgeBaseBestPractices implements BestPracticesDocument {
 
 ### AI Processing Chain
 
-**Document Default Data Loader** (@n8n/n8n-nodes-langchain.documentDefaultDataLoader):
+**Document Default Data Loader** (@resin/n8n-nodes-langchain.documentDefaultDataLoader):
 - Purpose: Load documents into LangChain format
 - Use cases: Initial document processing, format conversion
 - Best practices: Handle various document types, preserve metadata
 
-**Text Splitter Recursive Character** (@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter):
+**Text Splitter Recursive Character** (@resin/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter):
 - Purpose: Split documents into manageable chunks
 - Configuration:
   - Chunk size: 500-1000 characters (~200 tokens)
   - Overlap: 10-15% to preserve context
 - Best practices: Test chunk sizes for optimal retrieval quality, ensure context preservation
 
-**Embeddings OpenAI** (@n8n/n8n-nodes-langchain.embeddingsOpenAi):
+**Embeddings OpenAI** (@resin/n8n-nodes-langchain.embeddingsOpenAi):
 - Purpose: Generate vector embeddings for text
 - Model options:
   - text-embedding-3-small (newer, cost-effective)
@@ -99,46 +99,46 @@ export class KnowledgeBaseBestPractices implements BestPracticesDocument {
 
 ### Vector Stores
 
-**Vector Store Pinecone** (@n8n/n8n-nodes-langchain.vectorStorePinecone):
+**Vector Store Pinecone** (@resin/n8n-nodes-langchain.vectorStorePinecone):
 - Purpose: Pinecone vector database integration
 - Use cases: Production knowledge bases, scalable deployments
 - Best practices: Use namespaces for organization, set appropriate index dimensions
 
-**Vector Store Qdrant** (@n8n/n8n-nodes-langchain.vectorStoreQdrant):
+**Vector Store Qdrant** (@resin/n8n-nodes-langchain.vectorStoreQdrant):
 - Purpose: Qdrant vector database integration
 - Use cases: Self-hosted vector storage, high-performance search
 - Best practices: Configure collections properly, use filters for metadata
 
-**Vector Store Supabase** (@n8n/n8n-nodes-langchain.vectorStoreSupabase):
+**Vector Store Supabase** (@resin/n8n-nodes-langchain.vectorStoreSupabase):
 - Purpose: Supabase pgvector integration
 - Use cases: PostgreSQL-based vector storage, integrated with existing Supabase projects
 - Best practices: Ensure pgvector extension is enabled, use proper indexing
 
-**Vector Store In Memory** (@n8n/n8n-nodes-langchain.vectorStoreInMemory):
+**Vector Store In Memory** (@resin/n8n-nodes-langchain.vectorStoreInMemory):
 - Purpose: In-memory vector storage for testing
 - Use cases: Development, testing, small datasets
 - Best practices: Not for production, data lost on restart
 
 ### Agent & LLM
 
-**AI Agent** (@n8n/n8n-nodes-langchain.agent):
+**AI Agent** (@resin/n8n-nodes-langchain.agent):
 - Purpose: Orchestrate tool use and LLM interactions
 - Configuration: Connect Vector Store Tool, add memory
 - Best practices: Configure clear tool descriptions, use appropriate prompts
 
-**Tool Vector Store** (@n8n/n8n-nodes-langchain.toolVectorStore):
+**Tool Vector Store** (@resin/n8n-nodes-langchain.toolVectorStore):
 - Purpose: Vector store tool for agents
 - Configuration: "Company Knowledge Base – use this to find relevant policy documents"
 - Best practices: Use descriptive tool names, set appropriate retrieval limits (3-5 results)
 
-**OpenAI** (@n8n/n8n-nodes-langchain.openAi):
+**OpenAI** (@resin/n8n-nodes-langchain.openAi):
 - Purpose: Chat model for generating responses
 - Configuration:
   - Temperature: 0-0.3 for factual Q&A
   - System prompt: "Answer using only the information from our knowledge base"
 - Best practices: Use low temperature for accuracy, instruct to admit when unsure
 
-**Memory Window Buffer** (@n8n/n8n-nodes-langchain.memoryBufferWindow):
+**Memory Window Buffer** (@resin/n8n-nodes-langchain.memoryBufferWindow):
 - Purpose: Maintain conversation history
 - Configuration: 3-5 message turns typically sufficient
 - Best practices: Balance context preservation with token limits

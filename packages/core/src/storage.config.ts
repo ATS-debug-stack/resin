@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { Config, Env } from '@n8n/config';
+import { Logger } from '@resin/backend-common';
+import { Config, Env } from '@resin/config';
 import { existsSync, renameSync } from 'node:fs';
 import path from 'node:path';
 import { z } from 'zod';

@@ -1,6 +1,6 @@
-import { InviteUsersRequestDto, RoleChangeRequestDto } from '@n8n/api-types';
-import { ProjectRelationRepository, type AuthenticatedRequest } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { InviteUsersRequestDto, RoleChangeRequestDto } from '@resin/api-types';
+import { ProjectRelationRepository, type AuthenticatedRequest } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { InvitationController } from '@/controllers/invitation.controller';
 import { UsersController } from '@/controllers/users.controller';

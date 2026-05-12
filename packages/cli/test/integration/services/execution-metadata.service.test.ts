@@ -1,6 +1,6 @@
-import { createWorkflow, testDb } from '@n8n/backend-test-utils';
-import { ExecutionMetadataRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { createWorkflow, testDb } from '@resin/backend-test-utils';
+import { ExecutionMetadataRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { ExecutionMetadataService } from '@/services/execution-metadata.service';
 import { createExecution } from '@test-integration/db/executions';

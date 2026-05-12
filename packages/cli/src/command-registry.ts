@@ -1,6 +1,6 @@
-import { CliParser, Logger, ModuleRegistry } from '@n8n/backend-common';
-import { CommandMetadata, type CommandEntry } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+import { CliParser, Logger, ModuleRegistry } from '@resin/backend-common';
+import { CommandMetadata, type CommandEntry } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import glob from 'fast-glob';
 import picocolors from 'picocolors';
 import { z, ZodError } from 'zod';

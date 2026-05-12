@@ -8,10 +8,10 @@ import type { WorkflowNodeResponse } from '../clients/n8n-client';
 // Node type constants
 // ---------------------------------------------------------------------------
 
-export const STICKY_NOTE_TYPE = 'n8n-nodes-base.stickyNote';
-export const SET_NODE_TYPE = 'n8n-nodes-base.set';
-export const AGENT_TYPE = '@n8n/n8n-nodes-langchain.agent';
-export const HTTP_REQUEST_TYPE = 'n8n-nodes-base.httpRequest';
+export const STICKY_NOTE_TYPE = 'resin-nodes-base.stickyNote';
+export const SET_NODE_TYPE = 'resin-nodes-base.set';
+export const AGENT_TYPE = '@resin/n8n-nodes-langchain.agent';
+export const HTTP_REQUEST_TYPE = 'resin-nodes-base.httpRequest';
 
 // ---------------------------------------------------------------------------
 // Trigger detection
@@ -20,13 +20,13 @@ export const HTTP_REQUEST_TYPE = 'n8n-nodes-base.httpRequest';
 const TRIGGER_SUFFIX = 'Trigger';
 
 const KNOWN_TRIGGER_TYPES = new Set([
-	'n8n-nodes-base.manualTrigger',
-	'n8n-nodes-base.scheduleTrigger',
-	'n8n-nodes-base.start',
-	'n8n-nodes-base.webhook',
-	'n8n-nodes-base.formTrigger',
-	'@n8n/n8n-nodes-langchain.chatTrigger',
-	'@n8n/n8n-nodes-langchain.mcpTrigger',
+	'resin-nodes-base.manualTrigger',
+	'resin-nodes-base.scheduleTrigger',
+	'resin-nodes-base.start',
+	'resin-nodes-base.webhook',
+	'resin-nodes-base.formTrigger',
+	'@resin/n8n-nodes-langchain.chatTrigger',
+	'@resin/n8n-nodes-langchain.mcpTrigger',
 ]);
 
 export function isTriggerNode(type: string): boolean {

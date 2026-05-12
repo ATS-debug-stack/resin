@@ -7,10 +7,10 @@
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { setActivePinia, createPinia, getActivePinia } from 'pinia';
-import { NodeConnectionTypes } from 'n8n-workflow';
-import type { IConnections } from 'n8n-workflow';
-import type { ITag, WorkflowHistory } from '@n8n/rest-api-client';
-import type { Scope } from '@n8n/permissions';
+import { NodeConnectionTypes } from 'resin-workflow';
+import type { IConnections } from 'resin-workflow';
+import type { ITag, WorkflowHistory } from '@resin/rest-api-client';
+import type { Scope } from '@resin/permissions';
 import {
 	useWorkflowDocumentStore,
 	createWorkflowDocumentId,
@@ -138,10 +138,10 @@ describe('workflowDocument.store orchestration', () => {
 			};
 
 			workflowDocumentStore.setNodes([
-				createNode({ name: 'Start', type: 'n8n-nodes-base.manualTrigger' }),
+				createNode({ name: 'Start', type: 'resin-nodes-base.manualTrigger' }),
 				createNode({
 					name: 'Fetch',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					issues: {
 						parameters: {
 							url: ['Missing URL', 'Invalid URL.'],
@@ -153,14 +153,14 @@ describe('workflowDocument.store orchestration', () => {
 				}),
 				createNode({
 					name: 'Disconnected',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					issues: {
 						parameters: { field: ['Should be ignored'] },
 					},
 				}),
 				createNode({
 					name: 'Disabled Node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					disabled: true,
 					issues: {
 						parameters: { field: ['Disabled issue'] },

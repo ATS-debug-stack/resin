@@ -1,5 +1,5 @@
-import type { IUser } from '@n8n/rest-api-client/api/users';
-import type { Role, ROLE } from '@n8n/api-types';
+import type { IUser } from '@resin/rest-api-client/api/users';
+import type { Role, ROLE } from '@resin/api-types';
 
 export type ILogInStatus = 'LoggedIn' | 'LoggedOut';
 

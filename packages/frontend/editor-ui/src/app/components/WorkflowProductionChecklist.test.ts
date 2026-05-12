@@ -29,7 +29,7 @@ import {
 	EVALUATIONS_DOCS_URL,
 	ERROR_TRIGGER_NODE_TYPE,
 } from '@/app/constants';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 import { createTestNode } from '@/__tests__/mocks';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
@@ -57,8 +57,8 @@ vi.mock('@/app/composables/useTelemetry', () => ({
 
 vi.mock('@/features/ai/mcpAccess/composables/useMcp', () => ({}));
 
-vi.mock('@n8n/i18n', async (importOriginal) => {
-	const actual = await importOriginal<typeof import('@n8n/i18n')>();
+vi.mock('@resin/i18n', async (importOriginal) => {
+	const actual = await importOriginal<typeof import('@resin/i18n')>();
 	return {
 		...actual,
 		useI18n: () => ({
@@ -123,7 +123,7 @@ const mockN8nSuggestedActions = {
 
 		return { props };
 	},
-	template: '<div data-test-id="n8n-suggested-actions-stub" />',
+	template: '<div data-test-id="resin-suggested-actions-stub" />',
 };
 
 const workflowDocumentStoreRef = shallowRef<ReturnType<typeof useWorkflowDocumentStore> | null>(
@@ -205,7 +205,7 @@ describe('WorkflowProductionChecklist', () => {
 			const { container } = renderComponent({ pinia: createTestingPinia() });
 
 			expect(
-				container.querySelector('[data-test-id="n8n-suggested-actions-stub"]'),
+				container.querySelector('[data-test-id="resin-suggested-actions-stub"]'),
 			).not.toBeInTheDocument();
 		});
 
@@ -215,7 +215,7 @@ describe('WorkflowProductionChecklist', () => {
 			const { container } = renderComponent({ pinia: createTestingPinia() });
 
 			expect(
-				container.querySelector('[data-test-id="n8n-suggested-actions-stub"]'),
+				container.querySelector('[data-test-id="resin-suggested-actions-stub"]'),
 			).not.toBeInTheDocument();
 		});
 
@@ -335,7 +335,7 @@ describe('WorkflowProductionChecklist', () => {
 
 			await vi.waitFor(() => {
 				expect(
-					container.querySelector('[data-test-id="n8n-suggested-actions-stub"]'),
+					container.querySelector('[data-test-id="resin-suggested-actions-stub"]'),
 				).not.toBeInTheDocument();
 			});
 		});

@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue';
-import { useI18n, type BaseTextKey } from '@n8n/i18n';
-import { N8nTooltip } from '@n8n/design-system';
+import { useI18n, type BaseTextKey } from '@resin/i18n';
+import { N8nTooltip } from '@resin/design-system';
 import ChatInputBase from '@/features/ai/shared/components/ChatInputBase.vue';
 import AttachmentPreview from './AttachmentPreview.vue';
 import InstanceAiPromptSuggestions from './InstanceAiPromptSuggestions.vue';
 import { convertFileToBinaryData } from '@/app/utils/fileUtils';
-import type { InstanceAiAttachment } from '@n8n/api-types';
+import type { InstanceAiAttachment } from '@resin/api-types';
 import type { InstanceAiEmptyStateSuggestion } from '../emptyStateSuggestions';
 import { useInstanceAiPromptSuggestionsTelemetry } from '../instanceAiPromptSuggestions.telemetry';
 

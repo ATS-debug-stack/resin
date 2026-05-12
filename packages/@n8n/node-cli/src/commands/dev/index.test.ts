@@ -53,7 +53,7 @@ describe('dev command', () => {
 		'creates symlink and starts TypeScript watcher with external-n8n flag',
 		async ({ tmpdir }) => {
 			await setupTestPackage(tmpdir, {
-				packageJson: { name: 'n8n-nodes-test' },
+				packageJson: { name: 'resin-nodes-test' },
 			});
 
 			const command = new Dev(['--external-n8n'], createMockConfig(tmpdir));
@@ -70,7 +70,7 @@ describe('dev command', () => {
 
 	tmpdirTest('starts both TypeScript watcher and n8n server by default', async ({ tmpdir }) => {
 		await setupTestPackage(tmpdir, {
-			packageJson: { name: 'n8n-nodes-test' },
+			packageJson: { name: 'resin-nodes-test' },
 		});
 
 		const command = new Dev([], createMockConfig(tmpdir));
@@ -84,7 +84,7 @@ describe('dev command', () => {
 
 	tmpdirTest('creates symlink in default custom folder location', async ({ tmpdir }) => {
 		await setupTestPackage(tmpdir, {
-			packageJson: { name: 'n8n-nodes-test' },
+			packageJson: { name: 'resin-nodes-test' },
 		});
 
 		const command = new Dev(['--external-n8n'], createMockConfig(tmpdir));
@@ -98,7 +98,7 @@ describe('dev command', () => {
 
 	tmpdirTest('creates symlink in custom folder when specified', async ({ tmpdir }) => {
 		await setupTestPackage(tmpdir, {
-			packageJson: { name: 'n8n-nodes-test' },
+			packageJson: { name: 'resin-nodes-test' },
 		});
 
 		const customFolder = path.join(tmpdir, 'my-custom-folder');
@@ -108,7 +108,7 @@ describe('dev command', () => {
 		const calls = vi.mocked(createSymlink).mock.calls[0];
 		expect(calls?.[0]).toContain(tmpdir.split('/').pop());
 		expect(calls?.[1]).toBe(
-			path.join(customFolder, '.n8n', 'custom', 'node_modules', 'n8n-nodes-test'),
+			path.join(customFolder, '.n8n', 'custom', 'node_modules', 'resin-nodes-test'),
 		);
 	});
 
@@ -128,7 +128,7 @@ describe('dev command', () => {
 
 	tmpdirTest('passes correct environment to n8n server', async ({ tmpdir }) => {
 		await setupTestPackage(tmpdir, {
-			packageJson: { name: 'n8n-nodes-test' },
+			packageJson: { name: 'resin-nodes-test' },
 		});
 
 		const customFolder = path.join(tmpdir, 'custom');
@@ -147,7 +147,7 @@ describe('dev command', () => {
 
 	tmpdirTest('includes open n8n key handler when n8n is enabled', async ({ tmpdir }) => {
 		await setupTestPackage(tmpdir, {
-			packageJson: { name: 'n8n-nodes-test' },
+			packageJson: { name: 'resin-nodes-test' },
 		});
 
 		const command = new Dev([], createMockConfig(tmpdir));
@@ -161,7 +161,7 @@ describe('dev command', () => {
 
 	tmpdirTest('includes no key handlers with external-n8n flag', async ({ tmpdir }) => {
 		await setupTestPackage(tmpdir, {
-			packageJson: { name: 'n8n-nodes-test' },
+			packageJson: { name: 'resin-nodes-test' },
 		});
 
 		const command = new Dev(['--external-n8n'], createMockConfig(tmpdir));

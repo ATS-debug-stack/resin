@@ -1,11 +1,11 @@
-import type { ImportWorkflowFromUrlDto } from '@n8n/api-types';
-import type { Logger } from '@n8n/backend-common';
-import type { SsrfProtectionConfig } from '@n8n/config';
-import type { AuthenticatedRequest, IExecutionResponse } from '@n8n/db';
+import type { ImportWorkflowFromUrlDto } from '@resin/api-types';
+import type { Logger } from '@resin/backend-common';
+import type { SsrfProtectionConfig } from '@resin/config';
+import type { AuthenticatedRequest, IExecutionResponse } from '@resin/db';
 import axios from 'axios';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
-import { createResultError, createResultOk } from 'n8n-workflow';
+import { createResultError, createResultOk } from 'resin-workflow';
 
 import { WorkflowsController } from '../workflows.controller';
 

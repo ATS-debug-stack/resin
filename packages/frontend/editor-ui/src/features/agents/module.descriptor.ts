@@ -1,4 +1,4 @@
-import { i18n } from '@n8n/i18n';
+import { i18n } from '@resin/i18n';
 import { VIEWS } from '@/app/constants';
 import { type FrontendModuleDescription } from '@/app/moduleInitializer/module.types';
 import { hasPermission } from '@/app/utils/rbac/permissions';

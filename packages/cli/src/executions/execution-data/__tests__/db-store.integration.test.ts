@@ -1,6 +1,6 @@
-import { createWorkflow, testDb } from '@n8n/backend-test-utils';
-import { ExecutionDataRepository, ExecutionRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { createWorkflow, testDb } from '@resin/backend-test-utils';
+import { ExecutionDataRepository, ExecutionRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { DbStore } from '../db-store';
 import { createExecutionRef } from '../types';

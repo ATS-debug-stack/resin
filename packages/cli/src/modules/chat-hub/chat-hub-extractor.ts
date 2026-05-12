@@ -1,15 +1,15 @@
-import { Logger } from '@n8n/backend-common';
-import { AuthenticatedRequest } from '@n8n/db';
+import { Logger } from '@resin/backend-common';
+import { AuthenticatedRequest } from '@resin/db';
 import {
 	ContextEstablishmentHook,
 	ContextEstablishmentOptions,
 	ContextEstablishmentResult,
 	HookDescription,
 	IContextEstablishmentHook,
-} from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import { Cipher } from 'n8n-core';
-import { ensureError, jsonParse } from 'n8n-workflow';
+} from '@resin/decorators';
+import { Container } from '@resin/di';
+import { Cipher } from 'resin-core';
+import { ensureError, jsonParse } from 'resin-workflow';
 import { z } from 'zod';
 
 import { AuthService } from '@/auth/auth.service';

@@ -8,8 +8,8 @@
  * Used by the MCP test tools and AI workflow builder.
  */
 
-import type { INode, INodeExecutionData, IPinData } from 'n8n-workflow';
-import { HTTP_REQUEST_NODE_TYPE } from 'n8n-workflow';
+import type { INode, INodeExecutionData, IPinData } from 'resin-workflow';
+import { HTTP_REQUEST_NODE_TYPE } from 'resin-workflow';
 
 import {
 	discoverSchemasForNode,
@@ -70,7 +70,7 @@ export function needsPinData(node: INode, isTriggerNode?: IsTriggerNodeFn): bool
  * Combines `discoverSchemasForNode` + `findSchemaForOperation` with a
  * single-schema fallback when no resource/operation discriminators exist.
  *
- * @param nodeType Full node type string (e.g. 'n8n-nodes-base.slack')
+ * @param nodeType Full node type string (e.g. 'resin-nodes-base.slack')
  * @param typeVersion The node's version number
  * @param parameters Optional node parameters containing resource/operation
  * @returns The discovered JSON Schema, or undefined if none found

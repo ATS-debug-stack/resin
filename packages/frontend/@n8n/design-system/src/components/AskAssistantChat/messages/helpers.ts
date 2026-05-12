@@ -1,4 +1,4 @@
-import type { ChatUI } from '@n8n/design-system/types';
+import type { ChatUI } from '@resin/design-system/types';
 
 import BlockMessage from './BlockMessage.vue';
 import CodeDiffMessage from './CodeDiffMessage.vue';

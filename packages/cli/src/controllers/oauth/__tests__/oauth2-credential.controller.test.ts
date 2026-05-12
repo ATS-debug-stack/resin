@@ -1,10 +1,10 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { type CredentialsEntity, type User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import { type CredentialsEntity, type User } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import type { Response } from 'express';
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 import { OAuth2CredentialController } from '@/controllers/oauth/oauth2-credential.controller';
 import type { OAuthRequest } from '@/requests';
 import { OauthService } from '@/oauth/oauth.service';
@@ -12,7 +12,7 @@ import { ExternalHooks } from '@/external-hooks';
 import { OAuthJweServiceProxy } from '@/oauth/oauth-jwe-service.proxy';
 
 jest.mock('axios');
-jest.mock('@n8n/client-oauth2');
+jest.mock('@resin/client-oauth2');
 jest.mock('pkce-challenge');
 
 describe('OAuth2CredentialController', () => {
@@ -34,7 +34,7 @@ describe('OAuth2CredentialController', () => {
 
 	describe('getAuthUri', () => {
 		it('should return a valid auth URI', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetUri = jest.fn().mockReturnValue({
 				toString: () =>
 					'https://example.domain/oauth2/auth?client_id=client_id&redirect_uri=http://localhost:5678/rest/oauth2-credential/callback&response_type=code&state=state&scope=openid',
@@ -104,7 +104,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should exchange the code for a valid token, and save it to DB for static credential', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: { access_token: 'new_token', refresh_token: 'refresh_token' },
 			});
@@ -165,7 +165,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should handle dynamic credential callback successfully', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const oauthTokenData = { access_token: 'new_token', refresh_token: 'refresh_token' };
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: oauthTokenData,
@@ -235,7 +235,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should render error when credentialResolverId is missing for dynamic credential', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: { access_token: 'new_token', refresh_token: 'refresh_token' },
 			});
@@ -294,7 +294,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should render error when authorizationHeader is missing for dynamic credential', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: { access_token: 'new_token', refresh_token: 'refresh_token' },
 			});
@@ -353,7 +353,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should render error when authorizationHeader does not start with Bearer', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: { access_token: 'new_token', refresh_token: 'refresh_token' },
 			});
@@ -413,7 +413,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should handle static credential callback when origin is undefined', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: { access_token: 'new_token', refresh_token: 'refresh_token' },
 			});
@@ -474,7 +474,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should handle PKCE flow', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: { access_token: 'new_token' },
 			});
@@ -533,7 +533,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should include client_id and client_secret in body for PKCE flow with body authentication', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: { access_token: 'new_token' },
 			});
@@ -596,7 +596,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should handle body authentication method', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: { access_token: 'new_token' },
 			});
@@ -657,7 +657,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should handle callback with additional query parameters', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockResolvedValue({
 				data: { access_token: 'new_token' },
 			});
@@ -734,7 +734,7 @@ describe('OAuth2CredentialController', () => {
 
 			async function setupCallback(jweEnabled: boolean, tokenResponse: Record<string, unknown>) {
 				const mockGetToken = jest.fn().mockResolvedValue({ data: { ...tokenResponse } });
-				const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+				const { ClientOAuth2 } = await import('@resin/client-oauth2');
 				jest
 					.mocked(ClientOAuth2)
 					.mockImplementation(() => ({ code: { getToken: mockGetToken } }) as any);
@@ -847,7 +847,7 @@ describe('OAuth2CredentialController', () => {
 				const mockGetToken = jest
 					.fn()
 					.mockResolvedValue({ data: { access_token: 'jwe-blob', refresh_token: 'r' } });
-				const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+				const { ClientOAuth2 } = await import('@resin/client-oauth2');
 				jest
 					.mocked(ClientOAuth2)
 					.mockImplementation(() => ({ code: { getToken: mockGetToken } }) as any);
@@ -898,7 +898,7 @@ describe('OAuth2CredentialController', () => {
 		});
 
 		it('should handle errors and render error page', async () => {
-			const { ClientOAuth2 } = await import('@n8n/client-oauth2');
+			const { ClientOAuth2 } = await import('@resin/client-oauth2');
 			const mockGetToken = jest.fn().mockRejectedValue(new Error('Token exchange failed'));
 			jest.mocked(ClientOAuth2).mockImplementation(
 				() =>

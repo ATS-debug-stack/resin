@@ -1,5 +1,5 @@
-import type { IDataObject } from 'n8n-workflow';
-import { BINARY_ENCODING } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
+import { BINARY_ENCODING } from 'resin-workflow';
 
 import { getBinaryResponse } from '../utils/binary';
 

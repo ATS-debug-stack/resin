@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia';
 import { ref, computed, inject, provide, type InjectionKey } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useToast } from '@/app/composables/useToast';
-import { UNLIMITED_CREDITS, type InstanceAiThreadSummary } from '@n8n/api-types';
+import { UNLIMITED_CREDITS, type InstanceAiThreadSummary } from '@resin/api-types';
 import { ensureThread, getInstanceAiCredits } from './instanceAi.api';
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
 import { useInstanceAiSettingsStore } from './instanceAiSettings.store';

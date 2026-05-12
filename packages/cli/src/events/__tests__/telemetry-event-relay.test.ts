@@ -1,7 +1,7 @@
 import type { NodeTypes } from '@/node-types';
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { LicenseState } from '@n8n/backend-common';
-import type { GlobalConfig } from '@n8n/config';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { LicenseState } from '@resin/backend-common';
+import type { GlobalConfig } from '@resin/config';
 import {
 	type CredentialsEntity,
 	type CredentialsRepository,
@@ -11,9 +11,9 @@ import {
 	type WorkflowEntity,
 	type WorkflowRepository,
 	GLOBAL_OWNER_ROLE,
-} from '@n8n/db';
+} from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import { type BinaryDataConfig, InstanceSettings } from 'n8n-core';
+import { type BinaryDataConfig, InstanceSettings } from 'resin-core';
 import {
 	createErrorExecutionData,
 	type INode,
@@ -22,7 +22,7 @@ import {
 	type IWorkflowBase,
 	NodeApiError,
 	TelemetryHelpers,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { N8N_VERSION } from '@/constants';
 import { EventService } from '@/events/event.service';
@@ -729,7 +729,7 @@ describe('TelemetryEventRelay', () => {
 				path: '/api/v1/workflows',
 				method: 'GET',
 				apiVersion: 'v1',
-				userAgent: 'n8n-cli',
+				userAgent: 'resin-cli',
 			};
 
 			eventService.emit('public-api-invoked', event);
@@ -739,7 +739,7 @@ describe('TelemetryEventRelay', () => {
 				path: '/api/v1/workflows',
 				method: 'GET',
 				api_version: 'v1',
-				user_agent: 'n8n-cli',
+				user_agent: 'resin-cli',
 			});
 		});
 
@@ -794,8 +794,8 @@ describe('TelemetryEventRelay', () => {
 					lastName: 'Doe',
 					role: { slug: GLOBAL_OWNER_ROLE.slug },
 				},
-				inputString: 'n8n-nodes-package',
-				packageName: 'n8n-nodes-package',
+				inputString: 'resin-nodes-package',
+				packageName: 'resin-nodes-package',
 				success: true,
 				packageVersion: '1.0.0',
 				packageNodeNames: ['CustomNode1', 'CustomNode2'],
@@ -807,8 +807,8 @@ describe('TelemetryEventRelay', () => {
 
 			expect(telemetry.track).toHaveBeenCalledWith('cnr package install finished', {
 				user_id: 'user123',
-				input_string: 'n8n-nodes-package',
-				package_name: 'n8n-nodes-package',
+				input_string: 'resin-nodes-package',
+				package_name: 'resin-nodes-package',
 				success: true,
 				package_version: '1.0.0',
 				package_node_names: ['CustomNode1', 'CustomNode2'],
@@ -827,7 +827,7 @@ describe('TelemetryEventRelay', () => {
 					lastName: 'Doe',
 					role: { slug: GLOBAL_OWNER_ROLE.slug },
 				},
-				packageName: 'n8n-nodes-package',
+				packageName: 'resin-nodes-package',
 				packageVersionCurrent: '1.0.0',
 				packageVersionNew: '1.1.0',
 				packageNodeNames: ['CustomNode1', 'CustomNode2'],
@@ -839,7 +839,7 @@ describe('TelemetryEventRelay', () => {
 
 			expect(telemetry.track).toHaveBeenCalledWith('cnr package updated', {
 				user_id: 'user123',
-				package_name: 'n8n-nodes-package',
+				package_name: 'resin-nodes-package',
 				package_version_current: '1.0.0',
 				package_version_new: '1.1.0',
 				package_node_names: ['CustomNode1', 'CustomNode2'],
@@ -857,7 +857,7 @@ describe('TelemetryEventRelay', () => {
 					lastName: 'Doe',
 					role: { slug: GLOBAL_OWNER_ROLE.slug },
 				},
-				packageName: 'n8n-nodes-package',
+				packageName: 'resin-nodes-package',
 				packageVersion: '1.0.0',
 				packageNodeNames: ['CustomNode1', 'CustomNode2'],
 				packageAuthor: 'John Smith',
@@ -868,7 +868,7 @@ describe('TelemetryEventRelay', () => {
 
 			expect(telemetry.track).toHaveBeenCalledWith('cnr package deleted', {
 				user_id: 'user123',
-				package_name: 'n8n-nodes-package',
+				package_name: 'resin-nodes-package',
 				package_version: '1.0.0',
 				package_node_names: ['CustomNode1', 'CustomNode2'],
 				package_author: 'John Smith',
@@ -1243,7 +1243,7 @@ describe('TelemetryEventRelay', () => {
 				workflow: mock<IWorkflowDb>({ id: 'workflow123', name: 'Test Workflow' }),
 				publicApi: true,
 				deactivatedVersionId: 'version-abc-123',
-				source: 'n8n-mcp',
+				source: 'resin-mcp',
 			};
 
 			eventService.emit('workflow-deactivated', event);
@@ -1253,7 +1253,7 @@ describe('TelemetryEventRelay', () => {
 				workflow_id: 'workflow123',
 				public_api: true,
 				deactivated_version_id: 'version-abc-123',
-				source: 'n8n-mcp',
+				source: 'resin-mcp',
 			});
 		});
 
@@ -1948,7 +1948,7 @@ describe('TelemetryEventRelay', () => {
 				{
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					parameters: {},
 					typeVersion: 1,
 					position: [100, 200],
@@ -2013,7 +2013,7 @@ describe('TelemetryEventRelay', () => {
 				id: '1',
 				typeVersion: 1,
 				name: 'Jira',
-				type: 'n8n-nodes-base.jira',
+				type: 'resin-nodes-base.jira',
 				parameters: {},
 				position: [100, 200],
 			};
@@ -2053,7 +2053,7 @@ describe('TelemetryEventRelay', () => {
 			jest
 				.spyOn(TelemetryHelpers, 'getNodeTypeForName')
 				.mockImplementation(
-					() => ({ type: 'n8n-nodes-base.jira', version: 1, name: 'Jira' }) as unknown as INode,
+					() => ({ type: 'resin-nodes-base.jira', version: 1, name: 'Jira' }) as unknown as INode,
 				);
 
 			const event: RelayEventMap['workflow-post-execute'] = {
@@ -2077,10 +2077,10 @@ describe('TelemetryEventRelay', () => {
 					executionStatus: 'error',
 					sharing_role: 'sharee',
 					error_message: 'Error message',
-					error_node_type: 'n8n-nodes-base.jira',
+					error_node_type: 'resin-nodes-base.jira',
 					error_node_id: '1',
 					node_id: '1',
-					node_type: 'n8n-nodes-base.jira',
+					node_type: 'resin-nodes-base.jira',
 					is_managed: false,
 					credential_type: null,
 					node_graph_string: JSON.stringify(nodeGraph.nodeGraph),
@@ -2095,7 +2095,7 @@ describe('TelemetryEventRelay', () => {
 					execution_mode: 'manual',
 					version_cli: N8N_VERSION,
 					error_message: 'Error message',
-					error_node_type: 'n8n-nodes-base.jira',
+					error_node_type: 'resin-nodes-base.jira',
 					node_graph_string: JSON.stringify(nodeGraph.nodeGraph),
 					error_node_id: '1',
 				}),
@@ -2109,7 +2109,7 @@ describe('TelemetryEventRelay', () => {
 				id: '1',
 				typeVersion: 1,
 				name: 'Jira',
-				type: 'n8n-nodes-base.jira',
+				type: 'resin-nodes-base.jira',
 				parameters: {},
 				position: [100, 200],
 			};
@@ -2149,7 +2149,7 @@ describe('TelemetryEventRelay', () => {
 			jest
 				.spyOn(TelemetryHelpers, 'getNodeTypeForName')
 				.mockImplementation(
-					() => ({ type: 'n8n-nodes-base.jira', version: 1, name: 'Jira' }) as unknown as INode,
+					() => ({ type: 'resin-nodes-base.jira', version: 1, name: 'Jira' }) as unknown as INode,
 				);
 
 			const event: RelayEventMap['workflow-post-execute'] = {
@@ -2173,10 +2173,10 @@ describe('TelemetryEventRelay', () => {
 					executionStatus: 'canceled',
 					sharing_role: 'owner',
 					error_message: 'Error message canceled',
-					error_node_type: 'n8n-nodes-base.jira',
+					error_node_type: 'resin-nodes-base.jira',
 					error_node_id: '1',
 					node_id: '1',
-					node_type: 'n8n-nodes-base.jira',
+					node_type: 'resin-nodes-base.jira',
 					node_graph_string: JSON.stringify(nodeGraph.nodeGraph),
 				}),
 			);
@@ -2189,7 +2189,7 @@ describe('TelemetryEventRelay', () => {
 					execution_mode: 'manual',
 					version_cli: N8N_VERSION,
 					error_message: 'Error message canceled',
-					error_node_type: 'n8n-nodes-base.jira',
+					error_node_type: 'resin-nodes-base.jira',
 					node_graph_string: JSON.stringify(nodeGraph.nodeGraph),
 					error_node_id: '1',
 				}),
@@ -2220,7 +2220,7 @@ describe('TelemetryEventRelay', () => {
 								id: '1',
 								typeVersion: 1,
 								name: 'Jira',
-								type: 'n8n-nodes-base.jira',
+								type: 'resin-nodes-base.jira',
 								parameters: {},
 								position: [100, 200],
 							},
@@ -2255,7 +2255,7 @@ describe('TelemetryEventRelay', () => {
 			jest
 				.spyOn(TelemetryHelpers, 'getNodeTypeForName')
 				.mockImplementation(
-					() => ({ type: 'n8n-nodes-base.jira', version: 1, name: 'Jira' }) as unknown as INode,
+					() => ({ type: 'resin-nodes-base.jira', version: 1, name: 'Jira' }) as unknown as INode,
 				);
 
 			const event: RelayEventMap['workflow-post-execute'] = {
@@ -2279,7 +2279,7 @@ describe('TelemetryEventRelay', () => {
 					executionStatus: 'error',
 					sharing_role: 'owner',
 					error_message: 'Error message',
-					error_node_type: 'n8n-nodes-base.jira',
+					error_node_type: 'resin-nodes-base.jira',
 					error_node_id: '1',
 					node_graph_string: JSON.stringify(nodeGraph.nodeGraph),
 				}),
@@ -2293,7 +2293,7 @@ describe('TelemetryEventRelay', () => {
 					execution_mode: 'manual',
 					version_cli: N8N_VERSION,
 					error_message: 'Error message',
-					error_node_type: 'n8n-nodes-base.jira',
+					error_node_type: 'resin-nodes-base.jira',
 					node_graph_string: JSON.stringify(nodeGraph.nodeGraph),
 					error_node_id: '1',
 				}),
@@ -2310,7 +2310,7 @@ describe('TelemetryEventRelay', () => {
 				id: '1',
 				typeVersion: 1,
 				name: 'Jira',
-				type: 'n8n-nodes-base.jira',
+				type: 'resin-nodes-base.jira',
 				parameters: {},
 				position: [100, 200],
 			};
@@ -2356,7 +2356,7 @@ describe('TelemetryEventRelay', () => {
 			jest
 				.spyOn(TelemetryHelpers, 'getNodeTypeForName')
 				.mockImplementation(
-					() => ({ type: 'n8n-nodes-base.jira', version: 1, name: 'Jira' }) as unknown as INode,
+					() => ({ type: 'resin-nodes-base.jira', version: 1, name: 'Jira' }) as unknown as INode,
 				);
 
 			const event: RelayEventMap['workflow-post-execute'] = {
@@ -2384,10 +2384,10 @@ describe('TelemetryEventRelay', () => {
 					executionStatus: 'error',
 					sharing_role: 'sharee',
 					error_message: 'Error message',
-					error_node_type: 'n8n-nodes-base.jira',
+					error_node_type: 'resin-nodes-base.jira',
 					error_node_id: '1',
 					node_id: '1',
-					node_type: 'n8n-nodes-base.jira',
+					node_type: 'resin-nodes-base.jira',
 
 					is_managed: true,
 					credential_type: 'openAiApi',
@@ -2403,7 +2403,7 @@ describe('TelemetryEventRelay', () => {
 					execution_mode: 'manual',
 					version_cli: N8N_VERSION,
 					error_message: 'Error message',
-					error_node_type: 'n8n-nodes-base.jira',
+					error_node_type: 'resin-nodes-base.jira',
 					node_graph_string: JSON.stringify(nodeGraph.nodeGraph),
 					error_node_id: '1',
 				}),
@@ -2435,7 +2435,7 @@ describe('TelemetryEventRelay', () => {
 								id: '1',
 								typeVersion: 1,
 								name: 'OpenAI',
-								type: 'n8n-nodes-base.openAi',
+								type: 'resin-nodes-base.openAi',
 								parameters: {},
 								position: [100, 200],
 							},

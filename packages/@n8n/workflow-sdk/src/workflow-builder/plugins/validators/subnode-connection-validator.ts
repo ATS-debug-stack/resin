@@ -48,7 +48,7 @@ function getRequiredSubnodeInfo(
 	nodeType: string,
 ): { connectionType: string; subnodeField: string } | null {
 	// Extract the node name suffix after the package prefix
-	// e.g., '@n8n/n8n-nodes-langchain.embeddingsGoogleGemini' -> 'embeddingsGoogleGemini'
+	// e.g., '@resin/n8n-nodes-langchain.embeddingsGoogleGemini' -> 'embeddingsGoogleGemini'
 	const parts = nodeType.split('.');
 	const nodeName = parts.length > 1 ? parts[parts.length - 1] : nodeType;
 

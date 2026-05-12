@@ -5,7 +5,7 @@
  * graph where connections use meaningful names instead of indices.
  */
 
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 
 import { getOutputName, getInputName } from './semantic-registry';
 import type { SemanticGraph, SemanticNode, SemanticConnection, AiConnectionType } from './types';

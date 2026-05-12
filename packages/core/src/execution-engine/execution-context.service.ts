@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
 import {
 	IExecuteData,
 	IExecutionContext,
@@ -10,7 +10,7 @@ import {
 	toExecutionContextEstablishmentHookParameter,
 	toSecureArtifacts,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { Cipher } from '@/encryption';
 import { deepMerge } from '@/utils/deep-merge';

@@ -1,5 +1,5 @@
-import type { InstanceType } from '@n8n/constants';
-import { generateNanoId } from '@n8n/utils';
+import type { InstanceType } from '@resin/constants';
+import { generateNanoId } from '@resin/utils';
 
 export function generateHostInstanceId(instanceType: InstanceType) {
 	return `${instanceType}-${generateNanoId()}`;

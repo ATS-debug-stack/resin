@@ -1,5 +1,5 @@
-import { MessageEventBusDestinationTypeNames } from 'n8n-workflow';
-import type { MessageEventBusDestinationSyslogOptions } from 'n8n-workflow';
+import { MessageEventBusDestinationTypeNames } from 'resin-workflow';
+import type { MessageEventBusDestinationSyslogOptions } from 'resin-workflow';
 
 import { MessageEventBusDestinationSyslog } from '../message-event-bus-destination-syslog.ee';
 

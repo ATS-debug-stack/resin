@@ -1,5 +1,5 @@
 import { type OpenAIClient } from '@langchain/openai';
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
 import type {
 	ComputerTool,
 	CustomTool,

@@ -1,5 +1,5 @@
-import type { ListDataTableQueryDto } from '@n8n/api-types';
-import type { User } from '@n8n/db';
+import type { ListDataTableQueryDto } from '@resin/api-types';
+import type { User } from '@resin/db';
 import z from 'zod';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../../mcp.constants';

@@ -1,9 +1,9 @@
-import { inTest } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { inTest } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import convict from 'convict';
 import { readFileSync } from 'fs';
-import { setGlobalState, UserError } from 'n8n-workflow';
+import { setGlobalState, UserError } from 'resin-workflow';
 
 import { inE2ETests } from '@/constants';
 import { setMicrosoftObservabilityDefaults } from '@/utils';

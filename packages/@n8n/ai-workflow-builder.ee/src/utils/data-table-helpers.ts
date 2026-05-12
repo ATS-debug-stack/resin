@@ -8,12 +8,12 @@ import {
 	getParentNodes,
 	mapConnectionsByDestination,
 	type DataTableRowOperation,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { SimpleWorkflow } from '../types';
 
-export const DATA_TABLE_NODE_TYPE = 'n8n-nodes-base.dataTable';
-export const SET_NODE_TYPE = 'n8n-nodes-base.set';
+export const DATA_TABLE_NODE_TYPE = 'resin-nodes-base.dataTable';
+export const SET_NODE_TYPE = 'resin-nodes-base.set';
 
 /** Row operations that require column definitions (from a preceding Set node) */
 export const DATA_TABLE_ROW_COLUMN_MAPPING_OPERATIONS: readonly DataTableRowOperation[] = [
@@ -151,7 +151,7 @@ export function extractDataTableInfo(workflow: SimpleWorkflow): DataTableInfo[] 
 
 		// Look for a set node before the data table operation - this should contain the columns
 		if (isDataTableRowColumnOperation(operation)) {
-			// Get direct predecessors (depth=1) using getParentNodes from n8n-workflow
+			// Get direct predecessors (depth=1) using getParentNodes from resin-workflow
 			const predecessors = getParentNodes(connectionsByDestination, node.name, 'main', 1);
 			for (const predecessorName of predecessors) {
 				const setFields = extractSetNodeFields(workflow, predecessorName);

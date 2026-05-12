@@ -1,14 +1,14 @@
-import { Logger } from '@n8n/backend-common';
-import { UpdateWorkflowHistoryVersionDto } from '@n8n/api-types';
-import type { User } from '@n8n/db';
-import { WorkflowHistory, WorkflowHistoryRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { UpdateWorkflowHistoryVersionDto } from '@resin/api-types';
+import type { User } from '@resin/db';
+import { WorkflowHistory, WorkflowHistoryRepository } from '@resin/db';
+import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager } from '@n8n/typeorm';
+import type { EntityManager } from '@resin/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
-import type { IWorkflowBase } from 'n8n-workflow';
-import { ensureError, UnexpectedError } from 'n8n-workflow';
+import { In } from '@resin/typeorm';
+import type { IWorkflowBase } from 'resin-workflow';
+import { ensureError, UnexpectedError } from 'resin-workflow';
 
 import { WorkflowFinderService } from '../workflow-finder.service';
 

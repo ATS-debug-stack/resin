@@ -1,5 +1,5 @@
-import { makeRestApiRequest } from '@n8n/rest-api-client';
-import type { IRestApiContext } from '@n8n/rest-api-client';
+import { makeRestApiRequest } from '@resin/rest-api-client';
+import type { IRestApiContext } from '@resin/rest-api-client';
 import type {
 	ChatHubManualSendMessageRequest,
 	ChatHubSendMessageRequest,
@@ -26,8 +26,8 @@ import type {
 	ChatHubToolDto,
 	ChatHubSemanticSearchSettings,
 	ChatHubSessionType,
-} from '@n8n/api-types';
-import type { INode } from 'n8n-workflow';
+} from '@resin/api-types';
+import type { INode } from 'resin-workflow';
 
 export const fetchChatModelsApi = async (
 	context: IRestApiContext,

@@ -81,7 +81,7 @@ describe('ResourceCenterView', () => {
 					id: 10427,
 					description: 'Automatically analyse ad performance',
 					nodes: [
-						{ name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest', icon: 'file:http.svg' },
+						{ name: 'HTTP Request', type: 'resin-nodes-base.httpRequest', icon: 'file:http.svg' },
 					],
 					workflowInfo: {
 						nodeCount: 7,
@@ -96,7 +96,7 @@ describe('ResourceCenterView', () => {
 					nodes: [
 						{
 							name: 'Manual Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							icon: 'file:manual.svg',
 						},
 					],

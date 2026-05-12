@@ -13,12 +13,12 @@ import {
 	N8nLink,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
 import { I18nT } from 'vue-i18n';
 import CredentialIcon from '@/features/credentials/components/CredentialIcon.vue';
-import { ROLE } from '@n8n/api-types';
+import { ROLE } from '@resin/api-types';
 
 defineProps<{
 	showWelcomeScreen: boolean;

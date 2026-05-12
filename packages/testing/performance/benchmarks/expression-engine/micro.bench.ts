@@ -8,15 +8,15 @@
  *
  * These use ExpressionEvaluator and IsolatedVmBridge directly.
  *
- * Run: pnpm --filter=@n8n/performance bench
+ * Run: pnpm --filter=@resin/performance bench
  */
 import { bench } from 'vitest';
-import { ExpressionEvaluator, IsolatedVmBridge } from '@n8n/expression-runtime';
+import { ExpressionEvaluator, IsolatedVmBridge } from '@resin/expression-runtime';
 import {
 	DollarSignValidator,
 	PrototypeSanitizer,
 	ThisSanitizer,
-} from 'n8n-workflow/src/expression-sandboxing';
+} from 'resin-workflow/src/expression-sandboxing';
 
 // Top-level await — vitest bench doesn't support beforeAll
 const evaluator = new ExpressionEvaluator({

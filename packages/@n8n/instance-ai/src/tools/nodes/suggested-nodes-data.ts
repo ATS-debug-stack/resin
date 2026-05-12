@@ -21,27 +21,27 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		patternHint: 'Chat Trigger -> AI Agent -> Memory -> Response',
 		nodes: [
 			{
-				name: '@n8n/n8n-nodes-langchain.chatTrigger',
+				name: '@resin/n8n-nodes-langchain.chatTrigger',
 				note: "Do not attach a memory subnode to the Chat Trigger to give the Agent memory — that's the Agent's job. See the loadPreviousSession builderHint for when the trigger itself needs memory.",
 			},
 			{
-				name: '@n8n/n8n-nodes-langchain.agent',
+				name: '@resin/n8n-nodes-langchain.agent',
 				note: 'Every agent in a conversational workflow MUST have a memory subnode connected. If multiple agents share the same conversation, they must use the same memory session key',
 			},
-			{ name: '@n8n/n8n-nodes-langchain.lmChatOpenAi' },
-			{ name: '@n8n/n8n-nodes-langchain.lmChatGoogleGemini' },
+			{ name: '@resin/n8n-nodes-langchain.lmChatOpenAi' },
+			{ name: '@resin/n8n-nodes-langchain.lmChatGoogleGemini' },
 			{
-				name: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+				name: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 				note: 'Maintains short-term conversation history. Must be connected as a subnode to every Agent that participates in a conversation. When multiple agents share a conversation, use the same session key across all of them',
 			},
 			{
-				name: '@n8n/n8n-nodes-langchain.retrieverVectorStore',
+				name: '@resin/n8n-nodes-langchain.retrieverVectorStore',
 				note: 'Connects any Vector Store (Pinecone, Qdrant, Supabase, In-Memory, etc.) to an AI Agent for RAG. Use this as a subnode between the vector store and the agent to retrieve relevant documents when answering questions',
 			},
-			{ name: 'n8n-nodes-base.slack' },
-			{ name: 'n8n-nodes-base.telegram' },
-			{ name: 'n8n-nodes-base.whatsApp' },
-			{ name: 'n8n-nodes-base.discord' },
+			{ name: 'resin-nodes-base.slack' },
+			{ name: 'resin-nodes-base.telegram' },
+			{ name: 'resin-nodes-base.whatsApp' },
+			{ name: 'resin-nodes-base.discord' },
 		],
 	},
 
@@ -50,30 +50,30 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		patternHint: 'Trigger -> Condition -> Send (Email/Slack/SMS)',
 		nodes: [
 			{
-				name: 'n8n-nodes-base.webhook',
+				name: 'resin-nodes-base.webhook',
 				note: 'Event-based notifications from external systems',
 			},
 			{
-				name: 'n8n-nodes-base.scheduleTrigger',
+				name: 'resin-nodes-base.scheduleTrigger',
 				note: 'Periodic monitoring and batch notifications',
 			},
 			{
-				name: 'n8n-nodes-base.gmail',
+				name: 'resin-nodes-base.gmail',
 				note: "Default to this because it's easy for users to setup",
 			},
-			{ name: 'n8n-nodes-base.slack' },
-			{ name: 'n8n-nodes-base.telegram' },
-			{ name: 'n8n-nodes-base.twilio' },
+			{ name: 'resin-nodes-base.slack' },
+			{ name: 'resin-nodes-base.telegram' },
+			{ name: 'resin-nodes-base.twilio' },
 			{
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				note: 'For services without dedicated nodes (Teams, Discord)',
 			},
 			{
-				name: 'n8n-nodes-base.if',
+				name: 'resin-nodes-base.if',
 				note: 'Check alert conditions before sending',
 			},
 			{
-				name: 'n8n-nodes-base.switch',
+				name: 'resin-nodes-base.switch',
 				note: 'If routing by severity/type is needed, use Switch to direct to different channels',
 			},
 		],
@@ -83,11 +83,11 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		description: 'Running actions at specific times or intervals',
 		patternHint: 'Schedule Trigger -> Fetch -> Process -> Act',
 		nodes: [
-			{ name: 'n8n-nodes-base.scheduleTrigger' },
-			{ name: 'n8n-nodes-base.httpRequest' },
-			{ name: 'n8n-nodes-base.set' },
+			{ name: 'resin-nodes-base.scheduleTrigger' },
+			{ name: 'resin-nodes-base.httpRequest' },
+			{ name: 'resin-nodes-base.set' },
 			{
-				name: 'n8n-nodes-base.wait',
+				name: 'resin-nodes-base.wait',
 				note: 'Respect rate limits between API calls',
 			},
 		],
@@ -97,29 +97,29 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		description: 'Cleaning, formatting, or restructuring data',
 		patternHint: 'Input -> Filter/Map -> Transform -> Output',
 		nodes: [
-			{ name: 'n8n-nodes-base.set' },
-			{ name: 'n8n-nodes-base.if', note: 'Use early to validate inputs' },
+			{ name: 'resin-nodes-base.set' },
+			{ name: 'resin-nodes-base.if', note: 'Use early to validate inputs' },
 			{
-				name: 'n8n-nodes-base.filter',
+				name: 'resin-nodes-base.filter',
 				note: 'Use early to reduce data volume',
 			},
 			{
-				name: 'n8n-nodes-base.summarize',
+				name: 'resin-nodes-base.summarize',
 				note: 'Pivot table-style aggregations',
 			},
 			{
-				name: 'n8n-nodes-base.aggregate',
+				name: 'resin-nodes-base.aggregate',
 				note: 'Combine multiple items into one',
 			},
 			{
-				name: 'n8n-nodes-base.splitOut',
+				name: 'resin-nodes-base.splitOut',
 				note: 'Convert single item with array into multiple items',
 			},
-			{ name: 'n8n-nodes-base.sort' },
-			{ name: 'n8n-nodes-base.limit' },
-			{ name: 'n8n-nodes-base.removeDuplicates' },
+			{ name: 'resin-nodes-base.sort' },
+			{ name: 'resin-nodes-base.limit' },
+			{ name: 'resin-nodes-base.removeDuplicates' },
 			{
-				name: 'n8n-nodes-base.splitInBatches',
+				name: 'resin-nodes-base.splitInBatches',
 				note: 'For large datasets (100+ items), batch processing prevents timeouts',
 			},
 		],
@@ -130,20 +130,20 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		patternHint: 'Trigger -> Process -> Store (DataTable/Sheets)',
 		nodes: [
 			{
-				name: 'n8n-nodes-base.dataTable',
+				name: 'resin-nodes-base.dataTable',
 				note: 'PREFERRED - no external config needed',
 			},
 			{
-				name: 'n8n-nodes-base.googleSheets',
+				name: 'resin-nodes-base.googleSheets',
 				note: 'For collaboration needs; if >10k rows expected, consider DataTable instead',
 			},
 			{
-				name: 'n8n-nodes-base.airtable',
+				name: 'resin-nodes-base.airtable',
 				note: 'If relationships between tables are needed',
 			},
-			{ name: 'n8n-nodes-base.postgres' },
-			{ name: 'n8n-nodes-base.mySql' },
-			{ name: 'n8n-nodes-base.mongoDb' },
+			{ name: 'resin-nodes-base.postgres' },
+			{ name: 'resin-nodes-base.mySql' },
+			{ name: 'resin-nodes-base.mongoDb' },
 		],
 	},
 
@@ -152,28 +152,28 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		patternHint: 'Source -> Extract -> Parse -> Structure',
 		nodes: [
 			{
-				name: 'n8n-nodes-base.extractFromFile',
+				name: 'resin-nodes-base.extractFromFile',
 				note: 'For multiple file types, route by file type first with IF/Switch',
 			},
 			{
-				name: 'n8n-nodes-base.htmlExtract',
+				name: 'resin-nodes-base.htmlExtract',
 				note: 'JS-rendered content may be empty',
 			},
 			{
-				name: 'n8n-nodes-base.splitOut',
+				name: 'resin-nodes-base.splitOut',
 				note: 'Use before Loop Over Items for arrays',
 			},
 			{
-				name: 'n8n-nodes-base.splitInBatches',
+				name: 'resin-nodes-base.splitInBatches',
 				note: 'Process 200 rows at a time for memory',
 			},
-			{ name: 'n8n-nodes-base.code' },
+			{ name: 'resin-nodes-base.code' },
 			{
-				name: '@n8n/n8n-nodes-langchain.informationExtractor',
+				name: '@resin/n8n-nodes-langchain.informationExtractor',
 				note: 'For unstructured text',
 			},
 			{
-				name: '@n8n/n8n-nodes-langchain.chainSummarization',
+				name: '@resin/n8n-nodes-langchain.chainSummarization',
 				note: 'Context window limits may truncate',
 			},
 		],
@@ -183,31 +183,31 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		description: 'Taking action on content within files (PDFs, Word docs, images)',
 		patternHint: 'Trigger -> Extract Text -> AI Parse -> Store',
 		nodes: [
-			{ name: 'n8n-nodes-base.gmailTrigger' },
-			{ name: 'n8n-nodes-base.googleDriveTrigger' },
+			{ name: 'resin-nodes-base.gmailTrigger' },
+			{ name: 'resin-nodes-base.googleDriveTrigger' },
 			{
-				name: 'n8n-nodes-base.extractFromFile',
+				name: 'resin-nodes-base.extractFromFile',
 				note: 'Different file types require different operations - route accordingly',
 			},
 			{
-				name: 'n8n-nodes-base.awsTextract',
+				name: 'resin-nodes-base.awsTextract',
 				note: 'For tables and forms in scanned docs',
 			},
 			{
-				name: 'n8n-nodes-base.mindee',
+				name: 'resin-nodes-base.mindee',
 				note: 'Specialized invoice/receipt parsing',
 			},
-			{ name: '@n8n/n8n-nodes-langchain.agent' },
+			{ name: '@resin/n8n-nodes-langchain.agent' },
 			{
-				name: '@n8n/n8n-nodes-langchain.documentDefaultDataLoader',
+				name: '@resin/n8n-nodes-langchain.documentDefaultDataLoader',
 				note: 'Loads binary files (PDF, CSV, JSON, DOCX, EPUB, text) into LangChain Documents. Auto-detects format from MIME type. Requires a preceding node that outputs binary data',
 			},
 			{
-				name: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+				name: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 				note: 'No external dependencies needed',
 			},
 			{
-				name: 'n8n-nodes-base.splitInBatches',
+				name: 'resin-nodes-base.splitInBatches',
 				note: 'Process 5-10 files at a time',
 			},
 		],
@@ -218,16 +218,16 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		patternHint: 'Form Trigger -> Validate -> Store -> Respond',
 		nodes: [
 			{
-				name: 'n8n-nodes-base.formTrigger',
+				name: 'resin-nodes-base.formTrigger',
 				note: 'ALWAYS store raw data to persistent storage',
 			},
-			{ name: 'n8n-nodes-base.form', note: 'Each node is one page/step' },
+			{ name: 'resin-nodes-base.form', note: 'Each node is one page/step' },
 			{
-				name: 'n8n-nodes-base.dataTable',
+				name: 'resin-nodes-base.dataTable',
 				note: 'PREFERRED for form data storage',
 			},
-			{ name: 'n8n-nodes-base.googleSheets' },
-			{ name: 'n8n-nodes-base.airtable' },
+			{ name: 'resin-nodes-base.googleSheets' },
+			{ name: 'resin-nodes-base.airtable' },
 		],
 	},
 
@@ -236,29 +236,29 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		patternHint: 'Trigger -> Generate (Text/Image/Video) -> Deliver',
 		nodes: [
 			{
-				name: '@n8n/n8n-nodes-langchain.agent',
+				name: '@resin/n8n-nodes-langchain.agent',
 				note: 'For text generation',
 			},
 			{
-				name: '@n8n/n8n-nodes-langchain.openAi',
+				name: '@resin/n8n-nodes-langchain.openAi',
 				note: 'Use for image/video generation. DALL-E, TTS, Sora video generation',
 			},
 			{
-				name: '@n8n/n8n-nodes-langchain.lmChatGoogleGemini',
+				name: '@resin/n8n-nodes-langchain.lmChatGoogleGemini',
 				note: 'Imagen, video generation',
 			},
 			{
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				note: 'For APIs without dedicated nodes',
 			},
 			{
-				name: 'n8n-nodes-base.editImage',
+				name: 'resin-nodes-base.editImage',
 				note: 'Resize, crop, format conversion',
 			},
-			{ name: 'n8n-nodes-base.markdown', note: 'Convert to HTML' },
-			{ name: 'n8n-nodes-base.facebookGraphApi' },
+			{ name: 'resin-nodes-base.markdown', note: 'Convert to HTML' },
+			{ name: 'resin-nodes-base.facebookGraphApi' },
 			{
-				name: 'n8n-nodes-base.wait',
+				name: 'resin-nodes-base.wait',
 				note: 'Video generation is async, use wait while polling for updates',
 			},
 		],
@@ -269,11 +269,11 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		patternHint: 'Trigger -> Classify -> Route -> Act',
 		nodes: [
 			{
-				name: '@n8n/n8n-nodes-langchain.agent',
+				name: '@resin/n8n-nodes-langchain.agent',
 				note: 'For consistent/deterministic classification, always use structured output parser and set temperature 0-0.2',
 			},
 			{
-				name: '@n8n/n8n-nodes-langchain.outputParserStructured',
+				name: '@resin/n8n-nodes-langchain.outputParserStructured',
 				note: 'Critical to ensure agent output is consistent and matching general schema',
 			},
 		],
@@ -284,39 +284,39 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 		patternHint: 'Trigger -> Fetch -> Extract -> Store',
 		nodes: [
 			{
-				name: 'n8n-nodes-base.dataTable',
+				name: 'resin-nodes-base.dataTable',
 				note: 'Default storage for scraped data when the user does not specify a destination. No external config needed. Always include a storage step in scraping workflows',
 			},
 			{
-				name: 'n8n-nodes-base.phantombuster',
+				name: 'resin-nodes-base.phantombuster',
 				note: 'Use this for social media requests: LinkedIn, Facebook, Instagram, Twitter, etc.',
 			},
 			{
-				name: '@n8n/n8n-nodes-langchain.toolSerpApi',
+				name: '@resin/n8n-nodes-langchain.toolSerpApi',
 				note: 'Give agent web search capability, get up-to-date information from websites.',
 			},
 			{
-				name: 'n8n-nodes-base.perplexity',
+				name: 'resin-nodes-base.perplexity',
 				note: 'Recommended for fetching up-to-date news',
 			},
 			{
-				name: 'n8n-nodes-base.perplexityTool',
+				name: 'resin-nodes-base.perplexityTool',
 				note: 'Recommended for fetching up-to-date news',
 			},
 			{
-				name: 'n8n-nodes-base.htmlExtract',
+				name: 'resin-nodes-base.htmlExtract',
 				note: 'Use to extract HTML content from http requests. Though, JS-rendered sites may return empty',
 			},
 			{
-				name: 'n8n-nodes-base.splitInBatches',
+				name: 'resin-nodes-base.splitInBatches',
 				note: 'Use to batch the processing of items. General recommendation: 200 rows at a time if processing is fast',
 			},
 			{
-				name: 'n8n-nodes-base.wait',
+				name: 'resin-nodes-base.wait',
 				note: 'Use this to avoid rate limits (429 errors)',
 			},
-			{ name: 'n8n-nodes-base.httpRequest' },
-			{ name: 'n8n-nodes-base.httpRequestTool' },
+			{ name: 'resin-nodes-base.httpRequest' },
+			{ name: 'resin-nodes-base.httpRequestTool' },
 		],
 	},
 
@@ -327,23 +327,23 @@ export const suggestedNodesData: Record<string, CategoryData> = {
 			'Write HTML to chunks/page.html, then in src/workflow.ts use readFileSync + JSON.stringify to embed it in a Code node. Use multiple webhooks for page + API routes. Respond with text/html for pages, allEntries for JSON APIs.',
 		nodes: [
 			{
-				name: 'n8n-nodes-base.webhook',
+				name: 'resin-nodes-base.webhook',
 				note: 'Set responseMode to "responseNode". Use one webhook per route (e.g. GET /app for page, GET /app/items for API, POST /app/items/add for mutations). Access POST body via $json.body',
 			},
 			{
-				name: 'n8n-nodes-base.respondToWebhook',
+				name: 'resin-nodes-base.respondToWebhook',
 				note: 'For HTML pages: respondWith "text", responseBody via expression, Content-Type: text/html header. For JSON APIs: respondWith "allEntries"',
 			},
 			{
-				name: 'n8n-nodes-base.aggregate',
+				name: 'resin-nodes-base.aggregate',
 				note: 'Use aggregateAllItemData to collect multiple DataTable rows into a single array before the Code node that builds the HTML page',
 			},
 			{
-				name: 'n8n-nodes-base.code',
+				name: 'resin-nodes-base.code',
 				note: 'Builds the final HTML by replacing a __DATA_PLACEHOLDER__ token with base64-encoded data. The HTML template is loaded via readFileSync + JSON.stringify in the SDK code — NEVER embed large HTML directly in jsCode',
 			},
 			{
-				name: 'n8n-nodes-base.dataTable',
+				name: 'resin-nodes-base.dataTable',
 				note: 'PREFERRED for SPA data storage — no external config needed. Use resource: "row" with get/insert/update operations for CRUD API routes',
 			},
 		],

@@ -1,5 +1,5 @@
-import type { InstanceRegistration } from '@n8n/api-types';
-import type { Constructable } from '@n8n/di';
+import type { InstanceRegistration } from '@resin/api-types';
+import type { Constructable } from '@resin/di';
 
 /**
  * Structured difference between two cluster state snapshots.
@@ -133,7 +133,7 @@ export type ClusterCheckWarning = {
 /**
  * Structured audit event emitted by a cluster check.
  *
- * Audit events are intentionally loose at this layer: the `@n8n/decorators`
+ * Audit events are intentionally loose at this layer: the `@resin/decorators`
  * package must not depend on the cli audit event enum. A downstream translator
  * maps `eventName` to the concrete `EventMessageAudit` class at emit time.
  *
@@ -160,7 +160,7 @@ export type ClusterCheckAuditEvent = {
  * Structured push notification emitted by a cluster check.
  *
  * Kept decoupled from the concrete `PushMessage` discriminated union defined in
- * `@n8n/api-types/push` so the decorator package stays free of transport-type
+ * `@resin/api-types/push` so the decorator package stays free of transport-type
  * churn. A downstream translator narrows `{ type, data }` into the concrete
  * push message union before broadcasting.
  *
@@ -332,8 +332,8 @@ export interface IClusterCheck {
  *
  * @example
  * ```typescript
- * import { Container } from '@n8n/di';
- * import type { ClusterCheckClass } from '@n8n/decorators';
+ * import { Container } from '@resin/di';
+ * import type { ClusterCheckClass } from '@resin/decorators';
  *
  * const CheckClass: ClusterCheckClass = VersionMismatchCheck;
  * const instance = Container.get(CheckClass);

@@ -1,5 +1,5 @@
-import type { SecretProviderTypeResponse, SecretsProviderType } from '@n8n/api-types';
-import { Service } from '@n8n/di';
+import type { SecretProviderTypeResponse, SecretsProviderType } from '@resin/api-types';
+import { Service } from '@resin/di';
 
 import { AwsSecretsManager } from './providers/aws-secrets-manager';
 import { AzureKeyVault } from './providers/azure-key-vault/azure-key-vault';

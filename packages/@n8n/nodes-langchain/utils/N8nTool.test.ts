@@ -1,6 +1,6 @@
 import { DynamicStructuredTool, DynamicTool } from '@langchain/core/tools';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
 import { z } from 'zod';
 
 import { N8nTool } from './N8nTool';
@@ -9,7 +9,7 @@ const mockNode: INode = {
 	id: '1',
 	name: 'Mock node',
 	typeVersion: 2,
-	type: 'n8n-nodes-base.mock',
+	type: 'resin-nodes-base.mock',
 	position: [60, 760],
 	parameters: {
 		operation: 'test',

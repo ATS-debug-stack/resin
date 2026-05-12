@@ -5,8 +5,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	ITriggerResponse,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, jsonParse } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, jsonParse } from 'resin-workflow';
 
 export class SseTrigger implements INodeType {
 	description: INodeTypeDescription = {

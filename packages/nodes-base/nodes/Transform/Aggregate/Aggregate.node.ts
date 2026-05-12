@@ -11,7 +11,7 @@ import {
 	type IPairedItemData,
 	NodeConnectionTypes,
 	type NodeExecutionHint,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { addBinariesToItem } from './utils';
 import { prepareFieldsArray } from '../utils/utils';
@@ -36,11 +36,11 @@ export class Aggregate implements INodeType {
 				'Need to combine items from multiple branches? Use merge node. This nodes combines all items from one branch into one item.',
 			relatedNodes: [
 				{
-					nodeType: 'n8n-nodes-base.merge',
+					nodeType: 'resin-nodes-base.merge',
 					relationHint: 'For multiple branches',
 				},
 				{
-					nodeType: 'n8n-nodes-base.splitOut',
+					nodeType: 'resin-nodes-base.splitOut',
 					relationHint: 'Reverse operation',
 				},
 			],

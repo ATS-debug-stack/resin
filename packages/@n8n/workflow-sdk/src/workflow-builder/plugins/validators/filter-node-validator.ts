@@ -20,7 +20,11 @@ import {
 	formatNodeRef,
 } from '../types';
 
-const FILTER_NODE_TYPES = ['n8n-nodes-base.if', 'n8n-nodes-base.switch', 'n8n-nodes-base.filter'];
+const FILTER_NODE_TYPES = [
+	'resin-nodes-base.if',
+	'resin-nodes-base.switch',
+	'resin-nodes-base.filter',
+];
 
 /**
  * Check a single filter value object for missing required fields.

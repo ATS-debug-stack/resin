@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { N8nCard, N8nRadioButtons } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nCard, N8nRadioButtons } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 
 import type { AgentBuilderMainTab } from '../composables/useAgentBuilderMainTabs';
 import type { AgentJsonConfig, AgentResource, AgentSkill } from '../types';

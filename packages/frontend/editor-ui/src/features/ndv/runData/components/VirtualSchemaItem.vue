@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 import TextWithHighlights from './TextWithHighlights.vue';
-import { type IconName } from '@n8n/design-system/components/N8nIcon/icons';
+import { type IconName } from '@resin/design-system/components/N8nIcon/icons';
 import { saveAs } from 'file-saver';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { BINARY_DATA_VIEW_MODAL_KEY } from '@/app/constants';
-import type { BinaryMetadata } from '@n8n/design-system';
+import type { BinaryMetadata } from '@resin/design-system';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
-import { N8nIcon, N8nTooltip } from '@n8n/design-system';
+import { N8nIcon, N8nTooltip } from '@resin/design-system';
 type Props = {
 	title?: string;
 	path?: string;

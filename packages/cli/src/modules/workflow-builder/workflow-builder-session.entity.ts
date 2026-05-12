@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import type { StoredMessage } from '@langchain/core/messages';
-import { JsonColumn, WithTimestamps } from '@n8n/db';
+import { JsonColumn, WithTimestamps } from '@resin/db';
 import {
 	BeforeInsert,
 	Column,
@@ -9,8 +9,8 @@ import {
 	ManyToOne,
 	PrimaryColumn,
 	Unique,
-} from '@n8n/typeorm';
-import type { Relation } from '@n8n/typeorm';
+} from '@resin/typeorm';
+import type { Relation } from '@resin/typeorm';
 
 export interface IWorkflowBuilderSession {
 	id: string;

@@ -48,7 +48,7 @@ describe('dateMethodValidator', () => {
 
 	describe('validateNode', () => {
 		it('returns INVALID_DATE_METHOD warning for $now.toISOString()', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { timestamp: '={{ $now.toISOString() }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -64,7 +64,7 @@ describe('dateMethodValidator', () => {
 		});
 
 		it('returns INVALID_DATE_METHOD warning for $today.toISOString()', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { date: '={{ $today.toISOString() }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -80,7 +80,7 @@ describe('dateMethodValidator', () => {
 		});
 
 		it('returns warning for .toISOString() in nested parameter', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					options: {
 						date: '={{ $now.toISOString() }}',
@@ -99,7 +99,7 @@ describe('dateMethodValidator', () => {
 		});
 
 		it('returns no warning for correct .toISO() method', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { timestamp: '={{ $now.toISO() }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -110,7 +110,7 @@ describe('dateMethodValidator', () => {
 		});
 
 		it('returns no warning for non-date expressions', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: '={{ $json.name }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -121,7 +121,7 @@ describe('dateMethodValidator', () => {
 		});
 
 		it('returns no warning when parameters is undefined', () => {
-			const node = createMockNode('n8n-nodes-base.set', {});
+			const node = createMockNode('resin-nodes-base.set', {});
 			const ctx = createMockPluginContext();
 
 			const issues = dateMethodValidator.validateNode(node, createGraphNode(node), ctx);
@@ -130,7 +130,7 @@ describe('dateMethodValidator', () => {
 		});
 
 		it('returns warnings for multiple invalid date methods', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					start: '={{ $now.toISOString() }}',
 					end: '={{ $today.toISOString() }}',
@@ -144,7 +144,7 @@ describe('dateMethodValidator', () => {
 		});
 
 		it('includes nodeName in issues', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { timestamp: '={{ $now.toISOString() }}' },
 			});
 			Object.assign(node, { name: 'My Set Node' });
@@ -156,7 +156,7 @@ describe('dateMethodValidator', () => {
 		});
 
 		it('includes parameterPath in issues', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { timestamp: '={{ $now.toISOString() }}' },
 			});
 			const ctx = createMockPluginContext();

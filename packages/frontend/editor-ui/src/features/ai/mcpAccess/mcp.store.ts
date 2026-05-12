@@ -7,7 +7,7 @@ import {
 	createWorkflowDocumentId,
 } from '@/app/stores/workflowDocument.store';
 import type { IWorkflowSettings, WorkflowListItem } from '@/Interface';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import {
 	updateMcpSettings,
 	toggleWorkflowsMcpAccessApi,
@@ -28,8 +28,8 @@ import type {
 	InstanceMcpClientStatsResponseDto,
 	OAuthClientResponseDto,
 	DeleteOAuthClientResponseDto,
-} from '@n8n/api-types';
-import { i18n } from '@n8n/i18n';
+} from '@resin/api-types';
+import { i18n } from '@resin/i18n';
 
 export const useMCPStore = defineStore(MCP_STORE, () => {
 	const workflowsStore = useWorkflowsStore();

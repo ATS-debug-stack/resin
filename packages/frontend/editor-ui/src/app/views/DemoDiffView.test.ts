@@ -4,13 +4,13 @@ import { createTestingPinia } from '@pinia/testing';
 import { ref, computed } from 'vue';
 
 // Mock the stores and composables
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({
 		versionCli: '1.0.0',
 	}),
 }));
 
-vi.mock('@n8n/i18n', async (importOriginal) => {
+vi.mock('@resin/i18n', async (importOriginal) => {
 	const actual = (await importOriginal()) as object;
 	return {
 		...actual,

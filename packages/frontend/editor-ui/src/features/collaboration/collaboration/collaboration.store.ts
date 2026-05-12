@@ -2,18 +2,18 @@
 import { defineStore } from 'pinia';
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import type { Collaborator } from '@n8n/api-types';
+import type { Collaborator } from '@resin/api-types';
 import type { IWorkflowDb } from '@/Interface';
 
 import { TIME } from '@/app/constants';
-import { useI18n } from '@n8n/i18n';
-import { STORES } from '@n8n/stores';
+import { useI18n } from '@resin/i18n';
+import { STORES } from '@resin/stores';
 import { useBeforeUnload } from '@/app/composables/useBeforeUnload';
 import { useToast } from '@/app/composables/useToast';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useBuilderStore } from '@/features/ai/assistant/builder.store';
 import { useUsersStore } from '@/features/settings/users/users.store';

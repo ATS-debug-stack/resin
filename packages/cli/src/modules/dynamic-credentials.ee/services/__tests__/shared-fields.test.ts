@@ -1,5 +1,5 @@
-import { Container } from '@n8n/di';
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import { Container } from '@resin/di';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 import type { CredentialTypes } from '@/credential-types';
 

@@ -48,7 +48,7 @@ describe('expressionPrefixValidator', () => {
 
 	describe('validateNode', () => {
 		it('returns MISSING_EXPRESSION_PREFIX warning for {{ $json }} without = prefix', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: '{{ $json.name }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -64,7 +64,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('returns MISSING_EXPRESSION_PREFIX warning for {{ $now }} without = prefix', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { timestamp: '{{ $now }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -80,7 +80,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('returns warning for {{ $ pattern in nested parameter', () => {
-			const node = createMockNode('n8n-nodes-base.httpRequest', {
+			const node = createMockNode('resin-nodes-base.httpRequest', {
 				parameters: {
 					options: {
 						body: '{{ $json.data }}',
@@ -99,7 +99,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('returns no warning for properly prefixed expression ={{ $json }}', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: '={{ $json.name }}' },
 			});
 			const ctx = createMockPluginContext();
@@ -110,7 +110,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('returns no warning for non-expression values', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: 'static text' },
 			});
 			const ctx = createMockPluginContext();
@@ -121,7 +121,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('returns no warning when parameters is undefined', () => {
-			const node = createMockNode('n8n-nodes-base.set', {});
+			const node = createMockNode('resin-nodes-base.set', {});
 			const ctx = createMockPluginContext();
 
 			const issues = expressionPrefixValidator.validateNode(node, createGraphNode(node), ctx);
@@ -130,7 +130,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('skips sticky notes (they are documentation, not code)', () => {
-			const node = createMockNode('n8n-nodes-base.stickyNote', {
+			const node = createMockNode('resin-nodes-base.stickyNote', {
 				parameters: { content: 'Use {{ $json.name }} to get the name' },
 			});
 			const ctx = createMockPluginContext();
@@ -141,7 +141,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('skips HTML template node (uses {{ }} natively for template expressions)', () => {
-			const node = createMockNode('n8n-nodes-base.html', {
+			const node = createMockNode('resin-nodes-base.html', {
 				parameters: {
 					html: '<h1>{{ $json.title }}</h1><p>{{ $json.body }}</p>',
 				},
@@ -154,7 +154,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('returns warnings for multiple malformed expressions', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					field1: '{{ $json.a }}',
 					field2: '{{ $json.b }}',
@@ -168,7 +168,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('includes nodeName in issues', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: '{{ $json.name }}' },
 			});
 			Object.assign(node, { name: 'My Set Node' });
@@ -180,7 +180,7 @@ describe('expressionPrefixValidator', () => {
 		});
 
 		it('includes parameterPath in issues', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: { value: '{{ $json.name }}' },
 			});
 			const ctx = createMockPluginContext();

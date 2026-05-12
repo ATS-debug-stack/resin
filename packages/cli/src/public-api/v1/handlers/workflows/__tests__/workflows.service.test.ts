@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/unbound-method, @typescript-eslint/promise-function-async -- jest mocks */
-import type { User } from '@n8n/db';
-import { WorkflowEntity } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { User } from '@resin/db';
+import { WorkflowEntity } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import { createWorkflow } from '../workflows.service';

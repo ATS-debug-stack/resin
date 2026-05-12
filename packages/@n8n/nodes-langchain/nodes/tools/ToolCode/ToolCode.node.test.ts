@@ -4,7 +4,7 @@ import {
 	type INode,
 	type INodeExecutionData,
 	type ISupplyDataFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import { ToolCode } from './ToolCode.node';

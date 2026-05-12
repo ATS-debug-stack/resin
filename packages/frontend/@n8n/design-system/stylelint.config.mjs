@@ -4,6 +4,6 @@ export default {
 	...baseConfig,
 	rules: {
 		...baseConfig.rules,
-		'@n8n/css-var-naming': [true, { severity: 'error' }],
+		'@resin/css-var-naming': [true, { severity: 'error' }],
 	},
 };

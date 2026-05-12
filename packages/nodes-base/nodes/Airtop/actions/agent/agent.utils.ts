@@ -1,5 +1,5 @@
-import type { IDataObject, IExecuteFunctions, ILoadOptionsFunctions, INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IDataObject, IExecuteFunctions, ILoadOptionsFunctions, INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import type { AgentParametersInput, AgentResultResponse, AirtopAgentResponse } from './agent.types';
 import { AIRTOP_HOOKS_BASE_URL, BASE_URL_V2, ERROR_MESSAGES } from '../../constants';

@@ -5,7 +5,7 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { LemonadeApiCredentialsType } from '../../../credentials/LemonadeApi.credentials';
 
@@ -14,7 +14,7 @@ import {
 	makeN8nLlmFailedAttemptHandler,
 	N8nLlmTracing,
 	getConnectionHintNoticeField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 
 export class LmLemonade implements INodeType {
 	description: INodeTypeDescription = {

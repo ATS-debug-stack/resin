@@ -1,5 +1,5 @@
 import * as LangchainMessages from '@langchain/core/messages';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 
 import type * as N8nMessages from '../types/message';
 import type { Message } from '../types/message';

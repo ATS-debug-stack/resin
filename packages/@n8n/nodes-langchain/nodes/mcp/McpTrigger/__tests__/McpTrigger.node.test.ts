@@ -1,4 +1,4 @@
-import type { INode, IWebhookFunctions, ICredentialDataDecryptedObject } from 'n8n-workflow';
+import type { INode, IWebhookFunctions, ICredentialDataDecryptedObject } from 'resin-workflow';
 import type { Mock, Mocked } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 
@@ -22,7 +22,7 @@ const { validateWebhookAuthenticationMock } = vi.hoisted(() => ({
 }));
 
 // Mock webhook utils from nodes-base
-vi.mock('n8n-nodes-base/dist/nodes/Webhook/utils', () => ({
+vi.mock('resin-nodes-base/dist/nodes/Webhook/utils', () => ({
 	validateWebhookAuthentication: validateWebhookAuthenticationMock,
 }));
 
@@ -144,7 +144,7 @@ describe('McpTrigger', () => {
 			expect(mockMcpServer.handleSetupRequest).toHaveBeenCalledWith(
 				req,
 				resp,
-				'n8n-mcp-server',
+				'resin-mcp-server',
 				expect.any(String),
 				expect.any(Array),
 			);
@@ -350,7 +350,7 @@ describe('McpTrigger', () => {
 
 		it('should return 401 for authentication errors', async () => {
 			const { WebhookAuthorizationError }: { WebhookAuthorizationError: any } =
-				await vi.importActual('n8n-nodes-base/dist/nodes/Webhook/error');
+				await vi.importActual('resin-nodes-base/dist/nodes/Webhook/error');
 			validateWebhookAuthenticationMock.mockRejectedValue(
 				new WebhookAuthorizationError(401, 'Unauthorized'),
 			);

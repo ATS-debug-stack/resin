@@ -1,7 +1,7 @@
 import { getSchemaPreview } from './schemaPreview.api';
-import * as apiUtils from '@n8n/rest-api-client';
+import * as apiUtils from '@resin/rest-api-client';
 
-vi.mock('@n8n/rest-api-client');
+vi.mock('@resin/rest-api-client');
 
 describe('API: schemaPreview', () => {
 	describe('getSchemaPreview', () => {
@@ -12,7 +12,7 @@ describe('API: schemaPreview', () => {
 			};
 			vi.spyOn(apiUtils, 'request').mockResolvedValue(schema);
 			const schemaResponse = await getSchemaPreview('http://test-n8n-base-url', {
-				nodeType: 'n8n-nodes-base.test',
+				nodeType: 'resin-nodes-base.test',
 				version: 1.2,
 			});
 
@@ -31,7 +31,7 @@ describe('API: schemaPreview', () => {
 
 			await expect(
 				getSchemaPreview('http://test-n8n-base-url', {
-					nodeType: 'n8n-nodes-base.test',
+					nodeType: 'resin-nodes-base.test',
 					version: 1.2,
 					resource: 'contact',
 					operation: 'create',
@@ -54,7 +54,7 @@ describe('API: schemaPreview', () => {
 			vi.spyOn(apiUtils, 'request').mockResolvedValue(schema);
 
 			await getSchemaPreview('http://test.com', {
-				nodeType: '@n8n/n8n-nodes-base.asana',
+				nodeType: '@resin/n8n-nodes-base.asana',
 				version: 1,
 				resource: 'resource',
 				operation: 'operation',

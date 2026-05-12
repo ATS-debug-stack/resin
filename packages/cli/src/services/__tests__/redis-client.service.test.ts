@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
 import Redis from 'ioredis';
 
 import { RedisClientService } from '@/services/redis-client.service';

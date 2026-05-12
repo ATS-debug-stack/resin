@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { N8nCheckbox } from '@n8n/design-system';
+import { N8nCheckbox } from '@resin/design-system';
 
 const props = withDefaults(
 	defineProps<{

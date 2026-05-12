@@ -1,5 +1,5 @@
-import { testModules } from '@n8n/backend-test-utils';
-import type { DataSource, DataSourceOptions, EntityManager } from '@n8n/typeorm';
+import { testModules } from '@resin/backend-test-utils';
+import type { DataSource, DataSourceOptions, EntityManager } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import { DataTableDDLService } from '../data-table-ddl.service';

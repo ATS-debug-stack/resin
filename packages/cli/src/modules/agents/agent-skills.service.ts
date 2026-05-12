@@ -1,7 +1,11 @@
-import { agentSkillSchema, type AgentSkill, type AgentSkillMutationResponse } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { UserError } from 'n8n-workflow';
+import {
+	agentSkillSchema,
+	type AgentSkill,
+	type AgentSkillMutationResponse,
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { UserError } from 'resin-workflow';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 

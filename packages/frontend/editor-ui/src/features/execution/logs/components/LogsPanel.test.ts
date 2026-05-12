@@ -26,14 +26,14 @@ import { createExecutionDataId, useExecutionDataStore } from '@/app/stores/execu
 import { WorkflowDocumentStoreKey, WorkflowIdKey } from '@/app/constants/injectionKeys';
 import { useCanvasOperations } from '@/app/composables/useCanvasOperations';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
-import { createRunExecutionData, deepCopy } from 'n8n-workflow';
+import { createRunExecutionData, deepCopy } from 'resin-workflow';
 import { createTestTaskData } from '@/__tests__/mocks';
 import { useLogsStore } from '@/app/stores/logs.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { LOGS_PANEL_STATE } from '../logs.constants';
-import { ChatOptionsSymbol, ChatSymbol } from '@n8n/chat/constants';
+import { ChatOptionsSymbol, ChatSymbol } from '@resin/chat/constants';
 import { userEvent } from '@testing-library/user-event';
-import type { ChatMessage } from '@n8n/chat/types';
+import type { ChatMessage } from '@resin/chat/types';
 import * as useChatMessaging from '@/features/execution/logs/composables/useChatMessaging';
 import { useToast } from '@/app/composables/useToast';
 import { useWorkflowState, type WorkflowState } from '@/app/composables/useWorkflowState';

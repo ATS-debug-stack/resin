@@ -411,10 +411,11 @@ export const baseConfig = tseslint.config(
 		// Rules for unit tests
 		files: ['test/**/*.ts', '**/__tests__/*.ts', '**/*.test.ts', '**/*.cy.ts'],
 		rules: {
-			'n8n-local-rules/no-plain-errors': 'off',
+			'resin-local-rules/no-plain-errors': 'off',
 			'@typescript-eslint/unbound-method': 'off',
-			'n8n-local-rules/no-skipped-tests': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
-			'n8n-local-rules/no-error-instance-in-to-throw': 'error',
+			'resin-local-rules/no-skipped-tests':
+				process.env.NODE_ENV === 'development' ? 'warn' : 'error',
+			'resin-local-rules/no-error-instance-in-to-throw': 'error',
 		},
 	},
 );

@@ -1,7 +1,12 @@
-import type { UsersListFilterDto } from '@n8n/api-types';
-import { createTeamProject, linkUserToProject, randomEmail, testDb } from '@n8n/backend-test-utils';
-import { ProjectRelationRepository, type User, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { UsersListFilterDto } from '@resin/api-types';
+import {
+	createTeamProject,
+	linkUserToProject,
+	randomEmail,
+	testDb,
+} from '@resin/backend-test-utils';
+import { ProjectRelationRepository, type User, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { createAdmin, createChatUser, createMember, createOwner } from './shared/db/users';
 

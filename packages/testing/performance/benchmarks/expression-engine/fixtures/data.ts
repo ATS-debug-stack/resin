@@ -1,5 +1,10 @@
-import { Workflow, Expression } from 'n8n-workflow';
-import type { INodeTypes, INodeType, INodeTypeDescription, INodeExecutionData } from 'n8n-workflow';
+import { Workflow, Expression } from 'resin-workflow';
+import type {
+	INodeTypes,
+	INodeType,
+	INodeTypeDescription,
+	INodeExecutionData,
+} from 'resin-workflow';
 
 // Minimal node types for workflow instantiation
 class TestNodeTypes implements INodeTypes {

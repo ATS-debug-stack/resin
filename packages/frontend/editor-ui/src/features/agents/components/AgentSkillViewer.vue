@@ -2,9 +2,9 @@
 import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
 import { Compartment, EditorState } from '@codemirror/state';
 import { EditorView, lineNumbers } from '@codemirror/view';
-import { AGENT_SKILL_INSTRUCTIONS_MAX_LENGTH } from '@n8n/api-types';
-import { N8nButton, N8nFormInput, N8nIcon, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { AGENT_SKILL_INSTRUCTIONS_MAX_LENGTH } from '@resin/api-types';
+import { N8nButton, N8nFormInput, N8nIcon, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 
 import type { Rule, RuleGroup } from '@/Interface';
 import { codeEditorTheme } from '@/features/shared/editors/components/CodeNodeEditor/theme';

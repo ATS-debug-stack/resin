@@ -1,5 +1,5 @@
-import { WithCreatedAt } from '@n8n/db';
-import { Column, Entity, PrimaryGeneratedColumn } from '@n8n/typeorm';
+import { WithCreatedAt } from '@resin/db';
+import { Column, Entity, PrimaryGeneratedColumn } from '@resin/typeorm';
 
 @Entity({ name: 'instance_version_history' })
 export class InstanceVersionHistory extends WithCreatedAt {

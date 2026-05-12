@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { TOOL_EXECUTOR_NODE_NAME } from '@n8n/constants';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { TOOL_EXECUTOR_NODE_NAME } from '@resin/constants';
+import { Service } from '@resin/di';
 import * as a from 'assert/strict';
 import {
 	DirectedGraph,
@@ -8,8 +8,8 @@ import {
 	recreateNodeExecutionStack,
 	WorkflowExecute,
 	rewireGraph,
-} from 'n8n-core';
-import { NodeHelpers, createRunExecutionData } from 'n8n-workflow';
+} from 'resin-core';
+import { NodeHelpers, createRunExecutionData } from 'resin-workflow';
 import type {
 	IExecuteData,
 	IPinData,
@@ -19,7 +19,7 @@ import type {
 	IWorkflowExecuteAdditionalData,
 	IWorkflowExecutionDataProcess,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type PCancelable from 'p-cancelable';
 
 @Service()

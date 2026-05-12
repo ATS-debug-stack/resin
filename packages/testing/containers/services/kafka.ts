@@ -60,7 +60,7 @@ export class KafkaHelper {
 
 	constructor(broker: string) {
 		this.kafka = new Kafka({
-			clientId: 'n8n-test-helper',
+			clientId: 'resin-test-helper',
 			brokers: [broker],
 		});
 	}

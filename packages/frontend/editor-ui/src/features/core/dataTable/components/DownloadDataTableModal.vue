@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { ref } from 'vue';
-import { N8nCheckbox, N8nButton } from '@n8n/design-system';
+import { N8nCheckbox, N8nButton } from '@resin/design-system';
 import Modal from '@/app/components/Modal.vue';
 
 type Props = {

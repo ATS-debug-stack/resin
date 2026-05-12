@@ -108,7 +108,7 @@ vi.mock('vue-router', async () => {
 const createNode = (overrides: Partial<INodeUi> = {}): INodeUi =>
 	createTestNode({
 		name: 'TestNode',
-		type: 'n8n-nodes-base.testNode',
+		type: 'resin-nodes-base.testNode',
 		typeVersion: 1,
 		position: [0, 0],
 		...overrides,
@@ -165,7 +165,7 @@ describe('useWorkflowSetupState', () => {
 		it('should return trigger cards for trigger nodes', () => {
 			const triggerNode = createNode({
 				name: 'WebhookTrigger',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -247,7 +247,7 @@ describe('useWorkflowSetupState', () => {
 		it('should embed trigger into credential card for trigger with credentials (no separate trigger card)', () => {
 			const triggerNode = createNode({
 				name: 'SlackTrigger',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -272,12 +272,12 @@ describe('useWorkflowSetupState', () => {
 		it('should only allow executing first trigger; other triggers get no standalone cards', () => {
 			const trigger1 = createNode({
 				name: 'SlackTrigger1',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 				position: [0, 0],
 			});
 			const trigger2 = createNode({
 				name: 'SlackTrigger2',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 				position: [100, 0],
 			});
 			mockWorkflowDocumentStore.allNodes = [trigger1, trigger2];
@@ -313,7 +313,7 @@ describe('useWorkflowSetupState', () => {
 		it('should produce only trigger card for trigger without credentials', () => {
 			const triggerNode = createNode({
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -330,17 +330,17 @@ describe('useWorkflowSetupState', () => {
 			// Trigger comes before regular node in execution order
 			const triggerNode = createNode({
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 
 				position: [0, 0],
 			});
 			const regularNode = createNode({
 				name: 'Regular',
-				type: 'n8n-nodes-base.regular',
+				type: 'resin-nodes-base.regular',
 				position: [100, 0],
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode, regularNode];
-			nodeTypesStore.isTriggerNode = vi.fn((type: string) => type === 'n8n-nodes-base.webhook');
+			nodeTypesStore.isTriggerNode = vi.fn((type: string) => type === 'resin-nodes-base.webhook');
 			nodeTypesStore.getNodeType = vi.fn().mockReturnValue({ webhooks: [{}] });
 
 			mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
@@ -452,7 +452,7 @@ describe('useWorkflowSetupState', () => {
 		it('should mark isComplete false when credential is set but embedded trigger has not executed', () => {
 			const triggerNode = createNode({
 				name: 'SlackTrigger',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 				credentials: { slackApi: { id: 'cred-1', name: 'My Slack' } },
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
@@ -476,7 +476,7 @@ describe('useWorkflowSetupState', () => {
 		it('should mark isComplete true when credential is set and embedded trigger has executed', () => {
 			const triggerNode = createNode({
 				name: 'SlackTrigger',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 				credentials: { slackApi: { id: 'cred-1', name: 'My Slack' } },
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
@@ -562,7 +562,7 @@ describe('useWorkflowSetupState', () => {
 		it('should mark trigger without credentials as complete after execution', () => {
 			const triggerNode = createNode({
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -578,7 +578,7 @@ describe('useWorkflowSetupState', () => {
 		it('should not include trigger with credentials in triggerStates (it is embedded in credential card)', () => {
 			const triggerNode = createNode({
 				name: 'SlackTrigger',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -597,7 +597,7 @@ describe('useWorkflowSetupState', () => {
 		it('should mark trigger without credentials and no execution as incomplete', () => {
 			const triggerNode = createNode({
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -612,7 +612,7 @@ describe('useWorkflowSetupState', () => {
 		it('should not create standalone card for trigger that does not wait for external input', () => {
 			const triggerNode = createNode({
 				name: 'ScheduleTrigger',
-				type: 'n8n-nodes-base.scheduleTrigger',
+				type: 'resin-nodes-base.scheduleTrigger',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -627,7 +627,7 @@ describe('useWorkflowSetupState', () => {
 		it('should create standalone card for polling trigger', () => {
 			const triggerNode = createNode({
 				name: 'RssFeedTrigger',
-				type: 'n8n-nodes-base.rssFeedReadTrigger',
+				type: 'resin-nodes-base.rssFeedReadTrigger',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -642,7 +642,7 @@ describe('useWorkflowSetupState', () => {
 		it('should create standalone card for trigger with triggerPanel', () => {
 			const triggerNode = createNode({
 				name: 'LocalFileTrigger',
-				type: 'n8n-nodes-base.localFileTrigger',
+				type: 'resin-nodes-base.localFileTrigger',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -817,13 +817,13 @@ describe('useWorkflowSetupState', () => {
 		it('should auto-assign to another HTTP Request node with the same URL and credential type', () => {
 			const httpNode1 = createNode({
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				position: [0, 0],
 				parameters: { url: 'https://api.example.com/data' },
 			});
 			const httpNode2 = createNode({
 				name: 'HTTP Request1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				position: [100, 0],
 				parameters: { url: 'https://api.example.com/data' },
 			});
@@ -863,13 +863,13 @@ describe('useWorkflowSetupState', () => {
 		it('should NOT auto-assign to another HTTP Request node with a different URL', () => {
 			const httpNode1 = createNode({
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				position: [0, 0],
 				parameters: { url: 'https://api.example.com/data' },
 			});
 			const httpNode2 = createNode({
 				name: 'HTTP Request1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				position: [100, 0],
 				parameters: { url: 'https://api.other.com/data' },
 			});
@@ -904,7 +904,7 @@ describe('useWorkflowSetupState', () => {
 		it('should create separate cards for HTTP Request nodes with same credential type', () => {
 			const httpNode = createNode({
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				position: [0, 0],
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1063,7 +1063,7 @@ describe('useWorkflowSetupState', () => {
 		it('should return false when trigger card is incomplete', () => {
 			const triggerNode = createNode({
 				name: 'Trigger',
-				type: 'n8n-nodes-base.trigger',
+				type: 'resin-nodes-base.trigger',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -1171,17 +1171,17 @@ describe('useWorkflowSetupState', () => {
 		it('should return total number of setup cards', () => {
 			const triggerNode = createNode({
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 
 				position: [0, 0],
 			});
 			const regularNode = createNode({
 				name: 'Regular',
-				type: 'n8n-nodes-base.regular',
+				type: 'resin-nodes-base.regular',
 				position: [100, 0],
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode, regularNode];
-			nodeTypesStore.isTriggerNode = vi.fn((type: string) => type === 'n8n-nodes-base.webhook');
+			nodeTypesStore.isTriggerNode = vi.fn((type: string) => type === 'resin-nodes-base.webhook');
 			nodeTypesStore.getNodeType = vi.fn().mockReturnValue({ webhooks: [{}] });
 
 			mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
@@ -1206,7 +1206,7 @@ describe('useWorkflowSetupState', () => {
 		it('should produce single credential card for trigger with credentials (trigger embedded)', () => {
 			const triggerNode = createNode({
 				name: 'SlackTrigger',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 			});
 			mockWorkflowDocumentStore.allNodes = [triggerNode];
 			nodeTypesStore.isTriggerNode = vi.fn().mockReturnValue(true);
@@ -1225,12 +1225,12 @@ describe('useWorkflowSetupState', () => {
 		it('should produce only credential card for two triggers sharing a credential (no standalone card for second trigger)', () => {
 			const trigger1 = createNode({
 				name: 'SlackTrigger1',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 				position: [0, 0],
 			});
 			const trigger2 = createNode({
 				name: 'SlackTrigger2',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 				position: [100, 0],
 			});
 			mockWorkflowDocumentStore.allNodes = [trigger1, trigger2];
@@ -1576,7 +1576,7 @@ describe('useWorkflowSetupState', () => {
 		it('should create node credential cards when nodes have both credentials and parameters', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				issues: { credentials: { httpHeaderAuth: ['Credential is required'] } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1601,13 +1601,13 @@ describe('useWorkflowSetupState', () => {
 		it('should only show credential picker on first node with same credential type', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				issues: { credentials: { httpHeaderAuth: ['Credential is required'] } },
 				parameters: { url: 'https://api.example.com' },
 			});
 			const node2 = createNode({
 				name: 'HTTP Request 2',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				issues: { credentials: { httpHeaderAuth: ['Credential is required'] } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1629,13 +1629,13 @@ describe('useWorkflowSetupState', () => {
 		it('should track all nodes using credential in allNodesUsingCredential', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				issues: { credentials: { httpHeaderAuth: ['Credential is required'] } },
 				parameters: { url: 'https://api.example.com' },
 			});
 			const node2 = createNode({
 				name: 'HTTP Request 2',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'My Credential' } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1662,7 +1662,7 @@ describe('useWorkflowSetupState', () => {
 		it('should persist cards even after parameters are filled', async () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				issues: { credentials: { httpHeaderAuth: ['Credential is required'] } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1693,7 +1693,7 @@ describe('useWorkflowSetupState', () => {
 		it('should not create duplicate cards with credentialTypeStates', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				issues: { credentials: { httpHeaderAuth: ['Credential is required'] } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1715,13 +1715,13 @@ describe('useWorkflowSetupState', () => {
 		it('should exclude nodes without parameters from card list', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				issues: { credentials: { httpHeaderAuth: ['Credential is required'] } },
 				parameters: { url: 'https://api.example.com' },
 			});
 			const node2 = createNode({
 				name: 'HTTP Request 2',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'My Credential' } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1746,7 +1746,7 @@ describe('useWorkflowSetupState', () => {
 		it('should support node-specific credential assignment via setCredential', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				issues: { credentials: { httpHeaderAuth: ['Credential is required'] } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1783,7 +1783,7 @@ describe('useWorkflowSetupState', () => {
 		it('should support node-specific credential removal via unsetCredential', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'My Credential' } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1815,7 +1815,7 @@ describe('useWorkflowSetupState', () => {
 		it('should mark as complete when credential is set, tested, and all parameters are filled', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'My Credential' } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1839,7 +1839,7 @@ describe('useWorkflowSetupState', () => {
 		it('should mark as incomplete when credential is not tested', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'My Credential' } },
 				parameters: { url: 'https://api.example.com' },
 			});
@@ -1863,29 +1863,29 @@ describe('useWorkflowSetupState', () => {
 		it('should include in setupCards in execution order', () => {
 			const node1 = createNode({
 				name: 'HTTP Request 1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				issues: { credentials: { httpHeaderAuth: ['Credential is required'] } },
 				parameters: { url: 'https://api.example.com' },
 			});
 			const trigger = createNode({
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 			});
 
 			mockWorkflowDocumentStore.allNodes = [node1, trigger];
 			mockGetNodeTypeDisplayableCredentials.mockImplementation((_, node) => {
 				mockGetNodeParametersIssues.mockImplementation((_, node) => {
-					if (node.type === 'n8n-nodes-base.httpRequest') return { url: ['URL is required'] };
+					if (node.type === 'resin-nodes-base.httpRequest') return { url: ['URL is required'] };
 					return {};
 				});
-				if (node.type === 'n8n-nodes-base.httpRequest') return [{ name: 'httpHeaderAuth' }];
+				if (node.type === 'resin-nodes-base.httpRequest') return [{ name: 'httpHeaderAuth' }];
 				return [];
 			});
 			nodeTypesStore.getNodeType = vi.fn().mockReturnValue({
 				properties: [{ name: 'url', required: true }],
 				webhooks: [{}],
 			});
-			nodeTypesStore.isTriggerNode = vi.fn((type: string) => type === 'n8n-nodes-base.webhook');
+			nodeTypesStore.isTriggerNode = vi.fn((type: string) => type === 'resin-nodes-base.webhook');
 
 			const state = useWorkflowSetupState();
 

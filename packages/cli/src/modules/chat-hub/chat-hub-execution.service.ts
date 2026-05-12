@@ -3,12 +3,12 @@ import {
 	type ChatSessionId,
 	ChatHubConversationModel,
 	chatHubMessageWithButtonsSchema,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { ExecutionRepository, IExecutionResponse, User } from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { ExecutionRepository, IExecutionResponse, User } from '@resin/db';
+import { Service } from '@resin/di';
 import type { Response } from 'express';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 import {
 	OperationalError,
 	ManualExecutionCancelledError,
@@ -22,7 +22,7 @@ import {
 	INodeExecutionData,
 	jsonStringify,
 	IRun,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuidv4 } from 'uuid';
 
 import { ActiveExecutions } from '@/active-executions';

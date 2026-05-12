@@ -3,9 +3,9 @@ import {
 	linkUserToProject,
 	randomCredentialPayload,
 	testDb,
-} from '@n8n/backend-test-utils';
-import type { CredentialsEntity, User } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import type { CredentialsEntity, User } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { CredentialsService } from '@/credentials/credentials.service';

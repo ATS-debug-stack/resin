@@ -9,12 +9,12 @@ import {
 	type ILoadOptionsFunctions,
 	type INodeCredentialTestResult,
 	type NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { Callbacks } from '@langchain/core/callbacks/manager';
 import { createQdrantClient, type QdrantCredential } from '../VectorStoreQdrant/Qdrant.utils';
 import { ensureUserId } from '../shared/userScoped';
-import { createVectorStoreNode, metadataFilterField } from '@n8n/ai-utilities';
+import { createVectorStoreNode, metadataFilterField } from '@resin/ai-utilities';
 import {
 	filterChatHubMetadata,
 	filterChatHubInsertDocuments,

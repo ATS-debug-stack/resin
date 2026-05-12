@@ -2,15 +2,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
 import { ChatOpenAI } from '@langchain/openai';
-import { makeN8nLlmFailedAttemptHandler, N8nLlmTracing, getProxyAgent } from '@n8n/ai-utilities';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
+import { makeN8nLlmFailedAttemptHandler, N8nLlmTracing, getProxyAgent } from '@resin/ai-utilities';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 
 import { LmChatMinimax } from '../LmChatMinimax.node';
 
 vi.mock('@langchain/openai');
-vi.mock('@n8n/ai-utilities');
+vi.mock('@resin/ai-utilities');
 
 const MockedChatOpenAI = vi.mocked(ChatOpenAI);
 const MockedN8nLlmTracing = vi.mocked(N8nLlmTracing);
@@ -24,7 +24,7 @@ describe('LmChatMinimax', () => {
 		id: '1',
 		name: 'MiniMax Chat Model',
 		typeVersion: 1,
-		type: '@n8n/n8n-nodes-langchain.lmChatMinimax',
+		type: '@resin/n8n-nodes-langchain.lmChatMinimax',
 		position: [0, 0],
 		parameters: {},
 	};

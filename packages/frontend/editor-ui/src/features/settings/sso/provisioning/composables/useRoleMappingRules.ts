@@ -2,7 +2,7 @@ import { computed, ref, watch } from 'vue';
 import type {
 	RoleMappingRuleResponse,
 	RoleMappingRuleType,
-} from '@n8n/rest-api-client/api/roleMappingRule';
+} from '@resin/rest-api-client/api/roleMappingRule';
 import { useRoleMappingRulesApi } from './useRoleMappingRulesApi';
 
 export type RoleMappingRulesSaveResult = {

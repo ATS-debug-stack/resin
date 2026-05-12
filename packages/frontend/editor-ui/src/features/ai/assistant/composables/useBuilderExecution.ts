@@ -1,6 +1,6 @@
 import { computed, onBeforeUnmount, nextTick, watch, type ComputedRef } from 'vue';
 import { useRouter } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';

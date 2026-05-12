@@ -11,7 +11,7 @@ import type {
 	RoleMappingRule,
 	RoleMappingRuleRepository,
 	RoleRepository,
-} from '@n8n/db';
+} from '@resin/db';
 
 const roleMappingRuleRepository = mock<RoleMappingRuleRepository>();
 const roleRepository = mock<RoleRepository>();

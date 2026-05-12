@@ -1,6 +1,6 @@
-import type { ChatProviderSettingsDto } from '@n8n/api-types';
-import type { Settings, SettingsRepository } from '@n8n/db';
-import type { EntityManager } from '@n8n/typeorm';
+import type { ChatProviderSettingsDto } from '@resin/api-types';
+import type { Settings, SettingsRepository } from '@resin/db';
+import type { EntityManager } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

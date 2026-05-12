@@ -5,8 +5,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { activityFields, activityOperations } from './ActivityDescription';
 import { stravaApiRequest, stravaApiRequestAllItems } from './GenericFunctions';

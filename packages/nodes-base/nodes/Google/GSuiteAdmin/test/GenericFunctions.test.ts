@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IExecuteFunctions, ILoadOptionsFunctions } from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import { googleApiRequest, googleApiRequestAllItems } from '../GenericFunctions';
 

@@ -2,7 +2,7 @@ import { reactive, shallowRef } from 'vue';
 import { createTestingPinia } from '@pinia/testing';
 import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/vue';
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 import {
 	createProjectListItem,
 	createTestProject,
@@ -63,10 +63,10 @@ vi.mock('@/app/composables/useWorkflowSaving', () => ({
 const mockGetResourcePermissions = vi.fn(() => ({
 	workflow: { share: true },
 }));
-vi.mock('@n8n/permissions', () => ({
+vi.mock('@resin/permissions', () => ({
 	getResourcePermissions: () => mockGetResourcePermissions(),
 }));
-vi.mock('@n8n/utils/event-bus', () => ({
+vi.mock('@resin/utils/event-bus', () => ({
 	createEventBus: () => ({
 		emit: vi.fn(),
 	}),

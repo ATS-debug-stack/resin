@@ -1,4 +1,4 @@
-import type { QuickReplyType } from '@n8n/api-types';
+import type { QuickReplyType } from '@resin/api-types';
 import {
 	hasRevertVersionId,
 	type ChatRequest,
@@ -12,10 +12,10 @@ import {
 	CODE_WORKFLOW_BUILDER_EXPERIMENT,
 	MERGE_ASK_BUILD_EXPERIMENT,
 } from '@/app/constants/experiments';
-import type { IRunExecutionData } from 'n8n-workflow';
+import type { IRunExecutionData } from 'resin-workflow';
 import type { IWorkflowDb } from '@/Interface';
-import { getWorkflowVersionsByIds } from '@n8n/rest-api-client/api/workflowHistory';
-import type { IRestApiContext } from '@n8n/rest-api-client';
+import { getWorkflowVersionsByIds } from '@resin/rest-api-client/api/workflowHistory';
+import type { IRestApiContext } from '@resin/rest-api-client';
 
 export function generateShortId() {
 	return Math.random().toString(36).substring(2, 11);

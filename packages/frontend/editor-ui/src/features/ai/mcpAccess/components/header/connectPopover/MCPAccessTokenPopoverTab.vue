@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useToast } from '@/app/composables/useToast';
 import { useClipboard } from '@/app/composables/useClipboard';
 import { useMCPStore } from '@/features/ai/mcpAccess/mcp.store';
@@ -8,7 +8,7 @@ import {
 	LOADING_INDICATOR_TIMEOUT,
 	MCP_TOOLTIP_DELAY,
 } from '@/features/ai/mcpAccess/mcp.constants';
-import { N8nLoading, N8nTooltip, N8nButton, N8nMarkdown, N8nNotice } from '@n8n/design-system';
+import { N8nLoading, N8nTooltip, N8nButton, N8nMarkdown, N8nNotice } from '@resin/design-system';
 import ConnectionParameter from '@/features/ai/mcpAccess/components/header/connectPopover/ConnectionParameter.vue';
 
 type Props = {
@@ -36,7 +36,7 @@ const connectionString = computed(() => {
 	return `
 {
   "mcpServers": {
-    "n8n-mcp": {
+    "resin-mcp": {
       "type": "http",
       "url": "${props.serverUrl}",
       "headers": {

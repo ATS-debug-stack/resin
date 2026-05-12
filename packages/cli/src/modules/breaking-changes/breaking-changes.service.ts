@@ -1,18 +1,18 @@
-import type { BreakingChangeAffectedWorkflow } from '@n8n/api-types';
+import type { BreakingChangeAffectedWorkflow } from '@resin/api-types';
 import {
 	BreakingChangeInstanceRuleResult,
 	BreakingChangeReportResult,
 	BreakingChangeVersion,
 	BreakingChangeWorkflowRuleResult,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { Time } from '@n8n/constants';
-import { WorkflowRepository, WorkflowStatisticsRepository } from '@n8n/db';
-import { BreakingChangeRuleMetadata } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { In } from '@n8n/typeorm';
-import { ErrorReporter } from 'n8n-core';
-import type { INode } from 'n8n-workflow';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { Time } from '@resin/constants';
+import { WorkflowRepository, WorkflowStatisticsRepository } from '@resin/db';
+import { BreakingChangeRuleMetadata } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { In } from '@resin/typeorm';
+import { ErrorReporter } from 'resin-core';
+import type { INode } from 'resin-workflow';
 
 import { CacheService } from '@/services/cache/cache.service';
 

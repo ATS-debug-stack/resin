@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { ensureError } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { ensureError } from 'resin-workflow';
 
 import { ExternalSecretsProviders } from './external-secrets-providers.ee';
 import type { SecretsProvider, SecretsProviderSettings } from './types';

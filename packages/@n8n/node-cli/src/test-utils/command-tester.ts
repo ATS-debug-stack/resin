@@ -31,7 +31,7 @@ export class CommandTester {
 			restArgv,
 			mock<Config>({
 				root: process.cwd(),
-				name: '@n8n/node-cli',
+				name: '@resin/node-cli',
 				version: '1.0.0',
 				runHook: async () => await Promise.resolve({ successes: [], failures: [] }),
 			}),

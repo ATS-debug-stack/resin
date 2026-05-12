@@ -2,7 +2,7 @@ import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
 import { useDynamicCredentials } from './useDynamicCredentials';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 
 describe('useDynamicCredentials', () => {
 	let settingsStore: ReturnType<typeof useSettingsStore>;

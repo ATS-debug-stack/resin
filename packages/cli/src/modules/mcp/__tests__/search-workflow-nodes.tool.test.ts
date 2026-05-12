@@ -1,4 +1,4 @@
-import { User } from '@n8n/db';
+import { User } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../mcp.constants';
@@ -7,7 +7,7 @@ import { createSearchWorkflowNodesTool } from '../tools/workflow-builder/search-
 import type { NodeCatalogService } from '@/node-catalog';
 import type { Telemetry } from '@/telemetry';
 
-jest.mock('@n8n/ai-workflow-builder', () => ({
+jest.mock('@resin/ai-workflow-builder', () => ({
 	CODE_BUILDER_SEARCH_NODES_TOOL: {
 		toolName: 'search_workflow_nodes',
 		displayTitle: 'Search Workflow Nodes',

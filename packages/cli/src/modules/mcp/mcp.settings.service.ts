@@ -1,14 +1,14 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { User } from '@n8n/db';
-import { SettingsRepository, WorkflowEntity, WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { In } from '@n8n/typeorm';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { User } from '@resin/db';
+import { SettingsRepository, WorkflowEntity, WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { In } from '@resin/typeorm';
 import {
 	calculateWorkflowChecksum,
 	WORKFLOW_CHECKSUM_FIELDS,
 	type IWorkflowSettings,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { CollaborationService } from '@/collaboration/collaboration.service';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

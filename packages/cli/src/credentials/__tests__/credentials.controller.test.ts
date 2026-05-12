@@ -2,7 +2,7 @@ jest.mock('@/generic-helpers', () => ({
 	validateEntity: jest.fn(),
 }));
 
-import type { LicenseState } from '@n8n/backend-common';
+import type { LicenseState } from '@resin/backend-common';
 import type {
 	AuthenticatedRequest,
 	ICredentialsDb,
@@ -11,9 +11,9 @@ import type {
 	SharedCredentialsRepository,
 	CredentialsEntity,
 	CredentialsRepository,
-} from '@n8n/db';
-import { GLOBAL_OWNER_ROLE, GLOBAL_MEMBER_ROLE } from '@n8n/db';
-import type { Scope } from '@n8n/permissions';
+} from '@resin/db';
+import { GLOBAL_OWNER_ROLE, GLOBAL_MEMBER_ROLE } from '@resin/db';
+import type { Scope } from '@resin/permissions';
 import { mock } from 'jest-mock-extended';
 
 import { createNewCredentialsPayload, createdCredentialsWithScopes } from './credentials.test-data';

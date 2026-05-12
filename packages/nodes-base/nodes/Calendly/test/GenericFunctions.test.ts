@@ -1,4 +1,4 @@
-import type { IHookFunctions } from 'n8n-workflow';
+import type { IHookFunctions } from 'resin-workflow';
 
 import { calendlyApiRequest } from '../GenericFunctions';
 

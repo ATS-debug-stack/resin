@@ -1,17 +1,17 @@
 // ---------------------------------------------------------------------------
 // Daemon probe + optional auto-start.
 //
-// External-daemon model: the eval expects a long-lived `@n8n/computer-use`
+// External-daemon model: the eval expects a long-lived `@resin/computer-use`
 // daemon to be running and paired with the local n8n instance. If one isn't
 // detected and `autoStart` is true, we spawn it ourselves — detached, with
 // stdout/stderr piped to `.eval-output/daemon.log`. The daemon survives the
 // eval process so subsequent runs reuse the same browser session and any
 // allow-once decisions the user has accumulated.
 //
-// By default we spawn the local workspace build of `@n8n/computer-use` so the
+// By default we spawn the local workspace build of `@resin/computer-use` so the
 // daemon picks up in-progress changes to that package and its workspace
-// dependencies (`@n8n/mcp-browser` etc.). Pass `usePublishedDaemon: true` to
-// fall back to `npx --yes @n8n/computer-use` for testing the released
+// dependencies (`@resin/mcp-browser` etc.). Pass `usePublishedDaemon: true` to
+// fall back to `npx --yes @resin/computer-use` for testing the released
 // artifact end-to-end.
 // ---------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ import type { EvalLogger } from '../harness/logger';
 
 const LOCAL_COMPUTER_USE_CLI = resolve(
 	__dirname,
-	'../../../../../packages/@n8n/computer-use/dist/cli.js',
+	'../../../../../packages/@resin/computer-use/dist/cli.js',
 );
 
 const PAIRING_POLL_INTERVAL_MS = 500;
@@ -50,7 +50,7 @@ export interface EnsureDaemonOptions {
 	/** Override the auto-spawn `--dir`. Defaults to `<evalOutputDir>/daemon-sandbox/`. */
 	daemonSandboxDir?: string;
 	/**
-	 * When true, spawn the published `@n8n/computer-use` from npm via `npx`
+	 * When true, spawn the published `@resin/computer-use` from npm via `npx`
 	 * instead of the local workspace build. Use this to test the released
 	 * artifact end-to-end. Defaults to false (local build).
 	 */
@@ -83,7 +83,7 @@ export async function ensureDaemon(opts: EnsureDaemonOptions): Promise<DaemonInf
 		throw new Error(
 			`Local computer-use build not found at ${LOCAL_COMPUTER_USE_CLI}.\n` +
 				'Build it first:\n' +
-				'  pnpm --filter @n8n/computer-use --filter @n8n/mcp-browser build\n' +
+				'  pnpm --filter @resin/computer-use --filter @resin/mcp-browser build\n' +
 				'\n' +
 				'Or pass --use-published-daemon to spawn the released package via npx instead.',
 		);
@@ -147,7 +147,7 @@ function noDaemonHint(baseUrl: string): string {
 		'',
 		'Either re-run without `--no-auto-start-daemon`, or start one manually:',
 		'',
-		`  npx @n8n/computer-use ${baseUrl} \\`,
+		`  npx @resin/computer-use ${baseUrl} \\`,
 		'    --dir <path-to-a-dedicated-sandbox-dir> \\',
 		'    --auto-confirm \\',
 		'    --permission-filesystem-read allow \\',
@@ -192,7 +192,7 @@ async function spawnDaemonDetached(args: SpawnArgs): Promise<number> {
 		];
 
 		const [command, commandArgs] = args.usePublished
-			? ['npx', ['--yes', '@n8n/computer-use', ...daemonArgs]]
+			? ['npx', ['--yes', '@resin/computer-use', ...daemonArgs]]
 			: [process.execPath, [LOCAL_COMPUTER_USE_CLI, ...daemonArgs]];
 
 		const child = spawn(command, commandArgs, {

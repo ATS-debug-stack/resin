@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useClipboard } from '@/app/composables/useClipboard';
-import { useI18n } from '@n8n/i18n';
-import { N8nIconButton, N8nTooltip } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nIconButton, N8nTooltip } from '@resin/design-system';
 
 const { content } = defineProps<{ content: string }>();
 

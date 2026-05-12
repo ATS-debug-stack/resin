@@ -12,29 +12,29 @@ vi.mock('@/features/ai/assistant/assistant.api', () => ({
 	getGatewayUsage: (...args: unknown[]) => mockGetGatewayUsage(...args),
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: vi.fn(() => ({
 		restApiContext: { baseUrl: 'http://localhost:5678', sessionId: '' },
 	})),
 }));
 
 const MOCK_CONFIG = {
-	nodes: ['@n8n/n8n-nodes-langchain.lmChatGoogleGemini'],
+	nodes: ['@resin/n8n-nodes-langchain.lmChatGoogleGemini'],
 	credentialTypes: ['googlePalmApi'],
 	providerConfig: {
 		googlePalmApi: { gatewayPath: '/v1/gateway/google', urlField: 'host', apiKeyField: 'apiKey' },
 	},
 	supportedActions: {
-		'@n8n/n8n-nodes-langchain.openAi': {
+		'@resin/n8n-nodes-langchain.openAi': {
 			text: ['message', 'response', 'classify'],
 			image: ['analyze', 'generate', 'edit'],
 			audio: ['generate', 'transcribe', 'translate'],
 		},
-		'@n8n/n8n-nodes-langchain.googleGemini': {
+		'@resin/n8n-nodes-langchain.googleGemini': {
 			text: ['message'],
 			image: ['generate'],
 		},
-		'@n8n/n8n-nodes-langchain.anthropic': {
+		'@resin/n8n-nodes-langchain.anthropic': {
 			text: ['message'],
 			image: ['analyze'],
 			document: ['analyze'],
@@ -232,7 +232,7 @@ describe('aiGateway.store', () => {
 			const store = useAiGatewayStore();
 			await store.fetchConfig();
 
-			expect(store.isNodeSupported('@n8n/n8n-nodes-langchain.lmChatGoogleGemini')).toBe(true);
+			expect(store.isNodeSupported('@resin/n8n-nodes-langchain.lmChatGoogleGemini')).toBe(true);
 		});
 
 		it('should return false when the node is not in the config', async () => {
@@ -246,7 +246,7 @@ describe('aiGateway.store', () => {
 		it('should return false when config has not been loaded', () => {
 			const store = useAiGatewayStore();
 
-			expect(store.isNodeSupported('@n8n/n8n-nodes-langchain.lmChatGoogleGemini')).toBe(false);
+			expect(store.isNodeSupported('@resin/n8n-nodes-langchain.lmChatGoogleGemini')).toBe(false);
 		});
 	});
 
@@ -280,7 +280,7 @@ describe('aiGateway.store', () => {
 			const store = useAiGatewayStore();
 			await store.fetchConfig();
 
-			expect(store.isActionSupported('@n8n/n8n-nodes-langchain.openAi', 'text', 'message')).toBe(
+			expect(store.isActionSupported('@resin/n8n-nodes-langchain.openAi', 'text', 'message')).toBe(
 				true,
 			);
 		});
@@ -290,9 +290,9 @@ describe('aiGateway.store', () => {
 			const store = useAiGatewayStore();
 			await store.fetchConfig();
 
-			expect(store.isActionSupported('@n8n/n8n-nodes-langchain.openAi', 'text', 'unknownOp')).toBe(
-				false,
-			);
+			expect(
+				store.isActionSupported('@resin/n8n-nodes-langchain.openAi', 'text', 'unknownOp'),
+			).toBe(false);
 		});
 
 		it('should return false for an unsupported resource', async () => {
@@ -300,7 +300,7 @@ describe('aiGateway.store', () => {
 			const store = useAiGatewayStore();
 			await store.fetchConfig();
 
-			expect(store.isActionSupported('@n8n/n8n-nodes-langchain.openAi', 'file', 'upload')).toBe(
+			expect(store.isActionSupported('@resin/n8n-nodes-langchain.openAi', 'file', 'upload')).toBe(
 				false,
 			);
 		});
@@ -311,7 +311,7 @@ describe('aiGateway.store', () => {
 			await store.fetchConfig();
 
 			expect(
-				store.isActionSupported('@n8n/n8n-nodes-langchain.lmChatGoogleGemini', 'text', 'message'),
+				store.isActionSupported('@resin/n8n-nodes-langchain.lmChatGoogleGemini', 'text', 'message'),
 			).toBe(true);
 		});
 
@@ -321,7 +321,7 @@ describe('aiGateway.store', () => {
 			const store = useAiGatewayStore();
 			await store.fetchConfig();
 
-			expect(store.isActionSupported('@n8n/n8n-nodes-langchain.openAi', 'text', 'message')).toBe(
+			expect(store.isActionSupported('@resin/n8n-nodes-langchain.openAi', 'text', 'message')).toBe(
 				true,
 			);
 		});
@@ -329,7 +329,7 @@ describe('aiGateway.store', () => {
 		it('should return true when config has not been loaded', () => {
 			const store = useAiGatewayStore();
 
-			expect(store.isActionSupported('@n8n/n8n-nodes-langchain.openAi', 'file', 'upload')).toBe(
+			expect(store.isActionSupported('@resin/n8n-nodes-langchain.openAi', 'file', 'upload')).toBe(
 				true,
 			);
 		});

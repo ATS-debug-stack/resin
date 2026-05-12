@@ -1,11 +1,11 @@
-import type { SharedWorkflow, User } from '@n8n/db';
-import { SharedWorkflowRepository, FolderRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope, type Scope } from '@n8n/permissions';
+import type { SharedWorkflow, User } from '@resin/db';
+import { SharedWorkflowRepository, FolderRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope, type Scope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager, FindOptionsWhere } from '@n8n/typeorm';
+import type { EntityManager, FindOptionsWhere } from '@resin/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
+import { In } from '@resin/typeorm';
 
 import { userHasScopes } from '@/permissions.ee/check-access';
 import { RoleService } from '@/services/role.service';

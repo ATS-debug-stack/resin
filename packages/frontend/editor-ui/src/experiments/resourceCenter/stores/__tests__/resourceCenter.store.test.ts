@@ -77,7 +77,7 @@ describe('resourceCenter.store', () => {
 
 	describe('tooltip persistence (GRO-284 fix)', () => {
 		it('reads dismissed state from localStorage on init', () => {
-			localStorage.setItem('n8n-resourceCenter-tooltipDismissed', 'true');
+			localStorage.setItem('resin-resourceCenter-tooltipDismissed', 'true');
 			setActivePinia(createPinia());
 			const store = useResourceCenterStore();
 			// shouldShowResourceCenterTooltip should be false since tooltip was dismissed

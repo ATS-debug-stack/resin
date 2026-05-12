@@ -6,7 +6,7 @@
  *   - Add trigger: opens `AgentAddTriggerModal` and re-emits connected-trigger
  *     updates + trigger-added events upward.
  */
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useUIStore } from '@/app/stores/ui.store';
 import { AGENT_TOOLS_MODAL_KEY, AGENT_ADD_TRIGGER_MODAL_KEY } from '../constants';
 import type { AgentJsonToolRef, AgentResource } from '../types';

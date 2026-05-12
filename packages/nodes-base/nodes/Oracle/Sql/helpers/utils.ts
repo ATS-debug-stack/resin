@@ -6,8 +6,8 @@ import type {
 	INode,
 	IPairedItemData,
 	INodeExecutionData,
-} from 'n8n-workflow';
-import { NodeOperationError, UserError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, UserError } from 'resin-workflow';
 import oracledb from 'oracledb';
 
 import { generatePairedItemData, wrapData } from '@utils/utilities';

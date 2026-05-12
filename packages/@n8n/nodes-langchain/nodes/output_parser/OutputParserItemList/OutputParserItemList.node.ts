@@ -4,10 +4,10 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { N8nItemListOutputParser } from '@utils/output_parsers/N8nItemListOutputParser';
-import { getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 export class OutputParserItemList implements INodeType {
 	description: INodeTypeDescription = {

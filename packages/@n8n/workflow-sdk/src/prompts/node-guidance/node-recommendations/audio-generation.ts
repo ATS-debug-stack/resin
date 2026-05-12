@@ -4,7 +4,7 @@ export const audioGenerationRecommendation: NodeRecommendationDocument = {
 	category: RecommendationCategory.AUDIO_GENERATION,
 	version: '1.0.0',
 	recommendation: {
-		defaultNode: '@n8n/n8n-nodes-langchain.openAi',
+		defaultNode: '@resin/n8n-nodes-langchain.openAi',
 		operations: [
 			'Generate Audio: Create speech from text using OpenAI TTS',
 			'Transcribe a Recording: Convert audio to text using Whisper',

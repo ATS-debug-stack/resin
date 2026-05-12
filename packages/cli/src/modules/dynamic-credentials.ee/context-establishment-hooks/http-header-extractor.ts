@@ -1,11 +1,11 @@
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 import {
 	ContextEstablishmentHook,
 	ContextEstablishmentOptions,
 	ContextEstablishmentResult,
 	HookDescription,
 	IContextEstablishmentHook,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import { createContext, Script } from 'node:vm';
 import { z } from 'zod';
 
@@ -99,7 +99,7 @@ export class HttpHeaderExtractor implements IContextEstablishmentHook {
 	};
 
 	isApplicableToTriggerNode(nodeType: string): boolean {
-		return nodeType === 'n8n-nodes-base.webhook' || nodeType === 'webhook';
+		return nodeType === 'resin-nodes-base.webhook' || nodeType === 'webhook';
 	}
 
 	async execute(options: ContextEstablishmentOptions): Promise<ContextEstablishmentResult> {

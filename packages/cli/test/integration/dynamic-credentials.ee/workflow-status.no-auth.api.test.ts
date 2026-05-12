@@ -1,14 +1,14 @@
-import { LicenseState } from '@n8n/backend-common';
-import { mockInstance, getPersonalProject, testDb } from '@n8n/backend-test-utils';
+import { LicenseState } from '@resin/backend-common';
+import { mockInstance, getPersonalProject, testDb } from '@resin/backend-test-utils';
 import {
 	GLOBAL_OWNER_ROLE,
 	WorkflowRepository,
 	SharedWorkflowRepository,
 	WorkflowEntity,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 import nock from 'nock';
 import { v4 as uuid } from 'uuid';
 
@@ -72,7 +72,7 @@ const setupWorkflow = async () => {
 	const node: INode = {
 		id: uuid(),
 		name: 'Test Node',
-		type: 'n8n-nodes-base.httpRequest',
+		type: 'resin-nodes-base.httpRequest',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},

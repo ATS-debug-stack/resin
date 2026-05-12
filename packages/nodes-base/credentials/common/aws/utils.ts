@@ -7,7 +7,7 @@ import {
 	type IDataObject,
 	type IHttpRequestOptions,
 	type IRequestOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { parseString } from 'xml2js';
 import type { Request } from 'aws4';
 import {
@@ -281,7 +281,7 @@ export async function assumeRole(
 
 	const assumeRoleBody = {
 		RoleArn: credentials.roleArn,
-		RoleSessionName: credentials.roleSessionName || 'n8n-session',
+		RoleSessionName: credentials.roleSessionName || 'resin-session',
 		...(credentials.externalId && { ExternalId: credentials.externalId }),
 	};
 

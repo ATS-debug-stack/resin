@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
-import type { ChatMessageText } from '@n8n/chat/types';
+import type { ChatMessageText } from '@resin/chat/types';
 import {
 	StreamingMessageManager,
 	createBotMessage,
 	updateMessageInArray,
-} from '@n8n/chat/utils/streaming';
+} from '@resin/chat/utils/streaming';
 
 describe('StreamingMessageManager', () => {
 	it('should initialize runs correctly', () => {

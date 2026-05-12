@@ -1,12 +1,12 @@
-import type { ListEncryptionKeysQueryDto } from '@n8n/api-types';
+import type { ListEncryptionKeysQueryDto } from '@resin/api-types';
 import {
 	DeploymentKeyRepository,
 	type DeploymentKey,
 	type DeploymentKeySortDirection,
 	type DeploymentKeySortField,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { Cipher, type CipherAlgorithm } from 'n8n-core';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { Cipher, type CipherAlgorithm } from 'resin-core';
 import { randomBytes } from 'node:crypto';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

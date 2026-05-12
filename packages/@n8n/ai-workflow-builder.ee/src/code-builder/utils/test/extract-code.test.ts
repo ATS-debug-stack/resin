@@ -6,7 +6,7 @@ describe('extractWorkflowCode', () => {
 
 \`\`\`typescript
 const start = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start' }
 });
@@ -77,7 +77,7 @@ export default workflow('test', 'Test').add(start);`);
 
 \`\`\`typescript
 const start = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start', position: [240, 300] }
 });
@@ -99,7 +99,7 @@ This workflow will start manually when triggered.`;
 	it('should preserve newlines and indentation within code block', () => {
 		const response = `\`\`\`typescript
 const start = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: {
     name: 'Start',
@@ -125,7 +125,7 @@ const start = trigger({
 
 	it('should strip the SDK import statement from code blocks', () => {
 		const response = `\`\`\`typescript
-import { workflow, node, trigger } from '@n8n/workflow-sdk';
+import { workflow, node, trigger } from '@resin/workflow-sdk';
 
 const start = trigger({...});
 export default workflow('test', 'Test').add(start);
@@ -142,7 +142,7 @@ import {
   workflow,
   node,
   trigger
-} from '@n8n/workflow-sdk';
+} from '@resin/workflow-sdk';
 
 const start = trigger({...});
 \`\`\``;
@@ -166,7 +166,7 @@ export default workflow('test', 'Test').add(start);`;
 	});
 
 	it('should strip multiple import statements', () => {
-		const code = `import { workflow } from '@n8n/workflow-sdk';
+		const code = `import { workflow } from '@resin/workflow-sdk';
 import { something } from 'other';
 
 const start = trigger({...});`;
@@ -178,7 +178,7 @@ const start = trigger({...});`;
 
 	it('should strip side-effect imports', () => {
 		const code = `import 'some-polyfill';
-import { workflow } from '@n8n/workflow-sdk';
+import { workflow } from '@resin/workflow-sdk';
 
 const start = trigger({...});`;
 
@@ -188,7 +188,7 @@ const start = trigger({...});`;
 	});
 
 	it('should strip default imports', () => {
-		const code = `import sdk from '@n8n/workflow-sdk';
+		const code = `import sdk from '@resin/workflow-sdk';
 
 const start = trigger({...});`;
 
@@ -198,7 +198,7 @@ const start = trigger({...});`;
 	});
 
 	it('should strip namespace imports', () => {
-		const code = `import * as sdk from '@n8n/workflow-sdk';
+		const code = `import * as sdk from '@resin/workflow-sdk';
 
 const start = trigger({...});`;
 

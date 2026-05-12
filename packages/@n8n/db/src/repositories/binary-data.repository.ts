@@ -1,6 +1,6 @@
-import { DatabaseConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import { DataSource, Repository } from '@n8n/typeorm';
+import { DatabaseConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import { DataSource, Repository } from '@resin/typeorm';
 
 import { BinaryDataFile } from '../entities';
 import { dbType } from '../entities/abstract-entity';

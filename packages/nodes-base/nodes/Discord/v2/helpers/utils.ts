@@ -1,8 +1,8 @@
 import FormData from 'form-data';
 import isEmpty from 'lodash/isEmpty';
 import { extension } from 'mime-types';
-import type { IDataObject, IExecuteFunctions, INode } from 'n8n-workflow';
-import { jsonParse, NodeApiError, NodeOperationError } from 'n8n-workflow';
+import type { IDataObject, IExecuteFunctions, INode } from 'resin-workflow';
+import { jsonParse, NodeApiError, NodeOperationError } from 'resin-workflow';
 
 import { getSendAndWaitConfig } from '../../../../utils/sendAndWait/utils';
 import { capitalize, createUtmCampaignLink } from '../../../../utils/utilities';
@@ -389,7 +389,7 @@ export function createSendAndWaitMessageBody(context: IExecuteFunctions) {
 	if (config.appendAttribution !== false) {
 		const instanceId = context.getInstanceId();
 		const attributionText = 'This message was sent automatically with ';
-		const link = createUtmCampaignLink('n8n-nodes-base.discord', instanceId);
+		const link = createUtmCampaignLink('resin-nodes-base.discord', instanceId);
 		description = `${config.message}\n\n_${attributionText}_[n8n](${link})`;
 	}
 

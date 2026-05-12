@@ -1,16 +1,16 @@
 /**
  * Local types for the NodeSearchEngine.
  *
- * These are lightweight copies of the n8n-workflow types used by the search
+ * These are lightweight copies of the resin-workflow types used by the search
  * engine.  The instance-ai package intentionally does NOT depend on
- * n8n-workflow, so we keep a minimal, self-contained subset here.
+ * resin-workflow, so we keep a minimal, self-contained subset here.
  */
 
 // ---------------------------------------------------------------------------
 // AI connection types
 // ---------------------------------------------------------------------------
 
-/** All AI connection type values (mirrors NodeConnectionTypes from n8n-workflow). */
+/** All AI connection type values (mirrors NodeConnectionTypes from resin-workflow). */
 export const AI_CONNECTION_TYPES = [
 	'ai_agent',
 	'ai_chain',
@@ -52,7 +52,7 @@ export type BuilderHintInputs = Partial<Record<string, BuilderHintInputConfig>>;
  *
  * Only the fields that the engine actually reads are included so that
  * callers can satisfy this interface without pulling in the full
- * INodeTypeDescription from n8n-workflow.
+ * INodeTypeDescription from resin-workflow.
  */
 export interface SearchableNodeType {
 	name: string;

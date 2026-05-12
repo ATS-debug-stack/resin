@@ -18,7 +18,7 @@ import {
 	HITL_SUBCATEGORY,
 } from '@/app/constants';
 
-import type { BaseTextKey } from '@n8n/i18n';
+import type { BaseTextKey } from '@resin/i18n';
 import { useNodeCreatorStore } from '@/features/shared/nodeCreator/nodeCreator.store';
 
 import { TriggerView, RegularView, AIView, AINodesView } from '../../views/viewsData';
@@ -36,12 +36,12 @@ import { useKeyboardNavigation } from '../../composables/useKeyboardNavigation';
 import ItemsRenderer from '../Renderers/ItemsRenderer.vue';
 import CategorizedItemsRenderer from '../Renderers/CategorizedItemsRenderer.vue';
 import NoResults from '../Panel/NoResults.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 import { getNodeIconSource } from '@/app/utils/nodeIcon';
 
 import { useActions } from '../../composables/useActions';
-import { type INodeParameters, isCommunityPackageName } from 'n8n-workflow';
+import { type INodeParameters, isCommunityPackageName } from 'resin-workflow';
 
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useCalloutHelpers } from '@/app/composables/useCalloutHelpers';

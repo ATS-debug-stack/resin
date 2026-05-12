@@ -2,7 +2,7 @@
 
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-import { ApplicationError } from '@n8n/errors';
+import { ApplicationError } from '@resin/errors';
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import { v4 as uuid } from 'uuid';
@@ -1742,7 +1742,7 @@ function resolveResourceAndOperation(
 	nodeParameters: INodeParameters,
 	nodeTypeDescription: INodeTypeDescription,
 ) {
-	if (nodeTypeDescription.name === 'n8n-nodes-base.code') {
+	if (nodeTypeDescription.name === 'resin-nodes-base.code') {
 		const language = nodeParameters.language as string;
 		const langProp = nodeTypeDescription.properties.find((p) => p.name === 'language');
 		if (langProp?.options && isINodePropertyOptionsList(langProp.options)) {
@@ -1807,11 +1807,11 @@ export function makeDescription(
  * but still function as workflow entry points
  */
 const TRIGGER_NODE_TYPES = new Set([
-	'n8n-nodes-base.webhook',
-	'n8n-nodes-base.cron', // Legacy schedule trigger
-	'n8n-nodes-base.emailReadImap', // Email polling trigger
-	'n8n-nodes-base.telegramBot', // Can act as webhook trigger
-	'n8n-nodes-base.start', // Legacy trigger
+	'resin-nodes-base.webhook',
+	'resin-nodes-base.cron', // Legacy schedule trigger
+	'resin-nodes-base.emailReadImap', // Email polling trigger
+	'resin-nodes-base.telegramBot', // Can act as webhook trigger
+	'resin-nodes-base.start', // Legacy trigger
 ]);
 
 /**

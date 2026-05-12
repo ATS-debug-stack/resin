@@ -12,12 +12,12 @@ import type {
 	ChatHubStreamEnd,
 	ChatHubStreamError,
 	ChatHubStreamEvent,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { ExecutionsConfig } from '@n8n/config';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { ExecutionsConfig } from '@resin/config';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 
 import { Push } from '@/push';
 import { Publisher } from '@/scaling/pubsub/publisher.service';

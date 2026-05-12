@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { N8nDropdownMenu, N8nIcon, N8nText } from '@n8n/design-system';
-import type { DropdownMenuItemProps, IconName } from '@n8n/design-system';
-import { useI18n, type BaseTextKey } from '@n8n/i18n';
+import { N8nDropdownMenu, N8nIcon, N8nText } from '@resin/design-system';
+import type { DropdownMenuItemProps, IconName } from '@resin/design-system';
+import { useI18n, type BaseTextKey } from '@resin/i18n';
 
 type RowAction = 'connect' | 'disconnect' | 'settings' | 'remove';
 type ConnectionStatus = 'connected' | 'waiting' | 'disconnected';

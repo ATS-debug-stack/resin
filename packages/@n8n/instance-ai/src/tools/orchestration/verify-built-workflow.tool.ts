@@ -81,7 +81,7 @@ async function extractDataTableWriteNodes(
 		const json = await workflowService.getAsWorkflowJSON(workflowId);
 		const out: DataTableWriteNode[] = [];
 		for (const node of json.nodes ?? []) {
-			if (node.type !== 'n8n-nodes-base.dataTable') continue;
+			if (node.type !== 'resin-nodes-base.dataTable') continue;
 			const params = node.parameters as Record<string, unknown> | undefined;
 			const operation = params?.operation;
 			if (operation !== 'insert' && operation !== 'upsert' && operation !== 'update') continue;

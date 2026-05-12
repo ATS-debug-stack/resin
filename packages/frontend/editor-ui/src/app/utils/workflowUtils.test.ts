@@ -6,8 +6,8 @@ import {
 	ensureNodePosition,
 } from './workflowUtils';
 import type { IWorkflowDb } from '@/Interface';
-import type { IConnection, IConnections, INodeIssues } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { IConnection, IConnections, INodeIssues } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 describe('workflowUtils', () => {
 	describe('convertWorkflowTagsToIds', () => {
@@ -511,7 +511,7 @@ describe('workflowUtils', () => {
 				'HTTP Request': { main: [[{ node: 'Loop', type: 'main' as const, index: 0 }]] },
 			};
 
-			const nodeTypes = { Loop: 'n8n-nodes-base.splitInBatches' };
+			const nodeTypes = { Loop: 'resin-nodes-base.splitInBatches' };
 
 			const result = sortNodesByExecutionOrder(
 				[wait, httpRequest, loop, trigger],
@@ -545,7 +545,7 @@ describe('workflowUtils', () => {
 				Step2: { main: [[{ node: 'Loop', type: 'main' as const, index: 0 }]] },
 			};
 
-			const nodeTypes = { Loop: 'n8n-nodes-base.splitInBatches' };
+			const nodeTypes = { Loop: 'resin-nodes-base.splitInBatches' };
 
 			const result = sortNodesByExecutionOrder(
 				[doneNode, step2, step1, loop, trigger],

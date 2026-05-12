@@ -6,8 +6,8 @@ import type {
 	IDataObject,
 	IHttpRequestMethods,
 	IRequestOptions,
-} from 'n8n-workflow';
-import { ApplicationError, jsonParse } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, jsonParse } from 'resin-workflow';
 
 import { Eq } from './QueryFunctions';
 

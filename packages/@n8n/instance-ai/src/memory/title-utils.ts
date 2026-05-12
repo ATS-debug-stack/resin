@@ -1,4 +1,4 @@
-import { createModel, generateTitleFromMessage } from '@n8n/agents';
+import { createModel, generateTitleFromMessage } from '@resin/agents';
 
 import type { ModelConfig } from '../types';
 
@@ -17,7 +17,7 @@ export function truncateToTitle(message: string): string {
  * Generate a polished thread title via a lightweight LLM call.
  * Returns the cleaned title string or null on failure.
  *
- * Wraps @n8n/agents' title generation so callers don't have to build a
+ * Wraps @resin/agents' title generation so callers don't have to build a
  * LanguageModel themselves. Fails soft — any error returns null.
  */
 export async function generateTitleForRun(

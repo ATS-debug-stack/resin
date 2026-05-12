@@ -1,4 +1,4 @@
-import type { IBinaryData } from 'n8n-workflow';
+import type { IBinaryData } from 'resin-workflow';
 
 export function prepareBinaryPropertyList(data: string | string[] | IBinaryData | IBinaryData[]) {
 	if (Array.isArray(data)) return data;

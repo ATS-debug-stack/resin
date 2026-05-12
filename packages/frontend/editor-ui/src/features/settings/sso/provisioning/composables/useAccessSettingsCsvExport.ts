@@ -1,8 +1,8 @@
-import { type UsersListFilterDto, type User } from '@n8n/api-types';
+import { type UsersListFilterDto, type User } from '@resin/api-types';
 import { ref } from 'vue';
-import * as usersApi from '@n8n/rest-api-client/api/users';
-import type { IRestApiContext } from '@n8n/rest-api-client';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import * as usersApi from '@resin/rest-api-client/api/users';
+import type { IRestApiContext } from '@resin/rest-api-client';
+import { useRootStore } from '@resin/stores/useRootStore';
 
 /**
  * Special type since we use the "select" and "expand" filter

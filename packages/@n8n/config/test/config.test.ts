@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import fs from 'fs';
 import { mock } from 'jest-mock-extended';
 import { tmpdir } from 'node:os';
@@ -172,9 +172,9 @@ describe('GlobalConfig', () => {
 			files: [],
 		},
 		nodes: {
-			errorTriggerType: 'n8n-nodes-base.errorTrigger',
+			errorTriggerType: 'resin-nodes-base.errorTrigger',
 			include: [],
-			exclude: ['n8n-nodes-base.executeCommand', 'n8n-nodes-base.localFileTrigger'],
+			exclude: ['resin-nodes-base.executeCommand', 'resin-nodes-base.localFileTrigger'],
 			pythonEnabled: true,
 		},
 		publicApi: {
@@ -570,7 +570,7 @@ describe('GlobalConfig', () => {
 			DB_POSTGRESDB_IDLE_CONNECTION_TIMEOUT: '10000',
 			DB_TABLE_PREFIX: 'test_',
 			DB_PING_INTERVAL_SECONDS: '2',
-			NODES_INCLUDE: '["n8n-nodes-base.hackerNews"]',
+			NODES_INCLUDE: '["resin-nodes-base.hackerNews"]',
 			DB_LOGGING_MAX_EXECUTION_TIME: '0',
 			N8N_METRICS: 'TRUE',
 			N8N_TEMPLATES_ENABLED: '0',
@@ -606,7 +606,7 @@ describe('GlobalConfig', () => {
 			},
 			nodes: {
 				...defaultConfig.nodes,
-				include: ['n8n-nodes-base.hackerNews'],
+				include: ['resin-nodes-base.hackerNews'],
 			},
 			templates: {
 				...defaultConfig.templates,

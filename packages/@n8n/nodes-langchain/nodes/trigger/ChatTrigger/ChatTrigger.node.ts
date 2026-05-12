@@ -1,6 +1,6 @@
 import type { BaseChatMemory } from '@langchain/community/memory/chat_memory';
 import pick from 'lodash/pick';
-import { autoSaveHighlightedDataProperty } from 'n8n-nodes-base/dist/utils/highlightedData';
+import { autoSaveHighlightedDataProperty } from 'resin-nodes-base/dist/utils/highlightedData';
 import {
 	Node,
 	NodeConnectionTypes,
@@ -10,7 +10,7 @@ import {
 	assertParamIsString,
 	getHighlightedInputKey,
 	HIGHLIGHTED_SESSION_KEY,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	IDataObject,
 	IWebhookFunctions,
@@ -20,10 +20,10 @@ import type {
 	INodeExecutionData,
 	IBinaryData,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import * as a from 'node:assert';
-import { ChatTriggerConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { ChatTriggerConfig } from '@resin/config';
+import { Container } from '@resin/di';
 
 import { cssVariables } from './constants';
 import { validateAuth } from './GenericFunctions';
@@ -363,7 +363,7 @@ export class ChatTrigger extends Node {
 			},
 			{
 				displayName:
-					'Follow the instructions <a href="https://www.npmjs.com/package/@n8n/chat" target="_blank">here</a> to embed chat in a webpage (or just call the webhook URL at the top of this section). Chat will be live once you publish this workflow',
+					'Follow the instructions <a href="https://www.npmjs.com/package/@resin/chat" target="_blank">here</a> to embed chat in a webpage (or just call the webhook URL at the top of this section). Chat will be live once you publish this workflow',
 				name: 'embeddedChatNotice',
 				type: 'notice',
 				displayOptions: {

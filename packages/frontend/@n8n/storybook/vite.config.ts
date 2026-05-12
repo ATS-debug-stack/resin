@@ -77,11 +77,11 @@ export default defineConfig({
 			},
 			{
 				find: /^@n8n\/utils$/,
-				replacement: path.resolve(__dirname, '../../../@n8n/utils/src/index.ts'),
+				replacement: path.resolve(__dirname, '../../../@resin/utils/src/index.ts'),
 			},
 			{
 				find: /^@n8n\/utils\/(.*)$/,
-				replacement: path.resolve(__dirname, '../../../@n8n/utils/src/$1'),
+				replacement: path.resolve(__dirname, '../../../@resin/utils/src/$1'),
 			},
 		],
 	},

@@ -4,7 +4,7 @@
 
 import type { BaseMessage } from '@langchain/core/messages';
 import { AIMessage, ToolMessage } from '@langchain/core/messages';
-import type { WorkflowJSON, NodeJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON, NodeJSON } from '@resin/workflow-sdk';
 
 import { WarningTracker } from '../../state/warning-tracker';
 import type { ParseAndValidateResult } from '../../types';
@@ -33,7 +33,7 @@ describe('AutoFinalizeHandler', () => {
 			const mockNode: NodeJSON = {
 				id: '1',
 				name: 'Node',
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				position: [0, 0],
 				typeVersion: 1,
 			};
@@ -276,7 +276,7 @@ describe('AutoFinalizeHandler', () => {
 				id: 'test',
 				name: 'Test',
 				nodes: [
-					{ id: '1', name: 'Node', type: 'n8n-nodes-base.set', position: [0, 0], typeVersion: 1 },
+					{ id: '1', name: 'Node', type: 'resin-nodes-base.set', position: [0, 0], typeVersion: 1 },
 				],
 				connections: {},
 			};

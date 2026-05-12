@@ -1,4 +1,4 @@
-import { LDAP_FEATURE_NAME, LDAP_DEFAULT_CONFIGURATION } from '@n8n/constants';
+import { LDAP_FEATURE_NAME, LDAP_DEFAULT_CONFIGURATION } from '@resin/constants';
 import {
 	AuthIdentityRepository,
 	AuthProviderSyncHistoryRepository,
@@ -9,12 +9,12 @@ import {
 	SharedCredentialsRepository,
 	SharedWorkflowRepository,
 	UserRepository,
-} from '@n8n/db';
-import { Command } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Command } from '@resin/decorators';
+import { Container } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
-import { UserError } from 'n8n-workflow';
+import { In } from '@resin/typeorm';
+import { UserError } from 'resin-workflow';
 import { z } from 'zod';
 
 import { UM_FIX_INSTRUCTION } from '@/constants';

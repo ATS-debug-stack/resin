@@ -6,9 +6,9 @@ import { EnterpriseEditionFeature, VIEWS } from '@/app/constants';
 import { useInjectWorkflowId } from '@/app/composables/useInjectWorkflowId';
 import ExecutionsTime from '../ExecutionsTime.vue';
 import { useExecutionHelpers } from '../../composables/useExecutionHelpers';
-import type { ExecutionSummary } from 'n8n-workflow';
-import { useI18n } from '@n8n/i18n';
-import type { PermissionsRecord } from '@n8n/permissions';
+import type { ExecutionSummary } from 'resin-workflow';
+import { useI18n } from '@resin/i18n';
+import type { PermissionsRecord } from '@resin/permissions';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { toDayMonth, toTime } from '@/app/utils/formatters/dateFormatter';
 
@@ -19,7 +19,7 @@ import {
 	N8nTags,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 const props = defineProps<{
 	execution: ExecutionSummary;
 	highlight?: boolean;

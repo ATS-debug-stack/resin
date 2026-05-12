@@ -1,6 +1,6 @@
-import type { BooleanLicenseFeature } from '@n8n/constants';
-import type { Constructable } from '@n8n/di';
-import type { Scope } from '@n8n/permissions';
+import type { BooleanLicenseFeature } from '@resin/constants';
+import type { Constructable } from '@resin/di';
+import type { Scope } from '@resin/permissions';
 import type { RequestHandler, Router } from 'express';
 
 import type { KeyedRateLimiterConfig, RateLimiterLimits } from './rate-limit';

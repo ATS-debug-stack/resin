@@ -12,7 +12,7 @@ vi.mock('../components/MarkdownRenderer.vue', () => ({
 	},
 }));
 
-vi.mock('@n8n/chat/composables', () => ({
+vi.mock('@resin/chat/composables', () => ({
 	useOptions: () => ({
 		options: {
 			webhookUrl: 'https://webhook.example.com/webhook/123/chat',

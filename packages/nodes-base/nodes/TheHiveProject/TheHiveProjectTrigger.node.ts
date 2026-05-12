@@ -7,7 +7,7 @@ import {
 	type INodeTypeDescription,
 	type IWebhookResponseData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class TheHiveProjectTrigger implements INodeType {
 	description: INodeTypeDescription = {

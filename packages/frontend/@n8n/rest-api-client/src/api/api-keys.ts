@@ -3,8 +3,8 @@ import type {
 	UpdateApiKeyRequestDto,
 	ApiKey,
 	ApiKeyWithRawValue,
-} from '@n8n/api-types';
-import type { ApiKeyScope } from '@n8n/permissions';
+} from '@resin/api-types';
+import type { ApiKeyScope } from '@resin/permissions';
 
 import type { IRestApiContext } from '../types';
 import { makeRestApiRequest } from '../utils';

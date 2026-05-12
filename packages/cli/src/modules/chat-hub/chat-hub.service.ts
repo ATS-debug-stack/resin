@@ -9,13 +9,13 @@ import {
 	ChatHubConversationModel,
 	type ChatHubUpdateConversationRequest,
 	type ChatHubSessionDto,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { ExecutionRepository, User } from '@n8n/db';
-import type { EntityManager } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { ErrorReporter } from 'n8n-core';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { ExecutionRepository, User } from '@resin/db';
+import type { EntityManager } from '@resin/db';
+import { Service } from '@resin/di';
+import { ErrorReporter } from 'resin-core';
 import {
 	CHAT_TRIGGER_NODE_TYPE,
 	OperationalError,
@@ -23,7 +23,7 @@ import {
 	type INodeCredentials,
 	type IBinaryData,
 	UnexpectedError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
@@ -48,7 +48,7 @@ import {
 import { ChatHubMessageRepository } from './chat-message.repository';
 import { ChatHubSessionRepository } from './chat-session.repository';
 import { ChatStreamService } from './chat-stream.service';
-import { parseMessage } from '@n8n/chat-hub';
+import { parseMessage } from '@resin/chat-hub';
 
 @Service()
 export class ChatHubService {

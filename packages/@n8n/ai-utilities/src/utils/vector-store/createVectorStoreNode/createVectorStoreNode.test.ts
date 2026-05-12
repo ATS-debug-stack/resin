@@ -10,7 +10,7 @@ import type {
 	ISupplyDataFunctions,
 	NodeParameterValueType,
 	INodeExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { createVectorStoreNode } from './createVectorStoreNode';
 import type { VectorStoreNodeConstructorArgs } from './types';

@@ -1,8 +1,8 @@
-import { mockInstance, testModules } from '@n8n/backend-test-utils';
-import type { RenameDataTableColumnDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { ProjectRelationRepository, type User } from '@n8n/db';
-import type { DataTableInfoById } from 'n8n-workflow';
+import { mockInstance, testModules } from '@resin/backend-test-utils';
+import type { RenameDataTableColumnDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { ProjectRelationRepository, type User } from '@resin/db';
+import type { DataTableInfoById } from 'resin-workflow';
 
 import type { DataTableColumn } from '../data-table-column.entity';
 import type { DataTable } from '../data-table.entity';

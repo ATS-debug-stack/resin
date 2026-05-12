@@ -5,9 +5,9 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper, MemoryVectorStoreManager } from '@n8n/ai-utilities';
+import { logWrapper, MemoryVectorStoreManager } from '@resin/ai-utilities';
 
 // This node is deprecated. Use VectorStoreInMemory instead.
 export class VectorStoreInMemoryLoad implements INodeType {

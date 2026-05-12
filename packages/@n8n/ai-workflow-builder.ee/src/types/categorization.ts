@@ -1,13 +1,13 @@
 /**
- * Re-export shared types from @n8n/workflow-sdk.
+ * Re-export shared types from @resin/workflow-sdk.
  */
-import type { WorkflowTechniqueType } from '@n8n/workflow-sdk/prompts/best-practices';
+import type { WorkflowTechniqueType } from '@resin/workflow-sdk/prompts/best-practices';
 
 export {
 	WorkflowTechnique,
 	TechniqueDescription,
 	type WorkflowTechniqueType,
-} from '@n8n/workflow-sdk/prompts/best-practices';
+} from '@resin/workflow-sdk/prompts/best-practices';
 
 /**
  * Result of prompt categorization (framework-specific, stays local).

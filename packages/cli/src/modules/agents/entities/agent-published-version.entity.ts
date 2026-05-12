@@ -1,6 +1,6 @@
-import type { ToolDescriptor } from '@n8n/agents';
-import type { AgentSkill } from '@n8n/api-types';
-import { JsonColumn, User, WithTimestamps } from '@n8n/db';
+import type { ToolDescriptor } from '@resin/agents';
+import type { AgentSkill } from '@resin/api-types';
+import { JsonColumn, User, WithTimestamps } from '@resin/db';
 import {
 	Column,
 	Entity,
@@ -9,7 +9,7 @@ import {
 	OneToOne,
 	PrimaryColumn,
 	type Relation,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 
 import type { Agent } from './agent.entity';
 import type { AgentJsonConfig } from '../json-config/agent-json-config';

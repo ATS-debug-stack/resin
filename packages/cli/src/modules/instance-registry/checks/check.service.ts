@@ -1,5 +1,5 @@
-import type { InstanceRegistration, PushMessage } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
+import type { InstanceRegistration, PushMessage } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
 import type {
 	ClusterCheckAuditEvent,
 	ClusterCheckContext,
@@ -8,15 +8,15 @@ import type {
 	ClusterCheckWarning,
 	ClusterStateDiff,
 	IClusterCheck,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import {
 	ClusterCheckMetadata,
 	OnLeaderStepdown,
 	OnLeaderTakeover,
 	OnShutdown,
-} from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+} from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 
 import type { EventNamesAuditType } from '@/eventbus/event-message-classes';
 import type { EventPayloadAudit } from '@/eventbus/event-message-classes/event-message-audit';

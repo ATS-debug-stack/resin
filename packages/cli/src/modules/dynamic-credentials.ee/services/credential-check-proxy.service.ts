@@ -1,16 +1,16 @@
-import { CredentialsEntity } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { CredentialsEntity } from '@resin/db';
+import { Service } from '@resin/di';
 import type {
 	CredentialCheckResult,
 	CredentialCheckStatus,
 	DynamicCredentialCheckProxyProvider,
 	IExecutionContext,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { EnterpriseCredentialsService } from '@/credentials/credentials.service.ee';
 import { CreateCsrfStateData, OauthService } from '@/oauth/oauth.service';
 
-import { ExecutionContextService } from 'n8n-core';
+import { ExecutionContextService } from 'resin-core';
 import { CredentialResolverWorkflowService } from './credential-resolver-workflow.service';
 
 @Service()

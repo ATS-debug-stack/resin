@@ -3,9 +3,9 @@ import {
 	ListRoleMappingRuleQueryDto,
 	MoveRoleMappingRuleDto,
 	PatchRoleMappingRuleDto,
-} from '@n8n/api-types';
-import { LicenseState } from '@n8n/backend-common';
-import { AuthenticatedRequest } from '@n8n/db';
+} from '@resin/api-types';
+import { LicenseState } from '@resin/backend-common';
+import { AuthenticatedRequest } from '@resin/db';
 import {
 	Body,
 	Delete,
@@ -16,7 +16,7 @@ import {
 	Post,
 	Query,
 	RestController,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import type { Response } from 'express';
 
 import { EventService } from '@/events/event.service';

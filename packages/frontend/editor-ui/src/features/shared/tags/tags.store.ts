@@ -1,8 +1,8 @@
 import { createTagsApi } from './tags.api';
-import { STORES } from '@n8n/stores';
-import type { ITag } from '@n8n/rest-api-client/api/tags';
+import { STORES } from '@resin/stores';
+import type { ITag } from '@resin/rest-api-client/api/tags';
 import { defineStore } from 'pinia';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { computed, ref } from 'vue';
 import { hasPermission } from '@/app/utils/rbac/permissions';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';

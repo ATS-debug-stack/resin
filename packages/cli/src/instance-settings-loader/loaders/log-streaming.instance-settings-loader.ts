@@ -1,14 +1,14 @@
-import { Logger } from '@n8n/backend-common';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import type { EntityManager } from '@n8n/db';
-import { Service } from '@n8n/di';
-import type { MessageEventBusDestinationOptions } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import type { EntityManager } from '@resin/db';
+import { Service } from '@resin/di';
+import type { MessageEventBusDestinationOptions } from 'resin-workflow';
 import {
 	MessageEventBusDestinationSentryOptionsSchema,
 	MessageEventBusDestinationSyslogOptionsSchema,
 	MessageEventBusDestinationTypeNames,
 	MessageEventBusDestinationWebhookOptionsSchema,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 import { z } from 'zod';
 
@@ -17,7 +17,7 @@ import { EventDestinations } from '@/modules/log-streaming.ee/database/entities'
 
 import { InstanceBootstrappingError } from '../instance-bootstrapping.error';
 
-// Env var format reuses the canonical destination DTOs from `n8n-workflow`,
+// Env var format reuses the canonical destination DTOs from `resin-workflow`,
 // with three deliberate adjustments per variant:
 //  1. Replace the internal `__type: '$$MessageEventBusDestination…'` discriminator
 //     with a friendlier `type: 'webhook' | 'syslog' | 'sentry'`.

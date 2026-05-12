@@ -9,8 +9,8 @@
  * then `schema` is always `null` and the panel renders the empty state.
  */
 import { computed } from 'vue';
-import { N8nCard, N8nText, N8nIcon } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nCard, N8nText, N8nIcon } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import type { AgentSchema } from '../types';
 
 const props = withDefaults(defineProps<{ schema?: AgentSchema | null }>(), {

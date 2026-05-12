@@ -16,7 +16,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
 	valid: [
 		{
 			code: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { Publisher } from './publisher.service';
 
         @Service()
@@ -38,7 +38,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
 		},
 		{
 			code: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
 
         @Service()
         class SimpleService {}
@@ -47,7 +47,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
 		},
 		{
 			code: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
 
         @Service()
         class ConfigService {
@@ -61,7 +61,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
 		{
 			// Test individual specifier fix: import { type Publisher } -> import { Publisher }
 			code: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { type Publisher } from './publisher.service';
 
         @Service()
@@ -70,7 +70,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
         }
       `,
 			output: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { Publisher } from './publisher.service';
 
         @Service()
@@ -94,7 +94,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
 		{
 			// Test declaration-level fix: import type { EventService } -> import { EventService }
 			code: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import type { EventService } from './event.service';
 
         @Service()
@@ -103,7 +103,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
         }
       `,
 			output: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { EventService } from './event.service';
 
         @Service()
@@ -127,7 +127,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
 		{
 			// Multiple invalid imports handled in one pass
 			code: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { type Publisher } from './publisher.service';
         import { type Logger } from './logger';
 
@@ -140,7 +140,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
         }
       `,
 			output: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { Publisher } from './publisher.service';
         import { Logger } from './logger';
 
@@ -177,7 +177,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
 		{
 			// Test with multiple spaces after 'type' keyword
 			code: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { type  Publisher } from './publisher.service';
 
         @Service()
@@ -186,7 +186,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
         }
       `,
 			output: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { Publisher } from './publisher.service';
 
         @Service()
@@ -209,7 +209,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
 			// Test multi-specifier import where only one is used in DI
 			// Should convert to inline type syntax for other specifiers
 			code: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import type { IPublisher, Publisher } from './publisher.service';
 
         @Service()
@@ -218,7 +218,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
         }
       `,
 			output: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { type IPublisher, Publisher } from './publisher.service';
 
         @Service()
@@ -240,7 +240,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
 		{
 			// Test multi-specifier import with multiple type-only specifiers
 			code: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import type { ILogger, Logger, IConfig } from './types';
 
         @Service()
@@ -249,7 +249,7 @@ ruleTester.run('no-type-only-import-in-di', NoTypeOnlyImportInDiRule, {
         }
       `,
 			output: `
-        import { Service } from '@n8n/di';
+        import { Service } from '@resin/di';
         import { type ILogger, Logger, type IConfig } from './types';
 
         @Service()

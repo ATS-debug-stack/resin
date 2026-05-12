@@ -1,6 +1,6 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import type { Mock, Mocked } from 'vitest';
 import { mockDeep } from 'vitest-mock-extended';
 
@@ -60,7 +60,7 @@ describe('Guardrails Process', () => {
 		node = {
 			id: 'test',
 			name: 'Guardrails',
-			type: 'n8n-nodes-langchain.guardrails',
+			type: 'resin-nodes-langchain.guardrails',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

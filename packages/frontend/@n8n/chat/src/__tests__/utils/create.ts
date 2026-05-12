@@ -1,4 +1,4 @@
-import { createChat } from '@n8n/chat/index';
+import { createChat } from '@resin/chat/index';
 
 export function createTestChat(options: Parameters<typeof createChat>[0] = {}): {
 	unmount: () => void;

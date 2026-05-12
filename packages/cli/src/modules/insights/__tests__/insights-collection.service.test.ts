@@ -1,15 +1,15 @@
-import { mockLogger } from '@n8n/backend-test-utils';
+import { mockLogger } from '@resin/backend-test-utils';
 import type {
 	Project,
 	SharedWorkflow,
 	SharedWorkflowRepository,
 	IWorkflowDb,
 	WorkflowEntity,
-} from '@n8n/db';
-import type { WorkflowExecuteAfterContext } from '@n8n/decorators';
+} from '@resin/db';
+import type { WorkflowExecuteAfterContext } from '@resin/decorators';
 import { mock } from 'jest-mock-extended';
 import { DateTime } from 'luxon';
-import type { IRun } from 'n8n-workflow';
+import type { IRun } from 'resin-workflow';
 
 import type { InsightsMetadata } from '../database/entities/insights-metadata';
 import type { InsightsMetadataRepository } from '../database/repositories/insights-metadata.repository';

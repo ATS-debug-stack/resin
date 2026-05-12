@@ -1,8 +1,8 @@
 import { AIMessage, HumanMessage, ToolMessage } from '@langchain/core/messages';
 import { MemorySaver } from '@langchain/langgraph';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import { mock, mockClear } from 'jest-mock-extended';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import { SessionManagerService } from '@/session-manager.service';
 import { getBuilderToolsForDisplay } from '@/tools/builder-tools';
@@ -32,7 +32,7 @@ describe('SessionManagerService', () => {
 		mockParsedNodeTypes = [
 			{
 				displayName: 'HTTP Request',
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				group: ['transform'],
 				version: 1,
 				description: 'Makes HTTP requests',

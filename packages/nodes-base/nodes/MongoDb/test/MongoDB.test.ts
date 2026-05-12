@@ -1,14 +1,14 @@
 import { NodeTestHarness } from '@nodes-testing/node-test-harness';
 import { mockDeep } from 'jest-mock-extended';
 import { Collection, Db, MongoClient, ObjectId } from 'mongodb';
-import { constructExecutionMetaData, returnJsonArray } from 'n8n-core';
+import { constructExecutionMetaData, returnJsonArray } from 'resin-core';
 import type {
 	IExecuteFunctions,
 	INode,
 	INodeParameters,
 	NodeParameterValueType,
 	WorkflowTestData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { MongoDb } from '../MongoDb.node';
 
@@ -37,7 +37,7 @@ function buildWorkflow({
 						parameters: {},
 						id: '8b7bb389-e4ef-424a-bca1-e7ead60e43eb',
 						name: manualTriggerName,
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [740, 380],
 					},
@@ -45,7 +45,7 @@ function buildWorkflow({
 						parameters,
 						id: '8b7bb389-e4ef-424a-bca1-e7ead60e43ec',
 						name: 'mongoDb',
-						type: 'n8n-nodes-base.mongoDb',
+						type: 'resin-nodes-base.mongoDb',
 						typeVersion: 1.2,
 						position: [1260, 360],
 						credentials: {

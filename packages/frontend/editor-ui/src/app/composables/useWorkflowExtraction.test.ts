@@ -1,9 +1,9 @@
 import { setActivePinia } from 'pinia';
 import { createTestingPinia } from '@pinia/testing';
-import type { IConnections, INode } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { IConnections, INode } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type { INodeUi } from '@/Interface';
-import type { WorkflowDataCreate } from '@n8n/rest-api-client/api/workflows';
+import type { WorkflowDataCreate } from '@resin/rest-api-client/api/workflows';
 
 const { mockWorkflowsStore, mockWorkflowDocumentStore, mockNodeTypesStore, mockCanvasOperations } =
 	vi.hoisted(() => ({
@@ -78,7 +78,7 @@ vi.mock('@/app/composables/useTelemetry', () => ({
 	useTelemetry: vi.fn().mockReturnValue({ track: vi.fn() }),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: vi.fn().mockReturnValue({
 		baseText: vi.fn().mockImplementation((key: string) => key),
 	}),
@@ -96,7 +96,7 @@ function makeNode(name: string, position: [number, number] = [0, 0]): INodeUi {
 	return {
 		id: `id-${name}`,
 		name,
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		typeVersion: 1,
 		position,
 		parameters: {},

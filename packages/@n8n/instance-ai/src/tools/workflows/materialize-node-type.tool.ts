@@ -18,7 +18,7 @@ import { runInSandbox } from '../../workspace/sandbox-fs';
 import { getWorkspaceRoot } from '../../workspace/sandbox-setup';
 
 const nodeRequestSchema = z.union([
-	z.string().describe('Simple node ID, e.g. "n8n-nodes-base.httpRequest"'),
+	z.string().describe('Simple node ID, e.g. "resin-nodes-base.httpRequest"'),
 	z.object({
 		nodeId: z.string().describe('Node type ID'),
 		version: z.string().optional().describe('Version, e.g. "4.3" or "v43"'),
@@ -29,8 +29,8 @@ const nodeRequestSchema = z.union([
 ]);
 
 /**
- * Convert a node ID like "n8n-nodes-base.httpRequest" into a filesystem path
- * segment like "n8n-nodes-base/httpRequest".
+ * Convert a node ID like "resin-nodes-base.httpRequest" into a filesystem path
+ * segment like "resin-nodes-base/httpRequest".
  */
 function nodeIdToPath(nodeId: string): string {
 	const dotIndex = nodeId.lastIndexOf('.');

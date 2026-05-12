@@ -1,4 +1,4 @@
-import { Container, Service } from '@n8n/di';
+import { Container, Service } from '@resin/di';
 
 import type { ClusterCheckContext, ClusterCheckResult, IClusterCheck } from '../cluster-check';
 import { ClusterCheck, ClusterCheckMetadata } from '../cluster-check-metadata';

@@ -4,17 +4,17 @@ import type {
 	CredentialsEntity,
 	User,
 	WorkflowEntity,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	CredentialsRepository,
 	WorkflowRepository,
 	SettingsRepository,
 	UserRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { FindManyOptions, FindOneOptions, FindOptionsWhere } from '@n8n/typeorm';
-import type { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
+import type { FindManyOptions, FindOneOptions, FindOptionsWhere } from '@resin/typeorm';
+import type { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
 import RudderStack, { type constructorOptions } from '@rudderstack/rudder-sdk-node';
 import type { NextFunction, Response } from 'express';
 

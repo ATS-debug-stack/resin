@@ -1,4 +1,4 @@
-import type { Config as BrowserConfig } from '@n8n/mcp-browser';
+import type { Config as BrowserConfig } from '@resin/mcp-browser';
 
 import { logger, type LogLevel } from '../../logger';
 import type { ToolDefinition, ToolModule } from '../types';
@@ -20,10 +20,10 @@ function toBrowserConfig(config: BrowserModuleConfig): Partial<BrowserConfig> {
 }
 
 /**
- * ToolModule that exposes @n8n/mcp-browser tools through the gateway.
+ * ToolModule that exposes @resin/mcp-browser tools through the gateway.
  *
  * Use `BrowserModule.create()` to construct — it dynamically imports
- * `@n8n/mcp-browser` and initialises the BrowserConnection and tools.
+ * `@resin/mcp-browser` and initialises the BrowserConnection and tools.
  */
 export class BrowserModule implements ToolModule {
 	private connection: { shutdown(): Promise<void> };
@@ -36,19 +36,19 @@ export class BrowserModule implements ToolModule {
 	}
 
 	/**
-	 * Create a BrowserModule if `@n8n/mcp-browser` is available.
+	 * Create a BrowserModule if `@resin/mcp-browser` is available.
 	 * Returns `null` when the package cannot be imported.
 	 */
 	static async create(config: BrowserModuleConfig = {}): Promise<BrowserModule | null> {
 		try {
-			const { createBrowserTools, configureLogger } = await import('@n8n/mcp-browser');
+			const { createBrowserTools, configureLogger } = await import('@resin/mcp-browser');
 			if (config.logLevel) {
 				configureLogger({ level: config.logLevel });
 			}
 			const { tools, connection } = createBrowserTools(toBrowserConfig(config));
 			return new BrowserModule(tools, connection);
 		} catch {
-			logger.info('Browser module not supported', { reason: '@n8n/mcp-browser not available' });
+			logger.info('Browser module not supported', { reason: '@resin/mcp-browser not available' });
 			return null;
 		}
 	}

@@ -2,8 +2,8 @@ import type { BaseLanguageModel } from '@langchain/core/language_models/base';
 import { RunnableSequence } from '@langchain/core/runnables';
 import { AgentExecutor, createToolCallingAgent } from '@langchain/classic/agents';
 import omit from 'lodash/omit';
-import { jsonParse, NodeOperationError } from 'n8n-workflow';
-import type { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import { jsonParse, NodeOperationError } from 'resin-workflow';
+import type { IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
 
 import { getPromptInputByType } from '@utils/helpers';
 import { getOptionalOutputParser } from '@utils/output_parsers/N8nOutputParser';

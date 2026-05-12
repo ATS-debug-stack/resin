@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
 
-import N8nButton from '@n8n/design-system/components/N8nButton/Button.vue';
+import N8nButton from '@resin/design-system/components/N8nButton/Button.vue';
 import {
 	N8nDialog,
 	N8nDialogClose,
@@ -10,7 +10,7 @@ import {
 	N8nDialogDescription,
 	N8nDialogFooter,
 	type DialogProps,
-} from '@n8n/design-system/components/N8nDialog';
+} from '@resin/design-system/components/N8nDialog';
 
 const meta = {
 	title: 'Core/Dialog',

@@ -1,7 +1,7 @@
-import { getPersonalProject, createWorkflow, testDb } from '@n8n/backend-test-utils';
-import type { Project, User, Folder } from '@n8n/db';
-import { FolderRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { getPersonalProject, createWorkflow, testDb } from '@resin/backend-test-utils';
+import type { Project, User, Folder } from '@resin/db';
+import { FolderRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { DateTime } from 'luxon';
 
 import { createFolder } from '@test-integration/db/folders';

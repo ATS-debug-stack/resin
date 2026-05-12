@@ -15,7 +15,7 @@ import type {
 	EngineResponse,
 	IExecuteFunctions,
 	ISupplyDataFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { ItemContext } from './prepareItemContext';
 import { isExecuteFunctions } from '../../../utils';

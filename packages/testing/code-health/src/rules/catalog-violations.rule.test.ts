@@ -142,7 +142,7 @@ catalog: {}
 			JSON.stringify(
 				{
 					name: 'cli',
-					dependencies: { '@n8n/core': 'workspace:*' },
+					dependencies: { '@resin/core': 'workspace:*' },
 				},
 				null,
 				2,

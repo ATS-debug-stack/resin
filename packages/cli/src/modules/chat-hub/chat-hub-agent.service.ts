@@ -5,11 +5,11 @@ import {
 	type ChatModelDto,
 	type ChatHubAgentKnowledgeItem,
 	type ChatHubAgentKnowledgeItemStatus,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
-import { Logger } from '@n8n/backend-common';
-import type { EntityManager, User } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import type { EntityManager, User } from '@resin/db';
+import { Service } from '@resin/di';
 import { readFile, unlink } from 'fs/promises';
 import { nanoid } from 'nanoid';
 import { v4 as uuidv4 } from 'uuid';
@@ -19,7 +19,7 @@ import { ChatHubAgentRepository } from './chat-hub-agent.repository';
 import { ChatHubCredentialsService } from './chat-hub-credentials.service';
 import { getModelMetadata } from './chat-hub.constants';
 import { ChatHubAttachmentService } from './chat-hub.attachment.service';
-import { type IBinaryData } from 'n8n-workflow';
+import { type IBinaryData } from 'resin-workflow';
 import { ChatHubWorkflowService } from './chat-hub-workflow.service';
 import { WorkflowExecutionService } from '@/workflows/workflow-execution.service';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

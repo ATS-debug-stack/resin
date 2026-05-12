@@ -1,7 +1,7 @@
 import type { NodeTypeExamples } from '../types';
 
 export const SWITCH_NODE_EXAMPLES: NodeTypeExamples = {
-	patterns: ['n8n-nodes-base.switch'],
+	patterns: ['resin-nodes-base.switch'],
 	content: `
 ### Switch Node Examples
 

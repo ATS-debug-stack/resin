@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import KeyboardShortcutTooltip from '@/app/components/KeyboardShortcutTooltip.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
-import type { ButtonVariant } from '@n8n/design-system';
+import type { ButtonVariant } from '@resin/design-system';
 
-import { N8nButton } from '@n8n/design-system';
+import { N8nButton } from '@resin/design-system';
 
 // Explicit click emit is required for Playwright tests - N8nTooltip wraps
 // content in a span (via TooltipTrigger), which can interfere with click

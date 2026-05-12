@@ -2,14 +2,14 @@ import { computed, ref, watch } from 'vue';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { removePreviewToken } from '@/features/shared/nodeCreator/nodeCreator.utils';
-import type { CommunityNodeType } from '@n8n/api-types';
+import type { CommunityNodeType } from '@resin/api-types';
 import type {
 	ICredentialType,
 	INodeTypeDescription,
 	INodeOutputConfiguration,
 	NodeConnectionType,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 export interface AppInfo {
 	name: string;
@@ -106,32 +106,32 @@ const BUNDLED_APP_POPULARITY: Record<string, number> = {
 
 // Core/utility nodes that shouldn't be shown in app selection
 const EXCLUDED_NODE_NAMES = [
-	'n8n-nodes-base.httpRequest',
-	'n8n-nodes-base.webhook',
-	'n8n-nodes-base.code',
-	'n8n-nodes-base.scheduleTrigger',
-	'n8n-nodes-base.emailSend',
-	'n8n-nodes-base.set',
-	'n8n-nodes-base.if',
-	'n8n-nodes-base.switch',
-	'n8n-nodes-base.merge',
-	'n8n-nodes-base.splitInBatches',
-	'n8n-nodes-base.noOp',
-	'n8n-nodes-base.start',
-	'n8n-nodes-base.stickyNote',
-	'n8n-nodes-base.executeWorkflow',
-	'n8n-nodes-base.executeWorkflowTrigger',
-	'n8n-nodes-base.respondToWebhook',
-	'n8n-nodes-base.manualTrigger',
-	'n8n-nodes-base.errorTrigger',
-	'n8n-nodes-base.function',
-	'n8n-nodes-base.functionItem',
+	'resin-nodes-base.httpRequest',
+	'resin-nodes-base.webhook',
+	'resin-nodes-base.code',
+	'resin-nodes-base.scheduleTrigger',
+	'resin-nodes-base.emailSend',
+	'resin-nodes-base.set',
+	'resin-nodes-base.if',
+	'resin-nodes-base.switch',
+	'resin-nodes-base.merge',
+	'resin-nodes-base.splitInBatches',
+	'resin-nodes-base.noOp',
+	'resin-nodes-base.start',
+	'resin-nodes-base.stickyNote',
+	'resin-nodes-base.executeWorkflow',
+	'resin-nodes-base.executeWorkflowTrigger',
+	'resin-nodes-base.respondToWebhook',
+	'resin-nodes-base.manualTrigger',
+	'resin-nodes-base.errorTrigger',
+	'resin-nodes-base.function',
+	'resin-nodes-base.functionItem',
 ];
 
 // Exclude all LangChain nodes (AI tools)
 const isLangChainNode = (nodeName: string): boolean => {
 	// cspell:disable-next-line
-	return nodeName.startsWith('@n8n/n8n-nodes-langchain.');
+	return nodeName.startsWith('@resin/n8n-nodes-langchain.');
 };
 
 const isExcludedNode = (nodeName: string): boolean => {

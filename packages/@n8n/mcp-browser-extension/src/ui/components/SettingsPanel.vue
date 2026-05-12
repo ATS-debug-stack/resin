@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { N8nIcon, N8nSwitch2 } from '@n8n/design-system';
+import { N8nIcon, N8nSwitch2 } from '@resin/design-system';
 import type { TabManagementSettings } from '../../types';
 
 defineProps<{

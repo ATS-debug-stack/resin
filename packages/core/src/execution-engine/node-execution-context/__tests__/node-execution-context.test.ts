@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import type {
 	INode,
@@ -10,8 +10,12 @@ import type {
 	Workflow,
 	WorkflowExecuteMode,
 	WorkflowExpression,
-} from 'n8n-workflow';
-import { CHAT_TRIGGER_NODE_TYPE, createRunExecutionData, NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import {
+	CHAT_TRIGGER_NODE_TYPE,
+	createRunExecutionData,
+	NodeConnectionTypes,
+} from 'resin-workflow';
 
 import { InstanceSettings } from '@/instance-settings';
 
@@ -202,7 +206,7 @@ describe('NodeExecutionContext', () => {
 		it('should set executionContext on additionalData before retrieving credentials', async () => {
 			const credentialDetails = { id: 'cred123', name: 'Test Credential' };
 			const testNode = mock<INode>({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 			});
 			testNode.credentials = { testCredential: credentialDetails };
 
@@ -258,7 +262,7 @@ describe('NodeExecutionContext', () => {
 		});
 
 		it('should not build mock credentials in eval mode when the node has other credentials configured but not the requested type', async () => {
-			const testNode = mock<INode>({ type: 'n8n-nodes-base.graphql' });
+			const testNode = mock<INode>({ type: 'resin-nodes-base.graphql' });
 			testNode.credentials = { httpHeaderAuth: { id: 'cred1', name: 'Header' } };
 
 			const getCredentialsProperties = jest

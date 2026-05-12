@@ -16,12 +16,12 @@ const renderComponent = createComponentRenderer(NoResults, {
 				template: '<div data-test-id="no-results-icon" />',
 			},
 			N8nIcon: {
-				template: '<span data-test-id="n8n-icon" />',
+				template: '<span data-test-id="resin-icon" />',
 				props: ['icon', 'title'],
 			},
 			N8nLink: {
 				template:
-					'<a :href="href" data-test-id="n8n-link" @click="$emit(\'click\', $event)"><slot /></a>',
+					'<a :href="href" data-test-id="resin-link" @click="$emit(\'click\', $event)"><slot /></a>',
 				props: ['to'],
 				emits: ['click'],
 				computed: {

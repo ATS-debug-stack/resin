@@ -1,4 +1,4 @@
-// CSS Variables are defined in `@n8n/chat/src/css/_tokens.scss`
+// CSS Variables are defined in `@resin/chat/src/css/_tokens.scss`
 export const cssVariables = `
 :root {
   /* Colors */

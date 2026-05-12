@@ -1,5 +1,5 @@
-import { CreateApiKeyRequestDto, UpdateApiKeyRequestDto } from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
+import { CreateApiKeyRequestDto, UpdateApiKeyRequestDto } from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
 import {
 	Body,
 	Delete,
@@ -9,8 +9,8 @@ import {
 	Patch,
 	Post,
 	RestController,
-} from '@n8n/decorators';
-import { getApiKeyScopesForRole } from '@n8n/permissions';
+} from '@resin/decorators';
+import { getApiKeyScopesForRole } from '@resin/permissions';
 import type { RequestHandler } from 'express';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

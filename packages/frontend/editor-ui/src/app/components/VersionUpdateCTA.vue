@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useVersionsStore } from '@/app/stores/versions.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { N8nMenuItem } from '@n8n/design-system';
+import { N8nMenuItem } from '@resin/design-system';
 
 interface Props {
 	disabled?: boolean;

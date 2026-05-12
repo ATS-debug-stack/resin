@@ -1,11 +1,11 @@
-import { inTest, Logger } from '@n8n/backend-common';
-import { type InstanceType } from '@n8n/constants';
-import { Service } from '@n8n/di';
-import type { ReportingOptions } from '@n8n/errors';
+import { inTest, Logger } from '@resin/backend-common';
+import { type InstanceType } from '@resin/constants';
+import { Service } from '@resin/di';
+import type { ReportingOptions } from '@resin/errors';
 import type { ErrorEvent, EventHint } from '@sentry/core';
 import type { NodeOptions } from '@sentry/node';
 import { AxiosError } from 'axios';
-import { ApplicationError, ExecutionCancelledError, BaseError } from 'n8n-workflow';
+import { ApplicationError, ExecutionCancelledError, BaseError } from 'resin-workflow';
 import { createHash } from 'node:crypto';
 
 import { Tracing, SentryTracing } from '@/observability';

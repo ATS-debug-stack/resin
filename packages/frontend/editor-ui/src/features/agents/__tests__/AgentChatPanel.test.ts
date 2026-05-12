@@ -6,7 +6,7 @@ import {
 	ASK_LLM_TOOL_NAME,
 	ASK_QUESTION_TOOL_NAME,
 	type InteractiveToolName,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import type { ChatMessage } from '../composables/agentChatMessages';
 import AgentChatPanel from '../components/AgentChatPanel.vue';
 
@@ -16,11 +16,11 @@ const loadHistoryMock = vi.fn();
 const messagesMock = ref<ChatMessage[]>([]);
 const isStreamingMock = ref(false);
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({ baseText: (key: string) => key }),
 }));
 
-vi.mock('@n8n/design-system', () => ({
+vi.mock('@resin/design-system', () => ({
 	N8nButton: { template: '<button><slot /></button>' },
 	N8nCallout: { template: '<div><slot /><slot name="trailingContent" /></div>' },
 	N8nIconButton: { template: '<button />' },

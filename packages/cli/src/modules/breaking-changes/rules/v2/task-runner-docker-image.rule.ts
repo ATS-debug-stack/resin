@@ -1,6 +1,6 @@
-import { GlobalConfig } from '@n8n/config';
+import { GlobalConfig } from '@resin/config';
 
-import { BreakingChangeRule } from '@n8n/decorators';
+import { BreakingChangeRule } from '@resin/decorators';
 import type {
 	BreakingChangeRuleMetadata,
 	IBreakingChangeInstanceRule,

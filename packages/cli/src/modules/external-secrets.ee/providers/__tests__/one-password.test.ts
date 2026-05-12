@@ -1,4 +1,4 @@
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 import { mock } from 'jest-mock-extended';
 
 import { OnePasswordProvider } from '../one-password';

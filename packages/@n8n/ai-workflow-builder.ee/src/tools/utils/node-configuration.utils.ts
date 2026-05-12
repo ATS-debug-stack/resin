@@ -1,4 +1,4 @@
-import type { INodeParameters } from 'n8n-workflow';
+import type { INodeParameters } from 'resin-workflow';
 
 import { MAX_NODE_EXAMPLE_CHARS } from '@/constants';
 import type { NodeConfigurationsMap, NodeConfigurationEntry, WorkflowMetadata } from '@/types';
@@ -58,7 +58,7 @@ export function collectNodeConfigurationsFromWorkflows(
 	for (const workflow of workflows) {
 		for (const node of workflow.workflow.nodes) {
 			// Skip sticky notes
-			if (node.type === 'n8n-nodes-base.stickyNote') continue;
+			if (node.type === 'resin-nodes-base.stickyNote') continue;
 
 			const config = collectSingleNodeConfiguration(node);
 			if (config) {
@@ -75,7 +75,7 @@ export function collectNodeConfigurationsFromWorkflows(
  * Filters templates containing the node type and extracts matching configurations.
  *
  * @param templates - The cached workflow templates to extract from
- * @param nodeType - The node type to filter by (e.g., 'n8n-nodes-base.telegram')
+ * @param nodeType - The node type to filter by (e.g., 'resin-nodes-base.telegram')
  * @param nodeVersion - Optional version to filter by
  * @returns Array of matching node configuration entries
  */

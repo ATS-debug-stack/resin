@@ -12,13 +12,13 @@ import type {
 	INodeType,
 	INodeTypes,
 	ICredentialDataDecryptedObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ApplicationError,
 	ExpressionError,
 	NodeConnectionTypes,
 	type WorkflowExpression,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { ExecutionLifecycleHooks } from '@/execution-engine/execution-lifecycle-hooks';
 
@@ -184,7 +184,7 @@ describe('ExecuteContext', () => {
 		});
 
 		it('should handle expression errors on Set nodes (Ticket #PAY-684)', () => {
-			node.type = 'n8n-nodes-base.set';
+			node.type = 'resin-nodes-base.set';
 			node.continueOnFail = true;
 
 			expression.getParameterValue.mockImplementationOnce(() => {

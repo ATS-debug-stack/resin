@@ -1,12 +1,12 @@
-import { createWorkflow, testDb, mockInstance } from '@n8n/backend-test-utils';
-import { DataDeduplicationService } from 'n8n-core';
+import { createWorkflow, testDb, mockInstance } from '@resin/backend-test-utils';
+import { DataDeduplicationService } from 'resin-core';
 import type {
 	ICheckProcessedContextData,
 	IDeduplicationOutput,
 	INode,
 	DeduplicationItemTypes,
-} from 'n8n-workflow';
-import { Workflow } from 'n8n-workflow';
+} from 'resin-workflow';
+import { Workflow } from 'resin-workflow';
 
 import { getDataDeduplicationService } from '@/deduplication';
 import { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';

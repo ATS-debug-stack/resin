@@ -1,5 +1,5 @@
-import type { AgentDbMessage, MessageContent } from '@n8n/agents';
-import type { AgentPersistedMessageContentPart, AgentPersistedMessageDto } from '@n8n/api-types';
+import type { AgentDbMessage, MessageContent } from '@resin/agents';
+import type { AgentPersistedMessageContentPart, AgentPersistedMessageDto } from '@resin/api-types';
 
 export function contentPartToDto(part: MessageContent): AgentPersistedMessageContentPart {
 	const dto: AgentPersistedMessageContentPart = { type: part.type };

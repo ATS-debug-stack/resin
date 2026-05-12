@@ -1,4 +1,8 @@
-import type { INodeProperties, INodePropertyCollection, INodePropertyOptions } from 'n8n-workflow';
+import type {
+	INodeProperties,
+	INodePropertyCollection,
+	INodePropertyOptions,
+} from 'resin-workflow';
 
 export const rabbitDefaultOptions: Array<
 	INodePropertyOptions | INodeProperties | INodePropertyCollection

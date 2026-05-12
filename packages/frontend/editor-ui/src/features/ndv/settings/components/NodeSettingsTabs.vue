@@ -3,8 +3,8 @@ import type { ITab } from '@/Interface';
 import { COMMUNITY_NODES_INSTALLATION_DOCS_URL } from '@/features/settings/communityNodes/communityNodes.constants';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
-import type { INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { computed } from 'vue';
 
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
@@ -12,9 +12,9 @@ import { useInstalledCommunityPackage } from '@/features/settings/communityNodes
 import { useNodeDocsUrl } from '@/app/composables/useNodeDocsUrl';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import type { NodeSettingsTab } from '@/app/types/nodeSettings';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
-import { N8nTabs } from '@n8n/design-system';
+import { N8nTabs } from '@resin/design-system';
 type Props = {
 	modelValue?: NodeSettingsTab;
 	nodeType?: INodeTypeDescription | null;

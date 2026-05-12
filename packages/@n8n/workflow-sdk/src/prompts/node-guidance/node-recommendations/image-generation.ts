@@ -4,7 +4,7 @@ export const imageGenerationRecommendation: NodeRecommendationDocument = {
 	category: RecommendationCategory.IMAGE_GENERATION,
 	version: '1.0.0',
 	recommendation: {
-		defaultNode: '@n8n/n8n-nodes-langchain.openAi',
+		defaultNode: '@resin/n8n-nodes-langchain.openAi',
 		operations: [
 			'Analyze Image: Analyze and describe image content using GPT-4 Vision',
 			'Generate an Image: Create images from text prompts using DALL-E',

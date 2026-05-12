@@ -1,6 +1,6 @@
-import { GlobalConfig } from '@n8n/config';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Container } from '@resin/di';
 import type { Router, ErrorRequestHandler, RequestHandler } from 'express';
 import express from 'express';
 import fs from 'fs/promises';
@@ -8,7 +8,7 @@ import path from 'path';
 import type { JsonObject } from 'swagger-ui-express';
 import validator from 'validator';
 
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 
 import { EventService } from '@/events/event.service';
 import { License } from '@/license';

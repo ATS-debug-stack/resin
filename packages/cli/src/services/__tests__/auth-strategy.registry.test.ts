@@ -1,4 +1,4 @@
-import type { AuthenticatedRequest, TokenGrant, User } from '@n8n/db';
+import type { AuthenticatedRequest, TokenGrant, User } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import { AuthStrategyRegistry } from '../auth-strategy.registry';

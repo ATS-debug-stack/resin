@@ -3,8 +3,8 @@ import type {
 	INodePropertyCollection,
 	INodePropertyOptions,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { UnexpectedError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { UnexpectedError } from 'resin-workflow';
 
 const DISCRIMINATOR_NAMES = new Set(['operation', 'mode', 'resource']);
 

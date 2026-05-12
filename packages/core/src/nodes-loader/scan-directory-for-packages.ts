@@ -1,5 +1,5 @@
 import glob from 'fast-glob';
-import { type NodeLoader } from 'n8n-workflow';
+import { type NodeLoader } from 'resin-workflow';
 import path from 'path';
 
 import { LazyPackageDirectoryLoader } from './lazy-package-directory-loader';
@@ -20,7 +20,7 @@ export async function scanDirectoryForPackages(
 	};
 
 	const installedPackagePaths = [
-		...(await glob('n8n-nodes-*', globOptions)),
+		...(await glob('resin-nodes-*', globOptions)),
 		...(await glob('@*/n8n-nodes-*', { ...globOptions, deep: 2 })),
 	];
 

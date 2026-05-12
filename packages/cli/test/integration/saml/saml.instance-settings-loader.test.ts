@@ -1,7 +1,7 @@
-import { testDb } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { SettingsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { SettingsRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { SsoInstanceSettingsLoader } from '@/instance-settings-loader/loaders/sso/sso.instance-settings-loader';
 import { PROVISIONING_PREFERENCES_DB_KEY } from '@/modules/provisioning.ee/constants';

@@ -3,7 +3,7 @@ import type {
 	SamlPreferences,
 	SamlToggleDto,
 	TestOidcConfigResponseDto,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 import type { IRestApiContext } from '../types';
 import { makeRestApiRequest } from '../utils';

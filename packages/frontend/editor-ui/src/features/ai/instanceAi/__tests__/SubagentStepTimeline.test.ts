@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { createThreadComponentRenderer } from './createThreadComponentRenderer';
 import { createTestingPinia } from '@pinia/testing';
 import SubagentStepTimeline from '../components/SubagentStepTimeline.vue';
-import type { InstanceAiAgentNode, InstanceAiToolCallState } from '@n8n/api-types';
+import type { InstanceAiAgentNode, InstanceAiToolCallState } from '@resin/api-types';
 
 const renderComponent = createThreadComponentRenderer(SubagentStepTimeline, {
 	global: {

@@ -1,21 +1,21 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { Logger } from '@n8n/backend-common';
-import { ExecutionsConfig, GlobalConfig } from '@n8n/config';
+import { Logger } from '@resin/backend-common';
+import { ExecutionsConfig, GlobalConfig } from '@resin/config';
 import {
 	ExecutionRepository,
 	FolderRepository,
 	ProjectRepository,
 	SharedWorkflowRepository,
 	User,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 import {
 	createDeferredPromise,
 	ManualExecutionCancelledError,
 	type IDeferredPromise,
 	type IRun,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	createAddDataTableColumnTool,

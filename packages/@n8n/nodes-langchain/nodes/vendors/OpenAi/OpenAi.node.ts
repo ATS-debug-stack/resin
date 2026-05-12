@@ -2,7 +2,7 @@ import {
 	type IVersionedNodeType,
 	VersionedNodeType,
 	type INodeTypeBaseDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { prettifyOperation } from './helpers/description';
 import { OpenAiV1 } from './v1/OpenAiV1.node';
@@ -47,11 +47,11 @@ export class OpenAi extends VersionedNodeType {
 					'For text generation, reasoning and tools, use AI Agent with OpenAI Chat Model. This OpenAI node is for specialized operations: image generation (DALL-E), audio (Whisper, TTS), and video generation (Sora).',
 				relatedNodes: [
 					{
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						relationHint: 'Prefer for most LLM tasks',
 					},
 					{
-						nodeType: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						relationHint: 'Prefer for most LLM tasks',
 					},
 				],

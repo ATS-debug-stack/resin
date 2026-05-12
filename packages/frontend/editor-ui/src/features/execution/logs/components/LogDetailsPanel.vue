@@ -9,7 +9,7 @@ import {
 	type LogDetailsPanelState,
 } from '@/features/execution/logs/logs.types';
 import NodeIcon from '@/app/components/NodeIcon.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import LogsViewNodeName from '@/features/execution/logs/components/LogsViewNodeName.vue';
 import { computed, useTemplateRef } from 'vue';
@@ -26,7 +26,7 @@ import { useExecutionRedaction } from '@/features/execution/executions/composabl
 import { useUIStore } from '@/app/stores/ui.store';
 import { WORKFLOW_SETTINGS_MODAL_KEY } from '@/app/constants/modals';
 import RedactedDataState from '@/features/ndv/panel/components/RedactedDataState.vue';
-import { N8nButton, N8nIcon, N8nResizeWrapper, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nIcon, N8nResizeWrapper, N8nText } from '@resin/design-system';
 import { useMessageAgentSessionLink } from '@/features/agents/composables/useMessageAgentSessionLink';
 const MIN_IO_PANEL_WIDTH = 200;
 

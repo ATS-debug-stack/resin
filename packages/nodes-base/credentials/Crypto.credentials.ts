@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties, Icon, ThemeIconColor } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties, Icon, ThemeIconColor } from 'resin-workflow';
 
 export class Crypto implements ICredentialType {
 	name = 'crypto';

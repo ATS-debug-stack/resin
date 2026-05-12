@@ -1,5 +1,5 @@
-import { Service } from '@n8n/di';
-import { Brackets, DataSource, In, Repository } from '@n8n/typeorm';
+import { Service } from '@resin/di';
+import { Brackets, DataSource, In, Repository } from '@resin/typeorm';
 
 import { SecretsProviderConnection, SharedCredentials } from '../entities';
 

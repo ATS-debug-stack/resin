@@ -1,5 +1,5 @@
-import type { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import type { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 import { mkdtempSync, readFileSync } from 'fs';
 import { IncomingMessage } from 'http';
 import { mock } from 'jest-mock-extended';
@@ -8,8 +8,8 @@ import type {
 	INode,
 	ITaskDataConnections,
 	IWorkflowExecuteAdditionalData,
-} from 'n8n-workflow';
-import { BINARY_MODE_COMBINED } from 'n8n-workflow';
+} from 'resin-workflow';
+import { BINARY_MODE_COMBINED } from 'resin-workflow';
 import { tmpdir } from 'os';
 import { join } from 'path';
 import { Readable } from 'stream';

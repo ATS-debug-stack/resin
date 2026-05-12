@@ -5,7 +5,7 @@ import { useExperimentalNdvStore } from '@/features/workflows/canvas/experimenta
 import { useSetupPanelStore } from '@/features/setupPanel/setupPanel.store';
 import { useInjectWorkflowId } from '@/app/composables/useInjectWorkflowId';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { useDeviceSupport } from '@n8n/composables/useDeviceSupport';
+import { useDeviceSupport } from '@resin/composables/useDeviceSupport';
 import { useTelemetryContext } from '@/app/composables/useTelemetryContext';
 import { computed, watch, useTemplateRef, onBeforeUnmount } from 'vue';
 import { storeToRefs } from 'pinia';
@@ -14,7 +14,7 @@ import { useActiveElement, useThrottleFn } from '@vueuse/core';
 import { type CanvasNode, CanvasNodeRenderType } from '@/features/workflows/canvas/canvas.types';
 import { type ContextMenuAction } from '@/features/shared/contextMenu/composables/useContextMenuItems';
 import type { INodeUi, ResizeData } from '@/Interface';
-import { N8nResizeWrapper } from '@n8n/design-system';
+import { N8nResizeWrapper } from '@resin/design-system';
 import FocusSidebarTabs from '@/features/setupPanel/components/FocusSidebarTabs.vue';
 import SetupPanel from '@/features/setupPanel/components/SetupPanel.vue';
 import FocusPanel from '@/app/components/FocusPanel.vue';

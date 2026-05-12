@@ -1,12 +1,12 @@
-import type { CredentialPayload } from '@n8n/backend-test-utils';
+import type { CredentialPayload } from '@resin/backend-test-utils';
 import {
 	createTeamProject,
 	getProjectByNameOrFail,
 	createWorkflow,
 	randomName,
 	testDb,
-} from '@n8n/backend-test-utils';
-import type { TagEntity, Variables } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import type { TagEntity, Variables } from '@resin/db';
 import {
 	ApiKeyRepository,
 	CredentialsRepository,
@@ -14,11 +14,11 @@ import {
 	TagRepository,
 	SharedCredentialsRepository,
 	SharedWorkflowRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
-import { getOwnerOnlyApiKeyScopes } from '@n8n/permissions';
+} from '@resin/db';
+import { Container } from '@resin/di';
+import { getOwnerOnlyApiKeyScopes } from '@resin/permissions';
 import { mock } from 'jest-mock-extended';
-import { randomString } from 'n8n-workflow';
+import { randomString } from 'resin-workflow';
 import validator from 'validator';
 
 import { CredentialsTester } from '@/services/credentials-tester.service';
@@ -1361,7 +1361,7 @@ describe('Public API endpoints with API key scopes', () => {
 								id: 'uuid-1234',
 								parameters: {},
 								name: 'Start',
-								type: 'n8n-nodes-base.manualTrigger',
+								type: 'resin-nodes-base.manualTrigger',
 								typeVersion: 1,
 								position: [240, 300],
 							},
@@ -1432,7 +1432,7 @@ describe('Public API endpoints with API key scopes', () => {
 								id: 'uuid-1234',
 								parameters: {},
 								name: 'Start',
-								type: 'n8n-nodes-base.manualTrigger',
+								type: 'resin-nodes-base.manualTrigger',
 								typeVersion: 1,
 								position: [240, 300],
 							},
@@ -1678,7 +1678,7 @@ describe('Public API endpoints with API key scopes', () => {
 								id: 'uuid-1234',
 								parameters: {},
 								name: 'Start',
-								type: 'n8n-nodes-base.manualTrigger',
+								type: 'resin-nodes-base.manualTrigger',
 								typeVersion: 1,
 								position: [240, 300],
 							},
@@ -1686,7 +1686,7 @@ describe('Public API endpoints with API key scopes', () => {
 								id: 'uuid-1234',
 								parameters: {},
 								name: 'Cron',
-								type: 'n8n-nodes-base.cron',
+								type: 'resin-nodes-base.cron',
 								typeVersion: 1,
 								position: [400, 300],
 							},
@@ -1759,7 +1759,7 @@ describe('Public API endpoints with API key scopes', () => {
 								id: 'uuid-1234',
 								parameters: {},
 								name: 'Start',
-								type: 'n8n-nodes-base.manualTrigger',
+								type: 'resin-nodes-base.manualTrigger',
 								typeVersion: 1,
 								position: [240, 300],
 							},
@@ -1767,7 +1767,7 @@ describe('Public API endpoints with API key scopes', () => {
 								id: 'uuid-1234',
 								parameters: {},
 								name: 'Cron',
-								type: 'n8n-nodes-base.cron',
+								type: 'resin-nodes-base.cron',
 								typeVersion: 1,
 								position: [400, 300],
 							},

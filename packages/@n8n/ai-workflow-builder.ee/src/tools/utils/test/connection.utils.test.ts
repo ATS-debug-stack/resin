@@ -1,5 +1,5 @@
-import type { INode, INodeTypeDescription, IConnections, NodeConnectionType } from 'n8n-workflow';
-import { NodeConnectionTypes, NodeHelpers } from 'n8n-workflow';
+import type { INode, INodeTypeDescription, IConnections, NodeConnectionType } from 'resin-workflow';
+import { NodeConnectionTypes, NodeHelpers } from 'resin-workflow';
 
 import {
 	validateConnection,
@@ -14,7 +14,7 @@ describe('connection.utils', () => {
 	// Mock node types
 	const mockMainNodeType: INodeTypeDescription = {
 		displayName: 'Main Node',
-		name: 'n8n-nodes-base.mainNode',
+		name: 'resin-nodes-base.mainNode',
 		group: ['transform'],
 		version: 1,
 		inputs: [NodeConnectionTypes.Main],
@@ -26,7 +26,7 @@ describe('connection.utils', () => {
 
 	const mockSubNodeType: INodeTypeDescription = {
 		displayName: 'AI Sub Node',
-		name: 'n8n-nodes-base.aiSubNode',
+		name: 'resin-nodes-base.aiSubNode',
 		group: ['output'],
 		version: 1,
 		inputs: [],
@@ -38,7 +38,7 @@ describe('connection.utils', () => {
 
 	const mockDualNodeType: INodeTypeDescription = {
 		displayName: 'Dual Node',
-		name: 'n8n-nodes-base.dualNode',
+		name: 'resin-nodes-base.dualNode',
 		group: ['transform'],
 		version: 1,
 		inputs: [NodeConnectionTypes.Main, 'ai_embedding'],
@@ -50,7 +50,7 @@ describe('connection.utils', () => {
 
 	const mockExpressionNodeType: INodeTypeDescription = {
 		displayName: 'Expression Node',
-		name: 'n8n-nodes-base.expressionNode',
+		name: 'resin-nodes-base.expressionNode',
 		group: ['transform'],
 		version: 1,
 		inputs:
@@ -63,7 +63,7 @@ describe('connection.utils', () => {
 
 	const mockComplexExpressionNodeType: INodeTypeDescription = {
 		displayName: 'Complex Expression Node',
-		name: 'n8n-nodes-base.complexExpressionNode',
+		name: 'resin-nodes-base.complexExpressionNode',
 		group: ['transform'],
 		version: 1,
 		inputs: `={{
@@ -86,7 +86,7 @@ describe('connection.utils', () => {
 
 	const mockTriggerNodeType: INodeTypeDescription = {
 		displayName: 'Trigger Node',
-		name: 'n8n-nodes-base.trigger',
+		name: 'resin-nodes-base.trigger',
 		group: ['trigger'],
 		version: 1,
 		inputs: [],
@@ -98,7 +98,7 @@ describe('connection.utils', () => {
 
 	const mockIfNodeType: INodeTypeDescription = {
 		displayName: 'If Node',
-		name: 'n8n-nodes-base.if',
+		name: 'resin-nodes-base.if',
 		group: ['transform'],
 		version: 1,
 		inputs: [NodeConnectionTypes.Main],
@@ -111,7 +111,7 @@ describe('connection.utils', () => {
 
 	const mockVectorStoreNodeType: INodeTypeDescription = {
 		displayName: 'Vector Store',
-		name: 'n8n-nodes-base.vectorStore',
+		name: 'resin-nodes-base.vectorStore',
 		group: ['input'],
 		version: 1,
 		inputs: `={{
@@ -132,7 +132,7 @@ describe('connection.utils', () => {
 	const mockMainNode: INode = {
 		id: 'node1',
 		name: 'Main Node',
-		type: 'n8n-nodes-base.mainNode',
+		type: 'resin-nodes-base.mainNode',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -141,7 +141,7 @@ describe('connection.utils', () => {
 	const mockSubNode: INode = {
 		id: 'node2',
 		name: 'AI Sub Node',
-		type: 'n8n-nodes-base.aiSubNode',
+		type: 'resin-nodes-base.aiSubNode',
 		typeVersion: 1,
 		position: [100, 0],
 		parameters: {},
@@ -150,7 +150,7 @@ describe('connection.utils', () => {
 	const mockDualNode: INode = {
 		id: 'node3',
 		name: 'Dual Node',
-		type: 'n8n-nodes-base.dualNode',
+		type: 'resin-nodes-base.dualNode',
 		typeVersion: 1,
 		position: [200, 0],
 		parameters: {},
@@ -213,7 +213,7 @@ describe('connection.utils', () => {
 		it('should handle unknown node types', () => {
 			const unknownNode: INode = {
 				...mockMainNode,
-				type: 'n8n-nodes-base.unknown',
+				type: 'resin-nodes-base.unknown',
 			};
 			const result = validateConnection(
 				unknownNode,
@@ -229,7 +229,7 @@ describe('connection.utils', () => {
 			const expressionNode: INode = {
 				id: 'expr1',
 				name: 'Expression Node',
-				type: 'n8n-nodes-base.expressionNode',
+				type: 'resin-nodes-base.expressionNode',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: { mode: 'retrieve-as-tool' },
@@ -691,7 +691,7 @@ describe('connection.utils', () => {
 			// For swap to work, the target (sub-node) must output something the source accepts
 			const aiOutputSubNode: INodeTypeDescription = {
 				...mockSubNodeType,
-				name: 'n8n-nodes-base.aiOutputSub',
+				name: 'resin-nodes-base.aiOutputSub',
 				inputs: [],
 				outputs: ['ai_embedding'],
 			};
@@ -756,7 +756,7 @@ describe('connection.utils', () => {
 		it('should handle expression-based nodes', () => {
 			const exprNode: INode = {
 				...mockMainNode,
-				type: 'n8n-nodes-base.expressionNode',
+				type: 'resin-nodes-base.expressionNode',
 				parameters: { mode: 'retrieve-as-tool' },
 			};
 
@@ -775,7 +775,7 @@ describe('connection.utils', () => {
 			const ifNode: INode = {
 				id: 'if1',
 				name: 'If',
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -790,7 +790,7 @@ describe('connection.utils', () => {
 			const triggerNode: INode = {
 				id: 'trigger1',
 				name: 'Trigger',
-				type: 'n8n-nodes-base.trigger',
+				type: 'resin-nodes-base.trigger',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -813,7 +813,7 @@ describe('connection.utils', () => {
 			};
 			const aiDocAcceptorSubNode: INodeTypeDescription = {
 				...mockSubNodeType,
-				name: 'n8n-nodes-base.aiDocAcceptor',
+				name: 'resin-nodes-base.aiDocAcceptor',
 				inputs: ['ai_document'],
 				outputs: ['ai_tool'],
 			};
@@ -842,7 +842,7 @@ describe('connection.utils', () => {
 			const vectorStoreNode: INode = {
 				id: 'vs1',
 				name: 'Vector Store',
-				type: 'n8n-nodes-base.vectorStore',
+				type: 'resin-nodes-base.vectorStore',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: { mode: 'retrieve-as-tool' },
@@ -873,7 +873,7 @@ describe('connection.utils', () => {
 			const complexNode: INode = {
 				id: 'complex1',
 				name: 'Complex',
-				type: 'n8n-nodes-base.complexExpressionNode',
+				type: 'resin-nodes-base.complexExpressionNode',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: { acceptMain: true, acceptAI: true },
@@ -892,7 +892,7 @@ describe('connection.utils', () => {
 		it('should handle expression returning array with main', () => {
 			const arrayExprNode: INodeTypeDescription = {
 				...mockMainNodeType,
-				name: 'n8n-nodes-base.arrayExpr',
+				name: 'resin-nodes-base.arrayExpr',
 				outputs: '={{ ["main", "main"] }}',
 			};
 			const arrayNode: INode = {

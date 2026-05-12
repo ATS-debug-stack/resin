@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig, TaskRunnersConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { Service } from '@n8n/di';
-import type { BrokerMessage, RunnerMessage } from '@n8n/task-runner';
-import { jsonStringify, sleep, UserError } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig, TaskRunnersConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { Service } from '@resin/di';
+import type { BrokerMessage, RunnerMessage } from '@resin/task-runner';
+import { jsonStringify, sleep, UserError } from 'resin-workflow';
 import type WebSocket from 'ws';
 
 import { WsStatusCodes } from '@/constants';

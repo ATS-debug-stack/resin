@@ -1,5 +1,5 @@
 /**
- * Re-export node recommendations from the shared @n8n/workflow-sdk/prompts package.
+ * Re-export node recommendations from the shared @resin/workflow-sdk/prompts package.
  */
 import {
 	RecommendationCategory,
@@ -10,7 +10,7 @@ import {
 	videoGenerationRecommendation,
 	audioGenerationRecommendation,
 	formatRecommendation,
-} from '@n8n/workflow-sdk/prompts/node-guidance/node-recommendations';
+} from '@resin/workflow-sdk/prompts/node-guidance/node-recommendations';
 
 export { formatRecommendation };
 

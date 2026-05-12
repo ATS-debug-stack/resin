@@ -10,8 +10,8 @@
 import { Agent } from '@mastra/core/agent';
 import type { ToolsInput } from '@mastra/core/agent';
 import { createTool } from '@mastra/core/tools';
-import { generateWorkflowCode } from '@n8n/workflow-sdk';
-import { UserError } from 'n8n-workflow';
+import { generateWorkflowCode } from '@resin/workflow-sdk';
+import { UserError } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 import { createHash, randomUUID } from 'node:crypto';
 import { z } from 'zod';

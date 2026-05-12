@@ -3,7 +3,7 @@ import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useMessage } from '@/app/composables/useMessage';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { MODAL_CONFIRM } from '@/app/constants/modals';
 import RevealDataWarning from '../components/RevealDataWarning.vue';
 

@@ -1,7 +1,7 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { ApiKeyRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { AuthenticatedRequest } from '@resin/db';
+import { ApiKeyRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import type { Response } from 'express';
 
 import { UnauthenticatedError } from '@/errors/response-errors/unauthenticated.error';

@@ -1,4 +1,4 @@
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 
 /**
  * Error thrown during instance bootstrapping when environment variable

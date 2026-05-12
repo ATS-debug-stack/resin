@@ -1,5 +1,5 @@
 import type { ToolsInput } from '@mastra/core/agent';
-import { isSafeObjectKey } from '@n8n/api-types';
+import { isSafeObjectKey } from '@resin/api-types';
 
 export class McpToolNameValidationError extends Error {
 	constructor(

@@ -1,19 +1,19 @@
-import { ExecutionRepository } from '@n8n/db';
-import type { IExecutionResponse, Project } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { ExecuteContext, isEngineRequest } from 'n8n-core';
+import { ExecutionRepository } from '@resin/db';
+import type { IExecutionResponse, Project } from '@resin/db';
+import { Service } from '@resin/di';
+import { ExecuteContext, isEngineRequest } from 'resin-core';
 import type {
 	IBinaryKeyData,
 	INodeExecutionData,
 	IWorkflowExecutionDataProcess,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	Workflow,
 	BINARY_ENCODING,
 	UnexpectedError,
 	CHAT_TOOL_NODE_TYPE,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { NotFoundError } from '../errors/response-errors/not-found.error';
 import * as WorkflowExecuteAdditionalData from '../workflow-execute-additional-data';

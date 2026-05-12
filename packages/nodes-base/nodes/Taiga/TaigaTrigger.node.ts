@@ -8,7 +8,7 @@ import {
 	type IWebhookFunctions,
 	type IWebhookResponseData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getAutomaticSecret, taigaApiRequest } from './GenericFunctions';
 import { verifySignature } from './TaigaTriggerHelpers';

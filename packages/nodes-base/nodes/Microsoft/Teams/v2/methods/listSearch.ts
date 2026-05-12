@@ -5,7 +5,7 @@ import {
 	type INodeListSearchItems,
 	type INodeListSearchResult,
 	sleep,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { filterSortSearchListItems } from '../helpers/utils';
 import { microsoftApiRequest } from '../transport';

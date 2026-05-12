@@ -1,7 +1,10 @@
-import type { BreakingChangeAffectedWorkflow, BreakingChangeRecommendation } from '@n8n/api-types';
-import type { WorkflowEntity } from '@n8n/db';
-import { BreakingChangeRule } from '@n8n/decorators';
-import type { INode } from 'n8n-workflow';
+import type {
+	BreakingChangeAffectedWorkflow,
+	BreakingChangeRecommendation,
+} from '@resin/api-types';
+import type { WorkflowEntity } from '@resin/db';
+import { BreakingChangeRule } from '@resin/decorators';
+import type { INode } from 'resin-workflow';
 
 import type {
 	BreakingChangeRuleMetadata,
@@ -13,8 +16,8 @@ import { BreakingChangeCategory } from '../../types';
 @BreakingChangeRule({ version: 'v2' })
 export class DisabledNodesRule implements IBreakingChangeWorkflowRule {
 	private readonly DISABLED_NODES = [
-		'n8n-nodes-base.executeCommand',
-		'n8n-nodes-base.localFileTrigger',
+		'resin-nodes-base.executeCommand',
+		'resin-nodes-base.localFileTrigger',
 	];
 
 	id: string = 'disabled-nodes-v2';

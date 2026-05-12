@@ -7,8 +7,8 @@ import type {
 	ILoadOptionsFunctions,
 	INodeExecutionData,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 export async function brandfetchApiRequest(
 	this: IHookFunctions | IExecuteFunctions | ILoadOptionsFunctions,

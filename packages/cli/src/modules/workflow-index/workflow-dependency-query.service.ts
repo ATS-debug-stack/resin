@@ -3,17 +3,17 @@ import type {
 	DependencyCountsBatchResponse,
 	DependencyResourceType,
 	ResolvedDependency,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import {
 	CredentialsRepository,
 	ProjectRelationRepository,
 	WorkflowDependencyRepository,
 	WorkflowRepository,
-} from '@n8n/db';
-import type { User } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
-import { In } from '@n8n/typeorm';
+} from '@resin/db';
+import type { User } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
+import { In } from '@resin/typeorm';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { DataTableRepository } from '@/modules/data-table/data-table.repository';

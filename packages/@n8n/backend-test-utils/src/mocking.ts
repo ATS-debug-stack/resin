@@ -1,4 +1,4 @@
-import { Container, type Constructable } from '@n8n/di';
+import { Container, type Constructable } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 export const mockInstance = <T>(

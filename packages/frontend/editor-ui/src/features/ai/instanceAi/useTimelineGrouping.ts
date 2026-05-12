@@ -2,8 +2,8 @@ import type {
 	InstanceAiAgentNode,
 	InstanceAiTimelineEntry,
 	InstanceAiToolCallState,
-} from '@n8n/api-types';
-import type { IconName } from '@n8n/design-system';
+} from '@resin/api-types';
+import type { IconName } from '@resin/design-system';
 import { computed, type ComputedRef, type Ref } from 'vue';
 import { extractArtifacts, HIDDEN_TOOLS, type ArtifactInfo } from './agentTimeline.utils';
 

@@ -1,6 +1,6 @@
-import { Container } from '@n8n/di';
-import { Cipher, InstanceSettings } from 'n8n-core';
-import { jsonParse } from 'n8n-workflow';
+import { Container } from '@resin/di';
+import { Cipher, InstanceSettings } from 'resin-core';
+import { jsonParse } from 'resin-workflow';
 import { readFile, writeFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 

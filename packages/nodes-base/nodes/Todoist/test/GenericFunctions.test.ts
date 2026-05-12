@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 
 import type { Context } from '../GenericFunctions';
 import { todoistApiGetAllRequest, todoistSyncRequest } from '../GenericFunctions';

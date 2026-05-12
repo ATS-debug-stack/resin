@@ -41,7 +41,7 @@ export default class CloudSupport extends Command {
 	}
 
 	private async enableCloudSupport(workingDir: string): Promise<void> {
-		intro(await getCommandHeader('n8n-node cloud-support enable'));
+		intro(await getCommandHeader('resin-node cloud-support enable'));
 
 		await this.updateEslintConfig(workingDir, true);
 		log.success(`Updated ${picocolors.cyan('eslint.config.mjs')} to use default config`);
@@ -56,7 +56,7 @@ export default class CloudSupport extends Command {
 	}
 
 	private async disableCloudSupport(workingDir: string): Promise<void> {
-		intro(await getCommandHeader('n8n-node cloud-support disable'));
+		intro(await getCommandHeader('resin-node cloud-support disable'));
 
 		log.warning(`This will make your node ineligible for n8n Cloud verification!
 
@@ -94,11 +94,11 @@ The following changes will be made:
 	private async updateEslintConfig(workingDir: string, enableCloud: boolean): Promise<void> {
 		const eslintConfigPath = path.resolve(workingDir, 'eslint.config.mjs');
 		const newConfig = enableCloud
-			? `import { config } from '@n8n/node-cli/eslint';
+			? `import { config } from '@resin/node-cli/eslint';
 
 export default config;
 `
-			: `import { configWithoutCloudSupport } from '@n8n/node-cli/eslint';
+			: `import { configWithoutCloudSupport } from '@resin/node-cli/eslint';
 
 export default configWithoutCloudSupport;
 `;
@@ -115,7 +115,7 @@ export default configWithoutCloudSupport;
 	}
 
 	private async showCloudSupportStatus(workingDir: string): Promise<void> {
-		intro(await getCommandHeader('n8n-node cloud-support'));
+		intro(await getCommandHeader('resin-node cloud-support'));
 
 		try {
 			const packageJson = await getPackageJson(workingDir);
@@ -130,7 +130,7 @@ export default configWithoutCloudSupport;
 				const eslintConfig = await fs.readFile(eslintConfigPath, 'utf-8');
 				const normalizedConfig = eslintConfig.replace(/\s+/g, ' ').trim();
 				const expectedDefault =
-					"import { config } from '@n8n/node-cli/eslint'; export default config;";
+					"import { config } from '@resin/node-cli/eslint'; export default config;";
 				isUsingDefaultConfig = normalizedConfig === expectedDefault;
 			} catch {
 				// eslint config doesn't exist or can't be read

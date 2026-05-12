@@ -1,7 +1,7 @@
 import type { NodeTypeGuide } from './types';
 
 export const SWITCH_NODE_GUIDE: NodeTypeGuide = {
-	patterns: ['n8n-nodes-base.switch'],
+	patterns: ['resin-nodes-base.switch'],
 	content: `
 ### Switch Node Configuration Guide
 

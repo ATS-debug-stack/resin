@@ -1,4 +1,4 @@
-import { isOriginAllowed } from '@n8n/computer-use/config';
+import { isOriginAllowed } from '@resin/computer-use/config';
 
 /**
  * Throws if the normalized instance URL's origin is not allowed by the configured patterns.

@@ -1,6 +1,6 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import { getCurrentTaskInput } from '@langchain/langgraph';
-import type { INode, INodeTypeDescription } from 'n8n-workflow';
+import type { INode, INodeTypeDescription } from 'resin-workflow';
 
 import {
 	createNode,
@@ -72,7 +72,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'node1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					parameters: {
 						method: 'GET',
 						url: 'https://example.com',
@@ -131,7 +131,7 @@ describe('UpdateNodeParametersTool', () => {
 			expect(completeMessage?.updates[0]?.data).toMatchObject({
 				nodeId: 'node1',
 				nodeName: 'HTTP Request',
-				nodeType: 'n8n-nodes-base.httpRequest',
+				nodeType: 'resin-nodes-base.httpRequest',
 				appliedChanges: ['Change method to POST', 'Add Content-Type header'],
 			});
 		});
@@ -141,7 +141,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'node1',
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: {},
 				}),
 			]);
@@ -192,7 +192,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'node1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					parameters: {
 						method: 'GET',
 						url: 'https://example.com',
@@ -263,7 +263,7 @@ describe('UpdateNodeParametersTool', () => {
 
 		it('should handle LLM returning invalid parameters', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -330,7 +330,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'node1',
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: {},
 				}),
 			]);
@@ -382,7 +382,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'node1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					parameters: {
 						method: 'POST',
 						url: 'https://api.example.com',
@@ -469,7 +469,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'node1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					parameters: { url: 'https://example.com' }, // Has URL initially
 				}),
 			]);
@@ -506,7 +506,7 @@ describe('UpdateNodeParametersTool', () => {
 
 		it('should handle LLM chain errors gracefully', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -529,7 +529,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'node1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					parameters: {
 						method: 'GET',
 						url: 'https://example.com',
@@ -571,7 +571,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'test-node',
 					name: 'My HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					parameters: {
 						method: 'GET',
 						url: 'https://old.example.com',
@@ -617,7 +617,7 @@ describe('UpdateNodeParametersTool', () => {
 					node_definition: expect.any(String),
 					node_id: 'test-node',
 					node_name: 'My HTTP Request',
-					node_type: 'n8n-nodes-base.httpRequest',
+					node_type: 'resin-nodes-base.httpRequest',
 					current_parameters: JSON.stringify(
 						{
 							method: 'GET',
@@ -638,7 +638,7 @@ describe('UpdateNodeParametersTool', () => {
 				mockLLM,
 
 				expect.objectContaining({
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 					nodeDefinition: expect.any(Object),
 					requestedChanges: ['Update URL'],
@@ -653,7 +653,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'webhook1',
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					parameters: {
 						path: 'webhook',
 					},
@@ -690,7 +690,7 @@ describe('UpdateNodeParametersTool', () => {
 
 		it('should format multiple changes correctly', async () => {
 			const existingWorkflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, existingWorkflow);
 
@@ -715,7 +715,7 @@ describe('UpdateNodeParametersTool', () => {
 				createNode({
 					id: 'test-node',
 					name: 'Set Node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: {},
 				}),
 			]);
@@ -825,7 +825,7 @@ describe('UpdateNodeParametersTool', () => {
 			const testNode = createNode({
 				id: 'http-node',
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				typeVersion: 2, // Using version 2
 				parameters: { url: 'https://example.com', method: 'GET' },
 			});
@@ -871,7 +871,7 @@ describe('UpdateNodeParametersTool', () => {
 			const testNode = createNode({
 				id: 'old-node',
 				name: 'Old Code Node',
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				typeVersion: 99, // Non-existent version
 				parameters: {},
 			});
@@ -891,7 +891,7 @@ describe('UpdateNodeParametersTool', () => {
 
 			const content = parseToolResult<ParsedToolContent>(result);
 
-			expectToolError(content, 'Error: Node type "n8n-nodes-base.code" not found');
+			expectToolError(content, 'Error: Node type "resin-nodes-base.code" not found');
 		});
 
 		it('should handle array version node types correctly', async () => {
@@ -923,7 +923,7 @@ describe('UpdateNodeParametersTool', () => {
 			const testNode = createNode({
 				id: 'multi-version-node',
 				name: 'Multi Version Code',
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				typeVersion: 2, // Request version 2 from the array
 				parameters: { code: 'console.log("hello")', mode: 'js' },
 			});

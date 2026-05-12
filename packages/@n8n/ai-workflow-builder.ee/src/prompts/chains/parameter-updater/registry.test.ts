@@ -1,4 +1,4 @@
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import { getMatchingGuides, getMatchingExamples, matchesPattern } from './registry';
 import type { PromptContext } from './types';
@@ -26,11 +26,11 @@ const createContext = (nodeType: string, extras?: Partial<PromptContext>): Promp
 describe('matchesPattern', () => {
 	describe('exact match', () => {
 		it('should match exact node type', () => {
-			expect(matchesPattern('n8n-nodes-base.set', 'n8n-nodes-base.set')).toBe(true);
+			expect(matchesPattern('resin-nodes-base.set', 'resin-nodes-base.set')).toBe(true);
 		});
 
 		it('should not match different node type', () => {
-			expect(matchesPattern('n8n-nodes-base.if', 'n8n-nodes-base.set')).toBe(false);
+			expect(matchesPattern('resin-nodes-base.if', 'resin-nodes-base.set')).toBe(false);
 		});
 	});
 
@@ -54,48 +54,48 @@ describe('matchesPattern', () => {
 
 	describe('prefix wildcard (n8n-nodes-base.*)', () => {
 		it('should match node starting with prefix', () => {
-			expect(matchesPattern('n8n-nodes-base.set', 'n8n-nodes-base.*')).toBe(true);
-			expect(matchesPattern('n8n-nodes-base.if', 'n8n-nodes-base.*')).toBe(true);
+			expect(matchesPattern('resin-nodes-base.set', 'resin-nodes-base.*')).toBe(true);
+			expect(matchesPattern('resin-nodes-base.if', 'resin-nodes-base.*')).toBe(true);
 		});
 
 		it('should not match node not starting with prefix', () => {
-			expect(matchesPattern('@n8n/langchain.agent', 'n8n-nodes-base.*')).toBe(false);
+			expect(matchesPattern('@resin/langchain.agent', 'resin-nodes-base.*')).toBe(false);
 		});
 	});
 
 	describe('substring match', () => {
 		it('should match substring in node type', () => {
-			expect(matchesPattern('n8n-nodes-base.set', '.set')).toBe(true);
-			expect(matchesPattern('n8n-nodes-base.httpRequest', 'http')).toBe(true);
+			expect(matchesPattern('resin-nodes-base.set', '.set')).toBe(true);
+			expect(matchesPattern('resin-nodes-base.httpRequest', 'http')).toBe(true);
 		});
 
 		it('should be case-insensitive', () => {
-			expect(matchesPattern('n8n-nodes-base.httpRequest', 'HTTP')).toBe(true);
+			expect(matchesPattern('resin-nodes-base.httpRequest', 'HTTP')).toBe(true);
 		});
 	});
 });
 
 describe('getMatchingGuides', () => {
 	it('should return Set node guide for Set nodes', () => {
-		const guides = getMatchingGuides(createContext('n8n-nodes-base.set'));
+		const guides = getMatchingGuides(createContext('resin-nodes-base.set'));
 		const setGuide = guides.find((g) => g.content.includes('Set Node Updates'));
 		expect(setGuide).toBeDefined();
 	});
 
 	it('should return IF node guide for IF nodes', () => {
-		const guides = getMatchingGuides(createContext('n8n-nodes-base.if'));
+		const guides = getMatchingGuides(createContext('resin-nodes-base.if'));
 		const ifGuide = guides.find((g) => g.content.includes('IF node uses a complex filter'));
 		expect(ifGuide).toBeDefined();
 	});
 
 	it('should return Switch node guide for Switch nodes', () => {
-		const guides = getMatchingGuides(createContext('n8n-nodes-base.switch'));
+		const guides = getMatchingGuides(createContext('resin-nodes-base.switch'));
 		const switchGuide = guides.find((g) => g.content.includes('Switch Node Configuration'));
 		expect(switchGuide).toBeDefined();
 	});
 
 	it('should return HTTP Request guide for HTTP Request nodes', () => {
-		const guides = getMatchingGuides(createContext('n8n-nodes-base.httpRequest'));
+		const guides = getMatchingGuides(createContext('resin-nodes-base.httpRequest'));
 		const httpGuide = guides.find((g) => g.content.includes('HTTP Request Node'));
 		expect(httpGuide).toBeDefined();
 	});
@@ -107,14 +107,14 @@ describe('getMatchingGuides', () => {
 	});
 
 	it('should return resource locator guide when hasResourceLocatorParams is true', () => {
-		const guidesWithout = getMatchingGuides(createContext('n8n-nodes-base.slack'));
+		const guidesWithout = getMatchingGuides(createContext('resin-nodes-base.slack'));
 		const resourceGuideWithout = guidesWithout.find((g) =>
 			g.content.includes('ResourceLocator Parameter'),
 		);
 		expect(resourceGuideWithout).toBeUndefined();
 
 		const guidesWith = getMatchingGuides(
-			createContext('n8n-nodes-base.slack', { hasResourceLocatorParams: true }),
+			createContext('resin-nodes-base.slack', { hasResourceLocatorParams: true }),
 		);
 		const resourceGuideWith = guidesWith.find((g) =>
 			g.content.includes('ResourceLocator Parameter'),
@@ -124,20 +124,20 @@ describe('getMatchingGuides', () => {
 
 	it('should return multiple matching guides for a node', () => {
 		// Set node should get: Set guide + Text fields guide (since mock has no properties, text fields won't match)
-		const guides = getMatchingGuides(createContext('n8n-nodes-base.set'));
+		const guides = getMatchingGuides(createContext('resin-nodes-base.set'));
 		expect(guides.length).toBeGreaterThanOrEqual(1);
 	});
 });
 
 describe('getMatchingExamples', () => {
 	it('should return Set node examples for Set nodes', () => {
-		const examples = getMatchingExamples(createContext('n8n-nodes-base.set'));
+		const examples = getMatchingExamples(createContext('resin-nodes-base.set'));
 		const setExamples = examples.find((e) => e.content.includes('Set Node Examples'));
 		expect(setExamples).toBeDefined();
 	});
 
 	it('should return IF node examples for IF nodes', () => {
-		const examples = getMatchingExamples(createContext('n8n-nodes-base.if'));
+		const examples = getMatchingExamples(createContext('resin-nodes-base.if'));
 		const ifExamples = examples.find((e) => e.content.includes('IF Node Examples'));
 		expect(ifExamples).toBeDefined();
 	});
@@ -158,14 +158,14 @@ describe('getMatchingExamples', () => {
 	});
 
 	it('should return resource locator examples when hasResourceLocatorParams is true', () => {
-		const examplesWithout = getMatchingExamples(createContext('n8n-nodes-base.slack'));
+		const examplesWithout = getMatchingExamples(createContext('resin-nodes-base.slack'));
 		const resourceExamplesWithout = examplesWithout.find((e) =>
 			e.content.includes('ResourceLocator Examples'),
 		);
 		expect(resourceExamplesWithout).toBeUndefined();
 
 		const examplesWith = getMatchingExamples(
-			createContext('n8n-nodes-base.slack', { hasResourceLocatorParams: true }),
+			createContext('resin-nodes-base.slack', { hasResourceLocatorParams: true }),
 		);
 		const resourceExamplesWith = examplesWith.find((e) =>
 			e.content.includes('ResourceLocator Examples'),

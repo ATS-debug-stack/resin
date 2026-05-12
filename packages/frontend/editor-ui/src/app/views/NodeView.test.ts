@@ -1,6 +1,6 @@
 import { createTestNode, mockNodeTypeDescription } from '@/__tests__/mocks';
 import { waitFor } from '@testing-library/vue';
-import { MANUAL_TRIGGER_NODE_TYPE } from 'n8n-workflow';
+import { MANUAL_TRIGGER_NODE_TYPE } from 'resin-workflow';
 import {
 	createWorkflowDocumentId,
 	useWorkflowDocumentStore,

@@ -9,7 +9,7 @@ import {
 	type FilterTypeCombinator,
 	type INode,
 	type NodeParameterValue,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { computed, reactive, watch, watchEffect } from 'vue';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import {
@@ -17,14 +17,14 @@ import {
 	DEFAULT_MAX_CONDITIONS,
 	DEFAULT_OPERATOR_VALUE,
 } from './constants';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useDebounce } from '@/app/composables/useDebounce';
 import Condition from './Condition.vue';
 import CombinatorSelect from './CombinatorSelect.vue';
 import { resolveParameter } from '@/app/composables/useWorkflowHelpers';
 import Draggable from 'vuedraggable';
 
-import { N8nButton, N8nInputLabel } from '@n8n/design-system';
+import { N8nButton, N8nInputLabel } from '@resin/design-system';
 interface Props {
 	parameter: INodeProperties;
 	value: FilterValue;
@@ -233,7 +233,7 @@ function getIssues(index: number): string[] {
 			</div>
 			<div v-if="!singleCondition && !readOnly" :class="$style.addConditionWrapper">
 				<N8nButton
-					class="n8n-button--highlightFill"
+					class="resin-button--highlightFill"
 					variant="subtle"
 					icon="plus"
 					:label="i18n.baseText('filter.addCondition')"

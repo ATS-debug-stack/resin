@@ -1,5 +1,5 @@
 import startCase from 'lodash/startCase';
-import type { JsonValue } from 'n8n-workflow';
+import type { JsonValue } from 'resin-workflow';
 import type { TestCaseExecutionRecord, TestRunRecord } from './evaluation.api';
 import type { TestTableColumn } from './components/shared/TestTableBase.vue';
 

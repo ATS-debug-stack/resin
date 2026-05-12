@@ -9,12 +9,12 @@ jest.mock('openid-client', () => ({
 	fetchUserInfo: fetchUserInfoMock,
 }));
 
-import type { OidcConfigDto, ProvisioningConfigDto } from '@n8n/api-types';
-import { createTeamProject, getProjectRoleForUser, testDb } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { type User, UserRepository, RoleRepository, RoleMappingRuleRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { UserError } from 'n8n-workflow';
+import type { OidcConfigDto, ProvisioningConfigDto } from '@resin/api-types';
+import { createTeamProject, getProjectRoleForUser, testDb } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { type User, UserRepository, RoleRepository, RoleMappingRuleRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { UserError } from 'resin-workflow';
 import type * as mocked_oidc_client from 'openid-client';
 const real_odic_client = jest.requireActual('openid-client');
 

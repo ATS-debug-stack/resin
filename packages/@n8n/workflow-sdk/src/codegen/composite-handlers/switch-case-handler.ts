@@ -4,7 +4,7 @@
  * Builds SwitchCaseCompositeNode from a semantic Switch node.
  */
 
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
 
 import type { CompositeNode, SwitchCaseCompositeNode } from '../composite-tree';
 import type { SemanticNode } from '../types';

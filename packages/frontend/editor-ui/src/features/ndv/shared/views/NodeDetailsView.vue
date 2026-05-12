@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue';
-import { createEventBus } from '@n8n/utils/event-bus';
-import type { IRunData, NodeConnectionType, IConnectedNode } from 'n8n-workflow';
-import { jsonParse, NodeHelpers, NodeConnectionTypes } from 'n8n-workflow';
+import { createEventBus } from '@resin/utils/event-bus';
+import type { IRunData, NodeConnectionType, IConnectedNode } from 'resin-workflow';
+import { jsonParse, NodeHelpers, NodeConnectionTypes } from 'resin-workflow';
 import type { IRunDataDisplayMode, IUpdateInformation, TargetItem } from '@/Interface';
 import type { NodePanelType } from '@/features/ndv/shared/ndv.types';
 
@@ -26,20 +26,20 @@ import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
-import { useDeviceSupport } from '@n8n/composables/useDeviceSupport';
+import { useDeviceSupport } from '@resin/composables/useDeviceSupport';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
 import { useMessage } from '@/app/composables/useMessage';
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
 import { usePinnedData } from '@/app/composables/usePinnedData';
 import { useInjectWorkflowId } from '@/app/composables/useInjectWorkflowId';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { storeToRefs } from 'pinia';
 import { useStyles } from '@/app/composables/useStyles';
 import { useTelemetryContext } from '@/app/composables/useTelemetryContext';
 import { nodeViewEventBus } from '@/app/event-bus';
 import { ElDialog } from 'element-plus';
-import { N8nIcon, N8nText, N8nTooltip } from '@n8n/design-system';
+import { N8nIcon, N8nText, N8nTooltip } from '@resin/design-system';
 const emit = defineEmits<{
 	valueChanged: [parameterData: IUpdateInformation];
 	switchSelectedNode: [nodeTypeName: string];

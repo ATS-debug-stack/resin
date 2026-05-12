@@ -1,4 +1,4 @@
-import type { LogEntry } from 'n8n-containers';
+import type { LogEntry } from 'resin-containers';
 
 import { test, expect } from '../../../fixtures/base';
 

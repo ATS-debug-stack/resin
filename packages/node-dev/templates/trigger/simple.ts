@@ -1,4 +1,9 @@
-import { ITriggerFunctions, INodeType, INodeTypeDescription, ITriggerResponse } from 'n8n-workflow';
+import {
+	ITriggerFunctions,
+	INodeType,
+	INodeTypeDescription,
+	ITriggerResponse,
+} from 'resin-workflow';
 
 export class ClassNameReplace implements INodeType {
 	description: INodeTypeDescription = {

@@ -1,5 +1,5 @@
-import { EngineConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { EngineConfig } from '@resin/config';
+import { Container } from '@resin/di';
 
 import { createEngineServer } from './server';
 

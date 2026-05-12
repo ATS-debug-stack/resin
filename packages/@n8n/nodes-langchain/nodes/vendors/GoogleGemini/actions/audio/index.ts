@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 import * as analyze from './analyze.operation';
 import * as transcribe from './transcribe.operation';

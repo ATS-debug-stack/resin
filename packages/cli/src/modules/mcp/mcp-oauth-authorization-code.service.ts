@@ -1,5 +1,5 @@
-import { Time } from '@n8n/constants';
-import { Service } from '@n8n/di';
+import { Time } from '@resin/constants';
+import { Service } from '@resin/di';
 import { randomBytes } from 'node:crypto';
 
 import type { AuthorizationCode } from './database/entities/oauth-authorization-code.entity';

@@ -1,14 +1,17 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { ResourceType, splitName } from '../projects.utils';
 import type { Project } from '../projects.types';
 import { ProjectTypes } from '../projects.types';
 import type { CredentialsResource, FolderResource, WorkflowResource } from '@/Interface';
 import { VIEWS } from '@/app/constants';
-import { type IconOrEmoji, isIconOrEmoji } from '@n8n/design-system/components/N8nIconPicker/types';
+import {
+	type IconOrEmoji,
+	isIconOrEmoji,
+} from '@resin/design-system/components/N8nIconPicker/types';
 import ProjectIcon from './ProjectIcon.vue';
-import { N8nBadge, N8nTooltip } from '@n8n/design-system';
+import { N8nBadge, N8nTooltip } from '@resin/design-system';
 import type { DataTableResource } from '@/features/core/dataTable/types';
 
 type Props = {

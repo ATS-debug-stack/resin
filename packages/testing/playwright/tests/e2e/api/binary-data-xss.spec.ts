@@ -1,8 +1,8 @@
 import flatted from 'flatted';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { IWorkflowBase } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
-import { workflow, trigger, node } from '../../../../../@n8n/workflow-sdk/src';
+import { workflow, trigger, node } from '../../../../../@resin/workflow-sdk/src';
 import { N8N_AUTH_COOKIE } from '../../../config/constants';
 import { test, expect } from '../../../fixtures/base';
 
@@ -19,7 +19,7 @@ const CODE_NODE_NAME = 'HTML Binary Producer';
  */
 function createHtmlBinaryWorkflow(): IWorkflowBase {
 	const manualTrigger = trigger({
-		type: 'n8n-nodes-base.manualTrigger',
+		type: 'resin-nodes-base.manualTrigger',
 		version: 1,
 		config: {
 			name: TRIGGER_NAME,
@@ -28,7 +28,7 @@ function createHtmlBinaryWorkflow(): IWorkflowBase {
 	});
 
 	const codeNode = node({
-		type: 'n8n-nodes-base.code',
+		type: 'resin-nodes-base.code',
 		version: 1,
 		config: {
 			name: CODE_NODE_NAME,

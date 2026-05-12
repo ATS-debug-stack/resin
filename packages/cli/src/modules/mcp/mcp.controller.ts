@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Get, Head, Post, RootLevelController } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { AuthenticatedRequest } from '@resin/db';
+import { Get, Head, Post, RootLevelController } from '@resin/decorators';
+import { Container } from '@resin/di';
 import type { Request, Response } from 'express';
-import { ErrorReporter } from 'n8n-core';
+import { ErrorReporter } from 'resin-core';
 
 import { Telemetry } from '@/telemetry';
 

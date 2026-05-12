@@ -1,6 +1,6 @@
 import { usePostHog } from '@/app/stores/posthog.store';
 import { useDebounce } from '@/app/composables/useDebounce';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { SETUP_PANEL } from '@/app/constants';
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';

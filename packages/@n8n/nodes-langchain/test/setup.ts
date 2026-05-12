@@ -11,7 +11,7 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 (globalThis as any).jest = vi;
 
-vi.mock('@n8n/di', () => ({
+vi.mock('@resin/di', () => ({
 	Container: {
 		get: vi.fn().mockImplementation(() => ({
 			openAiDefaultHeaders: {},
@@ -23,8 +23,8 @@ vi.mock('@n8n/di', () => ({
 	Service: () => () => {},
 }));
 
-vi.mock('@n8n/config', async () => {
-	const actual = await vi.importActual<typeof import('@n8n/config')>('@n8n/config');
+vi.mock('@resin/config', async () => {
+	const actual = await vi.importActual<typeof import('@resin/config')>('@resin/config');
 
 	class AiConfig {
 		openAiDefaultHeaders: Record<string, string> = {};

@@ -82,7 +82,7 @@ export class BuilderSandboxFactory {
 	private sdkTarballPromise: Promise<WorkspaceSdkTarball | null> | null = null;
 
 	/**
-	 * Pack and install the host's workspace `@n8n/workflow-sdk` into the remote
+	 * Pack and install the host's workspace `@resin/workflow-sdk` into the remote
 	 * sandbox. In linked-SDK mode the baked image omits the registry SDK so
 	 * unpublished workspace versions can still create a sandbox.
 	 * No-op unless `N8N_INSTANCE_AI_SANDBOX_LINK_SDK=1` is set.
@@ -93,7 +93,7 @@ export class BuilderSandboxFactory {
 		if (!packed) {
 			if (isLinkWorkspaceSdkEnabled()) {
 				throw new Error(
-					'N8N_INSTANCE_AI_SANDBOX_LINK_SDK is enabled, but the workspace SDK could not be packed. Run `pnpm build` in packages/@n8n/workflow-sdk or unset N8N_INSTANCE_AI_SANDBOX_LINK_SDK.',
+					'N8N_INSTANCE_AI_SANDBOX_LINK_SDK is enabled, but the workspace SDK could not be packed. Run `pnpm build` in packages/@resin/workflow-sdk or unset N8N_INSTANCE_AI_SANDBOX_LINK_SDK.',
 				);
 			}
 			return;
@@ -129,7 +129,7 @@ export class BuilderSandboxFactory {
 		if (this.config.provider === 'local') {
 			return await this.createLocal(builderId, context);
 		}
-		if (this.config.provider === 'n8n-sandbox') {
+		if (this.config.provider === 'resin-sandbox') {
 			return await this.createN8nSandbox(builderId, context);
 		}
 		return await this.createDaytona(builderId, context);
@@ -182,7 +182,7 @@ export class BuilderSandboxFactory {
 			const baseParams = {
 				language: 'typescript',
 				ephemeral: true,
-				labels: { 'n8n-builder': builderId },
+				labels: { 'resin-builder': builderId },
 			} as const;
 
 			if (snapshotName) {
@@ -346,9 +346,12 @@ export class BuilderSandboxFactory {
 		return this.config;
 	}
 
-	private assertIsN8nSandbox(): Extract<SandboxConfig, { enabled: true; provider: 'n8n-sandbox' }> {
+	private assertIsN8nSandbox(): Extract<
+		SandboxConfig,
+		{ enabled: true; provider: 'resin-sandbox' }
+	> {
 		assert(
-			this.config.enabled && this.config.provider === 'n8n-sandbox',
+			this.config.enabled && this.config.provider === 'resin-sandbox',
 			'n8n sandbox config required',
 		);
 		return this.config;

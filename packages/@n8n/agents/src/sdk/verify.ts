@@ -11,7 +11,7 @@ export interface VerifyResult {
  *
  * @example
  * ```typescript
- * import { verify } from '@n8n/agents';
+ * import { verify } from '@resin/agents';
  *
  * const result = verify(sourceCode);
  * if (!result.ok) {

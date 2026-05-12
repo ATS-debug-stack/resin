@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { AgentScheduleConfig } from '@n8n/api-types';
-import { N8nButton, N8nCard, N8nIcon, N8nInput, N8nSwitch2, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import type { AgentScheduleConfig } from '@resin/api-types';
+import { N8nButton, N8nCard, N8nIcon, N8nInput, N8nSwitch2, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { computed, onMounted, ref } from 'vue';
 
 import {

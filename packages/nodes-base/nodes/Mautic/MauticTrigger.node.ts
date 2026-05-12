@@ -10,7 +10,7 @@ import {
 	type INodeTypeDescription,
 	type IWebhookResponseData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { parse as urlParse } from 'url';
 
 import { mauticApiRequest } from './GenericFunctions';

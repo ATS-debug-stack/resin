@@ -151,13 +151,13 @@ function getAvailableDiscriminators(
 /**
  * Parse a node ID into package and node name components
  * Examples:
- *   "n8n-nodes-base.httpRequest" -> { package: "n8n-nodes-base", nodeName: "httpRequest" }
- *   "@n8n/n8n-nodes-langchain.agent" -> { package: "n8n-nodes-langchain", nodeName: "agent" }
+ *   "resin-nodes-base.httpRequest" -> { package: "resin-nodes-base", nodeName: "httpRequest" }
+ *   "@resin/n8n-nodes-langchain.agent" -> { package: "resin-nodes-langchain", nodeName: "agent" }
  */
 function parseNodeId(nodeId: string): { packageName: string; nodeName: string } | null {
-	// Handle @n8n/ prefixed packages (langchain)
-	if (nodeId.startsWith('@n8n/')) {
-		const withoutPrefix = nodeId.slice(5); // Remove "@n8n/"
+	// Handle @resin/ prefixed packages (langchain)
+	if (nodeId.startsWith('@resin/')) {
+		const withoutPrefix = nodeId.slice(5); // Remove "@resin/"
 		const dotIndex = withoutPrefix.indexOf('.');
 		if (dotIndex === -1) {
 			return null;
@@ -546,7 +546,7 @@ export interface CodeBuilderGetToolOptions {
 
 /**
  * Plain (non-LangChain) implementation of node-type lookup. Callers that
- * want their own tracing (e.g. OTel via `@n8n/agents`) can call this
+ * want their own tracing (e.g. OTel via `@resin/agents`) can call this
  * directly and skip the LangChain `tool(...)` wrapper, which would
  * otherwise create its own LangSmith root run via the global LangChain tracer.
  */
@@ -610,7 +610,7 @@ export function createCodeBuilderGetTool(options: CodeBuilderGetToolOptions = {}
 					z.union([
 						z.string(),
 						z.object({
-							nodeId: z.string().describe('The node ID (e.g., "n8n-nodes-base.httpRequest")'),
+							nodeId: z.string().describe('The node ID (e.g., "resin-nodes-base.httpRequest")'),
 							version: z
 								.string()
 								.optional()
@@ -631,7 +631,7 @@ export function createCodeBuilderGetTool(options: CodeBuilderGetToolOptions = {}
 					]),
 				)
 				.describe(
-					'Array of nodes to fetch. Can be simple strings for flat nodes (e.g., ["n8n-nodes-base.aggregate"]) or objects with discriminators for split nodes (e.g., [{ nodeId: "n8n-nodes-base.freshservice", resource: "ticket", operation: "get" }] or [{ nodeId: "n8n-nodes-base.code", mode: "runOnceForAllItems" }]). Use search_nodes to discover which nodes require discriminators.',
+					'Array of nodes to fetch. Can be simple strings for flat nodes (e.g., ["resin-nodes-base.aggregate"]) or objects with discriminators for split nodes (e.g., [{ nodeId: "resin-nodes-base.freshservice", resource: "ticket", operation: "get" }] or [{ nodeId: "resin-nodes-base.code", mode: "runOnceForAllItems" }]). Use search_nodes to discover which nodes require discriminators.',
 				),
 		}),
 	});

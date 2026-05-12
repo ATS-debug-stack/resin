@@ -1,5 +1,5 @@
-import type { AuthenticatedRequest } from '@n8n/db';
-import type { Role } from '@n8n/permissions';
+import type { AuthenticatedRequest } from '@resin/db';
+import type { Role } from '@resin/permissions';
 import { mock } from 'jest-mock-extended';
 
 import type { EventService } from '@/events/event.service';

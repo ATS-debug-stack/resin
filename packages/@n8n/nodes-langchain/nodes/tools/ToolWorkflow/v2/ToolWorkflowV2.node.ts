@@ -8,8 +8,8 @@ import type {
 	INodeTypeDescription,
 	IExecuteFunctions,
 	INodeExecutionData,
-} from 'n8n-workflow';
-import { nodeNameToToolName, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { nodeNameToToolName, NodeOperationError } from 'resin-workflow';
 
 import { localResourceMapping } from './methods';
 import { WorkflowToolService } from './utils/WorkflowToolService';

@@ -1,4 +1,4 @@
-import type { WorkflowSettingsUpdated } from '@n8n/api-types/push/workflow';
+import type { WorkflowSettingsUpdated } from '@resin/api-types/push/workflow';
 import type { IWorkflowSettings } from '@/Interface';
 
 import {

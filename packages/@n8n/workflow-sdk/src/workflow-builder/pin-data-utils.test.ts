@@ -19,7 +19,7 @@ function createNode(overrides: {
 	};
 }) {
 	return {
-		type: overrides.type ?? 'n8n-nodes-base.set',
+		type: overrides.type ?? 'resin-nodes-base.set',
 		name: 'Test Node',
 		version: 1,
 		config: overrides.config ?? {},
@@ -121,29 +121,29 @@ describe('hasNewCredential', () => {
 
 describe('isHttpRequestOrWebhook', () => {
 	it('returns true for httpRequest type', () => {
-		expect(isHttpRequestOrWebhook('n8n-nodes-base.httpRequest')).toBe(true);
+		expect(isHttpRequestOrWebhook('resin-nodes-base.httpRequest')).toBe(true);
 	});
 
 	it('returns true for webhook type', () => {
-		expect(isHttpRequestOrWebhook('n8n-nodes-base.webhook')).toBe(true);
+		expect(isHttpRequestOrWebhook('resin-nodes-base.webhook')).toBe(true);
 	});
 
 	it('returns false for other node types', () => {
-		expect(isHttpRequestOrWebhook('n8n-nodes-base.set')).toBe(false);
-		expect(isHttpRequestOrWebhook('n8n-nodes-base.if')).toBe(false);
-		expect(isHttpRequestOrWebhook('@n8n/n8n-nodes-langchain.agent')).toBe(false);
+		expect(isHttpRequestOrWebhook('resin-nodes-base.set')).toBe(false);
+		expect(isHttpRequestOrWebhook('resin-nodes-base.if')).toBe(false);
+		expect(isHttpRequestOrWebhook('@resin/n8n-nodes-langchain.agent')).toBe(false);
 	});
 });
 
 describe('isDataTableWithoutTable', () => {
 	it('returns false for non-dataTable nodes', () => {
-		const node = createNode({ type: 'n8n-nodes-base.set' });
+		const node = createNode({ type: 'resin-nodes-base.set' });
 		expect(isDataTableWithoutTable(node)).toBe(false);
 	});
 
 	it('returns true for dataTable node without dataTableId', () => {
 		const node = createNode({
-			type: 'n8n-nodes-base.dataTable',
+			type: 'resin-nodes-base.dataTable',
 			config: { parameters: {} },
 		});
 		expect(isDataTableWithoutTable(node)).toBe(true);
@@ -151,7 +151,7 @@ describe('isDataTableWithoutTable', () => {
 
 	it('returns true for dataTable node with empty dataTableId value', () => {
 		const node = createNode({
-			type: 'n8n-nodes-base.dataTable',
+			type: 'resin-nodes-base.dataTable',
 			config: {
 				parameters: {
 					dataTableId: { value: '' },
@@ -163,7 +163,7 @@ describe('isDataTableWithoutTable', () => {
 
 	it('returns true for dataTable node with placeholder marker value', () => {
 		const node = createNode({
-			type: 'n8n-nodes-base.dataTable',
+			type: 'resin-nodes-base.dataTable',
 			config: {
 				parameters: {
 					dataTableId: { value: '<__PLACEHOLDER_VALUE__Select table__>' },
@@ -175,7 +175,7 @@ describe('isDataTableWithoutTable', () => {
 
 	it('returns false for dataTable node with configured table', () => {
 		const node = createNode({
-			type: 'n8n-nodes-base.dataTable',
+			type: 'resin-nodes-base.dataTable',
 			config: {
 				parameters: {
 					dataTableId: { value: 'table-123' },
@@ -197,18 +197,18 @@ describe('shouldGeneratePinData', () => {
 	});
 
 	it('returns true for httpRequest node', () => {
-		const node = createNode({ type: 'n8n-nodes-base.httpRequest' });
+		const node = createNode({ type: 'resin-nodes-base.httpRequest' });
 		expect(shouldGeneratePinData(node)).toBe(true);
 	});
 
 	it('returns true for webhook node', () => {
-		const node = createNode({ type: 'n8n-nodes-base.webhook' });
+		const node = createNode({ type: 'resin-nodes-base.webhook' });
 		expect(shouldGeneratePinData(node)).toBe(true);
 	});
 
 	it('returns true for dataTable node without table', () => {
 		const node = createNode({
-			type: 'n8n-nodes-base.dataTable',
+			type: 'resin-nodes-base.dataTable',
 			config: { parameters: {} },
 		});
 		expect(shouldGeneratePinData(node)).toBe(true);
@@ -216,7 +216,7 @@ describe('shouldGeneratePinData', () => {
 
 	it('returns false for regular node without special conditions', () => {
 		const node = createNode({
-			type: 'n8n-nodes-base.set',
+			type: 'resin-nodes-base.set',
 			config: {
 				credentials: { api: { id: 'existing' } },
 			},
@@ -226,7 +226,7 @@ describe('shouldGeneratePinData', () => {
 
 	it('returns false for dataTable node with configured table', () => {
 		const node = createNode({
-			type: 'n8n-nodes-base.dataTable',
+			type: 'resin-nodes-base.dataTable',
 			config: {
 				parameters: {
 					dataTableId: { value: 'table-123' },

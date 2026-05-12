@@ -1,4 +1,4 @@
-import type { AgentIntegration } from '@n8n/api-types';
+import type { AgentIntegration } from '@resin/api-types';
 
 import type { Agent } from '../entities/agent.entity';
 import type { AgentJsonConfig } from './agent-json-config';

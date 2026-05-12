@@ -1,5 +1,5 @@
-import { Service } from '@n8n/di';
-import { ApplicationError } from '@n8n/errors';
+import { Service } from '@resin/di';
+import { ApplicationError } from '@resin/errors';
 import type {
 	Workflow,
 	INode,
@@ -13,7 +13,7 @@ import type {
 	IExecuteResponsePromiseData,
 	IRun,
 	ExecutionError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import assert from 'node:assert';
 
 import type { IGetExecuteTriggerFunctions } from './interfaces';

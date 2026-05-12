@@ -9,10 +9,10 @@ import { useNodeCreatorStore } from '@/features/shared/nodeCreator/nodeCreator.s
 import { useChatPanelStore } from '@/features/ai/assistant/chatPanel.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useTemplatesStore } from '@/features/workflows/templates/templates.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
-import { N8nIcon, N8nLink } from '@n8n/design-system';
+import { N8nIcon, N8nLink } from '@resin/design-system';
 import { useAssistantStore } from '@/features/ai/assistant/assistant.store';
 
 const nodeCreatorStore = useNodeCreatorStore();

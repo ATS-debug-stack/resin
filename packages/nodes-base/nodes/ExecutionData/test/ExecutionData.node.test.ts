@@ -1,6 +1,6 @@
 import { NodeTestHarness } from '@nodes-testing/node-test-harness';
 import { mock } from 'jest-mock-extended';
-import type { IExecuteFunctions, INodeExecutionData, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeExecutionData, INode } from 'resin-workflow';
 
 import { ExecutionData } from '../ExecutionData.node';
 

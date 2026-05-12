@@ -2,7 +2,7 @@ import type {
 	BreakingChangeLightReportResult,
 	BreakingChangeWorkflowRuleResult,
 	BreakingChangeVersion,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 import type { IRestApiContext } from '../types';
 import { makeRestApiRequest, get } from '../utils';

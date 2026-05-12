@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ElDialog } from 'element-plus';
-import { N8nButton, N8nLink, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nLink, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
 import { CUSTOM_ROLES_DOCS_URL } from '@/app/constants';
 

@@ -5,7 +5,7 @@ import {
 	type INodeTypeDescription,
 	type NodeParameterValueType,
 	type OnError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 /**
  * Node execution settings that can be set when creating a node

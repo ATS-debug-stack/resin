@@ -61,7 +61,7 @@ const N8nTree = getCurrentInstance()?.type;
 </script>
 
 <template>
-	<div v-if="isObject(value)" class="n8n-tree">
+	<div v-if="isObject(value)" class="resin-tree">
 		<div v-if="isBinary(value)">
 			<slot name="binary" :value="value" :path="path" />
 		</div>

@@ -2,10 +2,10 @@ import {
 	createWorkflow,
 	randomCredentialPayload,
 	shareWorkflowWithUsers,
-} from '@n8n/backend-test-utils';
-import { WorkflowsConfig } from '@n8n/config';
-import { WorkflowDependencyRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import { WorkflowsConfig } from '@resin/config';
+import { WorkflowDependencyRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { createMember, createOwner } from '../shared/db/users';
 import { saveCredential } from '../shared/db/credentials';

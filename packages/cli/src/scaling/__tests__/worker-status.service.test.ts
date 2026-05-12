@@ -1,4 +1,4 @@
-import type { WorkerStatus } from '@n8n/api-types';
+import type { WorkerStatus } from '@resin/api-types';
 import { mock } from 'jest-mock-extended';
 
 import type { Push } from '@/push';

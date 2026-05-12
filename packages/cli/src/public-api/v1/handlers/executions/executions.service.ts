@@ -3,8 +3,8 @@ import {
 	ExecutionAnnotation,
 	ExecutionAnnotationRepository,
 	type AnnotationTagEntity,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 
 export function mapAnnotationTags(tags: AnnotationTagEntity[]) {
 	return tags.map(({ id: tagId, name, createdAt, updatedAt }) => ({

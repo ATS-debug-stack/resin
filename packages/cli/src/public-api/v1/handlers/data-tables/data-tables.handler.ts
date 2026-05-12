@@ -2,8 +2,8 @@ import {
 	PublicApiListDataTableQueryDto,
 	PublicApiCreateDataTableDto,
 	UpdateDataTableDto,
-} from '@n8n/api-types';
-import { Container } from '@n8n/di';
+} from '@resin/api-types';
+import { Container } from '@resin/di';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { ConflictError } from '@/errors/response-errors/conflict.error';

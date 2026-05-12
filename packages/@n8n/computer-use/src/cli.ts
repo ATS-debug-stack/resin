@@ -105,9 +105,9 @@ function printUsage(): void {
 n8n-computer-use — Local AI gateway for n8n AI Assistant
 
 Usage:
-  npx @n8n/computer-use <url> <token>          Connect directly to n8n instance
-  npx @n8n/computer-use <url> <token> <dir>    Connect directly to n8n instance and specify the directory
-  npx @n8n/computer-use --url <url> --api-key <token>
+  npx @resin/computer-use <url> <token>          Connect directly to n8n instance
+  npx @resin/computer-use <url> <token> <dir>    Connect directly to n8n instance and specify the directory
+  npx @resin/computer-use --url <url> --api-key <token>
 
 Positional arguments:
   url        n8n instance URL (e.g. https://my-instance.app.n8n.cloud)

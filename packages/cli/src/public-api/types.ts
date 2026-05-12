@@ -6,9 +6,9 @@ import type {
 	UpdateDataTableColumnDto,
 	UpdateDataTableRowDto,
 	UpsertDataTableRowDto,
-} from '@n8n/api-types';
-import type { AuthenticatedRequest, TagEntity, WorkflowEntity } from '@n8n/db';
-import type { ExecutionStatus, ICredentialDataDecryptedObject } from 'n8n-workflow';
+} from '@resin/api-types';
+import type { AuthenticatedRequest, TagEntity, WorkflowEntity } from '@resin/db';
+import type { ExecutionStatus, ICredentialDataDecryptedObject } from 'resin-workflow';
 
 import type { AuthlessRequest } from '@/requests';
 import type { Risk } from '@/security-audit/types';

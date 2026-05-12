@@ -1,11 +1,11 @@
-import type { ChatMessageId, ChatSessionId } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { ChatHubConfig, ExecutionsConfig, GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { OnShutdown } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import type { ChatMessageId, ChatSessionId } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { ChatHubConfig, ExecutionsConfig, GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { OnShutdown } from '@resin/decorators';
+import { Service } from '@resin/di';
 import type { Cluster, Redis } from 'ioredis';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import { RedisClientService } from '@/services/redis-client.service';
 

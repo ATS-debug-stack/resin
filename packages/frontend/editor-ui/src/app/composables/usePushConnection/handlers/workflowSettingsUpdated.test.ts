@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
-import type { IWorkflowSettings } from 'n8n-workflow';
-import type { WorkflowSettingsUpdated } from '@n8n/api-types/push/workflow';
+import type { IWorkflowSettings } from 'resin-workflow';
+import type { WorkflowSettingsUpdated } from '@resin/api-types/push/workflow';
 
 import { workflowSettingsUpdated } from './workflowSettingsUpdated';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import type { ITag } from '@n8n/rest-api-client/api/tags';
+import type { ITag } from '@resin/rest-api-client/api/tags';
 import { MAX_TAG_NAME_LENGTH } from '../tags.constants';
-import type { EventBus } from '@n8n/utils/event-bus';
-import { type BaseTextKey, useI18n } from '@n8n/i18n';
+import type { EventBus } from '@resin/utils/event-bus';
+import { type BaseTextKey, useI18n } from '@resin/i18n';
 import { v4 as uuid } from 'uuid';
 import { useToast } from '@/app/composables/useToast';
 
-import { N8nIcon, N8nOption, N8nSelect } from '@n8n/design-system';
+import { N8nIcon, N8nOption, N8nSelect } from '@resin/design-system';
 
 interface TagsDropdownProps {
 	placeholder: string;

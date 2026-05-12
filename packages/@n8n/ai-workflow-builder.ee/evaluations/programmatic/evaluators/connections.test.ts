@@ -1,11 +1,11 @@
 import { mock } from 'jest-mock-extended';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type {
 	NodeConnectionType,
 	INodeInputConfiguration,
 	ExpressionString,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 import { resolveConnections } from '@/validation/utils/resolve-connections';
@@ -118,7 +118,7 @@ describe('resolveInputConnections', () => {
 describe('evaluateConnections', () => {
 	const mockNodeTypes = mock<INodeTypeDescription[]>([
 		{
-			name: 'n8n-nodes-test.manualTrigger',
+			name: 'resin-nodes-test.manualTrigger',
 			displayName: 'Manual Trigger',
 			group: ['trigger'],
 			description: 'Starts the workflow manually',
@@ -127,28 +127,28 @@ describe('evaluateConnections', () => {
 			outputs: [NodeConnectionTypes.Main],
 		},
 		{
-			name: 'n8n-nodes-test.code',
+			name: 'resin-nodes-test.code',
 			displayName: 'Code',
 			version: 1,
 			inputs: [NodeConnectionTypes.Main],
 			outputs: [NodeConnectionTypes.Main],
 		},
 		{
-			name: 'n8n-nodes-test.httpRequest',
+			name: 'resin-nodes-test.httpRequest',
 			displayName: 'HTTP Request',
 			version: 1,
 			inputs: [NodeConnectionTypes.Main],
 			outputs: [NodeConnectionTypes.Main],
 		},
 		{
-			name: 'n8n-nodes-test.openAi',
+			name: 'resin-nodes-test.openAi',
 			displayName: 'OpenAI',
 			version: 1,
 			inputs: `={{(() => { return [{ type: "${NodeConnectionTypes.Main}" }, { type: "${NodeConnectionTypes.AiTool}", displayName: "Tools" }]; })()}}`,
 			outputs: [NodeConnectionTypes.Main],
 		},
 		{
-			name: 'n8n-nodes-test.agent',
+			name: 'resin-nodes-test.agent',
 			displayName: 'AI Agent',
 			version: [1, 2, 3],
 			inputs: [
@@ -158,14 +158,14 @@ describe('evaluateConnections', () => {
 			outputs: [NodeConnectionTypes.Main],
 		},
 		{
-			name: 'n8n-nodes-test.merge',
+			name: 'resin-nodes-test.merge',
 			displayName: 'Merge',
 			version: 1,
 			inputs: `={{ Array.from({ length: $parameter.numberInputs || 2 }, (_, i) => ({ type: "${NodeConnectionTypes.Main}", displayName: \`Input $\{i + 1}\` })) }}`,
 			outputs: [NodeConnectionTypes.Main],
 		},
 		{
-			name: 'n8n-nodes-test.llmChain',
+			name: 'resin-nodes-test.llmChain',
 			displayName: 'LLM Chain',
 			version: 1,
 			inputs: [
@@ -176,14 +176,14 @@ describe('evaluateConnections', () => {
 			outputs: [NodeConnectionTypes.Main],
 		},
 		{
-			name: 'n8n-nodes-test.chatOpenAi',
+			name: 'resin-nodes-test.chatOpenAi',
 			displayName: 'Chat OpenAI',
 			version: 1,
 			inputs: [],
 			outputs: [NodeConnectionTypes.AiLanguageModel],
 		},
 		{
-			name: 'n8n-nodes-test.vectorStore',
+			name: 'resin-nodes-test.vectorStore',
 			displayName: 'Vector Store',
 			version: [1, 1.1, 1.2, 1.3],
 			inputs: `={{
@@ -208,7 +208,7 @@ describe('evaluateConnections', () => {
 			outputs: `={{ (() => { const mode = $parameter.mode; if (mode === "retrieve-as-tool") { return [{ type: "${NodeConnectionTypes.AiTool}" }]; } return [{ type: "${NodeConnectionTypes.AiVectorStore}" }]; })() }}`,
 		},
 		{
-			name: 'n8n-nodes-test.embeddingsOpenAi',
+			name: 'resin-nodes-test.embeddingsOpenAi',
 			displayName: 'OpenAI Embeddings',
 			version: [1, 1.1, 1.2],
 			inputs: [],
@@ -224,7 +224,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-test.manualTrigger',
+						type: 'resin-nodes-test.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -232,7 +232,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'Code Node',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -240,7 +240,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '3',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-test.httpRequest',
+						type: 'resin-nodes-test.httpRequest',
 						parameters: {},
 						typeVersion: 1,
 						position: [400, 0],
@@ -283,7 +283,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Unknown Node',
-						type: 'n8n-nodes-test.unknown',
+						type: 'resin-nodes-test.unknown',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -307,7 +307,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Code Node',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 99, // Version that doesn't exist
 						position: [0, 0],
@@ -332,7 +332,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'LLM Chain',
-						type: 'n8n-nodes-test.llmChain',
+						type: 'resin-nodes-test.llmChain',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -363,7 +363,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Chat OpenAI',
-						type: 'n8n-nodes-test.chatOpenAi',
+						type: 'resin-nodes-test.chatOpenAi',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -371,7 +371,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'Code Node',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -408,7 +408,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Chat Model',
-						type: 'n8n-nodes-test.chatOpenAi',
+						type: 'resin-nodes-test.chatOpenAi',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -433,7 +433,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '0',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-test.manualTrigger',
+						type: 'resin-nodes-test.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -444,7 +444,7 @@ describe('evaluateConnections', () => {
 							mode: 'retrieve-as-tool',
 						},
 						name: 'Vector Store Retrieval',
-						type: 'n8n-nodes-test.vectorStore',
+						type: 'resin-nodes-test.vectorStore',
 						typeVersion: 1.3,
 						position: [0, 0],
 					},
@@ -452,7 +452,7 @@ describe('evaluateConnections', () => {
 						id: '2',
 						parameters: {},
 						name: 'AI Agent',
-						type: 'n8n-nodes-test.agent',
+						type: 'resin-nodes-test.agent',
 						typeVersion: 3,
 						position: [0, 0],
 					},
@@ -460,7 +460,7 @@ describe('evaluateConnections', () => {
 						id: '3',
 						parameters: {},
 						name: 'OpenAI Embeddings',
-						type: 'n8n-nodes-test.embeddingsOpenAi',
+						type: 'resin-nodes-test.embeddingsOpenAi',
 						typeVersion: 1.2,
 						position: [0, 0],
 					},
@@ -516,7 +516,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-test.manualTrigger',
+						type: 'resin-nodes-test.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -524,7 +524,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'OpenAI Node',
-						type: 'n8n-nodes-test.openAi',
+						type: 'resin-nodes-test.openAi',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -557,7 +557,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Vector Store',
-						type: 'n8n-nodes-test.vectorStore',
+						type: 'resin-nodes-test.vectorStore',
 						parameters: { mode: 'retrieve' },
 						typeVersion: 1,
 						position: [0, 0],
@@ -583,7 +583,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-test.manualTrigger',
+						type: 'resin-nodes-test.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -591,7 +591,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'Vector Store',
-						type: 'n8n-nodes-test.vectorStore',
+						type: 'resin-nodes-test.vectorStore',
 						parameters: { mode: 'retrieve-as-tool' },
 						typeVersion: 1,
 						position: [200, 0],
@@ -599,7 +599,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '3',
 						name: 'OpenAI',
-						type: 'n8n-nodes-test.openAi',
+						type: 'resin-nodes-test.openAi',
 						parameters: {},
 						typeVersion: 1,
 						position: [400, 0],
@@ -607,7 +607,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '4',
 						name: 'Embeddings',
-						type: 'n8n-nodes-test.embeddingsOpenAi',
+						type: 'resin-nodes-test.embeddingsOpenAi',
 						parameters: {},
 						typeVersion: 1,
 						position: [600, 0],
@@ -664,7 +664,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-test.manualTrigger',
+						type: 'resin-nodes-test.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -672,7 +672,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'Chat Model',
-						type: 'n8n-nodes-test.chatOpenAi',
+						type: 'resin-nodes-test.chatOpenAi',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -680,7 +680,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '3',
 						name: 'LLM Chain',
-						type: 'n8n-nodes-test.llmChain',
+						type: 'resin-nodes-test.llmChain',
 						parameters: {},
 						typeVersion: 1,
 						position: [400, 0],
@@ -688,7 +688,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '4',
 						name: 'Code',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [600, 0],
@@ -742,7 +742,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-test.manualTrigger',
+						type: 'resin-nodes-test.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -762,7 +762,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-test.manualTrigger',
+						type: 'resin-nodes-test.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 100],
@@ -770,7 +770,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'Code1',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -778,7 +778,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '3',
 						name: 'Code2',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 200],
@@ -786,7 +786,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '4',
 						name: 'Merge',
-						type: 'n8n-nodes-test.merge',
+						type: 'resin-nodes-test.merge',
 						parameters: { numberInputs: 2 },
 						typeVersion: 1,
 						position: [400, 100],
@@ -847,7 +847,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-test.manualTrigger',
+						type: 'resin-nodes-test.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -855,7 +855,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'Code1',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -863,7 +863,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '3',
 						name: 'Code2',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [400, 0],
@@ -900,7 +900,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-test.manualTrigger',
+						type: 'resin-nodes-test.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -923,7 +923,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Code',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -931,7 +931,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'Merge Data',
-						type: 'n8n-nodes-test.merge',
+						type: 'resin-nodes-test.merge',
 						parameters: { numberInputs: 2 },
 						typeVersion: 1,
 						position: [200, 0],
@@ -968,7 +968,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Code1',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -976,7 +976,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'Code2',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 200],
@@ -984,7 +984,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '3',
 						name: 'Code3',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 400],
@@ -992,7 +992,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '4',
 						name: 'Merge',
-						type: 'n8n-nodes-test.merge',
+						type: 'resin-nodes-test.merge',
 						parameters: { numberInputs: 3 },
 						typeVersion: 1,
 						position: [200, 200],
@@ -1050,7 +1050,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Code1',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -1058,7 +1058,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '2',
 						name: 'Code2',
-						type: 'n8n-nodes-test.code',
+						type: 'resin-nodes-test.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 200],
@@ -1066,7 +1066,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '3',
 						name: 'Merge',
-						type: 'n8n-nodes-test.merge',
+						type: 'resin-nodes-test.merge',
 						parameters: { numberInputs: 2 },
 						typeVersion: 1,
 						position: [200, 100],
@@ -1109,7 +1109,7 @@ describe('evaluateConnections', () => {
 	describe('error handling', () => {
 		it('should catch and report expression evaluation errors', () => {
 			const nodeTypeWithBadExpression = mock<INodeTypeDescription>({
-				name: 'n8n-nodes-test.badNode',
+				name: 'resin-nodes-test.badNode',
 				displayName: 'Bad Node',
 				inputs: '={{ invalidJavaScript( }}',
 				outputs: ['main'],
@@ -1121,7 +1121,7 @@ describe('evaluateConnections', () => {
 					{
 						id: '1',
 						name: 'Bad Node',
-						type: 'n8n-nodes-test.badNode',
+						type: 'resin-nodes-test.badNode',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],

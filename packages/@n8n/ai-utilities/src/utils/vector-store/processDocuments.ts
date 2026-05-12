@@ -1,5 +1,5 @@
 import type { Document } from '@langchain/core/documents';
-import type { INodeExecutionData } from 'n8n-workflow';
+import type { INodeExecutionData } from 'resin-workflow';
 
 import { N8nBinaryLoader } from '../n8n-binary-loader';
 import { N8nJsonLoader } from '../n8n-json-loader';

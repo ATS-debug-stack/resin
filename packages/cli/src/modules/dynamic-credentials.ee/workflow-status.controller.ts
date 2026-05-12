@@ -1,8 +1,8 @@
-import { WorkflowExecutionStatus } from '@n8n/api-types';
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { Get, Options, RestController } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { WorkflowExecutionStatus } from '@resin/api-types';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { Get, Options, RestController } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { Request, Response } from 'express';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

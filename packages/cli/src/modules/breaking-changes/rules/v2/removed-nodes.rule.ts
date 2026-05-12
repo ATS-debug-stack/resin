@@ -1,8 +1,11 @@
-import type { BreakingChangeAffectedWorkflow, BreakingChangeRecommendation } from '@n8n/api-types';
-import type { WorkflowEntity } from '@n8n/db';
-import type { INode } from 'n8n-workflow';
+import type {
+	BreakingChangeAffectedWorkflow,
+	BreakingChangeRecommendation,
+} from '@resin/api-types';
+import type { WorkflowEntity } from '@resin/db';
+import type { INode } from 'resin-workflow';
 
-import { BreakingChangeRule } from '@n8n/decorators';
+import { BreakingChangeRule } from '@resin/decorators';
 import type {
 	BreakingChangeRuleMetadata,
 	IBreakingChangeWorkflowRule,
@@ -13,9 +16,9 @@ import { BreakingChangeCategory } from '../../types';
 @BreakingChangeRule({ version: 'v2' })
 export class RemovedNodesRule implements IBreakingChangeWorkflowRule {
 	private readonly REMOVED_NODES = [
-		'n8n-nodes-base.spontit',
-		'n8n-nodes-base.crowdDev',
-		'n8n-nodes-base.kitemaker',
+		'resin-nodes-base.spontit',
+		'resin-nodes-base.crowdDev',
+		'resin-nodes-base.kitemaker',
 	];
 
 	id: string = 'removed-nodes-v2';

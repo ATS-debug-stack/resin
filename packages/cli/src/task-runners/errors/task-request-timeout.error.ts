@@ -1,4 +1,4 @@
-import { OperationalError } from 'n8n-workflow';
+import { OperationalError } from 'resin-workflow';
 
 export class TaskRequestTimeoutError extends OperationalError {
 	description: string;

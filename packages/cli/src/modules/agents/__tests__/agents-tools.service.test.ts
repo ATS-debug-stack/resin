@@ -1,7 +1,7 @@
 import { mock } from 'jest-mock-extended';
-import type { CredentialProvider } from '@n8n/agents';
-import type { Logger } from '@n8n/backend-common';
-import { validateNodeConfig } from '@n8n/workflow-sdk';
+import type { CredentialProvider } from '@resin/agents';
+import type { Logger } from '@resin/backend-common';
+import { validateNodeConfig } from '@resin/workflow-sdk';
 
 import type { EphemeralNodeExecutor } from '@/node-execution';
 import type { NodeCatalogService } from '@/node-catalog';
@@ -12,7 +12,7 @@ import {
 	isExecutableNodeType,
 } from '../agents-tools.service';
 
-jest.mock('@n8n/workflow-sdk', () => ({
+jest.mock('@resin/workflow-sdk', () => ({
 	validateNodeConfig: jest.fn().mockReturnValue({ valid: true, errors: [] }),
 }));
 
@@ -151,26 +151,26 @@ describe('AgentsToolsService', () => {
 
 	describe('isExecutableNodeType', () => {
 		it('rejects trigger nodes only', () => {
-			expect(isExecutableNodeType('n8n-nodes-base.scheduleTrigger')).toBe(false);
-			expect(isExecutableNodeType('n8n-nodes-base.httpRequest')).toBe(true);
-			expect(isExecutableNodeType('n8n-nodes-base.httpRequestTool')).toBe(true);
+			expect(isExecutableNodeType('resin-nodes-base.scheduleTrigger')).toBe(false);
+			expect(isExecutableNodeType('resin-nodes-base.httpRequest')).toBe(true);
+			expect(isExecutableNodeType('resin-nodes-base.httpRequestTool')).toBe(true);
 		});
 	});
 
 	describe('isAgentToolNodeType', () => {
 		it('allows tool node IDs and rejects base, trigger, or HITL tool node IDs', () => {
-			expect(isAgentToolNodeType('n8n-nodes-base.scheduleTrigger')).toBe(false);
-			expect(isAgentToolNodeType('n8n-nodes-base.httpRequest')).toBe(false);
-			expect(isAgentToolNodeType('n8n-nodes-base.httpRequestTool')).toBe(true);
-			expect(isAgentToolNodeType('n8n-nodes-base.slackHitlTool')).toBe(false);
+			expect(isAgentToolNodeType('resin-nodes-base.scheduleTrigger')).toBe(false);
+			expect(isAgentToolNodeType('resin-nodes-base.httpRequest')).toBe(false);
+			expect(isAgentToolNodeType('resin-nodes-base.httpRequestTool')).toBe(true);
+			expect(isAgentToolNodeType('resin-nodes-base.slackHitlTool')).toBe(false);
 		});
 
 		it('admits whitelisted AI provider nodes (full vendor APIs)', () => {
-			expect(isAgentToolNodeType('@n8n/n8n-nodes-langchain.openAi')).toBe(true);
-			expect(isAgentToolNodeType('@n8n/n8n-nodes-langchain.anthropic')).toBe(true);
+			expect(isAgentToolNodeType('@resin/n8n-nodes-langchain.openAi')).toBe(true);
+			expect(isAgentToolNodeType('@resin/n8n-nodes-langchain.anthropic')).toBe(true);
 			// Non-provider langchain nodes stay excluded.
-			expect(isAgentToolNodeType('@n8n/n8n-nodes-langchain.lmChatOpenAi')).toBe(false);
-			expect(isAgentToolNodeType('@n8n/n8n-nodes-langchain.agent')).toBe(false);
+			expect(isAgentToolNodeType('@resin/n8n-nodes-langchain.lmChatOpenAi')).toBe(false);
+			expect(isAgentToolNodeType('@resin/n8n-nodes-langchain.agent')).toBe(false);
 		});
 	});
 
@@ -184,21 +184,21 @@ describe('AgentsToolsService', () => {
 		it('forwards string node IDs unchanged', async () => {
 			const { service, nodeCatalogService } = makeService();
 
-			await getTypesTool(service).handler!({ nodeIds: ['n8n-nodes-base.gmail'] }, ctx);
+			await getTypesTool(service).handler!({ nodeIds: ['resin-nodes-base.gmail'] }, ctx);
 
-			expect(nodeCatalogService.getNodeTypes).toHaveBeenCalledWith(['n8n-nodes-base.gmail']);
+			expect(nodeCatalogService.getNodeTypes).toHaveBeenCalledWith(['resin-nodes-base.gmail']);
 		});
 
 		it('stringifies object-style version before passing to the catalog', async () => {
 			const { service, nodeCatalogService } = makeService();
 
 			await getTypesTool(service).handler!(
-				{ nodeIds: [{ nodeId: 'n8n-nodes-base.gmail', version: 2.1, resource: 'message' }] },
+				{ nodeIds: [{ nodeId: 'resin-nodes-base.gmail', version: 2.1, resource: 'message' }] },
 				ctx,
 			);
 
 			expect(nodeCatalogService.getNodeTypes).toHaveBeenCalledWith([
-				{ nodeId: 'n8n-nodes-base.gmail', version: '2.1', resource: 'message' },
+				{ nodeId: 'resin-nodes-base.gmail', version: '2.1', resource: 'message' },
 			]);
 		});
 	});
@@ -218,7 +218,7 @@ describe('AgentsToolsService', () => {
 			const { service, ephemeralNodeExecutor } = makeService();
 
 			const result = await getRunTool(service).handler!(
-				{ nodeType: 'n8n-nodes-base.scheduleTrigger', nodeTypeVersion: 1 },
+				{ nodeType: 'resin-nodes-base.scheduleTrigger', nodeTypeVersion: 1 },
 				ctx,
 			);
 
@@ -234,7 +234,7 @@ describe('AgentsToolsService', () => {
 			ephemeralNodeExecutor.executeInline.mockResolvedValue({ status: 'success' } as never);
 
 			await getRunTool(service).handler!(
-				{ nodeType: 'n8n-nodes-base.httpRequest', nodeTypeVersion: 4 },
+				{ nodeType: 'resin-nodes-base.httpRequest', nodeTypeVersion: 4 },
 				ctx,
 			);
 
@@ -248,7 +248,7 @@ describe('AgentsToolsService', () => {
 
 			await getRunTool(service).handler!(
 				{
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					nodeTypeVersion: 4,
 					nodeParameters: { url: 'https://example.com' },
 				},
@@ -256,7 +256,7 @@ describe('AgentsToolsService', () => {
 			);
 
 			expect(validateNodeConfig).toHaveBeenCalledWith(
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				4,
 				{
 					parameters: { url: 'https://example.com' },
@@ -275,7 +275,7 @@ describe('AgentsToolsService', () => {
 
 			const result = await getRunTool(service).handler!(
 				{
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					nodeTypeVersion: 4,
 					nodeParameters: { method: 'DELETE' },
 				},
@@ -294,7 +294,7 @@ describe('AgentsToolsService', () => {
 			ephemeralNodeExecutor.executeInline.mockRejectedValue(new Error('boom'));
 
 			const result = await getRunTool(service).handler!(
-				{ nodeType: 'n8n-nodes-base.httpRequest', nodeTypeVersion: 4 },
+				{ nodeType: 'resin-nodes-base.httpRequest', nodeTypeVersion: 4 },
 				ctx,
 			);
 
@@ -312,7 +312,7 @@ describe('AgentsToolsService', () => {
 
 			const result = await getRunTool(service).handler!(
 				{
-					nodeType: 'n8n-nodes-base.gmail',
+					nodeType: 'resin-nodes-base.gmail',
 					nodeTypeVersion: 2,
 					credentials: { gmailOAuth2: { id: 'cred-1', name: 'My Gmail' } },
 					inputData: { to: 'user@example.com' },

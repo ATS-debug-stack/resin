@@ -1,7 +1,7 @@
 import type { NextFunction, Response } from 'express';
 import { validate } from 'jsonschema';
-import type { JsonObject } from 'n8n-workflow';
-import { jsonParse, UnexpectedError } from 'n8n-workflow';
+import type { JsonObject } from 'resin-workflow';
+import { jsonParse, UnexpectedError } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import * as ResponseHelper from '@/response-helper';

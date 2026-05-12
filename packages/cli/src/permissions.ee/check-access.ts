@@ -1,9 +1,13 @@
-import type { User } from '@n8n/db';
-import { ProjectRepository, SharedCredentialsRepository, SharedWorkflowRepository } from '@n8n/db';
-import { ModuleRegistry } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
-import { hasGlobalScope, type Scope } from '@n8n/permissions';
-import { UnexpectedError } from 'n8n-workflow';
+import type { User } from '@resin/db';
+import {
+	ProjectRepository,
+	SharedCredentialsRepository,
+	SharedWorkflowRepository,
+} from '@resin/db';
+import { ModuleRegistry } from '@resin/backend-common';
+import { Container } from '@resin/di';
+import { hasGlobalScope, type Scope } from '@resin/permissions';
+import { UnexpectedError } from 'resin-workflow';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

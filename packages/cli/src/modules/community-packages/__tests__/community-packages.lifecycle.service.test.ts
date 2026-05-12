@@ -1,6 +1,6 @@
-import type { CommunityNodeType } from '@n8n/api-types';
-import type { Logger } from '@n8n/backend-common';
-import type { InstanceSettingsLoaderConfig } from '@n8n/config';
+import type { CommunityNodeType } from '@resin/api-types';
+import type { Logger } from '@resin/backend-common';
+import type { InstanceSettingsLoaderConfig } from '@resin/config';
 import { mock } from 'jest-mock-extended';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
@@ -68,17 +68,17 @@ describe('CommunityPackagesLifecycleService', () => {
 			communityNodeTypesService.findVetted.mockResolvedValue(undefined);
 
 			await expect(
-				lifecycle.install({ name: 'n8n-nodes-test', verify: true, version: '1.0.0' }, user, 'ui'),
+				lifecycle.install({ name: 'resin-nodes-test', verify: true, version: '1.0.0' }, user, 'ui'),
 			).rejects.toThrow('Package n8n-nodes-test is not vetted for installation');
 
-			expect(communityNodeTypesService.findVetted).toHaveBeenCalledWith('n8n-nodes-test');
+			expect(communityNodeTypesService.findVetted).toHaveBeenCalledWith('resin-nodes-test');
 		});
 
 		it.each(['echo "hello"', '1.a.b', '0.1.29#;ls'])(
 			'should throw error if version is invalid',
 			async (version) => {
 				await expect(
-					lifecycle.install({ name: 'n8n-nodes-test', verify: true, version }, user, 'ui'),
+					lifecycle.install({ name: 'resin-nodes-test', verify: true, version }, user, 'ui'),
 				).rejects.toThrow(`Invalid version: ${version}`);
 			},
 		);
@@ -90,8 +90,8 @@ describe('CommunityPackagesLifecycleService', () => {
 				}),
 			);
 			communityPackagesService.parseNpmPackageName.mockReturnValue({
-				rawString: 'n8n-nodes-test',
-				packageName: 'n8n-nodes-test',
+				rawString: 'resin-nodes-test',
+				packageName: 'resin-nodes-test',
 				version: '1.1.1',
 			});
 			communityPackagesService.isPackageInstalled.mockResolvedValue(false);
@@ -106,13 +106,13 @@ describe('CommunityPackagesLifecycleService', () => {
 			);
 
 			await lifecycle.install(
-				{ name: 'n8n-nodes-test', verify: true, version: '1.0.0' },
+				{ name: 'resin-nodes-test', verify: true, version: '1.0.0' },
 				user,
 				'ui',
 			);
 
 			expect(communityPackagesService.installPackage).toHaveBeenCalledWith(
-				'n8n-nodes-test',
+				'resin-nodes-test',
 				'1.0.0',
 				'checksum',
 			);
@@ -127,7 +127,7 @@ describe('CommunityPackagesLifecycleService', () => {
 
 	describe('listInstalledPackages', () => {
 		const installedPackage = mock<InstalledPackages>({
-			packageName: 'n8n-nodes-test',
+			packageName: 'resin-nodes-test',
 			installedVersion: '1.0.0',
 			installedNodes: [],
 		});
@@ -169,14 +169,14 @@ describe('CommunityPackagesLifecycleService', () => {
 			// Update detection in this mode is handled by the frontend via Strapi version comparison.
 			communityPackagesConfig.unverifiedEnabled = false;
 			const vettedPackage = mock<InstalledPackages>({
-				packageName: 'n8n-nodes-elevenlabs',
+				packageName: 'resin-nodes-elevenlabs',
 				installedVersion: '0.2.2',
 				installedNodes: [],
 			});
 			communityPackagesService.getAllInstalledPackages.mockResolvedValue([vettedPackage]);
 			// Simulate real matchPackagesWithUpdates: without updates arg, returns packages without updateAvailable
 			const returnedPackage = {
-				packageName: 'n8n-nodes-elevenlabs',
+				packageName: 'resin-nodes-elevenlabs',
 				installedVersion: '0.2.2',
 				installedNodes: [],
 			};
@@ -211,7 +211,7 @@ describe('CommunityPackagesLifecycleService', () => {
 			Object.defineProperty(communityPackagesService, 'hasMissingPackages', { value: false });
 
 			const npmOutdatedOutput = JSON.stringify({
-				'n8n-nodes-test': { current: '1.0.0', wanted: '2.0.0', latest: '2.0.0' },
+				'resin-nodes-test': { current: '1.0.0', wanted: '2.0.0', latest: '2.0.0' },
 			});
 			mockedExecuteNpmCommand.mockRejectedValue(
 				Object.assign(new Error(), { code: 1, stdout: npmOutdatedOutput }),
@@ -221,7 +221,7 @@ describe('CommunityPackagesLifecycleService', () => {
 
 			expect(communityPackagesService.matchPackagesWithUpdates).toHaveBeenCalledWith(
 				[installedPackage],
-				{ 'n8n-nodes-test': { current: '1.0.0', wanted: '2.0.0', latest: '2.0.0' } },
+				{ 'resin-nodes-test': { current: '1.0.0', wanted: '2.0.0', latest: '2.0.0' } },
 			);
 		});
 	});
@@ -234,14 +234,14 @@ describe('CommunityPackagesLifecycleService', () => {
 			communityPackagesService.findInstalledPackage.mockResolvedValue(previouslyInstalledPackage);
 			communityPackagesService.updatePackage.mockResolvedValue(newInstalledPackage);
 			communityPackagesService.parseNpmPackageName.mockReturnValue({
-				rawString: 'n8n-nodes-test',
-				packageName: 'n8n-nodes-test',
+				rawString: 'resin-nodes-test',
+				packageName: 'resin-nodes-test',
 				version: undefined,
 			});
 
 			const result = await lifecycle.update(
 				{
-					name: 'n8n-nodes-test',
+					name: 'resin-nodes-test',
 					version: '2.0.0',
 					checksum: 'a893hfdsy7399',
 				},
@@ -250,7 +250,7 @@ describe('CommunityPackagesLifecycleService', () => {
 			);
 
 			expect(communityPackagesService.updatePackage).toHaveBeenCalledWith(
-				'n8n-nodes-test',
+				'resin-nodes-test',
 				previouslyInstalledPackage,
 				'2.0.0',
 				'a893hfdsy7399',
@@ -264,7 +264,7 @@ describe('CommunityPackagesLifecycleService', () => {
 			async (version) => {
 				await expect(
 					lifecycle.update(
-						{ name: 'n8n-nodes-test', version, checksum: 'a893hfdsy7399' },
+						{ name: 'resin-nodes-test', version, checksum: 'a893hfdsy7399' },
 						user,
 						'badRequest',
 					),
@@ -277,7 +277,7 @@ describe('CommunityPackagesLifecycleService', () => {
 
 			await expect(
 				lifecycle.update(
-					{ name: 'n8n-nodes-test', version: '2.0.0', verify: true },
+					{ name: 'resin-nodes-test', version: '2.0.0', verify: true },
 					user,
 					'badRequest',
 				),
@@ -297,19 +297,19 @@ describe('CommunityPackagesLifecycleService', () => {
 			communityPackagesService.findInstalledPackage.mockResolvedValue(previouslyInstalledPackage);
 			communityPackagesService.updatePackage.mockResolvedValue(newInstalledPackage);
 			communityPackagesService.parseNpmPackageName.mockReturnValue({
-				rawString: 'n8n-nodes-test',
-				packageName: 'n8n-nodes-test',
+				rawString: 'resin-nodes-test',
+				packageName: 'resin-nodes-test',
 				version: undefined,
 			});
 
 			await lifecycle.update(
-				{ name: 'n8n-nodes-test', version: '2.0.0', verify: true },
+				{ name: 'resin-nodes-test', version: '2.0.0', verify: true },
 				user,
 				'badRequest',
 			);
 
 			expect(communityPackagesService.updatePackage).toHaveBeenCalledWith(
-				'n8n-nodes-test',
+				'resin-nodes-test',
 				previouslyInstalledPackage,
 				'2.0.0',
 				'vetted-checksum',
@@ -329,19 +329,19 @@ describe('CommunityPackagesLifecycleService', () => {
 			communityPackagesService.findInstalledPackage.mockResolvedValue(previouslyInstalledPackage);
 			communityPackagesService.updatePackage.mockResolvedValue(newInstalledPackage);
 			communityPackagesService.parseNpmPackageName.mockReturnValue({
-				rawString: 'n8n-nodes-test',
-				packageName: 'n8n-nodes-test',
+				rawString: 'resin-nodes-test',
+				packageName: 'resin-nodes-test',
 				version: undefined,
 			});
 
 			await lifecycle.update(
-				{ name: 'n8n-nodes-test', version: '1.0.0', verify: true },
+				{ name: 'resin-nodes-test', version: '1.0.0', verify: true },
 				user,
 				'badRequest',
 			);
 
 			expect(communityPackagesService.updatePackage).toHaveBeenCalledWith(
-				'n8n-nodes-test',
+				'resin-nodes-test',
 				previouslyInstalledPackage,
 				'1.0.0',
 				'v1-checksum',
@@ -352,7 +352,7 @@ describe('CommunityPackagesLifecycleService', () => {
 			communityPackagesService.findInstalledPackage.mockResolvedValue(null);
 
 			await expect(
-				lifecycle.update({ name: 'n8n-nodes-missing', version: '1.0.0' }, user, 'notFound'),
+				lifecycle.update({ name: 'resin-nodes-missing', version: '1.0.0' }, user, 'notFound'),
 			).rejects.toMatchObject({ httpStatusCode: 404 });
 		});
 
@@ -360,7 +360,7 @@ describe('CommunityPackagesLifecycleService', () => {
 			communityPackagesService.findInstalledPackage.mockResolvedValue(null);
 
 			await expect(
-				lifecycle.update({ name: 'n8n-nodes-missing', version: '1.0.0' }, user, 'badRequest'),
+				lifecycle.update({ name: 'resin-nodes-missing', version: '1.0.0' }, user, 'badRequest'),
 			).rejects.toBeInstanceOf(BadRequestError);
 		});
 	});

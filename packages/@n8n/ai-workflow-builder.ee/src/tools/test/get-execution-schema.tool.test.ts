@@ -34,7 +34,7 @@ describe('GetExecutionSchemaTool', () => {
 	describe('no execution schema', () => {
 		it('should return no schema message when workflowContext is empty', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, { workflow });
@@ -50,7 +50,7 @@ describe('GetExecutionSchemaTool', () => {
 
 		it('should return no schema message when executionSchema is empty array', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -71,8 +71,8 @@ describe('GetExecutionSchemaTool', () => {
 	describe('schema retrieval', () => {
 		it('should return schema for all nodes when no filter', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -106,7 +106,7 @@ describe('GetExecutionSchemaTool', () => {
 
 		it('should return schema with complex nested structure', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -148,8 +148,8 @@ describe('GetExecutionSchemaTool', () => {
 	describe('filtering by nodeName', () => {
 		it('should filter schema to specific node', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -181,8 +181,8 @@ describe('GetExecutionSchemaTool', () => {
 
 		it('should return not found message when filtered node has no schema', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -208,10 +208,10 @@ describe('GetExecutionSchemaTool', () => {
 	describe('multiple schema entries', () => {
 		it('should handle multiple nodes with schemas', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'trigger1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
-				createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
-				createNode({ id: 'set1', name: 'Set', type: 'n8n-nodes-base.set' }),
+				createNode({ id: 'trigger1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
+				createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
+				createNode({ id: 'set1', name: 'Set', type: 'resin-nodes-base.set' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {

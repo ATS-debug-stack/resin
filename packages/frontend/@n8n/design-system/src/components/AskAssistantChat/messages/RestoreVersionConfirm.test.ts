@@ -4,7 +4,7 @@ import { nextTick } from 'vue';
 import RestoreVersionConfirm from './RestoreVersionConfirm.vue';
 
 // Mock i18n to return keys with interpolation for testing
-vi.mock('@n8n/design-system/composables/useI18n', () => ({
+vi.mock('@resin/design-system/composables/useI18n', () => ({
 	useI18n: () => ({
 		t: (key: string, params?: Record<string, string>) => {
 			if (params) {
@@ -19,7 +19,8 @@ const stubs = {
 	N8nButton: {
 		name: 'N8nButton',
 		props: ['type', 'size'],
-		template: '<button data-test-id="n8n-button-stub" @click="$emit(\'click\')"><slot /></button>',
+		template:
+			'<button data-test-id="resin-button-stub" @click="$emit(\'click\')"><slot /></button>',
 	},
 	N8nIcon: true,
 };
@@ -158,7 +159,7 @@ describe('RestoreVersionConfirm', () => {
 				global: { stubs },
 			});
 
-			const restoreButton = wrapper.getByTestId('n8n-button-stub');
+			const restoreButton = wrapper.getByTestId('resin-button-stub');
 			await fireEvent.click(restoreButton);
 			await nextTick();
 

@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 export const ALLOWED_CONFIG_KEYS = ['user.email', 'user.name', 'remote.origin.url'];
 

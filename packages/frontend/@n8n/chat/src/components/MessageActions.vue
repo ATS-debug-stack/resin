@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { N8nTooltip, N8nIcon } from '@n8n/design-system';
+import { N8nTooltip, N8nIcon } from '@resin/design-system';
 
-import { useI18n, useChat, useOptions } from '@n8n/chat/composables';
-import { chatEventBus } from '@n8n/chat/event-buses';
-import type { ChatMessage } from '@n8n/chat/types';
+import { useI18n, useChat, useOptions } from '@resin/chat/composables';
+import { chatEventBus } from '@resin/chat/event-buses';
+import type { ChatMessage } from '@resin/chat/types';
 
 const props = defineProps<{
 	message: ChatMessage;

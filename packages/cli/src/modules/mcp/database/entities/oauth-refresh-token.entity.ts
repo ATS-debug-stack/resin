@@ -1,5 +1,5 @@
-import { User, WithTimestamps } from '@n8n/db';
-import { Column, Entity, Index, ManyToOne } from '@n8n/typeorm';
+import { User, WithTimestamps } from '@resin/db';
+import { Column, Entity, Index, ManyToOne } from '@resin/typeorm';
 
 import { OAuthClient } from './oauth-client.entity';
 

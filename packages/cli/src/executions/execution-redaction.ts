@@ -1,6 +1,6 @@
-import type { ExecutionRedactionQueryDto } from '@n8n/api-types';
-import type { User } from '@n8n/db';
-import type { IRunExecutionData, IWorkflowBase, WorkflowExecuteMode } from 'n8n-workflow';
+import type { ExecutionRedactionQueryDto } from '@resin/api-types';
+import type { User } from '@resin/db';
+import type { IRunExecutionData, IWorkflowBase, WorkflowExecuteMode } from 'resin-workflow';
 
 export type ExecutionRedactionOptions = {
 	user: User;

@@ -12,8 +12,8 @@ import type {
 	IRequestOptions,
 	JsonObject,
 	PreSendAction,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeOperationError } from 'resin-workflow';
 
 /**
  * A custom API request function to be used with the resourceLocator lookup queries.

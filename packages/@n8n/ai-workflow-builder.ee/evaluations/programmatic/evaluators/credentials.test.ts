@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { INodeParameters } from 'n8n-workflow';
+import type { INodeParameters } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 import { validateCredentials } from '@/validation/checks/credentials';
@@ -58,7 +58,7 @@ function createHttpRequestNode(options: HttpRequestNodeOptions = {}): SimpleWork
 	return {
 		id,
 		name,
-		type: 'n8n-nodes-base.httpRequest',
+		type: 'resin-nodes-base.httpRequest',
 		parameters: parameters as INodeParameters,
 		typeVersion: 4,
 		position: [0, 0],
@@ -80,7 +80,7 @@ function createSetNode(options: SetNodeOptions = {}): SimpleWorkflow['nodes'][0]
 	return {
 		id,
 		name,
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		parameters: parameters as INodeParameters,
 		typeVersion: 3,
 		position: [0, 0],

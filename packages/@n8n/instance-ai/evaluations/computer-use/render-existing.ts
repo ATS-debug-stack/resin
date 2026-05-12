@@ -2,7 +2,7 @@
 // matching .html beside it. Convenient when you already have a report and
 // don't want to re-run the eval just to refresh the HTML.
 
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 

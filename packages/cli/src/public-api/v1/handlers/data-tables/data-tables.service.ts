@@ -1,6 +1,6 @@
-import { type DataTableListFilter } from '@n8n/api-types';
-import { ProjectRepository, ProjectRelationRepository, type User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { type DataTableListFilter } from '@resin/api-types';
+import { ProjectRepository, ProjectRelationRepository, type User } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';

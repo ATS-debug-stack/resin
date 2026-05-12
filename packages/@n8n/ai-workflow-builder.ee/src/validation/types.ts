@@ -1,4 +1,4 @@
-import type { INodeTypeDescription, NodeConnectionType } from 'n8n-workflow';
+import type { INodeTypeDescription, NodeConnectionType } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 

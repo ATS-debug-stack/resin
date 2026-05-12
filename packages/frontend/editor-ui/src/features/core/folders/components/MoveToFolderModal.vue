@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref, watch } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 import { EnterpriseEditionFeature } from '@/app/constants';
 import { MOVE_FOLDER_MODAL_KEY } from '../folders.constants';
@@ -9,7 +9,7 @@ import { useProjectsStore } from '@/features/collaboration/projects/projects.sto
 import { useUIStore } from '@/app/stores/ui.store';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
-import { type EventBus, createEventBus } from '@n8n/utils/event-bus';
+import { type EventBus, createEventBus } from '@resin/utils/event-bus';
 import { ProjectTypes } from '@/features/collaboration/projects/projects.types';
 import type {
 	ProjectListItem,
@@ -20,7 +20,7 @@ import type {
 	ICredentialsResponse,
 	IUsedCredential,
 } from '@/features/credentials/credentials.types';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import EnterpriseEdition from '@/app/components/EnterpriseEdition.ee.vue';
 import Modal from '@/app/components/Modal.vue';
 import MoveToFolderDropdown from './MoveToFolderDropdown.vue';
@@ -36,7 +36,7 @@ import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useToast } from '@/app/composables/useToast';
 import { I18nT } from 'vue-i18n';
 
-import { N8nButton, N8nCallout, N8nCheckbox, N8nText, N8nTooltip } from '@n8n/design-system';
+import { N8nButton, N8nCallout, N8nCheckbox, N8nText, N8nTooltip } from '@resin/design-system';
 /**
  * This modal is used to move a resource (folder or workflow) to a different folder.
  */

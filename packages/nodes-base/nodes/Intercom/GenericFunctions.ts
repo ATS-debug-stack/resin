@@ -6,8 +6,8 @@ import type {
 	JsonObject,
 	IHttpRequestOptions,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 export async function intercomApiRequest(
 	this: IHookFunctions | IExecuteFunctions | ILoadOptionsFunctions,

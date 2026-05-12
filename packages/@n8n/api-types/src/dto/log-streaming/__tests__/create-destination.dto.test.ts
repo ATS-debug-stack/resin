@@ -226,7 +226,7 @@ describe('CreateDestinationDto', () => {
 					port: 514,
 					protocol: 'tcp',
 					facility: 16,
-					app_name: 'n8n-production',
+					app_name: 'resin-production',
 					eol: '\n',
 				},
 				parsedResult: {
@@ -240,7 +240,7 @@ describe('CreateDestinationDto', () => {
 					port: 514,
 					protocol: 'tcp',
 					facility: 16,
-					app_name: 'n8n-production',
+					app_name: 'resin-production',
 					eol: '\n',
 				},
 			},

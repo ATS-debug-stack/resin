@@ -1,7 +1,7 @@
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import type { ModuleInterface } from '@n8n/decorators';
-import { BackendModule, OnShutdown } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import type { ModuleInterface } from '@resin/decorators';
+import { BackendModule, OnShutdown } from '@resin/decorators';
+import { Container } from '@resin/di';
 
 /**
  * Handles instance-level MCP access.

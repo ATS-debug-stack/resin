@@ -7,9 +7,9 @@ import {
 	N8nSelect,
 	N8nOption,
 	N8nInputLabel,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { ElSwitch } from 'element-plus';
-import { type BaseTextKey, useI18n } from '@n8n/i18n';
+import { type BaseTextKey, useI18n } from '@resin/i18n';
 import { useUIStore } from '@/app/stores/ui.store';
 import { CREDENTIAL_EDIT_MODAL_KEY } from '@/features/credentials/credentials.constants';
 import { useSettingsField } from './useSettingsField';
@@ -29,7 +29,7 @@ const showDaytonaFields = computed(() => {
 });
 
 const showN8nSandboxFields = computed(() => {
-	return provider.value === 'n8n-sandbox';
+	return provider.value === 'resin-sandbox';
 });
 
 const showImageField = computed(() => {
@@ -134,7 +134,7 @@ watch(
 				@update:model-value="store.setField('sandboxProvider', String($event))"
 			>
 				<N8nOption value="daytona" label="Daytona" />
-				<N8nOption value="n8n-sandbox" label="n8n Sandbox Service" />
+				<N8nOption value="resin-sandbox" label="n8n Sandbox Service" />
 				<N8nOption value="local" label="Local" />
 			</N8nSelect>
 		</N8nInputLabel>

@@ -1,4 +1,4 @@
-import { Time } from '@n8n/constants';
+import { Time } from '@resin/constants';
 
 export type CsrfStateRequired = {
 	/** Random CSRF token, used to verify the signature of the CSRF state */

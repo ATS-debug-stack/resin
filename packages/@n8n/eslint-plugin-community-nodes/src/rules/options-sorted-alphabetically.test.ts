@@ -10,7 +10,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'resource options already sorted alphabetically',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -37,7 +37,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'operation options already sorted alphabetically',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -65,7 +65,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'non-ASCII names sorted correctly via localeCompare',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -92,7 +92,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'single option is trivially sorted',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -117,7 +117,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'non-options type parameter is ignored',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -161,7 +161,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'non-.node.ts file is ignored',
 			filename: '/tmp/TestHelper.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -187,7 +187,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'description assigned from a variable is skipped',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				const desc: INodeTypeDescription = {} as INodeTypeDescription;
 
@@ -200,7 +200,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'node with no properties array is skipped',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -214,7 +214,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'spread element in properties array is skipped gracefully',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				const extraProps = [{ displayName: 'Extra', name: 'extra', type: 'string', default: '' }];
 
@@ -233,7 +233,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'options with a spread element are skipped (dynamic options)',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				const extraOption = { name: 'Extra', value: 'extra' };
 
@@ -261,7 +261,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'options with a dynamic name value are skipped',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				const dynamicName = 'Dynamic';
 
@@ -291,7 +291,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'resource options not sorted alphabetically',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -324,7 +324,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'operation options not sorted alphabetically',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -358,7 +358,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'other options-type parameter not sorted alphabetically',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -391,7 +391,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'options-type parameter without displayName falls back to "unknown"',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {
@@ -422,7 +422,7 @@ ruleTester.run('options-sorted-alphabetically', OptionsSortedAlphabeticallyRule,
 			name: 'multiple unsorted parameters each report an error',
 			filename: '/tmp/TestNode.node.ts',
 			code: `
-				import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+				import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 				export class TestNode implements INodeType {
 					description: INodeTypeDescription = {

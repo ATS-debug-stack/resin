@@ -1,13 +1,13 @@
-import { Time } from '@n8n/constants';
+import { Time } from '@resin/constants';
 import { readFileSync, statSync } from 'fs';
-import type { n8n } from 'n8n-core';
-import type { ITaskDataConnections } from 'n8n-workflow';
+import type { n8n } from 'resin-core';
+import type { ITaskDataConnections } from 'resin-workflow';
 import {
 	ERROR_TRIGGER_NODE_TYPE,
 	EXECUTE_WORKFLOW_TRIGGER_NODE_TYPE,
 	jsonParse,
 	TRIMMED_TASK_DATA_CONNECTIONS_KEY,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { resolve, join, dirname } from 'path';
 
 const { E2E_TESTS } = process.env;
@@ -19,12 +19,12 @@ export const CUSTOM_API_CALL_KEY = '__CUSTOM_API_CALL__';
 export const CLI_DIR = resolve(__dirname, '..');
 export const AI_ASSISTANT_SDK_DIR = dirname(dirname(require.resolve('@n8n_io/ai-assistant-sdk')));
 export const TEMPLATES_DIR = join(CLI_DIR, 'templates');
-export const NODES_BASE_DIR = dirname(require.resolve('n8n-nodes-base'));
-export const EDITOR_UI_DIST_DIR = join(dirname(require.resolve('n8n-editor-ui')), 'dist');
+export const NODES_BASE_DIR = dirname(require.resolve('resin-nodes-base'));
+export const EDITOR_UI_DIST_DIR = join(dirname(require.resolve('resin-editor-ui')), 'dist');
 
 const packageJsonPath = join(CLI_DIR, 'package.json');
 const aiAssistantPackageJsonPath = join(AI_ASSISTANT_SDK_DIR, 'package.json');
-const workflowSdkPackageJsonPath = require.resolve('@n8n/workflow-sdk/package.json');
+const workflowSdkPackageJsonPath = require.resolve('@resin/workflow-sdk/package.json');
 const n8nPackageJson = jsonParse<n8n.PackageJson>(readFileSync(packageJsonPath, 'utf8'));
 const aiAssistantPackageJson = jsonParse<n8n.PackageJson>(
 	readFileSync(aiAssistantPackageJsonPath, 'utf8'),
@@ -38,8 +38,8 @@ export const WORKFLOW_SDK_VERSION = workflowSdkPackageJson.version;
 export const N8N_RELEASE_DATE = statSync(packageJsonPath).mtime;
 
 export const STARTING_NODES = [
-	'@n8n/n8n-nodes-langchain.manualChatTrigger',
-	'n8n-nodes-base.manualTrigger',
+	'@resin/n8n-nodes-langchain.manualChatTrigger',
+	'resin-nodes-base.manualTrigger',
 ];
 
 export const TRIGGER_COUNT_EXCLUDED_NODES = [
@@ -47,9 +47,9 @@ export const TRIGGER_COUNT_EXCLUDED_NODES = [
 	ERROR_TRIGGER_NODE_TYPE,
 ];
 
-export const MCP_TRIGGER_NODE_TYPE = '@n8n/n8n-nodes-langchain.mcpTrigger';
+export const MCP_TRIGGER_NODE_TYPE = '@resin/n8n-nodes-langchain.mcpTrigger';
 
-export const NODE_PACKAGE_PREFIX = 'n8n-nodes-';
+export const NODE_PACKAGE_PREFIX = 'resin-nodes-';
 
 export const STARTER_TEMPLATE_NAME = `${NODE_PACKAGE_PREFIX}starter`;
 
@@ -71,9 +71,9 @@ export const RESPONSE_ERROR_MESSAGES = {
 	MISSING_SCOPE: 'User is missing a scope required to perform this action',
 } as const;
 
-export const AUTH_COOKIE_NAME = 'n8n-auth';
-export const OIDC_STATE_COOKIE_NAME = 'n8n-oidc-state';
-export const OIDC_NONCE_COOKIE_NAME = 'n8n-oidc-nonce';
+export const AUTH_COOKIE_NAME = 'resin-auth';
+export const OIDC_STATE_COOKIE_NAME = 'resin-oidc-state';
+export const OIDC_NONCE_COOKIE_NAME = 'resin-oidc-nonce';
 
 export const NPM_COMMAND_TOKENS = {
 	NPM_PACKAGE_NOT_FOUND_ERROR: '404 Not Found',

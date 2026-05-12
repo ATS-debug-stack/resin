@@ -6,9 +6,9 @@ import {
 	type ChatModelDto,
 	type ChatModelsResponse,
 	type ChatProviderSettingsDto,
-} from '@n8n/api-types';
-import type { DropdownMenuItemProps, IconOrEmoji } from '@n8n/design-system';
-import type { I18nClass } from '@n8n/i18n';
+} from '@resin/api-types';
+import type { DropdownMenuItemProps, IconOrEmoji } from '@resin/design-system';
+import type { I18nClass } from '@resin/i18n';
 import {
 	createFakeAgent,
 	isAllowedModel,
@@ -16,7 +16,7 @@ import {
 	stringifyModel,
 	workflowAgentDefaultIcon,
 } from './chat.utils';
-import { truncateBeforeLast } from '@n8n/utils/string/truncate';
+import { truncateBeforeLast } from '@resin/utils/string/truncate';
 import {
 	LLM_AGGREGATORS,
 	MAX_AGENT_NAME_CHARS_MENU,

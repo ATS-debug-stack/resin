@@ -69,7 +69,7 @@ test.describe(
 					{
 						id: nanoid(),
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -176,7 +176,7 @@ test.describe(
 					{
 						id: nanoid(),
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [0, 0] as [number, number],
 						parameters: {},

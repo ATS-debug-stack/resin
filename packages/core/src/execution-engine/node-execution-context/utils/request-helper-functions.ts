@@ -6,16 +6,16 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 import type {
 	ClientOAuth2Options,
 	ClientOAuth2RequestObject,
 	ClientOAuth2Token,
 	ClientOAuth2TokenData,
 	OAuth2CredentialData,
-} from '@n8n/client-oauth2';
-import { ClientOAuth2 } from '@n8n/client-oauth2';
-import { Container } from '@n8n/di';
+} from '@resin/client-oauth2';
+import { ClientOAuth2 } from '@resin/client-oauth2';
+import { Container } from '@resin/di';
 import type { AxiosError, AxiosHeaders, AxiosRequestConfig } from 'axios';
 import axios from 'axios';
 import crypto, { createHmac } from 'crypto';
@@ -35,7 +35,7 @@ import {
 	jsonParse,
 	ApplicationError,
 	sleep,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	GenericValue,
 	IAdditionalCredentialOptions,
@@ -60,7 +60,7 @@ import type {
 	RequestHelperFunctions,
 	Workflow,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { Token } from 'oauth-1.0a';
 import clientOAuth1 from 'oauth-1.0a';
 import { stringify } from 'qs';

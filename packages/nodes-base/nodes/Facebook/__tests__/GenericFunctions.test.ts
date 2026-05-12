@@ -2,8 +2,8 @@ import { createHmac } from 'crypto';
 
 import * as utils from '../GenericFunctions';
 
-jest.mock('n8n-workflow', () => {
-	const original = jest.requireActual('n8n-workflow');
+jest.mock('resin-workflow', () => {
+	const original = jest.requireActual('resin-workflow');
 	return {
 		...original,
 		NodeApiError: jest.fn().mockImplementation(function (

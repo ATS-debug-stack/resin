@@ -1,6 +1,6 @@
 import type { Tool } from '@langchain/classic/tools';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import type { Mocked, MockedFunction } from 'vitest';
 import { mock, mockDeep } from 'vitest-mock-extended';
 
@@ -37,7 +37,7 @@ describe('OpenAI Response Operation', () => {
 		mockNode = mock<INode>({
 			id: 'test-node',
 			name: 'Test Node',
-			type: 'n8n-nodes-langchain.openAi',
+			type: 'resin-nodes-langchain.openAi',
 			typeVersion: 2,
 			position: [0, 0],
 			parameters: {},

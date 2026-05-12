@@ -74,7 +74,7 @@ describe('build command', () => {
 
 		await expect(CommandTester.run('build')).rejects.toThrow('EEXIT: 1');
 
-		expect(cancel).toHaveBeenCalledWith('n8n-node build can only be run in an n8n node package');
+		expect(cancel).toHaveBeenCalledWith('resin-node build can only be run in an n8n node package');
 	});
 
 	tmpdirTest('no static files - still completes successfully', async ({ tmpdir }) => {

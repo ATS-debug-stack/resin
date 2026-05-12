@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import axios from 'axios';
 
 export const REQUEST_TIMEOUT_MS = 5000;

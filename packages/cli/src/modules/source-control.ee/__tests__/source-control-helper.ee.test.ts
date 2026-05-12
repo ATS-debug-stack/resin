@@ -1,9 +1,9 @@
-import type { SourceControlledFile } from '@n8n/api-types';
-import { Container } from '@n8n/di';
+import type { SourceControlledFile } from '@resin/api-types';
+import { Container } from '@resin/di';
 import { accessSync, constants as fsConstants } from 'fs';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
-import type { ICredentialDataDecryptedObject } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import type { ICredentialDataDecryptedObject } from 'resin-workflow';
 import path from 'path';
 
 import type { License } from '@/license';

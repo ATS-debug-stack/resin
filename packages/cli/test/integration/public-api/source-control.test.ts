@@ -1,7 +1,7 @@
-import type { SourceControlledFile } from '@n8n/api-types';
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { SourceControlledFile } from '@resin/api-types';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { EventService } from '@/events/event.service';
 import { SourceControlPreferencesService } from '@/modules/source-control.ee/source-control-preferences.service.ee';

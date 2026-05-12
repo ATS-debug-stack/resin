@@ -1,5 +1,5 @@
-import { AiConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { AiConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import axios from 'axios';
 import type { InternalAxiosRequestConfig } from 'axios';
 import { stringify } from 'qs';

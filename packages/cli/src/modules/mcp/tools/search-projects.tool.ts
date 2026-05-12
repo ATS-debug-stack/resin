@@ -1,4 +1,4 @@
-import type { ProjectRepository, User } from '@n8n/db';
+import type { ProjectRepository, User } from '@resin/db';
 import z from 'zod';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../mcp.constants';

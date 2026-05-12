@@ -14,7 +14,11 @@ import { LanguageSupport } from '@codemirror/language';
 import { Text, type Extension } from '@codemirror/state';
 import { EditorView, hoverTooltip } from '@codemirror/view';
 import * as Comlink from 'comlink';
-import { NodeConnectionTypes, type CodeExecutionMode, type INodeExecutionData } from 'n8n-workflow';
+import {
+	NodeConnectionTypes,
+	type CodeExecutionMode,
+	type INodeExecutionData,
+} from 'resin-workflow';
 import { onBeforeUnmount, ref, toRef, toValue, watch, type MaybeRefOrGetter } from 'vue';
 import type { LanguageServiceWorker, RemoteLanguageServiceWorkerInit } from '../types';
 import { typescriptCompletionSource } from './completions';

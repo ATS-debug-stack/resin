@@ -1,15 +1,15 @@
-import { Logger } from '@n8n/backend-common';
-import { SharedWorkflowRepository } from '@n8n/db';
-import { OnLifecycleEvent, type WorkflowExecuteAfterContext } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { In } from '@n8n/typeorm';
+import { Logger } from '@resin/backend-common';
+import { SharedWorkflowRepository } from '@resin/db';
+import { OnLifecycleEvent, type WorkflowExecuteAfterContext } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { In } from '@resin/typeorm';
 import { DateTime } from 'luxon';
 import {
 	IRun,
 	UnexpectedError,
 	type ExecutionStatus,
 	type WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { InsightsMetadata } from '@/modules/insights/database/entities/insights-metadata';
 import { InsightsRaw } from '@/modules/insights/database/entities/insights-raw';

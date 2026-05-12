@@ -1,6 +1,6 @@
-import type { ContextEstablishmentOptions } from '@n8n/decorators';
-import type { Logger } from '@n8n/backend-common';
-import type { INodeExecutionData } from 'n8n-workflow';
+import type { ContextEstablishmentOptions } from '@resin/decorators';
+import type { Logger } from '@resin/backend-common';
+import type { INodeExecutionData } from 'resin-workflow';
 
 import { SlackSignatureExtractor } from '../slack-signature-extractor';
 
@@ -65,7 +65,7 @@ describe('SlackSignatureExtractor', () => {
 
 	describe('isApplicableToTriggerNode', () => {
 		it('should return true for webhook node', () => {
-			expect(extractor.isApplicableToTriggerNode('n8n-nodes-base.webhook')).toBe(true);
+			expect(extractor.isApplicableToTriggerNode('resin-nodes-base.webhook')).toBe(true);
 		});
 
 		it('should return true for short webhook name', () => {
@@ -73,8 +73,8 @@ describe('SlackSignatureExtractor', () => {
 		});
 
 		it('should return false for non-webhook nodes', () => {
-			expect(extractor.isApplicableToTriggerNode('n8n-nodes-base.httpRequest')).toBe(false);
-			expect(extractor.isApplicableToTriggerNode('n8n-nodes-base.cron')).toBe(false);
+			expect(extractor.isApplicableToTriggerNode('resin-nodes-base.httpRequest')).toBe(false);
+			expect(extractor.isApplicableToTriggerNode('resin-nodes-base.cron')).toBe(false);
 		});
 	});
 

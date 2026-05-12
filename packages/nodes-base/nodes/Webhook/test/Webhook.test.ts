@@ -2,7 +2,7 @@ import { NodeTestHarness } from '@nodes-testing/node-test-harness';
 import type { Request, Response } from 'express';
 import fs from 'fs/promises';
 import { mock } from 'jest-mock-extended';
-import type { IWebhookFunctions } from 'n8n-workflow';
+import type { IWebhookFunctions } from 'resin-workflow';
 
 import { Webhook } from '../Webhook.node';
 
@@ -38,7 +38,7 @@ describe('Test Webhook Node', () => {
 		});
 		context.getNodeParameter.calledWith('options').mockReturnValue({});
 		context.getNode.calledWith().mockReturnValue({
-			type: 'n8n-nodes-base.webhook',
+			type: 'resin-nodes-base.webhook',
 			typeVersion: 1.1,
 		} as any);
 		const req = mock<Request>();
@@ -79,7 +79,7 @@ describe('Test Webhook Node', () => {
 			context.getResponseObject.mockReturnValue(res);
 			context.getChildNodes.mockReturnValue([]);
 			context.getNode.mockReturnValue({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				typeVersion: 2,
 				name: 'Webhook',
 			} as any);

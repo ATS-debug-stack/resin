@@ -1,5 +1,5 @@
-import type { GlobalRole } from '@n8n/permissions';
-import { getApiKeyScopesForRole } from '@n8n/permissions';
+import type { GlobalRole } from '@resin/permissions';
+import { getApiKeyScopesForRole } from '@resin/permissions';
 
 import { GLOBAL_ROLES } from '../../constants';
 import { ApiKey } from '../../entities';

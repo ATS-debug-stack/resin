@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 import type { AxiosInstance, AxiosResponse } from 'axios';
 import axios from 'axios';
-import type { IDataObject, INodeProperties } from 'n8n-workflow';
+import type { IDataObject, INodeProperties } from 'resin-workflow';
 
 import { DOCS_HELP_NOTICE } from '../constants';
 import { ExternalSecretsConfig } from '../external-secrets.config';

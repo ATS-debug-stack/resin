@@ -1,11 +1,11 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import {
 	DataSource,
 	In,
 	Repository,
 	type EntityManager,
 	type SelectQueryBuilder,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 
 import {
 	CredentialDependency,

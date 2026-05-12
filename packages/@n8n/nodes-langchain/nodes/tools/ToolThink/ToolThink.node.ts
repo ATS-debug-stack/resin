@@ -8,9 +8,9 @@ import {
 	type ISupplyDataFunctions,
 	type SupplyData,
 	type INodeExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 async function getTool(
 	ctx: ISupplyDataFunctions | IExecuteFunctions,

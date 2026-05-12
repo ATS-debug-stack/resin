@@ -1,4 +1,4 @@
-import { ApplicationError } from '@n8n/errors';
+import { ApplicationError } from '@resin/errors';
 
 export type WrappableError = Record<string, unknown>;
 

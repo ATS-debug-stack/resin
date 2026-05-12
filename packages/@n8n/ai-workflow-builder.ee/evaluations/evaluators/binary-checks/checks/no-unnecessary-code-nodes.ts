@@ -12,7 +12,7 @@ export const noUnnecessaryCodeNodes: BinaryCheck = {
 			return { pass: true };
 		}
 
-		const codeNodes = workflow.nodes.filter((n) => n.type === 'n8n-nodes-base.code');
+		const codeNodes = workflow.nodes.filter((n) => n.type === 'resin-nodes-base.code');
 		return {
 			pass: codeNodes.length === 0,
 			...(codeNodes.length > 0

@@ -1,6 +1,6 @@
 import { ref, readonly } from 'vue';
 import { createEventHook } from '@vueuse/core';
-import type { INodeExecutionData, IDataObject, IPinData } from 'n8n-workflow';
+import type { INodeExecutionData, IDataObject, IPinData } from 'resin-workflow';
 import { isJsonKeyObject, stringSizeInBytes } from '@/app/utils/typesUtils';
 import { CHANGE_ACTION } from './types';
 import type { ChangeAction, ChangeEvent } from './types';

@@ -6,8 +6,8 @@ import {
 	randomCredentialPayload,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
-import type { Project, User, Role } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import type { Project, User, Role } from '@resin/db';
 
 import { UserManagementMailer } from '@/user-management/email';
 
@@ -176,7 +176,7 @@ describe('Resource Access Control Matrix Tests', () => {
 							id: 'uuid-1234',
 							parameters: {},
 							name: 'Start',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [240, 300],
 						},
@@ -258,7 +258,7 @@ describe('Resource Access Control Matrix Tests', () => {
 							id: 'uuid-1234',
 							parameters: {},
 							name: 'Start',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [240, 300],
 						},

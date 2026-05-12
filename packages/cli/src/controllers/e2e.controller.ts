@@ -1,8 +1,8 @@
-import type { PushMessage } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { ExecutionsConfig } from '@n8n/config';
-import type { BooleanLicenseFeature, NumericLicenseFeature } from '@n8n/constants';
-import { LICENSE_FEATURES, LICENSE_QUOTAS, UNLIMITED_LICENSE_QUOTA } from '@n8n/constants';
+import type { PushMessage } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { ExecutionsConfig } from '@resin/config';
+import type { BooleanLicenseFeature, NumericLicenseFeature } from '@resin/constants';
+import { LICENSE_FEATURES, LICENSE_QUOTAS, UNLIMITED_LICENSE_QUOTA } from '@resin/constants';
 import {
 	AuthRolesService,
 	GLOBAL_ADMIN_ROLE,
@@ -11,9 +11,9 @@ import {
 	GLOBAL_OWNER_ROLE,
 	SettingsRepository,
 	UserRepository,
-} from '@n8n/db';
-import { Get, Patch, Post, RestController } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Get, Patch, Post, RestController } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { Request } from 'express';
 import type nodeFs from 'node:fs';
 import type nodePath from 'node:path';

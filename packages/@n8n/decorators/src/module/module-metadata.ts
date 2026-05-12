@@ -1,5 +1,5 @@
-import type { InstanceType } from '@n8n/constants';
-import { Service } from '@n8n/di';
+import type { InstanceType } from '@resin/constants';
+import { Service } from '@resin/di';
 
 import type { LicenseFlag, ModuleClass } from './module';
 

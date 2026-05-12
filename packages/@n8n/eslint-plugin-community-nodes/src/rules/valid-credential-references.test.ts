@@ -42,7 +42,7 @@ function createNodeCode(
 		credentials.length > 0 ? `credentials: [\n\t\t\t${credentialsArray}\n\t\t],` : '';
 
 	return `
-import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {
@@ -81,7 +81,7 @@ function createExpectedNodeCode(
 		credentials.length > 0 ? `credentials: [\n\t\t\t${credentialsArray}\n\t\t],` : '';
 
 	return `
-import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {

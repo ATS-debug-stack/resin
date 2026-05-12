@@ -1,12 +1,12 @@
 import { createTestingPinia, type TestingPinia } from '@pinia/testing';
-import type { ICredentialType, INodeTypeDescription } from 'n8n-workflow';
+import type { ICredentialType, INodeTypeDescription } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import CredentialIcon from './CredentialIcon.vue';
 
 import { createComponentRenderer } from '@/__tests__/render';
 import { useCredentialsStore } from '../credentials.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 
 describe('CredentialIcon', () => {
@@ -72,7 +72,7 @@ describe('CredentialIcon', () => {
 		useNodeTypesStore().setNodeTypes([
 			mock<INodeTypeDescription>({
 				version: 1,
-				name: 'n8n-nodes-base.test',
+				name: 'resin-nodes-base.test',
 				iconUrl: testIconUrl,
 			}),
 		]);
@@ -98,7 +98,7 @@ describe('CredentialIcon', () => {
 		useNodeTypesStore().setNodeTypes([
 			mock<INodeTypeDescription>({
 				version: 1,
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				icon: 'node:http-request',
 				iconUrl: undefined,
 			}),

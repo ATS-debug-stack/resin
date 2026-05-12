@@ -1,5 +1,5 @@
 import { NodeTestHarness } from '@nodes-testing/node-test-harness';
-import type { WorkflowTestData } from 'n8n-workflow';
+import type { WorkflowTestData } from 'resin-workflow';
 import path from 'node:path';
 
 // CI has cold-start overhead on the first test (coverage instrumentation, module loading)
@@ -68,7 +68,7 @@ describe('Agent V3 Integration', () => {
 	};
 
 	const testHarness = new NodeTestHarness({
-		additionalPackagePaths: [path.dirname(require.resolve('n8n-nodes-base'))],
+		additionalPackagePaths: [path.dirname(require.resolve('resin-nodes-base'))],
 	});
 
 	describe('Basic Completion', () => {

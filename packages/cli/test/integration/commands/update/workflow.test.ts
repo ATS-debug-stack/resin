@@ -4,9 +4,9 @@ import {
 	createWorkflowWithTriggerAndHistory,
 	createManyActiveWorkflows,
 	getAllWorkflows,
-} from '@n8n/backend-test-utils';
-import { WorkflowRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import { WorkflowRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { UpdateWorkflowCommand } from '@/commands/update/workflow';
 import { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';

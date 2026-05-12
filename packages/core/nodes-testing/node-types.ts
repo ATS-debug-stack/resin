@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import { NodeHelpers } from 'n8n-workflow';
-import type { INodeType, INodeTypes, IVersionedNodeType } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import { NodeHelpers } from 'resin-workflow';
+import type { INodeType, INodeTypes, IVersionedNodeType } from 'resin-workflow';
 
 import { LoadNodesAndCredentials } from './load-nodes-and-credentials';
 

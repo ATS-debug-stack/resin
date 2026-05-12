@@ -1,4 +1,4 @@
-import type { SourceControlledFile } from '@n8n/api-types';
+import type { SourceControlledFile } from '@resin/api-types';
 import type {
 	Folder,
 	FolderRepository,
@@ -14,11 +14,11 @@ import type {
 	WorkflowTagMapping,
 	WorkflowTagMappingRepository,
 	Variables,
-} from '@n8n/db';
-import { GLOBAL_ADMIN_ROLE, In, PROJECT_OWNER_ROLE, User } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { GLOBAL_ADMIN_ROLE, In, PROJECT_OWNER_ROLE, User } from '@resin/db';
+import { Container } from '@resin/di';
 import { captor, mock } from 'jest-mock-extended';
-import { Cipher, type InstanceSettings } from 'n8n-core';
+import { Cipher, type InstanceSettings } from 'resin-core';
 import fsp from 'node:fs/promises';
 
 import type { DataTableRepository } from '@/modules/data-table/data-table.repository';

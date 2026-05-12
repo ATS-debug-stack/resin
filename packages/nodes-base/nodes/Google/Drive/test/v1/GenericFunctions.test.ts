@@ -1,5 +1,5 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IDataObject, IPollFunctions } from 'n8n-workflow';
+import type { IDataObject, IPollFunctions } from 'resin-workflow';
 
 import { googleApiRequestAllItems } from '../../v1/GenericFunctions';
 

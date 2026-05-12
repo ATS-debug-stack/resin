@@ -2,12 +2,12 @@ import type {
 	ChatHubCreateToolRequest,
 	ChatHubUpdateToolRequest,
 	ChatHubToolDto,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { EntityManager, withTransaction, type User } from '@n8n/db';
-import { Service } from '@n8n/di';
-import type { INode } from 'n8n-workflow';
-import { collectExpressionDefaults, findDisallowedChatToolExpressions } from 'n8n-workflow';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { EntityManager, withTransaction, type User } from '@resin/db';
+import { Service } from '@resin/di';
+import type { INode } from 'resin-workflow';
+import { collectExpressionDefaults, findDisallowedChatToolExpressions } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

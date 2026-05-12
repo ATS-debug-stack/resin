@@ -1,4 +1,4 @@
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import { z } from 'zod';
 
 import { dataTableFilterSchema } from '../../schemas/data-table-filter.schema';

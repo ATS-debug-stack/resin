@@ -4,7 +4,7 @@
  * restore-version, update-version.
  */
 import { createTool } from '@mastra/core/tools';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 import { nanoid } from 'nanoid';
 import { z } from 'zod';
 
@@ -298,7 +298,7 @@ async function handleGetAsCode(
 	context: InstanceAiContext,
 	input: Extract<Input, { action: 'get-as-code' }>,
 ) {
-	const { generateWorkflowCode } = await import('@n8n/workflow-sdk');
+	const { generateWorkflowCode } = await import('@resin/workflow-sdk');
 	try {
 		const json = await context.workflowService.getAsWorkflowJSON(input.workflowId);
 		const code = generateWorkflowCode(json);

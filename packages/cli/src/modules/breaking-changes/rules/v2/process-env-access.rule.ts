@@ -1,8 +1,8 @@
-import { BreakingChangeRecommendation } from '@n8n/api-types';
-import { WorkflowEntity } from '@n8n/db';
-import { INode } from 'n8n-workflow';
+import { BreakingChangeRecommendation } from '@resin/api-types';
+import { WorkflowEntity } from '@resin/db';
+import { INode } from 'resin-workflow';
 
-import { BreakingChangeRule } from '@n8n/decorators';
+import { BreakingChangeRule } from '@resin/decorators';
 import type {
 	BreakingChangeRuleMetadata,
 	IBreakingChangeWorkflowRule,
@@ -47,7 +47,7 @@ export class ProcessEnvAccessRule implements IBreakingChangeWorkflowRule {
 
 		workflow.nodes.forEach((node) => {
 			// Check in Code nodes
-			if (node.type === 'n8n-nodes-base.code') {
+			if (node.type === 'resin-nodes-base.code') {
 				const code = typeof node.parameters?.code === 'string' ? node.parameters.code : undefined;
 				if (code && processEnvPattern.test(code)) {
 					affectedNodes.push({ nodeId: node.id, nodeName: node.name });

@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { ExecutionsConfig } from '@n8n/config';
-import type { CreateExecutionPayload, IExecutionDb } from '@n8n/db';
-import { ExecutionRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { ExecutionsConfig } from '@resin/config';
+import type { CreateExecutionPayload, IExecutionDb } from '@resin/db';
+import { ExecutionRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import type {
 	IDeferredPromise,
 	IExecuteResponsePromiseData,
@@ -11,13 +11,13 @@ import type {
 	IWorkflowExecutionDataProcess,
 	StructuredChunk,
 	WebhookResponseMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	createDeferredPromise,
 	ExecutionCancelledError,
 	sleep,
 	SystemShutdownExecutionCancelledError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { strict as assert } from 'node:assert';
 import type PCancelable from 'p-cancelable';
 

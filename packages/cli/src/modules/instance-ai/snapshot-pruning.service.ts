@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { InstanceAiConfig } from '@n8n/config';
-import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { LessThan } from '@n8n/typeorm';
-import { InstanceSettings } from 'n8n-core';
+import { Logger } from '@resin/backend-common';
+import { InstanceAiConfig } from '@resin/config';
+import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { LessThan } from '@resin/typeorm';
+import { InstanceSettings } from 'resin-core';
 
 import { InstanceAiWorkflowSnapshotRepository } from './repositories/instance-ai-workflow-snapshot.repository';
 

@@ -1,7 +1,7 @@
 /**
  * SDK prompt sections for the workflow builder sub-agent.
  *
- * Re-exports from the canonical source in @n8n/workflow-sdk/prompts.
+ * Re-exports from the canonical source in @resin/workflow-sdk/prompts.
  */
 
 export {
@@ -9,4 +9,4 @@ export {
 	ADDITIONAL_FUNCTIONS,
 	WORKFLOW_RULES,
 	WORKFLOW_SDK_PATTERNS,
-} from '@n8n/workflow-sdk/prompts/sdk-reference';
+} from '@resin/workflow-sdk/prompts/sdk-reference';

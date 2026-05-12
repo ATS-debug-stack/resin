@@ -1,5 +1,5 @@
 import { createHmac, timingSafeEqual } from 'crypto';
-import type { IWebhookFunctions } from 'n8n-workflow';
+import type { IWebhookFunctions } from 'resin-workflow';
 
 export async function verifySignature(this: IWebhookFunctions): Promise<boolean> {
 	const credential = await this.getCredentials('stripeApi');

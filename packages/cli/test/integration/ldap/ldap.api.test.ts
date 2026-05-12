@@ -4,19 +4,19 @@ import {
 	uniqueId,
 	getPersonalProject,
 	testDb,
-} from '@n8n/backend-test-utils';
-import { LDAP_DEFAULT_CONFIGURATION } from '@n8n/constants';
-import type { User } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import { LDAP_DEFAULT_CONFIGURATION } from '@resin/constants';
+import type { User } from '@resin/db';
 import {
 	AuthProviderSyncHistoryRepository,
 	GLOBAL_MEMBER_ROLE,
 	GLOBAL_OWNER_ROLE,
 	UserRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
-import { Not } from '@n8n/typeorm';
+} from '@resin/db';
+import { Container } from '@resin/di';
+import { Not } from '@resin/typeorm';
 import type { Entry as LdapUser } from 'ldapts';
-import { Cipher } from 'n8n-core';
+import { Cipher } from 'resin-core';
 
 import config from '@/config';
 import { saveLdapSynchronization } from '@/modules/ldap.ee/helpers.ee';
@@ -608,7 +608,7 @@ describe('POST /login', () => {
 
 		expect(response.statusCode).toBe(200);
 		expect(response.headers['set-cookie']).toBeDefined();
-		expect(response.headers['set-cookie'][0]).toContain('n8n-auth=');
+		expect(response.headers['set-cookie'][0]).toContain('resin-auth=');
 
 		// Make sure the changes in the "LDAP server" were persisted in the database
 		const localLdapIdentities = await getLdapIdentities();

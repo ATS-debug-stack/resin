@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import type { IDataObject, OauthJweProxyProvider } from 'n8n-workflow';
-import { UserError } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import type { IDataObject, OauthJweProxyProvider } from 'resin-workflow';
+import { UserError } from 'resin-workflow';
 
 export interface OAuthJweDecryptHandler {
 	decryptOAuth2TokenData(tokenData: IDataObject): Promise<IDataObject>;

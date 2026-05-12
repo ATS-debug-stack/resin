@@ -1,9 +1,9 @@
-import { initDbUpToMigration, runSingleMigration } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { DbConnection } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { DataSource } from '@n8n/typeorm';
-import { UnexpectedError } from 'n8n-workflow';
+import { initDbUpToMigration, runSingleMigration } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { DbConnection } from '@resin/db';
+import { Container } from '@resin/di';
+import { DataSource } from '@resin/typeorm';
+import { UnexpectedError } from 'resin-workflow';
 
 describe('Migration Test Helpers', () => {
 	let dataSource: DataSource;

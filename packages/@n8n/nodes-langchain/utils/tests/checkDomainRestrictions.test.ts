@@ -1,11 +1,11 @@
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import { NodeOperationError } from 'n8n-workflow';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import { NodeOperationError } from 'resin-workflow';
 import type {
 	ICredentialDataDecryptedObject,
 	IExecuteFunctions,
 	INode,
 	ISupplyDataFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { checkDomainRestrictions } from '../checkDomainRestrictions';
 

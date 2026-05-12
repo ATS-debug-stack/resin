@@ -1,6 +1,6 @@
 /* eslint-disable n8n-local-rules/no-json-parse-json-stringify */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import type { ChatMessageContentChunk } from '@n8n/api-types';
+import type { ChatMessageContentChunk } from '@resin/api-types';
 import assert from 'assert';
 
 import { parseMessage, appendChunkToParsedMessageItems } from './parser';

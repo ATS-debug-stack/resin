@@ -1,6 +1,6 @@
 import { Chroma } from '@langchain/community/vectorstores/chroma';
 import { ChromaClient, CloudClient } from 'chromadb';
-import type { ISupplyDataFunctions } from 'n8n-workflow';
+import type { ISupplyDataFunctions } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import * as ChromaNode from './VectorStoreChromaDB.node';
@@ -27,7 +27,7 @@ vi.mock('@langchain/community/vectorstores/chroma', () => {
 	return { Chroma, __state: state };
 });
 
-vi.mock('@n8n/ai-utilities', () => ({
+vi.mock('@resin/ai-utilities', () => ({
 	createVectorStoreNode: (config: {
 		getVectorStoreClient: (...args: unknown[]) => unknown;
 		populateVectorStore: (...args: unknown[]) => unknown;

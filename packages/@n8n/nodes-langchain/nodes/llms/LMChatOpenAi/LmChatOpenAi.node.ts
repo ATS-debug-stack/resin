@@ -8,7 +8,7 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { checkDomainRestrictions } from '@utils/checkDomainRestrictions';
 import { mergeCustomHeaders } from '@utils/helpers';
@@ -19,12 +19,12 @@ import {
 	N8nLlmTracing,
 	getProxyAgent,
 	getConnectionHintNoticeField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 import { formatBuiltInTools, prepareAdditionalResponsesParams } from './common';
 import { searchModels } from './methods/loadModels';
 import type { ModelOptions } from './types';
-import { Container } from '@n8n/di';
-import { AiConfig } from '@n8n/config';
+import { Container } from '@resin/di';
+import { AiConfig } from '@resin/config';
 
 const INCLUDE_JSON_WARNING: INodeProperties = {
 	displayName:

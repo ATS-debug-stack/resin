@@ -1,4 +1,4 @@
-import type { InstanceAiAttachment } from '@n8n/api-types';
+import type { InstanceAiAttachment } from '@resin/api-types';
 
 import { isParseableAttachment } from '../../../parsers/structured-file-parser';
 

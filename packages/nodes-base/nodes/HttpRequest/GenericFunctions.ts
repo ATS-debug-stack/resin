@@ -13,7 +13,7 @@ import {
 	type INodeExecutionData,
 	type IOAuth2Options,
 	type IRequestOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { SecureContextOptions } from 'tls';
 
 import type { HttpSslAuthCredentials } from './interfaces';

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
-import { N8nButton, N8nIcon, N8nLink } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nButton, N8nIcon, N8nLink } from '@resin/design-system';
 import NDVEmptyState from './NDVEmptyState.vue';
 import { I18nT } from 'vue-i18n';
 

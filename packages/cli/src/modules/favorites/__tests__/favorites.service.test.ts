@@ -7,7 +7,7 @@ import {
 	type SharedWorkflowRepository,
 	type User,
 	type WorkflowRepository,
-} from '@n8n/db';
+} from '@resin/db';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

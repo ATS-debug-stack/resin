@@ -1,7 +1,7 @@
-import type { SettingsRepository } from '@n8n/db';
+import type { SettingsRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { ErrorReporter } from 'n8n-core';
-import { UnexpectedError } from 'n8n-workflow';
+import type { ErrorReporter } from 'resin-core';
+import { UnexpectedError } from 'resin-workflow';
 
 import { BannerService } from '@/services/banner.service';
 

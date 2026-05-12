@@ -147,7 +147,7 @@ describe('SessionDetailPanel — other kinds', () => {
 			executionId: 'e1',
 			timestamp: 0,
 			toolName: 'http-tool',
-			nodeType: 'n8n-nodes-base.httpRequest',
+			nodeType: 'resin-nodes-base.httpRequest',
 			nodeTypeVersion: 4.2,
 			nodeDisplayName: 'HTTP Request',
 			toolInput: { url: 'https://x' },

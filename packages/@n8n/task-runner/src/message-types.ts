@@ -1,4 +1,4 @@
-import type { INodeTypeBaseDescription } from 'n8n-workflow';
+import type { INodeTypeBaseDescription } from 'resin-workflow';
 
 import type {
 	NeededNodeType,
@@ -249,7 +249,7 @@ export namespace RunnerMessage {
 			 * TODO: In future we can trim this down to only node types in the paired item chain,
 			 * rather than assuming we need all node types in the workflow.
 			 *
-			 * @example [{ name: 'n8n-nodes-base.httpRequest', version: 1 }]
+			 * @example [{ name: 'resin-nodes-base.httpRequest', version: 1 }]
 			 */
 			requestParams: NeededNodeType[];
 		}

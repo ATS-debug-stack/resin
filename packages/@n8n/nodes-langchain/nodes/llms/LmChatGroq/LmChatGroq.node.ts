@@ -4,14 +4,14 @@ import {
 	makeN8nLlmFailedAttemptHandler,
 	N8nLlmTracing,
 	getConnectionHintNoticeField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 import {
 	NodeConnectionTypes,
 	type INodeType,
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class LmChatGroq implements INodeType {
 	description: INodeTypeDescription = {

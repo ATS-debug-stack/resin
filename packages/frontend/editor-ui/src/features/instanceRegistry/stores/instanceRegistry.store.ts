@@ -1,6 +1,6 @@
-import type { ClusterInfoResponse } from '@n8n/api-types';
-import * as instanceRegistryApi from '@n8n/rest-api-client/api/instance-registry';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import type { ClusterInfoResponse } from '@resin/api-types';
+import * as instanceRegistryApi from '@resin/rest-api-client/api/instance-registry';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 

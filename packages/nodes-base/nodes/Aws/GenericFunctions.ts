@@ -6,8 +6,8 @@ import type {
 	IHttpRequestOptions,
 	JsonObject,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { NodeApiError, sanitizeXmlName } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, sanitizeXmlName } from 'resin-workflow';
 import { parseString as parseXml } from 'xml2js';
 import type {
 	AwsAssumeRoleCredentialsType,

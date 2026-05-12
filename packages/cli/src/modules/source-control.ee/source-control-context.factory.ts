@@ -1,9 +1,9 @@
-import { ProjectRepository, WorkflowRepository } from '@n8n/db';
-import type { Project, User, WorkflowEntity } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
+import { ProjectRepository, WorkflowRepository } from '@resin/db';
+import type { Project, User, WorkflowEntity } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, type FindOptionsWhere } from '@n8n/typeorm';
+import { In, type FindOptionsWhere } from '@resin/typeorm';
 
 import { SourceControlContext } from './types/source-control-context';
 

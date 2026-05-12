@@ -1,4 +1,4 @@
-import { LOG_LEVELS } from 'n8n-workflow';
+import { LOG_LEVELS } from 'resin-workflow';
 
 import { transformLegacyLangchainImport, createSandboxLogger } from './Code.node';
 

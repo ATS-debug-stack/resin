@@ -1,4 +1,4 @@
-import type { Driver, TableColumnOptions } from '@n8n/typeorm';
+import type { Driver, TableColumnOptions } from '@resin/typeorm';
 import assert from 'node:assert';
 
 export class Column {

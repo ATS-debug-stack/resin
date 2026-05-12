@@ -5,7 +5,7 @@ import {
 	type INodeTypeDescription,
 	type INodeTypes,
 	type IVersionedNodeType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { NeededNodeType } from './runner-types';
 

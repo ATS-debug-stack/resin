@@ -3,7 +3,7 @@ import type {
 	INodeListSearchResult,
 	INodeParameters,
 	INodeTypeNameVersion,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 /**
  * Callback type for fetching resource locator options.

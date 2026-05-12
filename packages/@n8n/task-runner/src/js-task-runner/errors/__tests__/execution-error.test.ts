@@ -7,10 +7,10 @@ describe('ExecutionError', () => {
     at Script.runInContext (node:vm:148:12)
     at Script.runInNewContext (node:vm:153:17)
     at runInNewContext (node:vm:309:38)
-    at JsTaskRunner.runForAllItems (/n8n/packages/@n8n/task-runner/dist/js-task-runner/js-task-runner.js:90:65)
-    at JsTaskRunner.executeTask (/n8n/packages/@n8n/task-runner/dist/js-task-runner/js-task-runner.js:71:26)
+    at JsTaskRunner.runForAllItems (/n8n/packages/@resin/task-runner/dist/js-task-runner/js-task-runner.js:90:65)
+    at JsTaskRunner.executeTask (/n8n/packages/@resin/task-runner/dist/js-task-runner/js-task-runner.js:71:26)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async JsTaskRunner.receivedSettings (/n8n/packages/@n8n/task-runner/dist/task-runner.js:190:26)`;
+    at async JsTaskRunner.receivedSettings (/n8n/packages/@resin/task-runner/dist/task-runner.js:190:26)`;
 
 	it('should parse error details from stack trace without itemIndex', () => {
 		const error = new Error('a.unknown is not a function');

@@ -1,8 +1,8 @@
-import type { PublicApiCredentialResponse } from '@n8n/api-types';
-import type { User, ICredentialsDb, SharedCredentials } from '@n8n/db';
-import { CredentialsEntity, CredentialsRepository, SharedCredentialsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { Credentials } from 'n8n-core';
+import type { PublicApiCredentialResponse } from '@resin/api-types';
+import type { User, ICredentialsDb, SharedCredentials } from '@resin/db';
+import { CredentialsEntity, CredentialsRepository, SharedCredentialsRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { Credentials } from 'resin-core';
 import {
 	BaseError,
 	type DisplayCondition,
@@ -10,7 +10,7 @@ import {
 	type IDataObject,
 	type INodeProperties,
 	type INodePropertyOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { CredentialsService } from '@/credentials/credentials.service';
 import {

@@ -1,14 +1,14 @@
-import type { CreateRoleDto, UpdateRoleDto } from '@n8n/api-types';
-import { createTeamProject, linkUserToProject, testDb } from '@n8n/backend-test-utils';
+import type { CreateRoleDto, UpdateRoleDto } from '@resin/api-types';
+import { createTeamProject, linkUserToProject, testDb } from '@resin/backend-test-utils';
 import {
 	PROJECT_ADMIN_ROLE,
 	PROJECT_EDITOR_ROLE,
 	PROJECT_OWNER_ROLE,
 	PROJECT_VIEWER_ROLE,
 	RoleRepository,
-} from '@n8n/db';
-import type { User } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import type { User } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { cleanupRolesAndScopes } from '../shared/db/roles';
 import { createMember, createOwner } from '../shared/db/users';

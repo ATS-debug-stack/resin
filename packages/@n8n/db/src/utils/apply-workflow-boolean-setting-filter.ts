@@ -1,5 +1,5 @@
-import type { GlobalConfig } from '@n8n/config';
-import type { SelectQueryBuilder } from '@n8n/typeorm';
+import type { GlobalConfig } from '@resin/config';
+import type { SelectQueryBuilder } from '@resin/typeorm';
 
 type BooleanSettingFilterOptions = {
 	alias?: string;

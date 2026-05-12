@@ -22,7 +22,7 @@ class JsonStringArray extends Array<string> {
 
 @Config
 export class NodesConfig {
-	/** Node types to load. If empty, all available nodes are loaded. Example: `["n8n-nodes-base.hackerNews"]`. */
+	/** Node types to load. If empty, all available nodes are loaded. Example: `["resin-nodes-base.hackerNews"]`. */
 	@Env('NODES_INCLUDE')
 	include: JsonStringArray = [];
 
@@ -30,14 +30,17 @@ export class NodesConfig {
 	 * Node types to exclude from loading. Default excludes `ExecuteCommand` and `LocalFileTrigger` for security.
 	 * Set to an empty array to allow all node types.
 	 *
-	 * @example '["n8n-nodes-base.hackerNews"]'
+	 * @example '["resin-nodes-base.hackerNews"]'
 	 */
 	@Env('NODES_EXCLUDE')
-	exclude: JsonStringArray = ['n8n-nodes-base.executeCommand', 'n8n-nodes-base.localFileTrigger'];
+	exclude: JsonStringArray = [
+		'resin-nodes-base.executeCommand',
+		'resin-nodes-base.localFileTrigger',
+	];
 
 	/** Node type name used as the default error trigger when workflow execution fails. */
 	@Env('NODES_ERROR_TRIGGER_TYPE')
-	errorTriggerType: string = 'n8n-nodes-base.errorTrigger';
+	errorTriggerType: string = 'resin-nodes-base.errorTrigger';
 
 	/** Whether to enable Python execution on the Code node. */
 	@Env('N8N_PYTHON_ENABLED')

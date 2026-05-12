@@ -1,6 +1,6 @@
-import { testDb, testModules } from '@n8n/backend-test-utils';
-import { CredentialsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb, testModules } from '@resin/backend-test-utils';
+import { CredentialsRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { DynamicCredentialEntry } from '@/modules/dynamic-credentials.ee/database/entities/dynamic-credential-entry';
 import { DynamicCredentialResolverRepository } from '@/modules/dynamic-credentials.ee/database/repositories/credential-resolver.repository';

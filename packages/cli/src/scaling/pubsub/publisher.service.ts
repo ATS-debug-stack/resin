@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { ExecutionsConfig, GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { ExecutionsConfig, GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import type { Redis as SingleNodeClient, Cluster as MultiNodeClient } from 'ioredis';
-import { InstanceSettings } from 'n8n-core';
-import type { LogMetadata } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import type { LogMetadata } from 'resin-workflow';
 
 import { RedisClientService } from '@/services/redis-client.service';
 

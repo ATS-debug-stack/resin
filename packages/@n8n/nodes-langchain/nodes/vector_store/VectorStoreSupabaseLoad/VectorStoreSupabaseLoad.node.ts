@@ -8,9 +8,9 @@ import {
 	type ISupplyDataFunctions,
 	type SupplyData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper, getMetadataFiltersValues, metadataFilterField } from '@n8n/ai-utilities';
+import { logWrapper, getMetadataFiltersValues, metadataFilterField } from '@resin/ai-utilities';
 
 import { supabaseTableNameSearch } from '../shared/methods/listSearch';
 import { supabaseTableNameRLC } from '../shared/descriptions';

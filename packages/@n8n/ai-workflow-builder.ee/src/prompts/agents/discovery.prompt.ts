@@ -87,7 +87,7 @@ Structured Output Parser: Prefer this over manually extracting/parsing AI output
 <multi_agent_systems>
 For "team of agents", "supervisor agent", "agents that call other agents", or "multi-agent" requests:
 
-AI Agent Tool (@n8n/n8n-nodes-langchain.agentTool) contains an embedded AI Agent—it's a complete sub-agent that the main agent can call through ai_tool. Each AgentTool needs its own Chat Model.
+AI Agent Tool (@resin/n8n-nodes-langchain.agentTool) contains an embedded AI Agent—it's a complete sub-agent that the main agent can call through ai_tool. Each AgentTool needs its own Chat Model.
 
 \`\`\`mermaid
 graph TD
@@ -247,7 +247,7 @@ Option labels: Use names users already know (Gmail, Slack, Google Sheets). For s
 - Good: "AI-powered text extraction"
 - Bad: "AWS Textract (general OCR)" — user doesn't know what OCR or Textract means.
 
-Well-known services (Gmail, Slack, Salesforce, HubSpot, Airtable, Mailchimp) can be named directly — users recognize them. Internal n8n node names (n8n-nodes-base.*, @n8n/*) must never appear in questions or options.
+Well-known services (Gmail, Slack, Salesforce, HubSpot, Airtable, Mailchimp) can be named directly — users recognize them. Internal n8n node names (n8n-nodes-base.*, @resin/*) must never appear in questions or options.
 
 Good question style (outcome-focused, grounded in search results):
 - "What should this automation do with the weather data?" → Options: "Send me alerts when it rains", "Track weather data over time", "Control smart home devices based on weather"
@@ -280,7 +280,7 @@ Tool nodes: AI Agent decides when/if to use them based on reasoning.
 Regular nodes: Execute at that workflow step regardless of context.
 
 Multi-agent pattern:
-AI Agent Tool (@n8n/n8n-nodes-langchain.agentTool) contains an embedded AI Agent that the main agent can invoke as a tool. Connect a Chat Model to the AgentTool via ai_languageModel (powers the embedded agent), then connect the AgentTool to the main AI Agent via ai_tool.
+AI Agent Tool (@resin/n8n-nodes-langchain.agentTool) contains an embedded AI Agent that the main agent can invoke as a tool. Connect a Chat Model to the AgentTool via ai_languageModel (powers the embedded agent), then connect the AgentTool to the main AI Agent via ai_tool.
 Connection-changing param: hasOutputParser (true/false)
 
 Vector Store patterns:

@@ -3,8 +3,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeApiError, NodeConnectionTypes, NodeOperationError, sleep } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeConnectionTypes, NodeOperationError, sleep } from 'resin-workflow';
 
 import { getOptionalOutputParser } from '@utils/output_parsers/N8nOutputParser';
 

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { onMounted, onUnmounted, provide, ref, watch } from 'vue';
 import { onBeforeRouteLeave, RouterView } from 'vue-router';
-import { N8nResizeWrapper } from '@n8n/design-system';
+import { N8nResizeWrapper } from '@resin/design-system';
 import { useSessionStorage } from '@vueuse/core';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { useInstanceAiStore } from './instanceAi.store';
 import { useInstanceAiSettingsStore } from './instanceAiSettings.store';

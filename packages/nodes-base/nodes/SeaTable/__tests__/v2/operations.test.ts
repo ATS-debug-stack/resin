@@ -1,4 +1,4 @@
-import type { IDataObject, IExecuteFunctions } from 'n8n-workflow';
+import type { IDataObject, IExecuteFunctions } from 'resin-workflow';
 
 jest.mock('../../v2/GenericFunctions', () => {
 	const actual = jest.requireActual('../../v2/GenericFunctions');

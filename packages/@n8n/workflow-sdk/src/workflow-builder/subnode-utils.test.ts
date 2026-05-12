@@ -10,7 +10,7 @@ function createNode(
 	overrides: Partial<NodeInstance<string, string, unknown>> = {},
 ): NodeInstance<string, string, unknown> {
 	return {
-		type: overrides.type ?? 'n8n-nodes-base.set',
+		type: overrides.type ?? 'resin-nodes-base.set',
 		version: 'v1',
 		id: overrides.id ?? 'node-id',
 		name: overrides.name ?? 'Test Node',
@@ -455,7 +455,7 @@ describe('addNodeWithSubnodes', () => {
 			const nodes = new Map<string, GraphNode>();
 			// Plain object subnode without top-level .name, simulating inline subnode definition
 			const plainDocLoader = {
-				type: '@n8n/n8n-nodes-langchain.documentDefaultDataLoader',
+				type: '@resin/n8n-nodes-langchain.documentDefaultDataLoader',
 				version: '1.1',
 				config: {
 					name: 'Load My Company Data',
@@ -492,7 +492,7 @@ describe('addNodeWithSubnodes', () => {
 			const nodes = new Map<string, GraphNode>();
 			// Plain object embedding nested inside a tool subnode
 			const plainEmbedding = {
-				type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+				type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 				version: '1.2',
 				config: {
 					name: 'OpenAI Embeddings',

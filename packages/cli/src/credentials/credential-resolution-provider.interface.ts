@@ -2,7 +2,7 @@ import type {
 	ICredentialDataDecryptedObject,
 	IExecutionContext,
 	IWorkflowSettings,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export type CredentialResolveMetadata = {
 	id: string;

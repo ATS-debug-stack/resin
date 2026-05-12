@@ -1,6 +1,6 @@
-import { getPersonalProject, mockInstance, testDb } from '@n8n/backend-test-utils';
+import { getPersonalProject, mockInstance, testDb } from '@resin/backend-test-utils';
 import * as fs from 'fs';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 import * as path from 'path';
 

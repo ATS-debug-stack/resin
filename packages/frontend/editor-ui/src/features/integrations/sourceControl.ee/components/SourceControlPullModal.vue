@@ -23,10 +23,10 @@ import {
 } from '../sourceControl.utils';
 import type { SourceControlTreeRow } from '../sourceControl.types';
 import { useUIStore } from '@/app/stores/ui.store';
-import { type SourceControlledFile, SOURCE_CONTROL_FILE_TYPE } from '@n8n/api-types';
-import { shouldAutoPublishWorkflow, type AutoPublishMode } from 'n8n-workflow';
-import { useI18n } from '@n8n/i18n';
-import type { EventBus } from '@n8n/utils/event-bus';
+import { type SourceControlledFile, SOURCE_CONTROL_FILE_TYPE } from '@resin/api-types';
+import { shouldAutoPublishWorkflow, type AutoPublishMode } from 'resin-workflow';
+import { useI18n } from '@resin/i18n';
+import type { EventBus } from '@resin/utils/event-bus';
 import { computed, onBeforeMount, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { DynamicScroller, DynamicScrollerItem } from 'vue-virtual-scroller';
@@ -47,7 +47,7 @@ import {
 	N8nSelect,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 type SourceControlledFileType = SourceControlledFile['type'];
 type SourceControlledFileWithProject = SourceControlledFile & {
 	project?: ProjectListItem;

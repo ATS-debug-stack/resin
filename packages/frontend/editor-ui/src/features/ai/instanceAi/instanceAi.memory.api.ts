@@ -1,11 +1,11 @@
-import { makeRestApiRequest } from '@n8n/rest-api-client';
-import type { IRestApiContext } from '@n8n/rest-api-client';
+import { makeRestApiRequest } from '@resin/rest-api-client';
+import type { IRestApiContext } from '@resin/rest-api-client';
 import type {
 	InstanceAiThreadInfo,
 	InstanceAiThreadListResponse,
 	InstanceAiRichMessagesResponse,
 	InstanceAiThreadStatusResponse,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export async function fetchThreads(
 	context: IRestApiContext,

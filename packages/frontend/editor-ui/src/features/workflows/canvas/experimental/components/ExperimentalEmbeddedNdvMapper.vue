@@ -13,7 +13,7 @@ import {
 import { useExperimentalNdvStore } from '../experimentalNdv.store';
 import { isEventTargetContainedBy } from '@/app/utils/htmlUtils';
 
-import { N8nPopover } from '@n8n/design-system';
+import { N8nPopover } from '@resin/design-system';
 import type { WorkflowObjectAccessors } from '@/app/types';
 type MapperState = { isOpen: true; closeOnMouseLeave: boolean } | { isOpen: false };
 

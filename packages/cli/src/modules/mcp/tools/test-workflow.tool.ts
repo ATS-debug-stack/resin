@@ -1,6 +1,6 @@
-import { Time } from '@n8n/constants';
-import type { User } from '@n8n/db';
-import { normalizePinData } from '@n8n/workflow-sdk';
+import { Time } from '@resin/constants';
+import type { User } from '@resin/db';
+import { normalizePinData } from '@resin/workflow-sdk';
 import {
 	type INode,
 	type IPinData,
@@ -10,7 +10,7 @@ import {
 	jsonStringify,
 	ensureError,
 	isTriggerNode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import z from 'zod';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../mcp.constants';

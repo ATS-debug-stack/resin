@@ -41,7 +41,7 @@ const renderModal = createComponentRenderer(ImportCurlModal, {
 const testNode = {
 	id: 'node-1',
 	name: 'HTTP Request',
-	type: 'n8n-nodes-base.httpRequest',
+	type: 'resin-nodes-base.httpRequest',
 	position: [0, 0] as [number, number],
 	typeVersion: 1,
 	parameters: {},

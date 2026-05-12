@@ -17,9 +17,9 @@ import { reactive, nextTick } from 'vue';
 import { mockedStore } from '@/__tests__/utils';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { defaultSettings } from '@/__tests__/defaults';
-import type { ICredentialType } from 'n8n-workflow';
+import type { ICredentialType } from 'resin-workflow';
 import type { ChatRequest } from '@/features/ai/assistant/assistant.types';
-import type { ChatUI } from '@n8n/design-system/types/assistant';
+import type { ChatUI } from '@resin/design-system/types/assistant';
 import merge from 'lodash-es/merge';
 
 // Mock vue-router
@@ -345,7 +345,7 @@ describe('chatPanel.store', () => {
 				node: {
 					id: 'node-1',
 					name: 'Test Node',
-					type: 'n8n-nodes-base.test',
+					type: 'resin-nodes-base.test',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},

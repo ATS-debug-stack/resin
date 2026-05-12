@@ -3,7 +3,7 @@
  * + safe default model to seed the agent with." Used by the ask_llm tool to
  * auto-resolve when there's exactly one LLM-provider credential available.
  *
- * Provider strings match the catalog IDs used by `@n8n/agents`'s
+ * Provider strings match the catalog IDs used by `@resin/agents`'s
  * `.model(provider, model)` call (see editor-ui's provider-mapping.ts for the
  * other side of this contract).
  *
@@ -43,7 +43,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'claude-sonnet-4-6',
 		modelLookup: {
 			kind: 'listSearch',
-			nodeType: '@n8n/n8n-nodes-langchain.lmChatAnthropic',
+			nodeType: '@resin/n8n-nodes-langchain.lmChatAnthropic',
 			version: 1.5,
 			methodName: 'searchModels',
 		},
@@ -53,7 +53,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'gpt-5',
 		modelLookup: {
 			kind: 'listSearch',
-			nodeType: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			version: 1.2,
 			methodName: 'searchModels',
 		},
@@ -63,7 +63,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'gemini-2.5-pro',
 		modelLookup: {
 			kind: 'loadOptionsRouting',
-			nodeType: '@n8n/n8n-nodes-langchain.lmChatGoogleGemini',
+			nodeType: '@resin/n8n-nodes-langchain.lmChatGoogleGemini',
 			version: 1.1,
 			propertyName: 'modelName',
 		},
@@ -75,7 +75,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'mistral-large-latest',
 		modelLookup: {
 			kind: 'loadOptionsRouting',
-			nodeType: '@n8n/n8n-nodes-langchain.lmChatMistralCloud',
+			nodeType: '@resin/n8n-nodes-langchain.lmChatMistralCloud',
 			version: 1,
 			propertyName: 'model',
 		},
@@ -87,7 +87,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'anthropic/claude-sonnet-4.6',
 		modelLookup: {
 			kind: 'loadOptionsRouting',
-			nodeType: '@n8n/n8n-nodes-langchain.lmChatOpenRouter',
+			nodeType: '@resin/n8n-nodes-langchain.lmChatOpenRouter',
 			version: 1,
 			propertyName: 'model',
 		},

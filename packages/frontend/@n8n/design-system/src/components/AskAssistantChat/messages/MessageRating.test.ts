@@ -7,7 +7,7 @@ import MessageRating from './MessageRating.vue';
 const stubs = ['N8nButton', 'N8nIconButton', 'N8nInput'];
 
 // Mock i18n to return keys instead of translated text
-vi.mock('@n8n/design-system/composables/useI18n', () => ({
+vi.mock('@resin/design-system/composables/useI18n', () => ({
 	useI18n: () => ({
 		t: (key: string) => key,
 	}),
@@ -172,7 +172,7 @@ describe('MessageRating', () => {
 			await nextTick();
 
 			const cancelButton = wrapper.container.querySelector(
-				'n8n-button-stub[label="generic.cancel"]',
+				'resin-button-stub[label="generic.cancel"]',
 			);
 			await fireEvent.click(cancelButton!);
 			await nextTick();
@@ -220,7 +220,7 @@ describe('MessageRating', () => {
 			await nextTick();
 
 			const cancelButton = wrapper.container.querySelector(
-				'n8n-button-stub[label="generic.cancel"]',
+				'resin-button-stub[label="generic.cancel"]',
 			);
 			await fireEvent.click(cancelButton!);
 			await nextTick();

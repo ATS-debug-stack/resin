@@ -8,8 +8,8 @@ import type {
 	IPairedItemData,
 	INodeExecutionData,
 	INodeType,
-} from 'n8n-workflow';
-import { ApplicationError, NodeConnectionTypes, createRunExecutionData } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, NodeConnectionTypes, createRunExecutionData } from 'resin-workflow';
 
 import { NodeTypes } from '@test/helpers';
 

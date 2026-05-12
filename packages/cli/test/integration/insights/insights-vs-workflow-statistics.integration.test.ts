@@ -7,14 +7,14 @@
  * It configures the system for fast compaction and waits for automatic processing.
  */
 
-import { createTeamProject, createWorkflow, testDb, testModules } from '@n8n/backend-test-utils';
-import type { Project, WorkflowEntity } from '@n8n/db';
-import { ExecutionRepository, StatisticsNames, WorkflowStatisticsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { createTeamProject, createWorkflow, testDb, testModules } from '@resin/backend-test-utils';
+import type { Project, WorkflowEntity } from '@resin/db';
+import { ExecutionRepository, StatisticsNames, WorkflowStatisticsRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { readFileSync } from 'fs';
-import { InstanceSettings, UnrecognizedNodeTypeError } from 'n8n-core';
-import type { INodeType, INodeTypeData, NodeLoadingDetails } from 'n8n-workflow';
-import { createRunExecutionData } from 'n8n-workflow';
+import { InstanceSettings, UnrecognizedNodeTypeError } from 'resin-core';
+import type { INodeType, INodeTypeData, NodeLoadingDetails } from 'resin-workflow';
+import { createRunExecutionData } from 'resin-workflow';
 import path from 'path';
 
 import { InsightsByPeriodRepository } from '@/modules/insights/database/repositories/insights-by-period.repository';
@@ -41,9 +41,9 @@ function loadNodesFromDist(nodeNames: string[]): INodeTypeData {
 	) as Record<string, NodeLoadingDetails>;
 
 	for (const nodeName of nodeNames) {
-		const loadInfo = knownNodes[nodeName.replace('n8n-nodes-base.', '')];
+		const loadInfo = knownNodes[nodeName.replace('resin-nodes-base.', '')];
 		if (!loadInfo) {
-			throw new UnrecognizedNodeTypeError('n8n-nodes-base', nodeName);
+			throw new UnrecognizedNodeTypeError('resin-nodes-base', nodeName);
 		}
 		// Load from dist .js files (sourcePath already includes 'dist/')
 		const nodeDistPath = path.join(BASE_DIR, 'nodes-base', loadInfo.sourcePath);
@@ -70,9 +70,9 @@ describe('Insights vs Workflow Statistics Integration', () => {
 
 		// Load required node types from dist folder
 		const nodeTypes = loadNodesFromDist([
-			'n8n-nodes-base.manualTrigger',
-			'n8n-nodes-base.executeWorkflow',
-			'n8n-nodes-base.executeWorkflowTrigger',
+			'resin-nodes-base.manualTrigger',
+			'resin-nodes-base.executeWorkflow',
+			'resin-nodes-base.executeWorkflowTrigger',
 		]);
 
 		await utils.initNodeTypes(nodeTypes);

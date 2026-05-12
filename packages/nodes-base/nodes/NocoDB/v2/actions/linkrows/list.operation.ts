@@ -5,8 +5,8 @@ import type {
 	INodeExecutionData,
 	INodeProperties,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError, updateDisplayOptions } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, updateDisplayOptions } from 'resin-workflow';
 
 import { apiRequest, apiRequestAllItems } from '../../transport';
 

@@ -8,7 +8,7 @@ import {
 	AI_TRANSFORM_CODE_GENERATED_FOR_PROMPT,
 	AI_TRANSFORM_JS_CODE,
 	ensureError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { JsTaskRunnerSandbox } from '../Code/JsTaskRunnerSandbox';
 

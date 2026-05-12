@@ -1,8 +1,8 @@
-import { mockInstance, testDb } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { SettingsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { Cipher } from 'n8n-core';
+import { mockInstance, testDb } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { SettingsRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { Cipher } from 'resin-core';
 
 import { CredentialsOverwrites } from '@/credentials-overwrites';
 import { CredentialTypes } from '@/credential-types';

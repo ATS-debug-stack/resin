@@ -4,16 +4,16 @@ import {
 	isNodePreviewKey,
 	removePreviewToken,
 } from '@/features/shared/nodeCreator/nodeCreator.utils';
-import type { VersionNode } from '@n8n/rest-api-client/api/versions';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import type { VersionNode } from '@resin/rest-api-client/api/versions';
+import { useRootStore } from '@resin/stores/useRootStore';
 import {
 	type INode,
 	type INodeTypeDescription,
 	type IWorkflowDataProxyAdditionalKeys,
 	type WorkflowExpression,
 	isExpression,
-} from 'n8n-workflow';
-import { isNodeIcon } from '@n8n/design-system';
+} from 'resin-workflow';
+import { isNodeIcon } from '@resin/design-system';
 import { getThemedValue } from './nodeTypesUtils';
 
 type NodeIconSourceIcon = { type: 'icon'; name: string; color?: string };

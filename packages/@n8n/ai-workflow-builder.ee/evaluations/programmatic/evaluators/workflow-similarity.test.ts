@@ -35,7 +35,7 @@ describe('evaluateWorkflowSimilarity', () => {
 			{
 				id: '1',
 				name: 'Trigger',
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -50,7 +50,7 @@ describe('evaluateWorkflowSimilarity', () => {
 			{
 				id: '1',
 				name: 'Trigger',
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -58,7 +58,7 @@ describe('evaluateWorkflowSimilarity', () => {
 			{
 				id: '2',
 				name: 'Code',
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				typeVersion: 1,
 				position: [200, 0],
 				parameters: {},

@@ -1,4 +1,4 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import z from 'zod';
 
 import { SUPPORTED_MCP_TRIGGERS, USER_CALLED_MCP_TOOL_EVENT } from '../mcp.constants';

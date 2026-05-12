@@ -7,13 +7,13 @@ import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useRoute, useRouter } from 'vue-router';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import WorkflowPreview from '@/app/components/WorkflowPreview.vue';
 import TemplatesView from './TemplatesView.vue';
 import RecommendedTemplateCard from '../recommendations/components/RecommendedTemplateCard.vue';
 
-import { N8nButton, N8nMarkdown, N8nText } from '@n8n/design-system';
-import type { IWorkflowTemplate } from '@n8n/rest-api-client';
+import { N8nButton, N8nMarkdown, N8nText } from '@resin/design-system';
+import type { IWorkflowTemplate } from '@resin/rest-api-client';
 
 const externalHooks = useExternalHooks();
 const templatesStore = useTemplatesStore();

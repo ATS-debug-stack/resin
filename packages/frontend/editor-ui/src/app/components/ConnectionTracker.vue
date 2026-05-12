@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
 import { useBackendConnectionStore } from '@/app/stores/backendConnection.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
-import type { BaseTextKey } from '@n8n/i18n';
+import type { BaseTextKey } from '@resin/i18n';
 
-import { N8nIcon, N8nText, N8nTooltip } from '@n8n/design-system';
+import { N8nIcon, N8nText, N8nTooltip } from '@resin/design-system';
 
 const pushConnectionStore = usePushConnectionStore();
 const backendConnectionStore = useBackendConnectionStore();

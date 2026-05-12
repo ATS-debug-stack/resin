@@ -8,7 +8,7 @@ import { useNodeCreatorStore } from '@/features/shared/nodeCreator/nodeCreator.s
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
-import type { CommunityNodeType } from '@n8n/api-types';
+import type { CommunityNodeType } from '@resin/api-types';
 import type { TestingPinia } from '@pinia/testing';
 import { createTestingPinia } from '@pinia/testing';
 import { waitFor } from '@testing-library/vue';
@@ -61,7 +61,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 		])('should show install button when user is $label', ({ isAdmin, isInstanceOwner }) => {
 			mockUseUsersStore.isAdmin = isAdmin;
 			mockUseUsersStore.isInstanceOwner = isInstanceOwner;
-			const node = mockNode({ name: 'Test Node', type: 'n8n-nodes-test.testNode' });
+			const node = mockNode({ name: 'Test Node', type: 'resin-nodes-test.testNode' });
 			const { getByTestId } = renderComponent(NodeSettingsInvalidNodeWarning, {
 				props: {
 					node,
@@ -75,7 +75,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 		it('should show ContactAdministratorToInstall when user is not owner or admin', async () => {
 			mockUseUsersStore.isAdmin = false;
 			mockUseUsersStore.isInstanceOwner = false;
-			const node = mockNode({ name: 'Test Node', type: 'n8n-nodes-test.testNode' });
+			const node = mockNode({ name: 'Test Node', type: 'resin-nodes-test.testNode' });
 			const { getByText } = renderComponent(NodeSettingsInvalidNodeWarning, {
 				props: {
 					node,
@@ -96,7 +96,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 				({
 					isOfficialNode: true,
 				}) as CommunityNodeType;
-			const node = mockNode({ name: 'Test Node', type: 'n8n-nodes-test.testNode' });
+			const node = mockNode({ name: 'Test Node', type: 'resin-nodes-test.testNode' });
 			const mockOpenNodeCreatorWithNode = vi.fn();
 			mockUseNodeCreatorStore.openNodeCreatorWithNode = mockOpenNodeCreatorWithNode;
 
@@ -119,7 +119,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 				({
 					isOfficialNode: false,
 				}) as CommunityNodeType;
-			const node = mockNode({ name: 'Test Node', type: 'n8n-nodes-test.testNode' });
+			const node = mockNode({ name: 'Test Node', type: 'resin-nodes-test.testNode' });
 
 			const { getByTestId } = renderComponent(NodeSettingsInvalidNodeWarning, {
 				props: {
@@ -145,7 +145,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 				({
 					isOfficialNode: true,
 				}) as CommunityNodeType;
-			const node = mockNode({ name: 'Test Node', type: 'n8n-nodes-test.testNode' });
+			const node = mockNode({ name: 'Test Node', type: 'resin-nodes-test.testNode' });
 			mockInstallNode.mockResolvedValue({ success: true });
 
 			const { getByTestId } = renderComponent(NodeSettingsInvalidNodeWarning, {
@@ -160,8 +160,8 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 
 			expect(mockInstallNode).toHaveBeenCalledWith({
 				type: 'verified',
-				packageName: 'n8n-nodes-test',
-				nodeType: 'n8n-nodes-test.testNode',
+				packageName: 'resin-nodes-test',
+				nodeType: 'resin-nodes-test.testNode',
 				telemetry: {
 					hasQuickConnect: false,
 					source: 'missing node modal source',
@@ -175,7 +175,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 				({
 					isOfficialNode: true,
 				}) as CommunityNodeType;
-			const node = mockNode({ name: 'Test Node', type: 'n8n-nodes-test-preview.testNode' });
+			const node = mockNode({ name: 'Test Node', type: 'resin-nodes-test-preview.testNode' });
 			mockInstallNode.mockResolvedValue({ success: true });
 
 			const { getByTestId } = renderComponent(NodeSettingsInvalidNodeWarning, {
@@ -190,8 +190,8 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 
 			expect(mockInstallNode).toHaveBeenCalledWith({
 				type: 'verified',
-				packageName: 'n8n-nodes-test',
-				nodeType: 'n8n-nodes-test-preview.testNode',
+				packageName: 'resin-nodes-test',
+				nodeType: 'resin-nodes-test-preview.testNode',
 				telemetry: {
 					hasQuickConnect: false,
 					source: 'missing node modal source',
@@ -205,7 +205,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 				({
 					isOfficialNode: false,
 				}) as CommunityNodeType;
-			const node = mockNode({ name: 'Test Node', type: 'n8n-nodes-test.testNode' });
+			const node = mockNode({ name: 'Test Node', type: 'resin-nodes-test.testNode' });
 			const mockOpenModalWithData = vi.fn();
 			mockUseUIStore.openModalWithData = mockOpenModalWithData;
 
@@ -222,10 +222,10 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 			expect(mockOpenModalWithData).toHaveBeenCalledWith({
 				name: 'communityPackageInstall',
 				data: {
-					packageName: 'n8n-nodes-test',
+					packageName: 'resin-nodes-test',
 					disableInput: true,
 					hideSuggestion: true,
-					nodeType: 'n8n-nodes-test.testNode',
+					nodeType: 'resin-nodes-test.testNode',
 				},
 			});
 		});
@@ -238,7 +238,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 				({
 					isOfficialNode: true,
 				}) as CommunityNodeType;
-			const node = mockNode({ name: 'Test Node', type: 'n8n-nodes-test.testNode' });
+			const node = mockNode({ name: 'Test Node', type: 'resin-nodes-test.testNode' });
 			const mockUnsetActiveNodeName = vi.fn();
 			mockUseNDVStore.unsetActiveNodeName = mockUnsetActiveNodeName;
 
@@ -250,7 +250,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 			});
 
 			mockUseNodeTypesStore.nodeTypes = {
-				'n8n-nodes-test.testNode': {
+				'resin-nodes-test.testNode': {
 					description: {
 						name: 'Test Node',
 					},
@@ -270,7 +270,7 @@ describe('NodeSettingsInvalidNodeWarning', () => {
 				({
 					isOfficialNode: true,
 				}) as CommunityNodeType;
-			const node = mockNode({ name: 'Test Node', type: 'n8n-nodes-test.testNode' });
+			const node = mockNode({ name: 'Test Node', type: 'resin-nodes-test.testNode' });
 			const mockUnsetActiveNodeName = vi.fn();
 			mockUseNDVStore.unsetActiveNodeName = mockUnsetActiveNodeName;
 

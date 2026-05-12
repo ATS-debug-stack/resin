@@ -1,6 +1,6 @@
-import type { GlobalConfig } from '@n8n/config';
-import type { AuthIdentity, User } from '@n8n/db';
-import type { UserRepository } from '@n8n/db';
+import type { GlobalConfig } from '@resin/config';
+import type { AuthIdentity, User } from '@resin/db';
+import type { UserRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import { AuthError } from '@/errors/response-errors/auth.error';

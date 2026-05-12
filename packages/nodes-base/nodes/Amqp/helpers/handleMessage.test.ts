@@ -1,5 +1,5 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { ITriggerFunctions, IDeferredPromise, IRun } from 'n8n-workflow';
+import type { ITriggerFunctions, IDeferredPromise, IRun } from 'resin-workflow';
 import type { EventContext } from 'rhea';
 
 import { handleMessage } from './handleMessage';

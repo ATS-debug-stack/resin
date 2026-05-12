@@ -1,4 +1,4 @@
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 
 export class WorkerMissingEncryptionKey extends UserError {
 	constructor() {

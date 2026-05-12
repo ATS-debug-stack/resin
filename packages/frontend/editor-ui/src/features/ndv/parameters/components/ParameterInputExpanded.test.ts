@@ -1,10 +1,10 @@
 import { createComponentRenderer } from '@/__tests__/render';
 import { createTestingPinia } from '@pinia/testing';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { SETTINGS_STORE_DEFAULT_STATE } from '@/__tests__/utils';
 import { createTestNodeProperties } from '@/__tests__/mocks';
 import ParameterInputExpanded from './ParameterInputExpanded.vue';
-import type { INodePropertyCollection } from 'n8n-workflow';
+import type { INodePropertyCollection } from 'resin-workflow';
 import userEvent from '@testing-library/user-event';
 import { nextTick } from 'vue';
 
@@ -20,7 +20,7 @@ vi.mock('@/app/composables/useCollectionOverhaul', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', () => {
+vi.mock('@resin/i18n', () => {
 	const mockNodeText = {
 		inputLabelDisplayName: () => 'Test label',
 		inputLabelDescription: () => 'Test description',

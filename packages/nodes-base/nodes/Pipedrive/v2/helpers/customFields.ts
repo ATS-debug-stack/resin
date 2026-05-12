@@ -1,4 +1,4 @@
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
+import type { IDataObject, INodeExecutionData } from 'resin-workflow';
 
 import type { ICustomProperties, ICustomInterface } from '../transport';
 

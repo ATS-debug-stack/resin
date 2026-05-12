@@ -20,12 +20,12 @@
  *   - Eval CLI test suite (scenario-based testing via REST endpoint)
  */
 
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
-import type { EvalLlmMockHandler, EvalMockHttpResponse } from 'n8n-core';
-import { jsonParse } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
+import type { EvalLlmMockHandler, EvalMockHttpResponse } from 'resin-core';
+import { jsonParse } from 'resin-workflow';
 
-import { createEvalAgent, extractText } from '@n8n/instance-ai';
+import { createEvalAgent, extractText } from '@resin/instance-ai';
 import { fetchApiDocs } from './api-docs';
 import { extractNodeConfig } from './node-config';
 import { redactSecretKeys, truncateForLlm } from './request-sanitizer';

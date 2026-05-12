@@ -11,7 +11,7 @@ import {
 	AI_TRANSFORM_NODE_TYPE,
 	AI_TRANSFORM_CODE_GENERATED_FOR_PROMPT,
 	AI_TRANSFORM_JS_CODE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	CHAT_TRIGGER_NODE_TYPE,
 	FORM_TRIGGER_NODE_TYPE,

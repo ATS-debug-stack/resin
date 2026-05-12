@@ -1,8 +1,8 @@
-import { ApiKey, ApiKeyRepository, User, UserRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { EntityManager } from '@n8n/typeorm';
+import { ApiKey, ApiKeyRepository, User, UserRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { EntityManager } from '@resin/typeorm';
 import { randomUUID } from 'crypto';
-import { ApiKeyAudience, ensureError } from 'n8n-workflow';
+import { ApiKeyAudience, ensureError } from 'resin-workflow';
 
 import { AuthStrategyRegistry } from '@/services/auth-strategy.registry';
 import { JwtService } from '@/services/jwt.service';

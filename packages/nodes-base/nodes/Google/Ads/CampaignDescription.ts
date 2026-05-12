@@ -4,7 +4,7 @@ import type {
 	IN8nHttpFullResponse,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 async function processCampaignSearchResponse(
 	this: IExecuteSingleFunctions,

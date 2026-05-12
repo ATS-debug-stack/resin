@@ -1,5 +1,5 @@
-import type { User } from '@n8n/db';
-import { jsonStringify, ensureError } from 'n8n-workflow';
+import type { User } from '@resin/db';
+import { jsonStringify, ensureError } from 'resin-workflow';
 import z from 'zod';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../mcp.constants';
@@ -71,7 +71,7 @@ export const createPublishWorkflowTool = (
 
 			const activatedWorkflow = await workflowService.activateWorkflow(user, workflowId, {
 				versionId,
-				source: 'n8n-mcp',
+				source: 'resin-mcp',
 			});
 
 			void collaborationService.broadcastWorkflowUpdate(workflowId, user.id).catch(() => {});

@@ -35,7 +35,7 @@ describe('CodeBuilderGetTool', () => {
 
 			// Invoke with a non-existent node - we expect an error message in the response,
 			// but NOT a thrown exception related to package.json resolution.
-			const result = await tool.invoke({ nodeIds: ['n8n-nodes-base.nonExistentNode'] });
+			const result = await tool.invoke({ nodeIds: ['resin-nodes-base.nonExistentNode'] });
 
 			// The result should be a string (error message about node not found)
 			// NOT a thrown error about package.json exports
@@ -51,7 +51,7 @@ describe('CodeBuilderGetTool', () => {
 			});
 
 			// Request a valid node that should exist if types were generated
-			const result = await tool.invoke({ nodeIds: ['n8n-nodes-base.httpRequest'] });
+			const result = await tool.invoke({ nodeIds: ['resin-nodes-base.httpRequest'] });
 
 			// Should return a helpful error message about types not being generated
 			expect(typeof result).toBe('string');
@@ -132,7 +132,7 @@ describe('CodeBuilderGetTool', () => {
 			const tool = createCodeBuilderGetTool({ nodeDefinitionDirs: [tempDir] });
 
 			const result = await tool.invoke({
-				nodeIds: ['n8n-nodes-base.aggregate'],
+				nodeIds: ['resin-nodes-base.aggregate'],
 			});
 
 			expect(result).toContain('AggregateV1Config');
@@ -145,7 +145,7 @@ describe('CodeBuilderGetTool', () => {
 			const result = await tool.invoke({
 				nodeIds: [
 					{
-						nodeId: 'n8n-nodes-base.freshservice',
+						nodeId: 'resin-nodes-base.freshservice',
 						resource: 'ticket',
 						operation: 'get',
 					},
@@ -162,7 +162,7 @@ describe('CodeBuilderGetTool', () => {
 			const result = await tool.invoke({
 				nodeIds: [
 					{
-						nodeId: 'n8n-nodes-base.code',
+						nodeId: 'resin-nodes-base.code',
 						mode: 'runOnceForAllItems',
 					},
 				],
@@ -176,7 +176,7 @@ describe('CodeBuilderGetTool', () => {
 			const tool = createCodeBuilderGetTool({ nodeDefinitionDirs: [tempDir] });
 
 			const result = await tool.invoke({
-				nodeIds: ['n8n-nodes-base.freshservice'],
+				nodeIds: ['resin-nodes-base.freshservice'],
 			});
 
 			// Should return an error indicating discriminators are required
@@ -190,7 +190,7 @@ describe('CodeBuilderGetTool', () => {
 			const result = await tool.invoke({
 				nodeIds: [
 					{
-						nodeId: 'n8n-nodes-base.freshservice',
+						nodeId: 'resin-nodes-base.freshservice',
 						resource: 'invalid_resource',
 						operation: 'get',
 					},
@@ -207,7 +207,7 @@ describe('CodeBuilderGetTool', () => {
 
 			// String nodeId should work for flat files
 			const result = await tool.invoke({
-				nodeIds: ['n8n-nodes-base.aggregate'],
+				nodeIds: ['resin-nodes-base.aggregate'],
 			});
 
 			expect(result).toContain('AggregateV1Config');
@@ -218,9 +218,9 @@ describe('CodeBuilderGetTool', () => {
 
 			const result = await tool.invoke({
 				nodeIds: [
-					'n8n-nodes-base.aggregate',
+					'resin-nodes-base.aggregate',
 					{
-						nodeId: 'n8n-nodes-base.code',
+						nodeId: 'resin-nodes-base.code',
 						mode: 'runOnceForEachItem',
 					},
 				],
@@ -240,7 +240,7 @@ describe('CodeBuilderGetTool', () => {
 			// Create flat file (v21.ts) - large file like the real OpenAI node
 			fs.writeFileSync(
 				path.join(openaiDir, 'v21.ts'),
-				'export type OpenAIV21FlatConfig = { type: "n8n-nodes-base.openai"; /* This is the FLAT file with 928 lines */ flatFileMarker: true };',
+				'export type OpenAIV21FlatConfig = { type: "resin-nodes-base.openai"; /* This is the FLAT file with 928 lines */ flatFileMarker: true };',
 			);
 
 			// Create split directory (v21/) with resource/operation structure
@@ -265,7 +265,7 @@ describe('CodeBuilderGetTool', () => {
 			const result = await tool.invoke({
 				nodeIds: [
 					{
-						nodeId: 'n8n-nodes-base.openai',
+						nodeId: 'resin-nodes-base.openai',
 						resource: 'video',
 						operation: 'generate',
 					},
@@ -325,7 +325,7 @@ describe('CodeBuilderGetTool', () => {
 			const tool = createCodeBuilderGetTool({ nodeDefinitionDirs: [builtinDir, communityDir] });
 
 			const result = await tool.invoke({
-				nodeIds: ['n8n-nodes-base.aggregate'],
+				nodeIds: ['resin-nodes-base.aggregate'],
 			});
 
 			// Should find it in builtinDir (first dir searched)
@@ -337,7 +337,7 @@ describe('CodeBuilderGetTool', () => {
 			const tool = createCodeBuilderGetTool({ nodeDefinitionDirs: [builtinDir, communityDir] });
 
 			const result = await tool.invoke({
-				nodeIds: ['n8n-nodes-community.customNode'],
+				nodeIds: ['resin-nodes-community.customNode'],
 			});
 
 			// Should find it in communityDir (second dir searched)
@@ -348,7 +348,7 @@ describe('CodeBuilderGetTool', () => {
 			const tool = createCodeBuilderGetTool({ nodeDefinitionDirs: [builtinDir, communityDir] });
 
 			const result = await tool.invoke({
-				nodeIds: ['n8n-nodes-base.nonExistent'],
+				nodeIds: ['resin-nodes-base.nonExistent'],
 			});
 
 			expect(result).toContain('not found');
@@ -402,7 +402,7 @@ describe('CodeBuilderGetTool', () => {
 			const tool = createCodeBuilderGetTool({ nodeDefinitionDirs: [tempDir] });
 
 			const result = await tool.invoke({
-				nodeIds: ['n8n-nodes-base.emailSendHitlTool'],
+				nodeIds: ['resin-nodes-base.emailSendHitlTool'],
 			});
 
 			expect(result).toContain('EmailSendV21Config');
@@ -413,7 +413,7 @@ describe('CodeBuilderGetTool', () => {
 			const tool = createCodeBuilderGetTool({ nodeDefinitionDirs: [tempDir] });
 
 			const result = await tool.invoke({
-				nodeIds: ['@n8n/n8n-nodes-langchain.chatHitlTool'],
+				nodeIds: ['@resin/n8n-nodes-langchain.chatHitlTool'],
 			});
 
 			expect(result).toContain('ChatV13Config');
@@ -426,7 +426,7 @@ describe('CodeBuilderGetTool', () => {
 			const result = await tool.invoke({
 				nodeIds: [
 					{
-						nodeId: 'n8n-nodes-base.slackHitlTool',
+						nodeId: 'resin-nodes-base.slackHitlTool',
 						resource: 'message',
 						operation: 'post',
 					},
@@ -438,8 +438,8 @@ describe('CodeBuilderGetTool', () => {
 		});
 
 		it.each([
-			['n8n-nodes-base.unknownThingHitlTool', 'n8n-nodes-base.unknownThing'],
-			['n8n-nodes-base.unknownThingTool', 'n8n-nodes-base.unknownThing'],
+			['resin-nodes-base.unknownThingHitlTool', 'resin-nodes-base.unknownThing'],
+			['resin-nodes-base.unknownThingTool', 'resin-nodes-base.unknownThing'],
 		])('should report the original node ID in the error: %s', async (nodeId, strippedName) => {
 			const tool = createCodeBuilderGetTool({ nodeDefinitionDirs: [tempDir] });
 
@@ -454,7 +454,7 @@ describe('CodeBuilderGetTool', () => {
 		describe('isValidPathComponent', () => {
 			it('should accept valid alphanumeric components', () => {
 				expect(isValidPathComponent('httpRequest')).toBe(true);
-				expect(isValidPathComponent('n8n-nodes-base')).toBe(true);
+				expect(isValidPathComponent('resin-nodes-base')).toBe(true);
 				expect(isValidPathComponent('googleCalendar')).toBe(true);
 				expect(isValidPathComponent('v1')).toBe(true);
 				expect(isValidPathComponent('run_once_for_all_items')).toBe(true);
@@ -492,14 +492,14 @@ describe('CodeBuilderGetTool', () => {
 			const baseDir = '/tmp/n8n-node-definitions/nodes';
 
 			it('should allow paths within base directory', () => {
-				const validPath = path.join(baseDir, 'n8n-nodes-base', 'httpRequest', 'v1.ts');
+				const validPath = path.join(baseDir, 'resin-nodes-base', 'httpRequest', 'v1.ts');
 				expect(validatePathWithinBase(validPath, baseDir)).toBe(true);
 			});
 
 			it('should allow nested paths within base directory', () => {
 				const validPath = path.join(
 					baseDir,
-					'n8n-nodes-base',
+					'resin-nodes-base',
 					'freshservice',
 					'v1',
 					'resource_ticket',
@@ -571,7 +571,7 @@ describe('CodeBuilderGetTool', () => {
 				const tool = createCodeBuilderGetTool({ nodeDefinitionDirs: [tempDir] });
 
 				const result = await tool.invoke({
-					nodeIds: ['n8n-nodes-base.../../../etc/passwd'],
+					nodeIds: ['resin-nodes-base.../../../etc/passwd'],
 				});
 
 				expect(result).toContain('Error');
@@ -584,7 +584,7 @@ describe('CodeBuilderGetTool', () => {
 				const result = await tool.invoke({
 					nodeIds: [
 						{
-							nodeId: 'n8n-nodes-base.splitResourceNode',
+							nodeId: 'resin-nodes-base.splitResourceNode',
 							resource: '../../../etc/passwd',
 							operation: 'get',
 						},
@@ -601,7 +601,7 @@ describe('CodeBuilderGetTool', () => {
 				const result = await tool.invoke({
 					nodeIds: [
 						{
-							nodeId: 'n8n-nodes-base.splitModeNode',
+							nodeId: 'resin-nodes-base.splitModeNode',
 							mode: '../../etc/passwd',
 						},
 					],

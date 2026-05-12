@@ -1,10 +1,10 @@
-import { GLOBAL_OWNER_ROLE, type AuthenticatedRequest, type User } from '@n8n/db';
+import { GLOBAL_OWNER_ROLE, type AuthenticatedRequest, type User } from '@resin/db';
 import { type Response } from 'express';
 import { mock } from 'jest-mock-extended';
 
 import type { AuthService } from '@/auth/auth.service';
 import type { EventService } from '@/events/event.service';
-import type { InstanceSettingsLoaderConfig } from '@n8n/config';
+import type { InstanceSettingsLoaderConfig } from '@resin/config';
 import type { AuthlessRequest } from '@/requests';
 import type { UrlService } from '@/services/url.service';
 import { isSamlLicensedAndEnabled } from '@/sso.ee/sso-helpers';

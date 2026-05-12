@@ -1,5 +1,5 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { ILoadOptionsFunctions } from 'n8n-workflow';
+import type { ILoadOptionsFunctions } from 'resin-workflow';
 
 import {
 	searchContacts,

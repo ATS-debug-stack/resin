@@ -1,7 +1,7 @@
 import type { BaseChatMemory } from '@langchain/classic/memory';
 import omit from 'lodash/omit';
-import { jsonParse } from 'n8n-workflow';
-import type { INodeExecutionData } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
+import type { INodeExecutionData } from 'resin-workflow';
 
 import type { N8nOutputParser } from '@utils/output_parsers/N8nOutputParser';
 import { serializeIntermediateSteps } from '@utils/agent-execution';

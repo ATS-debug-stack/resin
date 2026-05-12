@@ -1,6 +1,6 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import get from 'lodash/get';
-import { type ICredentialDataDecryptedObject } from 'n8n-workflow';
+import { type ICredentialDataDecryptedObject } from 'resin-workflow';
 
 import {
 	extractProviderKeysFromExpression,

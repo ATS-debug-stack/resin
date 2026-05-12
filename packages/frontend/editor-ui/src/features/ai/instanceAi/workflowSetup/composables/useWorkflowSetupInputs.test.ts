@@ -326,7 +326,7 @@ describe('useWorkflowSetupInputs', () => {
 
 	it('tracks parameter values and builds nodeParameters after issues clear', () => {
 		nodeTypesStore.getNodeType.mockReturnValue({
-			name: 'n8n-nodes-base.httpRequest',
+			name: 'resin-nodes-base.httpRequest',
 			properties: [
 				{ displayName: 'URL', name: 'url', type: 'string', default: '', required: true },
 			],
@@ -379,8 +379,8 @@ describe('useWorkflowSetupInputs', () => {
 			targetNodeName: 'Primary',
 			credentialType: 'httpBasicAuth',
 			credentialTargetNodes: [
-				{ id: 'primary', name: 'Primary', type: 'n8n-nodes-base.httpRequest' },
-				{ id: 'follower', name: 'Follower', type: 'n8n-nodes-base.httpRequest' },
+				{ id: 'primary', name: 'Primary', type: 'resin-nodes-base.httpRequest' },
+				{ id: 'follower', name: 'Follower', type: 'resin-nodes-base.httpRequest' },
 			],
 		});
 		const h = setupHarness([groupedSection]);
@@ -405,8 +405,8 @@ describe('useWorkflowSetupInputs', () => {
 			targetNodeName: 'Primary',
 			credentialType: 'httpBasicAuth',
 			credentialTargetNodes: [
-				{ id: 'primary', name: 'Primary', type: 'n8n-nodes-base.httpRequest' },
-				{ id: 'follower', name: 'Follower', type: 'n8n-nodes-base.httpRequest' },
+				{ id: 'primary', name: 'Primary', type: 'resin-nodes-base.httpRequest' },
+				{ id: 'follower', name: 'Follower', type: 'resin-nodes-base.httpRequest' },
 			],
 		});
 		const h = setupHarness([groupedSection]);
@@ -429,8 +429,8 @@ describe('useWorkflowSetupInputs', () => {
 			credentialType: 'httpBasicAuth',
 			currentCredentialId: 'current-cred',
 			credentialTargetNodes: [
-				{ id: 'primary', name: 'Primary', type: 'n8n-nodes-base.httpRequest' },
-				{ id: 'follower', name: 'Follower', type: 'n8n-nodes-base.httpRequest' },
+				{ id: 'primary', name: 'Primary', type: 'resin-nodes-base.httpRequest' },
+				{ id: 'follower', name: 'Follower', type: 'resin-nodes-base.httpRequest' },
 			],
 		});
 
@@ -449,8 +449,8 @@ describe('useWorkflowSetupInputs', () => {
 			targetNodeName: 'Primary',
 			credentialType: 'httpBasicAuth',
 			credentialTargetNodes: [
-				{ id: 'primary', name: 'Primary', type: 'n8n-nodes-base.httpRequest' },
-				{ id: 'follower', name: 'Follower', type: 'n8n-nodes-base.httpRequest' },
+				{ id: 'primary', name: 'Primary', type: 'resin-nodes-base.httpRequest' },
+				{ id: 'follower', name: 'Follower', type: 'resin-nodes-base.httpRequest' },
 			],
 		});
 		const paramsSection = makeWorkflowSetupSection({
@@ -458,7 +458,9 @@ describe('useWorkflowSetupInputs', () => {
 			targetNodeName: 'Params',
 			credentialType: 'httpBasicAuth',
 			parameterNames: ['url'],
-			credentialTargetNodes: [{ id: 'params', name: 'Params', type: 'n8n-nodes-base.httpRequest' }],
+			credentialTargetNodes: [
+				{ id: 'params', name: 'Params', type: 'resin-nodes-base.httpRequest' },
+			],
 		});
 		const h = setupHarness([groupedSection, paramsSection]);
 
@@ -475,8 +477,8 @@ describe('useWorkflowSetupInputs', () => {
 			targetNodeName: 'Primary',
 			credentialType: 'httpBasicAuth',
 			credentialTargetNodes: [
-				{ id: 'primary', name: 'Primary', type: 'n8n-nodes-base.httpRequest' },
-				{ id: 'follower', name: 'Follower', type: 'n8n-nodes-base.httpRequest' },
+				{ id: 'primary', name: 'Primary', type: 'resin-nodes-base.httpRequest' },
+				{ id: 'follower', name: 'Follower', type: 'resin-nodes-base.httpRequest' },
 			],
 		});
 		const h = setupHarness([groupedSection]);

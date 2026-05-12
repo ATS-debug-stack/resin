@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { Service } from '@resin/di';
 import { execSync } from 'child_process';
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 import * as path from 'path';
 import proxyFromEnv from 'proxy-from-env';
 import type {

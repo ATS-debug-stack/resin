@@ -1,14 +1,14 @@
-import { DatabaseConfig, ExecutionsConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
+import { DatabaseConfig, ExecutionsConfig } from '@resin/config';
+import { Time } from '@resin/constants';
 import type {
 	CreateExecutionPayload,
 	ExecutionDataStorageLocation,
 	ExecutionDeletionCriteria,
-} from '@n8n/db';
-import { ExecutionData, ExecutionEntity, ExecutionRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import { ExecutionData, ExecutionEntity, ExecutionRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import { stringify } from 'flatted';
-import { BinaryDataService, StorageConfig } from 'n8n-core';
+import { BinaryDataService, StorageConfig } from 'resin-core';
 
 import { FsStore } from './execution-data/fs-store';
 import type { ExecutionRef, WorkflowSnapshot } from './execution-data/types';

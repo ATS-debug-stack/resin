@@ -21,18 +21,24 @@ import { listenForModalChanges, useUIStore } from '@/app/stores/ui.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import type { Project } from '@/features/collaboration/projects/projects.types';
 import { isCredentialsResource } from '@/app/utils/typeGuards';
-import { useI18n } from '@n8n/i18n';
-import { getResourcePermissions } from '@n8n/permissions';
+import { useI18n } from '@resin/i18n';
+import { getResourcePermissions } from '@resin/permissions';
 import pickBy from 'lodash/pickBy';
-import type { ICredentialType, ICredentialsDecrypted } from 'n8n-workflow';
-import { CREDENTIAL_EMPTY_VALUE } from 'n8n-workflow';
+import type { ICredentialType, ICredentialsDecrypted } from 'resin-workflow';
+import { CREDENTIAL_EMPTY_VALUE } from 'resin-workflow';
 import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter, type LocationQueryRaw } from 'vue-router';
 import { useCredentialsStore } from '../credentials.store';
 import { useEnvironmentsStore } from '@/features/settings/environments.ee/environments.store';
 import { useDependencies } from '@/app/composables/useDependencies';
 
-import { N8nActionBox, N8nCheckbox, N8nInputLabel, N8nOption, N8nSelect } from '@n8n/design-system';
+import {
+	N8nActionBox,
+	N8nCheckbox,
+	N8nInputLabel,
+	N8nOption,
+	N8nSelect,
+} from '@resin/design-system';
 const props = defineProps<{
 	credentialId?: string;
 }>();

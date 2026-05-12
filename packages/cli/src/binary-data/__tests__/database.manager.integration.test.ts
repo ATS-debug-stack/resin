@@ -1,9 +1,9 @@
-import { testDb } from '@n8n/backend-test-utils';
-import { BinaryDataRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb } from '@resin/backend-test-utils';
+import { BinaryDataRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { BinaryDataConfig } from 'n8n-core';
-import { FileTooLargeError, InvalidSourceTypeError, MissingSourceIdError } from 'n8n-core';
+import type { BinaryDataConfig } from 'resin-core';
+import { FileTooLargeError, InvalidSourceTypeError, MissingSourceIdError } from 'resin-core';
 import { mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -287,7 +287,7 @@ it('should accept Unicode filename', async () => {
 });
 
 it('should copy file by path', async () => {
-	const tempDir = await mkdtemp(join(tmpdir(), 'n8n-test-'));
+	const tempDir = await mkdtemp(join(tmpdir(), 'resin-test-'));
 	const tempFilePath = join(tempDir, 'test-file.txt');
 
 	try {
@@ -316,7 +316,7 @@ it('should copy file by path', async () => {
 });
 
 it('should throw FileTooLargeError when copying oversized file by path', async () => {
-	const tempDir = await mkdtemp(join(tmpdir(), 'n8n-test-'));
+	const tempDir = await mkdtemp(join(tmpdir(), 'resin-test-'));
 	const tempFilePath = join(tempDir, 'large-file.bin');
 
 	try {

@@ -1,5 +1,5 @@
-import { MessageComponentKey } from '@n8n/chat/constants';
-import { parseBotChatMessageContent, shouldBlockUserInput } from '@n8n/chat/utils';
+import { MessageComponentKey } from '@resin/chat/constants';
+import { parseBotChatMessageContent, shouldBlockUserInput } from '@resin/chat/utils';
 
 describe('utils', () => {
 	describe('parseBotChatMessageContent', () => {

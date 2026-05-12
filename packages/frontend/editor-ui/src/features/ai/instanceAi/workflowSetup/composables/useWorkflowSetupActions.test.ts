@@ -11,7 +11,7 @@ vi.mock('@/app/composables/useTelemetry', () => ({
 }));
 
 const rootStoreState = { instanceId: 'instance-1' };
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => rootStoreState,
 }));
 
@@ -161,7 +161,7 @@ describe('useWorkflowSetupActions', () => {
 				setup_inputs: [
 					expect.objectContaining({
 						input_type: 'credential',
-						node_type: 'n8n-nodes-base.httpRequest',
+						node_type: 'resin-nodes-base.httpRequest',
 						credential_type: 'typeA',
 					}),
 				],
@@ -214,10 +214,10 @@ describe('useWorkflowSetupActions', () => {
 			'User finished providing input',
 			expect.objectContaining({
 				type: 'setup',
-				explicitly_skipped_inputs: [{ label: 'n8n-nodes-base.httpRequest - typeB', options: [] }],
+				explicitly_skipped_inputs: [{ label: 'resin-nodes-base.httpRequest - typeB', options: [] }],
 				provided_inputs: [
 					expect.objectContaining({
-						label: 'n8n-nodes-base.httpRequest - typeA',
+						label: 'resin-nodes-base.httpRequest - typeA',
 						option_chosen: 'true',
 					}),
 				],
@@ -338,17 +338,17 @@ describe('useWorkflowSetupActions', () => {
 			expect.objectContaining({
 				provided_inputs: [
 					{
-						label: 'n8n-nodes-base.httpRequest - typeA',
+						label: 'resin-nodes-base.httpRequest - typeA',
 						options: [],
 						option_chosen: 'true',
 					},
 					{
-						label: 'n8n-nodes-base.httpRequest - url',
+						label: 'resin-nodes-base.httpRequest - url',
 						options: [],
 						option_chosen: 'true',
 					},
 					{
-						label: 'n8n-nodes-base.httpRequest - method',
+						label: 'resin-nodes-base.httpRequest - method',
 						options: [],
 						option_chosen: 'true',
 					},
@@ -443,12 +443,12 @@ describe('useWorkflowSetupActions', () => {
 					setup_inputs: [
 						expect.objectContaining({
 							input_type: 'credential',
-							node_type: 'n8n-nodes-base.httpRequest',
+							node_type: 'resin-nodes-base.httpRequest',
 							credential_type: 'credA',
 						}),
 						expect.objectContaining({
 							input_type: 'credential',
-							node_type: 'n8n-nodes-base.httpRequest',
+							node_type: 'resin-nodes-base.httpRequest',
 							credential_type: 'credB',
 						}),
 					],

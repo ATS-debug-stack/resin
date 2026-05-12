@@ -4,7 +4,7 @@ import type {
 	InstanceAiGatewayCapabilities,
 	McpToolCallResult,
 	ToolCategory,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 import { LocalGateway } from './local-gateway';
 

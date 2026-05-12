@@ -1,13 +1,13 @@
-import { AiWorkflowBuilderService } from '@n8n/ai-workflow-builder';
-import type { Logger } from '@n8n/backend-common';
-import type { GlobalConfig } from '@n8n/config';
+import { AiWorkflowBuilderService } from '@resin/ai-workflow-builder';
+import type { Logger } from '@resin/backend-common';
+import type { GlobalConfig } from '@resin/config';
 import { AiAssistantClient } from '@n8n_io/ai-assistant-sdk';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
-import { LazyPackageDirectoryLoader } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
+import { LazyPackageDirectoryLoader } from 'resin-core';
 import type * as fs from 'node:fs';
 import type * as fsp from 'node:fs/promises';
-import type { IUser, INodeTypeDescription, ITelemetryTrackProperties } from 'n8n-workflow';
+import type { IUser, INodeTypeDescription, ITelemetryTrackProperties } from 'resin-workflow';
 
 import type { License } from '@/license';
 import { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';
@@ -18,7 +18,7 @@ import type { UrlService } from '@/services/url.service';
 import type { Telemetry } from '@/telemetry';
 import type { WorkflowBuilderSessionRepository } from '@/modules/workflow-builder';
 
-jest.mock('@n8n/ai-workflow-builder');
+jest.mock('@resin/ai-workflow-builder');
 jest.mock('@n8n_io/ai-assistant-sdk');
 
 const MockedAiWorkflowBuilderService = AiWorkflowBuilderService as jest.MockedClass<
@@ -644,7 +644,7 @@ describe('WorkflowBuilderService', () => {
 
 			// Simulate new community node being added
 			const newNodeType = {
-				name: 'n8n-nodes-community.elevenLabs',
+				name: 'resin-nodes-community.elevenLabs',
 				displayName: 'ElevenLabs',
 				description: 'ElevenLabs community node',
 				version: 1,
@@ -755,7 +755,7 @@ describe('WorkflowBuilderService - node type loading', () => {
 		fsModule.readFileSync.mockImplementation((filePath: unknown) => {
 			if (String(filePath).endsWith('package.json')) {
 				return JSON.stringify({
-					name: 'n8n-nodes-base',
+					name: 'resin-nodes-base',
 					version: '1.0.0',
 					n8n: { nodes: [], credentials: [] },
 				});
@@ -834,7 +834,7 @@ describe('WorkflowBuilderService - node type loading', () => {
 		const nodeTypes = constructorCall[0];
 
 		expect(nodeTypes).toHaveLength(1);
-		expect(nodeTypes[0].name).toBe('n8n-nodes-base.httpRequest');
+		expect(nodeTypes[0].name).toBe('resin-nodes-base.httpRequest');
 		expect(nodeTypes[0].displayName).toBe('HTTP Request');
 	});
 });

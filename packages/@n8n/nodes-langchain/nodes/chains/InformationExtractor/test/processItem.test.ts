@@ -1,6 +1,6 @@
 import { OutputFixingParser, StructuredOutputParser } from '@langchain/classic/output_parsers';
 import { FakeLLM, FakeListChatModel } from '@langchain/core/utils/testing';
-import { NodeOperationError } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { makeZodSchemaFromAttributes } from '../helpers';
 import { processItem } from '../processItem';

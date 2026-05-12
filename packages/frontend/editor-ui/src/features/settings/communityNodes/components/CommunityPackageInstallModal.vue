@@ -9,8 +9,8 @@ import {
 	NPM_KEYWORD_SEARCH_URL,
 } from '../communityNodes.constants';
 import { useUIStore } from '@/app/stores/ui.store';
-import { useI18n } from '@n8n/i18n';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { useI18n } from '@resin/i18n';
+import { createEventBus } from '@resin/utils/event-bus';
 import { computed, ref } from 'vue';
 import {
 	N8nButton,
@@ -19,7 +19,7 @@ import {
 	N8nInputLabel,
 	N8nLink,
 	N8nText,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { useQuickConnect } from '@/features/credentials/quickConnect/composables/useQuickConnect';
 
 interface ModalData {

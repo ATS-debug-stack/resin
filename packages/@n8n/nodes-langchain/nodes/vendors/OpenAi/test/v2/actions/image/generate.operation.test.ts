@@ -1,5 +1,5 @@
 import { mock, mockDeep } from 'vitest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 
 import * as transport from '../../../../transport';
 import { execute } from '../../../../v2/actions/image/generate.operation';
@@ -16,7 +16,7 @@ describe('Image Generate Operation', () => {
 		mock<INode>({
 			id: 'test-node',
 			name: 'OpenAI Image Generate',
-			type: 'n8n-nodes-base.openAi',
+			type: 'resin-nodes-base.openAi',
 			typeVersion,
 			position: [0, 0],
 			parameters: {},

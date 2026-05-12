@@ -1,4 +1,4 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import z from 'zod';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../../mcp.constants';
@@ -74,7 +74,7 @@ export const createValidateWorkflowCodeTool = (
 
 		try {
 			const { ParseValidateHandler, stripImportStatements } = await import(
-				'@n8n/ai-workflow-builder'
+				'@resin/ai-workflow-builder'
 			);
 			const handler = new ParseValidateHandler({ generatePinData: false });
 			const strippedCode = stripImportStatements(code);

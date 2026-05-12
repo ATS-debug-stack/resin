@@ -10,10 +10,10 @@ import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useWorkflowSaveStore } from '@/app/stores/workflowSave.store';
 import { useBackendConnectionStore } from '@/app/stores/backendConnection.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import type { WorkflowDataUpdate } from '@n8n/rest-api-client/api/workflows';
+import type { WorkflowDataUpdate } from '@resin/rest-api-client/api/workflows';
 import { mockedStore } from '@/__tests__/utils';
 import { createTestNode, createTestWorkflow, mockNodeTypeDescription } from '@/__tests__/mocks';
-import { CHAT_TRIGGER_NODE_TYPE } from 'n8n-workflow';
+import { CHAT_TRIGGER_NODE_TYPE } from 'resin-workflow';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import {
 	createWorkflowDocumentId,
@@ -45,7 +45,7 @@ vi.mock('@/app/composables/useMessage', () => {
 	};
 });
 
-vi.mock('@n8n/permissions', () => ({
+vi.mock('@resin/permissions', () => ({
 	getResourcePermissions: () => ({
 		workflow: { update: true },
 	}),
@@ -62,7 +62,7 @@ const getDuplicateTestWorkflow = (): WorkflowDataUpdate => ({
 			},
 			id: 'c1e1b6e7-df13-41b1-95f6-42903b85e438',
 			name: 'Webhook',
-			type: 'n8n-nodes-base.webhook',
+			type: 'resin-nodes-base.webhook',
 			typeVersion: 2,
 			position: [680, 20],
 			webhookId: '5340ae49-2c96-4492-9073-7744d2e52b8a',
@@ -74,7 +74,7 @@ const getDuplicateTestWorkflow = (): WorkflowDataUpdate => ({
 			},
 			id: 'aa5150d8-1d7d-4247-88d8-44c96fe3a37b',
 			name: 'Webhook 2',
-			type: 'n8n-nodes-base.webhook',
+			type: 'resin-nodes-base.webhook',
 			typeVersion: 2,
 			position: [700, 40],
 			webhookId: 'aa5150d8-1d7d-4247-88d8-44c96fe3a37b',
@@ -88,7 +88,7 @@ const getDuplicateTestWorkflow = (): WorkflowDataUpdate => ({
 			},
 			id: '979d8443-51b1-48e2-b239-acf399b66509',
 			name: 'Wait',
-			type: 'n8n-nodes-base.wait',
+			type: 'resin-nodes-base.wait',
 			typeVersion: 1.1,
 			position: [900, 20],
 			webhookId: '5340ae49-2c96-4492-9073-7744d2e52b8a',
@@ -410,7 +410,7 @@ describe('useWorkflowSaving', () => {
 						},
 						id: 'node-with-expression',
 						name: 'Webhook with expression',
-						type: 'n8n-nodes-base.webhook',
+						type: 'resin-nodes-base.webhook',
 						typeVersion: 2,
 						position: [680, 20],
 						webhookId: 'original-webhook-id-1',
@@ -422,7 +422,7 @@ describe('useWorkflowSaving', () => {
 						},
 						id: 'node-without-expression',
 						name: 'Webhook with static path',
-						type: 'n8n-nodes-base.webhook',
+						type: 'resin-nodes-base.webhook',
 						typeVersion: 2,
 						position: [700, 40],
 						webhookId: 'original-webhook-id-2',

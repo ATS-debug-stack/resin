@@ -9,7 +9,7 @@ import { defineComponent, onMounted, ref, nextTick } from 'vue';
 import AgentToolConfigModal from '../components/AgentToolConfigModal.vue';
 import type { AgentJsonToolRef, CustomToolEntry } from '../types';
 
-vi.mock('@n8n/i18n', () => {
+vi.mock('@resin/i18n', () => {
 	const i18n = {
 		baseText: (key: string) => key,
 	};
@@ -42,7 +42,7 @@ function createToolSettingsStub(emitValid: boolean) {
 					position: [0, 0],
 				}),
 				handleChangeName: vi.fn(),
-				nodeTypeDescription: ref({ name: 'n8n-nodes-base.slack', displayName: 'Slack' }),
+				nodeTypeDescription: ref({ name: 'resin-nodes-base.slack', displayName: 'Slack' }),
 			});
 			onMounted(() => {
 				emit('update:valid', emitValid);
@@ -110,7 +110,7 @@ function toolRef(overrides: Partial<AgentJsonToolRef['node']> = {}): AgentJsonTo
 		name: 'Slack',
 		description: 'Send messages to Slack',
 		node: {
-			nodeType: 'n8n-nodes-base.slack',
+			nodeType: 'resin-nodes-base.slack',
 			nodeTypeVersion: 1,
 			nodeParameters: { channel: 'general' },
 			credentials: { slackApi: { id: 'cred-1', name: 'Prod Slack' } },

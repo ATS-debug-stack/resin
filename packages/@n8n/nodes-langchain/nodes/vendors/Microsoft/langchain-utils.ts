@@ -1,4 +1,4 @@
-import { NodeOperationError, type IWebhookFunctions, assert, jsonParse } from 'n8n-workflow';
+import { NodeOperationError, type IWebhookFunctions, assert, jsonParse } from 'resin-workflow';
 
 import {
 	getChatModel,
@@ -16,7 +16,7 @@ import { getOptionalOutputParser } from '../../../utils/output_parsers/N8nOutput
 import type { ChatPromptTemplate, BaseMessagePromptTemplateLike } from '@langchain/core/prompts';
 
 import { type N8nOutputParser } from '../../../utils/output_parsers/N8nOutputParser';
-import type { StructuredToolkit } from 'n8n-core';
+import type { StructuredToolkit } from 'resin-core';
 
 export async function invokeAgent(
 	nodeContext: IWebhookFunctions,

@@ -2,7 +2,7 @@
  * Graph validation evaluator - validates the internal graph structure
  * of generated TypeScript SDK code using workflow-sdk's validate() method.
  */
-import { parseWorkflowCodeToBuilder } from '@n8n/workflow-sdk';
+import { parseWorkflowCodeToBuilder } from '@resin/workflow-sdk';
 
 import { stripImportStatements } from '@/code-builder/utils/extract-code';
 import type {

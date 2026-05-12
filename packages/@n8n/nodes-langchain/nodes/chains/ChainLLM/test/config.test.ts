@@ -1,4 +1,4 @@
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { getInputs, nodeProperties } from '../methods/config';
 

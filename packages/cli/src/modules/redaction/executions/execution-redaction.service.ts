@@ -1,6 +1,6 @@
-import { LicenseState, Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { WorkflowExecuteMode, WorkflowSettings } from 'n8n-workflow';
+import { LicenseState, Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { WorkflowExecuteMode, WorkflowSettings } from 'resin-workflow';
 
 import type {
 	ExecutionRedaction,

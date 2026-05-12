@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { createComponentRenderer } from '@/__tests__/render';
 import { createTestingPinia } from '@pinia/testing';
 import ToolCallStep from '../components/ToolCallStep.vue';
-import type { InstanceAiToolCallState } from '@n8n/api-types';
+import type { InstanceAiToolCallState } from '@resin/api-types';
 
 const renderComponent = createComponentRenderer(ToolCallStep, {
 	global: {

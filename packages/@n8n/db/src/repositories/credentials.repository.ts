@@ -1,7 +1,7 @@
-import { Container, Service } from '@n8n/di';
-import type { Scope } from '@n8n/permissions';
-import type { FindManyOptions, SelectQueryBuilder } from '@n8n/typeorm';
-import { DataSource, In, Like, Repository } from '@n8n/typeorm';
+import { Container, Service } from '@resin/di';
+import type { Scope } from '@resin/permissions';
+import type { FindManyOptions, SelectQueryBuilder } from '@resin/typeorm';
+import { DataSource, In, Like, Repository } from '@resin/typeorm';
 
 import { CredentialsEntity, type User } from '../entities';
 import {

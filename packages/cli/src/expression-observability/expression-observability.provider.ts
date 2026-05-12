@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { ExpressionEngineConfig, GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { ExpressionEngineConfig, GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import type {
 	LogsAPI,
 	MetricDef,
@@ -8,11 +8,11 @@ import type {
 	ObservabilityProvider,
 	Span,
 	TracesAPI,
-} from '@n8n/expression-runtime';
-import { EXPRESSION_METRICS, NoOpProvider } from '@n8n/expression-runtime';
+} from '@resin/expression-runtime';
+import { EXPRESSION_METRICS, NoOpProvider } from '@resin/expression-runtime';
 import { SpanStatusCode, trace } from '@opentelemetry/api';
 import type { Tracer } from '@opentelemetry/api';
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 import promClient, { type Counter, type Gauge, type Histogram } from 'prom-client';
 
 import {

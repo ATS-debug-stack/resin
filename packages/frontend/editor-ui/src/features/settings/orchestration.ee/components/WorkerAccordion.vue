@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { IconColor } from '@n8n/design-system';
-import { type IconName } from '@n8n/design-system/components/N8nIcon/icons';
+import type { IconColor } from '@resin/design-system';
+import { type IconName } from '@resin/design-system/components/N8nIcon/icons';
 
-import { N8nIcon, N8nText } from '@n8n/design-system';
+import { N8nIcon, N8nText } from '@resin/design-system';
 const props = withDefaults(
 	defineProps<{
 		icon?: IconName;

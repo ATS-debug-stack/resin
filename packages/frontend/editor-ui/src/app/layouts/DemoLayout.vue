@@ -9,8 +9,8 @@ import { useWorkflowInitialization } from '@/app/composables/useWorkflowInitiali
 import { usePostMessageHandler } from '@/app/composables/usePostMessageHandler';
 import { usePushConnection } from '@/app/composables/usePushConnection/usePushConnection';
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { randomString } from 'n8n-workflow';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { randomString } from 'resin-workflow';
 
 const route = useRoute();
 const canExecute = computed(() => route.query.canExecute === 'true');

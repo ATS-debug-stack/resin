@@ -1,8 +1,12 @@
-import { MAX_PINNED_DATA_SIZE, MAX_WORKFLOW_SIZE, MAX_EXPECTED_REQUEST_SIZE } from '@n8n/api-types';
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { CredentialsEntity, Project, Variables } from '@n8n/db';
-import { CredentialsRepository } from '@n8n/db';
-import type { ITaskData, IWorkflowBase, IWorkflowSettings } from 'n8n-workflow';
+import {
+	MAX_PINNED_DATA_SIZE,
+	MAX_WORKFLOW_SIZE,
+	MAX_EXPECTED_REQUEST_SIZE,
+} from '@resin/api-types';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { CredentialsEntity, Project, Variables } from '@resin/db';
+import { CredentialsRepository } from '@resin/db';
+import type { ITaskData, IWorkflowBase, IWorkflowSettings } from 'resin-workflow';
 
 import { VariablesService } from '@/environments.ee/variables/variables.service.ee';
 import { OwnershipService } from '@/services/ownership.service';
@@ -191,7 +195,7 @@ describe('replaceInvalidCredentials', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [0, 0] as [number, number],
 					parameters: {},

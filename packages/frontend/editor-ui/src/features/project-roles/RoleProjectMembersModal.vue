@@ -10,12 +10,12 @@ import {
 	N8nLoading,
 	N8nText,
 	N8nUserInfo,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { computed, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
-import type { RoleProjectMembersResponse } from '@n8n/api-types';
+import type { RoleProjectMembersResponse } from '@resin/api-types';
 
 const props = defineProps<{
 	open: boolean;

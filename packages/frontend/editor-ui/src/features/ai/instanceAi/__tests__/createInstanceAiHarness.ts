@@ -5,7 +5,7 @@ import type {
 	InstanceAiMessage,
 	InstanceAiAgentNode,
 	InstanceAiToolCallState,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { useCanvasPreview } from '../useCanvasPreview';
 import { useEventRelay } from '../useEventRelay';
 import type { useInstanceAiStore } from '../instanceAi.store';

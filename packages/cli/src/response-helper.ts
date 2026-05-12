@@ -1,10 +1,10 @@
-import { inDevelopment, Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { ReportingOptions } from '@n8n/errors';
+import { inDevelopment, Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { Container } from '@resin/di';
+import type { ReportingOptions } from '@resin/errors';
 import type { Request, Response } from 'express';
-import { ErrorReporter } from 'n8n-core';
-import { ensureError, FORM_TRIGGER_PATH_IDENTIFIER, NodeApiError } from 'n8n-workflow';
+import { ErrorReporter } from 'resin-core';
+import { ensureError, FORM_TRIGGER_PATH_IDENTIFIER, NodeApiError } from 'resin-workflow';
 import { Readable } from 'node:stream';
 import picocolors from 'picocolors';
 

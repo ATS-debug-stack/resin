@@ -9,9 +9,9 @@ import {
 	type IExecuteFunctions,
 	type ISupplyDataFunctions,
 	ApplicationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { createVectorStoreNode, MemoryVectorStoreManager } from '@n8n/ai-utilities';
+import { createVectorStoreNode, MemoryVectorStoreManager } from '@resin/ai-utilities';
 
 const warningBanner: INodeProperties = {
 	displayName:
@@ -69,7 +69,7 @@ export class VectorStoreInMemory extends createVectorStoreNode<MemoryVectorStore
 		builderHint: {
 			relatedNodes: [
 				{
-					nodeType: '@n8n/n8n-nodes-langchain.retrieverVectorStore',
+					nodeType: '@resin/n8n-nodes-langchain.retrieverVectorStore',
 					relationHint:
 						'Connect to enable retrieval-augmented generation (RAG) for AI Agent workflows',
 				},

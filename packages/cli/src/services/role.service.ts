@@ -1,6 +1,6 @@
-import type { RoleAssignmentsResponse, RoleProjectMembersResponse } from '@n8n/api-types';
-import { CreateRoleDto, UpdateRoleDto } from '@n8n/api-types';
-import { LicenseState, Logger } from '@n8n/backend-common';
+import type { RoleAssignmentsResponse, RoleProjectMembersResponse } from '@resin/api-types';
+import { CreateRoleDto, UpdateRoleDto } from '@resin/api-types';
+import { LicenseState, Logger } from '@resin/backend-common';
 import {
 	CredentialsEntity,
 	SharedCredentials,
@@ -14,15 +14,15 @@ import {
 	Scope as DBScope,
 	ScopeRepository,
 	GLOBAL_ADMIN_ROLE,
-} from '@n8n/db';
-import type { EntityManager } from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import type { EntityManager } from '@resin/db';
+import { Service } from '@resin/di';
 import type {
 	Scope,
 	Role as RoleDTO,
 	AssignableProjectRole,
 	RoleNamespace,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 import {
 	combineScopes,
 	getAuthPrincipalScopes,
@@ -31,8 +31,8 @@ import {
 	PROJECT_ADMIN_ROLE_SLUG,
 	PROJECT_EDITOR_ROLE_SLUG,
 	PROJECT_VIEWER_ROLE_SLUG,
-} from '@n8n/permissions';
-import { UnexpectedError, UserError } from 'n8n-workflow';
+} from '@resin/permissions';
+import { UnexpectedError, UserError } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
@@ -338,7 +338,7 @@ export class RoleService {
 
 	/**
 	 * Enhanced rolesWithScope function that combines static roles with database roles
-	 * This replaces the original rolesWithScope function from @n8n/permissions
+	 * This replaces the original rolesWithScope function from @resin/permissions
 	 */
 	async rolesWithScope(
 		namespace: RoleNamespace,

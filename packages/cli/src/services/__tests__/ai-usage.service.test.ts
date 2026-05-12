@@ -1,6 +1,6 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { Settings } from '@n8n/db';
-import { SettingsRepository } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { Settings } from '@resin/db';
+import { SettingsRepository } from '@resin/db';
 
 import config from '@/config';
 import { AiUsageService } from '@/services/ai-usage.service';

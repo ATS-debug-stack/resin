@@ -1,5 +1,5 @@
-import type { Project, User } from '@n8n/db';
-import { PROJECT_OWNER_ROLE_SLUG, hasGlobalScope } from '@n8n/permissions';
+import type { Project, User } from '@resin/db';
+import { PROJECT_OWNER_ROLE_SLUG, hasGlobalScope } from '@resin/permissions';
 
 import type { RemoteResourceOwner } from './resource-owner';
 

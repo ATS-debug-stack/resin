@@ -1,7 +1,7 @@
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
-import { N8nIcon } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nIcon } from '@resin/design-system';
 import { useUIStore } from '@/app/stores/ui.store';
 import { WHATS_NEW_MODAL_KEY, VIEWS, ABOUT_MODAL_KEY } from '@/app/constants';
 import { EXTERNAL_LINKS } from '@/app/constants/externalLinks';

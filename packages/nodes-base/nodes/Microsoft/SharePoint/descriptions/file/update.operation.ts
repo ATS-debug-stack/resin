@@ -4,7 +4,7 @@ import {
 	type IN8nHttpFullResponse,
 	type INodeExecutionData,
 	type INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { microsoftSharePointApiRequest } from '../../transport';
 import {

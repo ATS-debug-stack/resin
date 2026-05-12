@@ -1,5 +1,5 @@
 import { nextTick, watch, type ComputedRef, type Ref } from 'vue';
-import type { PushMessage } from '@n8n/api-types';
+import type { PushMessage } from '@resin/api-types';
 import type { WorkflowExecutionState } from './useExecutionPushEvents';
 
 interface UseEventRelayOptions {

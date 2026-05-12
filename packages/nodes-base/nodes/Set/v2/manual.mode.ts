@@ -7,8 +7,8 @@ import type {
 	INodeExecutionData,
 	INodeProperties,
 	ISupplyDataFunctions,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import type { SetField, SetNodeOptions } from './helpers/interfaces';
 import {

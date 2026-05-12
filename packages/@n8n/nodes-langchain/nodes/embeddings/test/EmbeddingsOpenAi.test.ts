@@ -1,8 +1,8 @@
 import { OpenAIEmbeddings } from '@langchain/openai';
-import { AiConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
+import { AiConfig } from '@resin/config';
+import { Container } from '@resin/di';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 
 import { EmbeddingsOpenAi } from '../EmbeddingsOpenAI/EmbeddingsOpenAi.node';
@@ -11,8 +11,8 @@ vi.mock('@langchain/openai');
 
 class MockProxyAgent {}
 
-vi.mock('@n8n/ai-utilities', async () => {
-	const actual = await vi.importActual('@n8n/ai-utilities');
+vi.mock('@resin/ai-utilities', async () => {
+	const actual = await vi.importActual('@resin/ai-utilities');
 	return {
 		...actual,
 		logWrapper: vi.fn().mockImplementation(() => vi.fn()),
@@ -31,7 +31,7 @@ describe('EmbeddingsOpenAi', () => {
 		id: '1',
 		name: 'Embeddings OpenAI',
 		typeVersion: 1.2,
-		type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+		type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 		position: [0, 0],
 		parameters: {},
 	};

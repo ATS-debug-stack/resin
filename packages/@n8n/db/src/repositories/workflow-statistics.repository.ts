@@ -1,7 +1,7 @@
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import { PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
-import { DataSource, QueryFailedError, Repository } from '@n8n/typeorm';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
+import { DataSource, QueryFailedError, Repository } from '@resin/typeorm';
 import assert from 'node:assert';
 
 import {

@@ -1,10 +1,10 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { type CredentialsEntity } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import { type CredentialsEntity } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import type { Request, Response } from 'express';
-import { Cipher } from 'n8n-core';
+import { Cipher } from 'resin-core';
 import { DynamicCredentialsController } from '@/modules/dynamic-credentials.ee/dynamic-credentials.controller';
 import { EnterpriseCredentialsService } from '@/credentials/credentials.service.ee';
 import { OauthService } from '@/oauth/oauth.service';

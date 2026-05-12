@@ -3,8 +3,8 @@
  * If a field is not defined in the schema, it is considered dynamic.
  * If a field is marked as dynamic in the schema it is considered dynamic.
  */
-import { Container } from '@n8n/di';
-import { NodeHelpers, type ICredentialType, type INodeProperties } from 'n8n-workflow';
+import { Container } from '@resin/di';
+import { NodeHelpers, type ICredentialType, type INodeProperties } from 'resin-workflow';
 
 import { CredentialTypes } from '@/credential-types';
 

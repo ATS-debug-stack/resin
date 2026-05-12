@@ -1,6 +1,6 @@
-import { ApplicationError } from '@n8n/errors';
-import type { IExpressionEvaluator, ObservabilityProvider } from '@n8n/expression-runtime';
-import { MemoryLimitError, SecurityViolationError, TimeoutError } from '@n8n/expression-runtime';
+import { ApplicationError } from '@resin/errors';
+import type { IExpressionEvaluator, ObservabilityProvider } from '@resin/expression-runtime';
+import { MemoryLimitError, SecurityViolationError, TimeoutError } from '@resin/expression-runtime';
 import { DateTime, Duration, Interval } from 'luxon';
 
 import { UnexpectedError } from './errors';
@@ -258,7 +258,7 @@ export class Expression {
 
 		if (!this.vmEvaluator) {
 			// Dynamic import to avoid loading expression-runtime in browser environments
-			const { ExpressionEvaluator, IsolatedVmBridge } = await import('@n8n/expression-runtime');
+			const { ExpressionEvaluator, IsolatedVmBridge } = await import('@resin/expression-runtime');
 			this.vmEvaluator = new ExpressionEvaluator({
 				createBridge: () =>
 					new IsolatedVmBridge({
@@ -553,7 +553,7 @@ export class Expression {
 		// a callable target the isolate can reach via `callFunctionAtPath`.
 		// To minimise that attack surface we keep the VM-path data object as
 		// small as possible and let the in-isolate runtime resolve helpers
-		// itself (see packages/@n8n/expression-runtime/src/runtime/context.ts,
+		// itself (see packages/@resin/expression-runtime/src/runtime/context.ts,
 		// where Tournament's polyfill rewrites bare `extend(...)` calls to the
 		// in-isolate copy on `target.extend`). Setting them here in VM mode
 		// would be dead code AND an unnecessary host-callable.

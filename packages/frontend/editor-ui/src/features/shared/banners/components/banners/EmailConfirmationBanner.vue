@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import BaseBanner from './BaseBanner.vue';
 import { useToast } from '@/app/composables/useToast';
-import { i18n as locale } from '@n8n/i18n';
+import { i18n as locale } from '@resin/i18n';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import { computed } from 'vue';
 import { useCloudPlanStore } from '@/app/stores/cloudPlan.store';
 
-import { N8nButton } from '@n8n/design-system';
+import { N8nButton } from '@resin/design-system';
 const toast = useToast();
 const cloudPlanStore = useCloudPlanStore();
 
@@ -43,7 +43,7 @@ async function onConfirmEmailClick() {
 		</template>
 		<template #trailingContent>
 			<N8nButton
-				class="n8n-button--success"
+				class="resin-button--success"
 				variant="solid"
 				icon="mail"
 				size="small"

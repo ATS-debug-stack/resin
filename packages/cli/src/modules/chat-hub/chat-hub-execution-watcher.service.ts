@@ -1,11 +1,11 @@
-import { Logger } from '@n8n/backend-common';
-import { ExecutionRepository, type IExecutionResponse } from '@n8n/db';
+import { Logger } from '@resin/backend-common';
+import { ExecutionRepository, type IExecutionResponse } from '@resin/db';
 import {
 	OnLifecycleEvent,
 	type WorkflowExecuteAfterContext,
 	type WorkflowExecuteResumeContext,
-} from '@n8n/decorators';
-import { Service } from '@n8n/di';
+} from '@resin/decorators';
+import { Service } from '@resin/di';
 import { v4 as uuidv4 } from 'uuid';
 
 import { ChatExecutionManager } from '@/chat/chat-execution-manager';

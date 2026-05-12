@@ -1,4 +1,4 @@
-import type { ChatArtifact, ChatMessageContentChunk } from '@n8n/api-types';
+import type { ChatArtifact, ChatMessageContentChunk } from '@resin/api-types';
 
 export function collectChatArtifacts(items: ChatMessageContentChunk[]): ChatArtifact[] {
 	const artifacts: ChatArtifact[] = [];

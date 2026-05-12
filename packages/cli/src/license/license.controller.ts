@@ -1,8 +1,8 @@
-import { CommunityRegisteredRequestDto } from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Get, Post, RestController, GlobalScope, Body } from '@n8n/decorators';
+import { CommunityRegisteredRequestDto } from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
+import { Get, Post, RestController, GlobalScope, Body } from '@resin/decorators';
 import type { AxiosError } from 'axios';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { LicenseRequest } from '@/requests';

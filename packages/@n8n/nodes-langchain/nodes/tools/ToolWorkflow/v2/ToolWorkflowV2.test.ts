@@ -1,19 +1,19 @@
 import { DynamicTool } from '@langchain/core/tools';
-import { ApplicationError, NodeOperationError, sleepWithAbort } from 'n8n-workflow';
+import { ApplicationError, NodeOperationError, sleepWithAbort } from 'resin-workflow';
 import type {
 	ISupplyDataFunctions,
 	INodeExecutionData,
 	IWorkflowDataProxyData,
 	ExecuteWorkflowData,
 	INode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { WorkflowToolService } from './utils/WorkflowToolService';
 import type { MockedFunction } from 'vitest';
 
 // Mock the sleep functions
-vi.mock('n8n-workflow', async () => ({
-	...(await vi.importActual('n8n-workflow')),
+vi.mock('resin-workflow', async () => ({
+	...(await vi.importActual('resin-workflow')),
 	sleep: vi.fn().mockResolvedValue(undefined),
 	sleepWithAbort: vi.fn().mockResolvedValue(undefined),
 }));

@@ -1,9 +1,9 @@
-import type { CredentialDependencyType } from '@n8n/db';
-import { CredentialDependencyRepository, SecretsProviderConnectionRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { CredentialDependencyType } from '@resin/db';
+import { CredentialDependencyRepository, SecretsProviderConnectionRepository } from '@resin/db';
+import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, type EntityManager } from '@n8n/typeorm';
-import type { ICredentialDataDecryptedObject } from 'n8n-workflow';
+import { In, type EntityManager } from '@resin/typeorm';
+import type { ICredentialDataDecryptedObject } from 'resin-workflow';
 
 import { extractProviderKeysFromCredentialData } from './external-secrets.utils';
 

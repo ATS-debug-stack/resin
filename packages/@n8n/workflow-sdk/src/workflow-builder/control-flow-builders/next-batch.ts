@@ -12,7 +12,7 @@ import type { NodeInstance, SplitInBatchesBuilder } from '../../types/base';
  * @example
  * ```typescript
  * const sibNode = node({
- *   type: 'n8n-nodes-base.splitInBatches',
+ *   type: 'resin-nodes-base.splitInBatches',
  *   version: 3,
  *   config: { parameters: { batchSize: 10 } }
  * });
@@ -38,9 +38,9 @@ import type { NodeInstance, SplitInBatchesBuilder } from '../../types/base';
  */
 export function nextBatch(
 	sib:
-		| NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>
+		| NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>
 		| SplitInBatchesBuilder<unknown>,
-): NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown> {
+): NodeInstance<'resin-nodes-base.splitInBatches', string, unknown> {
 	// Extract the node instance from the builder if needed
 	// This allows passing either the builder or the node directly
 	return 'sibNode' in sib ? sib.sibNode : sib;

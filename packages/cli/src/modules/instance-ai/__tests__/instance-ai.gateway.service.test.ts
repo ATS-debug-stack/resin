@@ -1,4 +1,4 @@
-import type { InstanceAiGatewayCapabilities } from '@n8n/api-types';
+import type { InstanceAiGatewayCapabilities } from '@resin/api-types';
 
 import { LocalGatewayRegistry } from '../filesystem/local-gateway-registry';
 

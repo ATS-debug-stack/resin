@@ -9,17 +9,17 @@ function createWorkflow(memoryParameters: Record<string, unknown>): WorkflowResp
 		nodes: [
 			{
 				name: 'Telegram Trigger',
-				type: 'n8n-nodes-base.telegramTrigger',
+				type: 'resin-nodes-base.telegramTrigger',
 				parameters: {},
 			},
 			{
 				name: 'AI Agent',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				parameters: {},
 			},
 			{
 				name: 'Conversation Memory',
-				type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+				type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 				parameters: memoryParameters,
 			},
 		],

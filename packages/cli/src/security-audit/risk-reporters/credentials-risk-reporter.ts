@@ -1,7 +1,7 @@
-import { SecurityConfig } from '@n8n/config';
-import { CredentialsRepository, ExecutionDataRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import type { IWorkflowBase } from 'n8n-workflow';
+import { SecurityConfig } from '@resin/config';
+import { CredentialsRepository, ExecutionDataRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { CREDENTIALS_REPORT } from '@/security-audit/constants';
 import type { RiskReporter, Risk } from '@/security-audit/types';

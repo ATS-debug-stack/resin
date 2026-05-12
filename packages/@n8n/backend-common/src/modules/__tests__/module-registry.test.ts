@@ -1,5 +1,5 @@
-import type { ModuleInterface, ModuleMetadata } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import type { ModuleInterface, ModuleMetadata } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import type { LicenseState } from '../../license-state';

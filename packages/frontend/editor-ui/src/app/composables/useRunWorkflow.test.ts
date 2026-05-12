@@ -3,7 +3,7 @@ import { setActivePinia } from 'pinia';
 import { createTestingPinia } from '@pinia/testing';
 import { useRouter } from 'vue-router';
 import type router from 'vue-router';
-import { BINARY_MODE_COMBINED, ExpressionError, NodeConnectionTypes } from 'n8n-workflow';
+import { BINARY_MODE_COMBINED, ExpressionError, NodeConnectionTypes } from 'resin-workflow';
 import type {
 	IPinData,
 	IRunData,
@@ -11,7 +11,7 @@ import type {
 	ITaskData,
 	INodeConnections,
 	INode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { useRunWorkflow } from '@/app/composables/useRunWorkflow';
 import {
@@ -19,11 +19,11 @@ import {
 	useWorkflowState,
 	type WorkflowState,
 } from '@/app/composables/useWorkflowState';
-import { chatEventBus } from '@n8n/chat/event-buses';
-import { useChat } from '@n8n/chat/composables';
+import { chatEventBus } from '@resin/chat/event-buses';
+import { useChat } from '@resin/chat/composables';
 import type { INodeUi, IStartRunData } from '@/Interface';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
-import type { WorkflowData } from '@n8n/rest-api-client/api/workflows';
+import type { WorkflowData } from '@resin/rest-api-client/api/workflows';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useToast } from '@/app/composables/useToast';
@@ -32,9 +32,9 @@ import { captor, mock } from 'vitest-mock-extended';
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
 import { createTestNode, createTestWorkflow } from '@/__tests__/mocks';
 import { waitFor } from '@testing-library/vue';
-import { useAgentRequestStore } from '@n8n/stores/useAgentRequestStore';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { useI18n } from '@n8n/i18n';
+import { useAgentRequestStore } from '@resin/stores/useAgentRequestStore';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { useI18n } from '@resin/i18n';
 import {
 	CHAT_TRIGGER_NODE_TYPE,
 	MANUAL_TRIGGER_NODE_TYPE,
@@ -186,7 +186,7 @@ vi.mock('@/app/stores/pushConnection.store', () => ({
 	}),
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: vi.fn().mockReturnValue({
 		binaryDataMode: 'filesystem',
 	}),
@@ -196,7 +196,7 @@ vi.mock('@/app/composables/useTelemetry', () => ({
 	useTelemetry: vi.fn().mockReturnValue({ track: vi.fn() }),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	i18n: { baseText: vi.fn().mockImplementation((key) => key) },
 	useI18n: vi.fn().mockReturnValue({ baseText: vi.fn().mockImplementation((key) => key) }),
 }));
@@ -229,13 +229,13 @@ vi.mock('@/app/composables/useNodeHelpers', () => ({
 	}),
 }));
 
-vi.mock('@n8n/chat/event-buses', () => ({
+vi.mock('@resin/chat/event-buses', () => ({
 	chatEventBus: {
 		emit: vi.fn(),
 	},
 }));
 
-vi.mock('@n8n/chat/composables', () => ({
+vi.mock('@resin/chat/composables', () => ({
 	useChat: vi.fn().mockReturnValue({ ws: null }),
 }));
 
@@ -681,7 +681,7 @@ describe('useRunWorkflow({ router })', () => {
 							param: '0',
 						},
 						position: [0, 0],
-						type: 'n8n-nodes-base.test',
+						type: 'resin-nodes-base.test',
 						typeVersion: 1,
 					} as INode,
 				],
@@ -1344,7 +1344,7 @@ describe('useRunWorkflow({ router })', () => {
 			return {
 				name,
 				position,
-				type: 'n8n-nodes-base.test',
+				type: 'resin-nodes-base.test',
 				typeVersion: 1,
 				id: name,
 				parameters: {},

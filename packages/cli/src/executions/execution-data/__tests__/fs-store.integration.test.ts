@@ -1,8 +1,8 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { ErrorReporter, StorageConfig } from 'n8n-core';
-import { jsonParse } from 'n8n-workflow';
+import { ErrorReporter, StorageConfig } from 'resin-core';
+import { jsonParse } from 'resin-workflow';
 import fs, { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -21,7 +21,7 @@ let fsStore: FsStore;
 let storagePath: string;
 
 beforeAll(async () => {
-	storagePath = await mkdtemp(join(tmpdir(), 'n8n-fs-store-test-'));
+	storagePath = await mkdtemp(join(tmpdir(), 'resin-fs-store-test-'));
 	mockInstance(StorageConfig, { storagePath });
 	mockInstance(ErrorReporter);
 	fsStore = Container.get(FsStore);

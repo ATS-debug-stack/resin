@@ -11,7 +11,7 @@ import AskAssistantChat from './Chat/AskAssistantChat.vue';
 import AskModeCoachmark from './AskModeCoachmark.vue';
 import { useAskModeCoachmark } from '../composables/useAskModeCoachmark';
 
-import { N8nResizeWrapper } from '@n8n/design-system';
+import { N8nResizeWrapper } from '@resin/design-system';
 import HubSwitcher from '@/features/ai/assistant/components/HubSwitcher.vue';
 
 const builderStore = useBuilderStore();

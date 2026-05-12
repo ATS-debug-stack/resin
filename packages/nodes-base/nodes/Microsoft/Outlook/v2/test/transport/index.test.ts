@@ -1,5 +1,5 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 
 import { microsoftApiRequest } from '../../transport/index';
 
@@ -16,7 +16,7 @@ describe('Microsoft Outlook Transport', () => {
 		mockNode = {
 			id: 'test-node',
 			name: 'Test Outlook Node',
-			type: 'n8n-nodes-base.microsoftOutlook',
+			type: 'resin-nodes-base.microsoftOutlook',
 			typeVersion: 2,
 			position: [0, 0],
 			parameters: {},

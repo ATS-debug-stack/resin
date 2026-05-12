@@ -1,5 +1,5 @@
 import { mock, mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 import { Mailjet } from '../Mailjet.node';
 import * as GenericFunctions from '../GenericFunctions';
 
@@ -27,7 +27,7 @@ describe('Mailjet Node', () => {
 			mock<INode>({
 				id: 'test-mailjet-node',
 				name: 'Mailjet Test',
-				type: 'n8n-nodes-base.mailjet',
+				type: 'resin-nodes-base.mailjet',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},

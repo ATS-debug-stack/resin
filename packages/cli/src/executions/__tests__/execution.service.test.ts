@@ -1,17 +1,17 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
 import type {
 	IExecutionDb,
 	IExecutionResponse,
 	ExecutionRepository,
 	User,
 	WorkflowHistoryRepository,
-} from '@n8n/db';
-import type { WorkflowHistory } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import type { WorkflowHistory } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { IRun, IRunExecutionData } from 'n8n-workflow';
-import { ManualExecutionCancelledError, WorkflowOperationError } from 'n8n-workflow';
+import type { IRun, IRunExecutionData } from 'resin-workflow';
+import { ManualExecutionCancelledError, WorkflowOperationError } from 'resin-workflow';
 
 import type { ActiveExecutions } from '@/active-executions';
 import type { ConcurrencyControlService } from '@/concurrency/concurrency-control.service';

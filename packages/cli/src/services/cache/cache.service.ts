@@ -1,8 +1,8 @@
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { Container, Service } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { Container, Service } from '@resin/di';
 import { caching } from 'cache-manager';
-import { jsonStringify, UserError } from 'n8n-workflow';
+import { jsonStringify, UserError } from 'resin-workflow';
 
 import { UncacheableValueError } from '@/errors/cache-errors/uncacheable-value.error';
 import { REDIS_TTL_KEY_MISSING } from '@/services/cache/cache.constants';

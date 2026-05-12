@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 import { render, waitFor, within } from '@testing-library/vue';
 import { defineComponent, ref } from 'vue';
 
-import { removeDynamicAttributes } from '@n8n/design-system/utils';
+import { removeDynamicAttributes } from '@resin/design-system/utils';
 
 import N8nSelect from './Select.vue';
 import N8nOption from '../N8nOption/Option.vue';
@@ -13,7 +13,7 @@ describe('components', () => {
 			const wrapper = render(N8nSelect, {
 				global: {
 					components: {
-						'n8n-option': N8nOption,
+						'resin-option': N8nOption,
 					},
 				},
 				slots: {
@@ -55,8 +55,8 @@ describe('components', () => {
 				},
 				global: {
 					components: {
-						'n8n-select': N8nSelect,
-						'n8n-option': N8nOption,
+						'resin-select': N8nSelect,
+						'resin-option': N8nOption,
 					},
 				},
 			});

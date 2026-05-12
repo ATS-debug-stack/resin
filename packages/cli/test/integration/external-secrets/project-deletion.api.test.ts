@@ -1,16 +1,16 @@
-import { LicenseState } from '@n8n/backend-common';
+import { LicenseState } from '@resin/backend-common';
 import {
 	createTeamProject,
 	linkUserToProject,
 	mockInstance,
 	testDb,
-} from '@n8n/backend-test-utils';
+} from '@resin/backend-test-utils';
 import {
 	ProjectRepository,
 	ProjectSecretsProviderAccessRepository,
 	SecretsProviderConnectionRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import { ExternalSecretsConfig } from '@/modules/external-secrets.ee/external-secrets.config';

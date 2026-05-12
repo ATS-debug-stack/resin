@@ -23,10 +23,10 @@ describe('Plugin Types', () => {
 			const validator: ValidatorPlugin = {
 				id: 'test:agent',
 				name: 'Agent Validator',
-				nodeTypes: ['@n8n/n8n-nodes-langchain.agent'],
+				nodeTypes: ['@resin/n8n-nodes-langchain.agent'],
 				validateNode: () => [],
 			};
-			expect(validator.nodeTypes).toContain('@n8n/n8n-nodes-langchain.agent');
+			expect(validator.nodeTypes).toContain('@resin/n8n-nodes-langchain.agent');
 		});
 
 		it('allows optional priority', () => {

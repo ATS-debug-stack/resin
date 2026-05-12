@@ -1,17 +1,17 @@
-import { testDb, createWorkflow, mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
+import { testDb, createWorkflow, mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
 import {
 	type User,
 	type ExecutionEntity,
 	GLOBAL_OWNER_ROLE,
 	Project,
 	ExecutionRepository,
-} from '@n8n/db';
-import { Container, Service } from '@n8n/di';
+} from '@resin/db';
+import { Container, Service } from '@resin/di';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
-import { DirectedGraph, WorkflowExecute } from 'n8n-core';
-import * as core from 'n8n-core';
+import { DirectedGraph, WorkflowExecute } from 'resin-core';
+import * as core from 'resin-core';
 import {
 	type IExecuteData,
 	type INode,
@@ -29,7 +29,7 @@ import {
 	ExecutionError,
 	TimeoutExecutionCancelledError,
 	createRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import PCancelable from 'p-cancelable';
 
 import { ActiveExecutions } from '@/active-executions';
@@ -665,7 +665,7 @@ describe('pre-persist context establishment', () => {
 						node: {
 							id: 'n1',
 							name: 'Webhook',
-							type: 'n8n-nodes-base.webhook',
+							type: 'resin-nodes-base.webhook',
 							typeVersion: 2,
 							position: [0, 0],
 							parameters: {},

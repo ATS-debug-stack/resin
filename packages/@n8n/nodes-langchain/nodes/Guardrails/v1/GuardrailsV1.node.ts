@@ -5,7 +5,7 @@ import {
 	type IExecuteFunctions,
 	type INodeExecutionData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { execute } from '../actions/execute';
 import { propertiesDescription } from '../description';

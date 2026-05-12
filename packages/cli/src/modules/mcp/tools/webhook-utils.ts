@@ -1,11 +1,11 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import {
 	WEBHOOK_NODE_TYPE,
 	SCHEDULE_TRIGGER_NODE_TYPE,
 	FORM_TRIGGER_NODE_TYPE,
 	CHAT_TRIGGER_NODE_TYPE,
 	type INode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	hasHttpHeaderAuthDecryptedData,

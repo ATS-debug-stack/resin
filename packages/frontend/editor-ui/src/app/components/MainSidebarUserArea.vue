@@ -8,8 +8,8 @@ import {
 	N8nMenuItem,
 	N8nPopover,
 	N8nText,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 

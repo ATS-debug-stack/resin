@@ -4,7 +4,7 @@ import plugin from './css-var-naming';
 const config = {
 	plugins: [plugin],
 	rules: {
-		'@n8n/css-var-naming': true,
+		'@resin/css-var-naming': true,
 	},
 };
 

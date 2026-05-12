@@ -2,7 +2,7 @@ import {
 	TextEditorDocument,
 	findDivergenceContext,
 	formatTextWithLineNumbers,
-} from '@n8n/ai-utilities/text-editor';
+} from '@resin/ai-utilities/text-editor';
 
 const WORKFLOW_FILE_PATH = '/workflow.js';
 

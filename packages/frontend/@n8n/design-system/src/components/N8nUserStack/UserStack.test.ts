@@ -37,8 +37,8 @@ describe('UserStack', () => {
 			},
 			global: {
 				components: {
-					'n8n-avatar': N8nAvatar,
-					'n8n-user-info': N8nUserInfo,
+					'resin-avatar': N8nAvatar,
+					'resin-user-info': N8nUserInfo,
 				},
 			},
 		});
@@ -101,8 +101,8 @@ describe('UserStack', () => {
 			},
 			global: {
 				components: {
-					'n8n-avatar': N8nAvatar,
-					'n8n-user-info': N8nUserInfo,
+					'resin-avatar': N8nAvatar,
+					'resin-user-info': N8nUserInfo,
 				},
 			},
 		});

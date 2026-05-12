@@ -1,5 +1,5 @@
-import type { Project } from '@n8n/db';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { Project } from '@resin/db';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { test as base, expect as baseExpect } from '../../../fixtures/base';
 import type { CredentialResponse } from '../../../services/credential-api-helper';

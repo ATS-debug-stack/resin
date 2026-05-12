@@ -21,7 +21,7 @@ export default class Lint extends Command {
 	async run(): Promise<void> {
 		const { flags } = await this.parse(Lint);
 
-		intro(await getCommandHeader('n8n-node lint'));
+		intro(await getCommandHeader('resin-node lint'));
 
 		await ensureN8nPackage('lint');
 
@@ -134,8 +134,8 @@ ${picocolors.dim(`Note: This will switch to ${picocolors.magenta('configWithoutC
 
 	private containsCloudOnlyErrors(errorMessage: string): boolean {
 		const cloudOnlyRules = [
-			'@n8n/community-nodes/no-restricted-imports',
-			'@n8n/community-nodes/no-restricted-globals',
+			'@resin/community-nodes/no-restricted-imports',
+			'@resin/community-nodes/no-restricted-globals',
 		];
 
 		return cloudOnlyRules.some((rule) => errorMessage.includes(rule));

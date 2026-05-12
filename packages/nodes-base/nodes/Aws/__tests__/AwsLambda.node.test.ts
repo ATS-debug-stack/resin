@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IExecuteFunctions, ILoadOptionsFunctions } from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import { AwsLambda } from '../AwsLambda.node';
 import * as GenericFunctions from '../GenericFunctions';
@@ -21,7 +21,7 @@ describe('AwsLambda', () => {
 		mockExecuteFunctions.getNode.mockReturnValue({
 			id: 'test-node',
 			name: 'AWS Lambda',
-			type: 'n8n-nodes-base.awsLambda',
+			type: 'resin-nodes-base.awsLambda',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

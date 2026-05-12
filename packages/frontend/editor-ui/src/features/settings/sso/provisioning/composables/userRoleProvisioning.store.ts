@@ -1,11 +1,11 @@
 import { ref, readonly } from 'vue';
 import { defineStore } from 'pinia';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import * as provisioningApi from '@n8n/rest-api-client/api/provisioning';
+import { useRootStore } from '@resin/stores/useRootStore';
+import * as provisioningApi from '@resin/rest-api-client/api/provisioning';
 import type {
 	ProvisioningConfig,
 	ProvisioningConfigPatch,
-} from '@n8n/rest-api-client/api/provisioning';
+} from '@resin/rest-api-client/api/provisioning';
 
 /**
  * Composable to load and save provisioning config

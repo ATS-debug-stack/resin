@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref } from 'vue';
-import { N8nIconButton, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nIconButton, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useClipboard } from '@/app/composables/useClipboard';
 
 defineOptions({ inheritAttrs: false });

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import NodeIcon from '@/app/components/NodeIcon.vue';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
-import { AGENT_SCHEDULE_TRIGGER_TYPE } from '@n8n/api-types';
-import { N8nButton, N8nIcon, N8nText, N8nTooltip } from '@n8n/design-system';
-import { updatedIconSet, type IconName } from '@n8n/design-system/components/N8nIcon';
-import { useI18n } from '@n8n/i18n';
+import { AGENT_SCHEDULE_TRIGGER_TYPE } from '@resin/api-types';
+import { N8nButton, N8nIcon, N8nText, N8nTooltip } from '@resin/design-system';
+import { updatedIconSet, type IconName } from '@resin/design-system/components/N8nIcon';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
 import type { AgentJsonConfig, AgentJsonToolRef } from '../types';
 import type { AgentSkill, CustomToolEntry } from '../types';

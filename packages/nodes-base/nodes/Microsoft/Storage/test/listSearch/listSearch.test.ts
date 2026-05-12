@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions, INodeParameterResourceLocator } from 'n8n-workflow';
+import type { ILoadOptionsFunctions, INodeParameterResourceLocator } from 'resin-workflow';
 
 import { AzureStorage } from '../../AzureStorage.node';
 import { XMsVersion } from '../../GenericFunctions';

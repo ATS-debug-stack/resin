@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { N8nText, N8nSelect, N8nSwitch } from '@n8n/design-system';
-import N8nOption from '@n8n/design-system/components/N8nOption';
-import { useI18n } from '@n8n/i18n';
+import { N8nText, N8nSelect, N8nSwitch } from '@resin/design-system';
+import N8nOption from '@resin/design-system/components/N8nOption';
+import { useI18n } from '@resin/i18n';
 import type { AgentJsonConfig } from '../types';
 
 type MemoryConfig = NonNullable<AgentJsonConfig['memory']>;

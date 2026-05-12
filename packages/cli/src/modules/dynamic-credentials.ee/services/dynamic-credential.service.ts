@@ -1,14 +1,14 @@
-import { Logger } from '@n8n/backend-common';
-import { CredentialResolverError } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { CredentialResolverError } from '@resin/decorators';
+import { Service } from '@resin/di';
 import type { NextFunction, Response } from 'express';
-import { Cipher } from 'n8n-core';
+import { Cipher } from 'resin-core';
 import type {
 	ICredentialDataDecryptedObject,
 	IExecutionContext,
 	IWorkflowSettings,
-} from 'n8n-workflow';
-import { jsonParse, toCredentialContext } from 'n8n-workflow';
+} from 'resin-workflow';
+import { jsonParse, toCredentialContext } from 'resin-workflow';
 
 import { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';
 import { StaticAuthService } from '@/services/static-auth-service';
@@ -27,7 +27,7 @@ import { CredentialResolutionError } from '../errors/credential-resolution.error
 import { CredentialResolverNotConfiguredError } from '../errors/credential-resolver-not-configured.error';
 import { CredentialResolverNotFoundError } from '../errors/credential-resolver-not-found.error';
 import { MissingExecutionContextError } from '../errors/missing-execution-context.error';
-import { AuthenticatedRequest } from '@n8n/db';
+import { AuthenticatedRequest } from '@resin/db';
 
 /**
  * Service for resolving credentials dynamically via configured resolvers.

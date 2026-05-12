@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
-import type { ICredentialType, INode, INodeTypeDescription } from 'n8n-workflow';
+import type { ICredentialType, INode, INodeTypeDescription } from 'resin-workflow';
 import { computed } from 'vue';
-import { N8nButton, N8nIcon, N8nText } from '@n8n/design-system';
-import { N8nDropdownMenu, type DropdownMenuItemProps } from '@n8n/design-system';
+import { N8nButton, N8nIcon, N8nText } from '@resin/design-system';
+import { N8nDropdownMenu, type DropdownMenuItemProps } from '@resin/design-system';
 import { getNodeAuthOptions, getAuthTypeForNodeCredential } from '@/app/utils/nodeTypesUtils';
 import { useCredentialOAuth } from '@/features/credentials/composables/useCredentialOAuth';
 

@@ -1,4 +1,4 @@
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 import {
 	AuthIdentity,
 	AuthIdentityRepository,
@@ -6,8 +6,8 @@ import {
 	GLOBAL_ROLES,
 	UserRepository,
 	type User,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import { Service } from '@resin/di';
 
 import { EventService } from '@/events/event.service';
 import { UserService } from '@/services/user.service';

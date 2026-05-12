@@ -5,10 +5,10 @@ import {
 	mockInstance,
 	shareWorkflowWithUsers,
 	testDb,
-} from '@n8n/backend-test-utils';
-import type { ExecutionEntity, User } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { type ExecutionStatus } from 'n8n-workflow';
+} from '@resin/backend-test-utils';
+import type { ExecutionEntity, User } from '@resin/db';
+import { Container } from '@resin/di';
+import { type ExecutionStatus } from 'resin-workflow';
 
 import {
 	createAnnotationTags,

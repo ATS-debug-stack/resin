@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ChatFile from '@n8n/chat/components/ChatFile.vue';
-import { N8nIconButton, N8nInput, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import ChatFile from '@resin/chat/components/ChatFile.vue';
+import { N8nIconButton, N8nInput, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useTemplateRef } from 'vue';
 import type { MessagingState } from '@/features/ai/chatHub/chat.types';
 

@@ -3,7 +3,7 @@ import {
 	type IRunExecutionData,
 	type IWorkflowExecutionCustomData,
 	type WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	getAllWorkflowExecutionMetadata,

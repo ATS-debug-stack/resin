@@ -1,6 +1,6 @@
 import { createTestNode, createTestNodeProperties } from '@/__tests__/mocks';
 import type { INodeUi } from '@/Interface';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import {
 	getNodeCredentialTypes,
@@ -22,7 +22,7 @@ vi.mock('@/app/utils/nodes/nodeTransforms', () => ({
 const createNode = (overrides: Partial<INodeUi> = {}): INodeUi =>
 	createTestNode({
 		name: 'TestNode',
-		type: 'n8n-nodes-base.testNode',
+		type: 'resin-nodes-base.testNode',
 		typeVersion: 1,
 		position: [0, 0],
 		...overrides,
@@ -294,7 +294,7 @@ describe('setupPanel.utils', () => {
 			});
 			const triggerNode = createNode({
 				name: 'SlackTrigger',
-				type: 'n8n-nodes-base.slackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
 				credentials: { slackApi: { id: 'cred-1', name: 'Slack' } },
 			});
 
@@ -313,13 +313,13 @@ describe('setupPanel.utils', () => {
 		it('should group HTTP Request nodes with the same credential type and URL', () => {
 			const httpNode1 = createNode({
 				name: 'Google',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: 'https://www.google.com' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
 			const httpNode2 = createNode({
 				name: 'Google 2',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: 'https://www.google.com' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
@@ -340,13 +340,13 @@ describe('setupPanel.utils', () => {
 		it('should create separate cards for HTTP Request nodes with different URLs', () => {
 			const httpNode1 = createNode({
 				name: 'Google',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: 'https://www.google.com' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
 			const httpNode2 = createNode({
 				name: 'Example',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: 'https://www.example.com' },
 				credentials: { httpHeaderAuth: { id: 'cred-2', name: 'Auth 2' } },
 			});
@@ -375,7 +375,7 @@ describe('setupPanel.utils', () => {
 			});
 			const httpNode = createNode({
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: 'https://api.example.com' },
 				credentials: { httpHeaderAuth: { id: 'cred-2', name: 'Auth 2' } },
 			});
@@ -399,19 +399,19 @@ describe('setupPanel.utils', () => {
 		it('should apply URL-based grouping to HTTP Request Tool nodes', () => {
 			const toolNode1 = createNode({
 				name: 'Tool 1',
-				type: 'n8n-nodes-base.httpRequestTool',
+				type: 'resin-nodes-base.httpRequestTool',
 				parameters: { url: 'https://api.example.com/batch' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
 			const toolNode2 = createNode({
 				name: 'Tool 2',
-				type: 'n8n-nodes-base.httpRequestTool',
+				type: 'resin-nodes-base.httpRequestTool',
 				parameters: { url: 'https://api.example.com/batch' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
 			const toolNode3 = createNode({
 				name: 'Tool 3',
-				type: 'n8n-nodes-base.httpRequestTool',
+				type: 'resin-nodes-base.httpRequestTool',
 				parameters: { url: 'https://api.example.com/db' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
@@ -433,13 +433,13 @@ describe('setupPanel.utils', () => {
 		it('should create separate cards for HTTP Request nodes with unresolvable expression URLs', () => {
 			const httpNode1 = createNode({
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: '={{ $json.url }}' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
 			const httpNode2 = createNode({
 				name: 'HTTP Request1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: '={{ $json.url }}' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
@@ -461,13 +461,13 @@ describe('setupPanel.utils', () => {
 		it('should group HTTP Request nodes when expression URLs resolve to the same value', () => {
 			const httpNode1 = createNode({
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: '={{ "https://api.example.com" }}' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
 			const httpNode2 = createNode({
 				name: 'HTTP Request1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: '={{ "https://api.example.com" }}' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
@@ -490,13 +490,13 @@ describe('setupPanel.utils', () => {
 		it('should create separate cards when expression URLs resolve to different values', () => {
 			const httpNode1 = createNode({
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: '={{ "https://api.google.com" }}' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
 			const httpNode2 = createNode({
 				name: 'HTTP Request1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: '={{ "https://api.example.com" }}' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
@@ -523,13 +523,13 @@ describe('setupPanel.utils', () => {
 		it('should group resolved expression URL with matching static URL', () => {
 			const httpNode1 = createNode({
 				name: 'HTTP Static',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: 'https://api.example.com' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
 			const httpNode2 = createNode({
 				name: 'HTTP Expression',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: '={{ "https://api.example.com" }}' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
@@ -552,13 +552,13 @@ describe('setupPanel.utils', () => {
 		it('should fall back to separate cards when resolveExpressionUrl returns null', () => {
 			const httpNode1 = createNode({
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: '={{ $json.url }}' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
 			const httpNode2 = createNode({
 				name: 'HTTP Request1',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: '={{ $json.url }}' },
 				credentials: { httpHeaderAuth: { id: 'cred-1', name: 'Auth' } },
 			});
@@ -601,7 +601,7 @@ describe('setupPanel.utils', () => {
 		}
 
 		it('should return true when credential is set, no issues, and no triggers', () => {
-			const slackNode = createNode({ name: 'SlackNode', type: 'n8n-nodes-base.slack' });
+			const slackNode = createNode({ name: 'SlackNode', type: 'resin-nodes-base.slack' });
 			const state: CredentialTypeSetupState = {
 				credentialType: 'slackApi',
 				credentialDisplayName: 'Slack',
@@ -615,7 +615,7 @@ describe('setupPanel.utils', () => {
 		});
 
 		it('should return false when credential is missing', () => {
-			const slackNode = createNode({ name: 'SlackNode', type: 'n8n-nodes-base.slack' });
+			const slackNode = createNode({ name: 'SlackNode', type: 'resin-nodes-base.slack' });
 			const state: CredentialTypeSetupState = {
 				credentialType: 'slackApi',
 				credentialDisplayName: 'Slack',
@@ -629,7 +629,7 @@ describe('setupPanel.utils', () => {
 		});
 
 		it('should return false when there are issues', () => {
-			const slackNode = createNode({ name: 'SlackNode', type: 'n8n-nodes-base.slack' });
+			const slackNode = createNode({ name: 'SlackNode', type: 'resin-nodes-base.slack' });
 			const state: CredentialTypeSetupState = {
 				credentialType: 'slackApi',
 				credentialDisplayName: 'Slack',
@@ -643,7 +643,10 @@ describe('setupPanel.utils', () => {
 		});
 
 		it('should return false when trigger has not executed', () => {
-			const triggerNode = createNode({ name: 'SlackTrigger', type: 'n8n-nodes-base.slackTrigger' });
+			const triggerNode = createNode({
+				name: 'SlackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
+			});
 			const state: CredentialTypeSetupState = {
 				credentialType: 'slackApi',
 				credentialDisplayName: 'Slack',
@@ -665,7 +668,10 @@ describe('setupPanel.utils', () => {
 		});
 
 		it('should return true when credential is set and all triggers have executed', () => {
-			const triggerNode = createNode({ name: 'SlackTrigger', type: 'n8n-nodes-base.slackTrigger' });
+			const triggerNode = createNode({
+				name: 'SlackTrigger',
+				type: 'resin-nodes-base.slackTrigger',
+			});
 			const state: CredentialTypeSetupState = {
 				credentialType: 'slackApi',
 				credentialDisplayName: 'Slack',
@@ -687,7 +693,7 @@ describe('setupPanel.utils', () => {
 		});
 
 		it('should return true when single embedded trigger has executed', () => {
-			const trigger = createNode({ name: 'Trigger1', type: 'n8n-nodes-base.slackTrigger' });
+			const trigger = createNode({ name: 'Trigger1', type: 'resin-nodes-base.slackTrigger' });
 			const state: CredentialTypeSetupState = {
 				credentialType: 'slackApi',
 				credentialDisplayName: 'Slack',
@@ -709,7 +715,7 @@ describe('setupPanel.utils', () => {
 		});
 
 		it('should return false when credential test has not passed', () => {
-			const slackNode = createNode({ name: 'SlackNode', type: 'n8n-nodes-base.slack' });
+			const slackNode = createNode({ name: 'SlackNode', type: 'resin-nodes-base.slack' });
 			const state: CredentialTypeSetupState = {
 				credentialType: 'slackApi',
 				credentialDisplayName: 'Slack',
@@ -730,7 +736,7 @@ describe('setupPanel.utils', () => {
 		});
 
 		it('should return true when credential test has passed', () => {
-			const slackNode = createNode({ name: 'SlackNode', type: 'n8n-nodes-base.slack' });
+			const slackNode = createNode({ name: 'SlackNode', type: 'resin-nodes-base.slack' });
 			const state: CredentialTypeSetupState = {
 				credentialType: 'slackApi',
 				credentialDisplayName: 'Slack',
@@ -751,7 +757,7 @@ describe('setupPanel.utils', () => {
 		});
 
 		it('should complete when isCredentialTestedOk is not provided (non-testable type)', () => {
-			const slackNode = createNode({ name: 'SlackNode', type: 'n8n-nodes-base.slack' });
+			const slackNode = createNode({ name: 'SlackNode', type: 'resin-nodes-base.slack' });
 			const state: CredentialTypeSetupState = {
 				credentialType: 'slackApi',
 				credentialDisplayName: 'Slack',
@@ -813,7 +819,7 @@ describe('setupPanel.utils', () => {
 			mockNodeTypeProvider.getNodeType.mockReturnValue(nodeType);
 
 			const node = createTestNode({
-				type: 'n8n-nodes-base.googleDriveTrigger',
+				type: 'resin-nodes-base.googleDriveTrigger',
 				parameters: {
 					triggerOn: 'specificFolder',
 					event: '',
@@ -873,7 +879,7 @@ describe('setupPanel.utils', () => {
 			mockNodeTypeProvider.getNodeType.mockReturnValue(nodeType);
 
 			const node = createTestNode({
-				type: '@n8n/n8n-nodes-langchain.openAi',
+				type: '@resin/n8n-nodes-langchain.openAi',
 				parameters: {
 					modelId: { __rl: true, value: '', mode: 'id' },
 				},
@@ -908,7 +914,7 @@ describe('setupPanel.utils', () => {
 			mockNodeTypeProvider.getNodeType.mockReturnValue(nodeType);
 
 			const node = createTestNode({
-				type: 'n8n-nodes-base.testTrigger',
+				type: 'resin-nodes-base.testTrigger',
 				parameters: {
 					triggerOn: 'specificFolder',
 					event: '',

@@ -1,6 +1,6 @@
-import type { ProjectRole } from '@n8n/permissions';
-import { generateNanoId } from '@n8n/utils';
-import { UserError } from 'n8n-workflow';
+import type { ProjectRole } from '@resin/permissions';
+import { generateNanoId } from '@resin/utils';
+import { UserError } from 'resin-workflow';
 
 import type { User } from '../../entities';
 import type { MigrationContext, ReversibleMigration } from '../migration-types';
@@ -208,7 +208,7 @@ export class CreateProject1714133768519 implements ReversibleMigration {
 		);
 	}
 
-	// Duplicated from packages/@n8n/db/src/entities/User.ts
+	// Duplicated from packages/@resin/db/src/entities/User.ts
 	// Reason:
 	// This migration should work the same even if we refactor the function in
 	// `User.ts`.

@@ -6,16 +6,16 @@ import type {
 	SupplyData,
 	IHttpRequestMethods,
 	IHttpRequestOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	NodeConnectionTypes,
 	NodeOperationError,
 	nodeNameToToolName,
 	tryToParseAlphanumericString,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { N8nTool } from '@utils/N8nTool';
-import { getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 import {
 	authenticationProperties,

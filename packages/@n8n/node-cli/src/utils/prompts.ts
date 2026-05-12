@@ -24,7 +24,7 @@ export async function ensureN8nPackage(commandName: string) {
 
 For example:
 {
-	"name": "n8n-nodes-my-app",
+	"name": "resin-nodes-my-app",
 	"version": "0.1.0",
 	"n8n": {
 		"nodes": ["dist/nodes/MyApp.node.js"]

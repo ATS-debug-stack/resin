@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<CalloutProps>(), {
 
 const $style = useCssModule();
 const classes = computed(() => [
-	'n8n-callout',
+	'resin-callout',
 	$style.callout,
 	$style[props.theme],
 	props.slim ? $style.slim : '',

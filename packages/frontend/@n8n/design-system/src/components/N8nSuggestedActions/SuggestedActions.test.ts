@@ -48,7 +48,7 @@ const stubs = {
 	},
 	N8nCallout: {
 		props: ['theme'],
-		template: '<div data-test-id="n8n-callout" :class="theme"><slot /></div>',
+		template: '<div data-test-id="resin-callout" :class="theme"><slot /></div>',
 	},
 	N8nPopover: MockN8nPopover,
 };
@@ -298,7 +298,7 @@ describe('N8nSuggestedActions', () => {
 			});
 
 			// Check that the notice callout is rendered
-			const callout = wrapper.getByTestId('n8n-callout');
+			const callout = wrapper.getByTestId('resin-callout');
 			expect(callout).toBeInTheDocument();
 			expect(callout).toHaveClass('warning');
 			expect(callout).toHaveTextContent(noticeText);
@@ -315,7 +315,7 @@ describe('N8nSuggestedActions', () => {
 			});
 
 			// Check that the notice callout is not rendered
-			expect(wrapper.queryByTestId('n8n-callout')).not.toBeInTheDocument();
+			expect(wrapper.queryByTestId('resin-callout')).not.toBeInTheDocument();
 		});
 
 		it('does not render notice callout when notice prop is empty string', async () => {
@@ -330,7 +330,7 @@ describe('N8nSuggestedActions', () => {
 			});
 
 			// Check that the notice callout is not rendered
-			expect(wrapper.queryByTestId('n8n-callout')).not.toBeInTheDocument();
+			expect(wrapper.queryByTestId('resin-callout')).not.toBeInTheDocument();
 		});
 	});
 });

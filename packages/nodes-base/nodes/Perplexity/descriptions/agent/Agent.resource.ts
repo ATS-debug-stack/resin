@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 import { agentErrorPostReceive } from '../../GenericFunctions';
 import * as createResponse from './createResponse.operation';

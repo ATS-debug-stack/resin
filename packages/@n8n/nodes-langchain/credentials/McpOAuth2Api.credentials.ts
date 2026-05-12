@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class McpOAuth2Api implements ICredentialType {
 	name = 'mcpOAuth2Api';

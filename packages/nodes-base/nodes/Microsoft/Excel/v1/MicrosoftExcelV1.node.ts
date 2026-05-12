@@ -8,8 +8,8 @@ import type {
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError, NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeConnectionTypes } from 'resin-workflow';
 
 import { oldVersionNotice } from '@utils/descriptions';
 

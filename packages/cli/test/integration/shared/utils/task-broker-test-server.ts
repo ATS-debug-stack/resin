@@ -1,5 +1,5 @@
-import { TaskRunnersConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { TaskRunnersConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import request from 'supertest';
 import type TestAgent from 'supertest/lib/agent';
 

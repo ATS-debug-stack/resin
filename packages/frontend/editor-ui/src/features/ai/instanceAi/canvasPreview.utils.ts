@@ -1,4 +1,4 @@
-import type { InstanceAiAgentNode } from '@n8n/api-types';
+import type { InstanceAiAgentNode } from '@resin/api-types';
 
 export interface ExecutionResult {
 	executionId: string;

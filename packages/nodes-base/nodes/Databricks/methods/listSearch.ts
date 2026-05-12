@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions, INodeListSearchResult } from 'n8n-workflow';
+import type { ILoadOptionsFunctions, INodeListSearchResult } from 'resin-workflow';
 
 import { extractResourceLocatorValue, getActiveCredentialType, getHost } from '../actions/helpers';
 

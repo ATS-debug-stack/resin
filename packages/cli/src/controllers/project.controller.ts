@@ -5,8 +5,8 @@ import {
 	AddUsersToProjectDto,
 	ChangeUserRoleInProject,
 	ListProjectsQueryDto,
-} from '@n8n/api-types';
-import { AuthenticatedRequest, ProjectRepository } from '@n8n/db';
+} from '@resin/api-types';
+import { AuthenticatedRequest, ProjectRepository } from '@resin/db';
 import {
 	Get,
 	Post,
@@ -19,11 +19,11 @@ import {
 	Body,
 	Param,
 	Query,
-} from '@n8n/decorators';
-import { combineScopes, getAuthPrincipalScopes, hasGlobalScope } from '@n8n/permissions';
-import type { Scope } from '@n8n/permissions';
+} from '@resin/decorators';
+import { combineScopes, getAuthPrincipalScopes, hasGlobalScope } from '@resin/permissions';
+import type { Scope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, Not } from '@n8n/typeorm';
+import { In, Not } from '@resin/typeorm';
 import { Response } from 'express';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

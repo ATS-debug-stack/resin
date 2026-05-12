@@ -3,7 +3,7 @@
  * add-column, delete-column, rename-column, insert-rows, update-rows, delete-rows.
  */
 import { createTool } from '@mastra/core/tools';
-import { instanceAiConfirmationSeveritySchema } from '@n8n/api-types';
+import { instanceAiConfirmationSeveritySchema } from '@resin/api-types';
 import { nanoid } from 'nanoid';
 import { z } from 'zod';
 

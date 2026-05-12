@@ -5,7 +5,7 @@ import { sanitizeHtml } from '@/app/utils/htmlUtils';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useUIStore } from '@/app/stores/ui.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useExternalHooks } from './useExternalHooks';
 import { VIEWS } from '@/app/constants';
 import { useStyles } from './useStyles';
@@ -31,7 +31,7 @@ export function useToast() {
 			dangerouslyUseHTMLString: true,
 			position: 'bottom-right',
 			zIndex: APP_Z_INDEXES.TOASTS, // above NDV and modal overlays
-			appendTo: '#n8n-app',
+			appendTo: '#resin-app',
 			customClass: 'content-toast',
 		};
 		const { message, title } = messageData;

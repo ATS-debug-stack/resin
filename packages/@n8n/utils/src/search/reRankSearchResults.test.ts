@@ -20,8 +20,8 @@ describe('reRankSearchResults', () => {
 			const additionalFactors = {
 				popularity: {
 					/* eslint-disable @typescript-eslint/naming-convention */
-					'n8n-nodes-base.code': 90, // High popularity for Code node
-					'n8n-nodes-base.coda': 10, // Lower popularity for Coda node
+					'resin-nodes-base.code': 90, // High popularity for Code node
+					'resin-nodes-base.coda': 10, // Lower popularity for Coda node
 					/* eslint-enable @typescript-eslint/naming-convention */
 				},
 			};
@@ -41,14 +41,14 @@ describe('reRankSearchResults', () => {
 			const additionalFactors = {
 				popularity: {
 					/* eslint-disable @typescript-eslint/naming-convention */
-					'n8n-nodes-base.code': 50,
-					'n8n-nodes-base.coda': 40,
+					'resin-nodes-base.code': 50,
+					'resin-nodes-base.coda': 40,
 					/* eslint-enable @typescript-eslint/naming-convention */
 				},
 				recentUsage: {
 					/* eslint-disable @typescript-eslint/naming-convention */
-					'n8n-nodes-base.code': 80, // Code was used more recently
-					'n8n-nodes-base.coda': 20,
+					'resin-nodes-base.code': 80, // Code was used more recently
+					'resin-nodes-base.coda': 20,
 					/* eslint-enable @typescript-eslint/naming-convention */
 				},
 			};
@@ -68,8 +68,8 @@ describe('reRankSearchResults', () => {
 			const additionalFactors = {
 				popularity: {
 					/* eslint-disable @typescript-eslint/naming-convention */
-					'n8n-nodes-base.code': 50,
-					'n8n-nodes-base.coda': 50,
+					'resin-nodes-base.code': 50,
+					'resin-nodes-base.coda': 50,
 					/* eslint-enable @typescript-eslint/naming-convention */
 				},
 			};
@@ -98,7 +98,7 @@ describe('reRankSearchResults', () => {
 			const additionalFactors = {
 				popularity: {
 					// eslint-disable-next-line @typescript-eslint/naming-convention
-					'n8n-nodes-base.github': 100,
+					'resin-nodes-base.github': 100,
 					// Other git-related nodes are not included
 				},
 			};

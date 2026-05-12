@@ -1,4 +1,4 @@
-import type { INode, INodeType, INodeTypes, IPinData } from 'n8n-workflow';
+import type { INode, INodeType, INodeTypes, IPinData } from 'resin-workflow';
 
 import { findRepoRoot } from './environment';
 import { executeWorkflowWithPinData, findTriggerByGroup } from './workflow-executor';
@@ -12,7 +12,7 @@ jest.mock('./environment', () => ({
 	findRepoRoot: jest.fn(() => '/mock/repo/root'),
 }));
 
-jest.mock('@n8n/di', () => ({
+jest.mock('@resin/di', () => ({
 	Container: {
 		set: jest.fn(),
 		get: jest.fn(() => ({})),
@@ -29,7 +29,7 @@ function makeSimpleWorkflow(nodes?: INode[]): SimpleWorkflow {
 		nodes: nodes ?? [
 			{
 				name: 'Trigger',
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				parameters: {},
@@ -118,7 +118,7 @@ describe('findTriggerByGroup', () => {
 		const nodes: INode[] = [
 			{
 				name: 'Chat Trigger',
-				type: '@n8n/n8n-nodes-langchain.chatTrigger',
+				type: '@resin/n8n-nodes-langchain.chatTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				parameters: {},
@@ -126,7 +126,7 @@ describe('findTriggerByGroup', () => {
 			} as INode,
 			{
 				name: 'Agent',
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				typeVersion: 1,
 				position: [200, 0] as [number, number],
 				parameters: {},
@@ -135,8 +135,8 @@ describe('findTriggerByGroup', () => {
 		];
 
 		const nodeTypes = makeNodeTypes({
-			'@n8n/n8n-nodes-langchain.chatTrigger': { group: ['trigger'] },
-			'@n8n/n8n-nodes-langchain.agent': { group: ['transform'] },
+			'@resin/n8n-nodes-langchain.chatTrigger': { group: ['trigger'] },
+			'@resin/n8n-nodes-langchain.agent': { group: ['transform'] },
 		});
 
 		const result = findTriggerByGroup(nodes, nodeTypes);
@@ -147,7 +147,7 @@ describe('findTriggerByGroup', () => {
 		const nodes: INode[] = [
 			{
 				name: 'Disabled Trigger',
-				type: '@n8n/n8n-nodes-langchain.chatTrigger',
+				type: '@resin/n8n-nodes-langchain.chatTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				parameters: {},
@@ -157,7 +157,7 @@ describe('findTriggerByGroup', () => {
 		];
 
 		const nodeTypes = makeNodeTypes({
-			'@n8n/n8n-nodes-langchain.chatTrigger': { group: ['trigger'] },
+			'@resin/n8n-nodes-langchain.chatTrigger': { group: ['trigger'] },
 		});
 
 		const result = findTriggerByGroup(nodes, nodeTypes);
@@ -168,7 +168,7 @@ describe('findTriggerByGroup', () => {
 		const nodes: INode[] = [
 			{
 				name: 'Set',
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				parameters: {},

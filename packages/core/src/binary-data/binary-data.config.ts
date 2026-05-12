@@ -1,4 +1,4 @@
-import { Config, Env, ExecutionsConfig } from '@n8n/config';
+import { Config, Env, ExecutionsConfig } from '@resin/config';
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
 

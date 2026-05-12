@@ -1,7 +1,7 @@
-import type { Logger } from '@n8n/backend-common';
-import { User } from '@n8n/db';
-import type { IPasswordAuthHandler, AuthHandlerEntryMetadata } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import type { Logger } from '@resin/backend-common';
+import { User } from '@resin/db';
+import type { IPasswordAuthHandler, AuthHandlerEntryMetadata } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import { AuthHandlerRegistry } from '@/auth/auth-handler.registry';

@@ -8,7 +8,7 @@ import { useUIStore } from '@/app/stores/ui.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useToast } from '@/app/composables/useToast';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { WORKFLOW_DESCRIPTION_MODAL_KEY } from '../constants';
 import type { IWorkflowDb } from '@/Interface';
 

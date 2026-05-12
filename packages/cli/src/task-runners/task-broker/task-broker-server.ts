@@ -1,11 +1,11 @@
-import { inTest, Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { Service } from '@n8n/di';
+import { inTest, Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { Service } from '@resin/di';
 import compression from 'compression';
 import express from 'express';
 import { rateLimit as expressRateLimit } from 'express-rate-limit';
-import { ErrorReporter } from 'n8n-core';
+import { ErrorReporter } from 'resin-core';
 import * as a from 'node:assert/strict';
 import { randomBytes } from 'node:crypto';
 import {

@@ -1,7 +1,7 @@
-import { LICENSE_FEATURES } from '@n8n/constants';
-import type { ModuleInterface } from '@n8n/decorators';
-import { BackendModule } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { LICENSE_FEATURES } from '@resin/constants';
+import type { ModuleInterface } from '@resin/decorators';
+import { BackendModule } from '@resin/decorators';
+import { Container } from '@resin/di';
 
 /**
  * Log Streaming module provides enterprise-grade event logging

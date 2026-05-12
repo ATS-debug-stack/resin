@@ -4,9 +4,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { Serialized } from '@langchain/core/load/serializable';
 import type { LLMResult } from '@langchain/core/outputs';
-import { N8nLlmTracing } from '@n8n/ai-utilities';
-import type { IDataObject, ISupplyDataFunctions } from 'n8n-workflow';
-import { NodeOperationError, NodeApiError } from 'n8n-workflow';
+import { N8nLlmTracing } from '@resin/ai-utilities';
+import type { IDataObject, ISupplyDataFunctions } from 'resin-workflow';
+import { NodeOperationError, NodeApiError } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 describe('N8nLlmTracing', () => {

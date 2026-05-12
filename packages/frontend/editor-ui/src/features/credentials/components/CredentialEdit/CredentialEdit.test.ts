@@ -2,7 +2,7 @@ import { createComponentRenderer } from '@/__tests__/render';
 import CredentialEdit from './CredentialEdit.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { CREDENTIAL_EDIT_MODAL_KEY } from '../../credentials.constants';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { retry, mockedStore } from '@/__tests__/utils';
 import { useCredentialsStore } from '../../credentials.store';
 import { useExternalSecretsStore } from '@/features/integrations/externalSecrets.ee/externalSecrets.ee.store';
@@ -11,7 +11,7 @@ import { useNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import type { ICredentialsResponse } from '../../credentials.types';
 import { within, waitFor } from '@testing-library/vue';
-import type { ICredentialType, INode, INodeTypeDescription } from 'n8n-workflow';
+import type { ICredentialType, INode, INodeTypeDescription } from 'resin-workflow';
 
 vi.mock('vue-router', async () => ({
 	...(await vi.importActual('vue-router')),
@@ -139,7 +139,7 @@ const oAuth2Api: ICredentialType = {
 		},
 	],
 	iconUrl: 'icons/n8n-nodes-base/dist/nodes/GraphQL/graphql.png',
-	supportedNodes: ['n8n-nodes-base.graphql', 'n8n-nodes-base.httpRequest'],
+	supportedNodes: ['resin-nodes-base.graphql', 'resin-nodes-base.httpRequest'],
 };
 
 const googleOAuth2Api: ICredentialType = {
@@ -198,7 +198,7 @@ const googleBigQueryOAuth2Api: ICredentialType = {
 		},
 	],
 	iconUrl: 'icons/n8n-nodes-base/dist/nodes/Google/BigQuery/googleBigQuery.svg',
-	supportedNodes: ['n8n-nodes-base.googleBigQuery'],
+	supportedNodes: ['resin-nodes-base.googleBigQuery'],
 };
 
 const renderComponent = createComponentRenderer(CredentialEdit, {
@@ -519,7 +519,7 @@ describe('CredentialEdit', () => {
 		const ndvStore = mockedStore(useNDVStore);
 		ndvStore.activeNode = {
 			name: 'DualCredTest',
-			type: 'n8n-nodes-base.dualCredTest',
+			type: 'resin-nodes-base.dualCredTest',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},
@@ -528,7 +528,7 @@ describe('CredentialEdit', () => {
 		const nodeTypesStore = mockedStore(useNodeTypesStore);
 		const mockNodeType = {
 			displayName: 'Dual Credential Test',
-			name: 'n8n-nodes-base.dualCredTest',
+			name: 'resin-nodes-base.dualCredTest',
 			group: ['transform'],
 			version: 1,
 			description: 'Test node',

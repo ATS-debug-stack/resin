@@ -1,12 +1,12 @@
-import { makeRestApiRequest } from '@n8n/rest-api-client';
-import type { IRestApiContext } from '@n8n/rest-api-client';
+import { makeRestApiRequest } from '@resin/rest-api-client';
+import type { IRestApiContext } from '@resin/rest-api-client';
 import type {
 	InstanceAiAdminSettingsResponse,
 	InstanceAiAdminSettingsUpdateRequest,
 	InstanceAiUserPreferencesResponse,
 	InstanceAiUserPreferencesUpdateRequest,
 	InstanceAiModelCredential,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export async function fetchSettings(
 	context: IRestApiContext,

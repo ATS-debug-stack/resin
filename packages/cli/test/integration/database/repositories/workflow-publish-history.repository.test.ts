@@ -3,14 +3,14 @@ import {
 	createWorkflowHistory,
 	createWorkflowWithHistory,
 	testDb,
-} from '@n8n/backend-test-utils';
+} from '@resin/backend-test-utils';
 import {
 	UserRepository,
 	WorkflowHistoryRepository,
 	WorkflowPublishHistoryRepository,
 	WorkflowRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { v4 as uuid } from 'uuid';
 
 import { createUser } from '../../shared/db/users';

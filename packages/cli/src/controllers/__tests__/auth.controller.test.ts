@@ -1,9 +1,9 @@
-import type { LoginRequestDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { AuthenticatedRequest, User } from '@n8n/db';
-import { UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { LoginRequestDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { AuthenticatedRequest, User } from '@resin/db';
+import { UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
 
@@ -24,7 +24,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import type { AuthlessRequest } from '@/requests';
 import * as ssoHelpers from '@/sso.ee/sso-helpers';
-import { ResolveSignupTokenQueryDto } from '@n8n/api-types';
+import { ResolveSignupTokenQueryDto } from '@resin/api-types';
 import { RESPONSE_ERROR_MESSAGES } from '@/constants';
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';
 

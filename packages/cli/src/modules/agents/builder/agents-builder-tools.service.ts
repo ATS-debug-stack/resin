@@ -1,9 +1,9 @@
-import { Tool } from '@n8n/agents';
-import type { BuiltTool, CredentialProvider } from '@n8n/agents';
-import { agentSkillSchema } from '@n8n/api-types';
-import type { User } from '@n8n/db';
-import { WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Tool } from '@resin/agents';
+import type { BuiltTool, CredentialProvider } from '@resin/agents';
+import { agentSkillSchema } from '@resin/api-types';
+import type { User } from '@resin/db';
+import { WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import type { Operation } from 'fast-json-patch';
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
@@ -458,11 +458,11 @@ export class AgentsBuilderToolsService {
 				// format — the naming-convention rule doesn't apply to those.
 				/* eslint-disable @typescript-eslint/naming-convention */
 				const SUPPORTED_TRIGGERS: Record<string, string> = {
-					'n8n-nodes-base.manualTrigger': 'manual',
-					'n8n-nodes-base.executeWorkflowTrigger': 'executeWorkflow',
-					'n8n-nodes-base.chatTrigger': 'chat',
-					'n8n-nodes-base.scheduleTrigger': 'schedule',
-					'n8n-nodes-base.formTrigger': 'form',
+					'resin-nodes-base.manualTrigger': 'manual',
+					'resin-nodes-base.executeWorkflowTrigger': 'executeWorkflow',
+					'resin-nodes-base.chatTrigger': 'chat',
+					'resin-nodes-base.scheduleTrigger': 'schedule',
+					'resin-nodes-base.formTrigger': 'form',
 				};
 				/* eslint-enable @typescript-eslint/naming-convention */
 

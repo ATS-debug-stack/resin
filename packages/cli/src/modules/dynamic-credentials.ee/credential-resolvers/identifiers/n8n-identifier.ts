@@ -1,9 +1,9 @@
-import { Service } from '@n8n/di';
-import type { ICredentialContext } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import type { ICredentialContext } from 'resin-workflow';
 import { ITokenIdentifier } from './identifier-interface';
 import { AuthService } from '@/auth/auth.service';
 import { z } from 'zod';
-import { CredentialResolverError } from '@n8n/decorators';
+import { CredentialResolverError } from '@resin/decorators';
 
 const ChatHubExtractorMetadataSchema = z.object({
 	method: z.string(),

@@ -11,7 +11,7 @@ vi.mock('@/app/composables/useMessage', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', () => {
+vi.mock('@resin/i18n', () => {
 	const baseText = (key: string) => key;
 	return {
 		i18n: { baseText },

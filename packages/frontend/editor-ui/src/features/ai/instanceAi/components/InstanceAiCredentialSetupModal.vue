@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { N8nButton, N8nHeading } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import type { InstanceAiCredentialRequest } from '@n8n/api-types';
+import { N8nButton, N8nHeading } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import type { InstanceAiCredentialRequest } from '@resin/api-types';
 import Modal from '@/app/components/Modal.vue';
 import CredentialPicker from '@/features/credentials/components/CredentialPicker/CredentialPicker.vue';
 import IconSuccess from '@/features/workflows/templates/components/IconSuccess.vue';

@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue';
-import type { ProvisioningModeFlags } from '@n8n/api-types';
+import type { ProvisioningModeFlags } from '@resin/api-types';
 import { useUserRoleProvisioningStore } from './userRoleProvisioning.store';
-import type { ProvisioningConfig } from '@n8n/rest-api-client/api/provisioning';
+import type { ProvisioningConfig } from '@resin/rest-api-client/api/provisioning';
 import { useRoleMappingRulesApi } from './useRoleMappingRulesApi';
 import type {
 	RoleAssignmentSetting,
@@ -9,7 +9,7 @@ import type {
 } from '../components/UserRoleProvisioningDropdown.vue';
 import { type SupportedProtocolType } from '../../sso.store';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import type { RoleMappingRulesSaveResult } from './useRoleMappingRules';
 
 type TelemetryAssignmentMethod = 'disabled' | 'instance_role' | 'instance_and_project_roles';

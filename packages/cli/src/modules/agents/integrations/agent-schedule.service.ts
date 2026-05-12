@@ -4,12 +4,12 @@ import {
 	type AgentScheduleConfig,
 	type AgentScheduleIntegration,
 	isAgentScheduleIntegration,
-} from '@n8n/api-types';
-import { ProjectRelationRepository } from '@n8n/db';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+} from '@resin/api-types';
+import { ProjectRelationRepository } from '@resin/db';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@resin/decorators';
+import { Service } from '@resin/di';
 import { CronJob } from 'cron';
 import { randomUUID } from 'crypto';
 import { DateTime } from 'luxon';

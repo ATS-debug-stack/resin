@@ -18,7 +18,7 @@ vi.mock('./utils', () => ({
 const defaultUseInstalledCommunityPackage = {
 	installedPackage: ref({
 		installedVersion: '1.0.0',
-		packageName: 'n8n-nodes-test',
+		packageName: 'resin-nodes-test',
 		unverifiedUpdate: false,
 	}) as ComputedRef<ExtendedPublicInstalledPackage>,
 	isUpdateCheckAvailable: ref(false),
@@ -75,15 +75,15 @@ describe('CommunityNodeInfo', () => {
 		communityNodeDetails: {
 			description: 'Other node description',
 			installed: false,
-			key: 'n8n-nodes-preview-test.OtherNode',
+			key: 'resin-nodes-preview-test.OtherNode',
 			nodeIcon: undefined,
-			packageName: 'n8n-nodes-test',
+			packageName: 'resin-nodes-test',
 			title: 'Other Node',
 		},
 		hasSearch: false,
 		items: [
 			{
-				key: 'n8n-nodes-preview-test.OtherNode',
+				key: 'resin-nodes-preview-test.OtherNode',
 				properties: {
 					defaults: {
 						name: 'OtherNode',
@@ -91,12 +91,12 @@ describe('CommunityNodeInfo', () => {
 					description: 'Other node description',
 					displayName: 'Other Node',
 					group: ['transform'],
-					name: 'n8n-nodes-preview-test.OtherNode',
+					name: 'resin-nodes-preview-test.OtherNode',
 					outputs: ['main'],
 				},
 				subcategory: '*',
 				type: 'node',
-				uuid: 'n8n-nodes-preview-test.OtherNode-32f238f0-2b05-47ce-b43d-7fab6d7ba3cb',
+				uuid: 'resin-nodes-preview-test.OtherNode-32f238f0-2b05-47ce-b43d-7fab6d7ba3cb',
 			},
 		],
 		mode: 'community-node',
@@ -137,7 +137,7 @@ describe('CommunityNodeInfo', () => {
 			...defaultUseInstalledCommunityPackage,
 			installedPackage: ref({
 				installedVersion: '1.0.0',
-				packageName: 'n8n-nodes-test',
+				packageName: 'resin-nodes-test',
 				unverifiedUpdate: false,
 			}) as ComputedRef<ExtendedPublicInstalledPackage>,
 		});
@@ -179,7 +179,7 @@ describe('CommunityNodeInfo', () => {
 			isUpdateCheckAvailable: ref(true) as ComputedRef<boolean>,
 			installedPackage: ref({
 				installedVersion: '0.0.9',
-				packageName: 'n8n-nodes-test',
+				packageName: 'resin-nodes-test',
 				updateAvailable: '1.0.1',
 				unverifiedUpdate: false,
 			}) as ComputedRef<ExtendedPublicInstalledPackage>,
@@ -224,7 +224,7 @@ describe('CommunityNodeInfo', () => {
 			...defaultUseInstalledCommunityPackage,
 			installedPackage: ref({
 				installedVersion: '0.0.9',
-				packageName: 'n8n-nodes-test',
+				packageName: 'resin-nodes-test',
 				updateAvailable: '1.0.1',
 				unverifiedUpdate: true,
 			}) as ComputedRef<ExtendedPublicInstalledPackage>,
@@ -302,7 +302,7 @@ describe('CommunityNodeInfo', () => {
 				...defaultUseInstalledCommunityPackage,
 				installedPackage: ref({
 					installedVersion: '1.0.0',
-					packageName: 'n8n-nodes-test',
+					packageName: 'resin-nodes-test',
 					unverifiedUpdate: false,
 				}) as ComputedRef<ExtendedPublicInstalledPackage>,
 			});
@@ -334,7 +334,7 @@ describe('CommunityNodeInfo', () => {
 					'@/features/credentials/quickConnect/composables/useQuickConnect'
 				);
 				const quickConnectOptionData = {
-					packageName: 'n8n-nodes-test',
+					packageName: 'resin-nodes-test',
 					credentialType: 'some-credentials',
 					text: 'This packages provides trial access',
 					quickConnectType: 'manual',

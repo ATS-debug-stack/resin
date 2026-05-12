@@ -7,7 +7,7 @@ import {
 	OneToOne,
 	PrimaryGeneratedColumn,
 	Relation,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 
 import { WithCreatedAt } from './abstract-entity';
 import { User } from './user';

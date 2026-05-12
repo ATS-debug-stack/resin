@@ -1,5 +1,5 @@
-import type { AuthenticatedRequest } from '@n8n/db';
-import { CredentialResolverValidationError } from '@n8n/decorators';
+import type { AuthenticatedRequest } from '@resin/db';
+import { CredentialResolverValidationError } from '@resin/decorators';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
 

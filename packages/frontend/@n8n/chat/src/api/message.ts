@@ -1,10 +1,10 @@
-import { get, post, postWithFiles } from '@n8n/chat/api/generic';
+import { get, post, postWithFiles } from '@resin/chat/api/generic';
 import type {
 	ChatOptions,
 	LoadPreviousSessionResponse,
 	SendMessageResponse,
 	StructuredChunk,
-} from '@n8n/chat/types';
+} from '@resin/chat/types';
 
 export async function loadPreviousSession(sessionId: string, options: ChatOptions) {
 	const method = options.webhookConfig?.method === 'POST' ? post : get;

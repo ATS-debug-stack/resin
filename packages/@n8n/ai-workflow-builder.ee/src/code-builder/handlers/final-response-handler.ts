@@ -6,7 +6,7 @@
  */
 
 import type { AIMessage, BaseMessage } from '@langchain/core/messages';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 import type { WarningTracker } from '../state/warning-tracker';
 import type { ParseAndValidateResult, WorkflowCodeOutput } from '../types';

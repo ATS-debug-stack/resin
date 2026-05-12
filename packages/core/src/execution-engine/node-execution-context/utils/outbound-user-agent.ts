@@ -1,5 +1,5 @@
-import { HttpRequestConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { HttpRequestConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import type { AxiosRequestConfig } from 'axios';
 import { join } from 'node:path';
 

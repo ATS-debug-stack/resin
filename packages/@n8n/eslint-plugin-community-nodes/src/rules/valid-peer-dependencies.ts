@@ -3,7 +3,7 @@ import { AST_NODE_TYPES } from '@typescript-eslint/utils';
 
 import { createRule, findJsonProperty } from '../utils/index.js';
 
-const REQUIRED_DEP = 'n8n-workflow';
+const REQUIRED_DEP = 'resin-workflow';
 const REQUIRED_VERSION = '*';
 const ALLOWED_DEPS = new Set([REQUIRED_DEP, 'ai-node-sdk']);
 
@@ -13,7 +13,7 @@ export const ValidPeerDependenciesRule = createRule({
 		type: 'problem',
 		docs: {
 			description:
-				'Require community node package.json peerDependencies to contain only "n8n-workflow": "*" (and optionally "ai-node-sdk")',
+				'Require community node package.json peerDependencies to contain only "resin-workflow": "*" (and optionally "ai-node-sdk")',
 		},
 		fixable: 'code',
 		messages: {
@@ -22,7 +22,7 @@ export const ValidPeerDependenciesRule = createRule({
 			missingN8nWorkflow: `"peerDependencies" must include "${REQUIRED_DEP}": "${REQUIRED_VERSION}".`,
 			pinnedN8nWorkflow: `"peerDependencies.${REQUIRED_DEP}" must be "${REQUIRED_VERSION}", got {{ value }}.`,
 			forbiddenPeerDependency:
-				'"{{ name }}" is not allowed in "peerDependencies". Only "n8n-workflow" and "ai-node-sdk" are permitted.',
+				'"{{ name }}" is not allowed in "peerDependencies". Only "resin-workflow" and "ai-node-sdk" are permitted.',
 		},
 		schema: [],
 	},

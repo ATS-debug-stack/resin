@@ -2,7 +2,7 @@ export { BaseError, type BaseErrorOptions } from './base/base.error';
 export { OperationalError, type OperationalErrorOptions } from './base/operational.error';
 export { UnexpectedError, type UnexpectedErrorOptions } from './base/unexpected.error';
 export { UserError, type UserErrorOptions } from './base/user.error';
-export { ApplicationError } from '@n8n/errors';
+export { ApplicationError } from '@resin/errors';
 export { ExpressionError } from './expression.error';
 export {
 	ExecutionCancelledError,
@@ -33,4 +33,4 @@ export { ExpressionReservedVariableError } from './expression-reserved-variable.
 export { ExpressionWithStatementError } from './expression-with-statement.error';
 export { DbConnectionTimeoutError } from './db-connection-timeout-error';
 export { ensureError } from './ensure-error';
-export { IsolateError } from '@n8n/errors';
+export { IsolateError } from '@resin/errors';

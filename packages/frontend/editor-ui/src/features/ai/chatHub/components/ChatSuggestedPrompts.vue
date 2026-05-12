@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { type AgentIconOrEmoji } from '@n8n/api-types';
-import { N8nButton, type IconName } from '@n8n/design-system';
+import { type AgentIconOrEmoji } from '@resin/api-types';
+import { N8nButton, type IconName } from '@resin/design-system';
 
 defineProps<{
 	prompts: Array<{ text: string; icon?: AgentIconOrEmoji }>;

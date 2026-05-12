@@ -45,15 +45,15 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('targets IF, Switch, and Filter nodes', () => {
-			expect(filterNodeValidator.nodeTypes).toContain('n8n-nodes-base.if');
-			expect(filterNodeValidator.nodeTypes).toContain('n8n-nodes-base.switch');
-			expect(filterNodeValidator.nodeTypes).toContain('n8n-nodes-base.filter');
+			expect(filterNodeValidator.nodeTypes).toContain('resin-nodes-base.if');
+			expect(filterNodeValidator.nodeTypes).toContain('resin-nodes-base.switch');
+			expect(filterNodeValidator.nodeTypes).toContain('resin-nodes-base.filter');
 		});
 	});
 
 	describe('IF / Filter nodes — conditions on params', () => {
 		it('returns no issues for valid conditions', () => {
-			const node = createMockNode('n8n-nodes-base.if', 'Check', {
+			const node = createMockNode('resin-nodes-base.if', 'Check', {
 				conditions: VALID_CONDITIONS,
 			});
 			const graphNode = createGraphNode(node);
@@ -65,7 +65,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('returns FILTER_MISSING_OPTIONS when options is missing', () => {
-			const node = createMockNode('n8n-nodes-base.if', 'Check', {
+			const node = createMockNode('resin-nodes-base.if', 'Check', {
 				conditions: {
 					conditions: [
 						{
@@ -88,7 +88,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('returns FILTER_MISSING_COMBINATOR when combinator is missing', () => {
-			const node = createMockNode('n8n-nodes-base.if', 'Check', {
+			const node = createMockNode('resin-nodes-base.if', 'Check', {
 				conditions: {
 					options: { caseSensitive: true, leftValue: '', typeValidation: 'strict' },
 					conditions: [
@@ -111,7 +111,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('returns all errors when options, conditions array, and combinator are missing', () => {
-			const node = createMockNode('n8n-nodes-base.if', 'Check', {
+			const node = createMockNode('resin-nodes-base.if', 'Check', {
 				conditions: {
 					combinator: 'and',
 				},
@@ -129,7 +129,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('returns FILTER_MISSING_CONDITIONS when inner conditions array is missing', () => {
-			const node = createMockNode('n8n-nodes-base.if', 'Check', {
+			const node = createMockNode('resin-nodes-base.if', 'Check', {
 				conditions: {
 					options: { caseSensitive: true, leftValue: '', typeValidation: 'strict' },
 					combinator: 'and',
@@ -146,7 +146,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('returns no issues when node has no parameters', () => {
-			const node = createMockNode('n8n-nodes-base.if', 'Check');
+			const node = createMockNode('resin-nodes-base.if', 'Check');
 			const graphNode = createGraphNode(node);
 			const nodes = new Map([['Check', graphNode]]);
 
@@ -156,7 +156,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('works for Filter nodes too', () => {
-			const node = createMockNode('n8n-nodes-base.filter', 'Filter', {
+			const node = createMockNode('resin-nodes-base.filter', 'Filter', {
 				conditions: {
 					conditions: [
 						{
@@ -178,7 +178,7 @@ describe('filterNodeValidator', () => {
 
 	describe('Switch node — rules.values[]', () => {
 		it('returns no issues for valid Switch rules', () => {
-			const node = createMockNode('n8n-nodes-base.switch', 'Router', {
+			const node = createMockNode('resin-nodes-base.switch', 'Router', {
 				rules: {
 					values: [
 						{ outputKey: 'a', conditions: VALID_CONDITIONS },
@@ -195,7 +195,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('returns SWITCH_WRONG_RULES_KEY when using rules.rules instead of rules.values', () => {
-			const node = createMockNode('n8n-nodes-base.switch', 'Router', {
+			const node = createMockNode('resin-nodes-base.switch', 'Router', {
 				rules: {
 					rules: [{ outputKey: 'a', conditions: VALID_CONDITIONS }],
 				},
@@ -211,7 +211,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('validates conditions inside each rule', () => {
-			const node = createMockNode('n8n-nodes-base.switch', 'Router', {
+			const node = createMockNode('resin-nodes-base.switch', 'Router', {
 				rules: {
 					values: [
 						{
@@ -239,7 +239,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('still validates conditions inside rules.rules (wrong key but checks content)', () => {
-			const node = createMockNode('n8n-nodes-base.switch', 'Router', {
+			const node = createMockNode('resin-nodes-base.switch', 'Router', {
 				rules: {
 					rules: [
 						{
@@ -269,7 +269,7 @@ describe('filterNodeValidator', () => {
 		});
 
 		it('includes parameterPath in issues for nested rules', () => {
-			const node = createMockNode('n8n-nodes-base.switch', 'Router', {
+			const node = createMockNode('resin-nodes-base.switch', 'Router', {
 				rules: {
 					values: [
 						{ outputKey: 'a', conditions: VALID_CONDITIONS },

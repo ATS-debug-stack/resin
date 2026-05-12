@@ -1,8 +1,8 @@
 import { nextTick, type ShallowRef } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useRoute } from 'vue-router';
 import { VIEWS } from '@/app/constants';
-import type { ExecutionStatus, ExecutionSummary } from 'n8n-workflow';
+import type { ExecutionStatus, ExecutionSummary } from 'resin-workflow';
 import { useToast } from '@/app/composables/useToast';
 import { useCanvasOperations } from '@/app/composables/useCanvasOperations';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
@@ -13,12 +13,12 @@ import { useUIStore } from '@/app/stores/ui.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import { useExecutionsStore } from '@/features/execution/executions/executions.store';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { canvasEventBus } from '@/features/workflows/canvas/canvas.eventBus';
 import { buildExecutionResponseFromSchema } from '@/features/execution/executions/executions.utils';
 import type { ExecutionPreviewNodeSchema } from '@/features/execution/executions/executions.types';
 import type { IWorkflowDb } from '@/Interface';
-import type { WorkflowDataUpdate } from '@n8n/rest-api-client/api/workflows';
+import type { WorkflowDataUpdate } from '@resin/rest-api-client/api/workflows';
 import type { WorkflowState } from '@/app/composables/useWorkflowState';
 import {
 	type useWorkflowDocumentStore,

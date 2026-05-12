@@ -9,12 +9,12 @@ ruleTester.run('no-runtime-dependencies', NoRuntimeDependenciesRule, {
 		{
 			name: 'no dependencies field',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-example", "version": "1.0.0" }',
+			code: '{ "name": "resin-nodes-example", "version": "1.0.0" }',
 		},
 		{
 			name: 'empty dependencies object is allowed',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-example", "dependencies": {} }',
+			code: '{ "name": "resin-nodes-example", "dependencies": {} }',
 		},
 		{
 			name: 'non-package.json file is ignored',
@@ -24,26 +24,26 @@ ruleTester.run('no-runtime-dependencies', NoRuntimeDependenciesRule, {
 		{
 			name: 'nested "dependencies" key inside another field is allowed',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-example", "config": { "dependencies": { "axios": "1.0.0" } } }',
+			code: '{ "name": "resin-nodes-example", "config": { "dependencies": { "axios": "1.0.0" } } }',
 		},
 	],
 	invalid: [
 		{
 			name: 'single runtime dependency is forbidden',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-example", "dependencies": { "axios": "1.0.0" } }',
+			code: '{ "name": "resin-nodes-example", "dependencies": { "axios": "1.0.0" } }',
 			errors: [{ messageId: 'runtimeDependenciesForbidden' }],
 		},
 		{
 			name: 'multiple runtime dependencies are forbidden',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-example", "dependencies": { "axios": "1.0.0", "lodash": "^4.0.0" } }',
+			code: '{ "name": "resin-nodes-example", "dependencies": { "axios": "1.0.0", "lodash": "^4.0.0" } }',
 			errors: [{ messageId: 'runtimeDependenciesForbidden' }],
 		},
 		{
 			name: 'real-world package with bundled deps is forbidden',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-sinch", "dependencies": { "axios": "1.7.0", "fast-xml-parser": "4.4.0", "minimatch": "9.0.5" } }',
+			code: '{ "name": "resin-nodes-sinch", "dependencies": { "axios": "1.7.0", "fast-xml-parser": "4.4.0", "minimatch": "9.0.5" } }',
 			errors: [{ messageId: 'runtimeDependenciesForbidden' }],
 		},
 	],

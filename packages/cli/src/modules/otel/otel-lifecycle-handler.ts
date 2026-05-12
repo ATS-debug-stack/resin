@@ -1,12 +1,12 @@
-import { OnLifecycleEvent } from '@n8n/decorators';
+import { OnLifecycleEvent } from '@resin/decorators';
 import type {
 	WorkflowExecuteBeforeContext,
 	WorkflowExecuteAfterContext,
 	WorkflowExecuteResumeContext,
 	NodeExecuteBeforeContext,
 	NodeExecuteAfterContext,
-} from '@n8n/decorators';
-import { Service } from '@n8n/di';
+} from '@resin/decorators';
+import { Service } from '@resin/di';
 
 import { ExecutionLevelTracer } from './execution-level-tracer';
 import { OtelConfig } from './otel.config';

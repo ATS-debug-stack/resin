@@ -17,8 +17,8 @@ import {
 	UpdateAgentScheduleDto,
 	UpdateAgentDto,
 	isAgentCredentialIntegration,
-} from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
+} from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
 import {
 	Body,
 	Delete,
@@ -29,7 +29,7 @@ import {
 	ProjectScope,
 	Put,
 	RestController,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import { randomUUID } from 'crypto';
 import type { Request, Response } from 'express';
 
@@ -224,7 +224,7 @@ export class AgentsController {
 	@Get('/catalog/models')
 	@ProjectScope('agent:read')
 	async getModelCatalog() {
-		const { fetchProviderCatalog } = await import('@n8n/agents');
+		const { fetchProviderCatalog } = await import('@resin/agents');
 		return await fetchProviderCatalog();
 	}
 

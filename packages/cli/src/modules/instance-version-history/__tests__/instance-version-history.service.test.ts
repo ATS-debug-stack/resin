@@ -1,7 +1,7 @@
-import { mockLogger } from '@n8n/backend-test-utils';
+import { mockLogger } from '@resin/backend-test-utils';
 import type { MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
 
 import type { InstanceVersionHistoryRepository } from '../database/repositories/instance-version-history.repository';
 import { InstanceVersionHistoryService } from '../instance-version-history.service';

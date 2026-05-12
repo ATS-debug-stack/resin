@@ -1,4 +1,4 @@
-import type { ProjectIcon, ProjectType } from '@n8n/api-types';
+import type { ProjectIcon, ProjectType } from '@resin/api-types';
 import type {
 	APIRequest,
 	AuthenticatedRequest,
@@ -7,20 +7,20 @@ import type {
 	User,
 	ListQueryDb,
 	WorkflowHistory,
-} from '@n8n/db';
+} from '@resin/db';
 import type {
 	AssignableGlobalRole,
 	AssignableProjectRole,
 	GlobalRole,
 	ProjectRole,
 	Scope,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 import type { Request } from 'express';
 import type {
 	ICredentialDataDecryptedObject,
 	INodeCredentialTestRequest,
 	IPersonalizationSurveyAnswersV4,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export type AuthlessRequest<
 	RouteParams = {},

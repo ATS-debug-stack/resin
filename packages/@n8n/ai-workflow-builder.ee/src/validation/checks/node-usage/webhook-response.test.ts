@@ -1,4 +1,4 @@
-import type { IConnections, INodeParameters } from 'n8n-workflow';
+import type { IConnections, INodeParameters } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 
@@ -30,7 +30,7 @@ function createWebhookNode(options: WebhookNodeOptions = {}): SimpleWorkflow['no
 	return {
 		id,
 		name,
-		type: 'n8n-nodes-base.webhook',
+		type: 'resin-nodes-base.webhook',
 		parameters: parameters as INodeParameters,
 		typeVersion: 2,
 		position: [0, 0],
@@ -45,7 +45,7 @@ function createRespondToWebhookNode(
 	return {
 		id,
 		name,
-		type: 'n8n-nodes-base.respondToWebhook',
+		type: 'resin-nodes-base.respondToWebhook',
 		parameters: {} as INodeParameters,
 		typeVersion: 1,
 		position: [200, 0],
@@ -246,7 +246,7 @@ describe('validateWebhookResponse', () => {
 					{
 						id: '2',
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						parameters: {} as INodeParameters,
 						typeVersion: 1,
 						position: [100, 0],

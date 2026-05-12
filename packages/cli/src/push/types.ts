@@ -1,4 +1,4 @@
-import type { AuthenticatedRequest, User } from '@n8n/db';
+import type { AuthenticatedRequest, User } from '@resin/db';
 import type { Request, Response } from 'express';
 import type { WebSocket } from 'ws';
 

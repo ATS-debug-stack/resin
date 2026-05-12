@@ -4,10 +4,10 @@ import type { IWorkflowDb, UserAction } from '@/Interface';
 import type {
 	WorkflowVersion,
 	WorkflowHistoryActionTypes,
-} from '@n8n/rest-api-client/api/workflowHistory';
+} from '@resin/rest-api-client/api/workflowHistory';
 import WorkflowPreview from '@/app/components/WorkflowPreview.vue';
-import { useI18n } from '@n8n/i18n';
-import type { IUser } from 'n8n-workflow';
+import { useI18n } from '@resin/i18n';
+import type { IUser } from 'resin-workflow';
 
 import {
 	N8nActionToggle,
@@ -16,7 +16,7 @@ import {
 	N8nLink,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { formatTimestamp, getVersionLabel } from '@/features/workflows/workflowHistory/utils';
 import type { WorkflowHistoryAction } from '@/features/workflows/workflowHistory/types';
 import omit from 'lodash/omit';

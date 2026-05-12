@@ -6,8 +6,8 @@ import lang from 'element-plus/dist/locale/en.mjs';
 import { createPinia } from 'pinia';
 import { createMemoryHistory, createRouter } from 'vue-router';
 
-import { N8nPlugin } from '@n8n/design-system';
-import { i18nInstance } from '@n8n/i18n';
+import { N8nPlugin } from '@resin/design-system';
+import { i18nInstance } from '@resin/i18n';
 
 import './storybook.scss';
 import { allModes } from './modes';

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { PermissionsRecord } from '@n8n/permissions';
+import type { PermissionsRecord } from '@resin/permissions';
 import CredentialsDropdown, {
 	type CredentialOption as DropdownCredentialOption,
 } from '@/features/credentials/components/CredentialPicker/CredentialsDropdown.vue';

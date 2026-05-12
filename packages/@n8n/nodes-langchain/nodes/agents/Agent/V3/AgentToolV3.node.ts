@@ -1,4 +1,4 @@
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	INodeExecutionData,
@@ -8,7 +8,7 @@ import type {
 	ISupplyDataFunctions,
 	EngineResponse,
 	EngineRequest,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { RequestResponseMetadata } from '@utils/agent-execution';
 import { textInput, toolDescription } from '@utils/descriptions';

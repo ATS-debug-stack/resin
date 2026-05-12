@@ -1,6 +1,6 @@
-import type { TagEntity, ITagWithCountDb } from '@n8n/db';
-import { TagRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { TagEntity, ITagWithCountDb } from '@resin/db';
+import { TagRepository } from '@resin/db';
+import { Service } from '@resin/di';
 
 import { ExternalHooks } from '@/external-hooks';
 import { validateEntity } from '@/generic-helpers';

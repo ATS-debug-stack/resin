@@ -37,7 +37,7 @@ const classes = computed(() => ({
 		<div
 			v-if="$slots.append"
 			data-test-id="card-append"
-			:class="[$style.append, 'n8n-card-append']"
+			:class="[$style.append, 'resin-card-append']"
 		>
 			<slot name="append" />
 		</div>

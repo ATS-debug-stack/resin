@@ -6,8 +6,8 @@ import type {
 	Workflow,
 	WorkflowActivateMode,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
-import { ApplicationError, createDeferredPromise } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, createDeferredPromise } from 'resin-workflow';
 
 import { NodeExecutionContext } from './node-execution-context';
 import { getBinaryHelperFunctions } from './utils/binary-helper-functions';

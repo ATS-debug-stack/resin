@@ -1,4 +1,4 @@
-import { ApplicationError } from 'n8n-workflow';
+import { ApplicationError } from 'resin-workflow';
 import type { AwsAssumeRoleCredentialsType, AWSRegion } from './types';
 
 global.fetch = jest.fn();

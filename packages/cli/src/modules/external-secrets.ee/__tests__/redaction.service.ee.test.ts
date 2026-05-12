@@ -1,4 +1,4 @@
-import { CREDENTIAL_BLANKING_VALUE, type INodeProperties } from 'n8n-workflow';
+import { CREDENTIAL_BLANKING_VALUE, type INodeProperties } from 'resin-workflow';
 
 import { RedactionService } from '../redaction.service.ee';
 

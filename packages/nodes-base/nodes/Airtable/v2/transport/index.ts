@@ -8,8 +8,8 @@ import type {
 	IPairedItemData,
 	IHttpRequestMethods,
 	IRequestOptions,
-} from 'n8n-workflow';
-import { ApplicationError } from '@n8n/errors';
+} from 'resin-workflow';
+import { ApplicationError } from '@resin/errors';
 
 import type { IAttachment, IRecord } from '../helpers/interfaces';
 

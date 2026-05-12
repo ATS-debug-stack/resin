@@ -9,7 +9,7 @@ import type {
 	INodeCredentialsDetails,
 	IWorkflowExecuteAdditionalData,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { CredentialNotFoundError } from '@/errors/credential-not-found.error';
 

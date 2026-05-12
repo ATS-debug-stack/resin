@@ -1,5 +1,5 @@
-import type { ClusterCheckSummary, ClusterInfoResponse } from '@n8n/api-types';
-import { Get, RestController } from '@n8n/decorators';
+import type { ClusterCheckSummary, ClusterInfoResponse } from '@resin/api-types';
+import { Get, RestController } from '@resin/decorators';
 
 import { CheckService } from './checks/check.service';
 import { InstanceRegistryService } from './instance-registry.service';

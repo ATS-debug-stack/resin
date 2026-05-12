@@ -51,17 +51,17 @@ describe('mergeNodeValidator', () => {
 		});
 
 		it('nodeTypes includes merge node type', () => {
-			expect(mergeNodeValidator.nodeTypes).toContain('n8n-nodes-base.merge');
+			expect(mergeNodeValidator.nodeTypes).toContain('resin-nodes-base.merge');
 		});
 	});
 
 	describe('validateNode', () => {
 		it('returns MERGE_SINGLE_INPUT warning when merge node has only 1 input connection', () => {
 			// Create a merge node
-			const mergeNode = createMockNode('n8n-nodes-base.merge', 'Merge');
+			const mergeNode = createMockNode('resin-nodes-base.merge', 'Merge');
 
 			// Create a source node with connection to merge
-			const sourceNode = createMockNode('n8n-nodes-base.set', 'Source');
+			const sourceNode = createMockNode('resin-nodes-base.set', 'Source');
 			const sourceConnections = new Map<string, Map<number, ConnectionTarget[]>>();
 			sourceConnections.set('main', new Map([[0, [conn('Merge', 0)]]]));
 			const sourceGraphNode = createGraphNode(sourceNode, sourceConnections);
@@ -86,7 +86,7 @@ describe('mergeNodeValidator', () => {
 		});
 
 		it('returns MERGE_SINGLE_INPUT warning when merge node has 0 input connections', () => {
-			const mergeNode = createMockNode('n8n-nodes-base.merge', 'Merge');
+			const mergeNode = createMockNode('resin-nodes-base.merge', 'Merge');
 			const mergeGraphNode = createGraphNode(mergeNode);
 
 			const nodes = new Map<string, GraphNode>();
@@ -104,15 +104,15 @@ describe('mergeNodeValidator', () => {
 		});
 
 		it('returns no warning when merge node has 2 input connections', () => {
-			const mergeNode = createMockNode('n8n-nodes-base.merge', 'Merge');
+			const mergeNode = createMockNode('resin-nodes-base.merge', 'Merge');
 			const mergeGraphNode = createGraphNode(mergeNode);
 
 			// Create two source nodes with connections to different inputs of merge
-			const source1 = createMockNode('n8n-nodes-base.set', 'Source1');
+			const source1 = createMockNode('resin-nodes-base.set', 'Source1');
 			const source1Conns = new Map<string, Map<number, ConnectionTarget[]>>();
 			source1Conns.set('main', new Map([[0, [conn('Merge', 0)]]]));
 
-			const source2 = createMockNode('n8n-nodes-base.set', 'Source2');
+			const source2 = createMockNode('resin-nodes-base.set', 'Source2');
 			const source2Conns = new Map<string, Map<number, ConnectionTarget[]>>();
 			source2Conns.set('main', new Map([[0, [conn('Merge', 1)]]]));
 
@@ -128,19 +128,19 @@ describe('mergeNodeValidator', () => {
 		});
 
 		it('returns no warning when merge node has more than 2 input connections', () => {
-			const mergeNode = createMockNode('n8n-nodes-base.merge', 'Merge');
+			const mergeNode = createMockNode('resin-nodes-base.merge', 'Merge');
 			const mergeGraphNode = createGraphNode(mergeNode);
 
 			// Create three source nodes
-			const source1 = createMockNode('n8n-nodes-base.set', 'Source1');
+			const source1 = createMockNode('resin-nodes-base.set', 'Source1');
 			const source1Conns = new Map<string, Map<number, ConnectionTarget[]>>();
 			source1Conns.set('main', new Map([[0, [conn('Merge', 0)]]]));
 
-			const source2 = createMockNode('n8n-nodes-base.set', 'Source2');
+			const source2 = createMockNode('resin-nodes-base.set', 'Source2');
 			const source2Conns = new Map<string, Map<number, ConnectionTarget[]>>();
 			source2Conns.set('main', new Map([[0, [conn('Merge', 1)]]]));
 
-			const source3 = createMockNode('n8n-nodes-base.set', 'Source3');
+			const source3 = createMockNode('resin-nodes-base.set', 'Source3');
 			const source3Conns = new Map<string, Map<number, ConnectionTarget[]>>();
 			source3Conns.set('main', new Map([[0, [conn('Merge', 2)]]]));
 
@@ -157,15 +157,15 @@ describe('mergeNodeValidator', () => {
 		});
 
 		it('counts distinct input indices (multiple connections to same input count as 1)', () => {
-			const mergeNode = createMockNode('n8n-nodes-base.merge', 'Merge');
+			const mergeNode = createMockNode('resin-nodes-base.merge', 'Merge');
 			const mergeGraphNode = createGraphNode(mergeNode);
 
 			// Both sources connect to the same input index (0)
-			const source1 = createMockNode('n8n-nodes-base.set', 'Source1');
+			const source1 = createMockNode('resin-nodes-base.set', 'Source1');
 			const source1Conns = new Map<string, Map<number, ConnectionTarget[]>>();
 			source1Conns.set('main', new Map([[0, [conn('Merge', 0)]]]));
 
-			const source2 = createMockNode('n8n-nodes-base.set', 'Source2');
+			const source2 = createMockNode('resin-nodes-base.set', 'Source2');
 			const source2Conns = new Map<string, Map<number, ConnectionTarget[]>>();
 			source2Conns.set('main', new Map([[0, [conn('Merge', 0)]]])); // Same index!
 
@@ -187,7 +187,7 @@ describe('mergeNodeValidator', () => {
 		});
 
 		it('includes nodeName in issues', () => {
-			const mergeNode = createMockNode('n8n-nodes-base.merge', 'My Merge Node');
+			const mergeNode = createMockNode('resin-nodes-base.merge', 'My Merge Node');
 			const mergeGraphNode = createGraphNode(mergeNode);
 
 			const nodes = new Map<string, GraphNode>();

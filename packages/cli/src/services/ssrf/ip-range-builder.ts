@@ -1,4 +1,4 @@
-import { ensureError } from 'n8n-workflow';
+import { ensureError } from 'resin-workflow';
 import { BlockList, isIP } from 'node:net';
 import { z } from 'zod';
 

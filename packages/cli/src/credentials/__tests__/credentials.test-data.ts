@@ -1,8 +1,8 @@
-import type { CreateCredentialDto } from '@n8n/api-types';
-import type { CredentialsEntity, SharedCredentials } from '@n8n/db';
-import type { Scope } from '@n8n/permissions';
+import type { CreateCredentialDto } from '@resin/api-types';
+import type { CredentialsEntity, SharedCredentials } from '@resin/db';
+import type { Scope } from '@resin/permissions';
 import { nanoId, date } from 'minifaker';
-import { randomString } from 'n8n-workflow';
+import { randomString } from 'resin-workflow';
 
 export type NewCredentialWithScopes = CredentialsEntity & { scopes: Scope[] };
 

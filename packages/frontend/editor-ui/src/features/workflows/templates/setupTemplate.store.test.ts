@@ -1,13 +1,13 @@
 import { setActivePinia } from 'pinia';
 import { createTestingPinia } from '@pinia/testing';
 import { mock } from 'vitest-mock-extended';
-import type { ICredentialType } from 'n8n-workflow';
+import type { ICredentialType } from 'resin-workflow';
 
 import type { ICredentialsResponse } from '@/features/credentials/credentials.types';
 import type {
 	ITemplatesWorkflowFull,
 	IWorkflowTemplateNode,
-} from '@n8n/rest-api-client/api/templates';
+} from '@resin/rest-api-client/api/templates';
 import { useTemplatesStore } from '@/features/workflows/templates/templates.store';
 import { keyFromCredentialTypeAndName } from './utils/templateTransforms';
 import { useSetupTemplateStore } from './setupTemplate.store';
@@ -44,8 +44,8 @@ const testTemplate1 = mock<ITemplatesWorkflowFull>({
 	id: 1,
 	workflow: {
 		nodes: [
-			mockTemplateNode('IMAP Email', 'n8n-nodes-base.emailReadImap'),
-			mockTemplateNode('Nextcloud', 'n8n-nodes-base.nextCloud'),
+			mockTemplateNode('IMAP Email', 'resin-nodes-base.emailReadImap'),
+			mockTemplateNode('Nextcloud', 'resin-nodes-base.nextCloud'),
 		],
 	},
 	full: true,
@@ -56,7 +56,7 @@ const testTemplate2 = mock<ITemplatesWorkflowFull>({
 	workflow: {
 		nodes: [
 			{
-				...mockTemplateNode('Telegram', 'n8n-nodes-base.telegram'),
+				...mockTemplateNode('Telegram', 'resin-nodes-base.telegram'),
 				credentials: {
 					telegramApi: 'telegram_habot',
 				},
@@ -147,7 +147,7 @@ describe('SetupWorkflowFromTemplateView store', () => {
 			const workflow = testData.newFullOneNodeTemplate({
 				id: 'workflow',
 				name: 'Test',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				typeVersion: 1,
 				credentials: {
 					[credentialType]: 'Test',
@@ -199,14 +199,14 @@ describe('SetupWorkflowFromTemplateView store', () => {
 					credentialName: '',
 					credentialType: 'imap',
 					key: 'imap-',
-					nodeTypeName: 'n8n-nodes-base.emailReadImap',
+					nodeTypeName: 'resin-nodes-base.emailReadImap',
 					usedBy: [templateImapNode],
 				},
 				{
 					credentialName: '',
 					credentialType: 'nextCloudApi',
 					key: 'nextCloudApi-',
-					nodeTypeName: 'n8n-nodes-base.nextCloud',
+					nodeTypeName: 'resin-nodes-base.nextCloud',
 					usedBy: [templateNextcloudNode],
 				},
 			]);
@@ -222,7 +222,7 @@ describe('SetupWorkflowFromTemplateView store', () => {
 							credentialName: '',
 							credentialType: 'imap',
 							key: 'imap-',
-							nodeTypeName: 'n8n-nodes-base.emailReadImap',
+							nodeTypeName: 'resin-nodes-base.emailReadImap',
 							usedBy: [templateImapNode],
 						},
 					],
@@ -234,7 +234,7 @@ describe('SetupWorkflowFromTemplateView store', () => {
 							credentialName: '',
 							credentialType: 'nextCloudApi',
 							key: 'nextCloudApi-',
-							nodeTypeName: 'n8n-nodes-base.nextCloud',
+							nodeTypeName: 'resin-nodes-base.nextCloud',
 							usedBy: [templateNextcloudNode],
 						},
 					],

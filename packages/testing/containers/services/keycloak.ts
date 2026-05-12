@@ -12,8 +12,8 @@ const HOSTNAME = 'keycloak';
 const HTTPS_PORT = 8443;
 
 const KEYCLOAK_TEST_REALM = 'test';
-const KEYCLOAK_TEST_CLIENT_ID = 'n8n-e2e';
-const KEYCLOAK_TEST_CLIENT_SECRET = 'n8n-test-secret';
+const KEYCLOAK_TEST_CLIENT_ID = 'resin-e2e';
+const KEYCLOAK_TEST_CLIENT_SECRET = 'resin-test-secret';
 const KEYCLOAK_TEST_USER_EMAIL = 'test@n8n.io';
 const KEYCLOAK_TEST_USER_PASSWORD = 'testpassword';
 const KEYCLOAK_TEST_USER_FIRSTNAME = 'Test';

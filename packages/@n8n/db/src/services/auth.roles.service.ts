@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
 // eslint-disable-next-line import-x/order
 import {
 	ALL_SCOPES,
@@ -11,11 +11,11 @@ import {
 	EXTERNAL_SECRETS_SYSTEM_ROLES_ENABLED_SETTING,
 	PROJECT_ADMIN_ROLE_SLUG,
 	PROJECT_EDITOR_ROLE_SLUG,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
-import type { EntityManager } from '@n8n/typeorm';
+import { In } from '@resin/typeorm';
+import type { EntityManager } from '@resin/typeorm';
 
 import { Role, Scope, Settings } from '../entities';
 import { DbLock, DbLockService } from './db-lock.service';

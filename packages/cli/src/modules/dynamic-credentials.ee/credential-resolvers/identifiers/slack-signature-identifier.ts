@@ -1,8 +1,8 @@
 import { createHmac, timingSafeEqual } from 'crypto';
 
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import type { ICredentialContext } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import type { ICredentialContext } from 'resin-workflow';
 import { z } from 'zod';
 import { IdentifierValidationError, type ITokenIdentifier } from './identifier-interface';
 import { parse as parseQueryString } from 'querystring';

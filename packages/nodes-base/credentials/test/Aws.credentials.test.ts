@@ -1,5 +1,5 @@
 import { sign, type Request } from 'aws4';
-import type { IHttpRequestOptions } from 'n8n-workflow';
+import type { IHttpRequestOptions } from 'resin-workflow';
 
 import { Aws } from '../Aws.credentials';
 import type { AwsIamCredentialsType } from '../common/aws/types';

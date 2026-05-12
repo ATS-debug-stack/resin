@@ -9,7 +9,7 @@ import {
 	type IConnections,
 	type INodeExecutionData,
 	type IRunData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { setActivePinia } from 'pinia';
 import { computed, shallowRef } from 'vue';
 import { WorkflowIdKey } from '@/app/constants/injectionKeys';

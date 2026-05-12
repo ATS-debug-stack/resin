@@ -88,7 +88,7 @@ const handleOpenChange = (open: boolean) => {
 			<TooltipPortal :to="teleported ? appendTo : undefined" :disabled="!teleported">
 				<TooltipContent
 					data-test-id="tooltip-content"
-					:class="['n8n-tooltip', contentClass]"
+					:class="['resin-tooltip', contentClass]"
 					:side="placementParts.side"
 					:align="placementParts.align"
 					:side-offset="offset"

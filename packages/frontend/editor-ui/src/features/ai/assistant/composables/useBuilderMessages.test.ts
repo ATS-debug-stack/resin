@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { useBuilderMessages } from './useBuilderMessages';
-import type { ChatUI } from '@n8n/design-system/types/assistant';
+import type { ChatUI } from '@resin/design-system/types/assistant';
 import type { ChatRequest } from '../assistant.types';
 
 // Mock useI18n to return the keys instead of translations
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({
 		baseText: (key: string) => key,
 	}),

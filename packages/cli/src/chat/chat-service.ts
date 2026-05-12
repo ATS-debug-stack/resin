@@ -1,16 +1,16 @@
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 import { timingSafeEqual } from 'crypto';
-import { IExecutionResponse } from '@n8n/db';
-import { OnShutdown } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { ErrorReporter } from 'n8n-core';
+import { IExecutionResponse } from '@resin/db';
+import { OnShutdown } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { ErrorReporter } from 'resin-core';
 import {
 	jsonParse,
 	UnexpectedError,
 	ensureError,
 	CHAT_NODE_TYPE,
 	CHAT_TOOL_NODE_TYPE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { type RawData, WebSocket } from 'ws';
 import { z } from 'zod';
 

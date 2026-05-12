@@ -1,14 +1,14 @@
 import type { Component } from 'vue';
 import { computed, markRaw, ref } from 'vue';
 import { defineStore } from 'pinia';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import type { DynamicBanner } from '@n8n/rest-api-client/api/dynamic-banners';
-import { getDynamicBanners } from '@n8n/rest-api-client/api/dynamic-banners';
-import type { BannerName } from '@n8n/api-types';
+import type { DynamicBanner } from '@resin/rest-api-client/api/dynamic-banners';
+import { getDynamicBanners } from '@resin/rest-api-client/api/dynamic-banners';
+import type { BannerName } from '@resin/api-types';
 import DynamicBannerComponent from '@/features/shared/banners/components/banners/DynamicBanner.vue';
-import { dismissBannerPermanently } from '@n8n/rest-api-client';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { dismissBannerPermanently } from '@resin/rest-api-client';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useUsersStore } from '@/features/settings/users/users.store';
 
 export const useBannersStore = defineStore(STORES.BANNERS, () => {

@@ -6,8 +6,8 @@ import type {
 	JsonObject,
 	IRequestOptions,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeOperationError } from 'resin-workflow';
 
 async function getMetadata(
 	this: IHookFunctions | IExecuteFunctions | ILoadOptionsFunctions,

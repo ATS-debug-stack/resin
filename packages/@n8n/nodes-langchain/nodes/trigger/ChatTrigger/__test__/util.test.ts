@@ -1,6 +1,6 @@
-import * as sendAndWaitUtils from 'n8n-nodes-base/dist/utils/sendAndWait/utils';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
-import { ChatNodeMessageType, FREE_TEXT_CHAT_RESPONSE_TYPE } from 'n8n-workflow';
+import * as sendAndWaitUtils from 'resin-nodes-base/dist/utils/sendAndWait/utils';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
+import { ChatNodeMessageType, FREE_TEXT_CHAT_RESPONSE_TYPE } from 'resin-workflow';
 import { mock, mockDeep } from 'vitest-mock-extended';
 
 import { getChatMessage } from '../util';

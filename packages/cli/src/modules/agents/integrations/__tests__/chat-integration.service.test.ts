@@ -1,11 +1,11 @@
-import type { AgentCredentialIntegration } from '@n8n/api-types';
-import type { Logger } from '@n8n/backend-common';
-import { mockLogger } from '@n8n/backend-test-utils';
-import type { GlobalConfig } from '@n8n/config';
-import { ProjectRelationRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { AgentCredentialIntegration } from '@resin/api-types';
+import type { Logger } from '@resin/backend-common';
+import { mockLogger } from '@resin/backend-test-utils';
+import type { GlobalConfig } from '@resin/config';
+import { ProjectRelationRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
 
 import type { Publisher } from '@/scaling/pubsub/publisher.service';
 

@@ -6,9 +6,9 @@ import {
 import type { InsightsSummaryDisplay } from '@/features/execution/insights/insights.types';
 import type { DateValue } from '@internationalized/date';
 import { getLocalTimeZone, isToday, now, toCalendarDateTime, today } from '@internationalized/date';
-import type { InsightsDateRange, InsightsSummary, InsightsSummaryType } from '@n8n/api-types';
-import type { DateRange } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import type { InsightsDateRange, InsightsSummary, InsightsSummaryType } from '@resin/api-types';
+import type { DateRange } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import dateformat from 'dateformat';
 
 const DATE_FORMAT_DAY_MONTH_YEAR = 'd mmm, yyyy';

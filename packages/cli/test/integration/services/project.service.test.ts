@@ -1,8 +1,8 @@
-import { LicenseState } from '@n8n/backend-common';
-import { testDb } from '@n8n/backend-test-utils';
-import { ProjectRelationRepository, ProjectRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { PROJECT_OWNER_ROLE_SLUG, type ProjectRole, type Scope } from '@n8n/permissions';
+import { LicenseState } from '@resin/backend-common';
+import { testDb } from '@resin/backend-test-utils';
+import { ProjectRelationRepository, ProjectRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { PROJECT_OWNER_ROLE_SLUG, type ProjectRole, type Scope } from '@resin/permissions';
 
 import { License } from '@/license';
 import { ProjectService } from '@/services/project.service.ee';

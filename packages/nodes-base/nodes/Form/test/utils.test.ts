@@ -1,4 +1,4 @@
-jest.mock('n8n-core', () => ({
+jest.mock('resin-core', () => ({
 	getHtmlSandboxCSP: jest.fn(
 		() =>
 			'sandbox allow-downloads allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-presentation allow-scripts allow-top-navigation-by-user-activation allow-top-navigation-to-custom-protocols',
@@ -18,8 +18,8 @@ import type {
 	IWorkflowSettings,
 	MultiPartFormData,
 	NodeTypeAndVersion,
-} from 'n8n-workflow';
-import { BINARY_MODE_COMBINED } from 'n8n-workflow';
+} from 'resin-workflow';
+import { BINARY_MODE_COMBINED } from 'resin-workflow';
 
 import {
 	formWebhook,
@@ -94,7 +94,7 @@ describe('FormTrigger, sanitizeHtml', () => {
 				expected: '<video><source></source></video>',
 			},
 			{
-				html: "<iframe srcdoc=\"<script>fetch('https://YOURDOMAIN.app.n8n.cloud/webhook/pepe?id='+localStorage.getItem('n8n-browserId'))</script>\"></iframe>",
+				html: "<iframe srcdoc=\"<script>fetch('https://YOURDOMAIN.app.n8n.cloud/webhook/pepe?id='+localStorage.getItem('resin-browserId'))</script>\"></iframe>",
 				expected:
 					'<iframe referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen; autoplay; encrypted-media"></iframe>',
 			},
@@ -1602,7 +1602,7 @@ describe('prepareFormReturnItem', () => {
 			copyBinaryFile: jest.fn().mockResolvedValue({}),
 		}),
 	});
-	const formNode = mock<INode>({ type: 'n8n-nodes-base.formTrigger' });
+	const formNode = mock<INode>({ type: 'resin-nodes-base.formTrigger' });
 
 	beforeEach(() => {
 		jest.clearAllMocks();
@@ -2450,7 +2450,7 @@ describe('FormTrigger, isFormConnected', () => {
 	it('should return false if Wait node is connected but resume parameter is not form', async () => {
 		const result = isFormConnected([
 			mock<NodeTypeAndVersion>({
-				type: 'n8n-nodes-base.wait',
+				type: 'resin-nodes-base.wait',
 				parameters: {
 					resume: 'timeInterval',
 				},
@@ -2461,7 +2461,7 @@ describe('FormTrigger, isFormConnected', () => {
 	it('should return true if Wait node is connected and resume parameter is form', async () => {
 		const result = isFormConnected([
 			mock<NodeTypeAndVersion>({
-				type: 'n8n-nodes-base.wait',
+				type: 'resin-nodes-base.wait',
 				parameters: {
 					resume: 'form',
 				},
@@ -2472,7 +2472,7 @@ describe('FormTrigger, isFormConnected', () => {
 	it('should return true if Form node is connected', async () => {
 		const result = isFormConnected([
 			mock<NodeTypeAndVersion>({
-				type: 'n8n-nodes-base.form',
+				type: 'resin-nodes-base.form',
 			}),
 		]);
 		expect(result).toBe(true);
@@ -2508,7 +2508,7 @@ describe('validateResponseModeConfiguration', () => {
 			typeVersion: 2.1,
 		} as INode);
 		webhookFunctions.getChildNodes.mockReturnValue([
-			{ type: 'n8n-nodes-base.respondToWebhook' } as NodeTypeAndVersion,
+			{ type: 'resin-nodes-base.respondToWebhook' } as NodeTypeAndVersion,
 		]);
 
 		expect(() => validateResponseModeConfiguration(webhookFunctions)).toThrow(
@@ -2519,7 +2519,7 @@ describe('validateResponseModeConfiguration', () => {
 	test('throws error if "Respond to Webhook" node is connected, version >= 2.2', () => {
 		webhookFunctions.getNodeParameter.mockReturnValue('responseNode');
 		webhookFunctions.getChildNodes.mockReturnValue([
-			{ type: 'n8n-nodes-base.respondToWebhook' } as NodeTypeAndVersion,
+			{ type: 'resin-nodes-base.respondToWebhook' } as NodeTypeAndVersion,
 		]);
 
 		expect(() => validateResponseModeConfiguration(webhookFunctions)).toThrow(

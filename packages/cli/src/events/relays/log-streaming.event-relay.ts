@@ -1,7 +1,7 @@
-import { Redactable } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
-import type { IWorkflowBase } from 'n8n-workflow';
+import { Redactable } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';
 import { EventService } from '@/events/event.service';

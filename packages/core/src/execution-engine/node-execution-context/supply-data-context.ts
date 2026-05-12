@@ -18,8 +18,8 @@ import type {
 	NodeConnectionType,
 	ISourceData,
 	NodeExecutionHint,
-} from 'n8n-workflow';
-import { createDeferredPromise, jsonParse, NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { createDeferredPromise, jsonParse, NodeConnectionTypes } from 'resin-workflow';
 
 import { BaseExecuteContext } from './base-execute-context';
 import {

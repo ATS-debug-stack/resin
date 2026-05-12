@@ -18,14 +18,14 @@
 // even though they synchronously return canned data — there's nothing to
 // await here.
 
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
-import { jsonParse } from 'n8n-workflow';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
+import { jsonParse } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 import { existsSync, promises as fs } from 'node:fs';
 import path from 'node:path';
 
 // Production resolver functions (pure — only depend on `node:fs` and
-// `@n8n/backend-common`'s `safeJoinPath`). Imported via deep relative path
+// `@resin/backend-common`'s `safeJoinPath`). Imported via deep relative path
 // so the eval stays in lock-step with the real adapter; if production
 // changes how it reads `dist/node-definitions/`, evals follow automatically.
 import {
@@ -171,7 +171,7 @@ export async function createStubServices(
 					content: '',
 					error:
 						'Node type definitions are not available in this eval run. ' +
-						'Run `pnpm build` in packages/nodes-base and packages/@n8n/nodes-langchain ' +
+						'Run `pnpm build` in packages/nodes-base and packages/@resin/nodes-langchain ' +
 						'to generate dist/node-definitions/.',
 				};
 			}
@@ -312,7 +312,7 @@ async function loadNodeCatalogue(jsonPath: string): Promise<NodeCatalogue> {
 		const message = error instanceof Error ? error.message : String(error);
 		throw new Error(
 			`Could not read node catalogue at ${jsonPath}: ${message}\n` +
-				'Run `pnpm export:nodes` in packages/@n8n/ai-workflow-builder.ee to generate it, ' +
+				'Run `pnpm export:nodes` in packages/@resin/ai-workflow-builder.ee to generate it, ' +
 				'or pass --nodes-json <path> to point at an existing file.',
 		);
 	}
@@ -544,7 +544,7 @@ function stubExecutionResult(message: string) {
 
 /**
  * Resolve the default node-catalogue path inside
- * `packages/@n8n/ai-workflow-builder.ee/evaluations/`. Pass `--nodes-json
+ * `packages/@resin/ai-workflow-builder.ee/evaluations/`. Pass `--nodes-json
  * <path>` (or `nodesJsonPath`) to point at a different file.
  */
 export function defaultNodesJsonPath(): string {
@@ -562,7 +562,7 @@ export function defaultNodesJsonPath(): string {
 /**
  * Resolve the workspace-relative `dist/node-definitions/` directories the
  * production resolver expects. Production reads them via
- * `require.resolve('n8n-nodes-base/package.json')`, but adding those heavy
+ * `require.resolve('resin-nodes-base/package.json')`, but adding those heavy
  * packages as direct deps of `instance-ai` just for evals is wasteful — the
  * eval already lives in the monorepo, so we walk up to `packages/` and
  * point at the built dist dirs directly.

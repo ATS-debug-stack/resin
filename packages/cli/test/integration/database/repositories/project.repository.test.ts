@@ -1,7 +1,7 @@
-import { createTeamProject, linkUserToProject, testDb } from '@n8n/backend-test-utils';
-import { AuthIdentity, GLOBAL_MEMBER_ROLE, ProjectRepository, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { EntityNotFoundError } from '@n8n/typeorm';
+import { createTeamProject, linkUserToProject, testDb } from '@resin/backend-test-utils';
+import { AuthIdentity, GLOBAL_MEMBER_ROLE, ProjectRepository, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { EntityNotFoundError } from '@resin/typeorm';
 
 import { createMember, createOwner, createUserShell } from '../../shared/db/users';
 

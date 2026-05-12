@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
+import { NodeApiError, NodeOperationError } from 'resin-workflow';
 
 import {
 	msGraphSecurityApiRequest,
@@ -21,7 +21,7 @@ describe('Microsoft GraphSecurity GenericFunctions', () => {
 		mockNode = {
 			id: 'test-node',
 			name: 'Test GraphSecurity Node',
-			type: 'n8n-nodes-base.microsoftGraphSecurity',
+			type: 'resin-nodes-base.microsoftGraphSecurity',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

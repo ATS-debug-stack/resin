@@ -10,7 +10,7 @@ const nonCredFilePath = '/tmp/SomeHelper.ts';
 function createCredentialCode(withIcon: boolean): string {
 	const iconLine = withIcon ? "\n\ticon = 'file:testCredential.svg' as const;" : '';
 	return `
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class TestCredential implements ICredentialType {
 	name = 'testApi';
@@ -23,7 +23,7 @@ export class TestCredential implements ICredentialType {
 
 function createCredentialWithLightDarkIcon(): string {
 	return `
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class TestCredential implements ICredentialType {
 	name = 'testApi';
@@ -76,7 +76,7 @@ ruleTester.run('cred-class-field-icon-missing', CredClassFieldIconMissingRule, {
 						{
 							messageId: 'addPlaceholder',
 							output: `
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class TestCredential implements ICredentialType {
 	name = 'testApi';

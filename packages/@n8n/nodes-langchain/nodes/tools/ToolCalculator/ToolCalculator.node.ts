@@ -8,9 +8,9 @@ import {
 	type ISupplyDataFunctions,
 	type SupplyData,
 	nodeNameToToolName,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 function getTool(ctx: ISupplyDataFunctions | IExecuteFunctions): Calculator {
 	const calculator = new Calculator();

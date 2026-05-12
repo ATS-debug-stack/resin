@@ -5,7 +5,7 @@ import {
 	type INodeType,
 	type INodeTypeDescription,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { callFields, callOperations } from './CallDescription';
 import { plivoApiRequest } from './GenericFunctions';

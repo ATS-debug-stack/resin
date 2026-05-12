@@ -1,8 +1,8 @@
-import type { GatewayConfig } from '@n8n/computer-use/config';
-import { GatewayClient } from '@n8n/computer-use/gateway-client';
-import { GatewaySession } from '@n8n/computer-use/gateway-session';
-import { logger } from '@n8n/computer-use/logger';
-import { SettingsStore } from '@n8n/computer-use/settings-store';
+import type { GatewayConfig } from '@resin/computer-use/config';
+import { GatewayClient } from '@resin/computer-use/gateway-client';
+import { GatewaySession } from '@resin/computer-use/gateway-session';
+import { logger } from '@resin/computer-use/logger';
+import { SettingsStore } from '@resin/computer-use/settings-store';
 import { EventEmitter } from 'node:events';
 
 import type { DaemonStatus, StatusSnapshot } from '../shared/types';

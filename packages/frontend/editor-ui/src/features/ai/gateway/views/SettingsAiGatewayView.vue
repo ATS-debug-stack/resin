@@ -9,10 +9,10 @@ import {
 	N8nText,
 	N8nTooltip,
 	N8nActionPill,
-} from '@n8n/design-system';
-import type { TableHeader } from '@n8n/design-system/components/N8nDataTableServer';
-import type { AiGatewayUsageEntry } from '@n8n/api-types';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import type { TableHeader } from '@resin/design-system/components/N8nDataTableServer';
+import type { AiGatewayUsageEntry } from '@resin/api-types';
+import { useI18n } from '@resin/i18n';
 import { useRouter } from 'vue-router';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { useTelemetry } from '@/app/composables/useTelemetry';

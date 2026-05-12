@@ -1,10 +1,10 @@
-import { Time } from '@n8n/constants';
-import { CredentialsEntity } from '@n8n/db';
-import { Delete, Options, Post, RestController } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { Time } from '@resin/constants';
+import { CredentialsEntity } from '@resin/db';
+import { Delete, Options, Post, RestController } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { Request, Response } from 'express';
-import { Cipher } from 'n8n-core';
-import { jsonParse } from 'n8n-workflow';
+import { Cipher } from 'resin-core';
+import { jsonParse } from 'resin-workflow';
 
 import { EnterpriseCredentialsService } from '@/credentials/credentials.service.ee';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

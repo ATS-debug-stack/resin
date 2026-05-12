@@ -2,8 +2,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
 
-import N8nButton from '@n8n/design-system/components/N8nButton/Button.vue';
-import N8nIcon from '@n8n/design-system/components/N8nIcon/Icon.vue';
+import N8nButton from '@resin/design-system/components/N8nButton/Button.vue';
+import N8nIcon from '@resin/design-system/components/N8nIcon/Icon.vue';
 
 import Tooltip from './Tooltip.vue';
 

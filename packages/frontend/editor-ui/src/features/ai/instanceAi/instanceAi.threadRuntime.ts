@@ -1,6 +1,6 @@
 import { ref, computed, triggerRef } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
-import { ResponseError } from '@n8n/rest-api-client';
+import { ResponseError } from '@resin/rest-api-client';
 import {
 	instanceAiEventSchema,
 	isSafeObjectKey,
@@ -15,8 +15,8 @@ import {
 	type InstanceAiSSEConnectionState,
 	type TaskList,
 	type AgentRunState,
-} from '@n8n/api-types';
-import { useRootStore } from '@n8n/stores/useRootStore';
+} from '@resin/api-types';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useToast } from '@/app/composables/useToast';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';

@@ -7,7 +7,7 @@ import {
 	jsonParse,
 	updateDisplayOptions,
 	validateNodeParameters,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import zodToJsonSchema from 'zod-to-json-schema';
 
 import { getConnectedTools } from '@utils/helpers';

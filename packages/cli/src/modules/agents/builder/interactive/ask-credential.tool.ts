@@ -1,12 +1,12 @@
-import { Tool } from '@n8n/agents';
-import type { BuiltTool, CredentialProvider, InterruptibleToolContext } from '@n8n/agents';
+import { Tool } from '@resin/agents';
+import type { BuiltTool, CredentialProvider, InterruptibleToolContext } from '@resin/agents';
 import {
 	ASK_CREDENTIAL_TOOL_NAME,
 	askCredentialInputSchema,
 	askCredentialResumeSchema,
 	type AskCredentialInput,
 	type AskCredentialResume,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export interface AskCredentialToolDeps {
 	credentialProvider: CredentialProvider;

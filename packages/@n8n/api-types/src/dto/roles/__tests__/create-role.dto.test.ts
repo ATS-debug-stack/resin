@@ -1,4 +1,4 @@
-import { ALL_SCOPES } from '@n8n/permissions';
+import { ALL_SCOPES } from '@resin/permissions';
 
 import { CreateRoleDto } from '../create-role.dto';
 

@@ -7,9 +7,9 @@ import {
 	type UsersListSortOptions,
 	type User,
 	USERS_LIST_SORT_OPTIONS,
-} from '@n8n/api-types';
-import type { UserAction } from '@n8n/design-system';
-import type { TableOptions } from '@n8n/design-system/components/N8nDataTableServer';
+} from '@resin/api-types';
+import type { UserAction } from '@resin/design-system';
+import type { TableOptions } from '@resin/design-system/components/N8nDataTableServer';
 import {
 	DEBOUNCE_TIME,
 	EnterpriseEditionFeature,
@@ -18,7 +18,7 @@ import {
 } from '@/app/constants';
 import { DELETE_USER_MODAL_KEY, INVITE_USER_MODAL_KEY } from '../users.constants';
 import type { InvitableRoleName } from '../users.types';
-import type { IUser } from '@n8n/rest-api-client/api/users';
+import type { IUser } from '@resin/rest-api-client/api/users';
 import { useToast } from '@/app/composables/useToast';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
@@ -26,13 +26,13 @@ import { useUsersStore } from '../users.store';
 import { useSSOStore } from '@/features/settings/sso/sso.store';
 import { hasPermission } from '@/app/utils/rbac/permissions';
 import { useClipboard } from '@/app/composables/useClipboard';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
 import SettingsUsersTable from '../components/SettingsUsersTable.vue';
 import { I18nT } from 'vue-i18n';
 import { useUserRoleProvisioningStore } from '@/features/settings/sso/provisioning/composables/userRoleProvisioning.store';
-import N8nAlert from '@n8n/design-system/components/N8nAlert/Alert.vue';
+import N8nAlert from '@resin/design-system/components/N8nAlert/Alert.vue';
 import {
 	N8nActionBox,
 	N8nButton,
@@ -43,7 +43,7 @@ import {
 	N8nNotice,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { useMessage } from '@/app/composables/useMessage';
 
 const clipboard = useClipboard();

@@ -6,7 +6,7 @@
 // LLM-mocked HTTP, checklist verification, and result aggregation.
 // ---------------------------------------------------------------------------
 
-import type { InstanceAiEvalExecutionResult } from '@n8n/api-types';
+import type { InstanceAiEvalExecutionResult } from '@resin/api-types';
 import crypto from 'node:crypto';
 import { setTimeout as delay } from 'node:timers/promises';
 

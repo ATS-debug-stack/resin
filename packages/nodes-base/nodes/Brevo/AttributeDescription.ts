@@ -3,7 +3,7 @@ import type {
 	IHttpRequestOptions,
 	INodeProperties,
 	JsonObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { BrevoNode } from './GenericFunctions';
 

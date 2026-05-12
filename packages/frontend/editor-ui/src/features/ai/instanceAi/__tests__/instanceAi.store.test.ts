@@ -3,7 +3,7 @@ import { beforeAll, afterAll, beforeEach, describe, expect, it, vi } from 'vites
 import { ensureThread } from '../instanceAi.api';
 import { useInstanceAiStore } from '../instanceAi.store';
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: vi.fn().mockReturnValue({
 		restApiContext: { baseUrl: 'http://localhost:5678/api' },
 	}),

@@ -1,6 +1,6 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
-import { getBatchingOptionFields } from '@n8n/ai-utilities';
+import { getBatchingOptionFields } from '@resin/ai-utilities';
 
 import { commonOptions } from '../options';
 

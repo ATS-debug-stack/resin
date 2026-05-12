@@ -1,9 +1,9 @@
-import { testDb } from '@n8n/backend-test-utils';
-import { ApiKeyRepository, GLOBAL_MEMBER_ROLE, GLOBAL_OWNER_ROLE } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { getOwnerOnlyApiKeyScopes, type ApiKeyScope } from '@n8n/permissions';
+import { testDb } from '@resin/backend-test-utils';
+import { ApiKeyRepository, GLOBAL_MEMBER_ROLE, GLOBAL_OWNER_ROLE } from '@resin/db';
+import { Container } from '@resin/di';
+import { getOwnerOnlyApiKeyScopes, type ApiKeyScope } from '@resin/permissions';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
 import { createAdminWithApiKey, createOwnerWithApiKey } from '@test-integration/db/users';
 
 import { JwtService } from '../jwt.service';

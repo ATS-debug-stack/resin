@@ -15,8 +15,8 @@ import type {
 	NodeExecutionSchema,
 	Schema,
 	IDataObject,
-} from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+} from 'resin-workflow';
+import { jsonParse } from 'resin-workflow';
 
 import type { ProgrammaticEvaluationResult } from '@/validation/types';
 
@@ -43,7 +43,7 @@ export type MockStateHelpers = ReturnType<typeof mockStateHelpers>;
 export const createNode = (overrides: Partial<INode> = {}): INode => ({
 	id: 'node1',
 	name: 'TestNode',
-	type: 'n8n-nodes-base.code',
+	type: 'resin-nodes-base.code',
 	typeVersion: 1,
 	position: [0, 0],
 	...overrides,
@@ -77,7 +77,7 @@ export const createNodeType = (
 export const nodeTypes = {
 	code: createNodeType({
 		displayName: 'Code',
-		name: 'n8n-nodes-base.code',
+		name: 'resin-nodes-base.code',
 		group: ['transform'],
 		properties: [
 			{
@@ -93,7 +93,7 @@ export const nodeTypes = {
 	}),
 	httpRequest: createNodeType({
 		displayName: 'HTTP Request',
-		name: 'n8n-nodes-base.httpRequest',
+		name: 'resin-nodes-base.httpRequest',
 		group: ['input'],
 		properties: [
 			{
@@ -116,7 +116,7 @@ export const nodeTypes = {
 	}),
 	webhook: createNodeType({
 		displayName: 'Webhook',
-		name: 'n8n-nodes-base.webhook',
+		name: 'resin-nodes-base.webhook',
 		group: ['trigger'],
 		inputs: [],
 		outputs: ['main'],
@@ -139,7 +139,7 @@ export const nodeTypes = {
 	}),
 	agent: createNodeType({
 		displayName: 'AI Agent',
-		name: '@n8n/n8n-nodes-langchain.agent',
+		name: '@resin/n8n-nodes-langchain.agent',
 		group: ['output'],
 		inputs: ['ai_agent'],
 		outputs: ['main'],
@@ -147,7 +147,7 @@ export const nodeTypes = {
 	}),
 	openAiModel: createNodeType({
 		displayName: 'OpenAI Chat Model',
-		name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+		name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 		group: ['output'],
 		inputs: [],
 		outputs: ['ai_languageModel'],
@@ -155,7 +155,7 @@ export const nodeTypes = {
 	}),
 	setNode: createNodeType({
 		displayName: 'Set',
-		name: 'n8n-nodes-base.set',
+		name: 'resin-nodes-base.set',
 		group: ['transform'],
 		properties: [
 			{
@@ -168,7 +168,7 @@ export const nodeTypes = {
 	}),
 	ifNode: createNodeType({
 		displayName: 'If',
-		name: 'n8n-nodes-base.if',
+		name: 'resin-nodes-base.if',
 		group: ['transform'],
 		inputs: ['main'],
 		outputs: ['main', 'main'],
@@ -184,7 +184,7 @@ export const nodeTypes = {
 	}),
 	mergeNode: createNodeType({
 		displayName: 'Merge',
-		name: 'n8n-nodes-base.merge',
+		name: 'resin-nodes-base.merge',
 		group: ['transform'],
 		inputs: ['main', 'main'],
 		outputs: ['main'],
@@ -205,7 +205,7 @@ export const nodeTypes = {
 	}),
 	vectorStoreNode: createNodeType({
 		displayName: 'Vector Store',
-		name: '@n8n/n8n-nodes-langchain.vectorStore',
+		name: '@resin/n8n-nodes-langchain.vectorStore',
 		subtitle: '={{$parameter["mode"] === "retrieve" ? "Retrieve" : "Insert"}}',
 		group: ['transform'],
 		inputs: `={{ ((parameter) => {

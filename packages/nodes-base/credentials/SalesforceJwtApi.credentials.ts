@@ -10,7 +10,7 @@ import type {
 	ICredentialType,
 	IHttpRequestOptions,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class SalesforceJwtApi implements ICredentialType {
 	name = 'salesforceJwtApi';

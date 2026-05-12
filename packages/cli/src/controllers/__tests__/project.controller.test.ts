@@ -1,5 +1,5 @@
-import type { AuthenticatedRequest, ProjectRepository } from '@n8n/db';
-import { ListProjectsQueryDto } from '@n8n/api-types';
+import type { AuthenticatedRequest, ProjectRepository } from '@resin/db';
+import { ListProjectsQueryDto } from '@resin/api-types';
 import { mock } from 'jest-mock-extended';
 
 import type { EventService } from '@/events/event.service';

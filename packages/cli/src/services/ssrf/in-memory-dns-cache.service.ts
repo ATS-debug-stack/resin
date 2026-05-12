@@ -1,9 +1,9 @@
-import { SsrfProtectionConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { Service } from '@n8n/di';
+import { SsrfProtectionConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { Service } from '@resin/di';
 import type { MemoryCache } from 'cache-manager';
 import { caching } from 'cache-manager';
-import { jsonStringify } from 'n8n-workflow';
+import { jsonStringify } from 'resin-workflow';
 import assert from 'node:assert';
 import { LookupAddress } from 'node:dns';
 

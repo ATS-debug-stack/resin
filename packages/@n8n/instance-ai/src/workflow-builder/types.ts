@@ -5,7 +5,7 @@
  * relevant to parse/validate, without LangChain dependencies.
  */
 
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 /**
  * Validation warning with optional location info

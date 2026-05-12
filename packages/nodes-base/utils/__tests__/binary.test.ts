@@ -1,6 +1,6 @@
 import { mock } from 'jest-mock-extended';
-import type { IBinaryData, IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
-import { BINARY_ENCODING } from 'n8n-workflow';
+import type { IBinaryData, IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
+import { BINARY_ENCODING } from 'resin-workflow';
 import { type WorkSheet, utils as xlsxUtils, write as xlsxWrite } from 'xlsx';
 
 import {

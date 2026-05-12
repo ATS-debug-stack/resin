@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { onMounted } from 'vue';
 
 const documentTitle = useDocumentTitle();

@@ -1,5 +1,5 @@
-import type { INodeProperties } from 'n8n-workflow';
-import { DEFAULT_EVALUATION_METRIC } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
+import { DEFAULT_EVALUATION_METRIC } from 'resin-workflow';
 
 import {
 	CORRECTNESS_PROMPT,

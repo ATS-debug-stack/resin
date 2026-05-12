@@ -2,24 +2,24 @@ import { chatWithAssistant } from '@/features/ai/assistant/assistant.api';
 import { type VIEWS, EDITABLE_CANVAS_VIEWS } from '@/app/constants';
 import { CREDENTIAL_EDIT_MODAL_KEY } from '@/features/credentials/credentials.constants';
 import { ASSISTANT_ENABLED_VIEWS } from './constants';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import type { ChatRequest } from '@/features/ai/assistant/assistant.types';
-import type { ChatUI } from '@n8n/design-system/types/assistant';
+import type { ChatUI } from '@resin/design-system/types/assistant';
 import { defineStore } from 'pinia';
-import type { PushPayload } from '@n8n/api-types';
+import type { PushPayload } from '@resin/api-types';
 import { computed, ref, watch } from 'vue';
 import {
 	useWorkflowDocumentStore,
 	createWorkflowDocumentId,
 } from '@/app/stores/workflowDocument.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import { useRoute } from 'vue-router';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import { assert } from '@n8n/utils/assert';
+import { assert } from '@resin/utils/assert';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
-import type { ICredentialType, NodeError, INode } from 'n8n-workflow';
-import { useI18n } from '@n8n/i18n';
+import type { ICredentialType, NodeError, INode } from 'resin-workflow';
+import { useI18n } from '@resin/i18n';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useChatPanelStateStore } from './chatPanelState.store';

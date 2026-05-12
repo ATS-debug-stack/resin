@@ -1,10 +1,10 @@
-import { Time } from '@n8n/constants';
+import { Time } from '@resin/constants';
 import {
 	UnexpectedError,
 	TimeoutExecutionCancelledError,
 	ensureError,
 	type IRun,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { McpExecutionTimeoutError } from '../mcp.errors';
 

@@ -4,7 +4,7 @@ import {
 	taskListSchema,
 	plannedTaskArgSchema,
 	gatewayConfirmationRequiredPayloadSchema,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import type {
 	InstanceAiCredentialRequest,
 	InstanceAiEvent,
@@ -12,7 +12,7 @@ import type {
 	PlannedTaskArg,
 	TaskList,
 	GatewayConfirmationRequiredPayload,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { z } from 'zod';
 
 const questionItemSchema = z.object({

@@ -7,7 +7,7 @@ import {
 	type INodeTypeBaseDescription,
 	type INodeTypeDescription,
 	type NodeParameterValue,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { compareOperationFunctions, convertDateTime } from './GenericFunctions';
 

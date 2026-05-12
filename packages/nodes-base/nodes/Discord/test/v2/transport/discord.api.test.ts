@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { sleep } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { sleep } from 'resin-workflow';
 
 import { discordApiMultiPartRequest, discordApiRequest } from '../../../v2/transport/discord.api';
 import { handleRateLimitHeaders, requestApi } from '../../../v2/transport/helpers';
 
-jest.mock('n8n-workflow', () => ({
-	...jest.requireActual('n8n-workflow'),
+jest.mock('resin-workflow', () => ({
+	...jest.requireActual('resin-workflow'),
 	sleep: jest.fn().mockResolvedValue(undefined),
 }));
 
@@ -18,7 +18,7 @@ function createMockContext(authentication = 'botToken') {
 		helpers: { requestWithAuthentication, request },
 		getCredentials: jest.fn(),
 		getNodeParameter: jest.fn().mockReturnValue(authentication),
-		getNode: jest.fn().mockReturnValue({ type: 'n8n-nodes-base.discord', typeVersion: 2 }),
+		getNode: jest.fn().mockReturnValue({ type: 'resin-nodes-base.discord', typeVersion: 2 }),
 	} as unknown as jest.Mocked<IExecuteFunctions>;
 	return { context, requestWithAuthentication, request };
 }

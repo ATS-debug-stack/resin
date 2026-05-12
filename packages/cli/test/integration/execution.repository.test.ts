@@ -1,13 +1,13 @@
-import { createWorkflow, testDb } from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
-import { ExecutionRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { createWorkflow, testDb } from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
+import { ExecutionRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { createExecution } from '@test-integration/db/executions';
 import { createOwner } from '@test-integration/db/users';
 import { stringify, parse } from 'flatted';
 import { DateTime } from 'luxon';
-import type { ExecutionStatus } from 'n8n-workflow';
-import { createEmptyRunExecutionData, createRunExecutionData } from 'n8n-workflow';
+import type { ExecutionStatus } from 'resin-workflow';
+import { createEmptyRunExecutionData, createRunExecutionData } from 'resin-workflow';
 
 describe('UserRepository', () => {
 	let executionRepository: ExecutionRepository;

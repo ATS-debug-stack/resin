@@ -1,6 +1,6 @@
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
-import type { ColumnOptions } from '@n8n/typeorm';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
+import type { ColumnOptions } from '@resin/typeorm';
 import {
 	BeforeInsert,
 	BeforeUpdate,
@@ -8,9 +8,9 @@ import {
 	CreateDateColumn,
 	PrimaryColumn,
 	UpdateDateColumn,
-} from '@n8n/typeorm';
-import { generateNanoId } from '@n8n/utils';
-import type { Class } from 'n8n-core';
+} from '@resin/typeorm';
+import { generateNanoId } from '@resin/utils';
+import type { Class } from 'resin-core';
 
 export const { type: dbType } = Container.get(GlobalConfig).database;
 

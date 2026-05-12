@@ -1,13 +1,13 @@
 import { computed, ref, toValue, type ComputedRef, type MaybeRef } from 'vue';
 import { useRouter } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
-import type { IconName } from '@n8n/design-system/components/N8nIcon/icons';
+import { useI18n } from '@resin/i18n';
+import type { IconName } from '@resin/design-system/components/N8nIcon/icons';
 
 import {
 	AI_TRANSFORM_CODE_GENERATED_FOR_PROMPT,
 	AI_TRANSFORM_JS_CODE,
 	AI_TRANSFORM_NODE_TYPE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { INodeUi, IUpdateInformation } from '@/Interface';
 

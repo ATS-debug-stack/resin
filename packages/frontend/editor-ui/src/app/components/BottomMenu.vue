@@ -7,13 +7,13 @@ import {
 	isCustomMenuItem,
 	type IMenuItem,
 	type IMenuElement,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { RELEASE_NOTES_URL } from '@/app/constants';
 import { useVersionsStore } from '@/app/stores/versions.store';
 import VersionUpdateCTA from '@/app/components/VersionUpdateCTA.vue';
 import { useUsersStore } from '@/features/settings/users/users.store';
 
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 defineProps<{
 	items: IMenuItem[];

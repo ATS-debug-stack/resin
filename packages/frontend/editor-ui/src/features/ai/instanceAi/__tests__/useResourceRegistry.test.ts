@@ -4,7 +4,7 @@ import type {
 	InstanceAiMessage,
 	InstanceAiAgentNode,
 	InstanceAiToolCallState,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { useResourceRegistry } from '../useResourceRegistry';
 import type { ResourceEntry } from '../useResourceRegistry';
 

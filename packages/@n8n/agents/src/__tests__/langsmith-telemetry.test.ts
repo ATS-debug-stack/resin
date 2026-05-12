@@ -112,7 +112,7 @@ describe('LangSmithTelemetry', () => {
 		expect(typeof spanProcessor.onEnd).toBe('function');
 		expect(typeof spanProcessor.shutdown).toBe('function');
 		expect(mockProvider.register).toHaveBeenCalledWith({ propagator: null });
-		expect(mockProvider.getTracer).toHaveBeenCalledWith('@n8n/agents');
+		expect(mockProvider.getTracer).toHaveBeenCalledWith('@resin/agents');
 		expect(built.tracer).toBe(mockTracer);
 		expect(built.provider).toBe(mockProvider);
 		expect(process.env.LANGCHAIN_TRACING_V2).toBe('true');

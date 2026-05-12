@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 
 import type { QuickConnectConfig } from '../quick-connect.config';
 import { QuickConnectModule } from '../quick-connect.module';
@@ -19,7 +19,7 @@ describe('QuickConnectModule', () => {
 		it('should not expose backendFlowConfig', async () => {
 			const testConfig = [
 				{
-					packageName: '@n8n/test-service',
+					packageName: '@resin/test-service',
 					credentialType: 'testApi',
 					text: 'Test Service Integration',
 					quickConnectType: 'firecrawl',
@@ -46,7 +46,7 @@ describe('QuickConnectModule', () => {
 		it('should handle options without backendFlowConfig', async () => {
 			const testConfig = [
 				{
-					packageName: '@n8n/oauth-service',
+					packageName: '@resin/oauth-service',
 					credentialType: 'oauthApi',
 					text: 'OAuth Service Integration',
 					quickConnectType: 'oauth',
@@ -58,13 +58,13 @@ describe('QuickConnectModule', () => {
 
 			expect(settings.options).toHaveLength(1);
 			expect(settings.options[0].backendFlowConfig).toBeUndefined();
-			expect(settings.options[0].packageName).toBe('@n8n/oauth-service');
+			expect(settings.options[0].packageName).toBe('@resin/oauth-service');
 		});
 
 		it('should handle mixed options with and without backendFlowConfig', async () => {
 			const testConfig = [
 				{
-					packageName: '@n8n/backend-service',
+					packageName: '@resin/backend-service',
 					credentialType: 'backendApi',
 					text: 'Backend Service Integration',
 					quickConnectType: 'firecrawl',
@@ -74,7 +74,7 @@ describe('QuickConnectModule', () => {
 					},
 				},
 				{
-					packageName: '@n8n/frontend-service',
+					packageName: '@resin/frontend-service',
 					credentialType: 'frontendApi',
 					text: 'Frontend Service Integration',
 					quickConnectType: 'oauth',
@@ -92,7 +92,7 @@ describe('QuickConnectModule', () => {
 		it('should return all non-sensitive option fields', async () => {
 			const testConfig = [
 				{
-					packageName: '@n8n/test-service',
+					packageName: '@resin/test-service',
 					credentialType: 'testApi',
 					text: 'Test Service Integration',
 					quickConnectType: 'firecrawl',
@@ -107,7 +107,7 @@ describe('QuickConnectModule', () => {
 			const settings = await module.settings();
 
 			const option = settings.options[0];
-			expect(option.packageName).toBe('@n8n/test-service');
+			expect(option.packageName).toBe('@resin/test-service');
 			expect(option.credentialType).toBe('testApi');
 			expect(option.text).toBe('Test Service Integration');
 			expect(option.quickConnectType).toBe('firecrawl');
@@ -117,7 +117,7 @@ describe('QuickConnectModule', () => {
 		it('should strip secret from multiple options with backendFlowConfig', async () => {
 			const testConfig = [
 				{
-					packageName: '@n8n/service-1',
+					packageName: '@resin/service-1',
 					credentialType: 'api1',
 					text: 'Service 1',
 					quickConnectType: 'firecrawl',
@@ -127,7 +127,7 @@ describe('QuickConnectModule', () => {
 					},
 				},
 				{
-					packageName: '@n8n/service-2',
+					packageName: '@resin/service-2',
 					credentialType: 'api2',
 					text: 'Service 2',
 					quickConnectType: 'firecrawl',

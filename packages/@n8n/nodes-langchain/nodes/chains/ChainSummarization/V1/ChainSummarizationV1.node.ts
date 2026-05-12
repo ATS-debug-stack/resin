@@ -10,9 +10,9 @@ import {
 	type INodeExecutionData,
 	type INodeType,
 	type INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { N8nBinaryLoader, N8nJsonLoader, getTemplateNoticeField } from '@n8n/ai-utilities';
+import { N8nBinaryLoader, N8nJsonLoader, getTemplateNoticeField } from '@resin/ai-utilities';
 
 import { REFINE_PROMPT_TEMPLATE, DEFAULT_PROMPT_TEMPLATE } from '../prompt';
 

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { N8nHeading } from '@n8n/design-system';
+import { N8nHeading } from '@resin/design-system';
 import { ElSwitch } from 'element-plus';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useInstanceAiSettingsStore } from '../../instanceAiSettings.store';
 
 const i18n = useI18n();

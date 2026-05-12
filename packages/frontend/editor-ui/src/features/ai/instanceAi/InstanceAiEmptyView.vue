@@ -2,8 +2,8 @@
 import { computed, nextTick, onMounted, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
-import type { InstanceAiAttachment } from '@n8n/api-types';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import type { InstanceAiAttachment } from '@resin/api-types';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useToast } from '@/app/composables/useToast';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
 import { useInstanceAiStore } from './instanceAi.store';

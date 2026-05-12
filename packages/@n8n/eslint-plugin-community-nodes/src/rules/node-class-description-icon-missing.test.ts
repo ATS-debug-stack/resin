@@ -10,7 +10,7 @@ const nonNodeFilePath = '/tmp/SomeHelper.ts';
 function createNodeCode(withIcon: boolean): string {
 	const iconLine = withIcon ? "\n\t\ticon: 'file:testNode.svg'," : '';
 	return `
-import type { INodeType } from 'n8n-workflow';
+import type { INodeType } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description = {
@@ -28,7 +28,7 @@ export class TestNode implements INodeType {
 
 function createNodeCodeWithLightDarkIcon(): string {
 	return `
-import type { INodeType } from 'n8n-workflow';
+import type { INodeType } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description = {
@@ -89,7 +89,7 @@ ruleTester.run('node-class-description-icon-missing', NodeClassDescriptionIconMi
 						{
 							messageId: 'addPlaceholder',
 							output: `
-import type { INodeType } from 'n8n-workflow';
+import type { INodeType } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description = {

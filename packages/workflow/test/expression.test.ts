@@ -896,7 +896,7 @@ describe('Expression', () => {
 					{
 						id: '1',
 						name: 'TestNode',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -940,7 +940,7 @@ describe('Expression', () => {
 					{
 						id: '1',
 						name: 'TestNode',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -987,7 +987,7 @@ describe('Expression', () => {
 					{
 						id: 'source-id',
 						name: 'source',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -995,7 +995,7 @@ describe('Expression', () => {
 					{
 						id: 'consumer-id',
 						name: 'consumer',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [200, 0],
 						parameters: {},
@@ -1089,7 +1089,7 @@ describe('Expression', () => {
 					{
 						id: '1',
 						name: 'TestNode',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},

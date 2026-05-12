@@ -8,7 +8,7 @@ import {
 	makeOverrideValue,
 	parseOverrides,
 } from './fromAIOverride.utils';
-import type { INodeTypeDescription, NodePropertyTypes } from 'n8n-workflow';
+import type { INodeTypeDescription, NodePropertyTypes } from 'resin-workflow';
 
 const getNodeType = vi.fn();
 
@@ -176,11 +176,11 @@ describe('makeOverrideValue', () => {
 
 	describe('legacy tool-name node denylist', () => {
 		test.each<[string, string, number, boolean]>([
-			['toolWorkflow v2.0 denied', '@n8n/n8n-nodes-langchain.toolWorkflow', 2.0, false],
-			['toolWorkflow v2.1 denied', '@n8n/n8n-nodes-langchain.toolWorkflow', 2.1, false],
-			['toolWorkflow v2.2 allowed', '@n8n/n8n-nodes-langchain.toolWorkflow', 2.2, true],
-			['toolVectorStore v1 denied', '@n8n/n8n-nodes-langchain.toolVectorStore', 1, false],
-			['toolVectorStore v1.1 allowed', '@n8n/n8n-nodes-langchain.toolVectorStore', 1.1, true],
+			['toolWorkflow v2.0 denied', '@resin/n8n-nodes-langchain.toolWorkflow', 2.0, false],
+			['toolWorkflow v2.1 denied', '@resin/n8n-nodes-langchain.toolWorkflow', 2.1, false],
+			['toolWorkflow v2.2 allowed', '@resin/n8n-nodes-langchain.toolWorkflow', 2.2, true],
+			['toolVectorStore v1 denied', '@resin/n8n-nodes-langchain.toolVectorStore', 1, false],
+			['toolVectorStore v1.1 allowed', '@resin/n8n-nodes-langchain.toolVectorStore', 1.1, true],
 		])('%s', (_name, typeName, typeVersion, shouldOverride) => {
 			getNodeType.mockReturnValue(AI_TOOL_CODEX);
 			const result = makeOverrideValue(

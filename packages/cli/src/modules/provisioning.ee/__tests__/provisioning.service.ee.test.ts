@@ -1,4 +1,4 @@
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import { mock } from 'jest-mock-extended';
 
 import { ProvisioningService } from '@/modules/provisioning.ee/provisioning.service.ee';
@@ -12,14 +12,14 @@ import {
 	type Project,
 	type ProjectRepository,
 	ProjectRelation,
-} from '@n8n/db';
-import { type GlobalConfig } from '@n8n/config';
+} from '@resin/db';
+import { type GlobalConfig } from '@resin/config';
 import { PROVISIONING_PREFERENCES_DB_KEY } from '../constants';
-import { type ProvisioningConfigDto } from '@n8n/api-types';
+import { type ProvisioningConfigDto } from '@resin/api-types';
 import { type Publisher } from '@/scaling/pubsub/publisher.service';
 import { type ProjectService } from '@/services/project.service.ee';
-import type { EntityManager } from '@n8n/typeorm';
-import { type InstanceSettings } from 'n8n-core';
+import type { EntityManager } from '@resin/typeorm';
+import { type InstanceSettings } from 'resin-core';
 import { type EventService } from '@/events/event.service';
 import { type UserService } from '@/services/user.service';
 import { type RoleResolverService } from '@/modules/provisioning.ee/role-resolver.service.ee';

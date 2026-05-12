@@ -14,12 +14,12 @@ import type {
 } from '@/Interface';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
 import type { IUsedCredential } from '@/features/credentials/credentials.types';
-import type { ITag } from '@n8n/rest-api-client/api/tags';
-import type { IWorkflowTemplate } from '@n8n/rest-api-client/api/templates';
-import type { WorkflowData, WorkflowDataUpdate } from '@n8n/rest-api-client/api/workflows';
+import type { ITag } from '@resin/rest-api-client/api/tags';
+import type { IWorkflowTemplate } from '@resin/rest-api-client/api/templates';
+import type { WorkflowData, WorkflowDataUpdate } from '@resin/rest-api-client/api/workflows';
 import { useDataSchema } from '@/app/composables/useDataSchema';
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
 import { type PinDataSource, usePinnedData } from '@/app/composables/usePinnedData';
 import { useTelemetry } from '@/app/composables/useTelemetry';
@@ -51,7 +51,7 @@ import { useHistoryStore } from '@/app/stores/history.store';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeCreatorStore } from '@/features/shared/nodeCreator/nodeCreator.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useTagsStore } from '@/features/shared/tags/tags.store';
 import { useUIStore } from '@/app/stores/ui.store';
@@ -104,7 +104,7 @@ import type {
 	NodeConnectionType,
 	INodeParameters,
 	INodeFilter,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	deepCopy,
 	NodeConnectionTypes,
@@ -113,7 +113,7 @@ import {
 	isCommunityPackageName,
 	isHitlToolType,
 	resolveNodeWebhookId,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { computed, nextTick, ref, type DeepReadonly } from 'vue';
 import { useUniqueNodeName } from '@/app/composables/useUniqueNodeName';
 import { injectWorkflowState } from '@/app/composables/useWorkflowState';
@@ -121,7 +121,7 @@ import { isPresent, tryToParseNumber } from '@/app/utils/typesUtils';
 import { ensureNodePosition, sanitizeConnections } from '@/app/utils/workflowUtils';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import type { CanvasLayoutEvent } from '@/features/workflows/canvas/composables/useCanvasLayout';
-import { chatEventBus } from '@n8n/chat/event-buses';
+import { chatEventBus } from '@resin/chat/event-buses';
 import { useLogsStore } from '@/app/stores/logs.store';
 import { isChatNode } from '@/app/utils/aiUtils';
 import cloneDeep from 'lodash/cloneDeep';

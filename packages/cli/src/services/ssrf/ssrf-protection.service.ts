@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { SsrfProtectionConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import { SsrfBridge, SsrfCheckResult } from 'n8n-core';
-import { createResultError, ensureError, Result, createResultOk } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { SsrfProtectionConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import { SsrfBridge, SsrfCheckResult } from 'resin-core';
+import { createResultError, ensureError, Result, createResultOk } from 'resin-workflow';
 import assert from 'node:assert';
 import type { LookupAddress, LookupOptions } from 'node:dns';
 import { isIP } from 'node:net';

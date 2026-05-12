@@ -1,4 +1,4 @@
-import type { PushPayload } from '@n8n/api-types';
+import type { PushPayload } from '@resin/api-types';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useWorkflowHelpers } from '@/app/composables/useWorkflowHelpers';
 import { useSettingsStore } from '@/app/stores/settings.store';
@@ -6,7 +6,7 @@ import {
 	createWorkflowDocumentId,
 	useWorkflowDocumentStore,
 } from '@/app/stores/workflowDocument.store';
-import { TelemetryHelpers } from 'n8n-workflow';
+import { TelemetryHelpers } from 'resin-workflow';
 
 export async function trackNodeExecution(
 	pushData: PushPayload<'nodeExecuteAfter'>,

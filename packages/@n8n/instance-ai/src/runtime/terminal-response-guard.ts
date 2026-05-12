@@ -2,7 +2,7 @@ import {
 	isDisplayableConfirmationRequest,
 	type InstanceAiConfirmationRequestEvent,
 	type InstanceAiEvent,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 import type { WorkSummary } from '../stream/work-summary-accumulator';
 

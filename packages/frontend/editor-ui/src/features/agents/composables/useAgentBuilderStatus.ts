@@ -1,4 +1,4 @@
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { ref } from 'vue';
 
 import { getAgentBuilderStatus } from './useAgentBuilderSettingsApi';

@@ -1,5 +1,5 @@
 import { DynamicStructuredTool, DynamicTool } from '@langchain/core/tools';
-import type { INode, INodeParameters } from 'n8n-workflow';
+import type { INode, INodeParameters } from 'resin-workflow';
 
 import {
 	createToolFromNode,

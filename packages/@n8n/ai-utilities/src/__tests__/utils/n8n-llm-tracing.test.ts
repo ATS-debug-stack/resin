@@ -1,8 +1,8 @@
 import type { Serialized } from '@langchain/core/load/serializable';
 import type { BaseMessage } from '@langchain/core/messages';
 import type { LLMResult } from '@langchain/core/outputs';
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 
 import { N8nLlmTracing } from 'src/utils/n8n-llm-tracing';
 
@@ -26,7 +26,7 @@ describe('N8nLlmTracing', () => {
 		mockNode = {
 			id: 'test-node',
 			name: 'Test Node',
-			type: 'n8n-nodes-base.testNode',
+			type: 'resin-nodes-base.testNode',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

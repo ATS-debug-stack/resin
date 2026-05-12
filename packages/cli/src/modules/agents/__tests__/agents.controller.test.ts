@@ -1,5 +1,5 @@
-import { ControllerRegistryMetadata } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { ControllerRegistryMetadata } from '@resin/decorators';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import type { CredentialsService } from '@/credentials/credentials.service';

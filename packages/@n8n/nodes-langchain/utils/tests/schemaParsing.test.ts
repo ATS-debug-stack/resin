@@ -1,7 +1,7 @@
 import type { JSONSchema7 } from 'json-schema';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import { NodeOperationError } from 'n8n-workflow';
-import type { INode, IExecuteFunctions } from 'n8n-workflow';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import { NodeOperationError } from 'resin-workflow';
+import type { INode, IExecuteFunctions } from 'resin-workflow';
 
 import {
 	generateSchemaFromExample,
@@ -13,7 +13,7 @@ const mockNode: INode = {
 	id: '1',
 	name: 'Mock node',
 	typeVersion: 1,
-	type: 'n8n-nodes-base.mock',
+	type: 'resin-nodes-base.mock',
 	position: [60, 760],
 	parameters: {},
 };

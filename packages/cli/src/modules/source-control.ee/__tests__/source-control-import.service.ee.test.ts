@@ -1,5 +1,5 @@
-import type { SourceControlledFile } from '@n8n/api-types';
-import type { Logger } from '@n8n/backend-common';
+import type { SourceControlledFile } from '@resin/api-types';
+import type { Logger } from '@resin/backend-common';
 import {
 	type Variables,
 	type VariablesRepository,
@@ -19,11 +19,11 @@ import {
 	type UserRepository,
 	WorkflowEntity,
 	type WorkflowRepository,
-} from '@n8n/db';
-import { In } from '@n8n/typeorm';
+} from '@resin/db';
+import { In } from '@resin/typeorm';
 import * as fastGlob from 'fast-glob';
 import { mock } from 'jest-mock-extended';
-import { type InstanceSettings } from 'n8n-core';
+import { type InstanceSettings } from 'resin-core';
 import fsp from 'node:fs/promises';
 
 import type { VariablesService } from '@/environments.ee/variables/variables.service.ee';

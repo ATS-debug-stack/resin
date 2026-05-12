@@ -1,6 +1,6 @@
-import type { UpsertEvaluationConfigDto } from '@n8n/api-types';
-import { Service } from '@n8n/di';
-import { DataSource, Repository } from '@n8n/typeorm';
+import type { UpsertEvaluationConfigDto } from '@resin/api-types';
+import { Service } from '@resin/di';
+import { DataSource, Repository } from '@resin/typeorm';
 
 import { EvaluationConfig } from '../entities/evaluation-config.ee';
 

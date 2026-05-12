@@ -5,8 +5,8 @@ import {
 	linkUserToProject,
 	shareWorkflowWithProjects,
 	testDb,
-} from '@n8n/backend-test-utils';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
+} from '@resin/backend-test-utils';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
 import {
 	ApiKeyRepository,
 	FolderRepository,
@@ -14,8 +14,8 @@ import {
 	WorkflowRepository,
 	type Project,
 	type User,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 
 import { McpSettingsService } from '@/modules/mcp/mcp.settings.service';
 

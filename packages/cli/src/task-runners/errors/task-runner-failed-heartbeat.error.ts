@@ -1,4 +1,4 @@
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 
 export class TaskRunnerFailedHeartbeatError extends UserError {
 	description: string;

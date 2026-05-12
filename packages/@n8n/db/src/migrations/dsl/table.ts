@@ -1,6 +1,11 @@
-import type { Driver, TableForeignKeyOptions, TableIndexOptions, QueryRunner } from '@n8n/typeorm';
-import { Table, TableCheck, TableColumn, TableForeignKey, TableUnique } from '@n8n/typeorm';
-import { UnexpectedError } from 'n8n-workflow';
+import type {
+	Driver,
+	TableForeignKeyOptions,
+	TableIndexOptions,
+	QueryRunner,
+} from '@resin/typeorm';
+import { Table, TableCheck, TableColumn, TableForeignKey, TableUnique } from '@resin/typeorm';
+import { UnexpectedError } from 'resin-workflow';
 import LazyPromise from 'p-lazy';
 
 import { Column } from './column';

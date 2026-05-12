@@ -1,8 +1,8 @@
-import type { Logger } from '@n8n/backend-common';
-import type { ExecutionRepository, IExecutionResponse } from '@n8n/db';
-import type { WorkflowExecuteAfterContext, WorkflowExecuteResumeContext } from '@n8n/decorators';
+import type { Logger } from '@resin/backend-common';
+import type { ExecutionRepository, IExecutionResponse } from '@resin/db';
+import type { WorkflowExecuteAfterContext, WorkflowExecuteResumeContext } from '@resin/decorators';
 import { mock } from 'jest-mock-extended';
-import type { IRun } from 'n8n-workflow';
+import type { IRun } from 'resin-workflow';
 
 import type { ChatExecutionManager } from '@/chat/chat-execution-manager';
 import { ChatHubExecutionWatcherService } from '@/modules/chat-hub/chat-hub-execution-watcher.service';
@@ -366,7 +366,7 @@ describe('ChatHubExecutionWatcherService', () => {
 					executionStore.get.mockResolvedValue(context);
 					chatHubExecutionService.extractMessage.mockReturnValue('Webhook response');
 
-					const execution = createExecution('n8n-nodes-base.respondToWebhook');
+					const execution = createExecution('resin-nodes-base.respondToWebhook');
 					executionRepository.findSingleExecution.mockResolvedValue(execution);
 
 					await service.handleWorkflowExecuteAfter(
@@ -408,7 +408,7 @@ describe('ChatHubExecutionWatcherService', () => {
 					executionStore.get.mockResolvedValue(context);
 					chatHubExecutionService.extractMessage.mockReturnValue(undefined);
 
-					const execution = createExecution('@n8n/n8n-nodes-langchain.chat', {
+					const execution = createExecution('@resin/n8n-nodes-langchain.chat', {
 						waitUserReply: false,
 					});
 					executionRepository.findSingleExecution.mockResolvedValue(execution);
@@ -425,7 +425,7 @@ describe('ChatHubExecutionWatcherService', () => {
 					executionStore.get.mockResolvedValue(context);
 					chatHubExecutionService.extractMessage.mockReturnValue(undefined);
 
-					const execution = createExecution('@n8n/n8n-nodes-langchain.chat', {
+					const execution = createExecution('@resin/n8n-nodes-langchain.chat', {
 						operation: 'sendAndWait',
 					});
 					executionRepository.findSingleExecution.mockResolvedValue(execution);

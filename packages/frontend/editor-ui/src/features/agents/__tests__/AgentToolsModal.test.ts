@@ -5,7 +5,7 @@ import { mockedStore } from '@/__tests__/utils';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
-import { NodeConnectionTypes, type INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes, type INodeTypeDescription } from 'resin-workflow';
 import { fireEvent, waitFor } from '@testing-library/vue';
 
 import AgentToolsModal from '../components/AgentToolsModal.vue';
@@ -29,14 +29,14 @@ vi.mock('@/app/api/workflows', () => ({
 
 vi.mock('virtual:node-popularity-data', () => ({
 	default: [
-		{ id: 'n8n-nodes-base.slack', popularity: 100 },
-		{ id: 'n8n-nodes-base.gmail', popularity: 90 },
-		{ id: 'n8n-nodes-base.github', popularity: 50 },
+		{ id: 'resin-nodes-base.slack', popularity: 100 },
+		{ id: 'resin-nodes-base.gmail', popularity: 90 },
+		{ id: 'resin-nodes-base.github', popularity: 50 },
 		{ id: 'toolWikipedia', popularity: 40 },
 	],
 }));
 
-vi.mock('@n8n/i18n', () => {
+vi.mock('@resin/i18n', () => {
 	const i18n = {
 		baseText: (key: string, opts?: { interpolate?: Record<string, unknown> }) => {
 			if (opts?.interpolate) {
@@ -98,7 +98,7 @@ vi.mock('@/app/composables/useNodeHelpers', () => ({
 
 const SLACK: INodeTypeDescription = {
 	displayName: 'Slack',
-	name: 'n8n-nodes-base.slack',
+	name: 'resin-nodes-base.slack',
 	group: ['output'],
 	version: 1,
 	description: 'Send messages to Slack',
@@ -112,7 +112,7 @@ const SLACK: INodeTypeDescription = {
 const GMAIL: INodeTypeDescription = {
 	...SLACK,
 	displayName: 'Gmail',
-	name: 'n8n-nodes-base.gmail',
+	name: 'resin-nodes-base.gmail',
 	description: 'Send emails via Gmail',
 	credentials: [{ name: 'gmailOAuth2', required: true }],
 };
@@ -120,7 +120,7 @@ const GMAIL: INodeTypeDescription = {
 const GITHUB: INodeTypeDescription = {
 	...SLACK,
 	displayName: 'GitHub',
-	name: 'n8n-nodes-base.github',
+	name: 'resin-nodes-base.github',
 	description: 'Manage GitHub repositories',
 	credentials: [{ name: 'githubApi', required: true }],
 };
@@ -137,7 +137,7 @@ const WIKIPEDIA: INodeTypeDescription = {
 
 const NODE_WITH_INPUTS: INodeTypeDescription = {
 	...SLACK,
-	name: 'n8n-nodes-base.subagent',
+	name: 'resin-nodes-base.subagent',
 	displayName: 'Subagent',
 	inputs: ['main'],
 };
@@ -506,11 +506,11 @@ describe('AgentToolsModal', () => {
 			expect(workflowsListStore.searchWorkflows).toHaveBeenCalledWith({
 				projectId: 'p-42',
 				triggerNodeTypes: expect.arrayContaining([
-					'n8n-nodes-base.executeWorkflowTrigger',
-					'@n8n/n8n-nodes-langchain.chatTrigger',
-					'n8n-nodes-base.manualTrigger',
-					'n8n-nodes-base.scheduleTrigger',
-					'n8n-nodes-base.formTrigger',
+					'resin-nodes-base.executeWorkflowTrigger',
+					'@resin/n8n-nodes-langchain.chatTrigger',
+					'resin-nodes-base.manualTrigger',
+					'resin-nodes-base.scheduleTrigger',
+					'resin-nodes-base.formTrigger',
 				]),
 			});
 		});
@@ -595,8 +595,8 @@ describe('AgentToolsModal', () => {
 				id: 'wf-1',
 				name: 'Daily sales digest',
 				nodes: [
-					{ name: 'Wait a bit', type: 'n8n-nodes-base.wait' },
-					{ name: 'Manual', type: 'n8n-nodes-base.manualTrigger' },
+					{ name: 'Wait a bit', type: 'resin-nodes-base.wait' },
+					{ name: 'Manual', type: 'resin-nodes-base.manualTrigger' },
 				],
 			});
 

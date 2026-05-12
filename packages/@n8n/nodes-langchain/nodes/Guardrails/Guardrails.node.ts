@@ -2,7 +2,7 @@ import {
 	VersionedNodeType,
 	type INodeTypeBaseDescription,
 	type IVersionedNodeType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { GuardrailsV1 } from './v1/GuardrailsV1.node';
 import { GuardrailsV2 } from './v2/GuardrailsV2.node';

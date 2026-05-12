@@ -1,4 +1,4 @@
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 import { createNodeTypeMaps, getNodeTypeForNode } from '@/validation/utils/node-type-map';
@@ -7,12 +7,12 @@ import type { SingleEvaluatorResult } from '../types';
 import { isTool } from '../utils/is-tool';
 
 const toolsWithoutParameters = [
-	'@n8n/n8n-nodes-langchain.toolCalculator',
-	'@n8n/n8n-nodes-langchain.toolVectorStore',
-	'@n8n/n8n-nodes-langchain.vectorStoreInMemory',
-	'@n8n/n8n-nodes-langchain.mcpClientTool',
-	'@n8n/n8n-nodes-langchain.toolWikipedia',
-	'@n8n/n8n-nodes-langchain.toolSerpApi',
+	'@resin/n8n-nodes-langchain.toolCalculator',
+	'@resin/n8n-nodes-langchain.toolVectorStore',
+	'@resin/n8n-nodes-langchain.vectorStoreInMemory',
+	'@resin/n8n-nodes-langchain.mcpClientTool',
+	'@resin/n8n-nodes-langchain.toolWikipedia',
+	'@resin/n8n-nodes-langchain.toolSerpApi',
 ];
 
 export function validateTools(

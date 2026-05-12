@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { ExecutionRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { ExecutionRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import capitalize from 'lodash/capitalize';
-import type { WorkflowExecuteMode } from 'n8n-workflow';
+import type { WorkflowExecuteMode } from 'resin-workflow';
 
 import { InvalidConcurrencyLimitError } from '@/errors/invalid-concurrency-limit.error';
 import { UnknownExecutionModeError } from '@/errors/unknown-execution-mode.error';

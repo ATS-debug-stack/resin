@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import type { ITag } from '@n8n/rest-api-client';
+import type { ITag } from '@resin/rest-api-client';
 import { useWorkflowDocumentTags } from './useWorkflowDocumentTags';
 
 function createTags() {

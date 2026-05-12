@@ -1,4 +1,4 @@
-import type { IRunExecutionData, IWorkflowBase, NodeExecutionSchema } from 'n8n-workflow';
+import type { IRunExecutionData, IWorkflowBase, NodeExecutionSchema } from 'resin-workflow';
 import { z } from 'zod';
 
 import { Z } from '../../zod-class';

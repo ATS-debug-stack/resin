@@ -1,4 +1,4 @@
-import type { InstanceAiAgentNode, InstanceAiMessage } from '@n8n/api-types';
+import type { InstanceAiAgentNode, InstanceAiMessage } from '@resin/api-types';
 
 /** True when the agent node is the workflow-builder sub-agent. */
 export function isBuilderAgent(node: InstanceAiAgentNode): boolean {

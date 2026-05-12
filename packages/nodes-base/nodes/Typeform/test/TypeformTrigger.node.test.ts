@@ -1,6 +1,6 @@
 import { randomBytes } from 'crypto';
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IHookFunctions, IWebhookFunctions } from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import { apiRequest } from '../GenericFunctions';
 import { TypeformTrigger } from '../TypeformTrigger.node';

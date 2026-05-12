@@ -181,7 +181,7 @@ export interface MutablePluginContext extends Omit<PluginContext, 'nodes'> {
  * const agentValidator: ValidatorPlugin = {
  *   id: 'core:agent',
  *   name: 'Agent Validator',
- *   nodeTypes: ['@n8n/n8n-nodes-langchain.agent'],
+ *   nodeTypes: ['@resin/n8n-nodes-langchain.agent'],
  *   validateNode: (node, graphNode, ctx) => {
  *     const issues: ValidationIssue[] = [];
  *     if (node.config?.parameters?.promptType === 'define') {

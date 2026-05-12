@@ -1,6 +1,6 @@
 /* eslint-disable id-denylist */
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import type { Request, RequestHandler } from 'express';
 import { mkdir } from 'fs/promises';
 import multer from 'multer';

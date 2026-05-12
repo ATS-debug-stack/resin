@@ -1,5 +1,5 @@
-import type { EnsureTypeOptions } from 'n8n-workflow';
-import { ExpressionError } from 'n8n-workflow';
+import type { EnsureTypeOptions } from 'resin-workflow';
+import { ExpressionError } from 'resin-workflow';
 
 export function ensureType(
 	toType: EnsureTypeOptions,

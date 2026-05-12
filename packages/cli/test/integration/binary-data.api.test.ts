@@ -1,5 +1,5 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { BinaryDataService, FileNotFoundError } from 'n8n-core';
+import { mockInstance } from '@resin/backend-test-utils';
+import { BinaryDataService, FileNotFoundError } from 'resin-core';
 import fsp from 'node:fs/promises';
 import { Readable } from 'node:stream';
 

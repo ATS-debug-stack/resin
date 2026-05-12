@@ -1,5 +1,5 @@
 import { readFileSync, existsSync } from 'fs';
-import { jsonParse, type INodeTypeDescription } from 'n8n-workflow';
+import { jsonParse, type INodeTypeDescription } from 'resin-workflow';
 import { join } from 'path';
 
 interface NodeWithVersion extends INodeTypeDescription {
@@ -10,9 +10,9 @@ interface NodeWithVersion extends INodeTypeDescription {
 // These types are ignored because they tend to cause issues when generating workflows
 // Same as in ai-workflow-builder-agent.service.ts
 const IGNORED_TYPES = new Set([
-	'@n8n/n8n-nodes-langchain.toolVectorStore',
-	'@n8n/n8n-nodes-langchain.documentGithubLoader',
-	'@n8n/n8n-nodes-langchain.code',
+	'@resin/n8n-nodes-langchain.toolVectorStore',
+	'@resin/n8n-nodes-langchain.documentGithubLoader',
+	'@resin/n8n-nodes-langchain.code',
 ]);
 
 // Parse disabled nodes from environment variable (comma-separated)
@@ -42,7 +42,7 @@ function filterNodeTypes(
 			!IGNORED_TYPES.has(nodeType.name) &&
 			!disabledNodes.has(nodeType.name) &&
 			// Filter out hidden nodes, except for the Data Table node which has custom hiding logic
-			(nodeType.hidden !== true || nodeType.name === 'n8n-nodes-base.dataTable'),
+			(nodeType.hidden !== true || nodeType.name === 'resin-nodes-base.dataTable'),
 	);
 
 	return visibleNodeTypes.map((nodeType) => {

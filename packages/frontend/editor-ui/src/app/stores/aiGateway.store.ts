@@ -1,8 +1,8 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import type { AiGatewayConfigDto, AiGatewayUsageEntry } from '@n8n/api-types';
-import { STORES } from '@n8n/stores';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import type { AiGatewayConfigDto, AiGatewayUsageEntry } from '@resin/api-types';
+import { STORES } from '@resin/stores';
+import { useRootStore } from '@resin/stores/useRootStore';
 
 import {
 	getGatewayConfig,

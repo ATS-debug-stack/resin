@@ -1,4 +1,4 @@
-import { Get, Post, Put, RestController, GlobalScope, Licensed } from '@n8n/decorators';
+import { Get, Post, Put, RestController, GlobalScope, Licensed } from '@resin/decorators';
 import pick from 'lodash/pick';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

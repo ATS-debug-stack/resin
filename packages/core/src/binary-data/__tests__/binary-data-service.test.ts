@@ -1,7 +1,7 @@
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import { mock } from 'jest-mock-extended';
 import { sign, JsonWebTokenError, TokenExpiredError } from 'jsonwebtoken';
-import type { IBinaryData } from 'n8n-workflow';
+import type { IBinaryData } from 'resin-workflow';
 
 import type { ErrorReporter } from '@/errors';
 

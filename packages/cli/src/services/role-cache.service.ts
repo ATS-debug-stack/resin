@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { Time } from '@n8n/constants';
-import { RoleRepository } from '@n8n/db';
-import type { EntityManager } from '@n8n/db';
-import { Container, Service } from '@n8n/di';
-import { staticRolesWithScope, type Scope } from '@n8n/permissions';
+import { Logger } from '@resin/backend-common';
+import { Time } from '@resin/constants';
+import { RoleRepository } from '@resin/db';
+import type { EntityManager } from '@resin/db';
+import { Container, Service } from '@resin/di';
+import { staticRolesWithScope, type Scope } from '@resin/permissions';
 
 import { CacheService } from './cache/cache.service';
 

@@ -5,7 +5,7 @@ import MainHeader from '@/app/components/MainHeader/MainHeader.vue';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
 import { useCollaborationStore } from '@/features/collaboration/collaboration/collaboration.store';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { WorkflowIdKey, WorkflowDocumentStoreKey } from '@/app/constants/injectionKeys';
 import { computed, shallowRef } from 'vue';
 import {
@@ -13,7 +13,7 @@ import {
 	createWorkflowDocumentId,
 } from '@/app/stores/workflowDocument.store';
 
-vi.mock('@n8n/permissions', () => ({
+vi.mock('@resin/permissions', () => ({
 	getResourcePermissions: vi.fn(() => ({
 		workflow: {
 			update: true,

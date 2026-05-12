@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useI18n } from '@n8n/i18n';
-import { N8nLink, N8nText } from '@n8n/design-system';
-import type { ITemplatesWorkflowFull } from '@n8n/rest-api-client';
+import { useI18n } from '@resin/i18n';
+import { N8nLink, N8nText } from '@resin/design-system';
+import type { ITemplatesWorkflowFull } from '@resin/rest-api-client';
 import { useRecommendedTemplatesStore, NUMBER_OF_TEMPLATES } from '../recommendedTemplates.store';
 import { useTemplatesStore } from '@/features/workflows/templates/templates.store';
 import RecommendedTemplateCard from './RecommendedTemplateCard.vue';

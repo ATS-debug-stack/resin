@@ -1,4 +1,4 @@
-import { Config, Env } from '@n8n/config';
+import { Config, Env } from '@resin/config';
 import { z } from 'zod';
 
 const disclaimerSchema = z.object({

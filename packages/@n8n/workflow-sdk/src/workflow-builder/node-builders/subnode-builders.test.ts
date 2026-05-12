@@ -29,7 +29,7 @@ describe('subnode factories', () => {
 	describe('languageModel()', () => {
 		it('should create a LanguageModelInstance with correct marker', () => {
 			const model = subnodeBuilders.languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1.2,
 				config: {
 					parameters: { model: 'gpt-4' },
@@ -37,14 +37,14 @@ describe('subnode factories', () => {
 			});
 
 			expect(model._subnodeType).toBe('ai_languageModel');
-			expect(model.type).toBe('@n8n/n8n-nodes-langchain.lmChatOpenAi');
+			expect(model.type).toBe('@resin/n8n-nodes-langchain.lmChatOpenAi');
 			expect(model.version).toBe('1.2');
 			expect(model.config.parameters).toEqual({ model: 'gpt-4' });
 		});
 
 		it('should preserve node config properties', () => {
 			const model = subnodeBuilders.languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatAnthropic',
+				type: '@resin/n8n-nodes-langchain.lmChatAnthropic',
 				version: 1,
 				config: {
 					parameters: { model: 'claude-3' },
@@ -63,7 +63,7 @@ describe('subnode factories', () => {
 
 		it('should have update method that preserves marker', () => {
 			const model = subnodeBuilders.languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1,
 				config: { parameters: { model: 'gpt-3.5' } },
 			});
@@ -83,7 +83,7 @@ describe('subnode factories', () => {
 	describe('memory()', () => {
 		it('should create a MemoryInstance with correct marker', () => {
 			const mem = subnodeBuilders.memory({
-				type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+				type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 				version: 1.2,
 				config: {
 					parameters: { contextWindowLength: 5 },
@@ -91,14 +91,14 @@ describe('subnode factories', () => {
 			});
 
 			expect(mem._subnodeType).toBe('ai_memory');
-			expect(mem.type).toBe('@n8n/n8n-nodes-langchain.memoryBufferWindow');
+			expect(mem.type).toBe('@resin/n8n-nodes-langchain.memoryBufferWindow');
 		});
 	});
 
 	describe('tool()', () => {
 		it('should create a ToolInstance with correct marker', () => {
 			const t = subnodeBuilders.tool({
-				type: '@n8n/n8n-nodes-langchain.toolCode',
+				type: '@resin/n8n-nodes-langchain.toolCode',
 				version: 1.1,
 				config: {
 					parameters: { code: 'return "hello"' },
@@ -106,12 +106,12 @@ describe('subnode factories', () => {
 			});
 
 			expect(t._subnodeType).toBe('ai_tool');
-			expect(t.type).toBe('@n8n/n8n-nodes-langchain.toolCode');
+			expect(t.type).toBe('@resin/n8n-nodes-langchain.toolCode');
 		});
 
 		it('should work for http request tool', () => {
 			const t = subnodeBuilders.tool({
-				type: '@n8n/n8n-nodes-langchain.toolHttpRequest',
+				type: '@resin/n8n-nodes-langchain.toolHttpRequest',
 				version: 1,
 				config: {
 					parameters: { url: 'https://api.example.com' },
@@ -125,7 +125,7 @@ describe('subnode factories', () => {
 	describe('outputParser()', () => {
 		it('should create an OutputParserInstance with correct marker', () => {
 			const parser = subnodeBuilders.outputParser({
-				type: '@n8n/n8n-nodes-langchain.outputParserStructured',
+				type: '@resin/n8n-nodes-langchain.outputParserStructured',
 				version: 1,
 				config: {
 					parameters: { schemaType: 'manual' },
@@ -133,14 +133,14 @@ describe('subnode factories', () => {
 			});
 
 			expect(parser._subnodeType).toBe('ai_outputParser');
-			expect(parser.type).toBe('@n8n/n8n-nodes-langchain.outputParserStructured');
+			expect(parser.type).toBe('@resin/n8n-nodes-langchain.outputParserStructured');
 		});
 	});
 
 	describe('embedding()', () => {
 		it('should create an EmbeddingInstance with correct marker', () => {
 			const emb = subnodeBuilders.embedding({
-				type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+				type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 				version: 1,
 				config: {
 					parameters: { model: 'text-embedding-ada-002' },
@@ -148,7 +148,7 @@ describe('subnode factories', () => {
 			});
 
 			expect(emb._subnodeType).toBe('ai_embedding');
-			expect(emb.type).toBe('@n8n/n8n-nodes-langchain.embeddingsOpenAi');
+			expect(emb.type).toBe('@resin/n8n-nodes-langchain.embeddingsOpenAi');
 		});
 	});
 
@@ -161,7 +161,7 @@ describe('subnode factories', () => {
 	describe('vectorStore()', () => {
 		it('should create a VectorStoreInstance with correct marker', () => {
 			const vs = subnodeBuilders.vectorStore({
-				type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+				type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 				version: 1,
 				config: {
 					parameters: { indexName: 'my-index' },
@@ -169,40 +169,40 @@ describe('subnode factories', () => {
 			});
 
 			expect(vs._subnodeType).toBe('ai_vectorStore');
-			expect(vs.type).toBe('@n8n/n8n-nodes-langchain.vectorStorePinecone');
+			expect(vs.type).toBe('@resin/n8n-nodes-langchain.vectorStorePinecone');
 		});
 	});
 
 	describe('retriever()', () => {
 		it('should create a RetrieverInstance with correct marker', () => {
 			const ret = subnodeBuilders.retriever({
-				type: '@n8n/n8n-nodes-langchain.retrieverVectorStore',
+				type: '@resin/n8n-nodes-langchain.retrieverVectorStore',
 				version: 1,
 				config: {},
 			});
 
 			expect(ret._subnodeType).toBe('ai_retriever');
-			expect(ret.type).toBe('@n8n/n8n-nodes-langchain.retrieverVectorStore');
+			expect(ret.type).toBe('@resin/n8n-nodes-langchain.retrieverVectorStore');
 		});
 	});
 
 	describe('documentLoader()', () => {
 		it('should create a DocumentLoaderInstance with correct marker', () => {
 			const loader = subnodeBuilders.documentLoader({
-				type: '@n8n/n8n-nodes-langchain.documentDefaultDataLoader',
+				type: '@resin/n8n-nodes-langchain.documentDefaultDataLoader',
 				version: 1,
 				config: {},
 			});
 
 			expect(loader._subnodeType).toBe('ai_document');
-			expect(loader.type).toBe('@n8n/n8n-nodes-langchain.documentDefaultDataLoader');
+			expect(loader.type).toBe('@resin/n8n-nodes-langchain.documentDefaultDataLoader');
 		});
 	});
 
 	describe('textSplitter()', () => {
 		it('should create a TextSplitterInstance with correct marker', () => {
 			const splitter = subnodeBuilders.textSplitter({
-				type: '@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter',
+				type: '@resin/n8n-nodes-langchain.textSplitterCharacterTextSplitter',
 				version: 1,
 				config: {
 					parameters: { chunkSize: 1000 },
@@ -210,7 +210,7 @@ describe('subnode factories', () => {
 			});
 
 			expect(splitter._subnodeType).toBe('ai_textSplitter');
-			expect(splitter.type).toBe('@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter');
+			expect(splitter.type).toBe('@resin/n8n-nodes-langchain.textSplitterCharacterTextSplitter');
 		});
 	});
 });
@@ -232,31 +232,31 @@ describe('SubnodeConfig type safety', () => {
 
 	it('should accept typed subnodes in SubnodeConfig', () => {
 		const model = subnodeBuilders.languageModel({
-			type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			version: 1,
 			config: {},
 		});
 
 		const memory = subnodeBuilders.memory({
-			type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+			type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 			version: 1,
 			config: {},
 		});
 
 		const tool1 = subnodeBuilders.tool({
-			type: '@n8n/n8n-nodes-langchain.toolCode',
+			type: '@resin/n8n-nodes-langchain.toolCode',
 			version: 1,
 			config: {},
 		});
 
 		const tool2 = subnodeBuilders.tool({
-			type: '@n8n/n8n-nodes-langchain.toolCalculator',
+			type: '@resin/n8n-nodes-langchain.toolCalculator',
 			version: 1,
 			config: {},
 		});
 
 		const parser = subnodeBuilders.outputParser({
-			type: '@n8n/n8n-nodes-langchain.outputParserStructured',
+			type: '@resin/n8n-nodes-langchain.outputParserStructured',
 			version: 1,
 			config: {},
 		});
@@ -296,13 +296,13 @@ describe('subnode integration with node builder', () => {
 
 	it('should allow subnodes in node config', () => {
 		const model = subnodeBuilders.languageModel({
-			type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			version: 1,
 			config: { parameters: { model: 'gpt-4' } },
 		});
 
 		const agent = nodeBuilders.node({
-			type: '@n8n/n8n-nodes-langchain.agent',
+			type: '@resin/n8n-nodes-langchain.agent',
 			version: 1.7,
 			config: {
 				parameters: { promptType: 'auto', text: 'Hello' },
@@ -312,7 +312,7 @@ describe('subnode integration with node builder', () => {
 			},
 		});
 
-		expect(agent.type).toBe('@n8n/n8n-nodes-langchain.agent');
+		expect(agent.type).toBe('@resin/n8n-nodes-langchain.agent');
 		expect(agent.config.subnodes?.model).toBeDefined();
 		expect(
 			(agent.config.subnodes?.model as LanguageModelInstance<string, string, unknown>)._subnodeType,
@@ -321,18 +321,18 @@ describe('subnode integration with node builder', () => {
 
 	it('should allow multiple tools in subnodes', () => {
 		const tool1 = subnodeBuilders.tool({
-			type: '@n8n/n8n-nodes-langchain.toolCode',
+			type: '@resin/n8n-nodes-langchain.toolCode',
 			version: 1,
 			config: {},
 		});
 		const tool2 = subnodeBuilders.tool({
-			type: '@n8n/n8n-nodes-langchain.toolCalculator',
+			type: '@resin/n8n-nodes-langchain.toolCalculator',
 			version: 1,
 			config: {},
 		});
 
 		const agent = nodeBuilders.node({
-			type: '@n8n/n8n-nodes-langchain.agent',
+			type: '@resin/n8n-nodes-langchain.agent',
 			version: 1.7,
 			config: {
 				parameters: {},
@@ -363,7 +363,7 @@ describe('tool() with fromAi() support', () => {
 
 	it('should support static config without fromAi', () => {
 		const calc = subnodeBuilders.tool({
-			type: '@n8n/n8n-nodes-langchain.toolCalculator',
+			type: '@resin/n8n-nodes-langchain.toolCalculator',
 			version: 1,
 			config: { parameters: {} },
 		});
@@ -373,7 +373,7 @@ describe('tool() with fromAi() support', () => {
 
 	it('should support fromAi function', () => {
 		const gmail = subnodeBuilders.tool({
-			type: 'n8n-nodes-base.gmailTool',
+			type: 'resin-nodes-base.gmailTool',
 			version: 1,
 			config: {
 				parameters: {
@@ -387,7 +387,7 @@ describe('tool() with fromAi() support', () => {
 
 	it('should generate fromAi with description', () => {
 		const t = subnodeBuilders.tool({
-			type: 'n8n-nodes-base.gmailTool',
+			type: 'resin-nodes-base.gmailTool',
 			version: 1,
 			config: {
 				parameters: { subject: subnodeBuilders.fromAi('subject', 'Email subject line') },
@@ -459,7 +459,7 @@ describe('tool() with fromAi() support', () => {
 
 	it('should handle multiple fromAi calls in same config', () => {
 		const gmail = subnodeBuilders.tool({
-			type: 'n8n-nodes-base.gmailTool',
+			type: 'resin-nodes-base.gmailTool',
 			version: 1,
 			config: {
 				parameters: {
@@ -479,7 +479,7 @@ describe('tool() with fromAi() support', () => {
 
 	it('should work with nested parameters', () => {
 		const t = subnodeBuilders.tool({
-			type: 'n8n-nodes-base.googleSheetsTool',
+			type: 'resin-nodes-base.googleSheetsTool',
 			version: 4.5,
 			config: {
 				parameters: {
@@ -535,7 +535,7 @@ describe('subnode reuse across multiple parents', () => {
 	it('should connect same embedding to multiple parent nodes', () => {
 		// Single embedding reused by two vector stores
 		const sharedEmbedding = subnodeBuilders.embedding({
-			type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+			type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 			version: 1.2,
 			config: {
 				name: 'Shared Embeddings',
@@ -544,7 +544,7 @@ describe('subnode reuse across multiple parents', () => {
 		});
 
 		const vectorStore1 = nodeBuilders.node({
-			type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+			type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 			version: 1.3,
 			config: {
 				name: 'Vector Store 1',
@@ -554,7 +554,7 @@ describe('subnode reuse across multiple parents', () => {
 		});
 
 		const vectorStore2 = nodeBuilders.node({
-			type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+			type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 			version: 1.3,
 			config: {
 				name: 'Vector Store 2',
@@ -564,7 +564,7 @@ describe('subnode reuse across multiple parents', () => {
 		});
 
 		const t = nodeBuilders.trigger({
-			type: 'n8n-nodes-base.manualTrigger',
+			type: 'resin-nodes-base.manualTrigger',
 			version: 1,
 			config: { name: 'Start' },
 		});
@@ -581,7 +581,7 @@ describe('subnode reuse across multiple parents', () => {
 
 	it('should connect same language model to multiple agent nodes', () => {
 		const sharedModel = subnodeBuilders.languageModel({
-			type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			version: 1.3,
 			config: {
 				name: 'Shared Model',
@@ -590,19 +590,19 @@ describe('subnode reuse across multiple parents', () => {
 		});
 
 		const agent1 = nodeBuilders.node({
-			type: '@n8n/n8n-nodes-langchain.agent',
+			type: '@resin/n8n-nodes-langchain.agent',
 			version: 3.1,
 			config: { name: 'Agent 1', parameters: {}, subnodes: { model: sharedModel } },
 		});
 
 		const agent2 = nodeBuilders.node({
-			type: '@n8n/n8n-nodes-langchain.agent',
+			type: '@resin/n8n-nodes-langchain.agent',
 			version: 3.1,
 			config: { name: 'Agent 2', parameters: {}, subnodes: { model: sharedModel } },
 		});
 
 		const t = nodeBuilders.trigger({
-			type: 'n8n-nodes-base.manualTrigger',
+			type: 'resin-nodes-base.manualTrigger',
 			version: 1,
 			config: { name: 'Start' },
 		});
@@ -617,25 +617,25 @@ describe('subnode reuse across multiple parents', () => {
 
 	it('should connect same tool to multiple agent nodes', () => {
 		const sharedTool = subnodeBuilders.tool({
-			type: '@n8n/n8n-nodes-langchain.toolCalculator',
+			type: '@resin/n8n-nodes-langchain.toolCalculator',
 			version: 1,
 			config: { name: 'Shared Calculator' },
 		});
 
 		const model1 = subnodeBuilders.languageModel({
-			type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			version: 1.3,
 			config: { name: 'Model 1', parameters: {} },
 		});
 
 		const model2 = subnodeBuilders.languageModel({
-			type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 			version: 1.3,
 			config: { name: 'Model 2', parameters: {} },
 		});
 
 		const agent1 = nodeBuilders.node({
-			type: '@n8n/n8n-nodes-langchain.agent',
+			type: '@resin/n8n-nodes-langchain.agent',
 			version: 3.1,
 			config: {
 				name: 'Agent 1',
@@ -645,7 +645,7 @@ describe('subnode reuse across multiple parents', () => {
 		});
 
 		const agent2 = nodeBuilders.node({
-			type: '@n8n/n8n-nodes-langchain.agent',
+			type: '@resin/n8n-nodes-langchain.agent',
 			version: 3.1,
 			config: {
 				name: 'Agent 2',
@@ -655,7 +655,7 @@ describe('subnode reuse across multiple parents', () => {
 		});
 
 		const t = nodeBuilders.trigger({
-			type: 'n8n-nodes-base.manualTrigger',
+			type: 'resin-nodes-base.manualTrigger',
 			version: 1,
 			config: { name: 'Start' },
 		});

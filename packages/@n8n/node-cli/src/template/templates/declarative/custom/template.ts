@@ -47,7 +47,7 @@ async function renameNode(
 	project: Project,
 ) {
 	const { config, nodePackageName: nodeName, destinationPath } = data;
-	const newClassName = pascalCase(nodeName.replace('n8n-nodes-', ''));
+	const newClassName = pascalCase(nodeName.replace('resin-nodes-', ''));
 	const oldNodeDir = path.resolve(destinationPath, `nodes/${oldNodeName}`);
 
 	await renameFilesInDirectory(oldNodeDir, oldNodeName, newClassName);
@@ -79,7 +79,7 @@ async function addCredential(data: TemplateData<CustomTemplateConfig>, project: 
 		`../../shared/credentials/${credentialTemplateName}.credentials.ts`,
 	);
 
-	const nodeName = nodePackageName.replace('n8n-nodes', '');
+	const nodeName = nodePackageName.replace('resin-nodes', '');
 	const repoName = nodeName;
 	const { baseUrl, credentialType } = config;
 	const credentialClassName =

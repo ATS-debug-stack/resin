@@ -1,14 +1,14 @@
 /* eslint-disable n8n-nodes-base/node-filename-against-convention */
 
-import type { INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import {
 	inputSchemaField,
 	jsonSchemaExampleField,
 	schemaTypeField,
 } from '../../../../utils/descriptions';
-import { getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 export const versionDescription: INodeTypeDescription = {
 	displayName: 'Call n8n Workflow Tool',

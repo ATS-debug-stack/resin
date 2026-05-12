@@ -1,7 +1,7 @@
-import type { AuthenticatedRequest, TokenGrant, User } from '@n8n/db';
-import { UserRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { ALL_API_KEY_SCOPES } from '@n8n/permissions';
+import type { AuthenticatedRequest, TokenGrant, User } from '@resin/db';
+import { UserRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { ALL_API_KEY_SCOPES } from '@resin/permissions';
 import { JsonWebTokenError, TokenExpiredError } from 'jsonwebtoken';
 
 import type { AuthStrategy, AuthStrategyOptions } from '@/services/auth-strategy.types';

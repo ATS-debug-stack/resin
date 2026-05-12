@@ -13,7 +13,7 @@
 // `BuilderRecord` shape, joined by prompt text.
 // ---------------------------------------------------------------------------
 
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 

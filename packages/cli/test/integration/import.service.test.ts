@@ -7,8 +7,8 @@ import {
 	testDb,
 	createActiveWorkflow,
 	createWorkflowWithHistory,
-} from '@n8n/backend-test-utils';
-import type { Project, User } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import type { Project, User } from '@resin/db';
 import {
 	TagEntity,
 	CredentialsRepository,
@@ -17,10 +17,10 @@ import {
 	WorkflowRepository,
 	WorkflowHistoryRepository,
 	WorkflowPublishHistoryRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import type { ActiveWorkflowManager } from '@/active-workflow-manager';
@@ -161,7 +161,7 @@ describe('ImportService', () => {
 				name: 'n8n',
 				parameters: {},
 				position: [0, 0],
-				type: 'n8n-nodes-base.n8n',
+				type: 'resin-nodes-base.n8n',
 				typeVersion: 1,
 				credentials: credential,
 			},

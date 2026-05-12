@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { N8nButton, N8nLogo } from '@n8n/design-system';
+import { N8nButton, N8nLogo } from '@resin/design-system';
 import { useConnection } from './composables/useConnection';
 import StatusBadge from './components/StatusBadge.vue';
 import TabList from './components/TabList.vue';

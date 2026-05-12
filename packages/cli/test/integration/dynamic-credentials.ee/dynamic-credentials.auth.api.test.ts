@@ -1,8 +1,8 @@
-import { LicenseState } from '@n8n/backend-common';
-import { mockInstance, getPersonalProject, testDb } from '@n8n/backend-test-utils';
-import type { CredentialsEntity, User } from '@n8n/db';
-import { GLOBAL_OWNER_ROLE } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { LicenseState } from '@resin/backend-common';
+import { mockInstance, getPersonalProject, testDb } from '@resin/backend-test-utils';
+import type { CredentialsEntity, User } from '@resin/db';
+import { GLOBAL_OWNER_ROLE } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import nock from 'nock';
 

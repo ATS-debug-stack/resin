@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { Container, Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { Container, Service } from '@resin/di';
 
 import type {
 	IQuickConnectHandler,

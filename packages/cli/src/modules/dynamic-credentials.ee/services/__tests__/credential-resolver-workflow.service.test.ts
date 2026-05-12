@@ -1,8 +1,8 @@
-import type { CredentialsRepository, WorkflowRepository } from '@n8n/db';
-import { CredentialsEntity, WorkflowEntity } from '@n8n/db';
-import type { ICredentialResolver } from '@n8n/decorators';
-import type { Cipher } from 'n8n-core';
-import type { INode } from 'n8n-workflow';
+import type { CredentialsRepository, WorkflowRepository } from '@resin/db';
+import { CredentialsEntity, WorkflowEntity } from '@resin/db';
+import type { ICredentialResolver } from '@resin/decorators';
+import type { Cipher } from 'resin-core';
+import type { INode } from 'resin-workflow';
 
 import { DynamicCredentialResolver } from '../../database/entities/credential-resolver';
 import type { DynamicCredentialResolverRepository } from '../../database/repositories/credential-resolver.repository';
@@ -61,7 +61,7 @@ const createMockNode = (overrides: Partial<INode> = {}): INode => {
 	return {
 		id: 'node-1',
 		name: 'Node1',
-		type: 'n8n-nodes-base.httpRequest',
+		type: 'resin-nodes-base.httpRequest',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},

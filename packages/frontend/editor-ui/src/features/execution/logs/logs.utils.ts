@@ -16,7 +16,7 @@ import {
 	type INodeExecutionData,
 	createEmptyRunExecutionData,
 	createRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	LogEntry,
 	LogEntrySelection,
@@ -24,11 +24,11 @@ import type {
 	LogTreeFilter,
 } from './logs.types';
 import { CHAT_TRIGGER_NODE_TYPE, MANUAL_CHAT_TRIGGER_NODE_TYPE } from '@/app/constants';
-import { type ChatMessage } from '@n8n/chat/types';
+import { type ChatMessage } from '@resin/chat/types';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import { v4 as uuid } from 'uuid';
-import { TOOL_EXECUTOR_NODE_NAME } from '@n8n/constants';
+import { TOOL_EXECUTOR_NODE_NAME } from '@resin/constants';
 
 export function getConsumedTokens(task: Array<INodeExecutionData | null>): LlmTokenUsageData {
 	const tokenUsage = task.reduce<LlmTokenUsageData>((acc, curr) => {

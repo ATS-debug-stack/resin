@@ -149,7 +149,7 @@ describe('components', () => {
 					});
 					const button = wrapper.container.querySelector('button');
 					expect(button?.className).toContain('loading');
-					expect(wrapper.container.querySelector('n8n-icon-stub')).toBeInTheDocument();
+					expect(wrapper.container.querySelector('resin-icon-stub')).toBeInTheDocument();
 				});
 
 				it('should be disabled while loading', async () => {

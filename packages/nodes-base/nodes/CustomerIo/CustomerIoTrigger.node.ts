@@ -4,8 +4,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { verifySignature } from './CustomerIoTriggerHelpers';
 import { customerIoApiRequest, eventExists, toApiEventName } from './GenericFunctions';

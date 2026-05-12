@@ -6,7 +6,7 @@ import type {
 	McpTool,
 	InstanceAiGatewayCapabilities,
 	ToolCategory,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 const REQUEST_TIMEOUT_MS = 60_000; // 1 minute — tool calls like browser automation and shell execution can be long-running
 

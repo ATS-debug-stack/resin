@@ -1,6 +1,6 @@
-import { OidcConfigDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
+import { OidcConfigDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
 import {
 	AuthIdentity,
 	AuthIdentityRepository,
@@ -9,12 +9,12 @@ import {
 	SettingsRepository,
 	type User,
 	UserRepository,
-} from '@n8n/db';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+} from '@resin/db';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import { randomUUID } from 'crypto';
-import { Cipher, InstanceSettings } from 'n8n-core';
-import { jsonParse, UserError } from 'n8n-workflow';
+import { Cipher, InstanceSettings } from 'resin-core';
+import { jsonParse, UserError } from 'resin-workflow';
 import type * as openidClientTypes from 'openid-client';
 import { EnvHttpProxyAgent } from 'undici';
 

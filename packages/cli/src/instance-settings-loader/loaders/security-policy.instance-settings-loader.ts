@@ -1,10 +1,10 @@
-import { Logger } from '@n8n/backend-common';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import {
 	PERSONAL_SPACE_PUBLISHING_SETTING,
 	PERSONAL_SPACE_SHARING_SETTING,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 
 import { MfaService } from '@/mfa/mfa.service';
 import { SecuritySettingsService } from '@/services/security-settings.service';

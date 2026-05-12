@@ -1,5 +1,5 @@
 import type { Fixtures, TestInfo } from '@playwright/test';
-import type { N8NStack } from 'n8n-containers/stack';
+import type { N8NStack } from 'resin-containers/stack';
 
 export type ObservabilityTestFixtures = {
 	autoAttachLogs: undefined;

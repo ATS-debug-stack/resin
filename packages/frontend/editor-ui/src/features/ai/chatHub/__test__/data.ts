@@ -8,8 +8,8 @@ import type {
 	ChatHubModuleSettings,
 	ChatHubAgentDto,
 	ChatHubAgentKnowledgeItem,
-} from '@n8n/api-types';
-import { emptyChatModelsResponse } from '@n8n/api-types';
+} from '@resin/api-types';
+import { emptyChatModelsResponse } from '@resin/api-types';
 import type { ChatMessage } from '../chat.types';
 
 export type SimulateMessageChunkFn = (

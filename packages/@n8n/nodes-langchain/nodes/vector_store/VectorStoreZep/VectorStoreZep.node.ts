@@ -1,9 +1,9 @@
 import { ZepVectorStore } from '@langchain/community/vectorstores/zep';
 import { ZepCloudVectorStore } from '@langchain/community/vectorstores/zep_cloud';
-import type { IDataObject, INodeProperties } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IDataObject, INodeProperties } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
-import { metadataFilterField, createVectorStoreNode } from '@n8n/ai-utilities';
+import { metadataFilterField, createVectorStoreNode } from '@resin/ai-utilities';
 
 const embeddingDimensions: INodeProperties = {
 	displayName: 'Embedding Dimensions',

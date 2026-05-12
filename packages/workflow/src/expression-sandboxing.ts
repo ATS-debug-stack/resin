@@ -1,4 +1,9 @@
-import { type ASTAfterHook, type ASTBeforeHook, astBuilders as b, astVisit } from '@n8n/tournament';
+import {
+	type ASTAfterHook,
+	type ASTBeforeHook,
+	astBuilders as b,
+	astVisit,
+} from '@resin/tournament';
 
 import {
 	ExpressionClassExtensionError,

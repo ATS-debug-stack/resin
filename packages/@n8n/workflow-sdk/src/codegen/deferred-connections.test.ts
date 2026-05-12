@@ -62,7 +62,7 @@ function createBuildContext(graph: SemanticGraph) {
 
 describe('createDeferredConnection', () => {
 	it('adds connection to context', () => {
-		const mergeNode = createSemanticNode('Merge', 'n8n-nodes-base.merge');
+		const mergeNode = createSemanticNode('Merge', 'resin-nodes-base.merge');
 		const graph: SemanticGraph = {
 			nodes: new Map([['Merge', mergeNode]]),
 			roots: [],
@@ -87,7 +87,7 @@ describe('createDeferredConnection', () => {
 	});
 
 	it('adds multiple connections to context', () => {
-		const mergeNode = createSemanticNode('Merge', 'n8n-nodes-base.merge');
+		const mergeNode = createSemanticNode('Merge', 'resin-nodes-base.merge');
 		const graph: SemanticGraph = {
 			nodes: new Map([['Merge', mergeNode]]),
 			roots: [],
@@ -122,7 +122,7 @@ describe('findMergeInputIndex', () => {
 	it('returns correct input index for source', () => {
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map([
 				['branch0', [{ from: 'Branch1', outputSlot: 'output0' }]],
 				['branch1', [{ from: 'Branch2', outputSlot: 'output0' }]],
@@ -136,7 +136,7 @@ describe('findMergeInputIndex', () => {
 	it('returns correct index for second branch', () => {
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map([
 				['branch0', [{ from: 'Branch1', outputSlot: 'output0' }]],
 				['branch1', [{ from: 'Branch2', outputSlot: 'output0' }]],
@@ -150,7 +150,7 @@ describe('findMergeInputIndex', () => {
 	it('returns 0 when source not found', () => {
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map([['branch0', [{ from: 'Branch1', outputSlot: 'output0' }]]]),
 		);
 
@@ -162,7 +162,7 @@ describe('findMergeInputIndex', () => {
 		// Same source connects to different merge inputs from different outputs
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map([
 				['branch0', [{ from: 'MultiOutput', outputSlot: 'output0' }]],
 				['branch1', [{ from: 'MultiOutput', outputSlot: 'output1' }]],
@@ -182,7 +182,7 @@ describe('findMergeInputIndex', () => {
 		// Some merge nodes use 'input' prefix, others use 'branch'
 		const mergeNode = createSemanticNode(
 			'Merge',
-			'n8n-nodes-base.merge',
+			'resin-nodes-base.merge',
 			new Map([
 				['input0', [{ from: 'Branch1', outputSlot: 'output0' }]],
 				['input2', [{ from: 'Branch2', outputSlot: 'output0' }]],

@@ -11,7 +11,7 @@ import type { MutablePluginContext } from '../types';
 // Mock node factory
 function createMockNode(name: string): NodeInstance<string, string, unknown> {
 	return {
-		type: 'n8n-nodes-base.httpRequest',
+		type: 'resin-nodes-base.httpRequest',
 		version: '4.2',
 		config: {},
 		id: `id-${name}`,

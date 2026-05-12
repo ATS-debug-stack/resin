@@ -72,7 +72,7 @@ interface ModelsDevProvider {
  *
  * @example
  * ```typescript
- * import { fetchProviderCatalog } from '@n8n/agents';
+ * import { fetchProviderCatalog } from '@resin/agents';
  *
  * const catalog = await fetchProviderCatalog();
  * console.log(Object.keys(catalog)); // ['anthropic', 'openai', ...]

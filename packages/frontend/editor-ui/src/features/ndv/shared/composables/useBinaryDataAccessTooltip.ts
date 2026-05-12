@@ -1,7 +1,7 @@
 import { computed } from 'vue';
-import { BINARY_MODE_COMBINED } from 'n8n-workflow';
+import { BINARY_MODE_COMBINED } from 'resin-workflow';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 /**
  * Composable for getting the binary data access tooltip based on the workflow's binary mode

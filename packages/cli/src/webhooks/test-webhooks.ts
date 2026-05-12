@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Service } from '@resin/di';
 import type express from 'express';
-import { InstanceSettings } from 'n8n-core';
-import { WebhookPathTakenError, Workflow } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { WebhookPathTakenError, Workflow } from 'resin-workflow';
 import type {
 	IWebhookData,
 	IWorkflowExecuteAdditionalData,
@@ -11,7 +11,7 @@ import type {
 	IRunData,
 	IWorkflowBase,
 	IDestinationNode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { TEST_WEBHOOK_TIMEOUT } from '@/constants';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
@@ -42,9 +42,9 @@ import type {
 } from './webhook.types';
 
 const SINGLE_WEBHOOK_TRIGGERS = [
-	'n8n-nodes-base.telegramTrigger',
-	'n8n-nodes-base.slackTrigger',
-	'n8n-nodes-base.facebookLeadAdsTrigger',
+	'resin-nodes-base.telegramTrigger',
+	'resin-nodes-base.slackTrigger',
+	'resin-nodes-base.facebookLeadAdsTrigger',
 ];
 
 /**
@@ -384,7 +384,7 @@ export class TestWebhooks implements IWebhookManager {
 				if (
 					chatSessionId &&
 					webhook.node &&
-					workflow.nodes[webhook.node]?.type === '@n8n/n8n-nodes-langchain.chatTrigger'
+					workflow.nodes[webhook.node]?.type === '@resin/n8n-nodes-langchain.chatTrigger'
 				) {
 					// Generate predictable path using workflowId and sessionId (without leading slash to match lookup format)
 					webhook.path = `${workflow.id}/${chatSessionId}`;
@@ -575,7 +575,7 @@ export class TestWebhooks implements IWebhookManager {
 
 	/**
 	 * Convert a `IWorkflowBase` interface (e.g. `WorkflowEntity`) to a temporary
-	 * `Workflow` from `n8n-workflow`.
+	 * `Workflow` from `resin-workflow`.
 	 */
 	toWorkflow(workflowEntity: IWorkflowBase) {
 		return new Workflow({

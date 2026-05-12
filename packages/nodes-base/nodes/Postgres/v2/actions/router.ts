@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import * as database from './database/Database.resource';
 import type { PostgresType } from './node.type';

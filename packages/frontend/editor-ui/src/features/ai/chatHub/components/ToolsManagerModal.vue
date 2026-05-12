@@ -12,15 +12,15 @@ import {
 	N8nInlineTextEdit,
 	N8nInput,
 	N8nText,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useDebounceFn } from '@vueuse/core';
-import { NodeConnectionTypes, type INode, type INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes, type INode, type INodeTypeDescription } from 'resin-workflow';
 import {
 	ALWAYS_BLOCKED_CHAT_HUB_TOOL_TYPES,
 	CHAT_USER_BLOCKED_CHAT_HUB_TOOL_TYPES,
-} from '@n8n/api-types';
-import type { ChatHubToolDto } from '@n8n/api-types';
+} from '@resin/api-types';
+import type { ChatHubToolDto } from '@resin/api-types';
 import { computed, ref, watch } from 'vue';
 import { DEBOUNCE_TIME, getDebounceTime, MODAL_CONFIRM } from '@/app/constants';
 import { useChatStore } from '@/features/ai/chatHub/chat.store';

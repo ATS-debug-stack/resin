@@ -4,9 +4,9 @@ import {
 	PushWorkFolderRequestDto,
 	type GitCommitInfo,
 	type SourceControlledFile,
-} from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Get, Post, Patch, RestController, GlobalScope, Body } from '@n8n/decorators';
+} from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
+import { Get, Post, Patch, RestController, GlobalScope, Body } from '@resin/decorators';
 import * as express from 'express';
 import type { PullResult } from 'simple-git';
 

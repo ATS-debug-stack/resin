@@ -6,7 +6,7 @@
  */
 
 import type { BaseMessage } from '@langchain/core/messages';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 import type { StreamOutput } from '../../types/streaming';
 import { FIX_VALIDATION_ERRORS_INSTRUCTION } from '../constants';

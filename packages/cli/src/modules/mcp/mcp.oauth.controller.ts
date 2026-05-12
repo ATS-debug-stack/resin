@@ -2,11 +2,11 @@ import { authorizationHandler } from '@modelcontextprotocol/sdk/server/auth/hand
 import { clientRegistrationHandler } from '@modelcontextprotocol/sdk/server/auth/handlers/register.js';
 import { revocationHandler } from '@modelcontextprotocol/sdk/server/auth/handlers/revoke.js';
 import { tokenHandler } from '@modelcontextprotocol/sdk/server/auth/handlers/token.js';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { Get, Options, RootLevelController, StaticRouterMetadata } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { Get, Options, RootLevelController, StaticRouterMetadata } from '@resin/decorators';
+import { Container } from '@resin/di';
 import type { Response, Request, RequestHandler, Router } from 'express';
 
 import { UrlService } from '@/services/url.service';

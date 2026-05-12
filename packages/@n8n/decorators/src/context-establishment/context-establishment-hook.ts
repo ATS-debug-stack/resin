@@ -1,11 +1,11 @@
-import type { Constructable } from '@n8n/di';
+import type { Constructable } from '@resin/di';
 import type {
 	INode,
 	INodeExecutionData,
 	INodeProperties,
 	PlaintextExecutionContext,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 /**
  * Input parameters passed to a context establishment hook during execution.
@@ -254,7 +254,7 @@ export interface IContextEstablishmentHook {
 	 *   }
 	 *
 	 *   isApplicableToTriggerNode(nodeType: string) {
-	 *     return nodeType === 'n8n-nodes-base.webhook';
+	 *     return nodeType === 'resin-nodes-base.webhook';
 	 *   }
 	 * }
 	 * ```
@@ -331,7 +331,7 @@ export interface IContextEstablishmentHook {
 	 * - Consider transport layer (HTTP, AMQP, manual, etc.)
 	 * - Multiple triggers can share the same hook (e.g., webhook and form trigger both support bearer tokens)
 	 *
-	 * @param nodeType - The node type identifier (e.g., 'n8n-nodes-base.webhook')
+	 * @param nodeType - The node type identifier (e.g., 'resin-nodes-base.webhook')
 	 * @returns true if this hook can be used with the given trigger node type
 	 *
 	 * @example
@@ -339,9 +339,9 @@ export interface IContextEstablishmentHook {
 	 * // Hook only works with HTTP-based triggers
 	 * isApplicableToTriggerNode(nodeType: string): boolean {
 	 *   return [
-	 *     'n8n-nodes-base.webhook',
-	 *     'n8n-nodes-base.formTrigger',
-	 *     'n8n-nodes-base.httpRequest'
+	 *     'resin-nodes-base.webhook',
+	 *     'resin-nodes-base.formTrigger',
+	 *     'resin-nodes-base.httpRequest'
 	 *   ].includes(nodeType);
 	 * }
 	 * ```
@@ -421,7 +421,7 @@ export interface IContextEstablishmentHook {
  *
  * @example
  * ```typescript
- * import { Container } from '@n8n/di';
+ * import { Container } from '@resin/di';
  * import type { ContextEstablishmentHookClass } from './context-establishment-hook';
  *
  * const HookClass: ContextEstablishmentHookClass = BearerTokenHook;

@@ -1,15 +1,15 @@
-import type * as agents from '@n8n/agents';
-import type { CredentialProvider, BuiltTool } from '@n8n/agents';
-import type { AgentsConfig } from '@n8n/config';
+import type * as agents from '@resin/agents';
+import type { CredentialProvider, BuiltTool } from '@resin/agents';
+import type { AgentsConfig } from '@resin/config';
 
 import type { ToolRegistry } from '../tool-registry';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import type {
 	ExecutionRepository,
 	ProjectRelationRepository,
 	UserRepository,
 	WorkflowRepository,
-} from '@n8n/db';
+} from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import type { ActiveExecutions } from '@/active-executions';

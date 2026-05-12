@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions } from 'n8n-workflow';
+import type { ILoadOptionsFunctions } from 'resin-workflow';
 import OpenAI from 'openai';
 import type { Mocked, MockedClass } from 'vitest';
 

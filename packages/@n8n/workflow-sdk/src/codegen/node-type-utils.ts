@@ -27,7 +27,7 @@ export function isMergeType(type: string): boolean {
 
 /**
  * Generate the default node name from a node type
- * e.g., 'n8n-nodes-base.httpRequest' -> 'HTTP Request'
+ * e.g., 'resin-nodes-base.httpRequest' -> 'HTTP Request'
  */
 export function generateDefaultNodeName(type: string): string {
 	const parts = type.split('.');

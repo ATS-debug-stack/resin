@@ -3,22 +3,22 @@ import {
 	setActiveVersion,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
-import type { IWorkflowDb, Project, User, WebhookEntity } from '@n8n/db';
-import { WorkflowRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/backend-test-utils';
+import type { IWorkflowDb, Project, User, WebhookEntity } from '@resin/db';
+import { WorkflowRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings, ExternalSecretsProxy } from 'n8n-core';
-import { FormTrigger } from 'n8n-nodes-base/nodes/Form/FormTrigger.node';
-import { ScheduleTrigger } from 'n8n-nodes-base/nodes/Schedule/ScheduleTrigger.node';
-import { NodeApiError, Workflow } from 'n8n-workflow';
-import type * as N8nWorkflow from 'n8n-workflow';
+import { InstanceSettings, ExternalSecretsProxy } from 'resin-core';
+import { FormTrigger } from 'resin-nodes-base/nodes/Form/FormTrigger.node';
+import { ScheduleTrigger } from 'resin-nodes-base/nodes/Schedule/ScheduleTrigger.node';
+import { NodeApiError, Workflow } from 'resin-workflow';
+import type * as N8nWorkflow from 'resin-workflow';
 import type {
 	IWebhookData,
 	IWorkflowBase,
 	WorkflowActivateMode,
 	INodeTypeData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { ActiveExecutions } from '@/active-executions';
 import { ActiveWorkflowManager } from '@/active-workflow-manager';
@@ -55,8 +55,8 @@ let createActiveWorkflow: (
 let createInactiveWorkflow: () => Promise<IWorkflowBase>;
 let owner: User;
 
-jest.mock('n8n-workflow', () => {
-	const actual = jest.requireActual<typeof N8nWorkflow>('n8n-workflow');
+jest.mock('resin-workflow', () => {
+	const actual = jest.requireActual<typeof N8nWorkflow>('resin-workflow');
 	return {
 		...actual,
 		validateWorkflowHasTriggerLikeNode: jest.fn(
@@ -66,7 +66,8 @@ jest.mock('n8n-workflow', () => {
 	};
 });
 
-const { validateWorkflowHasTriggerLikeNode } = jest.requireMock<typeof N8nWorkflow>('n8n-workflow');
+const { validateWorkflowHasTriggerLikeNode } =
+	jest.requireMock<typeof N8nWorkflow>('resin-workflow');
 const validateWorkflowHasTriggerLikeNodeSpy =
 	validateWorkflowHasTriggerLikeNode as jest.MockedFunction<
 		typeof N8nWorkflow.validateWorkflowHasTriggerLikeNode
@@ -78,11 +79,11 @@ beforeAll(async () => {
 	activeWorkflowManager = Container.get(ActiveWorkflowManager);
 
 	const nodes: INodeTypeData = {
-		'n8n-nodes-base.scheduleTrigger': {
+		'resin-nodes-base.scheduleTrigger': {
 			type: new ScheduleTrigger(),
 			sourcePath: '',
 		},
-		'n8n-nodes-base.formTrigger': {
+		'resin-nodes-base.formTrigger': {
 			type: new FormTrigger(),
 			sourcePath: '',
 		},
@@ -195,7 +196,7 @@ describe('add()', () => {
 					id: 'uuid-1',
 					parameters: { path: 'test-webhook-path', options: {} },
 					name: 'Form Trigger',
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 					typeVersion: 1,
 					position: [500, 300],
 				},

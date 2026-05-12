@@ -8,8 +8,8 @@ import {
 	randomCredentialPayload,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
-import type { Project, PublicUser, User } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import type { Project, PublicUser, User } from '@resin/db';
 import {
 	FolderRepository,
 	GLOBAL_ADMIN_ROLE,
@@ -20,8 +20,8 @@ import {
 	SharedCredentialsRepository,
 	SharedWorkflowRepository,
 	UserRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { v4 as uuid } from 'uuid';
 
 import { RESPONSE_ERROR_MESSAGES } from '@/constants';

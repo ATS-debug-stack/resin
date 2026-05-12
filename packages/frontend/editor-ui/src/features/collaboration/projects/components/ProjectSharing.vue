@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-import { isIconOrEmoji, type IconOrEmoji } from '@n8n/design-system/components/N8nIconPicker/types';
-import type { SelectSize } from '@n8n/design-system/types';
-import { useI18n } from '@n8n/i18n';
-import type { AllRolesMap } from '@n8n/permissions';
+import {
+	isIconOrEmoji,
+	type IconOrEmoji,
+} from '@resin/design-system/components/N8nIconPicker/types';
+import type { SelectSize } from '@resin/design-system/types';
+import { useI18n } from '@resin/i18n';
+import type { AllRolesMap } from '@resin/permissions';
 import { useDebounceFn } from '@vueuse/core';
 import { computed, ref, watch, onMounted } from 'vue';
 import { ProjectTypes, type ProjectListItem, type ProjectSharingData } from '../projects.types';
@@ -18,7 +21,7 @@ import {
 	N8nSelect,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 
 const locale = useI18n();
 

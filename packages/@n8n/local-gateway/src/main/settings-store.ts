@@ -1,5 +1,5 @@
-import type { GatewayConfig } from '@n8n/computer-use/config';
-import { logger } from '@n8n/computer-use/logger';
+import type { GatewayConfig } from '@resin/computer-use/config';
+import { logger } from '@resin/computer-use/logger';
 import { app } from 'electron';
 import Store from 'electron-store';
 import * as os from 'node:os';

@@ -1,5 +1,5 @@
-import { NodeConnectionTypes } from 'n8n-workflow';
-import type { IExecuteFunctions, INodeType, INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
+import type { IExecuteFunctions, INodeType, INodeTypeDescription } from 'resin-workflow';
 
 import * as agent from './actions/agent/Agent.resource';
 import * as extraction from './actions/extraction/Extraction.resource';

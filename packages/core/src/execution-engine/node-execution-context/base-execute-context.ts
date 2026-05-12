@@ -24,7 +24,7 @@ import type {
 	NodeConnectionType,
 	Result,
 	IExecuteFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ApplicationError,
 	OperationalError,
@@ -33,7 +33,7 @@ import {
 	WAIT_INDEFINITELY,
 	WorkflowDataProxy,
 	createEnvProviderState,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { NodeExecutionContext } from './node-execution-context';
 

@@ -1,13 +1,13 @@
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
 import { useRunWorkflow } from '@/app/composables/useRunWorkflow';
 import { VIEWS } from '@/app/constants';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import MessageWithButtons from '@n8n/chat/components/MessageWithButtons.vue';
-import { chatEventBus } from '@n8n/chat/event-buses';
-import type { ChatOptions, SendMessageResponse } from '@n8n/chat/types';
+import { useRootStore } from '@resin/stores/useRootStore';
+import MessageWithButtons from '@resin/chat/components/MessageWithButtons.vue';
+import { chatEventBus } from '@resin/chat/event-buses';
+import type { ChatOptions, SendMessageResponse } from '@resin/chat/types';
 import { v4 as uuid } from 'uuid';
 import type { ComputedRef, Ref } from 'vue';
 import { computed, ref, toValue, watch } from 'vue';
@@ -15,11 +15,11 @@ import { useRouter } from 'vue-router';
 import { useLogsStore } from '@/app/stores/logs.store';
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
 import { restoreChatHistory } from '@/features/execution/logs/logs.utils';
-import { type INode, type INodeParameters, NodeHelpers } from 'n8n-workflow';
+import { type INode, type INodeParameters, NodeHelpers } from 'resin-workflow';
 import { isChatNode } from '@/app/utils/aiUtils';
 import { injectWorkflowState } from '@/app/composables/useWorkflowState';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
-import { MessageComponentKey } from '@n8n/chat/constants/messageComponents';
+import { MessageComponentKey } from '@resin/chat/constants/messageComponents';
 
 interface ChatState {
 	currentSessionId: ComputedRef<string>;

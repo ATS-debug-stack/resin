@@ -3,14 +3,14 @@ import type { IUpdateInformation } from '@/Interface';
 import InputTriple from '../InputTriple/InputTriple.vue';
 import ParameterInputFull from '../ParameterInputFull.vue';
 import ParameterIssues from '../ParameterIssues.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { DateTime } from 'luxon';
 import type {
 	FilterConditionValue,
 	FilterOptionsValue,
 	INodeProperties,
 	NodeParameterValue,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { computed, nextTick, ref, watch } from 'vue';
 import { computedAsync, until } from '@vueuse/core';
 import OperatorSelect from './OperatorSelect.vue';
@@ -26,7 +26,7 @@ import {
 import type { ConditionResult } from './types';
 import { useDebounce } from '@/app/composables/useDebounce';
 
-import { N8nIcon, N8nIconButton, N8nTooltip } from '@n8n/design-system';
+import { N8nIcon, N8nIconButton, N8nTooltip } from '@resin/design-system';
 interface Props {
 	path: string;
 	condition: FilterConditionValue;

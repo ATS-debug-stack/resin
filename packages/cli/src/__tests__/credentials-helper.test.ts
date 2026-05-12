@@ -1,11 +1,11 @@
-import type { LicenseState } from '@n8n/backend-common';
+import type { LicenseState } from '@resin/backend-common';
 import {
 	CredentialsEntity,
 	type SecretsProviderConnectionRepository,
 	type CredentialsRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
-import { EntityNotFoundError } from '@n8n/typeorm';
+} from '@resin/db';
+import { Container } from '@resin/di';
+import { EntityNotFoundError } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
 import {
 	type InstanceSettings,
@@ -13,7 +13,7 @@ import {
 	CipherAes256GCM,
 	CipherAes256CBC,
 	EncryptionKeyProxy,
-} from 'n8n-core';
+} from 'resin-core';
 import type {
 	IAuthenticateGeneric,
 	ICredentialDataDecryptedObject,
@@ -24,8 +24,8 @@ import type {
 	INodeTypes,
 	INodeCredentialsDetails,
 	IWorkflowExecuteAdditionalData,
-} from 'n8n-workflow';
-import { deepCopy, Workflow } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy, Workflow } from 'resin-workflow';
 
 import { CredentialTypes } from '@/credential-types';
 import { DynamicCredentialsProxy } from '@/credentials/dynamic-credentials-proxy';

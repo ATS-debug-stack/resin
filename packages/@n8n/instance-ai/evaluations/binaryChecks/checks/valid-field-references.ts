@@ -1,4 +1,4 @@
-import { discoverOutputSchemaForNode } from '@n8n/workflow-sdk';
+import { discoverOutputSchemaForNode } from '@resin/workflow-sdk';
 
 import type { WorkflowNodeResponse, WorkflowResponse } from '../../clients/n8n-client';
 import type { BinaryCheck } from '../types';
@@ -96,20 +96,20 @@ function buildUpstreamMap(connections: Record<string, unknown>): Map<string, str
 // Schema-based field resolution
 // ---------------------------------------------------------------------------
 
-const DATA_TABLE_NODE_TYPE = 'n8n-nodes-base.dataTable';
+const DATA_TABLE_NODE_TYPE = 'resin-nodes-base.dataTable';
 /** DataTable system columns always present in row output. */
 const DATA_TABLE_SYSTEM_FIELDS = ['id', 'createdAt', 'updatedAt'];
 const AI_AGENT_TYPES = new Set([
-	'@n8n/n8n-nodes-langchain.agent',
-	'@n8n/n8n-nodes-langchain.openAi',
+	'@resin/n8n-nodes-langchain.agent',
+	'@resin/n8n-nodes-langchain.openAi',
 ]);
 /** Node types whose output is dynamic and can't be statically checked. */
 const DYNAMIC_OUTPUT_TYPES = new Set([
-	'n8n-nodes-base.code',
-	'n8n-nodes-base.function',
-	'n8n-nodes-base.functionItem',
-	'n8n-nodes-base.executeWorkflow',
-	'n8n-nodes-base.httpRequest',
+	'resin-nodes-base.code',
+	'resin-nodes-base.function',
+	'resin-nodes-base.functionItem',
+	'resin-nodes-base.executeWorkflow',
+	'resin-nodes-base.httpRequest',
 ]);
 
 /** Extract the known output field names for a node, or undefined if unknown. */

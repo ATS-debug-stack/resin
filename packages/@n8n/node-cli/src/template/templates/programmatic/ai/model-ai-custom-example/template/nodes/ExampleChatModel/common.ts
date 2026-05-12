@@ -1,5 +1,5 @@
-import type { IDataObject } from 'n8n-workflow';
-import type { ProviderTool } from '@n8n/ai-node-sdk';
+import type { IDataObject } from 'resin-workflow';
+import type { ProviderTool } from '@resin/ai-node-sdk';
 
 const toArray = (str: string) =>
 	str

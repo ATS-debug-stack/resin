@@ -1,16 +1,16 @@
 import { useAIAssistantHelpers } from '@/features/ai/assistant/composables/useAIAssistantHelpers';
 import { AI_ASSISTANT_MAX_CONTENT_LENGTH } from '@/app/constants';
 import type { ICredentialsResponse } from '@/features/credentials/credentials.types';
-import type { IRestApiContext } from '@n8n/rest-api-client';
+import type { IRestApiContext } from '@resin/rest-api-client';
 import type {
 	AskAiRequest,
 	ChatRequest,
 	ReplaceCodeRequest,
 } from '@/features/ai/assistant/assistant.types';
-import { makeRestApiRequest, streamRequest } from '@n8n/rest-api-client';
+import { makeRestApiRequest, streamRequest } from '@resin/rest-api-client';
 import { getObjectSizeInKB } from '@/app/utils/objectUtils';
-import type { AiGatewayConfigDto, AiGatewayUsageResponse } from '@n8n/api-types';
-import type { IDataObject } from 'n8n-workflow';
+import type { AiGatewayConfigDto, AiGatewayUsageResponse } from '@resin/api-types';
+import type { IDataObject } from 'resin-workflow';
 
 export function chatWithBuilder(
 	ctx: IRestApiContext,

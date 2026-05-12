@@ -8,8 +8,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 
 import { couponFields, couponOperations } from './CouponDescription';
 import { paddleApiRequest, paddleApiRequestAllItems, validateJSON } from './GenericFunctions';

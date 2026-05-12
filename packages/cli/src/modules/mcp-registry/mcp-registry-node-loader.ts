@@ -1,6 +1,6 @@
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import { camelCase } from 'change-case';
-import { UnrecognizedCredentialTypeError, UnrecognizedNodeTypeError } from 'n8n-core';
+import { UnrecognizedCredentialTypeError, UnrecognizedNodeTypeError } from 'resin-core';
 import {
 	ensureError,
 	NodeHelpers,
@@ -13,7 +13,7 @@ import {
 	type KnownNodesAndCredentials,
 	type LoadedClass,
 	type NodeLoader,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';
 

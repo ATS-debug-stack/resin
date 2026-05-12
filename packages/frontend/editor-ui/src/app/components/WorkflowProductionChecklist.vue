@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, ref, onMounted, watch } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useRouter } from 'vue-router';
 import { useEvaluationStore } from '@/features/ai/evaluation.ee/evaluation.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
@@ -23,7 +23,7 @@ import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
 import { MCP_DOCS_PAGE_URL, MCP_SETTINGS_VIEW } from '@/features/ai/mcpAccess/mcp.constants';
 
-import { N8nSuggestedActions } from '@n8n/design-system';
+import { N8nSuggestedActions } from '@resin/design-system';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import { WorkflowDocumentStoreKey } from '@/app/constants/injectionKeys';

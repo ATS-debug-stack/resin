@@ -5,8 +5,8 @@
  * Single-card plan approval UI. Shows planned tasks as an accordion with
  * expandable specs, dependency info, and approve/request-changes controls.
  */
-import { N8nButton, N8nInput, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nInput, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { computed, ref } from 'vue';
 import { CollapsibleRoot, CollapsibleTrigger } from 'reka-ui';
 import AnimatedCollapsibleContent from './AnimatedCollapsibleContent.vue';

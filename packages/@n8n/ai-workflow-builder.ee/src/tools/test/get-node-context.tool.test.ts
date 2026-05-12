@@ -38,7 +38,7 @@ describe('GetNodeContextTool', () => {
 	describe('node not found', () => {
 		it('should return error message when node does not exist', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 
@@ -56,7 +56,7 @@ describe('GetNodeContextTool', () => {
 	describe('basic node context', () => {
 		it('should return context for a node with no connections', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code', typeVersion: 2 }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code', typeVersion: 2 }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 
@@ -79,8 +79,8 @@ describe('GetNodeContextTool', () => {
 	describe('node connections', () => {
 		it('should show parent connections for downstream node', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'trigger1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'trigger1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			workflow.connections = {
 				Webhook: {
@@ -101,8 +101,8 @@ describe('GetNodeContextTool', () => {
 
 		it('should show child connections for upstream node', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'trigger1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'trigger1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			workflow.connections = {
 				Webhook: {
@@ -125,7 +125,7 @@ describe('GetNodeContextTool', () => {
 	describe('node classification', () => {
 		it('should classify trigger nodes', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'trigger1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
+				createNode({ id: 'trigger1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 
@@ -143,7 +143,7 @@ describe('GetNodeContextTool', () => {
 				createNode({
 					id: 'trigger1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 				}),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
@@ -162,12 +162,12 @@ describe('GetNodeContextTool', () => {
 				createNode({
 					id: 'agent1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 				}),
 				createNode({
 					id: 'model1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
 			]);
 			setupAIWorkflowConnections(workflow, 'OpenAI Model', 'AI Agent');
@@ -187,12 +187,12 @@ describe('GetNodeContextTool', () => {
 				createNode({
 					id: 'agent1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 				}),
 				createNode({
 					id: 'model1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
 			]);
 			setupAIWorkflowConnections(workflow, 'OpenAI Model', 'AI Agent');
@@ -209,7 +209,7 @@ describe('GetNodeContextTool', () => {
 
 		it('should classify regular nodes', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 
@@ -229,7 +229,7 @@ describe('GetNodeContextTool', () => {
 				createNode({
 					id: 'code1',
 					name: 'Code',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					parameters: {
 						jsCode: 'return items;',
 						mode: 'runOnceForAllItems',
@@ -252,7 +252,7 @@ describe('GetNodeContextTool', () => {
 
 		it('should show no parameters message when empty', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code', parameters: {} }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code', parameters: {} }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 
@@ -269,7 +269,7 @@ describe('GetNodeContextTool', () => {
 	describe('execution data', () => {
 		it('should include execution schema when available', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -296,7 +296,7 @@ describe('GetNodeContextTool', () => {
 
 		it('should include execution runData when available', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -320,7 +320,7 @@ describe('GetNodeContextTool', () => {
 
 		it('should exclude execution data when includeExecutionData is false', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, {
@@ -355,7 +355,7 @@ describe('GetNodeContextTool', () => {
 
 		it('should truncate large execution data', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			// Create large data that exceeds 2000 characters
@@ -392,7 +392,7 @@ describe('GetNodeContextTool', () => {
 
 		it('should show no execution data message when none available', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 
 			setupWorkflowStateWithContext(mockGetCurrentTaskInput, { workflow });
@@ -413,12 +413,12 @@ describe('GetNodeContextTool', () => {
 				createNode({
 					id: 'agent1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 				}),
 				createNode({
 					id: 'model1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
 			]);
 			setupAIWorkflowConnections(workflow, 'OpenAI Model', 'AI Agent');
@@ -438,12 +438,12 @@ describe('GetNodeContextTool', () => {
 				createNode({
 					id: 'agent1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 				}),
 				createNode({
 					id: 'model1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
 			]);
 			setupAIWorkflowConnections(workflow, 'OpenAI Model', 'AI Agent');

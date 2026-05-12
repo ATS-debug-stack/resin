@@ -1,4 +1,4 @@
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 
 import { createNode, createWorkflow } from '../../../test/test-utils';
 import type { SimpleWorkflow } from '../../types/workflow';
@@ -11,7 +11,7 @@ describe('trimWorkflowJSON', () => {
 				createNode({
 					id: 'node1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					parameters: {
 						url: 'https://api.example.com/endpoint',
 						method: 'GET',
@@ -43,7 +43,7 @@ describe('trimWorkflowJSON', () => {
 				createNode({
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					parameters: {},
 				}),
 			]);
@@ -61,7 +61,7 @@ describe('trimWorkflowJSON', () => {
 				createNode({
 					id: 'node1',
 					name: 'Code Node',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					parameters: {
 						jsCode: largeString,
 						smallParam: 'keep this',
@@ -81,7 +81,7 @@ describe('trimWorkflowJSON', () => {
 				createNode({
 					id: 'node1',
 					name: 'Item Lists',
-					type: 'n8n-nodes-base.itemLists',
+					type: 'resin-nodes-base.itemLists',
 					parameters: {
 						items: largeArray,
 						operation: 'aggregateItems',
@@ -105,7 +105,7 @@ describe('trimWorkflowJSON', () => {
 				createNode({
 					id: 'node1',
 					name: 'Function',
-					type: 'n8n-nodes-base.function',
+					type: 'resin-nodes-base.function',
 					parameters: {
 						functionCode: 'return items;',
 						data: largeObject,
@@ -124,7 +124,7 @@ describe('trimWorkflowJSON', () => {
 				createNode({
 					id: 'node1',
 					name: 'Test Node',
-					type: 'n8n-nodes-base.test',
+					type: 'resin-nodes-base.test',
 					parameters: {
 						nullValue: null,
 
@@ -156,7 +156,7 @@ describe('trimWorkflowJSON', () => {
 					createNode({
 						id: `node${i}`,
 						name: `Node ${i}`,
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {
 							medium,
 							large,
@@ -204,7 +204,7 @@ describe('trimWorkflowJSON', () => {
 				createNode({
 					id: 'node1',
 					name: 'Mixed Node',
-					type: 'n8n-nodes-base.mixed',
+					type: 'resin-nodes-base.mixed',
 					parameters: {
 						stringValue: 'normal string',
 						numberValue: 42,
@@ -235,7 +235,7 @@ describe('trimWorkflowJSON', () => {
 				createNode({
 					id: 'node1',
 					name: 'Nested Node',
-					type: 'n8n-nodes-base.nested',
+					type: 'resin-nodes-base.nested',
 					parameters: {
 						level1: {
 							level2: {
@@ -263,7 +263,7 @@ describe('trimWorkflowJSON', () => {
 					createNode({
 						id: `node${i}`,
 						name: `Node ${i}`,
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {
 							data1: 'x'.repeat(2000),
 							data2: 'y'.repeat(2000),

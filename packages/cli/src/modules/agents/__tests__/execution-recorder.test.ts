@@ -1,5 +1,5 @@
 import { ExecutionRecorder } from '../execution-recorder';
-import type { BuiltTool, StreamChunk } from '@n8n/agents';
+import type { BuiltTool, StreamChunk } from '@resin/agents';
 import { buildToolRegistry } from '../tool-registry';
 
 function makeToolCallChunk(toolName: string, input: unknown, toolCallId = 'tc1'): StreamChunk {
@@ -241,7 +241,7 @@ function nodeTool(
 describe('ExecutionRecorder — node-tool $fromAI resolution', () => {
 	it('substitutes a full-string $fromAI expression with the LLM-provided value', () => {
 		const registry = buildToolRegistry([
-			nodeTool('generate_image', '@n8n/n8n-nodes-langchain.openAi', {
+			nodeTool('generate_image', '@resin/n8n-nodes-langchain.openAi', {
 				resource: 'image',
 				operation: 'generate',
 				prompt: "={{ $fromAI('prompt', 'Image description', 'string') }}",
@@ -273,7 +273,7 @@ describe('ExecutionRecorder — node-tool $fromAI resolution', () => {
 
 	it('falls back to the $fromAI default when the LLM did not provide the key', () => {
 		const registry = buildToolRegistry([
-			nodeTool('send_message', 'n8n-nodes-base.slack', {
+			nodeTool('send_message', 'resin-nodes-base.slack', {
 				channel: "={{ $fromAI('channel', 'Channel name', 'string', 'general') }}",
 			}),
 		]);
@@ -298,7 +298,7 @@ describe('ExecutionRecorder — node-tool $fromAI resolution', () => {
 
 	it('substitutes $fromAI inside an auto-generated-marker template', () => {
 		const registry = buildToolRegistry([
-			nodeTool('search', 'n8n-nodes-base.http', {
+			nodeTool('search', 'resin-nodes-base.http', {
 				url: "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', 'Search term', 'string') }}",
 			}),
 		]);
@@ -323,7 +323,7 @@ describe('ExecutionRecorder — node-tool $fromAI resolution', () => {
 
 	it('walks nested objects in nodeParameters and resolves each $fromAI', () => {
 		const registry = buildToolRegistry([
-			nodeTool('image', '@n8n/n8n-nodes-langchain.openAi', {
+			nodeTool('image', '@resin/n8n-nodes-langchain.openAi', {
 				options: {
 					size: "={{ $fromAI('size', 'Image size', 'string', '1024x1024') }}",
 					nested: { nested2: "={{ $fromAI('quality', 'Quality', 'string', 'medium') }}" },
@@ -353,7 +353,7 @@ describe('ExecutionRecorder — node-tool $fromAI resolution', () => {
 
 	it('leaves the raw template in place when extraction fails', () => {
 		const registry = buildToolRegistry([
-			nodeTool('broken', 'n8n-nodes-base.set', {
+			nodeTool('broken', 'resin-nodes-base.set', {
 				field: '={{ $fromAI(unbalanced ',
 			}),
 		]);

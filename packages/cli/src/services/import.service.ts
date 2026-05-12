@@ -1,5 +1,5 @@
-import { Logger, safeJoinPath } from '@n8n/backend-common';
-import type { TagEntity, ICredentialsDb } from '@n8n/db';
+import { Logger, safeJoinPath } from '@resin/backend-common';
+import type { TagEntity, ICredentialsDb } from '@resin/db';
 import {
 	Project,
 	WorkflowEntity,
@@ -11,22 +11,22 @@ import {
 	WorkflowPublishHistory,
 	WorkflowPublishHistoryRepository,
 	WorkflowRepository,
-} from '@n8n/db';
+} from '@resin/db';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { DataSource, EntityManager, In, type EntityMetadata } from '@n8n/typeorm';
-import { Service } from '@n8n/di';
+import { DataSource, EntityManager, In, type EntityMetadata } from '@resin/typeorm';
+import { Service } from '@resin/di';
 import {
 	ensureError,
 	type INode,
 	type INodeCredentialsDetails,
 	type IWorkflowBase,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 import { readdir, readFile } from 'fs/promises';
 
 import { replaceInvalidCredentials, validateWorkflowStructure } from '@/workflow-helpers';
 import { validateDbTypeForImportEntities } from '@/utils/validate-database-type';
-import { Cipher } from 'n8n-core';
+import { Cipher } from 'resin-core';
 import { decompressFolder } from '@/utils/compression.util';
 import { z } from 'zod';
 import { ActiveWorkflowManager } from '@/active-workflow-manager';

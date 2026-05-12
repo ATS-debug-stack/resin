@@ -7,12 +7,12 @@ import type {
 	NodePropertyTypes,
 	ResourceMapperField,
 	ResourceMapperValue,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import ParameterInputFull from '../ParameterInputFull.vue';
 import ParameterIssues from '../ParameterIssues.vue';
 import ParameterOptions from '../ParameterOptions.vue';
 import { computed } from 'vue';
-import { i18n as locale, useI18n } from '@n8n/i18n';
+import { i18n as locale, useI18n } from '@resin/i18n';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import {
 	fieldCannotBeDeleted,
@@ -28,8 +28,8 @@ import {
 	N8nInputLabel,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
-import type { DropdownMenuItemProps } from '@n8n/design-system';
+} from '@resin/design-system';
+import type { DropdownMenuItemProps } from '@resin/design-system';
 interface Props {
 	parameter: INodeProperties;
 	path: string;

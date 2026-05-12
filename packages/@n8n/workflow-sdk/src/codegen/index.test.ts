@@ -13,14 +13,14 @@ describe('codegen index', () => {
 					{
 						id: '1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
 					{
 						id: '2',
 						name: 'Process',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [100, 0],
 					},
@@ -45,22 +45,22 @@ describe('codegen index', () => {
 					{
 						id: '1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
-					{ id: '2', name: 'IF', type: 'n8n-nodes-base.if', typeVersion: 2, position: [100, 0] },
+					{ id: '2', name: 'IF', type: 'resin-nodes-base.if', typeVersion: 2, position: [100, 0] },
 					{
 						id: '3',
 						name: 'True',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [200, -50],
 					},
 					{
 						id: '4',
 						name: 'False',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [200, 50],
 					},
@@ -88,16 +88,28 @@ describe('codegen index', () => {
 					{
 						id: '1',
 						name: 'Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
-					{ id: '2', name: 'A', type: 'n8n-nodes-base.noOp', typeVersion: 1, position: [100, -50] },
-					{ id: '3', name: 'B', type: 'n8n-nodes-base.noOp', typeVersion: 1, position: [100, 50] },
+					{
+						id: '2',
+						name: 'A',
+						type: 'resin-nodes-base.noOp',
+						typeVersion: 1,
+						position: [100, -50],
+					},
+					{
+						id: '3',
+						name: 'B',
+						type: 'resin-nodes-base.noOp',
+						typeVersion: 1,
+						position: [100, 50],
+					},
 					{
 						id: '4',
 						name: 'Merge',
-						type: 'n8n-nodes-base.merge',
+						type: 'resin-nodes-base.merge',
 						typeVersion: 3,
 						position: [200, 0],
 						parameters: { numberInputs: 2 },
@@ -148,7 +160,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Fetch Users',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 							parameters: { url: 'https://api.example.com/users' },
@@ -185,7 +197,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Set',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							typeVersion: 3.4,
 							position: [0, 0],
 							parameters: {
@@ -212,7 +224,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Success Node',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							typeVersion: 1,
 							position: [0, 0],
 						},
@@ -240,7 +252,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 						},
@@ -262,7 +274,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Fetch Users',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 							parameters: { url: 'https://api.example.com/users' },
@@ -302,7 +314,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Fetch Users',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 							parameters: { url: 'https://api.example.com/users' },
@@ -339,7 +351,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Fetch Users',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 							parameters: { url: 'https://api.example.com/users' },
@@ -378,7 +390,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Fetch Users',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 							parameters: { url: 'https://api.example.com/users' },
@@ -414,7 +426,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Fetch Users',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 							parameters: { url: 'https://api.example.com/users' },
@@ -446,7 +458,7 @@ describe('codegen index', () => {
 						{
 							id: '1',
 							name: 'Fetch Users',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 4.2,
 							position: [0, 0],
 							parameters: { url: 'https://api.example.com/users' },

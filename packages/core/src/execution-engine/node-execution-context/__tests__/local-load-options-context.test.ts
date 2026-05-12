@@ -5,14 +5,14 @@ import type {
 	IWorkflowBase,
 	IWorkflowExecuteAdditionalData,
 	IWorkflowLoader,
-} from 'n8n-workflow';
-import { ApplicationError, Workflow } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, Workflow } from 'resin-workflow';
 
 import { LocalLoadOptionsContext } from '../local-load-options-context';
 import { LoadWorkflowNodeContext } from '../workflow-node-context';
 
-jest.mock('n8n-workflow', () => ({
-	...jest.requireActual('n8n-workflow'),
+jest.mock('resin-workflow', () => ({
+	...jest.requireActual('resin-workflow'),
 	Workflow: jest.fn(),
 }));
 
@@ -27,7 +27,7 @@ describe('LocalLoadOptionsContext', () => {
 	});
 
 	describe('getWorkflowNodeContext', () => {
-		const targetNodeType = 'n8n-nodes-base.executeWorkflowTrigger';
+		const targetNodeType = 'resin-nodes-base.executeWorkflowTrigger';
 
 		it('should throw TypeError when workflowId parameter is missing', async () => {
 			additionalData.currentNodeParameters = {};
@@ -103,7 +103,7 @@ describe('LocalLoadOptionsContext', () => {
 			};
 
 			const otherNode = mock<INode>({
-				type: 'n8n-nodes-base.otherNode',
+				type: 'resin-nodes-base.otherNode',
 				name: 'Other Node',
 			});
 			const dbWorkflow = mock<IWorkflowBase>({
@@ -214,7 +214,7 @@ describe('LocalLoadOptionsContext', () => {
 				name: 'Regular Trigger',
 			});
 			const activeVersionNode = mock<INode>({
-				type: 'n8n-nodes-base.otherNode',
+				type: 'resin-nodes-base.otherNode',
 				name: 'Other Node',
 			});
 			const dbWorkflow = mock<IWorkflowBase>({

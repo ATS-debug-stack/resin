@@ -1,7 +1,7 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import glob from 'fast-glob';
-import { CUSTOM_NODES_PACKAGE_NAME } from 'n8n-core';
-import type { IWorkflowBase } from 'n8n-workflow';
+import { CUSTOM_NODES_PACKAGE_NAME } from 'resin-core';
+import type { IWorkflowBase } from 'resin-workflow';
 import * as path from 'path';
 
 import { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';

@@ -54,23 +54,23 @@ describe('new command', () => {
 		expect(MockPrompt).toHaveAskedAllQuestions();
 		expect(MockPrompt).toHaveAskedQuestion('What kind of node are you building?');
 
-		expect(tmpdir).toHaveFile('n8n-nodes-my-awesome-api');
+		expect(tmpdir).toHaveFile('resin-nodes-my-awesome-api');
 
 		await expect(tmpdir).toHaveFileContaining(
-			'n8n-nodes-my-awesome-api/package.json',
-			'"name": "n8n-nodes-my-awesome-api"',
+			'resin-nodes-my-awesome-api/package.json',
+			'"name": "resin-nodes-my-awesome-api"',
 		);
 		await expect(tmpdir).toHaveFileContaining(
-			'n8n-nodes-my-awesome-api/package.json',
+			'resin-nodes-my-awesome-api/package.json',
 			'"name": "Test User"',
 		);
 		await expect(tmpdir).toHaveFileContaining(
-			'n8n-nodes-my-awesome-api/package.json',
+			'resin-nodes-my-awesome-api/package.json',
 			'"email": "test@example.com"',
 		);
 
 		await expect(tmpdir).toHaveFileContaining(
-			'n8n-nodes-my-awesome-api/nodes/Example/Example.node.ts',
+			'resin-nodes-my-awesome-api/nodes/Example/Example.node.ts',
 			'export class Example implements INodeType',
 		);
 
@@ -92,8 +92,8 @@ describe('new command', () => {
 	tmpdirTest('creates new node project with node name prompt', async ({ tmpdir }) => {
 		MockPrompt.setup([
 			{
-				question: "Package name (must start with 'n8n-nodes-' or '@org/n8n-nodes-')",
-				answer: 'n8n-nodes-interactive-demo',
+				question: "Package name (must start with 'resin-nodes-' or '@org/n8n-nodes-')",
+				answer: 'resin-nodes-interactive-demo',
 			},
 			{
 				question: 'What kind of node are you building?',
@@ -122,12 +122,12 @@ describe('new command', () => {
 
 		expect(MockPrompt).toHaveAskedAllQuestions();
 
-		const projectName = 'n8n-nodes-interactive-demo';
+		const projectName = 'resin-nodes-interactive-demo';
 		expect(tmpdir).toHaveFile(projectName);
 
 		await expect(tmpdir).toHaveFileContaining(
 			`${projectName}/package.json`,
-			'"name": "n8n-nodes-interactive-demo"',
+			'"name": "resin-nodes-interactive-demo"',
 		);
 		await expect(tmpdir).toHaveFileContaining(`${projectName}/package.json`, '"name": "Test User"');
 		await expect(tmpdir).toHaveFileContaining(
@@ -194,12 +194,12 @@ describe('new command', () => {
 
 			expect(MockPrompt).toHaveAskedAllQuestions();
 
-			const projectName = 'n8n-nodes-custom-api';
+			const projectName = 'resin-nodes-custom-api';
 			expect(tmpdir).toHaveFile(projectName);
 
 			await expect(tmpdir).toHaveFileContaining(
 				`${projectName}/package.json`,
-				'"name": "n8n-nodes-custom-api"',
+				'"name": "resin-nodes-custom-api"',
 			);
 			await expect(tmpdir).toHaveFileContaining(
 				`${projectName}/package.json`,
@@ -262,12 +262,12 @@ describe('new command', () => {
 
 			expect(MockPrompt).toHaveAskedAllQuestions();
 
-			const projectName = 'n8n-nodes-full-args';
+			const projectName = 'resin-nodes-full-args';
 			expect(tmpdir).toHaveFile(projectName);
 
 			await expect(tmpdir).toHaveFileContaining(
 				`${projectName}/package.json`,
-				'"name": "n8n-nodes-full-args"',
+				'"name": "resin-nodes-full-args"',
 			);
 			await expect(tmpdir).toHaveFileContaining(
 				`${projectName}/package.json`,
@@ -338,7 +338,7 @@ describe('new command', () => {
 		expect(MockPrompt).toHaveAskedAllQuestions();
 		expect(MockPrompt).toHaveAskedQuestion('What type of chat model?');
 
-		const projectName = 'n8n-nodes-chat-openai';
+		const projectName = 'resin-nodes-chat-openai';
 		expect(tmpdir).toHaveFile(projectName);
 
 		await expect(tmpdir).toHaveFileContaining(
@@ -384,7 +384,7 @@ describe('new command', () => {
 
 		expect(MockPrompt).toHaveAskedAllQuestions();
 
-		const projectName = 'n8n-nodes-custom-chat';
+		const projectName = 'resin-nodes-custom-chat';
 		expect(tmpdir).toHaveFile(projectName);
 
 		await expect(tmpdir).toHaveFileContaining(
@@ -426,7 +426,7 @@ describe('new command', () => {
 
 		expect(MockPrompt).toHaveAskedAllQuestions();
 
-		const projectName = 'n8n-nodes-chat-example';
+		const projectName = 'resin-nodes-chat-example';
 		expect(tmpdir).toHaveFile(projectName);
 
 		await expect(tmpdir).toHaveFileContaining(
@@ -465,7 +465,7 @@ describe('new command', () => {
 		expect(MockPrompt).toHaveAskedAllQuestions();
 		expect(MockPrompt).toHaveAskedQuestion('What type of programmatic node are you building?');
 
-		const projectName = 'n8n-nodes-chat-memory';
+		const projectName = 'resin-nodes-chat-memory';
 		expect(tmpdir).toHaveFile(projectName);
 
 		await expect(tmpdir).toHaveFileContaining(
@@ -502,7 +502,7 @@ describe('new command', () => {
 
 			expect(MockPrompt).toHaveAskedAllQuestions();
 
-			const projectName = 'n8n-nodes-template-chat';
+			const projectName = 'resin-nodes-template-chat';
 			expect(tmpdir).toHaveFile(projectName);
 
 			await expect(tmpdir).toHaveFileContaining(
@@ -536,7 +536,7 @@ describe('new command', () => {
 
 			expect(MockPrompt).toHaveAskedAllQuestions();
 
-			const projectName = 'n8n-nodes-template-memory';
+			const projectName = 'resin-nodes-template-memory';
 			expect(tmpdir).toHaveFile(projectName);
 
 			await expect(tmpdir).toHaveFileContaining(

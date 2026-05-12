@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { N8nButton, N8nPopover } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nButton, N8nPopover } from '@resin/design-system';
 import type { FilterOption } from '../session-timeline.types';
 import { swatchBackground } from '../session-timeline.styles';
 

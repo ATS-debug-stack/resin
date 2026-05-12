@@ -2,11 +2,11 @@
  * Node Search Engine
  *
  * Ported from ai-workflow-builder.ee/code-builder/engines/code-builder-node-search-engine.ts
- * into the instance-ai package.  All n8n-workflow dependencies have been
+ * into the instance-ai package.  All resin-workflow dependencies have been
  * replaced with local types so the package stays decoupled.
  */
 
-import { sublimeSearch } from '@n8n/utils';
+import { sublimeSearch } from '@resin/utils';
 
 import type {
 	BuilderHintInputs,
@@ -25,10 +25,10 @@ import { AI_CONNECTION_TYPES } from './node-search-engine.types';
  * These are sensible defaults shown in search results.
  */
 const DEFAULT_SUBNODES: Record<string, string[]> = {
-	ai_languageModel: ['@n8n/n8n-nodes-langchain.lmChatOpenAi'],
-	ai_memory: ['@n8n/n8n-nodes-langchain.memoryBufferWindow'],
-	ai_embedding: ['@n8n/n8n-nodes-langchain.embeddingsOpenAi'],
-	ai_vectorStore: ['@n8n/n8n-nodes-langchain.vectorStoreInMemory'],
+	ai_languageModel: ['@resin/n8n-nodes-langchain.lmChatOpenAi'],
+	ai_memory: ['@resin/n8n-nodes-langchain.memoryBufferWindow'],
+	ai_embedding: ['@resin/n8n-nodes-langchain.embeddingsOpenAi'],
+	ai_vectorStore: ['@resin/n8n-nodes-langchain.vectorStoreInMemory'],
 	// ai_tool is intentionally excluded - varies by use case
 };
 
@@ -45,7 +45,7 @@ const NODE_SEARCH_KEYS = [
 
 /**
  * Extract the short type name from a full node name.
- * e.g., "n8n-nodes-base.set" -> "set"
+ * e.g., "resin-nodes-base.set" -> "set"
  */
 function getTypeName(nodeName: string): string {
 	if (!nodeName) return '';

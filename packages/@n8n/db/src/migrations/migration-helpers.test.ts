@@ -1,5 +1,5 @@
-import { Container } from '@n8n/di';
-import { DataSource } from '@n8n/typeorm';
+import { Container } from '@resin/di';
+import { DataSource } from '@resin/typeorm';
 
 import { DbConnection } from '../index';
 import { copyTable } from './migration-helpers';

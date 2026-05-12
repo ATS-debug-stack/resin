@@ -1,5 +1,5 @@
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import type { GenericValue } from 'n8n-workflow';
+import type { GenericValue } from 'resin-workflow';
 
 import type { AgentJsonToolRef } from '../types';
 

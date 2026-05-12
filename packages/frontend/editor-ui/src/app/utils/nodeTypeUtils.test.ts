@@ -1,4 +1,4 @@
-import type { ResourceMapperField } from 'n8n-workflow';
+import type { ResourceMapperField } from 'resin-workflow';
 import {
 	getThemedValue,
 	isResourceMapperFieldListStale,

@@ -1,5 +1,5 @@
-import { Container } from '@n8n/di';
-import type { SelectQueryBuilder } from '@n8n/typeorm';
+import { Container } from '@resin/di';
+import type { SelectQueryBuilder } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import { SharedWorkflow } from '../../entities';

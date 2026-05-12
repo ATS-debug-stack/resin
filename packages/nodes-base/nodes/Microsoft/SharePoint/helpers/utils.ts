@@ -6,8 +6,8 @@ import type {
 	INodeExecutionData,
 	JsonObject,
 	ResourceMapperValue,
-} from 'n8n-workflow';
-import { jsonParse, NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { jsonParse, NodeApiError, NodeOperationError } from 'resin-workflow';
 
 import type { IErrorResponse } from './interfaces';
 import { microsoftSharePointApiRequest } from '../transport';

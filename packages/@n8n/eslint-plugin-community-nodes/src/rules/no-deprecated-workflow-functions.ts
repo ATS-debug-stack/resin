@@ -28,7 +28,7 @@ export const NoDeprecatedWorkflowFunctionsRule = createRule({
 	meta: {
 		type: 'problem',
 		docs: {
-			description: 'Disallow usage of deprecated functions and types from n8n-workflow package',
+			description: 'Disallow usage of deprecated functions and types from resin-workflow package',
 		},
 		messages: {
 			deprecatedRequestFunction:
@@ -49,7 +49,7 @@ export const NoDeprecatedWorkflowFunctionsRule = createRule({
 
 		return {
 			ImportDeclaration(node) {
-				if (node.source.value === 'n8n-workflow') {
+				if (node.source.value === 'resin-workflow') {
 					node.specifiers.forEach((specifier) => {
 						if (
 							specifier.type === AST_NODE_TYPES.ImportSpecifier &&
@@ -134,11 +134,11 @@ export const NoDeprecatedWorkflowFunctionsRule = createRule({
 			},
 
 			ImportSpecifier(node) {
-				// Check if this import is from n8n-workflow by looking at the parent ImportDeclaration
+				// Check if this import is from resin-workflow by looking at the parent ImportDeclaration
 				const importDeclaration = node.parent;
 				if (
 					importDeclaration?.type === AST_NODE_TYPES.ImportDeclaration &&
-					importDeclaration.source.value === 'n8n-workflow' &&
+					importDeclaration.source.value === 'resin-workflow' &&
 					node.imported.type === AST_NODE_TYPES.Identifier &&
 					isDeprecatedTypeName(node.imported.name)
 				) {

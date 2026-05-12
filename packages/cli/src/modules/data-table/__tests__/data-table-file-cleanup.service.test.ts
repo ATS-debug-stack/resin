@@ -1,5 +1,5 @@
-import type { GlobalConfig } from '@n8n/config';
-import type { InstanceSettings } from 'n8n-core';
+import type { GlobalConfig } from '@resin/config';
+import type { InstanceSettings } from 'resin-core';
 import { promises as fs } from 'fs';
 import path from 'path';
 

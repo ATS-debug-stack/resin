@@ -1,8 +1,8 @@
-import type { BreakingChangeWorkflowRuleResult } from '@n8n/api-types';
-import { mockLogger } from '@n8n/backend-test-utils';
-import type { WorkflowRepository, WorkflowStatisticsRepository } from '@n8n/db';
+import type { BreakingChangeWorkflowRuleResult } from '@resin/api-types';
+import { mockLogger } from '@resin/backend-test-utils';
+import type { WorkflowRepository, WorkflowStatisticsRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { ErrorReporter } from 'n8n-core';
+import type { ErrorReporter } from 'resin-core';
 
 import type { CacheService } from '@/services/cache/cache.service';
 
@@ -78,11 +78,11 @@ describe('BreakingChangeService', () => {
 		it('should aggregate results from multiple rules', async () => {
 			// Create a workflow that triggers all three rules
 			const { workflow } = createWorkflow('wf-1', 'Complex Workflow', [
-				createNode('Spontit Node', 'n8n-nodes-base.spontit'), // Triggers RemovedNodesRule
-				createNode('Code Node', 'n8n-nodes-base.code', {
+				createNode('Spontit Node', 'resin-nodes-base.spontit'), // Triggers RemovedNodesRule
+				createNode('Code Node', 'resin-nodes-base.code', {
 					code: 'const key = process.env.KEY;', // Triggers ProcessEnvAccessRule
 				}),
-				createNode('File Node', 'n8n-nodes-base.readWriteFile'), // Triggers FileAccessRule
+				createNode('File Node', 'resin-nodes-base.readWriteFile'), // Triggers FileAccessRule
 			]);
 
 			workflowRepository.find.mockResolvedValue([workflow as never]);
@@ -132,13 +132,13 @@ describe('BreakingChangeService', () => {
 
 			// Create a sub-workflow with ExecuteWorkflowTrigger and Wait node
 			const { workflow: subWorkflow } = createWorkflow('sub-wf-1', 'Sub Workflow', [
-				createNode('Execute Workflow Trigger', 'n8n-nodes-base.executeWorkflowTrigger'),
-				createNode('Wait', 'n8n-nodes-base.wait'),
+				createNode('Execute Workflow Trigger', 'resin-nodes-base.executeWorkflowTrigger'),
+				createNode('Wait', 'resin-nodes-base.wait'),
 			]);
 
 			// Create a parent workflow that calls the sub-workflow
 			const { workflow: parentWorkflow } = createWorkflow('parent-wf-1', 'Parent Workflow', [
-				createNode('Execute Workflow', 'n8n-nodes-base.executeWorkflow', {
+				createNode('Execute Workflow', 'resin-nodes-base.executeWorkflow', {
 					source: 'database',
 					workflowId: 'sub-wf-1',
 				}),
@@ -206,7 +206,7 @@ describe('BreakingChangeService', () => {
 
 		it('should return correct report for a known workflow-level rule', async () => {
 			const { workflow } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Spontit Node', 'n8n-nodes-base.spontit'),
+				createNode('Spontit Node', 'resin-nodes-base.spontit'),
 			]);
 
 			workflowRepository.find.mockResolvedValue([workflow as never]);

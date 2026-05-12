@@ -1,6 +1,6 @@
-import { GetQuickConnectApiKeyDto } from '@n8n/api-types';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Body, Post, RestController } from '@n8n/decorators';
+import { GetQuickConnectApiKeyDto } from '@resin/api-types';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Body, Post, RestController } from '@resin/decorators';
 
 import { QuickConnectService } from './quick-connect.service';
 

@@ -7,7 +7,7 @@ const ruleTester = new RuleTester();
 ruleTester.run('no-restricted-imports', NoRestrictedImportsRule, {
 	valid: [
 		{
-			code: 'import { WorkflowExecuteMode } from "n8n-workflow";',
+			code: 'import { WorkflowExecuteMode } from "resin-workflow";',
 		},
 		{
 			code: 'import _ from "lodash";',
@@ -55,7 +55,7 @@ ruleTester.run('no-restricted-imports', NoRestrictedImportsRule, {
 			code: 'require.resolve("../utils");',
 		},
 		{
-			code: 'const workflow = await import("n8n-workflow");',
+			code: 'const workflow = await import("resin-workflow");',
 		},
 		{
 			code: 'import("lodash").then((_) => {});',
@@ -73,10 +73,10 @@ ruleTester.run('no-restricted-imports', NoRestrictedImportsRule, {
 			code: 'require(`./helper`);',
 		},
 		{
-			code: 'require.resolve(`n8n-workflow`);',
+			code: 'require.resolve(`resin-workflow`);',
 		},
 		{
-			code: 'const workflow = await import(`n8n-workflow`);',
+			code: 'const workflow = await import(`resin-workflow`);',
 		},
 	],
 	invalid: [
@@ -128,8 +128,8 @@ ruleTester.run('no-restricted-imports', NoRestrictedImportsRule, {
 			code: `
 import fs from "fs";
 import path from "path";
-import { WorkflowExecuteMode } from "n8n-workflow";
-import { supplyModel } from "@n8n/ai-node-sdk";`,
+import { WorkflowExecuteMode } from "resin-workflow";
+import { supplyModel } from "@resin/ai-node-sdk";`,
 			errors: [
 				{ messageId: 'restrictedImport', data: { modulePath: 'fs' } },
 				{ messageId: 'restrictedImport', data: { modulePath: 'path' } },
@@ -173,7 +173,7 @@ const lodash = require("lodash");`,
 			code: `
 const fs = await import("fs");
 import("axios").then((axios) => {});
-const workflow = await import("n8n-workflow");`,
+const workflow = await import("resin-workflow");`,
 			errors: [
 				{ messageId: 'restrictedDynamicImport', data: { modulePath: 'fs' } },
 				{ messageId: 'restrictedDynamicImport', data: { modulePath: 'axios' } },

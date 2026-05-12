@@ -1,7 +1,7 @@
-import { GlobalConfig, TaskRunnersConfig } from '@n8n/config';
-import { Container, Service } from '@n8n/di';
-import type { RequesterMessage } from '@n8n/task-runner';
-import { ErrorReporter } from 'n8n-core';
+import { GlobalConfig, TaskRunnersConfig } from '@resin/config';
+import { Container, Service } from '@resin/di';
+import type { RequesterMessage } from '@resin/task-runner';
+import { ErrorReporter } from 'resin-core';
 
 import { EventService } from '@/events/event.service';
 import { NodeTypes } from '@/node-types';

@@ -5,9 +5,9 @@ import {
 	type SecretProviderConnection,
 	type ReloadSecretProviderConnectionResponse,
 	type TestSecretProviderConnectionResponse,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { AuthenticatedRequest } from '@n8n/db';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { AuthenticatedRequest } from '@resin/db';
 import {
 	Body,
 	Delete,
@@ -18,7 +18,7 @@ import {
 	Patch,
 	Post,
 	RestController,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import type { NextFunction, Request, Response } from 'express';
 
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';

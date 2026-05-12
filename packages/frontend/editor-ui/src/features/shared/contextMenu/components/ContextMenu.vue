@@ -12,7 +12,7 @@ import {
 	ContextMenuTrigger,
 } from 'reka-ui';
 
-import { N8nIcon, N8nKeyboardShortcut } from '@n8n/design-system';
+import { N8nIcon, N8nKeyboardShortcut } from '@resin/design-system';
 
 const contextMenu = useContextMenu();
 const { position, isOpen, actions } = contextMenu;

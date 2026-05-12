@@ -1,11 +1,18 @@
 <script lang="ts" setup>
 import { onMounted, computed } from 'vue';
-import { N8nButton, N8nHeading, N8nIcon, N8nOption, N8nSelect, N8nText } from '@n8n/design-system';
+import {
+	N8nButton,
+	N8nHeading,
+	N8nIcon,
+	N8nOption,
+	N8nSelect,
+	N8nText,
+} from '@resin/design-system';
 import { ElSwitch } from 'element-plus';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
-import type { InstanceAiPermissions, InstanceAiPermissionMode } from '@n8n/api-types';
-import type { BaseTextKey } from '@n8n/i18n';
+import type { InstanceAiPermissions, InstanceAiPermissionMode } from '@resin/api-types';
+import type { BaseTextKey } from '@resin/i18n';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useInstanceAiSettingsStore } from '../instanceAiSettings.store';
 import ModelSection from '../components/settings/ModelSection.vue';
@@ -74,7 +81,7 @@ function handlePermissionChange(key: keyof InstanceAiPermissions, value: Instanc
 </script>
 
 <template>
-	<div :class="$style.container" data-test-id="n8n-agent-settings">
+	<div :class="$style.container" data-test-id="resin-agent-settings">
 		<header :class="$style.header">
 			<N8nHeading :class="$style.pageTitle" size="xlarge" class="mb-2xs">
 				{{ i18n.baseText('settings.n8nAgent') }}
@@ -103,7 +110,7 @@ function handlePermissionChange(key: keyof InstanceAiPermissions, value: Instanc
 								<ElSwitch
 									:model-value="isEnabled"
 									:disabled="store.isSaving"
-									data-test-id="n8n-agent-enable-toggle"
+									data-test-id="resin-agent-enable-toggle"
 									@update:model-value="handleEnabledToggle"
 								/>
 							</div>
@@ -126,7 +133,7 @@ function handlePermissionChange(key: keyof InstanceAiPermissions, value: Instanc
 						<ElSwitch
 							:model-value="!(store.settings?.localGatewayDisabled ?? false)"
 							:disabled="store.isSaving"
-							data-test-id="n8n-agent-computer-use-toggle"
+							data-test-id="resin-agent-computer-use-toggle"
 							@update:model-value="handleComputerUseToggle"
 						/>
 					</div>

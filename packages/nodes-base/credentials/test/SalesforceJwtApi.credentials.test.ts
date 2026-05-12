@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-import type { IHttpRequestOptions } from 'n8n-workflow';
+import type { IHttpRequestOptions } from 'resin-workflow';
 
 import { SalesforceJwtApi, resolveAuthUrl } from '../SalesforceJwtApi.credentials';
 

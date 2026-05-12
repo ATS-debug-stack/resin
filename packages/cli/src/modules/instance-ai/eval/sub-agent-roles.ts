@@ -1,4 +1,4 @@
-import { BUILDER_AGENT_PROMPT, MAX_STEPS } from '@n8n/instance-ai';
+import { BUILDER_AGENT_PROMPT, MAX_STEPS } from '@resin/instance-ai';
 
 export interface SubAgentRoleConfig {
 	/** System prompt that drives the agent's behavior. */

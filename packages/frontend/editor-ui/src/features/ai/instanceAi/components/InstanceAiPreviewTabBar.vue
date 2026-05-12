@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { N8nIcon, N8nIconButton } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nIcon, N8nIconButton } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import {
 	ContextMenuContent,
 	ContextMenuItem,
@@ -171,7 +171,7 @@ async function handleCopyLink(tab: ArtifactTab) {
 	display: flex;
 	align-items: center;
 	gap: var(--spacing--2xs);
-	/* stylelint-disable-next-line @n8n/css-var-naming -- design-system token */
+	/* stylelint-disable-next-line @resin/css-var-naming -- design-system token */
 	color: var(--text-color--subtle);
 	background-color: transparent;
 	border: none;
@@ -188,7 +188,7 @@ async function handleCopyLink(tab: ArtifactTab) {
 	}
 
 	&[data-state='active'] {
-		/* stylelint-disable-next-line @n8n/css-var-naming -- design-system token */
+		/* stylelint-disable-next-line @resin/css-var-naming -- design-system token */
 		color: var(--text-color);
 	}
 
@@ -215,7 +215,7 @@ async function handleCopyLink(tab: ArtifactTab) {
 .tabsIndicatorBar {
 	width: 100%;
 	height: 100%;
-	/* stylelint-disable-next-line @n8n/css-var-naming -- design-system token */
+	/* stylelint-disable-next-line @resin/css-var-naming -- design-system token */
 	background: var(--text-color);
 }
 

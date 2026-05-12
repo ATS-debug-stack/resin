@@ -28,10 +28,10 @@ subgraph sg2["Jackie, AI Assistant 👩🏻‍🏫"]
 %% n8n-nodes-base.googleCalendarTool:getAll | {"operation":"getAll","calendar":{"__rl":true,"mode":"id","value":"=<insert email here>"},"options":{"timeMin":"={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('After', \`\`, 'string') }}","timeMax":"={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Before', \`\`, 'string') }}","fields":"=items(summary, start(dateTime))"}}
 n1["Google Calendar"]
 %% This node helps your agent remember the last few messages to stay on topic.
-%% @n8n/n8n-nodes-langchain.memoryBufferWindow | {"sessionIdType":"customKey","sessionKey":"={{ $('Listen for incoming events').first().json.message.from.id }}"}
+%% @resin/n8n-nodes-langchain.memoryBufferWindow | {"sessionIdType":"customKey","sessionKey":"={{ $('Listen for incoming events').first().json.message.from.id }}"}
 n2["Window Buffer Memory"]
 %% 1. [In OpenRouter](https://openrouter.ai/settings/keys) click **“Create API key”** and copy it. 2. Open the \`\`\`OpenRouter\`\`\` node: * **Select Credential → Create New** * Paste into **API Key** and **Save**
-%% @n8n/n8n-nodes-langchain.lmChatOpenRouter | {"options":{}}
+%% @resin/n8n-nodes-langchain.lmChatOpenRouter | {"options":{}}
 n9["OpenRouter"]
 %% This node allows your agent create and get tasks from Google Tasks
 subgraph sg3["This node allows your agent create and get tasks from Google Tasks"]
@@ -48,7 +48,7 @@ n3["Get Email"]
 n13["Send Email"]
 end
 %% Caylee, your peronal AI Assistant: 1. Get email 2. Check calendar 3. Get and create to-do tasks Edit the **System Message** to adjust your agent’s thinking, behavior, and replies.
-%% @n8n/n8n-nodes-langchain.agent | {"promptType":"define","text":"={{ $json.text }}","options":{"systemMessage":"=You are a helpful personal assistant called Jackie. \\n\\nToday's date is {{ $today.format('yyyy-MM-dd') }}.\\n\\nGuidelines:\\n- When summarizing emails, include Sender, Message date, subject, and brief summary of email.\\n- if the user did not specify a date in the request assume they are asking for today\\n- When answering questions about calendar events, filter out events that don't apply to the question.  For example, the question is about events for today, only reply with events for today. Don't mention future events if it's more than 1 week away\\n- When creating calendar entry, the attendee email is optional"}}
+%% @resin/n8n-nodes-langchain.agent | {"promptType":"define","text":"={{ $json.text }}","options":{"systemMessage":"=You are a helpful personal assistant called Jackie. \\n\\nToday's date is {{ $today.format('yyyy-MM-dd') }}.\\n\\nGuidelines:\\n- When summarizing emails, include Sender, Message date, subject, and brief summary of email.\\n- if the user did not specify a date in the request assume they are asking for today\\n- When answering questions about calendar events, filter out events that don't apply to the question.  For example, the question is about events for today, only reply with events for today. Don't mention future events if it's more than 1 week away\\n- When creating calendar entry, the attendee email is optional"}}
 n1 -.ai_tool.-> n14["Jackie, AI Assistant 👩🏻‍🏫"]
 n2 -.ai_memory.-> n14
 n9 -.ai_languageModel.-> n14
@@ -59,7 +59,7 @@ n13 -.ai_tool.-> n14
 end
 n4 --> n7
 %% Uses OpenAI to convert voice to text. [In OpenAI](https://platform.openai.com/api-keys) click **“Create new secret key”** and copy it.
-%% @n8n/n8n-nodes-langchain.openAi:audio:transcribe | {"resource":"audio","operation":"transcribe","options":{}}
+%% @resin/n8n-nodes-langchain.openAi:audio:transcribe | {"resource":"audio","operation":"transcribe","options":{}}
 n8 --> n12["Transcribe a recording"]
 %% Send message back to Telegram
 %% n8n-nodes-base.telegram | {"chatId":"={{ $('Listen for incoming events').first().json.message.from.id }}","text":"={{ $json.output }}","additionalFields":{"appendAttribution":false,"parse_mode":"Markdown"}}
@@ -97,10 +97,10 @@ subgraph sg2["Jackie, AI Assistant 👩🏻‍🏫"]
 %% n8n-nodes-base.googleCalendarTool:getAll
 n1["Google Calendar"]
 %% This node helps your agent remember the last few messages to stay on topic.
-%% @n8n/n8n-nodes-langchain.memoryBufferWindow
+%% @resin/n8n-nodes-langchain.memoryBufferWindow
 n2["Window Buffer Memory"]
 %% 1. [In OpenRouter](https://openrouter.ai/settings/keys) click **“Create API key”** and copy it. 2. Open the \`\`\`OpenRouter\`\`\` node: * **Select Credential → Create New** * Paste into **API Key** and **Save**
-%% @n8n/n8n-nodes-langchain.lmChatOpenRouter
+%% @resin/n8n-nodes-langchain.lmChatOpenRouter
 n9["OpenRouter"]
 %% This node allows your agent create and get tasks from Google Tasks
 subgraph sg3["This node allows your agent create and get tasks from Google Tasks"]
@@ -117,7 +117,7 @@ n3["Get Email"]
 n13["Send Email"]
 end
 %% Caylee, your peronal AI Assistant: 1. Get email 2. Check calendar 3. Get and create to-do tasks Edit the **System Message** to adjust your agent’s thinking, behavior, and replies.
-%% @n8n/n8n-nodes-langchain.agent
+%% @resin/n8n-nodes-langchain.agent
 n1 -.ai_tool.-> n14["Jackie, AI Assistant 👩🏻‍🏫"]
 n2 -.ai_memory.-> n14
 n9 -.ai_languageModel.-> n14
@@ -128,7 +128,7 @@ n13 -.ai_tool.-> n14
 end
 n4 --> n7
 %% Uses OpenAI to convert voice to text. [In OpenAI](https://platform.openai.com/api-keys) click **“Create new secret key”** and copy it.
-%% @n8n/n8n-nodes-langchain.openAi:audio:transcribe
+%% @resin/n8n-nodes-langchain.openAi:audio:transcribe
 n8 --> n12["Transcribe a recording"]
 %% Send message back to Telegram
 %% n8n-nodes-base.telegram
@@ -151,7 +151,7 @@ n6 --> n14
 							parameters: { updates: ['message'] },
 							id: 'node1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.telegramTrigger',
+							type: 'resin-nodes-base.telegramTrigger',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -182,7 +182,7 @@ n1["Trigger"]
 							parameters: {},
 							id: 'if1',
 							name: 'If',
-							type: 'n8n-nodes-base.if',
+							type: 'resin-nodes-base.if',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -190,7 +190,7 @@ n1["Trigger"]
 							parameters: {},
 							id: 'node1',
 							name: 'True Branch',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							position: [100, 0],
 							typeVersion: 1,
 						},
@@ -198,7 +198,7 @@ n1["Trigger"]
 							parameters: {},
 							id: 'node2',
 							name: 'False Branch',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							position: [100, 100],
 							typeVersion: 1,
 						},
@@ -206,7 +206,7 @@ n1["Trigger"]
 							parameters: {},
 							id: 'node3',
 							name: 'Send Success Email',
-							type: 'n8n-nodes-base.emailSend',
+							type: 'resin-nodes-base.emailSend',
 							position: [200, 0],
 							typeVersion: 1,
 						},
@@ -214,7 +214,7 @@ n1["Trigger"]
 							parameters: {},
 							id: 'node4',
 							name: 'Send Failure Email',
-							type: 'n8n-nodes-base.emailSend',
+							type: 'resin-nodes-base.emailSend',
 							position: [200, 100],
 							typeVersion: 1,
 						},
@@ -269,7 +269,7 @@ n3 --> n5["Send Failure Email"]
 							parameters: {},
 							id: 'trigger1',
 							name: 'Start',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -282,7 +282,7 @@ n3 --> n5["Send Failure Email"]
 							},
 							id: 'if1',
 							name: 'If',
-							type: 'n8n-nodes-base.if',
+							type: 'resin-nodes-base.if',
 							position: [200, 0],
 							typeVersion: 2.3,
 						},
@@ -292,7 +292,7 @@ n3 --> n5["Send Failure Email"]
 							},
 							id: 'switch1',
 							name: 'Switch',
-							type: 'n8n-nodes-base.switch',
+							type: 'resin-nodes-base.switch',
 							position: [400, -100],
 							typeVersion: 3.4,
 						},
@@ -304,7 +304,7 @@ n3 --> n5["Send Failure Email"]
 							},
 							id: 'filter1',
 							name: 'Filter',
-							type: 'n8n-nodes-base.filter',
+							type: 'resin-nodes-base.filter',
 							position: [600, -100],
 							typeVersion: 2.3,
 						},
@@ -312,7 +312,7 @@ n3 --> n5["Send Failure Email"]
 							parameters: {},
 							id: 'end1',
 							name: 'End',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							position: [800, 0],
 							typeVersion: 1,
 						},
@@ -375,7 +375,7 @@ n4 --> n5["End"]
 							},
 							id: 'node1',
 							name: 'Download File',
-							type: 'n8n-nodes-base.googleDrive',
+							type: 'resin-nodes-base.googleDrive',
 							position: [0, 0],
 							typeVersion: 3,
 						},
@@ -386,7 +386,7 @@ n4 --> n5["End"]
 							},
 							id: 'node2',
 							name: 'Get Rows',
-							type: 'n8n-nodes-base.googleSheets',
+							type: 'resin-nodes-base.googleSheets',
 							position: [200, 0],
 							typeVersion: 4,
 						},
@@ -396,7 +396,7 @@ n4 --> n5["End"]
 							},
 							id: 'node3',
 							name: 'Get Contact',
-							type: 'n8n-nodes-base.hubspot',
+							type: 'resin-nodes-base.hubspot',
 							position: [400, 0],
 							typeVersion: 2,
 						},
@@ -406,7 +406,7 @@ n4 --> n5["End"]
 							},
 							id: 'node4',
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							position: [600, 0],
 							typeVersion: 4,
 						},
@@ -446,7 +446,7 @@ n4["HTTP Request"]
 							parameters: {},
 							id: 'node1',
 							name: 'Empty Node',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -477,7 +477,7 @@ n1["Empty Node"]
 							parameters: {},
 							id: 'node1',
 							name: 'Start',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -485,7 +485,7 @@ n1["Empty Node"]
 							parameters: { content: 'This is a note', width: 100, height: 80 },
 							id: 'sticky1',
 							name: 'Sticky Note',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							position: [500, 500],
 							typeVersion: 1,
 						},
@@ -520,7 +520,7 @@ n1["Start"]
 							parameters: {},
 							id: 'node1',
 							name: 'Start',
-							type: 'n8n-nodes-base.start',
+							type: 'resin-nodes-base.start',
 							position: [100, 100],
 							typeVersion: 1,
 						},
@@ -528,7 +528,7 @@ n1["Start"]
 							parameters: {},
 							id: 'node2',
 							name: 'End',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							position: [400, 100],
 							typeVersion: 1,
 						},
@@ -536,7 +536,7 @@ n1["Start"]
 							parameters: { content: 'This triggers the workflow', width: 200, height: 200 },
 							id: 'sticky1',
 							name: 'Sticky Note',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							position: [50, 50],
 							typeVersion: 1,
 						},
@@ -579,7 +579,7 @@ n1 --> n2["End"]
 							parameters: {
 								conditions: { conditions: [] },
 							},
-							type: 'n8n-nodes-base.if',
+							type: 'resin-nodes-base.if',
 							typeVersion: 2.3,
 							position: [208, 0],
 							id: '7a6a98ee-564e-4200-b26b-b5548ccfb571',
@@ -589,7 +589,7 @@ n1 --> n2["End"]
 							parameters: {
 								rules: { values: [] },
 							},
-							type: 'n8n-nodes-base.switch',
+							type: 'resin-nodes-base.switch',
 							typeVersion: 3.4,
 							position: [416, -96],
 							id: '57dd331c-0d3d-427c-96c8-7ffa10224fa1',
@@ -599,7 +599,7 @@ n1 --> n2["End"]
 							parameters: {
 								conditions: { conditions: [] },
 							},
-							type: 'n8n-nodes-base.filter',
+							type: 'resin-nodes-base.filter',
 							typeVersion: 2.3,
 							position: [624, -96],
 							id: '2f37e366-a7b6-4022-b6fa-2231aae5c308',
@@ -611,7 +611,7 @@ n1 --> n2["End"]
 								height: 416,
 								width: 400,
 							},
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [144, -208],
 							id: '55473414-5980-4e0b-ada4-d5e10ee8f08b',
@@ -663,7 +663,7 @@ n2 --> n3{"Filter"}
 							parameters: {},
 							id: 'node1',
 							name: 'Start',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -671,7 +671,7 @@ n2 --> n3{"Filter"}
 							parameters: { content: '', width: 200, height: 200 },
 							id: 'sticky1',
 							name: 'Sticky Note',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -705,7 +705,7 @@ n1["Start"]
 							parameters: {},
 							id: 'trigger1',
 							name: 'Start',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -713,7 +713,7 @@ n1["Start"]
 							parameters: {},
 							id: 'model1',
 							name: 'OpenAI Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							position: [100, 100],
 							typeVersion: 1,
 						},
@@ -721,7 +721,7 @@ n1["Start"]
 							parameters: {},
 							id: 'agent1',
 							name: 'AI Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							position: [300, 0],
 							typeVersion: 1,
 						},
@@ -761,7 +761,7 @@ n1["Start"]
 							parameters: {},
 							id: 'model1',
 							name: 'Chat Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							position: [0, 100],
 							typeVersion: 1,
 						},
@@ -769,7 +769,7 @@ n1["Start"]
 							parameters: {},
 							id: 'agent1',
 							name: 'Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							position: [200, 0],
 							typeVersion: 1,
 						},
@@ -811,7 +811,7 @@ n1["Start"]
 							parameters: { text: 'hello' },
 							id: 'node1',
 							name: 'Set Data',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -827,7 +827,7 @@ n1["Start"]
 			});
 
 			// Should NOT contain node type comment
-			expect(result).not.toContain('n8n-nodes-base.set');
+			expect(result).not.toContain('resin-nodes-base.set');
 			// Should still contain node name
 			expect(result).toContain('Set Data');
 			// Should contain parameters since includeNodeParameters is true
@@ -845,7 +845,7 @@ n1["Start"]
 							parameters: { text: 'hello' },
 							id: 'abc-123-def-456',
 							name: 'Set Data',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -853,7 +853,7 @@ n1["Start"]
 							parameters: {},
 							id: 'xyz-789-uvw-012',
 							name: 'NoOp',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							position: [200, 0],
 							typeVersion: 1,
 						},
@@ -874,8 +874,8 @@ n1["Start"]
 			expect(result).toContain('[abc-123-def-456]');
 			expect(result).toContain('[xyz-789-uvw-012]');
 			// Should still contain node type
-			expect(result).toContain('n8n-nodes-base.set');
-			expect(result).toContain('n8n-nodes-base.noOp');
+			expect(result).toContain('resin-nodes-base.set');
+			expect(result).toContain('resin-nodes-base.noOp');
 		});
 
 		it('should exclude node ID from comments when includeNodeId is false', () => {
@@ -889,7 +889,7 @@ n1["Start"]
 							parameters: { text: 'hello' },
 							id: 'abc-123-def-456',
 							name: 'Set Data',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -903,7 +903,7 @@ n1["Start"]
 			// Should NOT contain node ID
 			expect(result).not.toContain('[abc-123-def-456]');
 			// Should still contain node type
-			expect(result).toContain('n8n-nodes-base.set');
+			expect(result).toContain('resin-nodes-base.set');
 		});
 
 		it('should include node ID even when includeNodeType and includeNodeParameters are false', () => {
@@ -917,7 +917,7 @@ n1["Start"]
 							parameters: { text: 'hello' },
 							id: 'abc-123-def-456',
 							name: 'Set Data',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -935,7 +935,7 @@ n1["Start"]
 			// Should contain node ID in brackets
 			expect(result).toContain('[abc-123-def-456]');
 			// Should NOT contain node type
-			expect(result).not.toContain('n8n-nodes-base.set');
+			expect(result).not.toContain('resin-nodes-base.set');
 			// Should NOT contain parameters
 			expect(result).not.toContain('text');
 		});
@@ -951,7 +951,7 @@ n1["Start"]
 							parameters: {},
 							id: 'trigger1',
 							name: 'Start',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -959,7 +959,7 @@ n1["Start"]
 							parameters: { batchSize: 10 },
 							id: 'loop1',
 							name: 'Loop Over Items',
-							type: 'n8n-nodes-base.splitInBatches',
+							type: 'resin-nodes-base.splitInBatches',
 							position: [200, 0],
 							typeVersion: 3,
 						},
@@ -967,7 +967,7 @@ n1["Start"]
 							parameters: {},
 							id: 'process1',
 							name: 'Process Item',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							position: [400, 0],
 							typeVersion: 1,
 						},
@@ -1015,7 +1015,7 @@ n1["Start"]
 							parameters: {},
 							id: 'trigger1',
 							name: 'Start',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: 'resin-nodes-base.manualTrigger',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -1023,7 +1023,7 @@ n1["Start"]
 							parameters: { promptType: 'define', text: 'Hello' },
 							id: 'agent1',
 							name: 'Lonely Agent',
-							type: '@n8n/n8n-nodes-langchain.agent',
+							type: '@resin/n8n-nodes-langchain.agent',
 							position: [200, 0],
 							typeVersion: 1,
 						},
@@ -1062,7 +1062,7 @@ n1["Start"]
 							parameters: {},
 							id: 'trigger1',
 							name: 'Trigger',
-							type: 'n8n-nodes-base.scheduleTrigger',
+							type: 'resin-nodes-base.scheduleTrigger',
 							position: [100, 100],
 							typeVersion: 1,
 						},
@@ -1070,7 +1070,7 @@ n1["Start"]
 							parameters: {},
 							id: 'node1',
 							name: 'Set Data',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							position: [300, 100],
 							typeVersion: 1,
 						},
@@ -1078,7 +1078,7 @@ n1["Start"]
 							parameters: {},
 							id: 'node2',
 							name: 'Process',
-							type: 'n8n-nodes-base.code',
+							type: 'resin-nodes-base.code',
 							position: [600, 100],
 							typeVersion: 1,
 						},
@@ -1086,7 +1086,7 @@ n1["Start"]
 							parameters: {},
 							id: 'node3',
 							name: 'Send Email',
-							type: 'n8n-nodes-base.gmail',
+							type: 'resin-nodes-base.gmail',
 							position: [800, 100],
 							typeVersion: 1,
 						},
@@ -1095,7 +1095,7 @@ n1["Start"]
 							parameters: { content: '## Input Section', width: 350, height: 200 },
 							id: 'sticky1',
 							name: 'Sticky Note 1',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							position: [50, 50],
 							typeVersion: 1,
 						},
@@ -1104,7 +1104,7 @@ n1["Start"]
 							parameters: { content: '## Output Section', width: 350, height: 200 },
 							id: 'sticky2',
 							name: 'Sticky Note 2',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							position: [550, 50],
 							typeVersion: 1,
 						},
@@ -1157,7 +1157,7 @@ n1["Start"]
 							parameters: { updates: ['message'] },
 							id: 'node1',
 							name: 'Telegram Trigger',
-							type: 'n8n-nodes-base.telegramTrigger',
+							type: 'resin-nodes-base.telegramTrigger',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -1165,7 +1165,7 @@ n1["Start"]
 							parameters: { chatId: '123', text: 'Hello' },
 							id: 'node2',
 							name: 'Send Message',
-							type: 'n8n-nodes-base.telegram',
+							type: 'resin-nodes-base.telegram',
 							position: [200, 0],
 							typeVersion: 1,
 						},
@@ -1189,7 +1189,7 @@ n1["Start"]
 							parameters: { chatId: '456', text: 'World' },
 							id: 'node3',
 							name: 'Another Telegram',
-							type: 'n8n-nodes-base.telegram',
+							type: 'resin-nodes-base.telegram',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -1197,7 +1197,7 @@ n1["Start"]
 							parameters: { operation: 'getAll' },
 							id: 'node4',
 							name: 'Gmail',
-							type: 'n8n-nodes-base.gmail',
+							type: 'resin-nodes-base.gmail',
 							position: [200, 0],
 							typeVersion: 1,
 						},
@@ -1215,33 +1215,33 @@ n1["Start"]
 
 			// Each result should have mermaid string
 			expect(results[0].mermaid).toContain('```mermaid');
-			expect(results[0].mermaid).toContain('n8n-nodes-base.telegramTrigger');
-			expect(results[1].mermaid).toContain('n8n-nodes-base.gmail');
+			expect(results[0].mermaid).toContain('resin-nodes-base.telegramTrigger');
+			expect(results[1].mermaid).toContain('resin-nodes-base.gmail');
 
 			// Node configurations should be accumulated across all workflows
 			const nodeConfigs = results[1].nodeConfigurations;
 
 			// Should have telegram trigger config from workflow1 with version info
-			expect(nodeConfigs['n8n-nodes-base.telegramTrigger']).toHaveLength(1);
-			expect(nodeConfigs['n8n-nodes-base.telegramTrigger'][0]).toEqual({
+			expect(nodeConfigs['resin-nodes-base.telegramTrigger']).toHaveLength(1);
+			expect(nodeConfigs['resin-nodes-base.telegramTrigger'][0]).toEqual({
 				version: 1,
 				parameters: { updates: ['message'] },
 			});
 
 			// Should have both telegram configs (from workflow1 and workflow2) with version info
-			expect(nodeConfigs['n8n-nodes-base.telegram']).toHaveLength(2);
-			expect(nodeConfigs['n8n-nodes-base.telegram']).toContainEqual({
+			expect(nodeConfigs['resin-nodes-base.telegram']).toHaveLength(2);
+			expect(nodeConfigs['resin-nodes-base.telegram']).toContainEqual({
 				version: 1,
 				parameters: { chatId: '123', text: 'Hello' },
 			});
-			expect(nodeConfigs['n8n-nodes-base.telegram']).toContainEqual({
+			expect(nodeConfigs['resin-nodes-base.telegram']).toContainEqual({
 				version: 1,
 				parameters: { chatId: '456', text: 'World' },
 			});
 
 			// Should have gmail config from workflow2 with version info
-			expect(nodeConfigs['n8n-nodes-base.gmail']).toHaveLength(1);
-			expect(nodeConfigs['n8n-nodes-base.gmail'][0]).toEqual({
+			expect(nodeConfigs['resin-nodes-base.gmail']).toHaveLength(1);
+			expect(nodeConfigs['resin-nodes-base.gmail'][0]).toEqual({
 				version: 1,
 				parameters: { operation: 'getAll' },
 			});
@@ -1264,7 +1264,7 @@ n1["Start"]
 							parameters: {},
 							id: 'node1',
 							name: 'Empty Node',
-							type: 'n8n-nodes-base.noOp',
+							type: 'resin-nodes-base.noOp',
 							position: [0, 0],
 							typeVersion: 1,
 						},
@@ -1272,7 +1272,7 @@ n1["Start"]
 							parameters: { value: 'test' },
 							id: 'node2',
 							name: 'Set Node',
-							type: 'n8n-nodes-base.set',
+							type: 'resin-nodes-base.set',
 							position: [200, 0],
 							typeVersion: 1,
 						},
@@ -1285,11 +1285,11 @@ n1["Start"]
 			const nodeConfigs = results[0].nodeConfigurations;
 
 			// Should not have noOp since it has empty parameters
-			expect(nodeConfigs['n8n-nodes-base.noOp']).toBeUndefined();
+			expect(nodeConfigs['resin-nodes-base.noOp']).toBeUndefined();
 
 			// Should have set node config with version info
-			expect(nodeConfigs['n8n-nodes-base.set']).toHaveLength(1);
-			expect(nodeConfigs['n8n-nodes-base.set'][0]).toEqual({
+			expect(nodeConfigs['resin-nodes-base.set']).toHaveLength(1);
+			expect(nodeConfigs['resin-nodes-base.set'][0]).toEqual({
 				version: 1,
 				parameters: { value: 'test' },
 			});

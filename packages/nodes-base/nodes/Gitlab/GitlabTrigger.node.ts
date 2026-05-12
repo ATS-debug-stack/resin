@@ -6,8 +6,8 @@ import type {
 	INodeTypeDescription,
 	IWebhookResponseData,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeApiError } from 'resin-workflow';
 
 import { gitlabApiRequest } from './GenericFunctions';
 import { generateWebhookSecret, verifySignature } from './GitlabTriggerHelpers';
@@ -144,7 +144,7 @@ export class GitlabTrigger implements INodeType {
 				type: 'string',
 				default: '',
 				required: true,
-				placeholder: 'n8n-io',
+				placeholder: 'resin-io',
 				description: 'Owner of the repository',
 			},
 			{

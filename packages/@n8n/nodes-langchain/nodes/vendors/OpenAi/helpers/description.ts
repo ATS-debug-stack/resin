@@ -1,4 +1,4 @@
-import type { INodeInputConfiguration } from 'n8n-workflow';
+import type { INodeInputConfiguration } from 'resin-workflow';
 
 export const prettifyOperation = (resource: string, operation: string) => {
 	if (operation === 'deleteAssistant') {

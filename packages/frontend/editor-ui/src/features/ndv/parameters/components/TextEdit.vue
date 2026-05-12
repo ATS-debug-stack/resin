@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, nextTick } from 'vue';
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 import { APP_MODALS_ELEMENT_ID } from '@/app/constants';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { storeToRefs } from 'pinia';
 
 import { ElDialog } from 'element-plus';
-import { N8nInput, N8nInputLabel } from '@n8n/design-system';
+import { N8nInput, N8nInputLabel } from '@resin/design-system';
 const props = defineProps<{
 	dialogVisible: boolean;
 	parameter: INodeProperties;

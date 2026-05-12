@@ -1,6 +1,6 @@
-import { ListDataTableQueryDto } from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Get, GlobalScope, Query, RestController } from '@n8n/decorators';
+import { ListDataTableQueryDto } from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
+import { Get, GlobalScope, Query, RestController } from '@resin/decorators';
 
 import { DataTableAggregateService } from './data-table-aggregate.service';
 import { DataTableService } from './data-table.service';

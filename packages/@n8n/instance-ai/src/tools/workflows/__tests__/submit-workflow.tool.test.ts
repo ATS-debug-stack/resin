@@ -1,7 +1,7 @@
 import type { Workspace } from '@mastra/core/workspace';
-import { validateWorkflow } from '@n8n/workflow-sdk';
+import { validateWorkflow } from '@resin/workflow-sdk';
 import { mock } from 'jest-mock-extended';
-import type { INodeTypes } from 'n8n-workflow';
+import type { INodeTypes } from 'resin-workflow';
 
 import type { InstanceAiContext, InstanceAiTraceRun } from '../../../types';
 import {
@@ -15,7 +15,7 @@ jest.mock('@mastra/core/tools', () => ({
 }));
 
 jest.mock(
-	'@n8n/utils',
+	'@resin/utils',
 	() => ({
 		hasPlaceholderDeep: jest.fn(() => false),
 	}),
@@ -23,7 +23,7 @@ jest.mock(
 );
 
 jest.mock(
-	'@n8n/workflow-sdk',
+	'@resin/workflow-sdk',
 	() => ({
 		validateWorkflow: jest.fn(() => ({ errors: [], warnings: [] })),
 	}),
@@ -158,29 +158,32 @@ describe('createSubmitWorkflowTool — schema validation wiring', () => {
 
 describe('isTriggerNodeType', () => {
 	it.each([
-		'n8n-nodes-base.webhook',
-		'n8n-nodes-base.formTrigger',
-		'n8n-nodes-base.scheduleTrigger',
-		'@n8n/n8n-nodes-langchain.chatTrigger',
+		'resin-nodes-base.webhook',
+		'resin-nodes-base.formTrigger',
+		'resin-nodes-base.scheduleTrigger',
+		'@resin/n8n-nodes-langchain.chatTrigger',
 	])('recognises known-mockable type %s', (type) => {
 		expect(isTriggerNodeType(type)).toBe(true);
 	});
 
 	it.each([
-		'n8n-nodes-base.emailReadImapTrigger',
-		'@n8n/n8n-nodes-langchain.mcpTrigger',
-		'n8n-nodes-base.manualTrigger',
+		'resin-nodes-base.emailReadImapTrigger',
+		'@resin/n8n-nodes-langchain.mcpTrigger',
+		'resin-nodes-base.manualTrigger',
 		'customNamespace.someCustomtrigger',
 	])('recognises suffix-matched trigger type %s', (type) => {
 		expect(isTriggerNodeType(type)).toBe(true);
 	});
 
-	it.each(['n8n-nodes-base.slack', 'n8n-nodes-base.code', 'n8n-nodes-base.set', undefined, ''])(
-		'returns false for non-trigger %s',
-		(type) => {
-			expect(isTriggerNodeType(type)).toBe(false);
-		},
-	);
+	it.each([
+		'resin-nodes-base.slack',
+		'resin-nodes-base.code',
+		'resin-nodes-base.set',
+		undefined,
+		'',
+	])('returns false for non-trigger %s', (type) => {
+		expect(isTriggerNodeType(type)).toBe(false);
+	});
 });
 
 describe('createSubmitWorkflowTool — permission enforcement', () => {
@@ -243,7 +246,7 @@ describe('createSubmitWorkflowTool — credential verification metadata', () => 
 					{
 						id: '1',
 						name: 'Slack',
-						type: 'n8n-nodes-base.slack',
+						type: 'resin-nodes-base.slack',
 						typeVersion: 2,
 						position: [0, 0],
 						parameters: {},
@@ -348,7 +351,7 @@ describe('createSubmitWorkflowTool — credential verification metadata', () => 
 					{
 						id: '1',
 						name: 'Run Chunk',
-						type: 'n8n-nodes-base.executeWorkflow',
+						type: 'resin-nodes-base.executeWorkflow',
 						typeVersion: 1.2,
 						position: [0, 0],
 						parameters: {

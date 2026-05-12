@@ -1,4 +1,4 @@
-import type { ICredentialDataDecryptedObject, IWebhookFunctions } from 'n8n-workflow';
+import type { ICredentialDataDecryptedObject, IWebhookFunctions } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import { ChatTriggerAuthorizationError } from '../error';
@@ -106,7 +106,7 @@ describe('validateAuth', () => {
 		it('should throw 401 when cookie has a fake/invalid token', async () => {
 			mockContext.getWebhookName.mockReturnValue('default');
 			mockContext.getHeaderData.mockReturnValue({
-				cookie: 'n8n-auth=anything',
+				cookie: 'resin-auth=anything',
 			});
 			mockContext.validateCookieAuth.mockRejectedValue(new Error('Unauthorized'));
 
@@ -120,7 +120,7 @@ describe('validateAuth', () => {
 		it('should throw 401 when validateCookieAuth rejects (revoked token)', async () => {
 			mockContext.getWebhookName.mockReturnValue('default');
 			mockContext.getHeaderData.mockReturnValue({
-				cookie: 'n8n-auth=some.revoked.token',
+				cookie: 'resin-auth=some.revoked.token',
 			});
 			mockContext.validateCookieAuth.mockRejectedValue(new Error('Unauthorized'));
 
@@ -134,7 +134,7 @@ describe('validateAuth', () => {
 		it('should pass with a valid token', async () => {
 			mockContext.getWebhookName.mockReturnValue('default');
 			mockContext.getHeaderData.mockReturnValue({
-				cookie: 'n8n-auth=valid.jwt.token',
+				cookie: 'resin-auth=valid.jwt.token',
 			});
 			mockContext.validateCookieAuth.mockResolvedValue(undefined);
 

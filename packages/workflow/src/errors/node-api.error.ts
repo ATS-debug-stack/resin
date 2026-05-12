@@ -5,7 +5,7 @@ import { parseString } from 'xml2js';
 
 import { removeCircularRefs, sanitizeXmlName } from '../utils';
 import { NodeError } from './abstract/node.error';
-import type { ErrorLevel } from '@n8n/errors';
+import type { ErrorLevel } from '@resin/errors';
 import {
 	NO_OP_NODE_TYPE,
 	UNKNOWN_ERROR_DESCRIPTION,

@@ -9,7 +9,7 @@ import {
 	VIEWS,
 	WORKFLOW_SHARE_MODAL_KEY,
 } from '@/app/constants';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { setActivePinia } from 'pinia';
 import { createTestingPinia } from '@pinia/testing';
 import userEvent from '@testing-library/user-event';

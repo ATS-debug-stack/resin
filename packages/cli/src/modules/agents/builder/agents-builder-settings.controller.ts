@@ -2,9 +2,9 @@ import {
 	AgentBuilderAdminSettingsUpdateDto,
 	type AgentBuilderAdminSettingsResponse,
 	type AgentBuilderStatusResponse,
-} from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Get, GlobalScope, Patch, RestController } from '@n8n/decorators';
+} from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
+import { Get, GlobalScope, Patch, RestController } from '@resin/decorators';
 import type { Response } from 'express';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

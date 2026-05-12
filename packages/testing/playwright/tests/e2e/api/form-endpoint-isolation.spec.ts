@@ -1,4 +1,4 @@
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { IWorkflowBase } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
 import { test, expect } from '../../../fixtures/base';
@@ -47,7 +47,7 @@ test.describe(
 							},
 							options: {},
 						},
-						type: 'n8n-nodes-base.formTrigger',
+						type: 'resin-nodes-base.formTrigger',
 						typeVersion: 2.5,
 						position: [0, 0],
 						id: nanoid(),
@@ -86,7 +86,7 @@ test.describe(
 							path: webhookPath,
 							options: {},
 						},
-						type: 'n8n-nodes-base.webhook',
+						type: 'resin-nodes-base.webhook',
 						typeVersion: 2,
 						position: [0, 0],
 						id: nanoid(),

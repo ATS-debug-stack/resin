@@ -26,15 +26,15 @@ import {
 	getStatusTheme,
 } from '../sourceControl.utils';
 import type { SourceControlTreeRow } from '../sourceControl.types';
-import type { SourceControlledFile, SourceControlledFileStatus } from '@n8n/api-types';
+import type { SourceControlledFile, SourceControlledFileStatus } from '@resin/api-types';
 import {
 	ROLE,
 	SOURCE_CONTROL_FILE_LOCATION,
 	SOURCE_CONTROL_FILE_STATUS,
 	SOURCE_CONTROL_FILE_TYPE,
-} from '@n8n/api-types';
-import { useI18n } from '@n8n/i18n';
-import type { EventBus } from '@n8n/utils/event-bus';
+} from '@resin/api-types';
+import { useI18n } from '@resin/i18n';
+import type { EventBus } from '@resin/utils/event-bus';
 import { refDebounced, useStorage } from '@vueuse/core';
 import { computed, onBeforeMount, onMounted, reactive, ref, toRaw, watch, watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
@@ -61,7 +61,7 @@ import {
 	N8nSelect,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 const props = defineProps<{
 	data: { eventBus: EventBus; status?: SourceControlledFile[] };
 }>();

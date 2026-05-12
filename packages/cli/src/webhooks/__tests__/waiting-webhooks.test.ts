@@ -1,10 +1,10 @@
-import type { IExecutionResponse, ExecutionRepository } from '@n8n/db';
+import type { IExecutionResponse, ExecutionRepository } from '@resin/db';
 import type express from 'express';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
-import { WAITING_TOKEN_QUERY_PARAM } from 'n8n-core';
-import type { IWorkflowBase, Workflow } from 'n8n-workflow';
-import { SEND_AND_WAIT_OPERATION } from 'n8n-workflow';
+import type { InstanceSettings } from 'resin-core';
+import { WAITING_TOKEN_QUERY_PARAM } from 'resin-core';
+import type { IWorkflowBase, Workflow } from 'resin-workflow';
+import { SEND_AND_WAIT_OPERATION } from 'resin-workflow';
 
 import { ConflictError } from '@/errors/response-errors/conflict.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
@@ -264,7 +264,7 @@ describe('WaitingWebhooks', () => {
 						{
 							id: nodeId,
 							name: 'SendAndWaitNode',
-							type: 'n8n-nodes-base.sendAndWait',
+							type: 'resin-nodes-base.sendAndWait',
 							parameters: { operation: SEND_AND_WAIT_OPERATION },
 							typeVersion: 1,
 							position: [0, 0],
@@ -324,7 +324,7 @@ describe('WaitingWebhooks', () => {
 						{
 							id: 'wait-node-id',
 							name: 'WaitNode',
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							parameters: { operation: 'webhook' },
 							typeVersion: 1,
 							position: [0, 0],
@@ -468,7 +468,7 @@ describe('WaitingWebhooks', () => {
 							{
 								node: {
 									name: lastNodeExecuted,
-									type: '@n8n/n8n-nodes-langchain.someHitlTool',
+									type: '@resin/n8n-nodes-langchain.someHitlTool',
 									typeVersion: 1,
 									parameters: {},
 									id: 'node-id',
@@ -500,7 +500,7 @@ describe('WaitingWebhooks', () => {
 					nodes: [
 						{
 							name: lastNodeExecuted,
-							type: '@n8n/n8n-nodes-langchain.someHitlTool',
+							type: '@resin/n8n-nodes-langchain.someHitlTool',
 							typeVersion: 1,
 							parameters: {},
 							id: 'node-id',
@@ -597,7 +597,7 @@ describe('WaitingWebhooks', () => {
 							{
 								node: {
 									name: lastNodeExecuted,
-									type: 'n8n-nodes-base.wait',
+									type: 'resin-nodes-base.wait',
 									typeVersion: 1,
 									parameters: {},
 									id: 'node-id',
@@ -630,7 +630,7 @@ describe('WaitingWebhooks', () => {
 					nodes: [
 						{
 							name: lastNodeExecuted,
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1,
 							parameters: {},
 							id: 'node-id',
@@ -734,7 +734,7 @@ describe('WaitingWebhooks', () => {
 							{
 								node: {
 									name: lastNodeExecuted,
-									type: '@n8n/n8n-nodes-langchain.someHitlTool',
+									type: '@resin/n8n-nodes-langchain.someHitlTool',
 									typeVersion: 1,
 									parameters: {},
 									id: 'node-id',
@@ -767,7 +767,7 @@ describe('WaitingWebhooks', () => {
 					nodes: [
 						{
 							name: lastNodeExecuted,
-							type: '@n8n/n8n-nodes-langchain.someHitlTool',
+							type: '@resin/n8n-nodes-langchain.someHitlTool',
 							typeVersion: 1,
 							parameters: {},
 							id: 'node-id',
@@ -871,7 +871,7 @@ describe('WaitingWebhooks', () => {
 							{
 								node: {
 									name: lastNodeExecuted,
-									type: 'n8n-nodes-base.wait',
+									type: 'resin-nodes-base.wait',
 									typeVersion: 1,
 									parameters: {},
 									id: 'node-id',
@@ -904,7 +904,7 @@ describe('WaitingWebhooks', () => {
 					nodes: [
 						{
 							name: lastNodeExecuted,
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1,
 							parameters: {},
 							id: 'node-id',
@@ -1003,7 +1003,7 @@ describe('WaitingWebhooks', () => {
 							{
 								node: {
 									name: lastNodeExecuted,
-									type: 'n8n-nodes-base.wait',
+									type: 'resin-nodes-base.wait',
 									typeVersion: 1,
 									parameters: {},
 									id: 'node-id',
@@ -1036,7 +1036,7 @@ describe('WaitingWebhooks', () => {
 					nodes: [
 						{
 							name: lastNodeExecuted,
-							type: 'n8n-nodes-base.wait',
+							type: 'resin-nodes-base.wait',
 							typeVersion: 1,
 							parameters: {},
 							id: 'node-id',
@@ -1195,7 +1195,7 @@ describe('WaitingWebhooks', () => {
 			jest.spyOn(WorkflowExecuteAdditionalData, 'getBase').mockResolvedValue({} as any);
 			executionRepository.findSingleExecution.mockResolvedValue(
 				createMockExecution({
-					nodeType: 'n8n-nodes-base.wait',
+					nodeType: 'resin-nodes-base.wait',
 					nodeName: 'WaitNode',
 					nodeId: 'node-id',
 				}),
@@ -1258,7 +1258,7 @@ describe('WaitingWebhooks', () => {
 			const sendAndWaitNodeId = 'send-and-wait-node-id';
 			executionRepository.findSingleExecution.mockResolvedValue(
 				createMockExecution({
-					nodeType: 'n8n-nodes-base.sendAndWait',
+					nodeType: 'resin-nodes-base.sendAndWait',
 					nodeName: 'SendAndWaitNode',
 					nodeId: sendAndWaitNodeId,
 					nodeParameters: { operation: SEND_AND_WAIT_OPERATION },
@@ -1283,7 +1283,7 @@ describe('WaitingWebhooks', () => {
 			const sendAndWaitNodeId = 'send-and-wait-node-id';
 			executionRepository.findSingleExecution.mockResolvedValue(
 				createMockExecution({
-					nodeType: 'n8n-nodes-base.emailSend',
+					nodeType: 'resin-nodes-base.emailSend',
 					nodeName: 'SendAndWaitNode',
 					nodeId: sendAndWaitNodeId,
 					typeVersion: 2,

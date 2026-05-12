@@ -85,7 +85,7 @@ vi.mock('@/features/credentials/credentials.store', () => ({
 function createNode(overrides: Partial<INodeUi> = {}): INodeUi {
 	return createTestNode({
 		name: 'Test Node',
-		type: 'n8n-nodes-base.httpRequest',
+		type: 'resin-nodes-base.httpRequest',
 		...overrides,
 	}) as INodeUi;
 }
@@ -131,7 +131,7 @@ describe('useBuilderSetupCards', () => {
 		// Manual trigger filtering is now handled upstream by useWorkflowSetupState
 		mockSetupCards.value = [
 			createCard({
-				node: createNode({ type: 'n8n-nodes-base.httpRequest', name: 'HTTP Request' }),
+				node: createNode({ type: 'resin-nodes-base.httpRequest', name: 'HTTP Request' }),
 			}),
 		];
 
@@ -300,7 +300,7 @@ describe('useBuilderSetupCards', () => {
 				node: createNode({
 					name: 'Webhook',
 					id: 'trigger-1',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 				}),
 				isTrigger: true,
 				isComplete: false,

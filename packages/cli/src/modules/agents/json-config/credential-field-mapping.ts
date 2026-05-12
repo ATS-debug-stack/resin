@@ -1,4 +1,4 @@
-import type { ResolvedCredential } from '@n8n/agents';
+import type { ResolvedCredential } from '@resin/agents';
 
 type CredMapper = (raw: ResolvedCredential) => Record<string, unknown>;
 

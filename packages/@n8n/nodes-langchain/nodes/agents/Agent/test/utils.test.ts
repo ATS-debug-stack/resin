@@ -1,7 +1,7 @@
 import type { Tool } from '@langchain/classic/tools';
 import { DynamicStructuredTool } from '@langchain/classic/tools';
-import { NodeOperationError } from 'n8n-workflow';
-import type { INode } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
+import type { INode } from 'resin-workflow';
 import { z } from 'zod';
 
 import type { ZodObjectAny } from '../../../../types/types';
@@ -119,10 +119,10 @@ describe('getInputs', () => {
 				maxConnections: 1,
 				filter: {
 					excludedNodes: [
-						'@n8n/n8n-nodes-langchain.lmCohere',
-						'@n8n/n8n-nodes-langchain.lmOllama',
+						'@resin/n8n-nodes-langchain.lmCohere',
+						'@resin/n8n-nodes-langchain.lmOllama',
 						'n8n/n8n-nodes-langchain.lmOpenAi',
-						'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+						'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 					],
 				},
 			},
@@ -133,10 +133,10 @@ describe('getInputs', () => {
 				maxConnections: 1,
 				filter: {
 					excludedNodes: [
-						'@n8n/n8n-nodes-langchain.lmCohere',
-						'@n8n/n8n-nodes-langchain.lmOllama',
+						'@resin/n8n-nodes-langchain.lmCohere',
+						'@resin/n8n-nodes-langchain.lmOllama',
 						'n8n/n8n-nodes-langchain.lmOpenAi',
-						'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+						'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 					],
 				},
 			},
@@ -168,10 +168,10 @@ describe('getInputs', () => {
 				maxConnections: 1,
 				filter: {
 					excludedNodes: [
-						'@n8n/n8n-nodes-langchain.lmCohere',
-						'@n8n/n8n-nodes-langchain.lmOllama',
+						'@resin/n8n-nodes-langchain.lmCohere',
+						'@resin/n8n-nodes-langchain.lmOllama',
 						'n8n/n8n-nodes-langchain.lmOpenAi',
-						'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+						'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 					],
 				},
 			},
@@ -182,10 +182,10 @@ describe('getInputs', () => {
 				maxConnections: 1,
 				filter: {
 					excludedNodes: [
-						'@n8n/n8n-nodes-langchain.lmCohere',
-						'@n8n/n8n-nodes-langchain.lmOllama',
+						'@resin/n8n-nodes-langchain.lmCohere',
+						'@resin/n8n-nodes-langchain.lmOllama',
 						'n8n/n8n-nodes-langchain.lmOpenAi',
-						'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+						'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 					],
 				},
 			},
@@ -212,10 +212,10 @@ describe('getInputs', () => {
 				maxConnections: 1,
 				filter: {
 					excludedNodes: [
-						'@n8n/n8n-nodes-langchain.lmCohere',
-						'@n8n/n8n-nodes-langchain.lmOllama',
+						'@resin/n8n-nodes-langchain.lmCohere',
+						'@resin/n8n-nodes-langchain.lmOllama',
 						'n8n/n8n-nodes-langchain.lmOpenAi',
-						'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+						'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 					],
 				},
 			},
@@ -256,10 +256,10 @@ describe('getInputs', () => {
 				maxConnections: 1,
 				filter: {
 					excludedNodes: [
-						'@n8n/n8n-nodes-langchain.lmCohere',
-						'@n8n/n8n-nodes-langchain.lmOllama',
+						'@resin/n8n-nodes-langchain.lmCohere',
+						'@resin/n8n-nodes-langchain.lmOllama',
 						'n8n/n8n-nodes-langchain.lmOpenAi',
-						'@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference',
+						'@resin/n8n-nodes-langchain.lmOpenHuggingFaceInference',
 					],
 				},
 			},

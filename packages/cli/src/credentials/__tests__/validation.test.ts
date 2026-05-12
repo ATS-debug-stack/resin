@@ -1,4 +1,4 @@
-import { GLOBAL_OWNER_ROLE, GLOBAL_MEMBER_ROLE, type User } from '@n8n/db';
+import { GLOBAL_OWNER_ROLE, GLOBAL_MEMBER_ROLE, type User } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import {

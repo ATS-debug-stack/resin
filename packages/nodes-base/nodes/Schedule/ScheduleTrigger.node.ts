@@ -1,5 +1,5 @@
-import { ExecutionsConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { ExecutionsConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { sendAt } from 'cron';
 import moment from 'moment-timezone';
 import type {
@@ -8,8 +8,8 @@ import type {
 	INodeTypeDescription,
 	ITriggerResponse,
 	Cron,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 
 import {
 	intervalToRecurrence,

@@ -1,20 +1,20 @@
-import type { EvaluationMetric } from '@n8n/api-types';
-import type { EvaluationConfig } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { EvaluationMetric } from '@resin/api-types';
+import type { EvaluationConfig } from '@resin/db';
+import { Service } from '@resin/di';
 import {
 	EVALUATION_NODE_TYPE,
 	EVALUATION_TRIGGER_NODE_TYPE,
 	NodeConnectionTypes,
 	UserError,
 	deepCopy,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	IConnection,
 	IConnections,
 	INode,
 	INodeParameters,
 	IWorkflowBase,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
 import { isCoercibleBooleanExpression } from '../evaluation-config-validator';

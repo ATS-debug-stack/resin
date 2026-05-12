@@ -1,4 +1,4 @@
-import type { IDisplayOptions, INodeCredentialDescription, INodeProperties } from 'n8n-workflow';
+import type { IDisplayOptions, INodeCredentialDescription, INodeProperties } from 'resin-workflow';
 
 export const transportSelect = ({
 	defaultOption,

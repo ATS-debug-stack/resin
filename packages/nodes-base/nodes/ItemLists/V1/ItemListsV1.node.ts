@@ -5,7 +5,7 @@ import lt from 'lodash/lt';
 import pick from 'lodash/pick';
 import set from 'lodash/set';
 import unset from 'lodash/unset';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type {
 	IDataObject,
 	IExecuteFunctions,
@@ -13,7 +13,7 @@ import type {
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { flattenKeys, shuffleArray, compareItems } from '@utils/utilities';
 

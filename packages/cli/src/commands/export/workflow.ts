@@ -1,9 +1,9 @@
-import type { WorkflowHistory } from '@n8n/db';
-import { WorkflowRepository, WorkflowHistoryRepository } from '@n8n/db';
-import { Command } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import type { WorkflowHistory } from '@resin/db';
+import { WorkflowRepository, WorkflowHistoryRepository } from '@resin/db';
+import { Command } from '@resin/decorators';
+import { Container } from '@resin/di';
 import fs from 'fs';
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 import path from 'path';
 import { z } from 'zod';
 

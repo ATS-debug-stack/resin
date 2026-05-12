@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions } from 'n8n-workflow';
+import type { ILoadOptionsFunctions } from 'resin-workflow';
 
 import * as run from '../../../actions/agent/run.operation';
 import { ERROR_MESSAGES, BASE_URL_V2, AIRTOP_HOOKS_BASE_URL } from '../../../constants';
@@ -72,7 +72,7 @@ const createMockLoadOptionsFunction = (
 			id: '1',
 			name: 'Airtop node',
 			typeVersion: 1,
-			type: 'n8n-nodes-base.airtop',
+			type: 'resin-nodes-base.airtop',
 			position: [10, 10],
 			parameters: {},
 		}),

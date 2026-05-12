@@ -1,10 +1,15 @@
 import { defineStore, getActivePinia } from 'pinia';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { computed, inject, readonly, ref } from 'vue';
 import { createEventHook } from '@vueuse/core';
-import type { ExecutionStatus, IRunData, IRunExecutionData, ITaskStartedData } from 'n8n-workflow';
-import type { PushPayload } from '@n8n/api-types';
-import type { NodeExecuteBefore } from '@n8n/api-types/push/execution';
+import type {
+	ExecutionStatus,
+	IRunData,
+	IRunExecutionData,
+	ITaskStartedData,
+} from 'resin-workflow';
+import type { PushPayload } from '@resin/api-types';
+import type { NodeExecuteBefore } from '@resin/api-types/push/execution';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
 import { ExecutionDataStoreKey } from '@/app/constants/injectionKeys';
 import { getPairedItemsMapping } from '@/app/utils/pairedItemUtils';

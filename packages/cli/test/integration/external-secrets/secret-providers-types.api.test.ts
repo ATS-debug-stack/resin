@@ -1,7 +1,7 @@
-import type { SecretProviderTypeResponse, SecretsProviderType } from '@n8n/api-types';
-import { LicenseState, Logger } from '@n8n/backend-common';
-import { mockInstance, mockLogger, testDb, testModules } from '@n8n/backend-test-utils';
-import { Container } from '@n8n/di';
+import type { SecretProviderTypeResponse, SecretsProviderType } from '@resin/api-types';
+import { LicenseState, Logger } from '@resin/backend-common';
+import { mockInstance, mockLogger, testDb, testModules } from '@resin/backend-test-utils';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import type { Response } from 'superagent';
 

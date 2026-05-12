@@ -11,10 +11,10 @@ import {
 	type SupplyData,
 	type ILoadOptionsFunctions,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { numberInputsProperty, configuredInputs } from './helpers';
-import { N8nLlmTracing } from '@n8n/ai-utilities';
+import { N8nLlmTracing } from '@resin/ai-utilities';
 import { N8nNonEstimatingTracing } from '../llms/N8nNonEstimatingTracing';
 
 interface ModeleSelectionRule {

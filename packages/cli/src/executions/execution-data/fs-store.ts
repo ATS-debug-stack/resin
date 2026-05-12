@@ -1,7 +1,7 @@
-import { assertDir } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { ErrorReporter, StorageConfig } from 'n8n-core';
-import { jsonParse, jsonStringify } from 'n8n-workflow';
+import { assertDir } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { ErrorReporter, StorageConfig } from 'resin-core';
+import { jsonParse, jsonStringify } from 'resin-workflow';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 

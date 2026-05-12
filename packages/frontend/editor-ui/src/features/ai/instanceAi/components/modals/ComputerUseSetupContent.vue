@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import { N8nCallout, N8nHeading, N8nIcon, N8nIconButton, N8nText } from '@n8n/design-system';
-import type { IconName } from '@n8n/design-system';
-import { useI18n, type BaseTextKey } from '@n8n/i18n';
+import { N8nCallout, N8nHeading, N8nIcon, N8nIconButton, N8nText } from '@resin/design-system';
+import type { IconName } from '@resin/design-system';
+import { useI18n, type BaseTextKey } from '@resin/i18n';
 import { useInstanceAiSettingsStore } from '../../instanceAiSettings.store';
 import MacOsIcon from '../../assets/os-icons/macos-icon.svg';
 import WindowsIcon from '../../assets/os-icons/windows-icon.svg';
@@ -44,7 +44,7 @@ const osTabs = [
 	},
 ];
 
-const displayCommand = computed(() => store.setupCommand ?? 'npx @n8n/computer-use');
+const displayCommand = computed(() => store.setupCommand ?? 'npx @resin/computer-use');
 const canCopyCommand = computed(() => store.setupCommand !== null);
 const nowMs = ref(Date.now());
 

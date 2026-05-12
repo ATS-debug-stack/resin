@@ -9,7 +9,7 @@
  */
 
 const SDK_IMPORT =
-	"import { workflow, node, trigger, sticky, placeholder, newCredential, ifElse, switchCase, merge, splitInBatches, nextBatch, languageModel, memory, tool, outputParser, embedding, embeddings, vectorStore, retriever, documentLoader, textSplitter, fromAi, expr } from '@n8n/workflow-sdk';";
+	"import { workflow, node, trigger, sticky, placeholder, newCredential, ifElse, switchCase, merge, splitInBatches, nextBatch, languageModel, memory, tool, outputParser, embedding, embeddings, vectorStore, retriever, documentLoader, textSplitter, fromAi, expr } from '@resin/workflow-sdk';";
 
 /**
  * Concise workflow patterns without positions or sample output.
@@ -21,19 +21,19 @@ ${SDK_IMPORT}
 
 // 1. Define all nodes first
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start' }
 });
 
 const fetchData = node({
-  type: 'n8n-nodes-base.httpRequest',
+  type: 'resin-nodes-base.httpRequest',
   version: 4.3,
   config: { name: 'Fetch Data', parameters: { method: 'GET', url: '...' } }
 });
 
 const processData = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: {
     name: 'Process Data',
@@ -129,7 +129,7 @@ workflow('ingest', 'Ingest Worker')
 \`\`\`javascript
 // "No matches found" deserves a notification
 const search = node({
-  type: 'n8n-nodes-base.httpRequest',
+  type: 'resin-nodes-base.httpRequest',
   version: 4.4,
   config: {
     name: 'Search',
@@ -234,9 +234,9 @@ const combineResults = merge({
 });
 
 // Declare branch nodes
-const branch1 = node({ type: 'n8n-nodes-base.httpRequest', ... });
-const branch2 = node({ type: 'n8n-nodes-base.httpRequest', ... });
-const processResults = node({ type: 'n8n-nodes-base.set', ... });
+const branch1 = node({ type: 'resin-nodes-base.httpRequest', ... });
+const branch2 = node({ type: 'resin-nodes-base.httpRequest', ... });
+const processResults = node({ type: 'resin-nodes-base.set', ... });
 
 // Connect branches to specific merge inputs using .input(n).
 // Indices are 0-based: .input(0) is the FIRST input, .input(1) is the SECOND.
@@ -254,19 +254,19 @@ export default workflow('id', 'name')
 <batch_processing>
 \`\`\`javascript
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start' }
 });
 
 const fetchRecords = node({
-  type: 'n8n-nodes-base.httpRequest',
+  type: 'resin-nodes-base.httpRequest',
   version: 4.3,
   config: { name: 'Fetch Records', parameters: { method: 'GET', url: '...' } }
 });
 
 const finalizeResults = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: {
     name: 'Finalize',
@@ -283,7 +283,7 @@ const finalizeResults = node({
 });
 
 const processRecord = node({
-  type: 'n8n-nodes-base.httpRequest',
+  type: 'resin-nodes-base.httpRequest',
   version: 4.3,
   config: { name: 'Process Record', parameters: { method: 'POST', url: '...' } }
 });
@@ -304,13 +304,13 @@ export default workflow('id', 'name')
 <multiple_triggers>
 \`\`\`javascript
 const webhookTrigger = trigger({
-  type: 'n8n-nodes-base.webhook',
+  type: 'resin-nodes-base.webhook',
   version: 2.1,
   config: { name: 'Webhook' }
 });
 
 const processWebhook = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: {
     name: 'Process Webhook',
@@ -327,13 +327,13 @@ const processWebhook = node({
 });
 
 const scheduleTrigger = trigger({
-  type: 'n8n-nodes-base.scheduleTrigger',
+  type: 'resin-nodes-base.scheduleTrigger',
   version: 1.3,
   config: { name: 'Daily Schedule', parameters: {} }
 });
 
 const processSchedule = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: {
     name: 'Process Schedule',
@@ -365,19 +365,19 @@ export default workflow('id', 'name')
 // Never duplicate chains for "isolation" - it's already guaranteed.
 
 const webhookTrigger = trigger({
-  type: 'n8n-nodes-base.webhook',
+  type: 'resin-nodes-base.webhook',
   version: 2.1,
   config: { name: 'Webhook Trigger' }
 });
 
 const scheduleTrigger = trigger({
-  type: 'n8n-nodes-base.scheduleTrigger',
+  type: 'resin-nodes-base.scheduleTrigger',
   version: 1.3,
   config: { name: 'Daily Schedule' }
 });
 
 const processData = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: {
     name: 'Process Data',
@@ -394,7 +394,7 @@ const processData = node({
 });
 
 const sendNotification = node({
-  type: 'n8n-nodes-base.slack',
+  type: 'resin-nodes-base.slack',
   version: 2.3,
   config: { name: 'Notify Slack', parameters: {} }
 });
@@ -412,19 +412,19 @@ export default workflow('id', 'name')
 <ai_agent_basic>
 \`\`\`javascript
 const openAiModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: { name: 'OpenAI Model', parameters: {} }
 });
 
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start' }
 });
 
 const aiAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'AI Assistant',
@@ -443,7 +443,7 @@ export default workflow('ai-assistant', 'AI Assistant')
 <ai_agent_with_tools>
 \`\`\`javascript
 const openAiModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'OpenAI Model',
@@ -453,19 +453,19 @@ const openAiModel = languageModel({
 });
 
 const calculatorTool = tool({
-  type: '@n8n/n8n-nodes-langchain.toolCalculator',
+  type: '@resin/n8n-nodes-langchain.toolCalculator',
   version: 1,
   config: { name: 'Calculator', parameters: {} }
 });
 
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start' }
 });
 
 const aiAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Math Agent',
@@ -484,7 +484,7 @@ export default workflow('ai-calculator', 'AI Calculator')
 <ai_agent_with_from_ai>
 \`\`\`javascript
 const openAiModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
   version: 1.3,
   config: {
     name: 'OpenAI Model',
@@ -494,7 +494,7 @@ const openAiModel = languageModel({
 });
 
 const gmailTool = tool({
-  type: 'n8n-nodes-base.gmailTool',
+  type: 'resin-nodes-base.gmailTool',
   version: 1,
   config: {
     name: 'Gmail Tool',
@@ -508,13 +508,13 @@ const gmailTool = tool({
 });
 
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start' }
 });
 
 const aiAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Email Agent',
@@ -532,7 +532,7 @@ export default workflow('ai-email', 'AI Email Sender')
 <ai_agent_with_structured_output>
 \`\`\`javascript
 const structuredParser = outputParser({
-  type: '@n8n/n8n-nodes-langchain.outputParserStructured',
+  type: '@resin/n8n-nodes-langchain.outputParserStructured',
   version: 1.3,
   config: {
     name: 'Structured Output Parser',
@@ -544,7 +544,7 @@ const structuredParser = outputParser({
 });
 
 const aiAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent',
+  type: '@resin/n8n-nodes-langchain.agent',
   version: 3.1,
   config: {
     name: 'Sentiment Analyzer',

@@ -1,4 +1,4 @@
-import type { IHttpRequestMethods } from 'n8n-workflow';
+import type { IHttpRequestMethods } from 'resin-workflow';
 import {
 	BaseChatModel,
 	getParametersJsonSchema,
@@ -12,7 +12,7 @@ import {
 	type MessageContent,
 	type ProviderTool,
 	type StreamChunk,
-} from '@n8n/ai-node-sdk';
+} from '@resin/ai-node-sdk';
 
 // Types
 type OpenAITool =

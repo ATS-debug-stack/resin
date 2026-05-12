@@ -1,6 +1,6 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { runStageGuardrails } from '../helpers/base';
 import { splitByComma } from '../helpers/common';

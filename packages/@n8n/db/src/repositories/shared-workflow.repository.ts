@@ -1,17 +1,17 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import {
 	hasGlobalScope,
 	PROJECT_OWNER_ROLE_SLUG,
 	type Scope,
 	type WorkflowSharingRole,
-} from '@n8n/permissions';
-import { DataSource, Repository, In, Not } from '@n8n/typeorm';
+} from '@resin/permissions';
+import { DataSource, Repository, In, Not } from '@resin/typeorm';
 import type {
 	EntityManager,
 	FindManyOptions,
 	FindOptionsWhere,
 	SelectQueryBuilder,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 
 import type { User } from '../entities';
 import { Project, ProjectRelation, SharedWorkflow } from '../entities';

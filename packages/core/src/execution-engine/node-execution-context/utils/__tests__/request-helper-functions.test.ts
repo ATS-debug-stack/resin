@@ -1,5 +1,5 @@
-import { AiConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { AiConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import FormData from 'form-data';
 import type { Agent as HttpsAgent } from 'https';
 import { mock, mockDeep } from 'jest-mock-extended';
@@ -12,8 +12,8 @@ import type {
 	IWorkflowExecuteAdditionalData,
 	PaginationOptions,
 	Workflow,
-} from 'n8n-workflow';
-import { UserError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { UserError } from 'resin-workflow';
 import nock from 'nock';
 import type { SecureContextOptions } from 'tls';
 

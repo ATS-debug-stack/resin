@@ -1,7 +1,7 @@
 import { ref, computed, shallowRef } from 'vue';
 import { type RouteRecordNameGeneric, useRoute, useRouter } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
-import { safeParseWorkflowStructure, WorkflowStructureValidationError } from 'n8n-workflow';
+import { useI18n } from '@resin/i18n';
+import { safeParseWorkflowStructure, WorkflowStructureValidationError } from 'resin-workflow';
 import { useToast } from '@/app/composables/useToast';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { useExternalHooks } from '@/app/composables/useExternalHooks';

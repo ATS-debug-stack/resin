@@ -1,9 +1,9 @@
 import { RedisClientService } from '@/services/redis-client.service';
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import type { Cluster, Redis } from 'ioredis';
-import { InstanceSettings } from 'n8n-core';
-import { ensureError, type Result, createResultOk, createResultError } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { ensureError, type Result, createResultOk, createResultError } from 'resin-workflow';
 
 const COMMAND_TIMEOUT_MS = 5_000;
 

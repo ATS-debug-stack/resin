@@ -85,7 +85,7 @@ describe('plannerOutputSchema', () => {
 				{
 					description: 'Process data',
 					subSteps: ['Validate', 'Transform'],
-					suggestedNodes: ['n8n-nodes-base.if'],
+					suggestedNodes: ['resin-nodes-base.if'],
 				},
 			],
 		});
@@ -126,7 +126,7 @@ describe('plannerOutputSchema', () => {
 	it('rejects step without description', () => {
 		const result = plannerOutputSchema.safeParse({
 			...validPlan,
-			steps: [{ suggestedNodes: ['n8n-nodes-base.if'] }],
+			steps: [{ suggestedNodes: ['resin-nodes-base.if'] }],
 		});
 		expect(result.success).toBe(false);
 	});

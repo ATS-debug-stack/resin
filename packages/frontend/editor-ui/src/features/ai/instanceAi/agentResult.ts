@@ -1,4 +1,4 @@
-import type { InstanceAiAgentNode, InstanceAiTimelineEntry } from '@n8n/api-types';
+import type { InstanceAiAgentNode, InstanceAiTimelineEntry } from '@resin/api-types';
 
 function normalizeAgentText(text: string | undefined): string {
 	return text?.replace(/\s+/g, ' ').trim() ?? '';

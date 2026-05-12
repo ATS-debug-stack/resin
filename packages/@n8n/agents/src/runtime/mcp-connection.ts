@@ -28,7 +28,7 @@ export class McpConnection {
 	constructor(config: McpServerConfig, requireToolApproval = false) {
 		this.config = config;
 		this.shouldRequireToolApproval = requireToolApproval;
-		this.client = new Client({ name: '@n8n/agents', version: '0.1.0' }, { capabilities: {} });
+		this.client = new Client({ name: '@resin/agents', version: '0.1.0' }, { capabilities: {} });
 	}
 
 	async connect(): Promise<void> {

@@ -17,7 +17,7 @@ import {
 import { useExecutionDataStore, createExecutionDataId } from '@/app/stores/executionData.store';
 import { createTestWorkflowExecutionResponse } from '@/__tests__/mocks';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
-import type { ExecutionSummary } from 'n8n-workflow';
+import type { ExecutionSummary } from 'resin-workflow';
 import { IN_PROGRESS_EXECUTION_ID } from '@/app/constants/placeholders';
 
 function makeExecution(overrides: Partial<IExecutionResponse> = {}): IExecutionResponse {

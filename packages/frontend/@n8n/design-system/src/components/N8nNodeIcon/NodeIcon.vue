@@ -43,7 +43,7 @@ const iconStyleData = computed((): Record<string, string> => {
 </script>
 
 <template>
-	<div class="n8n-node-icon" v-bind="$attrs">
+	<div class="resin-node-icon" v-bind="$attrs">
 		<div
 			:class="{
 				[$style.nodeIconWrapper]: true,

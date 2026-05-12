@@ -1,14 +1,19 @@
-import type { CreateFolderDto, DeleteFolderDto, UpdateFolderDto } from '@n8n/api-types';
+import type { CreateFolderDto, DeleteFolderDto, UpdateFolderDto } from '@resin/api-types';
 import type {
 	FolderWithWorkflowAndSubFolderCount,
 	FolderWithWorkflowAndSubFolderCountAndPath,
 	User,
-} from '@n8n/db';
-import { Folder, FolderTagMappingRepository, FolderRepository, WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import {
+	Folder,
+	FolderTagMappingRepository,
+	FolderRepository,
+	WorkflowRepository,
+} from '@resin/db';
+import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager } from '@n8n/typeorm';
-import { UserError, PROJECT_ROOT } from 'n8n-workflow';
+import type { EntityManager } from '@resin/typeorm';
+import { UserError, PROJECT_ROOT } from 'resin-workflow';
 
 import { FolderNotFoundError } from '@/errors/folder-not-found.error';
 import { EventService } from '@/events/event.service';

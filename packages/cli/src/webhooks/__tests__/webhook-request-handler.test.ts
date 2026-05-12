@@ -1,8 +1,8 @@
 import { type Response } from 'express';
 import { mock } from 'jest-mock-extended';
-import { isWebhookHtmlSandboxingDisabled, getHtmlSandboxCSP } from 'n8n-core';
-import { randomString } from 'n8n-workflow';
-import type { IHttpRequestMethods } from 'n8n-workflow';
+import { isWebhookHtmlSandboxingDisabled, getHtmlSandboxCSP } from 'resin-core';
+import { randomString } from 'resin-workflow';
+import type { IHttpRequestMethods } from 'resin-workflow';
 
 import { ResponseError } from '@/errors/response-errors/abstract/response.error';
 import { createWebhookHandlerFor } from '@/webhooks/webhook-request-handler';
@@ -13,8 +13,8 @@ import type {
 	WebhookRequest,
 } from '@/webhooks/webhook.types';
 
-jest.mock('n8n-core', () => ({
-	...jest.requireActual('n8n-core'),
+jest.mock('resin-core', () => ({
+	...jest.requireActual('resin-core'),
 	isWebhookHtmlSandboxingDisabled: jest.fn().mockReturnValue(false),
 	getHtmlSandboxCSP: jest.fn().mockReturnValue('sandbox allow-downloads allow-forms allow-modals'),
 }));

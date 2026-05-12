@@ -1,4 +1,4 @@
-import type { InstanceRegistration } from '@n8n/api-types';
+import type { InstanceRegistration } from '@resin/api-types';
 
 /**
  * Storage abstraction for instance registrations

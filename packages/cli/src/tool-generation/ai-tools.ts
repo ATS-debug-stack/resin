@@ -1,11 +1,11 @@
-import type { Types } from 'n8n-core';
+import type { Types } from 'resin-core';
 import type {
 	INodeProperties,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
 	KnownNodesAndCredentials,
-} from 'n8n-workflow';
-import { deepCopy, NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy, NodeConnectionTypes } from 'resin-workflow';
 
 import { copyCredentialSupport, isFullDescription, setToolCodex } from './utils';
 

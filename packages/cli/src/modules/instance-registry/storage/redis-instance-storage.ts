@@ -1,9 +1,9 @@
-import { instanceRegistrationSchema, type InstanceRegistration } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { instanceRegistrationSchema, type InstanceRegistration } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import type { Cluster, Redis } from 'ioredis';
-import { ensureError, jsonParse, jsonStringify } from 'n8n-workflow';
+import { ensureError, jsonParse, jsonStringify } from 'resin-workflow';
 
 import { RedisClientService } from '@/services/redis-client.service';
 

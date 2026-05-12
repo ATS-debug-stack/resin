@@ -3,8 +3,8 @@ import type {
 	INodeConnections,
 	INodeTypeDescription,
 	NodeConnectionType,
-} from 'n8n-workflow';
-import { getParentNodes, mapConnectionsByDestination, NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { getParentNodes, mapConnectionsByDestination, NodeConnectionTypes } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 import {

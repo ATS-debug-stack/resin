@@ -7,7 +7,7 @@ import {
 	type MultiPartFormData,
 	type INode,
 	type ICredentialDataDecryptedObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { WebhookParameters } from '../utils';
 import {
@@ -313,7 +313,7 @@ describe('Webhook Utils', () => {
 		it('should throw an error if response mode is not "responseNode" but a Respond to Webhook node is found', () => {
 			const context: Partial<IWebhookFunctions> = {
 				getNodeParameter: jest.fn().mockReturnValue('onReceived'),
-				getChildNodes: jest.fn().mockReturnValue([{ type: 'n8n-nodes-base.respondToWebhook' }]),
+				getChildNodes: jest.fn().mockReturnValue([{ type: 'resin-nodes-base.respondToWebhook' }]),
 				getNode: jest.fn().mockReturnValue({ name: 'Webhook' }),
 			};
 			expect(() => {
@@ -397,7 +397,7 @@ describe('Webhook Utils', () => {
 			const node = {
 				id: 'node-789',
 				webhookId: 'webhook-456',
-				type: 'n8n-nodes-base.formTrigger',
+				type: 'resin-nodes-base.formTrigger',
 			} as INode;
 			const credentials = {
 				user: (Math.random() * 10000).toString(),
@@ -707,7 +707,7 @@ describe('Auth token generation', () => {
 
 		it('should use authentication property for Form Trigger nodes', async () => {
 			webhookFunctions.getNode.mockReturnValue({
-				type: 'n8n-nodes-base.formTrigger',
+				type: 'resin-nodes-base.formTrigger',
 			} as INode);
 			webhookFunctions.getNodeParameter.mockReturnValue('basicAuth');
 
@@ -718,7 +718,7 @@ describe('Auth token generation', () => {
 
 		it('should use passed authentication key', async () => {
 			webhookFunctions.getNode.mockReturnValue({
-				type: 'n8n-nodes-base.wait',
+				type: 'resin-nodes-base.wait',
 			} as INode);
 			webhookFunctions.getNodeParameter.mockReturnValue('basicAuth');
 
@@ -729,7 +729,7 @@ describe('Auth token generation', () => {
 
 		it('should handle "none" authentication', async () => {
 			webhookFunctions.getNode.mockReturnValue({
-				type: 'n8n-nodes-base.formTrigger',
+				type: 'resin-nodes-base.formTrigger',
 			} as INode);
 			webhookFunctions.getNodeParameter.mockReturnValue('none');
 
@@ -750,7 +750,7 @@ describe('Auth token generation', () => {
 			testNode = {
 				id: new Date().getMilliseconds().toString(),
 				webhookId: 'webhook-456',
-				type: 'n8n-nodes-base.formTrigger',
+				type: 'resin-nodes-base.formTrigger',
 			} as INode;
 
 			randomCredentials = {
@@ -794,7 +794,7 @@ describe('Auth token generation', () => {
 				{
 					id: 'node-789',
 					webhookId: 'webhook-456',
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 				} as INode,
 				randomCredentials,
 			);
@@ -802,7 +802,7 @@ describe('Auth token generation', () => {
 				{
 					id: 'node-678',
 					webhookId: 'webhook-456',
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 				} as INode,
 				randomCredentials,
 			);
@@ -810,7 +810,7 @@ describe('Auth token generation', () => {
 				{
 					id: 'node-789',
 					webhookId: 'webhook-459',
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 				} as INode,
 				randomCredentials,
 			);

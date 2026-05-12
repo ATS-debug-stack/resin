@@ -42,8 +42,8 @@ let capturedOpenHandler: ((open: boolean) => void) | undefined;
 let capturedItems: unknown[] = [];
 let capturedSearchable: boolean | undefined;
 
-vi.mock('@n8n/design-system', async (importOriginal) => {
-	const actual = await importOriginal<typeof import('@n8n/design-system')>();
+vi.mock('@resin/design-system', async (importOriginal) => {
+	const actual = await importOriginal<typeof import('@resin/design-system')>();
 
 	return {
 		...actual,

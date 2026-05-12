@@ -1,8 +1,11 @@
-import type { BreakingChangeAffectedWorkflow, BreakingChangeRecommendation } from '@n8n/api-types';
-import type { WorkflowEntity } from '@n8n/db';
-import type { INode } from 'n8n-workflow';
+import type {
+	BreakingChangeAffectedWorkflow,
+	BreakingChangeRecommendation,
+} from '@resin/api-types';
+import type { WorkflowEntity } from '@resin/db';
+import type { INode } from 'resin-workflow';
 
-import { BreakingChangeRule } from '@n8n/decorators';
+import { BreakingChangeRule } from '@resin/decorators';
 import type {
 	BreakingChangeRuleMetadata,
 	IBreakingChangeWorkflowRule,
@@ -12,7 +15,10 @@ import { BreakingChangeCategory } from '../../types';
 
 @BreakingChangeRule({ version: 'v2' })
 export class FileAccessRule implements IBreakingChangeWorkflowRule {
-	private readonly FILE_NODES = ['n8n-nodes-base.readWriteFile', 'n8n-nodes-base.readBinaryFiles'];
+	private readonly FILE_NODES = [
+		'resin-nodes-base.readWriteFile',
+		'resin-nodes-base.readBinaryFiles',
+	];
 
 	id: string = 'file-access-restriction-v2';
 

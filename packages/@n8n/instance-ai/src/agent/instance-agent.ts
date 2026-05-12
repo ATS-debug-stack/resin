@@ -198,7 +198,7 @@ export async function createInstanceAgent(options: CreateInstanceAgentOptions): 
 	// external callers get a compile-time warning; it is otherwise ignored here.
 
 	const agent = new Agent({
-		id: 'n8n-instance-agent',
+		id: 'resin-instance-agent',
 		name: 'n8n Instance Agent',
 		instructions: {
 			role: 'system' as const,

@@ -74,12 +74,12 @@ import {
 	type ProjectSharingData,
 	ProjectTypes,
 } from '@/features/collaboration/projects/projects.types';
-import type { PathItem } from '@n8n/design-system/components/N8nBreadcrumbs/Breadcrumbs.vue';
-import { useI18n } from '@n8n/i18n';
-import { getResourcePermissions } from '@n8n/permissions';
-import { createEventBus } from '@n8n/utils/event-bus';
+import type { PathItem } from '@resin/design-system/components/N8nBreadcrumbs/Breadcrumbs.vue';
+import { useI18n } from '@resin/i18n';
+import { getResourcePermissions } from '@resin/permissions';
+import { createEventBus } from '@resin/utils/event-bus';
 import debounce from 'lodash/debounce';
-import { type IUser, PROJECT_ROOT } from 'n8n-workflow';
+import { type IUser, PROJECT_ROOT } from 'resin-workflow';
 import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue';
 import { type LocationQueryRaw, useRoute, useRouter } from 'vue-router';
 
@@ -100,7 +100,7 @@ import {
 	N8nSelect,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 
 const SEARCH_DEBOUNCE_TIME = getDebounceTime(DEBOUNCE_TIME.INPUT.SEARCH);
 const FILTERS_DEBOUNCE_TIME = 100;

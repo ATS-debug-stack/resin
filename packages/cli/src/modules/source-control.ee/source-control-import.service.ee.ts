@@ -1,5 +1,5 @@
-import type { SourceControlledFile } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
+import type { SourceControlledFile } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
 import type {
 	FindOptionsWhere,
 	Project,
@@ -7,7 +7,7 @@ import type {
 	User,
 	Variables,
 	WorkflowEntity,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	CredentialsRepository,
 	FolderRepository,
@@ -21,22 +21,22 @@ import {
 	WorkflowRepository,
 	WorkflowTagMapping,
 	WorkflowTagMappingRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { PROJECT_ADMIN_ROLE_SLUG, PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
-import { In } from '@n8n/typeorm';
-import { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { PROJECT_ADMIN_ROLE_SLUG, PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
+import { In } from '@resin/typeorm';
+import { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
 import glob from 'fast-glob';
 import isEqual from 'lodash/isEqual';
-import { Credentials, ErrorReporter, InstanceSettings } from 'n8n-core';
-import type { AutoPublishMode } from 'n8n-workflow';
+import { Credentials, ErrorReporter, InstanceSettings } from 'resin-core';
+import type { AutoPublishMode } from 'resin-workflow';
 import {
 	shouldAutoPublishWorkflow,
 	ensureError,
 	jsonParse,
 	UnexpectedError,
 	UserError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { readFile as fsReadFile } from 'node:fs/promises';
 import path from 'path';
 

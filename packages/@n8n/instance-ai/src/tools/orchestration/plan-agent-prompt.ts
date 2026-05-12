@@ -3,7 +3,7 @@ import {
 	NODE_SELECTION_PATTERNS,
 	TRIGGER_SELECTION,
 	NATIVE_NODE_PREFERENCE,
-} from '@n8n/workflow-sdk/prompts/node-selection';
+} from '@resin/workflow-sdk/prompts/node-selection';
 
 import { SUBAGENT_OUTPUT_CONTRACT } from '../../agent/shared-prompts';
 

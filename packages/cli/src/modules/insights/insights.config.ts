@@ -1,4 +1,4 @@
-import { Config, Env } from '@n8n/config';
+import { Config, Env } from '@resin/config';
 
 import { INSIGHTS_MAX_AGE_DAYS_DEFAULT } from './insights.constants';
 

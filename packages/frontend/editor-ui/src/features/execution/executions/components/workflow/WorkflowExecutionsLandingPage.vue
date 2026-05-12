@@ -6,9 +6,9 @@ import { VIEWS } from '@/app/constants';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import WorkflowExecutionsInfoAccordion from './WorkflowExecutionsInfoAccordion.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
-import { N8nButton, N8nHeading, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nHeading, N8nText } from '@resin/design-system';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 const router = useRouter();
 const route = useRoute();

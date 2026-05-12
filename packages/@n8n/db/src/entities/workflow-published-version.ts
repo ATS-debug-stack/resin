@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, Relation } from '@n8n/typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, Relation } from '@resin/typeorm';
 
 import { WithTimestamps } from './abstract-entity';
 import type { WorkflowEntity } from './workflow-entity';

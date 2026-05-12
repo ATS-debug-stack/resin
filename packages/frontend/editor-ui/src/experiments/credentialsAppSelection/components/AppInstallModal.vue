@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { N8nButton, N8nText, N8nIcon, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nText, N8nIcon, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useInstallNode } from '@/features/settings/communityNodes/composables/useInstallNode';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
@@ -13,7 +13,7 @@ import OfficialIcon from 'virtual:icons/mdi/verified';
 import ShieldIcon from 'virtual:icons/fa-solid/shield-alt';
 import type { AppEntry } from '../composables/useAppCredentials';
 import type { SimplifiedNodeType } from '@/Interface';
-import type { Icon, ThemeIconColor } from 'n8n-workflow';
+import type { Icon, ThemeIconColor } from 'resin-workflow';
 
 const APP_INSTALL_MODAL_KEY = 'appInstallModal';
 

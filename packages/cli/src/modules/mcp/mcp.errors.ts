@@ -1,6 +1,6 @@
 import { ServerError } from '@modelcontextprotocol/sdk/server/auth/errors.js';
-import { Time } from '@n8n/constants';
-import { UserError } from 'n8n-workflow';
+import { Time } from '@resin/constants';
+import { UserError } from 'resin-workflow';
 
 import { AuthError } from '@/errors/response-errors/auth.error';
 

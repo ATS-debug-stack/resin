@@ -1,5 +1,5 @@
-import { createTeamProject, testDb, testModules } from '@n8n/backend-test-utils';
-import { Container } from '@n8n/di';
+import { createTeamProject, testDb, testModules } from '@resin/backend-test-utils';
+import { Container } from '@resin/di';
 import { v4 as uuid } from 'uuid';
 
 import type { AgentExecutionThread } from '@/modules/agents/entities/agent-execution-thread.entity';

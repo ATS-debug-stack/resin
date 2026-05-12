@@ -1,6 +1,6 @@
 import { computed, type ComputedRef } from 'vue';
 import type { INodeUi, WorkflowValidationIssue } from '@/Interface';
-import type { INodeConnections } from 'n8n-workflow';
+import type { INodeConnections } from 'resin-workflow';
 
 export type WorkflowDocumentNodesIssuesDeps = {
 	allNodes: ComputedRef<INodeUi[]>;

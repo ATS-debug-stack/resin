@@ -3,7 +3,7 @@
  */
 
 import * as fs from 'fs';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import * as os from 'os';
 import * as path from 'path';
 
@@ -72,7 +72,7 @@ function createMockWorkflow(name = 'Test Workflow'): SimpleWorkflow {
 		nodes: [
 			{
 				id: '1',
-				type: 'n8n-nodes-base.start',
+				type: 'resin-nodes-base.start',
 				name: 'Start',
 				position: [0, 0],
 				typeVersion: 1,

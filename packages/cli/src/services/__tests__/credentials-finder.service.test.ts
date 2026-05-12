@@ -6,17 +6,17 @@ import {
 	SharedCredentialsRepository,
 	CredentialsEntity,
 	type User,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import {
 	PROJECT_ADMIN_ROLE_SLUG,
 	PROJECT_EDITOR_ROLE_SLUG,
 	PROJECT_OWNER_ROLE_SLUG,
 	PROJECT_VIEWER_ROLE_SLUG,
-} from '@n8n/permissions';
-import { In } from '@n8n/typeorm';
+} from '@resin/permissions';
+import { In } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import { mockInstance } from '@n8n/backend-test-utils';
+import { mockInstance } from '@resin/backend-test-utils';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { RoleService } from '../role.service';

@@ -6,7 +6,7 @@ import type {
 	ILoadOptionsFunctions,
 	INode,
 	IWebhookFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { BitbucketTrigger } from '../BitbucketTrigger.node';
 import * as GenericFunctions from '../GenericFunctions';
@@ -22,7 +22,7 @@ describe('BitbucketTrigger', () => {
 	const mockNode: INode = {
 		id: 'test-node-id',
 		name: 'Bitbucket Trigger Test',
-		type: 'n8n-nodes-base.bitbucketTrigger',
+		type: 'resin-nodes-base.bitbucketTrigger',
 		typeVersion: 1.1,
 		position: [0, 0],
 		parameters: {},

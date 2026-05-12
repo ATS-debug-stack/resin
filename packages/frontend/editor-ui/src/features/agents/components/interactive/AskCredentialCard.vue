@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { N8nButton, N8nCard, N8nIcon, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nCard, N8nIcon, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import NodeCredentials from '@/features/credentials/components/NodeCredentials.vue';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
-import type { AskCredentialResume } from '@n8n/api-types';
+import type { AskCredentialResume } from '@resin/api-types';
 import type { INodeUi, INodeUpdatePropertiesInformation } from '@/Interface';
 
 const props = defineProps<{
@@ -45,7 +45,7 @@ const nodeForCredentials = computed<INodeUi>(() => {
 	return {
 		id: props.credentialType,
 		name: props.credentialType,
-		type: 'n8n-nodes-base.noOp',
+		type: 'resin-nodes-base.noOp',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},

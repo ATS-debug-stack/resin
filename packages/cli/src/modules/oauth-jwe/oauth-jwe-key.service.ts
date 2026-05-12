@@ -1,12 +1,12 @@
-import { Logger } from '@n8n/backend-common';
-import { DeploymentKeyRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { QueryFailedError } from '@n8n/typeorm';
-import { generateNanoId } from '@n8n/utils';
+import { Logger } from '@resin/backend-common';
+import { DeploymentKeyRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { QueryFailedError } from '@resin/typeorm';
+import { generateNanoId } from '@resin/utils';
 import type { CryptoKey, JWK } from 'jose';
 import { exportJWK, generateKeyPair, importJWK } from 'jose';
-import { Cipher } from 'n8n-core';
-import { jsonParse, UnexpectedError } from 'n8n-workflow';
+import { Cipher } from 'resin-core';
+import { jsonParse, UnexpectedError } from 'resin-workflow';
 
 import { CacheService } from '@/services/cache/cache.service';
 

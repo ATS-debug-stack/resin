@@ -6,7 +6,7 @@ import {
 	ManyToMany,
 	ManyToOne,
 	OneToMany,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 
 import { WithTimestampsAndStringId } from './abstract-entity';
 import { Project } from './project';

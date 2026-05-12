@@ -13,7 +13,7 @@ import {
 	type IDataObject,
 	type IWebhookFunctions,
 	type INodePropertyOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	ExecutionType,
@@ -34,7 +34,7 @@ import {
 } from '@microsoft/agents-a365-tooling';
 
 import type { Client } from '@modelcontextprotocol/sdk/client/index.js';
-import { StructuredToolkit } from 'n8n-core';
+import { StructuredToolkit } from 'resin-core';
 import { connectMcpClient, getAllTools } from '../../mcp/shared/utils';
 import {
 	buildMcpToolName,
@@ -419,7 +419,7 @@ export function configureAdapterProcessCallback(
 
 			observability = ObservabilityManager.configure((builder: Builder) =>
 				builder
-					.withService('n8n-microsoft-agent-365')
+					.withService('resin-microsoft-agent-365')
 					.withTokenResolver((_agentId: string, _tenantId: string) => aauToken || ''),
 			);
 

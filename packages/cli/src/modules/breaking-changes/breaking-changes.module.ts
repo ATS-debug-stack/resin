@@ -1,7 +1,7 @@
-import { MIGRATION_REPORT_TARGET_VERSION } from '@n8n/api-types';
-import type { ModuleInterface } from '@n8n/decorators';
-import { BackendModule } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { MIGRATION_REPORT_TARGET_VERSION } from '@resin/api-types';
+import type { ModuleInterface } from '@resin/decorators';
+import { BackendModule } from '@resin/decorators';
+import { Container } from '@resin/di';
 
 @BackendModule({ name: 'breaking-changes', instanceTypes: ['main'] })
 export class BreakingChangesModule implements ModuleInterface {

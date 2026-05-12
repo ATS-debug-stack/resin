@@ -3,8 +3,8 @@ import type { INodeUi, IWorkflowDb } from '@/Interface';
 import type { MaybeRefOrGetter, Ref, ComputedRef } from 'vue';
 import { toValue, computed, ref, watchEffect, shallowRef } from 'vue';
 import { useCanvasMapping } from '@/features/workflows/canvas/composables/useCanvasMapping';
-import type { Workflow, IConnections, INodeTypeDescription, NodeDiff } from 'n8n-workflow';
-import { compareWorkflowsNodes, NodeDiffStatus } from 'n8n-workflow';
+import type { Workflow, IConnections, INodeTypeDescription, NodeDiff } from 'resin-workflow';
+import { compareWorkflowsNodes, NodeDiffStatus } from 'resin-workflow';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 

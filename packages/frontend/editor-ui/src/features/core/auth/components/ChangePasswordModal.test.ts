@@ -4,10 +4,10 @@ import type { createPinia } from 'pinia';
 import { createComponentRenderer } from '@/__tests__/render';
 import { mockedStore } from '@/__tests__/utils';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import { createPasswordRules } from '@n8n/design-system';
+import { createPasswordRules } from '@resin/design-system';
 
-vi.mock('@n8n/design-system', async () => {
-	const actual = await vi.importActual('@n8n/design-system');
+vi.mock('@resin/design-system', async () => {
+	const actual = await vi.importActual('@resin/design-system');
 	const { createPasswordRules: originalCreatePasswordRules } = actual as {
 		createPasswordRules: typeof createPasswordRules;
 	};

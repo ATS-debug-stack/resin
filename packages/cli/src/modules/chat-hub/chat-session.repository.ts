@@ -1,5 +1,5 @@
-import { Service } from '@n8n/di';
-import { DataSource, EntityManager, Repository } from '@n8n/typeorm';
+import { Service } from '@resin/di';
+import { DataSource, EntityManager, Repository } from '@resin/typeorm';
 
 import { ChatHubSession, IChatHubSession } from './chat-hub-session.entity';
 

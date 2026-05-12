@@ -35,7 +35,7 @@ const icon = computed(() => {
 
 const $style = useCssModule();
 const alertBoxClassNames = computed(() => {
-	const classNames = ['n8n-alert', $style.alert];
+	const classNames = ['resin-alert', $style.alert];
 	if (props.type) {
 		classNames.push($style[props.type]);
 	}

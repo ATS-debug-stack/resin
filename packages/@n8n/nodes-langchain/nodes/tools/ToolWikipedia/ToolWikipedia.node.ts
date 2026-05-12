@@ -8,9 +8,9 @@ import {
 	type SupplyData,
 	type INodeExecutionData,
 	nodeNameToToolName,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 function getTool(ctx: ISupplyDataFunctions | IExecuteFunctions): WikipediaQueryRun {
 	const WikiTool = new WikipediaQueryRun();

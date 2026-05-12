@@ -8,9 +8,9 @@
 // Set environment variable before any imports
 process.env.N8N_SKIP_AUTH_ON_OAUTH_CALLBACK = 'true';
 
-import { testDb } from '@n8n/backend-test-utils';
-import type { CredentialsEntity, User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb } from '@resin/backend-test-utils';
+import type { CredentialsEntity, User } from '@resin/db';
+import { Container } from '@resin/di';
 import { response as Response } from 'express';
 import nock from 'nock';
 import { parse as parseQs } from 'querystring';

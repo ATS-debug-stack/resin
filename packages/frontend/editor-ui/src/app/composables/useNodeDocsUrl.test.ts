@@ -1,13 +1,13 @@
 import { NPM_PACKAGE_DOCS_BASE_URL } from '../constants';
 import { useNodeDocsUrl } from './useNodeDocsUrl';
 
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 describe('useNodeDocsUrl', () => {
 	it('returns full documentationUrl if set', () => {
 		const nodeType = mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.set',
+			name: 'resin-nodes-base.set',
 			documentationUrl: 'https://example.com/docs',
 		});
 		const { docsUrl } = useNodeDocsUrl({ nodeType });
@@ -16,7 +16,7 @@ describe('useNodeDocsUrl', () => {
 
 	it('returns codex primaryDocumentation url with UTM params', () => {
 		const nodeType = mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.set',
+			name: 'resin-nodes-base.set',
 			documentationUrl: '',
 			codex: {
 				resources: {
@@ -34,7 +34,7 @@ describe('useNodeDocsUrl', () => {
 
 	it('returns community docs url for community-nodes', () => {
 		const nodeType = mock<INodeTypeDescription>({
-			name: 'n8n-nodes-custom.custom',
+			name: 'resin-nodes-custom.custom',
 			documentationUrl: '',
 		});
 		const { docsUrl } = useNodeDocsUrl({ nodeType });
@@ -44,7 +44,7 @@ describe('useNodeDocsUrl', () => {
 
 	it('returns builtin docs root with UTM if no other match', () => {
 		const nodeType = mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.set',
+			name: 'resin-nodes-base.set',
 			documentationUrl: '',
 		});
 		const { docsUrl } = useNodeDocsUrl({ nodeType });

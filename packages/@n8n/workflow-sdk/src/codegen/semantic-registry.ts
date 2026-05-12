@@ -32,13 +32,13 @@ export interface NodeSemantics {
  * Registry of node type semantics
  */
 const NODE_SEMANTICS: Record<string, NodeSemantics> = {
-	'n8n-nodes-base.if': {
+	'resin-nodes-base.if': {
 		outputs: ['trueBranch', 'falseBranch'],
 		inputs: ['input'],
 		composite: 'ifElse',
 	},
 
-	'n8n-nodes-base.switch': {
+	'resin-nodes-base.switch': {
 		outputs: (node: NodeJSON): string[] => {
 			const params = node.parameters;
 			const rules = params?.rules as IDataObject | undefined;
@@ -52,7 +52,7 @@ const NODE_SEMANTICS: Record<string, NodeSemantics> = {
 		composite: 'switchCase',
 	},
 
-	'n8n-nodes-base.merge': {
+	'resin-nodes-base.merge': {
 		outputs: ['output'],
 		inputs: (node: NodeJSON): string[] => {
 			const params = node.parameters;
@@ -62,7 +62,7 @@ const NODE_SEMANTICS: Record<string, NodeSemantics> = {
 		composite: 'merge',
 	},
 
-	'n8n-nodes-base.splitInBatches': {
+	'resin-nodes-base.splitInBatches': {
 		outputs: ['done', 'loop'],
 		inputs: ['input'],
 		cycleOutput: 'loop',
@@ -97,7 +97,7 @@ function getErrorOutputIndex(type: string, node: NodeJSON): number {
 /**
  * Get the semantic name for a node's output at given index
  *
- * @param type - Node type (e.g., 'n8n-nodes-base.if')
+ * @param type - Node type (e.g., 'resin-nodes-base.if')
  * @param index - Output index
  * @param node - Full node JSON (needed for dynamic outputs like Switch)
  * @returns Semantic name (e.g., 'trueBranch') or generic 'output{index}'
@@ -129,7 +129,7 @@ export function getOutputName(type: string, index: number, node: NodeJSON): stri
 /**
  * Get the semantic name for a node's input at given index
  *
- * @param type - Node type (e.g., 'n8n-nodes-base.merge')
+ * @param type - Node type (e.g., 'resin-nodes-base.merge')
  * @param index - Input index
  * @param node - Full node JSON (needed for dynamic inputs like Merge)
  * @returns Semantic name (e.g., 'branch0') or generic 'input{index}'

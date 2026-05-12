@@ -1,4 +1,4 @@
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { defineStore } from 'pinia';
 import { computed, ref, watch } from 'vue';
 import get from 'lodash/get';
@@ -8,7 +8,7 @@ import {
 	type INode,
 	type INodeProperties,
 	jsonParse,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { useWorkflowsStore } from './workflows.store';
 import {
 	useWorkflowDocumentStore,

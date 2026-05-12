@@ -53,15 +53,15 @@ For text generation, validate and sanitize input/output to avoid malformed data.
 
 ## Recommended Nodes
 
-### OpenAI (@n8n/n8n-nodes-langchain.openAi)
+### OpenAI (@resin/n8n-nodes-langchain.openAi)
 
 Purpose: GPT-based text generation, DALL-E image generation, text-to-speech (TTS), and audio transcription, SORA for video generation
 
-### xAI Grok Chat Model (@n8n/n8n-nodes-langchain.lmChatXAiGrok)
+### xAI Grok Chat Model (@resin/n8n-nodes-langchain.lmChatXAiGrok)
 
 Purpose: Conversational AI and text generation
 
-### Google Gemini Chat Model (@n8n/n8n-nodes-langchain.lmChatGoogleGemini)
+### Google Gemini Chat Model (@resin/n8n-nodes-langchain.lmChatGoogleGemini)
 
 Purpose: Image analysis and generation, video generation from text prompts using nano banana, multimodal content creation
 

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { DATA_TABLE_STORE } from '@/features/core/dataTable/constants';
 import { computed, ref } from 'vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import {
 	fetchDataTablesApi,
 	createDataTableApi,
@@ -28,11 +28,11 @@ import type {
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import { useFavoritesStore } from '@/app/stores/favorites.store';
 import { reorderItem } from '@/features/core/dataTable/utils';
-import { type DataTableSizeStatus } from 'n8n-workflow';
+import { type DataTableSizeStatus } from 'resin-workflow';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { hasPermission } from '@/app/utils/rbac/permissions';
-import type { DataTableListSortBy } from '@n8n/api-types';
+import type { DataTableListSortBy } from '@resin/api-types';
 
 export const useDataTableStore = defineStore(DATA_TABLE_STORE, () => {
 	const rootStore = useRootStore();

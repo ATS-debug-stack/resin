@@ -1,9 +1,9 @@
-import { GlobalConfig } from '@n8n/config';
-import { testDb } from '@n8n/backend-test-utils';
-import { DbConnectionOptions, DbLock, DbLockService } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { DataSource } from '@n8n/typeorm';
-import { OperationalError, sleep } from 'n8n-workflow';
+import { GlobalConfig } from '@resin/config';
+import { testDb } from '@resin/backend-test-utils';
+import { DbConnectionOptions, DbLock, DbLockService } from '@resin/db';
+import { Container } from '@resin/di';
+import { DataSource } from '@resin/typeorm';
+import { OperationalError, sleep } from 'resin-workflow';
 
 let dbLockService: DbLockService;
 let isPostgres: boolean;

@@ -1,14 +1,14 @@
-import type { InstanceRegistration } from '@n8n/api-types';
-import type { Logger } from '@n8n/backend-common';
+import type { InstanceRegistration } from '@resin/api-types';
+import type { Logger } from '@resin/backend-common';
 import type {
 	ClusterCheckContext,
 	ClusterCheckMetadata,
 	ClusterCheckResult,
 	IClusterCheck,
-} from '@n8n/decorators';
-import { Container } from '@n8n/di';
+} from '@resin/decorators';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
 
 import type { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';
 import type { Push } from '@/push';

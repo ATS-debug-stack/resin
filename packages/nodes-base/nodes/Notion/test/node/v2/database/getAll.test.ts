@@ -209,7 +209,7 @@ const API_RESPONSE = {
 				{
 					type: 'text',
 					text: {
-						content: 'n8n-trigger',
+						content: 'resin-trigger',
 						link: null,
 					},
 					annotations: {
@@ -220,7 +220,7 @@ const API_RESPONSE = {
 						code: false,
 						color: 'default',
 					},
-					plain_text: 'n8n-trigger',
+					plain_text: 'resin-trigger',
 					href: null,
 				},
 			],

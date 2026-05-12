@@ -1,16 +1,16 @@
-import type { SamlPreferences } from '@n8n/api-types';
-import { mockInstance, mockLogger } from '@n8n/backend-test-utils';
-import type { GlobalConfig } from '@n8n/config';
-import { SettingsRepository } from '@n8n/db';
-import type { UserRepository, Settings, User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { SamlPreferences } from '@resin/api-types';
+import { mockInstance, mockLogger } from '@resin/backend-test-utils';
+import type { GlobalConfig } from '@resin/config';
+import { SettingsRepository } from '@resin/db';
+import type { UserRepository, Settings, User } from '@resin/db';
+import { Container } from '@resin/di';
 import axios from 'axios';
 import type express from 'express';
 import type { HttpProxyAgent } from 'http-proxy-agent';
 import type { HttpsProxyAgent } from 'https-proxy-agent';
 import { mock } from 'jest-mock-extended';
-import type { Cipher, InstanceSettings } from 'n8n-core';
-import { CREDENTIAL_BLANKING_VALUE } from 'n8n-workflow';
+import type { Cipher, InstanceSettings } from 'resin-core';
+import { CREDENTIAL_BLANKING_VALUE } from 'resin-workflow';
 import type { IdentityProviderInstance, ServiceProviderInstance } from 'samlify';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
@@ -239,7 +239,7 @@ describe('SamlService', () => {
 			cacheService,
 		);
 		// Mock GlobalConfig container access
-		Container.set(require('@n8n/config').GlobalConfig, globalConfig);
+		Container.set(require('@resin/config').GlobalConfig, globalConfig);
 	});
 
 	afterEach(() => {

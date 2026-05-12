@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
 
-import { N8nButton, N8nIcon, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nIcon, N8nText } from '@resin/design-system';
 const pageRedirectionHelper = usePageRedirectionHelper();
 const i18n = useI18n();
 

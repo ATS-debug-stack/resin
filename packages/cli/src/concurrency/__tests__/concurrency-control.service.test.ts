@@ -1,8 +1,8 @@
-import { mockInstance, mockLogger } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { ExecutionRepository } from '@n8n/db';
+import { mockInstance, mockLogger } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { ExecutionRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { WorkflowExecuteMode as ExecutionMode } from 'n8n-workflow';
+import type { WorkflowExecuteMode as ExecutionMode } from 'resin-workflow';
 
 import type { ConcurrencyQueueType } from '@/concurrency/concurrency-control.service';
 import {

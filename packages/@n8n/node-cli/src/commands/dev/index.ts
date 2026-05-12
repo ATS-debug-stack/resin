@@ -110,7 +110,7 @@ export default class Dev extends Command {
 			keyHandlers.push(createOpenN8nHandler());
 		}
 
-		const headerText = await getCommandHeader('n8n-node dev');
+		const headerText = await getCommandHeader('resin-node dev');
 
 		runCommands({
 			commands: commandsList,

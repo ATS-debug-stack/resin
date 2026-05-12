@@ -1,19 +1,19 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
 import {
 	CredentialsRepository,
 	SharedCredentialsRepository,
 	type CredentialsEntity,
 	type SharedCredentials,
-} from '@n8n/db';
+} from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import { StructuredToolkit } from 'n8n-core';
+import { StructuredToolkit } from 'resin-core';
 import {
 	NodeConnectionTypes,
 	type INodeCredentialsDetails,
 	type INodeType,
 	type INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { NodeTypes } from '@/node-types';
 
@@ -58,25 +58,25 @@ describe('isUsableAsAgentTool', () => {
 
 describe('isAgentProviderNode', () => {
 	it('accepts whitelisted provider nodes (OpenAI, Anthropic, etc.)', () => {
-		expect(isAgentProviderNode('@n8n/n8n-nodes-langchain.openAi')).toBe(true);
-		expect(isAgentProviderNode('@n8n/n8n-nodes-langchain.anthropic')).toBe(true);
-		expect(isAgentProviderNode('@n8n/n8n-nodes-langchain.googleGemini')).toBe(true);
+		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.openAi')).toBe(true);
+		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.anthropic')).toBe(true);
+		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.googleGemini')).toBe(true);
 	});
 
 	it('rejects non-provider langchain nodes (lm chat models, agents, summarization)', () => {
-		expect(isAgentProviderNode('@n8n/n8n-nodes-langchain.lmChatOpenAi')).toBe(false);
-		expect(isAgentProviderNode('@n8n/n8n-nodes-langchain.agent')).toBe(false);
-		expect(isAgentProviderNode('@n8n/n8n-nodes-langchain.chainSummarization')).toBe(false);
+		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.lmChatOpenAi')).toBe(false);
+		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.agent')).toBe(false);
+		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.chainSummarization')).toBe(false);
 	});
 
 	it('rejects unrelated nodes', () => {
-		expect(isAgentProviderNode('n8n-nodes-base.httpRequest')).toBe(false);
+		expect(isAgentProviderNode('resin-nodes-base.httpRequest')).toBe(false);
 		expect(isAgentProviderNode('')).toBe(false);
 	});
 
 	it('exposes the whitelist as a stable Set', () => {
 		expect(AGENT_PROVIDER_NODE_WHITELIST).toBeInstanceOf(Set);
-		expect(AGENT_PROVIDER_NODE_WHITELIST.has('@n8n/n8n-nodes-langchain.openAi')).toBe(true);
+		expect(AGENT_PROVIDER_NODE_WHITELIST.has('@resin/n8n-nodes-langchain.openAi')).toBe(true);
 	});
 });
 
@@ -123,7 +123,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: 'n8n-nodes-base.notATool',
+				nodeType: 'resin-nodes-base.notATool',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -132,7 +132,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			expect(result.status).toBe('error');
 			expect(result.error).toContain('Node is not usable as a tool');
-			expect(result.error).toContain('n8n-nodes-base.notATool');
+			expect(result.error).toContain('resin-nodes-base.notATool');
 			expect(result.data).toEqual([]);
 		});
 
@@ -142,7 +142,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: 'n8n-nodes-base.triggerNode',
+				nodeType: 'resin-nodes-base.triggerNode',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -164,7 +164,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@n8n/n8n-nodes-langchain.openAi',
+				nodeType: '@resin/n8n-nodes-langchain.openAi',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -180,7 +180,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: 'n8n-nodes-base.slack',
+				nodeType: 'resin-nodes-base.slack',
 				nodeTypeVersion: 1,
 				nodeParameters: { operation: 'sendAndWait' },
 				inputData: [],
@@ -213,7 +213,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			await expect(
 				executor.executeInline({
-					nodeType: 'n8n-nodes-base.slack',
+					nodeType: 'resin-nodes-base.slack',
 					nodeTypeVersion: 1,
 					nodeParameters: {},
 					credentials: { slackApi: 'Prod Slack' },
@@ -232,7 +232,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			await expect(
 				executor.executeInline({
-					nodeType: 'n8n-nodes-base.slack',
+					nodeType: 'resin-nodes-base.slack',
 					nodeTypeVersion: 1,
 					nodeParameters: {},
 					credentials: { slackApi: 'Prod Slack' },
@@ -246,7 +246,7 @@ describe('EphemeralNodeExecutor', () => {
 			mockToolNodeWithSupplyData();
 
 			await executor.executeInline({
-				nodeType: 'n8n-nodes-base.slack',
+				nodeType: 'resin-nodes-base.slack',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -274,7 +274,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			await expect(
 				executor.executeInline({
-					nodeType: 'n8n-nodes-base.slack',
+					nodeType: 'resin-nodes-base.slack',
 					nodeTypeVersion: 1,
 					nodeParameters: {},
 					// Intentionally missing `id` to exercise the validation path.
@@ -291,7 +291,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			await expect(
 				executor.executeInline({
-					nodeType: 'n8n-nodes-base.slack',
+					nodeType: 'resin-nodes-base.slack',
 					nodeTypeVersion: 1,
 					nodeParameters: {},
 					credentialDetails: { slackApi: { id: 'c1', name: 'Prod Slack' } },
@@ -315,7 +315,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			await expect(
 				executor.executeInline({
-					nodeType: 'n8n-nodes-base.slack',
+					nodeType: 'resin-nodes-base.slack',
 					nodeTypeVersion: 1,
 					nodeParameters: {},
 					credentialDetails: { slackApi: { id: 'c1', name: 'Prod Slack' } },
@@ -337,7 +337,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@n8n/n8n-nodes-langchain.toolWikipedia',
+				nodeType: '@resin/n8n-nodes-langchain.toolWikipedia',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [{ json: { query: 'n8n' } }],
@@ -361,7 +361,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@n8n/n8n-nodes-langchain.toolWikipedia',
+				nodeType: '@resin/n8n-nodes-langchain.toolWikipedia',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [{ json: {} }],
@@ -381,7 +381,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@n8n/n8n-nodes-langchain.brokenTool',
+				nodeType: '@resin/n8n-nodes-langchain.brokenTool',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -401,7 +401,7 @@ describe('EphemeralNodeExecutor', () => {
 			} as unknown as INodeType);
 
 			const result = await executor.executeInline({
-				nodeType: 'n8n-nodes-base.slack',
+				nodeType: 'resin-nodes-base.slack',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -429,7 +429,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@n8n/n8n-nodes-langchain.mcpClientTool',
+				nodeType: '@resin/n8n-nodes-langchain.mcpClientTool',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [{ json: {} }],
@@ -454,7 +454,7 @@ describe('EphemeralNodeExecutor', () => {
 			} as unknown as INodeType);
 
 			const result = await executor.executeInline({
-				nodeType: 'n8n-nodes-base.slack',
+				nodeType: 'resin-nodes-base.slack',
 				nodeTypeVersion: 1,
 				nodeParameters: { channel: '#general', text: 'hi' },
 				inputData: [{ json: { userId: 'u-1' } }],
@@ -473,7 +473,7 @@ describe('EphemeralNodeExecutor', () => {
 			} as unknown as INodeType);
 
 			const result = await executor.executeInline({
-				nodeType: 'n8n-nodes-base.slack',
+				nodeType: 'resin-nodes-base.slack',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -495,7 +495,7 @@ describe('EphemeralNodeExecutor', () => {
 			} as unknown as INodeType);
 
 			const result = await executor.executeInline({
-				nodeType: 'n8n-nodes-base.slack',
+				nodeType: 'resin-nodes-base.slack',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -514,7 +514,7 @@ describe('EphemeralNodeExecutor', () => {
 			} as unknown as INodeType);
 
 			const result = await executor.executeInline({
-				nodeType: 'n8n-nodes-base.slack',
+				nodeType: 'resin-nodes-base.slack',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -540,7 +540,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			const result = await executor.introspectSupplyDataToolSchema({
 				projectId: 'p-1',
-				nodeType: '@n8n/n8n-nodes-langchain.toolWikipedia',
+				nodeType: '@resin/n8n-nodes-langchain.toolWikipedia',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 			});
@@ -560,7 +560,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			const result = await executor.introspectSupplyDataToolSchema({
 				projectId: 'p-1',
-				nodeType: '@n8n/n8n-nodes-langchain.toolBasic',
+				nodeType: '@resin/n8n-nodes-langchain.toolBasic',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 			});
@@ -584,7 +584,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			const result = await executor.introspectSupplyDataToolSchema({
 				projectId: 'p-1',
-				nodeType: '@n8n/n8n-nodes-langchain.mcpClientTool',
+				nodeType: '@resin/n8n-nodes-langchain.mcpClientTool',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 			});
@@ -602,7 +602,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			const result = await executor.introspectSupplyDataToolSchema({
 				projectId: 'p-1',
-				nodeType: '@n8n/n8n-nodes-langchain.mcpClientTool',
+				nodeType: '@resin/n8n-nodes-langchain.mcpClientTool',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 			});

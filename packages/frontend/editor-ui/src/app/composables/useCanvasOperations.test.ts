@@ -8,14 +8,17 @@ import type {
 	INodeConnections,
 	WorkflowExecuteMode,
 	Workflow,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeHelpers, UserError, TelemetryHelpers } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeHelpers, UserError, TelemetryHelpers } from 'resin-workflow';
 import type { CanvasConnection, CanvasNode } from '@/features/workflows/canvas/canvas.types';
 import { CanvasConnectionMode } from '@/features/workflows/canvas/canvas.types';
 import type { AddedNode, INodeUi, IWorkflowDb, WorkflowDataWithTemplateId } from '@/Interface';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
 import type { ICredentialsResponse } from '@/features/credentials/credentials.types';
-import type { IWorkflowTemplate, IWorkflowTemplateNode } from '@n8n/rest-api-client/api/templates';
+import type {
+	IWorkflowTemplate,
+	IWorkflowTemplateNode,
+} from '@resin/rest-api-client/api/templates';
 import { RemoveNodeCommand, ReplaceNodeParametersCommand } from '@/app/models/history';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useUIStore } from '@/app/stores/ui.store';
@@ -50,7 +53,7 @@ import {
 	VIEWS,
 	WEBHOOK_NODE_TYPE,
 } from '@/app/constants';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import type { Connection } from '@vue-flow/core';
 import { useClipboard } from '@vueuse/core';
 import { createCanvasConnectionHandleString } from '@/features/workflows/canvas/canvas.utils';
@@ -91,8 +94,8 @@ import { useCanvasOperations } from '@/app/composables/useCanvasOperations';
 import * as workflowHelpersModule from '@/app/composables/useWorkflowHelpers';
 import { GRID_SIZE, PUSH_NODES_OFFSET } from '@/app/utils/nodeViewUtils';
 
-vi.mock('n8n-workflow', async (importOriginal) => {
-	const actual = await importOriginal<typeof import('n8n-workflow')>();
+vi.mock('resin-workflow', async (importOriginal) => {
+	const actual = await importOriginal<typeof import('resin-workflow')>();
 	return {
 		...actual,
 		TelemetryHelpers: {
@@ -683,19 +686,19 @@ describe('useCanvasOperations', () => {
 				id: 'main',
 				name: 'Main Node',
 				position: [100, 100],
-				type: 'n8n-nodes-base.agent',
+				type: 'resin-nodes-base.agent',
 			});
 
 			const toolNode = createTestNode({
 				id: 'tool',
 				name: 'Tool Node',
 				position: [100, 400],
-				type: 'n8n-nodes-base.searchTool',
+				type: 'resin-nodes-base.searchTool',
 			});
 
 			const hitlNode = createTestNode({
 				id: 'hitl',
-				type: 'n8n-nodes-base.manualChatTriggerHitlTool',
+				type: 'resin-nodes-base.manualChatTriggerHitlTool',
 			});
 
 			const nodeTypeDescription = mockNodeTypeDescription();
@@ -736,7 +739,7 @@ describe('useCanvasOperations', () => {
 				id: 'main',
 				name: 'Main Node',
 				position: [100, 100],
-				type: 'n8n-nodes-base.agent',
+				type: 'resin-nodes-base.agent',
 			});
 
 			// Tool node is too close to main node (less than PUSH_NODES_OFFSET)
@@ -744,12 +747,12 @@ describe('useCanvasOperations', () => {
 				id: 'tool',
 				name: 'Tool Node',
 				position: [100, 150],
-				type: 'n8n-nodes-base.searchTool',
+				type: 'resin-nodes-base.searchTool',
 			});
 
 			const hitlNode = createTestNode({
 				id: 'hitl',
-				type: 'n8n-nodes-base.manualChatTriggerHitlTool',
+				type: 'resin-nodes-base.manualChatTriggerHitlTool',
 			});
 
 			const nodeTypeDescription = mockNodeTypeDescription();
@@ -791,20 +794,20 @@ describe('useCanvasOperations', () => {
 				id: 'main',
 				name: 'Main Node',
 				position: [100, 100],
-				type: 'n8n-nodes-base.agent',
+				type: 'resin-nodes-base.agent',
 			});
 
 			const toolNode = createTestNode({
 				id: 'tool',
 				name: 'Tool Node',
 				position: [100, 300],
-				type: 'n8n-nodes-base.searchTool',
+				type: 'resin-nodes-base.searchTool',
 			});
 
 			// Regular node, not a HITL tool
 			const regularNode = createTestNode({
 				id: 'regular',
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 			});
 
 			const nodeTypeDescription = mockNodeTypeDescription();
@@ -840,7 +843,7 @@ describe('useCanvasOperations', () => {
 				id: 'main',
 				name: 'Main Node',
 				position: [100, 100],
-				type: 'n8n-nodes-base.agent',
+				type: 'resin-nodes-base.agent',
 			});
 
 			// Not a tool node
@@ -848,12 +851,12 @@ describe('useCanvasOperations', () => {
 				id: 'regular',
 				name: 'Regular Node',
 				position: [100, 300],
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 			});
 
 			const hitlNode = createTestNode({
 				id: 'hitl',
-				type: 'n8n-nodes-base.manualChatTriggerHitlTool',
+				type: 'resin-nodes-base.manualChatTriggerHitlTool',
 			});
 
 			const nodeTypeDescription = mockNodeTypeDescription();
@@ -2841,7 +2844,7 @@ describe('useCanvasOperations', () => {
 
 				const sourceNode = mockNode({
 					id: '1',
-					type: 'n8n-nodes-community.sourceType',
+					type: 'resin-nodes-community.sourceType',
 					name: 'Source Node',
 					typeVersion: 1,
 				});
@@ -2853,7 +2856,7 @@ describe('useCanvasOperations', () => {
 
 				const targetNode = mockNode({
 					id: '2',
-					type: 'n8n-nodes-community.targetType',
+					type: 'resin-nodes-community.targetType',
 					name: 'Target Node',
 					typeVersion: 1,
 				});
@@ -3830,8 +3833,8 @@ describe('useCanvasOperations', () => {
 		it('should initialize nodes', () => {
 			const updateNodeByIdSpy = vi.spyOn(workflowDocumentStoreInstance, 'updateNodeById');
 			const nodes = [
-				createTestNode({ type: 'n8n-nodes-community.testNode1', name: 'testNode1' }),
-				createTestNode({ type: 'n8n-nodes-community.testNode2', name: 'testNode2' }),
+				createTestNode({ type: 'resin-nodes-community.testNode1', name: 'testNode1' }),
+				createTestNode({ type: 'resin-nodes-community.testNode2', name: 'testNode2' }),
 			];
 			const workflow = createTestWorkflow({
 				nodes,
@@ -3852,7 +3855,7 @@ describe('useCanvasOperations', () => {
 		it('should remove preview token from node type when initializing', () => {
 			const updateNodeByIdSpy = vi.spyOn(workflowDocumentStoreInstance, 'updateNodeById');
 			const nodeWithPreview = createTestNode({
-				type: 'n8n-nodes-community.testNode-preview',
+				type: 'resin-nodes-community.testNode-preview',
 				name: 'testNode',
 			});
 			const workflow = createTestWorkflow({
@@ -3866,7 +3869,7 @@ describe('useCanvasOperations', () => {
 
 			expect(updateNodeByIdSpy).toHaveBeenCalledTimes(1);
 			const updatedNode = updateNodeByIdSpy.mock.calls[0][1] as Record<string, unknown>;
-			expect(updatedNode.type).toBe('n8n-nodes-community.testNode');
+			expect(updatedNode.type).toBe('resin-nodes-community.testNode');
 			expect(updatedNode.type).not.toContain('-preview');
 		});
 	});
@@ -3877,7 +3880,7 @@ describe('useCanvasOperations', () => {
 			nodeTypesStore.getIsNodeInstalled = vi.fn().mockReturnValue(true);
 
 			const nodeTypeDescription = mockNodeTypeDescription({
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				webhooks: [
 					{
 						name: 'default',
@@ -3891,14 +3894,16 @@ describe('useCanvasOperations', () => {
 			const { addNode } = useCanvasOperations();
 			const node = addNode(
 				{
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [100, 100],
 				},
 				nodeTypeDescription,
 			);
 
-			expect(nodeTypesStore.getIsNodeInstalled).toHaveBeenCalledWith('n8n-nodes-base.httpRequest');
+			expect(nodeTypesStore.getIsNodeInstalled).toHaveBeenCalledWith(
+				'resin-nodes-base.httpRequest',
+			);
 			expect(node).toBeDefined();
 		});
 
@@ -3907,13 +3912,13 @@ describe('useCanvasOperations', () => {
 			nodeTypesStore.getIsNodeInstalled = vi.fn().mockReturnValue(false);
 
 			const nodeTypeDescription = mockNodeTypeDescription({
-				name: 'n8n-nodes-community.notInstalled',
+				name: 'resin-nodes-community.notInstalled',
 			});
 
 			const { addNode } = useCanvasOperations();
 			const node = addNode(
 				{
-					type: 'n8n-nodes-community.notInstalled',
+					type: 'resin-nodes-community.notInstalled',
 					typeVersion: 1,
 					position: [100, 100],
 				},
@@ -3921,7 +3926,7 @@ describe('useCanvasOperations', () => {
 			);
 
 			expect(nodeTypesStore.getIsNodeInstalled).toHaveBeenCalledWith(
-				'n8n-nodes-community.notInstalled',
+				'resin-nodes-community.notInstalled',
 			);
 			expect(node).toBeDefined();
 		});
@@ -6269,14 +6274,14 @@ describe('useCanvasOperations', () => {
 			const toolNode = createTestNode({
 				id: 'tool',
 				name: 'Tool',
-				type: 'n8n-nodes-base.calculator',
+				type: 'resin-nodes-base.calculator',
 				position: [300, 300],
 			});
 
 			const hitlNode = createTestNode({
 				id: 'hitl',
 				name: 'HITL',
-				type: 'n8n-nodes-base.manualChatTriggerHitlTool',
+				type: 'resin-nodes-base.manualChatTriggerHitlTool',
 			});
 
 			const agentNodeTypeDescription = mockNodeTypeDescription({
@@ -6285,20 +6290,20 @@ describe('useCanvasOperations', () => {
 				outputs: [NodeConnectionTypes.AiTool],
 			});
 			const toolNodeTypeDescription = mockNodeTypeDescription({
-				name: 'n8n-nodes-base.calculator',
+				name: 'resin-nodes-base.calculator',
 				inputs: [NodeConnectionTypes.AiTool],
 				outputs: [NodeConnectionTypes.Main],
 			});
 			const hitlNodeTypeDescription = mockNodeTypeDescription({
-				name: 'n8n-nodes-base.manualChatTriggerHitlTool',
+				name: 'resin-nodes-base.manualChatTriggerHitlTool',
 				inputs: [NodeConnectionTypes.AiTool],
 				outputs: [NodeConnectionTypes.AiTool],
 			});
 
 			nodeTypesStore.getNodeType = vi.fn((type: string) => {
 				if (type === AGENT_NODE_TYPE) return agentNodeTypeDescription;
-				if (type === 'n8n-nodes-base.calculator') return toolNodeTypeDescription;
-				if (type === 'n8n-nodes-base.manualChatTriggerHitlTool') return hitlNodeTypeDescription;
+				if (type === 'resin-nodes-base.calculator') return toolNodeTypeDescription;
+				if (type === 'resin-nodes-base.manualChatTriggerHitlTool') return hitlNodeTypeDescription;
 				return null;
 			});
 
@@ -6364,7 +6369,7 @@ describe('useCanvasOperations', () => {
 
 		it('should open sub-workflow with static ID', async () => {
 			const node = createTestNode({
-				type: 'n8n-nodes-base.executeWorkflow',
+				type: 'resin-nodes-base.executeWorkflow',
 				parameters: {
 					workflowId: {
 						__rl: true,
@@ -6393,7 +6398,7 @@ describe('useCanvasOperations', () => {
 			} as unknown as ReturnType<typeof workflowHelpersModule.useWorkflowHelpers>);
 
 			const node = createTestNode({
-				type: 'n8n-nodes-base.executeWorkflow',
+				type: 'resin-nodes-base.executeWorkflow',
 				parameters: {
 					workflowId: {
 						__rl: true,
@@ -6427,7 +6432,7 @@ describe('useCanvasOperations', () => {
 			} as unknown as ReturnType<typeof workflowHelpersModule.useWorkflowHelpers>);
 
 			const node = createTestNode({
-				type: 'n8n-nodes-base.executeWorkflow',
+				type: 'resin-nodes-base.executeWorkflow',
 				parameters: {
 					workflowId: {
 						__rl: true,
@@ -6453,7 +6458,7 @@ describe('useCanvasOperations', () => {
 			} as unknown as ReturnType<typeof workflowHelpersModule.useWorkflowHelpers>);
 
 			const node = createTestNode({
-				type: 'n8n-nodes-base.executeWorkflow',
+				type: 'resin-nodes-base.executeWorkflow',
 				parameters: {
 					workflowId: {
 						__rl: true,

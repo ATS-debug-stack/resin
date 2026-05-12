@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 
 import { OAuthJweServiceProxy, type OAuthJweDecryptHandler } from '@/oauth/oauth-jwe-service.proxy';
 

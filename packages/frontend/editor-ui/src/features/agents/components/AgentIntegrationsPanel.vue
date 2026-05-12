@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { AGENT_SCHEDULE_TRIGGER_TYPE } from '@n8n/api-types';
+import { AGENT_SCHEDULE_TRIGGER_TYPE } from '@resin/api-types';
 import { ref, computed, onMounted, watch } from 'vue';
-import { N8nButton, N8nCard, N8nDialog, N8nIcon, N8nText } from '@n8n/design-system';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { N8nButton, N8nCard, N8nDialog, N8nIcon, N8nText } from '@resin/design-system';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useUIStore } from '@/app/stores/ui.store';
 import { CREDENTIAL_EDIT_MODAL_KEY } from '@/features/credentials/credentials.constants';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { useAgentIntegrationStatus } from '../composables/useAgentIntegrationStatus';
 import AgentScheduleTriggerCard from './AgentScheduleTriggerCard.vue';
 import AgentCredentialSelect, { type AgentCredentialOption } from './AgentCredentialSelect.vue';

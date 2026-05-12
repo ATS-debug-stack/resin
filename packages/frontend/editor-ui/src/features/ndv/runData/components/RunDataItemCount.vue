@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
-import { N8nText } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nText } from '@resin/design-system';
 const {
 	dataCount,
 	unfilteredDataCount,

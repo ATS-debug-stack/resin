@@ -7,7 +7,7 @@ import {
 	type INodeTypeBaseDescription,
 	type INodeTypeDescription,
 	type IWebhookFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	appendAttributionToForm,
@@ -49,7 +49,7 @@ const descriptionV2: INodeTypeDescription = {
 	builderHint: {
 		relatedNodes: [
 			{
-				nodeType: 'n8n-nodes-base.form',
+				nodeType: 'resin-nodes-base.form',
 				relationHint: 'Add pages and final page to the form',
 			},
 		],

@@ -16,7 +16,7 @@ export default class Build extends Command {
 	async run(): Promise<void> {
 		await this.parse(Build);
 
-		const commandName = 'n8n-node build';
+		const commandName = 'resin-node build';
 		intro(await getCommandHeader(commandName));
 
 		await ensureN8nPackage(commandName);

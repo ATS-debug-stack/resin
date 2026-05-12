@@ -1,5 +1,5 @@
-import { CredentialsEntity, CredentialsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { CredentialsEntity, CredentialsRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import { mockEntityManager } from '@test/mocking';

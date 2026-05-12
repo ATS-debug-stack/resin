@@ -1,6 +1,6 @@
-import { testDb, createWorkflow } from '@n8n/backend-test-utils';
-import { WorkflowDependencyRepository, WorkflowDependencies } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb, createWorkflow } from '@resin/backend-test-utils';
+import { WorkflowDependencyRepository, WorkflowDependencies } from '@resin/db';
+import { Container } from '@resin/di';
 
 describe('WorkflowDependencyRepository', () => {
 	let workflowDependencyRepository: WorkflowDependencyRepository;
@@ -33,7 +33,7 @@ describe('WorkflowDependencyRepository', () => {
 			});
 			dependencies.add({
 				dependencyType: 'nodeType',
-				dependencyKey: 'n8n-nodes-base.httpRequest',
+				dependencyKey: 'resin-nodes-base.httpRequest',
 				dependencyInfo: null,
 			});
 
@@ -66,7 +66,7 @@ describe('WorkflowDependencyRepository', () => {
 				workflowId: workflow.id,
 				workflowVersionId: 1,
 				dependencyType: 'nodeType',
-				dependencyKey: 'n8n-nodes-base.httpRequest',
+				dependencyKey: 'resin-nodes-base.httpRequest',
 				dependencyInfo: null,
 				indexVersionId: 1,
 			});

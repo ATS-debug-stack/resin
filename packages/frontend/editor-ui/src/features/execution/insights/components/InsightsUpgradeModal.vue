@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
-import type { BaseTextKey } from '@n8n/i18n';
+import type { BaseTextKey } from '@resin/i18n';
 import { computed } from 'vue';
 
-import { N8nButton, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nText } from '@resin/design-system';
 import { ElDialog } from 'element-plus';
 const model = defineModel<boolean>();
 const i18n = useI18n();

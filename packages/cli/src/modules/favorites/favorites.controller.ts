@@ -1,6 +1,6 @@
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Body, Delete, Get, Param, Post, RestController } from '@n8n/decorators';
-import { FAVORITE_RESOURCE_TYPES, type FavoriteResourceType } from '@n8n/api-types';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Body, Delete, Get, Param, Post, RestController } from '@resin/decorators';
+import { FAVORITE_RESOURCE_TYPES, type FavoriteResourceType } from '@resin/api-types';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 

@@ -1,14 +1,14 @@
-import { mockInstance } from '@n8n/backend-test-utils';
+import { mockInstance } from '@resin/backend-test-utils';
 import {
 	SettingsRepository,
 	SharedCredentialsRepository,
 	SharedWorkflowRepository,
 	WorkflowRepository,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	PERSONAL_SPACE_PUBLISHING_SETTING,
 	PERSONAL_SPACE_SHARING_SETTING,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 
 import { RoleService } from '@/services/role.service';
 import { SecuritySettingsService } from '@/services/security-settings.service';

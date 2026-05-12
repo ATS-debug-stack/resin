@@ -1,4 +1,4 @@
-import type { ApiKeyScope } from '@n8n/permissions';
+import type { ApiKeyScope } from '@resin/permissions';
 
 /** Unix timestamp. Seconds since epoch */
 export type UnixTimestamp = number | null;

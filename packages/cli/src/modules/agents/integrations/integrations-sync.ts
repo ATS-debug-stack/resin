@@ -2,9 +2,9 @@ import {
 	isAgentScheduleIntegration,
 	type AgentCredentialIntegration,
 	type AgentIntegration,
-} from '@n8n/api-types';
-import type { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+} from '@resin/api-types';
+import type { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 
 import type { Agent } from '../entities/agent.entity';
 

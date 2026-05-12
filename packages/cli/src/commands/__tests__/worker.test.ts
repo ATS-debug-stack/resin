@@ -1,7 +1,7 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { DbConnection, DeploymentKeyRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { DbConnection, DeploymentKeyRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';
 import { PubSubRegistry } from '@/scaling/pubsub/pubsub.registry';

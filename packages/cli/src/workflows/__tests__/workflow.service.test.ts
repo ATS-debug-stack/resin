@@ -1,6 +1,6 @@
-import type { LicenseState } from '@n8n/backend-common';
-import type { Project, User, WorkflowEntity } from '@n8n/db';
-import type { Scope } from '@n8n/permissions';
+import type { LicenseState } from '@resin/backend-common';
+import type { Project, User, WorkflowEntity } from '@resin/db';
+import type { Scope } from '@resin/permissions';
 import type { MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
 
@@ -255,7 +255,7 @@ describe('WorkflowService', () => {
 				workflowService.update(
 					user,
 					{
-						nodes: [{ name: 'Start', type: 'n8n-nodes-base.manualTrigger', parameters: {} }],
+						nodes: [{ name: 'Start', type: 'resin-nodes-base.manualTrigger', parameters: {} }],
 					} as unknown as WorkflowEntity,
 					'workflow-1',
 					{ forceSave: true },

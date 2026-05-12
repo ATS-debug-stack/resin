@@ -14,7 +14,7 @@ describe('useToast', () => {
 
 	beforeEach(() => {
 		const appEl = document.createElement('div');
-		appEl.id = 'n8n-app';
+		appEl.id = 'resin-app';
 		document.body.appendChild(appEl);
 
 		createTestingPinia();
@@ -28,7 +28,7 @@ describe('useToast', () => {
 	});
 
 	afterEach(() => {
-		document.getElementById('n8n-app')?.remove();
+		document.getElementById('resin-app')?.remove();
 	});
 
 	it('should show a message', async () => {

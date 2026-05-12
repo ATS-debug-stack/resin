@@ -1,5 +1,5 @@
-import type { Scope as ScopeType } from '@n8n/permissions';
-import { Column, Entity, PrimaryColumn } from '@n8n/typeorm';
+import type { Scope as ScopeType } from '@resin/permissions';
+import { Column, Entity, PrimaryColumn } from '@resin/typeorm';
 
 @Entity({
 	name: 'scope',

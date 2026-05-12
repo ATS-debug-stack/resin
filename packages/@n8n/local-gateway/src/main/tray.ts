@@ -1,4 +1,4 @@
-import { logger } from '@n8n/computer-use/logger';
+import { logger } from '@resin/computer-use/logger';
 import { app, Menu, nativeImage, Tray } from 'electron';
 import * as fs from 'node:fs';
 import * as path from 'node:path';

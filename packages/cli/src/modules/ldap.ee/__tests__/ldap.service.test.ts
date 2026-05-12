@@ -1,15 +1,15 @@
-import { mockLogger, mockInstance } from '@n8n/backend-test-utils';
-import type { LicenseState } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { LDAP_FEATURE_NAME, type LdapConfig } from '@n8n/constants';
-import type { Settings, User } from '@n8n/db';
-import { AuthIdentityRepository, SettingsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { QueryFailedError } from '@n8n/typeorm';
+import { mockLogger, mockInstance } from '@resin/backend-test-utils';
+import type { LicenseState } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { LDAP_FEATURE_NAME, type LdapConfig } from '@resin/constants';
+import type { Settings, User } from '@resin/db';
+import { AuthIdentityRepository, SettingsRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { QueryFailedError } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
 import { Client } from 'ldapts';
-import type { Cipher } from 'n8n-core';
-import { randomString } from 'n8n-workflow';
+import type { Cipher } from 'resin-core';
+import { randomString } from 'resin-workflow';
 
 import config from '@/config';
 import type { EventService } from '@/events/event.service';
@@ -55,8 +55,8 @@ jest.mock('../helpers.ee', () => ({
 	createLdapUserOnLocalDb: jest.fn(),
 }));
 
-jest.mock('n8n-workflow', () => ({
-	...jest.requireActual('n8n-workflow'),
+jest.mock('resin-workflow', () => ({
+	...jest.requireActual('resin-workflow'),
 	randomString: jest.fn(),
 }));
 

@@ -22,7 +22,7 @@ import type { ValidatorPlugin, ValidationIssue, PluginContext } from '../types';
 export const httpRequestValidator: ValidatorPlugin = {
 	id: 'core:http-request',
 	name: 'HTTP Request Validator',
-	nodeTypes: ['n8n-nodes-base.httpRequest'],
+	nodeTypes: ['resin-nodes-base.httpRequest'],
 	priority: 50,
 
 	validateNode(

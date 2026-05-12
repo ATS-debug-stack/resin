@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { N8nButton, N8nDropdownMenu, N8nIcon, N8nTooltip } from '@n8n/design-system';
-import type { DropdownMenuItemProps } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nDropdownMenu, N8nIcon, N8nTooltip } from '@resin/design-system';
+import type { DropdownMenuItemProps } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 
 import { deriveAgentStatus } from '../composables/agentTelemetry.utils';
 import type { ChatMode } from '../composables/useAgentChatMode';

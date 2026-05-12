@@ -1,16 +1,16 @@
 import type { ICredentialsDecryptedResponse, ICredentialsResponse } from './credentials.types';
-import type { IRestApiContext } from '@n8n/rest-api-client';
-import { makeRestApiRequest } from '@n8n/rest-api-client';
+import type { IRestApiContext } from '@resin/rest-api-client';
+import { makeRestApiRequest } from '@resin/rest-api-client';
 import type {
 	ICredentialsDecrypted,
 	ICredentialType,
 	IDataObject,
 	INodeCredentialTestRequest,
 	INodeCredentialTestResult,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import axios from 'axios';
-import { sleep } from 'n8n-workflow';
-import type { CreateCredentialDto } from '@n8n/api-types';
+import { sleep } from 'resin-workflow';
+import type { CreateCredentialDto } from '@resin/api-types';
 
 async function fetchCredentialTypesJsonWithRetry(url: string, retries = 5, delay = 500) {
 	for (let attempt = 0; attempt < retries; attempt++) {

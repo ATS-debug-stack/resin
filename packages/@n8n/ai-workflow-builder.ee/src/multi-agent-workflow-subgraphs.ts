@@ -8,8 +8,8 @@ import {
 	isGraphInterrupt,
 	getWriter,
 } from '@langchain/langgraph';
-import type { Logger } from '@n8n/backend-common';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { Logger } from '@resin/backend-common';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import {
 	createResponderAgent,

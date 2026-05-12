@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue';
 import { describe, expect, it } from 'vitest';
-import type { InstanceAiWorkflowSetupNode } from '@n8n/api-types';
+import type { InstanceAiWorkflowSetupNode } from '@resin/api-types';
 import { makeSetupRequest, makeWorkflowSetupSection } from '../__tests__/factories';
 import type { WorkflowSetupSection } from '../workflowSetup.types';
 import { useWorkflowSetupSteps } from './useWorkflowSetupSteps';

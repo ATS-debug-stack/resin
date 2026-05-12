@@ -1,6 +1,6 @@
 import type { IWorkflowDb } from '@/Interface';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
-import type { WorkflowData } from '@n8n/rest-api-client/api/workflows';
+import type { WorkflowData } from '@resin/rest-api-client/api/workflows';
 import { resolveParameter, useWorkflowHelpers } from '@/app/composables/useWorkflowHelpers';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
@@ -25,9 +25,9 @@ import {
 	createRunExecutionData,
 	NodeConnectionTypes,
 	WEBHOOK_NODE_TYPE,
-} from 'n8n-workflow';
-import type { AssignmentCollectionValue, IConnections } from 'n8n-workflow';
-import * as apiWebhooks from '@n8n/rest-api-client/api/webhooks';
+} from 'resin-workflow';
+import type { AssignmentCollectionValue, IConnections } from 'resin-workflow';
+import * as apiWebhooks from '@resin/rest-api-client/api/webhooks';
 import { mockedStore } from '@/__tests__/utils';
 import { SLACK_TRIGGER_NODE_TYPE, SET_NODE_TYPE } from '../constants';
 import {
@@ -331,7 +331,7 @@ describe('useWorkflowHelpers', () => {
 						httpMethod: 'GET',
 						path: 'test-path',
 					},
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					webhookId: '1',
 				},
 			});
@@ -447,7 +447,7 @@ describe('useWorkflowHelpers', () => {
 			vi.spyOn(workflowsListStore, 'fetchWorkflow').mockResolvedValue({
 				nodes: [
 					{
-						type: 'n8n-nodes-base.formTrigger',
+						type: 'resin-nodes-base.formTrigger',
 						parameters: {
 							options: {
 								path: 'test-path',
@@ -467,7 +467,7 @@ describe('useWorkflowHelpers', () => {
 			vi.spyOn(workflowsListStore, 'fetchWorkflow').mockResolvedValue({
 				nodes: [
 					{
-						type: 'n8n-nodes-base.formTrigger',
+						type: 'resin-nodes-base.formTrigger',
 						parameters: {
 							options: {
 								path: 'test-path',
@@ -496,7 +496,7 @@ describe('useWorkflowHelpers', () => {
 							path: 'test-path',
 						},
 					},
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 					webhookId: '123',
 				},
 			});
@@ -508,7 +508,7 @@ describe('useWorkflowHelpers', () => {
 			vi.spyOn(workflowsListStore, 'fetchWorkflow').mockResolvedValue({
 				nodes: [
 					{
-						type: 'n8n-nodes-base.formTrigger',
+						type: 'resin-nodes-base.formTrigger',
 						parameters: {
 							options: {
 								path: 'test-path',
@@ -612,7 +612,7 @@ describe('useWorkflowHelpers', () => {
 						path: 'test-path',
 						multipleMethods: true,
 					},
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					webhookId: '1',
 				},
 			});
@@ -1094,30 +1094,30 @@ describe('useWorkflowHelpers', () => {
 
 		it('should return node type for core nodes', () => {
 			const mockNodeType = mockNodeTypeDescription({
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				displayName: 'HTTP Request',
 			});
 
 			nodeTypesStore.getNodeType = vi.fn().mockReturnValue(mockNodeType);
 
 			const nodeTypes = useWorkflowHelpers().getNodeTypes();
-			const result = nodeTypes.getByNameAndVersion('n8n-nodes-base.httpRequest', 1);
+			const result = nodeTypes.getByNameAndVersion('resin-nodes-base.httpRequest', 1);
 
 			expect(result).toBeDefined();
-			expect(result?.description.name).toBe('n8n-nodes-base.httpRequest');
+			expect(result?.description.name).toBe('resin-nodes-base.httpRequest');
 		});
 
 		it('should fallback to community node type when core node not found', () => {
 			const mockCommunityNodeDescription = mockNodeTypeDescription({
-				name: 'n8n-nodes-test.test',
+				name: 'resin-nodes-test.test',
 				displayName: 'Test Node',
 			});
 
 			nodeTypesStore.getNodeType = vi.fn().mockReturnValue(null);
 
 			nodeTypesStore.communityNodeType = vi.fn().mockReturnValue({
-				name: 'n8n-nodes-test.test',
-				packageName: 'n8n-nodes-test',
+				name: 'resin-nodes-test.test',
+				packageName: 'resin-nodes-test',
 				checksum: 'test-checksum',
 				npmVersion: '1.0.0',
 				createdAt: '2024-01-01',
@@ -1134,10 +1134,10 @@ describe('useWorkflowHelpers', () => {
 			});
 
 			const nodeTypes = useWorkflowHelpers().getNodeTypes();
-			const result = nodeTypes.getByNameAndVersion('n8n-nodes-test.test');
+			const result = nodeTypes.getByNameAndVersion('resin-nodes-test.test');
 
 			expect(result).toBeDefined();
-			expect(result?.description.name).toBe('n8n-nodes-test.test');
+			expect(result?.description.name).toBe('resin-nodes-test.test');
 		});
 
 		it('should return undefined when node type is not found', () => {
@@ -1153,7 +1153,7 @@ describe('useWorkflowHelpers', () => {
 
 		it('should use community node description when available and core node is null', () => {
 			const mockCommunityNodeDescription = mockNodeTypeDescription({
-				name: 'n8n-nodes-community.customNode',
+				name: 'resin-nodes-community.customNode',
 				displayName: 'Custom Community Node',
 				inputs: ['main'],
 				outputs: ['main'],
@@ -1162,8 +1162,8 @@ describe('useWorkflowHelpers', () => {
 			nodeTypesStore.getNodeType = vi.fn().mockReturnValue(null);
 
 			nodeTypesStore.communityNodeType = vi.fn().mockReturnValue({
-				name: 'n8n-nodes-community.customNode',
-				packageName: 'n8n-nodes-community',
+				name: 'resin-nodes-community.customNode',
+				packageName: 'resin-nodes-community',
 				checksum: 'test-checksum',
 				npmVersion: '1.0.0',
 				createdAt: '2024-01-01',
@@ -1180,10 +1180,10 @@ describe('useWorkflowHelpers', () => {
 			});
 
 			const nodeTypes = useWorkflowHelpers().getNodeTypes();
-			const result = nodeTypes.getByNameAndVersion('n8n-nodes-community.customNode');
+			const result = nodeTypes.getByNameAndVersion('resin-nodes-community.customNode');
 
 			expect(result).toBeDefined();
-			expect(result?.description.name).toBe('n8n-nodes-community.customNode');
+			expect(result?.description.name).toBe('resin-nodes-community.customNode');
 			expect(result?.description.displayName).toBe('Custom Community Node');
 		});
 	});
@@ -1261,7 +1261,7 @@ describe(resolveParameter, () => {
 		});
 
 		it('should include $tool in additionalKeys for hitl tool node types', async () => {
-			const toolNodeType = 'n8n-nodes-base.someHitlTool';
+			const toolNodeType = 'resin-nodes-base.someHitlTool';
 			const toolNodeTypes = createMockNodeTypes({
 				[toolNodeType]: mockLoadedNodeType(toolNodeType),
 			});
@@ -1307,7 +1307,7 @@ describe(resolveParameter, () => {
 		});
 
 		it('should resolve $tool.name expression for tool nodes', async () => {
-			const toolNodeType = 'n8n-nodes-base.someHitlTool';
+			const toolNodeType = 'resin-nodes-base.someHitlTool';
 			const toolNodeTypes = createMockNodeTypes({
 				[toolNodeType]: mockLoadedNodeType(toolNodeType),
 			});
@@ -1332,7 +1332,7 @@ describe(resolveParameter, () => {
 		});
 
 		it('should resolve $tool.parameters expression for hitl tool nodes', async () => {
-			const toolNodeType = 'n8n-nodes-base.someHitlTool';
+			const toolNodeType = 'resin-nodes-base.someHitlTool';
 			const toolNodeTypes = createMockNodeTypes({
 				[toolNodeType]: mockLoadedNodeType(toolNodeType),
 			});

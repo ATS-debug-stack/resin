@@ -45,17 +45,17 @@ function createMockContext(nodes: SemanticNode[]): BuildContext {
 describe('sib-merge-handler', () => {
 	describe('detectSibMergePattern', () => {
 		it('should return null when SIB has no outputs', () => {
-			const sibNode = createMockNode('SIB', 'n8n-nodes-base.splitInBatches');
+			const sibNode = createMockNode('SIB', 'resin-nodes-base.splitInBatches');
 			const ctx = createMockContext([sibNode]);
 
 			expect(detectSibMergePattern(sibNode, ctx)).toBeNull();
 		});
 
 		it('should return null when SIB only has done output', () => {
-			const merge = createMockNode('Merge', 'n8n-nodes-base.merge');
+			const merge = createMockNode('Merge', 'resin-nodes-base.merge');
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([['done', [{ target: 'Merge', targetInputSlot: 'branch0' }]]]),
 			);
 			const ctx = createMockContext([sibNode, merge]);
@@ -64,10 +64,10 @@ describe('sib-merge-handler', () => {
 		});
 
 		it('should return null when SIB only has loop output', () => {
-			const merge = createMockNode('Merge', 'n8n-nodes-base.merge');
+			const merge = createMockNode('Merge', 'resin-nodes-base.merge');
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([['loop', [{ target: 'Merge', targetInputSlot: 'branch1' }]]]),
 			);
 			const ctx = createMockContext([sibNode, merge]);
@@ -76,11 +76,11 @@ describe('sib-merge-handler', () => {
 		});
 
 		it('should return null when done and loop go to different merge nodes', () => {
-			const merge1 = createMockNode('Merge1', 'n8n-nodes-base.merge');
-			const merge2 = createMockNode('Merge2', 'n8n-nodes-base.merge');
+			const merge1 = createMockNode('Merge1', 'resin-nodes-base.merge');
+			const merge2 = createMockNode('Merge2', 'resin-nodes-base.merge');
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([
 					['done', [{ target: 'Merge1', targetInputSlot: 'branch0' }]],
 					['loop', [{ target: 'Merge2', targetInputSlot: 'branch0' }]],
@@ -94,12 +94,12 @@ describe('sib-merge-handler', () => {
 		it('should detect pattern when done and loop both go to same merge', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map([['output', [{ target: 'NextNode', targetInputSlot: 'input0' }]]]),
 			);
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([
 					['done', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['loop', [{ target: 'Merge', targetInputSlot: 'branch1' }]],
@@ -124,12 +124,12 @@ describe('sib-merge-handler', () => {
 		it('should capture merge output connections', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map([['output', [{ target: 'NextNode', targetInputSlot: 'input0' }]]]),
 			);
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([
 					['done', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['loop', [{ target: 'Merge', targetInputSlot: 'branch1' }]],
@@ -149,12 +149,12 @@ describe('sib-merge-handler', () => {
 		it('should build explicit connections node', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map([['output', [{ target: 'NextNode', targetInputSlot: 'input0' }]]]),
 			);
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([
 					['done', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['loop', [{ target: 'Merge', targetInputSlot: 'branch1' }]],
@@ -172,10 +172,10 @@ describe('sib-merge-handler', () => {
 		});
 
 		it('should include SIB to merge connections', () => {
-			const merge = createMockNode('Merge', 'n8n-nodes-base.merge', new Map([['output', []]]));
+			const merge = createMockNode('Merge', 'resin-nodes-base.merge', new Map([['output', []]]));
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([
 					['done', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['loop', [{ target: 'Merge', targetInputSlot: 'branch1' }]],
@@ -197,12 +197,12 @@ describe('sib-merge-handler', () => {
 		it('should include merge output connections', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map([['output', [{ target: 'NextNode', targetInputSlot: 'input0' }]]]),
 			);
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([
 					['done', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['loop', [{ target: 'Merge', targetInputSlot: 'branch1' }]],
@@ -221,10 +221,10 @@ describe('sib-merge-handler', () => {
 		});
 
 		it('should register nodes as variables', () => {
-			const merge = createMockNode('Merge', 'n8n-nodes-base.merge', new Map([['output', []]]));
+			const merge = createMockNode('Merge', 'resin-nodes-base.merge', new Map([['output', []]]));
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([
 					['done', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['loop', [{ target: 'Merge', targetInputSlot: 'branch1' }]],
@@ -240,10 +240,10 @@ describe('sib-merge-handler', () => {
 		});
 
 		it('should mark nodes as visited', () => {
-			const merge = createMockNode('Merge', 'n8n-nodes-base.merge', new Map([['output', []]]));
+			const merge = createMockNode('Merge', 'resin-nodes-base.merge', new Map([['output', []]]));
 			const sibNode = createMockNode(
 				'SIB',
-				'n8n-nodes-base.splitInBatches',
+				'resin-nodes-base.splitInBatches',
 				new Map([
 					['done', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['loop', [{ target: 'Merge', targetInputSlot: 'branch1' }]],

@@ -10,7 +10,7 @@
 // DR denotes that the node is dirty
 // PD denotes that the node has pinned data
 
-import { TOOL_EXECUTOR_NODE_NAME } from '@n8n/constants';
+import { TOOL_EXECUTOR_NODE_NAME } from '@resin/constants';
 import { mock } from 'jest-mock-extended';
 import pick from 'lodash/pick';
 import type {
@@ -32,7 +32,7 @@ import type {
 	IExecuteFunctions,
 	IDataObject,
 	IDestinationNode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ApplicationError,
 	createDeferredPromise,
@@ -43,7 +43,7 @@ import {
 	NodeOperationError,
 	Workflow,
 	BINARY_MODE_COMBINED,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import assert from 'node:assert';
 
 import * as Helpers from '@test/helpers';
@@ -237,7 +237,7 @@ describe('WorkflowExecute', () => {
 
 		test("don't run hooks for siblings of the destination node", async () => {
 			// ARRANGE
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const node2 = createNodeData({ name: 'node2' });
 			const workflowInstance = new DirectedGraph()
@@ -283,7 +283,7 @@ describe('WorkflowExecute', () => {
 
 		test("don't run hooks if a node does not have input data", async () => {
 			// ARRANGE
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const workflowInstance = new DirectedGraph()
 				.addNodes(trigger)
 				.toWorkflow({ name: '', active: false, nodeTypes, settings: { executionOrder } });
@@ -315,7 +315,7 @@ describe('WorkflowExecute', () => {
 
 		test("don't execute destination node when mode is exclusive", async () => {
 			// ARRANGE
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const node2 = createNodeData({ name: 'node2' });
 			const workflowInstance = new DirectedGraph()
@@ -360,7 +360,7 @@ describe('WorkflowExecute', () => {
 
 		test("don't run hooks for siblings of the destination node", async () => {
 			// ARRANGE
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const node2 = createNodeData({ name: 'node2' });
 			const workflowInstance = new DirectedGraph()
@@ -406,7 +406,7 @@ describe('WorkflowExecute', () => {
 
 		test("don't run hooks if a node does not have input data", async () => {
 			// ARRANGE
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const workflowInstance = new DirectedGraph()
 				.addNodes(trigger)
 				.toWorkflow({ name: '', active: false, nodeTypes, settings: { executionOrder } });
@@ -438,7 +438,7 @@ describe('WorkflowExecute', () => {
 
 		test("don't execute destination node when mode is exclusive", async () => {
 			// ARRANGE
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const node2 = createNodeData({ name: 'node2' });
 			const workflowInstance = new DirectedGraph()
@@ -483,7 +483,7 @@ describe('WorkflowExecute', () => {
 
 		test('should call workflowExecuteResume instead of workflowExecuteBefore when restartExecutionId is set', async () => {
 			// ARRANGE
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const workflowInstance = new DirectedGraph()
 				.addNodes(trigger, node1)
@@ -517,7 +517,7 @@ describe('WorkflowExecute', () => {
 
 		test('should call workflowExecuteBefore when restartExecutionId is not set', async () => {
 			// ARRANGE
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const workflowInstance = new DirectedGraph()
 				.addNodes(trigger, node1)
@@ -555,7 +555,7 @@ describe('WorkflowExecute', () => {
 		const nodeTypes = Helpers.NodeTypes();
 
 		test('includes non-main parent nodes in runNodeFilter when destination node is set', async () => {
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const agent = createNodeData({ name: 'agent' });
 			const tool = createNodeData({ name: 'tool' });
 
@@ -599,7 +599,7 @@ describe('WorkflowExecute', () => {
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const node2 = createNodeData({ name: 'node2' });
 			const workflow = new DirectedGraph()
@@ -652,7 +652,7 @@ describe('WorkflowExecute', () => {
 				'recreateNodeExecutionStack',
 			);
 
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const set1 = createNodeData({ name: 'set1' });
 			const set2 = createNodeData({ name: 'set2' });
 			const merge = createNodeData({ name: 'merge' });
@@ -707,7 +707,7 @@ describe('WorkflowExecute', () => {
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1', disabled: true });
 			const node2 = createNodeData({ name: 'node2' });
 			const workflow = new DirectedGraph()
@@ -766,8 +766,8 @@ describe('WorkflowExecute', () => {
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
-			const loop = createNodeData({ name: 'loop', type: 'n8n-nodes-base.splitInBatches' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
+			const loop = createNodeData({ name: 'loop', type: 'resin-nodes-base.splitInBatches' });
 			const inLoop = createNodeData({ name: 'inLoop' });
 			const afterLoop = createNodeData({ name: 'afterLoop' });
 			const workflow = new DirectedGraph()
@@ -825,7 +825,7 @@ describe('WorkflowExecute', () => {
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const node2 = createNodeData({ name: 'node2' });
 			const workflow = new DirectedGraph()
@@ -882,7 +882,7 @@ describe('WorkflowExecute', () => {
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const destination = createNodeData({ name: 'destination' });
 			const dirtyNode = createNodeData({ name: 'dirtyNode' });
 			const workflow = new DirectedGraph()
@@ -930,8 +930,8 @@ describe('WorkflowExecute', () => {
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 			const nodeTypes = Helpers.NodeTypes();
 
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
-			const tool = createNodeData({ name: 'tool', type: 'n8n-nodes-base.toolTest' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
+			const tool = createNodeData({ name: 'tool', type: 'resin-nodes-base.toolTest' });
 			const agentNode = createNodeData({ name: 'agent' });
 
 			const workflow = new DirectedGraph()
@@ -954,7 +954,7 @@ describe('WorkflowExecute', () => {
 			const expectedToolExecutor: INode = {
 				name: 'PartialExecutionToolExecutor',
 				disabled: false,
-				type: '@n8n/n8n-nodes-langchain.toolExecutor',
+				type: '@resin/n8n-nodes-langchain.toolExecutor',
 				parameters: {
 					query: {},
 					toolName: '',
@@ -1003,7 +1003,7 @@ describe('WorkflowExecute', () => {
 
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const node2 = createNodeData({ name: 'node2' });
 			const workflow = new DirectedGraph()
@@ -1051,7 +1051,7 @@ describe('WorkflowExecute', () => {
 
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const workflow = new DirectedGraph()
 				.addNodes(trigger, node1)
@@ -2919,7 +2919,7 @@ describe('WorkflowExecute', () => {
 	describe('convertBinaryData integration', () => {
 		test('should call convertBinaryData with workflow settings during node execution', async () => {
 			// ARRANGE
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const nodeWithBinary = createNodeData({ name: 'nodeWithBinary' });
 
 			const binaryData = {
@@ -3086,7 +3086,7 @@ describe('WorkflowExecute', () => {
 
 		test('should set status to canceled when execution timeout is reached', async () => {
 			// Arrange - create a workflow with multiple nodes
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const node1 = createNodeData({ name: 'node1' });
 			const node2 = createNodeData({ name: 'node2' });
 
@@ -3155,7 +3155,7 @@ describe('WorkflowExecute', () => {
 
 	describe('resolveSourceOverwrite integration', () => {
 		test('should preserve sourceOverwrite when metadata.preserveSourceOverwrite is true and item has sourceOverwrite', async () => {
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const toolNode = createNodeData({ name: 'tool' });
 
 			const sourceOverwriteData = {
@@ -3235,7 +3235,7 @@ describe('WorkflowExecute', () => {
 		});
 
 		test('should use preservedSourceOverwrite from metadata when present', async () => {
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const toolNode = createNodeData({ name: 'tool' });
 
 			const preservedSourceData = {
@@ -3323,7 +3323,7 @@ describe('WorkflowExecute', () => {
 		});
 
 		test('should not preserve sourceOverwrite when preserveSourceOverwrite is false', async () => {
-			const trigger = createNodeData({ name: 'trigger', type: 'n8n-nodes-base.manualTrigger' });
+			const trigger = createNodeData({ name: 'trigger', type: 'resin-nodes-base.manualTrigger' });
 			const regularNode = createNodeData({ name: 'regular' });
 
 			const inputData: INodeExecutionData[] = [

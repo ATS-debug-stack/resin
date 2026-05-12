@@ -1,6 +1,6 @@
-import { testDb, mockInstance } from '@n8n/backend-test-utils';
-import { CommandMetadata, type CommandClass } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { testDb, mockInstance } from '@resin/backend-test-utils';
+import { CommandMetadata, type CommandClass } from '@resin/decorators';
+import { Container } from '@resin/di';
 import argvParser from 'yargs-parser';
 
 import { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';

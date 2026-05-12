@@ -20,7 +20,7 @@ describe('createStubServices nodeService.getDescription', () => {
 	it('returns properties, credentials, inputs and outputs from the node catalogue', async () => {
 		const file = await writeNodesJson([
 			{
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				displayName: 'HTTP Request',
 				description: 'Make HTTP requests',
 				group: ['input'],
@@ -54,9 +54,9 @@ describe('createStubServices nodeService.getDescription', () => {
 		]);
 
 		const { context } = await createStubServices({ nodesJsonPath: file });
-		const desc = await context.nodeService.getDescription('n8n-nodes-base.httpRequest');
+		const desc = await context.nodeService.getDescription('resin-nodes-base.httpRequest');
 
-		expect(desc.name).toBe('n8n-nodes-base.httpRequest');
+		expect(desc.name).toBe('resin-nodes-base.httpRequest');
 		expect(desc.displayName).toBe('HTTP Request');
 		// Latest version pulled from the version array.
 		expect(desc.version).toBe(3);
@@ -84,7 +84,7 @@ describe('createStubServices nodeService.getDescription', () => {
 	it('drops option entries that lack name or a primitive value', async () => {
 		const file = await writeNodesJson([
 			{
-				name: 'n8n-nodes-base.example',
+				name: 'resin-nodes-base.example',
 				displayName: 'Example',
 				version: 1,
 				inputs: ['main'],
@@ -108,13 +108,13 @@ describe('createStubServices nodeService.getDescription', () => {
 		]);
 
 		const { context } = await createStubServices({ nodesJsonPath: file });
-		const desc = await context.nodeService.getDescription('n8n-nodes-base.example');
+		const desc = await context.nodeService.getDescription('resin-nodes-base.example');
 		expect(desc.properties[0].options).toEqual([{ name: 'Valid', value: 'valid' }]);
 	});
 
 	it('throws when the node type is not in the catalogue', async () => {
 		const file = await writeNodesJson([
-			{ name: 'n8n-nodes-base.a', displayName: 'A', version: 1, inputs: [], outputs: [] },
+			{ name: 'resin-nodes-base.a', displayName: 'A', version: 1, inputs: [], outputs: [] },
 		]);
 		const { context } = await createStubServices({ nodesJsonPath: file });
 		await expect(context.nodeService.getDescription('does-not-exist')).rejects.toThrow(/not found/);
@@ -129,10 +129,16 @@ describe('createStubServices nodeService.getNodeTypeDefinition', () => {
 		// likely scenario: the dirs exist but the node id is unknown to the
 		// resolver. That covers the same surface the agent would observe.
 		const file = await writeNodesJson([
-			{ name: 'n8n-nodes-base.unknownNode', displayName: 'X', version: 1, inputs: [], outputs: [] },
+			{
+				name: 'resin-nodes-base.unknownNode',
+				displayName: 'X',
+				version: 1,
+				inputs: [],
+				outputs: [],
+			},
 		]);
 		const { context } = await createStubServices({ nodesJsonPath: file });
-		const td = await context.nodeService.getNodeTypeDefinition!('n8n-nodes-base.unknownNode');
+		const td = await context.nodeService.getNodeTypeDefinition!('resin-nodes-base.unknownNode');
 		expect(td).toBeDefined();
 		// Either the dirs are missing entirely (no build) or the node id is
 		// unknown — both surface as an error string with empty content.

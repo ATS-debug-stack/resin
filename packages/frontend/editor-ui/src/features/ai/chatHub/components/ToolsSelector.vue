@@ -2,10 +2,16 @@
 import NodeIcon from '@/app/components/NodeIcon.vue';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { computed, onMounted, ref, useTemplateRef } from 'vue';
-import { N8nButton, N8nDropdownMenu, N8nIcon, N8nIconButton, N8nTooltip } from '@n8n/design-system';
-import type { DropdownMenuItemProps } from '@n8n/design-system';
-import type { INode, INodeTypeDescription } from 'n8n-workflow';
-import { useI18n } from '@n8n/i18n';
+import {
+	N8nButton,
+	N8nDropdownMenu,
+	N8nIcon,
+	N8nIconButton,
+	N8nTooltip,
+} from '@resin/design-system';
+import type { DropdownMenuItemProps } from '@resin/design-system';
+import type { INode, INodeTypeDescription } from 'resin-workflow';
+import { useI18n } from '@resin/i18n';
 import { useUIStore } from '@/app/stores/ui.store';
 import { TOOLS_MANAGER_MODAL_KEY, TOOL_SETTINGS_MODAL_KEY } from '@/features/ai/chatHub/constants';
 import { useChatStore } from '@/features/ai/chatHub/chat.store';

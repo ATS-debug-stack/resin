@@ -1,4 +1,4 @@
-import type { IWebhookDescription } from 'n8n-workflow';
+import type { IWebhookDescription } from 'resin-workflow';
 
 export type ExpectedWebhookNodeType = NonNullable<IWebhookDescription['nodeType']>;
 

@@ -10,8 +10,8 @@ ruleTester.run(
 		valid: [
 			{
 				code: `
-import { Container } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+import { Container } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 
 @BackendModule({ name: 'test' })
 export class TestModule {
@@ -24,7 +24,7 @@ export class TestModule {
 		invalid: [
 			{
 				code: `
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import { LocalService } from './local.service';
 
 @BackendModule({ name: 'test' })
@@ -37,7 +37,7 @@ export class TestModule {
 			},
 			{
 				code: `
-import { BackendModule } from '@n8n/decorators';
+import { BackendModule } from '@resin/decorators';
 import { helper } from './helper';
 import { config } from './config';
 

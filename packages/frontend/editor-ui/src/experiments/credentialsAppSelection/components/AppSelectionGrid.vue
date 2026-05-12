@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import { sublimeSearch } from '@n8n/utils/search/sublimeSearch';
+import { N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import { sublimeSearch } from '@resin/utils/search/sublimeSearch';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { removePreviewToken } from '@/features/shared/nodeCreator/nodeCreator.utils';

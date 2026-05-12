@@ -21,8 +21,8 @@ import {
 	createEmptyRunExecutionData,
 	createRunExecutionData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
-import type { ExecutionError, ITaskStartedData, IRunExecutionData } from 'n8n-workflow';
+} from 'resin-workflow';
+import type { ExecutionError, ITaskStartedData, IRunExecutionData } from 'resin-workflow';
 import {
 	aiAgentNode,
 	aiChatWorkflow,

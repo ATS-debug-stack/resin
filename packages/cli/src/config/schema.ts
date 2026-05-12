@@ -1,8 +1,8 @@
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
 
 /**
- * @deprecated Do not add new environment variables to this file. Please use the `@n8n/config` package instead.
+ * @deprecated Do not add new environment variables to this file. Please use the `@resin/config` package instead.
  */
 export const schema = {
 	userManagement: {

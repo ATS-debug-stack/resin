@@ -805,7 +805,7 @@ describe('TriageAgent', () => {
 								{
 									id: '1',
 									name: 'HTTP Request',
-									type: 'n8n-nodes-base.httpRequest',
+									type: 'resin-nodes-base.httpRequest',
 									typeVersion: 1,
 									position: [0, 0],
 									parameters: {},
@@ -813,7 +813,7 @@ describe('TriageAgent', () => {
 								{
 									id: '2',
 									name: 'Slack',
-									type: 'n8n-nodes-base.slack',
+									type: 'resin-nodes-base.slack',
 									typeVersion: 1,
 									position: [200, 0],
 									parameters: {},
@@ -865,7 +865,7 @@ describe('TriageAgent', () => {
 								{
 									id: '1',
 									name: 'Webhook',
-									type: 'n8n-nodes-base.webhook',
+									type: 'resin-nodes-base.webhook',
 									typeVersion: 1,
 									position: [0, 0],
 									parameters: {},

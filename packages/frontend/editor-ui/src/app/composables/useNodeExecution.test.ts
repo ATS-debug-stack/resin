@@ -6,8 +6,8 @@ import {
 	AI_TRANSFORM_NODE_TYPE,
 	AI_TRANSFORM_CODE_GENERATED_FOR_PROMPT,
 	AI_TRANSFORM_JS_CODE,
-} from 'n8n-workflow';
-import type { INodeTypeDescription } from 'n8n-workflow';
+} from 'resin-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import { useNodeExecution } from '@/app/composables/useNodeExecution';
 import {
@@ -136,7 +136,7 @@ vi.mock('@/app/composables/useTelemetry', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	i18n: { baseText: vi.fn().mockImplementation((key: string) => key) },
 	useI18n: vi.fn().mockReturnValue({
 		baseText: vi.fn().mockImplementation((key: string) => key),
@@ -176,7 +176,7 @@ function createTestNode(overrides: Partial<INodeUi> = {}): INodeUi {
 	return {
 		id: 'test-id',
 		name: 'Test Node',
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -361,7 +361,7 @@ describe('useNodeExecution', () => {
 		it('should return false for schedule trigger nodes', () => {
 			mockNodeTypesStore.isTriggerNode.mockReturnValue(true);
 			mockNodeTypesStore.getNodeType.mockReturnValue({
-				name: 'n8n-nodes-base.scheduleTrigger',
+				name: 'resin-nodes-base.scheduleTrigger',
 				group: ['schedule'],
 			} as INodeTypeDescription);
 			mockWorkflowsStore.isWorkflowRunning = true;
@@ -509,7 +509,7 @@ describe('useNodeExecution', () => {
 
 		it('should return fetchEvent for polling type node', () => {
 			mockNodeTypesStore.getNodeType.mockReturnValue({
-				name: 'n8n-nodes-base.emailReadImap',
+				name: 'resin-nodes-base.emailReadImap',
 				group: ['trigger'],
 				polling: true,
 			} as unknown as INodeTypeDescription);
@@ -522,7 +522,7 @@ describe('useNodeExecution', () => {
 
 		it('should return fetchEvent for mockManualExecution node', () => {
 			mockNodeTypesStore.getNodeType.mockReturnValue({
-				name: 'n8n-nodes-base.someNode',
+				name: 'resin-nodes-base.someNode',
 				group: [],
 				mockManualExecution: true,
 			} as unknown as INodeTypeDescription);
@@ -535,7 +535,7 @@ describe('useNodeExecution', () => {
 
 		it('should return testNode as default', () => {
 			mockNodeTypesStore.getNodeType.mockReturnValue({
-				name: 'n8n-nodes-base.set',
+				name: 'resin-nodes-base.set',
 				group: [] as string[],
 			} as INodeTypeDescription);
 			const node = ref(createTestNode());

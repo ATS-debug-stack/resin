@@ -5,9 +5,9 @@ import {
 	SharedWorkflowRepository,
 	CredentialsRepository,
 	type User,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
-import { type Scope } from '@n8n/permissions';
+} from '@resin/db';
+import { Container } from '@resin/di';
+import { type Scope } from '@resin/permissions';
 import { mock } from 'jest-mock-extended';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';

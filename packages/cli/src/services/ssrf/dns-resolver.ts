@@ -1,4 +1,4 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import { promises as dns } from 'node:dns';
 import type { LookupAddress, LookupOptions } from 'node:dns';
 

@@ -9,13 +9,13 @@ import type {
 	IWebhookFunctions,
 	IWebhookResponseData,
 	JsonObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	NodeApiError,
 	NodeConnectionTypes,
 	NodeOperationError,
 	WAIT_INDEFINITELY,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	getFileSha,

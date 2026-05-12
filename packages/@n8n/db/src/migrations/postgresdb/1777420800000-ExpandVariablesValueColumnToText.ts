@@ -1,6 +1,6 @@
 import type { IrreversibleMigration, MigrationContext } from '../migration-types';
 
-/** Must stay in sync with `VALUE_MAX_LENGTH` in `@n8n/api-types` `dto/variables/base.dto`. */
+/** Must stay in sync with `VALUE_MAX_LENGTH` in `@resin/api-types` `dto/variables/base.dto`. */
 const VARIABLE_VALUE_MAX_LENGTH = 1000;
 
 /**

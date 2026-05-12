@@ -119,7 +119,7 @@ Do NOT flag multiple connections to the same target as redundant - it's the corr
 
 <chat_trigger_patterns>
 ## Chat Trigger and Chat Interface Nodes
-Chat Trigger (@n8n/n8n-nodes-langchain.chatTrigger) is a BIDIRECTIONAL node that handles both input AND output automatically.
+Chat Trigger (@resin/n8n-nodes-langchain.chatTrigger) is a BIDIRECTIONAL node that handles both input AND output automatically.
 
 CRITICAL: Chat Trigger does NOT need a return connection from downstream nodes.
 - Chat Trigger receives user messages and starts the workflow
@@ -142,7 +142,7 @@ Node positions (x, y coordinates) in the workflow JSON are for VISUAL LAYOUT ONL
 
 <document_loader_patterns>
 ## Document Loader Connection Rules
-Document Loader nodes (@n8n/n8n-nodes-langchain.documentLoader*) are CAPABILITY-ONLY nodes.
+Document Loader nodes (@resin/n8n-nodes-langchain.documentLoader*) are CAPABILITY-ONLY nodes.
 
 CRITICAL rules for Document Loaders:
 1. Document Loaders have NO main input connections - this is correct by design

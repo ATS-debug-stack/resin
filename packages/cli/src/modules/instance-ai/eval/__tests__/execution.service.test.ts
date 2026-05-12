@@ -1,13 +1,13 @@
 import { mock } from 'jest-mock-extended';
-import type { User } from '@n8n/db';
-import type { Logger } from '@n8n/backend-common';
+import type { User } from '@resin/db';
+import type { Logger } from '@resin/backend-common';
 import type {
 	INode,
 	IRunExecutionData,
 	IRun,
 	IWorkflowBase,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { WorkflowFinderService } from '@/workflows/workflow-finder.service';
 import type { NodeTypes } from '@/node-types';
@@ -16,7 +16,7 @@ import type { NodeTypes } from '@/node-types';
 // Mocks — must be before the import of the class under test
 // ---------------------------------------------------------------------------
 
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	createEvalAgent: jest.fn(),
 	extractText: jest.fn(),
 }));
@@ -31,7 +31,7 @@ jest.mock('../workflow-analysis', () => ({
 	identifyNodesForHints: jest.fn(),
 	identifyNodesForPinData: jest.fn(),
 }));
-jest.mock('@n8n/workflow-sdk', () => ({
+jest.mock('@resin/workflow-sdk', () => ({
 	normalizePinData: jest.fn((pd: unknown) => pd),
 }));
 jest.mock('@/workflow-execute-additional-data', () => ({
@@ -44,8 +44,8 @@ jest.mock('@/workflow-execute-additional-data', () => ({
 // WorkflowExecute is a class instantiated with `new` — mock it so
 // processRunExecutionData returns a controllable IRun.
 const mockProcessRunExecutionData = jest.fn();
-jest.mock('n8n-core', () => {
-	const actual = jest.requireActual('n8n-core');
+jest.mock('resin-core', () => {
+	const actual = jest.requireActual('resin-core');
 	return {
 		...actual,
 		WorkflowExecute: jest.fn().mockImplementation(() => ({
@@ -57,8 +57,8 @@ jest.mock('n8n-core', () => {
 
 // Workflow is a class instantiated with `new` — mock getStartNode
 const mockGetStartNode = jest.fn();
-jest.mock('n8n-workflow', () => {
-	const actual = jest.requireActual('n8n-workflow');
+jest.mock('resin-workflow', () => {
+	const actual = jest.requireActual('resin-workflow');
 	return {
 		...actual,
 		Workflow: jest.fn().mockImplementation(() => ({
@@ -99,7 +99,7 @@ function makeWorkflowEntity(overrides: Partial<IWorkflowBase> = {}) {
 			{
 				id: 'node-1',
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -107,7 +107,7 @@ function makeWorkflowEntity(overrides: Partial<IWorkflowBase> = {}) {
 			{
 				id: 'node-2',
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				typeVersion: 1,
 				position: [200, 0],
 				parameters: {},
@@ -152,7 +152,7 @@ function makeStartNode(): INode {
 	return {
 		id: 'node-1',
 		name: 'Webhook',
-		type: 'n8n-nodes-base.webhook',
+		type: 'resin-nodes-base.webhook',
 		typeVersion: 1,
 		position: [0, 0] as [number, number],
 		parameters: {},

@@ -3,7 +3,7 @@ import {
 	chatHubVectorStoreProviderSchema,
 	type ChatHubLLMProvider,
 	type ChatHubSemanticSearchSettings,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export const DEFAULT_CONTEXT_WINDOW_LENGTH = 20;
 
@@ -11,35 +11,35 @@ export type NodeTypeNameVersion = { name: string; version: number };
 
 export const EMBEDDINGS_NODE_TYPE_MAP: Partial<Record<ChatHubLLMProvider, NodeTypeNameVersion>> = {
 	openai: {
-		name: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+		name: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 		version: 1.2,
 	},
 	google: {
-		name: '@n8n/n8n-nodes-langchain.embeddingsGoogleGemini',
+		name: '@resin/n8n-nodes-langchain.embeddingsGoogleGemini',
 		version: 1,
 	},
 	azureOpenAi: {
-		name: '@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi',
+		name: '@resin/n8n-nodes-langchain.embeddingsAzureOpenAi',
 		version: 1,
 	},
 	azureEntraId: {
-		name: '@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi',
+		name: '@resin/n8n-nodes-langchain.embeddingsAzureOpenAi',
 		version: 1,
 	},
 	ollama: {
-		name: '@n8n/n8n-nodes-langchain.embeddingsOllama',
+		name: '@resin/n8n-nodes-langchain.embeddingsOllama',
 		version: 1,
 	},
 	awsBedrock: {
-		name: '@n8n/n8n-nodes-langchain.embeddingsAwsBedrock',
+		name: '@resin/n8n-nodes-langchain.embeddingsAwsBedrock',
 		version: 1,
 	},
 	cohere: {
-		name: '@n8n/n8n-nodes-langchain.embeddingsCohere',
+		name: '@resin/n8n-nodes-langchain.embeddingsCohere',
 		version: 1,
 	},
 	mistralCloud: {
-		name: '@n8n/n8n-nodes-langchain.embeddingsMistralCloud',
+		name: '@resin/n8n-nodes-langchain.embeddingsMistralCloud',
 		version: 1,
 	},
 };

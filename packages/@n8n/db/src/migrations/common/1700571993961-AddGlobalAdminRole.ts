@@ -1,4 +1,4 @@
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 
 import type { MigrationContext, ReversibleMigration } from '../migration-types';
 

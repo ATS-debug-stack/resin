@@ -1,6 +1,6 @@
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
-import type { ReloadNodeType } from '@n8n/api-types/push/hot-reload';
-import { isCommunityPackageName } from 'n8n-workflow';
+import type { ReloadNodeType } from '@resin/api-types/push/hot-reload';
+import { isCommunityPackageName } from 'resin-workflow';
 
 /**
  * Handles the 'reloadNodeType' event from the push connection, which indicates

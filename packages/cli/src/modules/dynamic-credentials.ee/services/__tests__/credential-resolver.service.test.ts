@@ -1,12 +1,12 @@
-import type { Logger } from '@n8n/backend-common';
-import { GLOBAL_OWNER_ROLE, type User, type WorkflowRepository } from '@n8n/db';
+import type { Logger } from '@resin/backend-common';
+import { GLOBAL_OWNER_ROLE, type User, type WorkflowRepository } from '@resin/db';
 import {
 	CredentialResolverValidationError,
 	type CredentialResolverConfiguration,
 	type ICredentialResolver,
-} from '@n8n/decorators';
-import type { Cipher } from 'n8n-core';
-import { UnexpectedError } from 'n8n-workflow';
+} from '@resin/decorators';
+import type { Cipher } from 'resin-core';
+import { UnexpectedError } from 'resin-workflow';
 
 import type { ActiveWorkflowManager } from '@/active-workflow-manager';
 

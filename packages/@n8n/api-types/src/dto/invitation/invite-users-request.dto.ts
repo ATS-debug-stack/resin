@@ -1,4 +1,4 @@
-import { assignableGlobalRoleSchema } from '@n8n/permissions';
+import { assignableGlobalRoleSchema } from '@resin/permissions';
 import { z } from 'zod';
 
 const invitedUserSchema = z.object({

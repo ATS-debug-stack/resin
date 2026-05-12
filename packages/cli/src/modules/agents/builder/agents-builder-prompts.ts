@@ -73,7 +73,7 @@ Flow: search_nodes → get_node_types → ask_credential (per slot) → write/up
   "name": "http_request",
   "description": "Make an HTTP request to any URL",
   "node": {
-    "nodeType": "n8n-nodes-base.httpRequestTool",
+    "nodeType": "resin-nodes-base.httpRequestTool",
     "nodeTypeVersion": 4,
     "nodeParameters": {
       "method": "GET",
@@ -103,7 +103,7 @@ Write TypeScript using the Tool builder, validate via build_custom_tool, then re
 
 The tool code must follow this pattern:
 \`\`\`typescript
-import { Tool } from '@n8n/agents';
+import { Tool } from '@resin/agents';
 import { z } from 'zod';
 
 export default new Tool('tool_name')
@@ -118,7 +118,7 @@ Custom tools run inside a V8 isolate sandbox. Treat every handler as a pure
 function: take \`input\`, compute, return a JSON-serialisable value.
 
 - Must use \`export default new Tool(...)\` pattern.
-- Imports at the top of the file: only '@n8n/agents' and 'zod'. No other
+- Imports at the top of the file: only '@resin/agents' and 'zod'. No other
   modules resolve.
 - No I/O of any kind — no network, no filesystem, no waiting for wall-clock
   time. Host globals like \`crypto\`, \`process\`, \`Buffer\`, \`fetch\`, \`atob\`,
@@ -475,9 +475,9 @@ export const FEW_SHOT_FLOWS_SECTION = `\
    → { ok: true, provider: "anthropic", model: "claude-sonnet-4-5",
        credentialId: "abc", credentialName: "My Anthropic" }
 2. search_nodes({ query: "slack" }) → ...
-3. get_node_types({ nodeType: "n8n-nodes-base.slackTool" }) → ...
+3. get_node_types({ nodeType: "resin-nodes-base.slackTool" }) → ...
 4. ask_credential({ purpose: "Slack workspace to read/post messages",
-       nodeType: "n8n-nodes-base.slackTool", credentialType: "slackApi",
+       nodeType: "resin-nodes-base.slackTool", credentialType: "slackApi",
        slot: "slackApi" })
    → { credentialId: "xyz", credentialName: "Acme Slack" }
 5. read_config() → { configHash: "hash1", config: { ... } }
@@ -507,13 +507,13 @@ export const FEW_SHOT_FLOWS_SECTION = `\
 ### Adding a node tool when credential setup is skipped
 1. search_nodes / get_node_types
 2. ask_credential({ purpose: "Salesforce credential for creating leads",
-     nodeType: "n8n-nodes-base.salesforceTool", credentialType: "salesforceOAuth2Api",
+     nodeType: "resin-nodes-base.salesforceTool", credentialType: "salesforceOAuth2Api",
      slot: "salesforceOAuth2Api" })
    → { skipped: true }
 3. read_config() → { configHash: "hash1", config: { ... } }
 4. patch_config with \`{ baseConfigHash: "hash1", operations: "[{ op: \\"add\\", path: \\"/tools/-\\", value: { type: \\"node\\",
    name: "salesforce_create_lead", description: "...", node: {
-   nodeType: "n8n-nodes-base.salesforceTool", nodeTypeVersion: 1,
+   nodeType: "resin-nodes-base.salesforceTool", nodeTypeVersion: 1,
    nodeParameters: { ... } } } }]" }\`
    IMPORTANT: omit \`node.credentials\` or omit only the skipped credential slot.
    Do not stop. Do not say you will not add the tool.

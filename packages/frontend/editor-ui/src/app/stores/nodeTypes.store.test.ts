@@ -1,7 +1,7 @@
 import { setActivePinia } from 'pinia';
 import { createTestingPinia } from '@pinia/testing';
-import { NodeConnectionTypes } from 'n8n-workflow';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 
 function makeNodeType(
@@ -30,7 +30,7 @@ describe('useNodeTypesStore', () => {
 	describe('isModelNode', () => {
 		it('should return true for a node that outputs AiLanguageModel', () => {
 			const nodeType = makeNodeType({
-				name: '@n8n/n8n-nodes-langchain.lmChatOpenRouter',
+				name: '@resin/n8n-nodes-langchain.lmChatOpenRouter',
 				outputs: [NodeConnectionTypes.AiLanguageModel],
 			});
 
@@ -43,7 +43,7 @@ describe('useNodeTypesStore', () => {
 
 		it('should return true when outputs contain object format with AiLanguageModel type', () => {
 			const nodeType = makeNodeType({
-				name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				outputs: [{ type: NodeConnectionTypes.AiLanguageModel, displayName: 'Model' }],
 			});
 
@@ -56,7 +56,7 @@ describe('useNodeTypesStore', () => {
 
 		it('should return false for a node that outputs Main', () => {
 			const nodeType = makeNodeType({
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				outputs: [NodeConnectionTypes.Main],
 			});
 
@@ -69,7 +69,7 @@ describe('useNodeTypesStore', () => {
 
 		it('should return false for a tool node', () => {
 			const nodeType = makeNodeType({
-				name: '@n8n/n8n-nodes-langchain.toolCalculator',
+				name: '@resin/n8n-nodes-langchain.toolCalculator',
 				outputs: [NodeConnectionTypes.AiTool],
 			});
 
@@ -88,7 +88,7 @@ describe('useNodeTypesStore', () => {
 	describe('isToolNode', () => {
 		it('should return true for a node that outputs AiTool', () => {
 			const nodeType = makeNodeType({
-				name: '@n8n/n8n-nodes-langchain.toolCalculator',
+				name: '@resin/n8n-nodes-langchain.toolCalculator',
 				outputs: [NodeConnectionTypes.AiTool],
 			});
 
@@ -101,7 +101,7 @@ describe('useNodeTypesStore', () => {
 
 		it('should return false for a model node', () => {
 			const nodeType = makeNodeType({
-				name: '@n8n/n8n-nodes-langchain.lmChatOpenRouter',
+				name: '@resin/n8n-nodes-langchain.lmChatOpenRouter',
 				outputs: [NodeConnectionTypes.AiLanguageModel],
 			});
 
@@ -114,7 +114,7 @@ describe('useNodeTypesStore', () => {
 
 		it('should return false for a regular main node', () => {
 			const nodeType = makeNodeType({
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				outputs: [NodeConnectionTypes.Main],
 			});
 

@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import { captor, mock, type MockProxy } from 'jest-mock-extended';
 import type {
 	IRunExecutionData,
@@ -15,8 +15,8 @@ import type {
 	RelatedExecution,
 	IExecuteWorkflowInfo,
 	IExecutionContext,
-} from 'n8n-workflow';
-import { ApplicationError, NodeHelpers, WAIT_INDEFINITELY } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, NodeHelpers, WAIT_INDEFINITELY } from 'resin-workflow';
 
 import { BinaryDataService } from '@/binary-data/binary-data.service';
 

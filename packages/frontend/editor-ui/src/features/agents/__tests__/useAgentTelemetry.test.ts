@@ -6,7 +6,7 @@ const trackMock = vi.fn();
 vi.mock('@/app/composables/useTelemetry', () => ({
 	useTelemetry: () => ({ track: trackMock }),
 }));
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({ pushRef: 'session-xyz' }),
 }));
 

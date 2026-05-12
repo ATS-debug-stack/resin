@@ -1,7 +1,7 @@
-import type { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { WorkflowEntity } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import { WorkflowEntity } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import {
 	BinaryDataConfig,
@@ -10,19 +10,19 @@ import {
 	UnrecognizedNodeTypeError,
 	type DirectoryLoader,
 	type ErrorReporter,
-} from 'n8n-core';
-import { Ftp } from 'n8n-nodes-base/credentials/Ftp.credentials';
-import { GithubApi } from 'n8n-nodes-base/credentials/GithubApi.credentials';
-import { HttpBasicAuth } from 'n8n-nodes-base/credentials/HttpBasicAuth.credentials';
-import { HttpHeaderAuth } from 'n8n-nodes-base/credentials/HttpHeaderAuth.credentials';
-import { OpenAiApi } from 'n8n-nodes-base/credentials/OpenAiApi.credentials';
-import { Cron } from 'n8n-nodes-base/nodes/Cron/Cron.node';
-import { FormTrigger } from 'n8n-nodes-base/nodes/Form/FormTrigger.node';
-import { ManualTrigger } from 'n8n-nodes-base/nodes/ManualTrigger/ManualTrigger.node';
-import { ScheduleTrigger } from 'n8n-nodes-base/nodes/Schedule/ScheduleTrigger.node';
-import { Set } from 'n8n-nodes-base/nodes/Set/Set.node';
-import { Webhook as WebhookNode } from 'n8n-nodes-base/nodes/Webhook/Webhook.node';
-import type { INodeType, INodeTypeData, INode } from 'n8n-workflow';
+} from 'resin-core';
+import { Ftp } from 'resin-nodes-base/credentials/Ftp.credentials';
+import { GithubApi } from 'resin-nodes-base/credentials/GithubApi.credentials';
+import { HttpBasicAuth } from 'resin-nodes-base/credentials/HttpBasicAuth.credentials';
+import { HttpHeaderAuth } from 'resin-nodes-base/credentials/HttpHeaderAuth.credentials';
+import { OpenAiApi } from 'resin-nodes-base/credentials/OpenAiApi.credentials';
+import { Cron } from 'resin-nodes-base/nodes/Cron/Cron.node';
+import { FormTrigger } from 'resin-nodes-base/nodes/Form/FormTrigger.node';
+import { ManualTrigger } from 'resin-nodes-base/nodes/ManualTrigger/ManualTrigger.node';
+import { ScheduleTrigger } from 'resin-nodes-base/nodes/Schedule/ScheduleTrigger.node';
+import { Set } from 'resin-nodes-base/nodes/Set/Set.node';
+import { Webhook as WebhookNode } from 'resin-nodes-base/nodes/Webhook/Webhook.node';
+import type { INodeType, INodeTypeData, INode } from 'resin-workflow';
 import type request from 'supertest';
 import { v4 as uuid } from 'uuid';
 
@@ -88,27 +88,27 @@ export async function initCredentialsTypes(): Promise<void> {
  */
 export async function initNodeTypes(customNodes?: INodeTypeData) {
 	const defaultNodes: INodeTypeData = {
-		'n8n-nodes-base.manualTrigger': {
+		'resin-nodes-base.manualTrigger': {
 			type: new ManualTrigger(),
 			sourcePath: '',
 		},
-		'n8n-nodes-base.cron': {
+		'resin-nodes-base.cron': {
 			type: new Cron(),
 			sourcePath: '',
 		},
-		'n8n-nodes-base.set': {
+		'resin-nodes-base.set': {
 			type: new Set(),
 			sourcePath: '',
 		},
-		'n8n-nodes-base.scheduleTrigger': {
+		'resin-nodes-base.scheduleTrigger': {
 			type: new ScheduleTrigger(),
 			sourcePath: '',
 		},
-		'n8n-nodes-base.formTrigger': {
+		'resin-nodes-base.formTrigger': {
 			type: new FormTrigger(),
 			sourcePath: '',
 		},
-		'n8n-nodes-base.webhook': {
+		'resin-nodes-base.webhook': {
 			type: mock<INodeType>({ description: new WebhookNode().description }),
 			sourcePath: '',
 		},
@@ -119,12 +119,12 @@ export async function initNodeTypes(customNodes?: INodeTypeData) {
 	const loader = mock<DirectoryLoader>();
 	loader.getNode.mockImplementation((nodeType) => {
 		const node = nodes[`n8n-nodes-base.${nodeType}`];
-		if (!node) throw new UnrecognizedNodeTypeError('n8n-nodes-base', nodeType);
+		if (!node) throw new UnrecognizedNodeTypeError('resin-nodes-base', nodeType);
 		return node;
 	});
 
 	const loadNodesAndCredentials = Container.get(LoadNodesAndCredentials);
-	loadNodesAndCredentials.loaders = { 'n8n-nodes-base': loader };
+	loadNodesAndCredentials.loaders = { 'resin-nodes-base': loader };
 	loadNodesAndCredentials.loaded.nodes = nodes;
 }
 
@@ -183,7 +183,7 @@ export function makeWorkflow(options?: {
 	const node: INode = {
 		id: uuid(),
 		name: 'Cron',
-		type: 'n8n-nodes-base.cron',
+		type: 'resin-nodes-base.cron',
 		parameters: {},
 		typeVersion: 1,
 		position: [740, 240],

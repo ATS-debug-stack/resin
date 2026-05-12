@@ -1,7 +1,7 @@
-import { WorkerStatus } from '@n8n/api-types';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+import { WorkerStatus } from '@resin/api-types';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 import os from 'node:os';
 import process from 'node:process';
 

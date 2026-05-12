@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { fetchThreads, fetchThreadMessages } from './instanceAi.memory.api';
-import type { InstanceAiThreadInfo, InstanceAiStoredMessage } from '@n8n/api-types';
+import type { InstanceAiThreadInfo, InstanceAiStoredMessage } from '@resin/api-types';
 
 export const useInstanceAiDebugStore = defineStore('instanceAiDebug', () => {
 	const rootStore = useRootStore();

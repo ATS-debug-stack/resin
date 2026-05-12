@@ -1,5 +1,5 @@
 // Mock the barrel import to avoid pulling in @mastra/core (ESM-only transitive deps)
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	wrapUntrustedData(content: string, source: string, label?: string): string {
 		const esc = (s: string) =>
 			s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -17,11 +17,11 @@ import type {
 	ProjectRepository,
 	SharedWorkflowRepository,
 	WorkflowRepository,
-} from '@n8n/db';
-import { GLOBAL_MEMBER_ROLE } from '@n8n/db';
-import type { Logger } from '@n8n/backend-common';
-import type { GlobalConfig } from '@n8n/config';
-import type { InstanceSettings } from 'n8n-core';
+} from '@resin/db';
+import { GLOBAL_MEMBER_ROLE } from '@resin/db';
+import type { Logger } from '@resin/backend-common';
+import type { GlobalConfig } from '@resin/config';
+import type { InstanceSettings } from 'resin-core';
 
 import { InstanceAiAdapterService } from '../instance-ai.adapter.service';
 import type { WorkflowService } from '@/workflows/workflow.service';
@@ -153,7 +153,7 @@ beforeEach(() => {
 
 describe('exploreResources — credential ownership check', () => {
 	const baseParams = {
-		nodeType: 'n8n-nodes-base.googleSheets',
+		nodeType: 'resin-nodes-base.googleSheets',
 		version: 1,
 		credentialId: 'cred-123',
 		credentialType: 'googleSheetsOAuth2Api',

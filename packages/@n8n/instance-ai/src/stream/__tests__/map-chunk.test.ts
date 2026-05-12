@@ -863,7 +863,7 @@ describe('mapMastraChunkToEvent', () => {
 			const validNode = {
 				node: {
 					name: 'Slack',
-					type: 'n8n-nodes-base.slack',
+					type: 'resin-nodes-base.slack',
 					typeVersion: 2,
 					parameters: {},
 					position: [0, 0] as [number, number],
@@ -890,7 +890,7 @@ describe('mapMastraChunkToEvent', () => {
 			const validNode = {
 				node: {
 					name: 'Slack',
-					type: 'n8n-nodes-base.slack',
+					type: 'resin-nodes-base.slack',
 					typeVersion: 2,
 					parameters: {},
 					position: [0, 0] as [number, number],

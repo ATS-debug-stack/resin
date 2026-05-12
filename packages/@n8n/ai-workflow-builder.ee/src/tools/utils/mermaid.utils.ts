@@ -52,14 +52,14 @@ const DEFAULT_MERMAID_OPTIONS: Required<MermaidOptions> = {
 
 /** Node types that represent conditional/branching logic (rendered as diamond shape) */
 const CONDITIONAL_NODE_TYPES = new Set([
-	'n8n-nodes-base.if',
-	'n8n-nodes-base.switch',
-	'n8n-nodes-base.filter',
+	'resin-nodes-base.if',
+	'resin-nodes-base.switch',
+	'resin-nodes-base.filter',
 ]);
 
 /** Node type for AI agents that should be wrapped in subgraphs */
-const AGENT_NODE_TYPE = '@n8n/n8n-nodes-langchain.agent';
-const STICKY_NOTE_TYPE = 'n8n-nodes-base.stickyNote';
+const AGENT_NODE_TYPE = '@resin/n8n-nodes-langchain.agent';
+const STICKY_NOTE_TYPE = 'resin-nodes-base.stickyNote';
 
 type WorkflowNode = WorkflowMetadata['workflow']['nodes'][number];
 type WorkflowConnections = WorkflowMetadata['workflow']['connections'];

@@ -1,4 +1,4 @@
-import type { InstanceAiPermissions } from '@n8n/api-types';
+import type { InstanceAiPermissions } from '@resin/api-types';
 
 import type { InstanceAiContext } from '../../types';
 import { analyzeWorkflow, applyNodeChanges } from '../workflows/setup-workflow.service';
@@ -13,8 +13,8 @@ jest.mock('../workflows/setup-workflow.service', () => ({
 	buildCompletedReport: jest.fn().mockReturnValue([]),
 }));
 
-// Mock the dynamic import of @n8n/workflow-sdk used by get-as-code
-jest.mock('@n8n/workflow-sdk', () => ({
+// Mock the dynamic import of @resin/workflow-sdk used by get-as-code
+jest.mock('@resin/workflow-sdk', () => ({
 	generateWorkflowCode: jest.fn().mockReturnValue('// generated code'),
 }));
 
@@ -617,17 +617,17 @@ describe('workflows tool', () => {
 				nodes: [
 					{
 						name: 'Call A',
-						type: 'n8n-nodes-base.executeWorkflow',
+						type: 'resin-nodes-base.executeWorkflow',
 						parameters: { source: 'database', workflowId: 'sub-a' },
 					},
 					{
 						name: 'Call B',
-						type: 'n8n-nodes-base.executeWorkflow',
+						type: 'resin-nodes-base.executeWorkflow',
 						parameters: { source: 'database', workflowId: { value: 'sub-b' } },
 					},
 					{
 						name: 'Call A Again',
-						type: 'n8n-nodes-base.executeWorkflow',
+						type: 'resin-nodes-base.executeWorkflow',
 						parameters: { source: 'database', workflowId: 'sub-a' },
 					},
 				],
@@ -662,12 +662,12 @@ describe('workflows tool', () => {
 				nodes: [
 					{
 						name: 'Call A',
-						type: 'n8n-nodes-base.executeWorkflow',
+						type: 'resin-nodes-base.executeWorkflow',
 						parameters: { source: 'database', workflowId: 'sub-a' },
 					},
 					{
 						name: 'Call B',
-						type: 'n8n-nodes-base.executeWorkflow',
+						type: 'resin-nodes-base.executeWorkflow',
 						parameters: { source: 'database', workflowId: 'sub-b' },
 					},
 				],
@@ -742,7 +742,7 @@ describe('workflows tool', () => {
 				nodes: [
 					{
 						name: 'Call A',
-						type: 'n8n-nodes-base.executeWorkflow',
+						type: 'resin-nodes-base.executeWorkflow',
 						parameters: { source: 'database', workflowId: 'sub-a' },
 					},
 				],
@@ -765,14 +765,14 @@ describe('workflows tool', () => {
 	describe('setup action', () => {
 		it('should analyze workflow and suspend for user setup', async () => {
 			const actionableSetupRequest = {
-				node: { name: 'Slack', type: 'n8n-nodes-base.slack' },
+				node: { name: 'Slack', type: 'resin-nodes-base.slack' },
 				credentialType: 'slackApi',
 				needsAction: true,
 			};
 			const setupRequests = [
 				actionableSetupRequest,
 				{
-					node: { name: 'Webhook', type: 'n8n-nodes-base.webhook' },
+					node: { name: 'Webhook', type: 'resin-nodes-base.webhook' },
 					isTrigger: true,
 					isTestable: true,
 					needsAction: false,
@@ -801,7 +801,7 @@ describe('workflows tool', () => {
 		it('should return success when setup analysis only has non-actionable requests', async () => {
 			(analyzeWorkflow as jest.Mock).mockResolvedValue([
 				{
-					node: { name: 'Webhook', type: 'n8n-nodes-base.webhook' },
+					node: { name: 'Webhook', type: 'resin-nodes-base.webhook' },
 					isTrigger: true,
 					isTestable: true,
 					needsAction: false,
@@ -848,7 +848,7 @@ describe('workflows tool', () => {
 					{
 						id: 'http',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [0, 0],
 						parameters: { method: 'GET', url: '', authentication: 'none' },

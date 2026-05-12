@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import {
 	type IConnection,
 	type IDataObject,
@@ -12,7 +12,7 @@ import {
 	type Workflow,
 	type EngineResponse,
 	UnexpectedError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { ErrorReporter } from '../errors/error-reporter';
 

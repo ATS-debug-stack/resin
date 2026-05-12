@@ -7,20 +7,20 @@ import {
 	createActiveWorkflow,
 	createWorkflowWithHistory,
 	linkUserToProject,
-} from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { Project, TagEntity, User, WorkflowHistory } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { Project, TagEntity, User, WorkflowHistory } from '@resin/db';
 import {
 	WorkflowRepository,
 	ProjectRepository,
 	WorkflowHistoryRepository,
 	SharedWorkflowRepository,
 	ProjectRelationRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
-import { Not } from '@n8n/typeorm';
-import { InstanceSettings } from 'n8n-core';
-import type { INode } from 'n8n-workflow';
+} from '@resin/db';
+import { Container } from '@resin/di';
+import { Not } from '@resin/typeorm';
+import { InstanceSettings } from 'resin-core';
+import type { INode } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { createCustomRoleWithScopeSlugs, cleanupRolesAndScopes } from '../shared/db/roles';
@@ -742,7 +742,7 @@ describe('GET /workflows/:id/:versionId', () => {
 				{
 					id: 'node1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					parameters: {},
 					position: [0, 0] as [number, number],
 					typeVersion: 1,
@@ -916,7 +916,7 @@ describe('POST /workflows/:id/activate', () => {
 						name: 'Start',
 						parameters: {},
 						position: [-20, 260],
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 					},
 				],
@@ -1368,7 +1368,7 @@ describe('POST /workflows', () => {
 		id: 'uuid-1234',
 		parameters: {},
 		name: 'Start',
-		type: 'n8n-nodes-base.manualTrigger',
+		type: 'resin-nodes-base.manualTrigger',
 		typeVersion: 1,
 		position: [240, 300],
 	} as const;
@@ -1398,7 +1398,7 @@ describe('POST /workflows', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -1479,7 +1479,7 @@ describe('POST /workflows', () => {
 					id: 'uuid-1234',
 					parameters: { path: 'test-hook', httpMethod: 'POST' },
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 2,
 					position: [250, 300],
 				},
@@ -1596,7 +1596,7 @@ describe('POST /workflows', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Hacker News',
-					type: 'n8n-nodes-base.hackerNews',
+					type: 'resin-nodes-base.hackerNews',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -1631,7 +1631,7 @@ describe('PUT /workflows/:id', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -1658,7 +1658,7 @@ describe('PUT /workflows/:id', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -1688,7 +1688,7 @@ describe('PUT /workflows/:id', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -1716,7 +1716,7 @@ describe('PUT /workflows/:id', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -1738,7 +1738,7 @@ describe('PUT /workflows/:id', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -1746,7 +1746,7 @@ describe('PUT /workflows/:id', () => {
 					id: 'uuid-1234',
 					parameters: {},
 					name: 'Cron',
-					type: 'n8n-nodes-base.cron',
+					type: 'resin-nodes-base.cron',
 					typeVersion: 1,
 					position: [400, 300],
 				},
@@ -1818,7 +1818,7 @@ describe('PUT /workflows/:id', () => {
 					id: 'uuid-updated',
 					parameters: { triggerTimes: { item: [{ mode: 'everyMinute' }] } },
 					name: 'Updated Cron',
-					type: 'n8n-nodes-base.cron',
+					type: 'resin-nodes-base.cron',
 					typeVersion: 1,
 					position: [300, 400],
 				},
@@ -1891,7 +1891,7 @@ describe('PUT /workflows/:id', () => {
 					id: 'uuid-1',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -1899,7 +1899,7 @@ describe('PUT /workflows/:id', () => {
 					id: 'uuid-2',
 					parameters: {},
 					name: 'Cron',
-					type: 'n8n-nodes-base.cron',
+					type: 'resin-nodes-base.cron',
 					typeVersion: 1,
 					position: [400, 300],
 				},
@@ -2456,7 +2456,7 @@ return [
 				{
 					id: 'code-node-1',
 					name: 'Code',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					typeVersion: 2,
 					position: [250, 300],
 					parameters: {
@@ -2494,7 +2494,7 @@ return [
 
 		const createdWorkflowId = createResponse.body.id;
 		const codeNode = createResponse.body.nodes.find(
-			(node: INode) => node.type === 'n8n-nodes-base.code',
+			(node: INode) => node.type === 'resin-nodes-base.code',
 		);
 
 		expect(codeNode).toBeDefined();
@@ -2514,7 +2514,7 @@ return [
 		expect(getResponse.statusCode).toBe(200);
 
 		const retrievedCodeNode = getResponse.body.nodes.find(
-			(node: INode) => node.type === 'n8n-nodes-base.code',
+			(node: INode) => node.type === 'resin-nodes-base.code',
 		);
 
 		expect(retrievedCodeNode).toBeDefined();
@@ -2538,7 +2538,7 @@ return [
 				{
 					id: 'code-node-1',
 					name: 'Code',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					typeVersion: 2,
 					position: [250, 300],
 					parameters: {
@@ -2585,7 +2585,7 @@ return [{ json: result }];
 				{
 					id: 'code-node-1',
 					name: 'Code',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					typeVersion: 2,
 					position: [250, 300],
 					parameters: {
@@ -2621,7 +2621,7 @@ return [{ json: result }];
 		expect(updateResponse.body.name).toBe('Updated Code Node Workflow');
 
 		const updatedCodeNode = updateResponse.body.nodes.find(
-			(node: INode) => node.type === 'n8n-nodes-base.code',
+			(node: INode) => node.type === 'resin-nodes-base.code',
 		);
 
 		expect(updatedCodeNode).toBeDefined();
@@ -2640,7 +2640,7 @@ return [{ json: result }];
 		expect(getResponse.statusCode).toBe(200);
 
 		const retrievedUpdatedNode = getResponse.body.nodes.find(
-			(node: INode) => node.type === 'n8n-nodes-base.code',
+			(node: INode) => node.type === 'resin-nodes-base.code',
 		);
 
 		expect(retrievedUpdatedNode).toBeDefined();

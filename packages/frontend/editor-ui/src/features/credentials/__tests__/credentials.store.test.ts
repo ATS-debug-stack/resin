@@ -13,7 +13,7 @@ const { useRootStore } = vi.hoisted(() => ({
 	useRootStore: vi.fn(() => mockRootStore),
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore,
 }));
 

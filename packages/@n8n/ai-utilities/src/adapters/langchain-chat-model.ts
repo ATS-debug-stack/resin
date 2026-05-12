@@ -7,7 +7,7 @@ import { AIMessage, AIMessageChunk } from '@langchain/core/messages';
 import type { ChatResult, LLMResult } from '@langchain/core/outputs';
 import { ChatGenerationChunk } from '@langchain/core/outputs';
 import type { Runnable } from '@langchain/core/runnables';
-import type { ISupplyDataFunctions } from 'n8n-workflow';
+import type { ISupplyDataFunctions } from 'resin-workflow';
 
 import { fromLcMessage, toLcMessage } from '../converters/message';
 import { fromLcTool } from '../converters/tool';
@@ -50,7 +50,7 @@ export class LangchainChatModelAdapter<
 	}
 
 	_llmType(): string {
-		return 'n8n-chat-model';
+		return 'resin-chat-model';
 	}
 
 	async _generate(

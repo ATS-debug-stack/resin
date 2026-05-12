@@ -2,7 +2,7 @@ import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowState, type WorkflowState } from './useWorkflowState';
 import { createPinia, setActivePinia } from 'pinia';
 import { createTestTaskData, createTestWorkflowExecutionResponse } from '@/__tests__/mocks';
-import { createRunExecutionData } from 'n8n-workflow';
+import { createRunExecutionData } from 'resin-workflow';
 import {
 	createWorkflowExecutionStateId,
 	useWorkflowExecutionStateStore,

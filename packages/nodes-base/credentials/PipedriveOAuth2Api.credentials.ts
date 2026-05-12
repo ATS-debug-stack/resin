@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class PipedriveOAuth2Api implements ICredentialType {
 	name = 'pipedriveOAuth2Api';

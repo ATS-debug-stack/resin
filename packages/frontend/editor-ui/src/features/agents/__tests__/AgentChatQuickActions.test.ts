@@ -10,7 +10,7 @@ vi.mock('@/app/stores/ui.store', () => ({
 	useUIStore: () => ({ openModalWithData }),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({ baseText: (k: string) => k }),
 }));
 

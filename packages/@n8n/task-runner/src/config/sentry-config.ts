@@ -1,4 +1,4 @@
-import { Config, Env, sampleRateSchema } from '@n8n/config';
+import { Config, Env, sampleRateSchema } from '@resin/config';
 
 @Config
 export class SentryConfig {

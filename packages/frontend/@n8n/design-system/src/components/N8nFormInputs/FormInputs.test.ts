@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
 
-import type { IFormInput } from '@n8n/design-system/types';
+import type { IFormInput } from '@resin/design-system/types';
 
 import FormInputs from './FormInputs.vue';
 

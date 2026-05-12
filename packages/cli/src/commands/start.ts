@@ -1,20 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { LICENSE_FEATURES } from '@n8n/constants';
+import { LICENSE_FEATURES } from '@resin/constants';
 import {
 	AuthRolesService,
 	DeploymentKeyRepository,
 	ExecutionRepository,
 	SettingsRepository,
-} from '@n8n/db';
-import { Command } from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import { McpServer } from '@n8n/n8n-nodes-langchain/mcp/core';
+} from '@resin/db';
+import { Command } from '@resin/decorators';
+import { Container } from '@resin/di';
+import { McpServer } from '@resin/n8n-nodes-langchain/mcp/core';
 import glob from 'fast-glob';
 import { createReadStream, createWriteStream, existsSync } from 'fs';
 import { mkdir } from 'fs/promises';
-import { BinaryDataConfig } from 'n8n-core';
-import { jsonParse, sleep, type IWorkflowExecutionDataProcess } from 'n8n-workflow';
+import { BinaryDataConfig } from 'resin-core';
+import { jsonParse, sleep, type IWorkflowExecutionDataProcess } from 'resin-workflow';
 import path from 'path';
 import replaceStream from 'replacestream';
 import { pipeline } from 'stream/promises';

@@ -1,5 +1,5 @@
 import type { BaseResource } from '@/Interface';
-import type { AgentJsonToolRef as ApiAgentJsonToolRef, AgentSkill } from '@n8n/api-types';
+import type { AgentJsonToolRef as ApiAgentJsonToolRef, AgentSkill } from '@resin/api-types';
 import type { Agent, ToolDescriptor, CustomToolEntry } from './agent.types';
 
 export type { ToolDescriptor, CustomToolEntry, AgentSkill };
@@ -20,7 +20,7 @@ declare module '@/Interface' {
 	}
 }
 
-// Frontend-local copies of AgentSchema types from @n8n/agents
+// Frontend-local copies of AgentSchema types from @resin/agents
 
 export interface AgentSchema {
 	model: { provider: string | null; name: string | null; raw?: string };
@@ -127,4 +127,4 @@ export type {
 	AgentJsonSkillRef,
 	AgentJsonConfigRef,
 	AgentJsonConfig,
-} from '@n8n/api-types';
+} from '@resin/api-types';

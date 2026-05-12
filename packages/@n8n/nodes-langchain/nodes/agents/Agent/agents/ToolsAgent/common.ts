@@ -6,12 +6,17 @@ import type { AgentAction, AgentFinish } from '@langchain/classic/agents';
 import type { ToolsAgentAction } from '@langchain/classic/dist/agents/tool_calling/output_parser';
 import type { BaseChatMemory } from '@langchain/classic/memory';
 import { DynamicStructuredTool, type Tool } from '@langchain/classic/tools';
-import { BINARY_ENCODING, jsonParse, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
-import type { IExecuteFunctions, ISupplyDataFunctions, IWebhookFunctions } from 'n8n-workflow';
+import {
+	BINARY_ENCODING,
+	jsonParse,
+	NodeConnectionTypes,
+	NodeOperationError,
+} from 'resin-workflow';
+import type { IExecuteFunctions, ISupplyDataFunctions, IWebhookFunctions } from 'resin-workflow';
 import type { ZodObject } from 'zod';
 import { z } from 'zod';
 
-import { isChatInstance } from '@n8n/ai-utilities';
+import { isChatInstance } from '@resin/ai-utilities';
 import { getConnectedTools } from '@utils/helpers';
 import { type N8nOutputParser } from '@utils/output_parsers/N8nOutputParser';
 

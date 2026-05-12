@@ -1,11 +1,11 @@
-import type { Logger } from '@n8n/backend-common';
-import { mockInstance, randomName } from '@n8n/backend-test-utils';
-import { LICENSE_FEATURES } from '@n8n/constants';
+import type { Logger } from '@resin/backend-common';
+import { mockInstance, randomName } from '@resin/backend-test-utils';
+import { LICENSE_FEATURES } from '@resin/constants';
 import axios from 'axios';
 import { mocked } from 'jest-mock';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings, PackageDirectoryLoader } from 'n8n-core';
-import type { PublicInstalledPackage } from 'n8n-workflow';
+import type { InstanceSettings, PackageDirectoryLoader } from 'resin-core';
+import type { PublicInstalledPackage } from 'resin-workflow';
 import { execFile } from 'node:child_process';
 import { access, constants, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path, { join } from 'node:path';
@@ -63,7 +63,7 @@ describe('CommunityPackagesService', () => {
 	const installedNodesRepository = mockInstance(InstalledNodesRepository);
 	const installedPackageRepository = mockInstance(InstalledPackagesRepository);
 
-	const nodesDownloadDir = path.join('tmp', 'n8n-jest-global-downloads');
+	const nodesDownloadDir = path.join('tmp', 'resin-jest-global-downloads');
 	const instanceSettings = mock<InstanceSettings>({ nodesDownloadDir });
 
 	const logger = mock<Logger>();
@@ -346,7 +346,7 @@ describe('CommunityPackagesService', () => {
 	};
 
 	describe('updatePackage', () => {
-		const PACKAGE_NAME = 'n8n-nodes-test';
+		const PACKAGE_NAME = 'resin-nodes-test';
 		const installedPackageForUpdateTest = mock<InstalledPackages>({
 			packageName: PACKAGE_NAME,
 		});
@@ -430,7 +430,7 @@ describe('CommunityPackagesService', () => {
 			expect(rm).toHaveBeenNthCalledWith(1, testBlockPackageDir, { recursive: true, force: true });
 			expect(rm).toHaveBeenNthCalledWith(
 				2,
-				path.join(nodesDownloadDir, 'n8n-nodes-test-latest.tgz'),
+				path.join(nodesDownloadDir, 'resin-nodes-test-latest.tgz'),
 			);
 
 			// Check executeNpmCommand was called for npm commands
@@ -901,7 +901,7 @@ describe('CommunityPackagesService', () => {
 			jest.spyOn(communityPackagesService as any, 'downloadPackage').mockResolvedValue(undefined);
 
 			await communityPackagesService.handleInstallEvent({
-				packageName: 'n8n-nodes-test',
+				packageName: 'resin-nodes-test',
 				packageVersion: '1.0.0',
 			});
 

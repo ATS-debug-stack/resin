@@ -15,7 +15,7 @@ import type {
 	SimplifiedNodeType,
 	ToggleNodeCreatorOptions,
 } from '@/Interface';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { defineStore } from 'pinia';
 
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
@@ -36,8 +36,8 @@ import {
 } from '@/features/workflows/canvas/canvas.utils';
 import type { Connection } from '@vue-flow/core';
 import get from 'lodash/get';
-import type { IDataObject, NodeConnectionType } from 'n8n-workflow';
-import { NodeConnectionTypes, isCommunityPackageName } from 'n8n-workflow';
+import type { IDataObject, NodeConnectionType } from 'resin-workflow';
+import { NodeConnectionTypes, isCommunityPackageName } from 'resin-workflow';
 import { computed, nextTick, ref } from 'vue';
 import { useGetNodeCreatorFilter } from './composables/useGetNodeCreatorFilter';
 import { useViewStacks } from './composables/useViewStacks';

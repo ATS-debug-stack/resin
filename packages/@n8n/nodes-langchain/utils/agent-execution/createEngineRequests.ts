@@ -1,8 +1,8 @@
 import type { DynamicStructuredTool, Tool } from '@langchain/classic/tools';
 import isObject from 'lodash/isObject';
 import omit from 'lodash/omit';
-import type { EngineRequest, IDataObject } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { EngineRequest, IDataObject } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import type {
 	HitlMetadata,

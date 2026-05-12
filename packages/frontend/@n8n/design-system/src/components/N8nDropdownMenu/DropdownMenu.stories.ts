@@ -2,10 +2,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref, computed } from 'vue';
 
-import N8nBadge from '@n8n/design-system/components/N8nBadge/Badge.vue';
-import N8nButton from '@n8n/design-system/components/N8nButton/Button.vue';
-import N8nKeyboardShortcut from '@n8n/design-system/components/N8nKeyboardShortcut/N8nKeyboardShortcut.vue';
-import N8nCheckbox from '@n8n/design-system/v2/components/Checkbox/Checkbox.vue';
+import N8nBadge from '@resin/design-system/components/N8nBadge/Badge.vue';
+import N8nButton from '@resin/design-system/components/N8nButton/Button.vue';
+import N8nKeyboardShortcut from '@resin/design-system/components/N8nKeyboardShortcut/N8nKeyboardShortcut.vue';
+import N8nCheckbox from '@resin/design-system/v2/components/Checkbox/Checkbox.vue';
 
 import type { DropdownMenuItemProps } from './DropdownMenu.types';
 import DropdownMenu from './DropdownMenu.vue';

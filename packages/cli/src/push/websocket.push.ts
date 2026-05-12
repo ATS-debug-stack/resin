@@ -1,7 +1,7 @@
-import { heartbeatMessageSchema } from '@n8n/api-types';
-import type { User } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { UnexpectedError } from 'n8n-workflow';
+import { heartbeatMessageSchema } from '@resin/api-types';
+import type { User } from '@resin/db';
+import { Service } from '@resin/di';
+import { UnexpectedError } from 'resin-workflow';
 import type WebSocket from 'ws';
 
 import { AbstractPush } from './abstract.push';

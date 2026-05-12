@@ -5,7 +5,7 @@ import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { updateDisplayOptions } from '@utils/utilities';
 

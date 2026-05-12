@@ -4,7 +4,7 @@ import { createTestingPinia } from '@pinia/testing';
 import type { MockInstance } from 'vitest';
 import { fireEvent, waitFor, within } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 import { createComponentRenderer } from '@/__tests__/render';
 import { createTestWorkflow } from '@/__tests__/mocks';
 import { getDropdownItems, mockedStore, type MockedStore } from '@/__tests__/utils';
@@ -15,9 +15,9 @@ import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
-import * as restApiClient from '@n8n/rest-api-client';
+import * as restApiClient from '@resin/rest-api-client';
 import { mock } from 'vitest-mock-extended';
-import { BINARY_MODE_COMBINED } from 'n8n-workflow';
+import { BINARY_MODE_COMBINED } from 'resin-workflow';
 import {
 	useWorkflowDocumentStore,
 	createWorkflowDocumentId,
@@ -46,7 +46,7 @@ vi.mock('vue-router', async () => ({
 	},
 }));
 
-vi.mock('@n8n/rest-api-client', async (importOriginal) => {
+vi.mock('@resin/rest-api-client', async (importOriginal) => {
 	const actual = await importOriginal<typeof restApiClient>();
 	return {
 		...actual,
@@ -622,7 +622,7 @@ describe('WorkflowSettingsVue', () => {
 			{
 				id: 'resolver-n8n',
 				name: 'N8n Resolver',
-				type: 'n8n-internal-type',
+				type: 'resin-internal-type',
 				config: '{}',
 				createdAt: new Date(),
 				updatedAt: new Date(),
@@ -636,7 +636,7 @@ describe('WorkflowSettingsVue', () => {
 				options: [{ name: 'url', type: 'string', displayName: 'URL', default: '' }],
 			},
 			{
-				name: 'n8n-internal-type',
+				name: 'resin-internal-type',
 				displayName: 'N8N Resolver',
 				options: [],
 			},

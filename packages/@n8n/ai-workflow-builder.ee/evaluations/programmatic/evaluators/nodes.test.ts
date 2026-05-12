@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 
@@ -8,14 +8,14 @@ import { evaluateNodes } from './nodes';
 describe('evaluateNodes', () => {
 	const mockNodeTypes: INodeTypeDescription[] = [
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.manualTrigger',
+			name: 'resin-nodes-base.manualTrigger',
 			displayName: 'Manual Trigger',
 			group: ['trigger'],
 			inputs: [],
 			outputs: ['main'],
 		}),
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.executeWorkflowTrigger',
+			name: 'resin-nodes-base.executeWorkflowTrigger',
 			displayName: 'Execute Workflow Trigger',
 			group: ['trigger'],
 			inputs: [],
@@ -23,7 +23,7 @@ describe('evaluateNodes', () => {
 			maxNodes: 1,
 		}),
 		mock<INodeTypeDescription>({
-			name: 'n8n-nodes-base.code',
+			name: 'resin-nodes-base.code',
 			displayName: 'Code',
 			group: ['transform'],
 			inputs: ['main'],
@@ -53,7 +53,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -75,7 +75,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '1',
 						name: 'Execute Workflow Trigger',
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -83,7 +83,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '2',
 						name: 'Code',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -103,7 +103,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '1',
 						name: 'Execute Workflow Trigger 1',
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -111,7 +111,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '2',
 						name: 'Execute Workflow Trigger 2',
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 200],
@@ -119,7 +119,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '3',
 						name: 'Code',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -144,7 +144,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '1',
 						name: 'First Trigger',
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -152,7 +152,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '2',
 						name: 'Second Trigger',
-						type: 'n8n-nodes-base.executeWorkflowTrigger',
+						type: 'resin-nodes-base.executeWorkflowTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 200],
@@ -177,7 +177,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -185,7 +185,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '2',
 						name: 'Code 1',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -193,7 +193,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '3',
 						name: 'Code 2',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [400, 0],
@@ -201,7 +201,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '4',
 						name: 'Code 3',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						parameters: {},
 						typeVersion: 1,
 						position: [600, 0],
@@ -218,7 +218,7 @@ describe('evaluateNodes', () => {
 			const nodeTypesWithMaxNodes: INodeTypeDescription[] = [
 				...mockNodeTypes,
 				mock<INodeTypeDescription>({
-					name: 'n8n-nodes-base.limitedNode',
+					name: 'resin-nodes-base.limitedNode',
 					displayName: 'Limited Node',
 					group: ['transform'],
 					inputs: ['main'],
@@ -233,7 +233,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -241,7 +241,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '2',
 						name: 'Limited 1',
-						type: 'n8n-nodes-base.limitedNode',
+						type: 'resin-nodes-base.limitedNode',
 						parameters: {},
 						typeVersion: 1,
 						position: [200, 0],
@@ -249,7 +249,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '3',
 						name: 'Limited 2',
-						type: 'n8n-nodes-base.limitedNode',
+						type: 'resin-nodes-base.limitedNode',
 						parameters: {},
 						typeVersion: 1,
 						position: [400, 0],
@@ -269,7 +269,7 @@ describe('evaluateNodes', () => {
 					{
 						id: '4',
 						name: 'Limited 3',
-						type: 'n8n-nodes-base.limitedNode',
+						type: 'resin-nodes-base.limitedNode',
 						parameters: {},
 						typeVersion: 1,
 						position: [600, 0],

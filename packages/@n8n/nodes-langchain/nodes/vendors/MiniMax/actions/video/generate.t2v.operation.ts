@@ -3,8 +3,8 @@ import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
-import { NodeOperationError, updateDisplayOptions } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, updateDisplayOptions } from 'resin-workflow';
 
 import type { VideoGenerationResponse } from '../../helpers/interfaces';
 import { apiRequest, getVideoDownloadUrl, pollVideoTask } from '../../transport';

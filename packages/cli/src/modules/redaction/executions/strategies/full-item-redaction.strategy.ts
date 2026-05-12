@@ -1,10 +1,10 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import type {
 	ExecutionError,
 	INodeExecutionData,
 	IRedactedErrorInfo,
 	ITaskDataConnections,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { RedactableExecution } from '@/executions/execution-redaction';
 

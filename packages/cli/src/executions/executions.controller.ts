@@ -1,6 +1,6 @@
-import type { User, ExecutionSummaries } from '@n8n/db';
-import { Get, Patch, Post, RestController } from '@n8n/decorators';
-import { PROJECT_OWNER_ROLE_SLUG, type Scope } from '@n8n/permissions';
+import type { User, ExecutionSummaries } from '@resin/db';
+import { Get, Patch, Post, RestController } from '@resin/decorators';
+import { PROJECT_OWNER_ROLE_SLUG, type Scope } from '@resin/permissions';
 
 import { ExecutionService } from './execution.service';
 import { EnterpriseExecutionsService } from './execution.service.ee';

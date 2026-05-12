@@ -4,7 +4,7 @@ import { useAsyncState } from '@vueuse/core';
 import { EVALUATIONS_DOCS_URL } from '@/app/constants';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useEvaluationStore } from '../evaluation.store';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
 
@@ -12,7 +12,7 @@ import { computed, watch } from 'vue';
 import EvaluationsPaywall from '../components/Paywall/EvaluationsPaywall.vue';
 import SetupWizard from '../components/SetupWizard/SetupWizard.vue';
 
-import { N8nCallout, N8nLink, N8nText } from '@n8n/design-system';
+import { N8nCallout, N8nLink, N8nText } from '@resin/design-system';
 const props = defineProps<{
 	workflowId: string;
 }>();

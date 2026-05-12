@@ -1,4 +1,4 @@
-import type { INodeTypes } from 'n8n-workflow';
+import type { INodeTypes } from 'resin-workflow';
 
 import { resolveMainInputCount } from './input-resolver';
 
@@ -12,19 +12,19 @@ describe('resolveMainInputCount', () => {
 
 	it('returns 1 for single main input node', () => {
 		const provider = createMockProvider(['main']);
-		const result = resolveMainInputCount(provider, 'n8n-nodes-base.aggregate', 1);
+		const result = resolveMainInputCount(provider, 'resin-nodes-base.aggregate', 1);
 		expect(result).toBe(1);
 	});
 
 	it('returns 2 for dual main input node', () => {
 		const provider = createMockProvider(['main', 'main']);
-		const result = resolveMainInputCount(provider, 'n8n-nodes-base.merge', 3);
+		const result = resolveMainInputCount(provider, 'resin-nodes-base.merge', 3);
 		expect(result).toBe(2);
 	});
 
 	it('returns undefined for expression-based inputs', () => {
 		const provider = createMockProvider('={{configuredInputs($parameter)}}');
-		const result = resolveMainInputCount(provider, 'n8n-nodes-base.merge', 3);
+		const result = resolveMainInputCount(provider, 'resin-nodes-base.merge', 3);
 		expect(result).toBeUndefined();
 	});
 
@@ -33,7 +33,7 @@ describe('resolveMainInputCount', () => {
 			'main',
 			{ type: 'ai_languageModel', displayName: 'Model' },
 		]);
-		const result = resolveMainInputCount(provider, '@n8n/n8n-nodes-langchain.agent', 1);
+		const result = resolveMainInputCount(provider, '@resin/n8n-nodes-langchain.agent', 1);
 		expect(result).toBe(1);
 	});
 
@@ -67,7 +67,7 @@ describe('resolveMainInputCount', () => {
 			getByName: () => ({ description: {} }),
 			getKnownTypes: () => ({}),
 		} as unknown as INodeTypes;
-		const result = resolveMainInputCount(provider, 'n8n-nodes-base.set', 1);
+		const result = resolveMainInputCount(provider, 'resin-nodes-base.set', 1);
 		expect(result).toBeUndefined();
 	});
 
@@ -76,7 +76,7 @@ describe('resolveMainInputCount', () => {
 			{ type: 'main', displayName: 'Input 1' },
 			{ type: 'main', displayName: 'Input 2' },
 		]);
-		const result = resolveMainInputCount(provider, 'n8n-nodes-base.merge', 3);
+		const result = resolveMainInputCount(provider, 'resin-nodes-base.merge', 3);
 		expect(result).toBe(2);
 	});
 });

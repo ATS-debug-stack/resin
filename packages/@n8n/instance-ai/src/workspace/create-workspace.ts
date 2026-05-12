@@ -5,7 +5,7 @@ import { DaytonaFilesystem } from './daytona-filesystem';
 import { N8nSandboxFilesystem } from './n8n-sandbox-filesystem';
 import { N8nSandboxServiceSandbox } from './n8n-sandbox-sandbox';
 
-export type SandboxProvider = 'daytona' | 'local' | 'n8n-sandbox';
+export type SandboxProvider = 'daytona' | 'local' | 'resin-sandbox';
 
 interface SandboxConfigBase {
 	provider: SandboxProvider;
@@ -42,7 +42,7 @@ interface LocalSandboxConfig extends SandboxConfigBase {
 
 interface N8nSandboxConfig extends SandboxConfigBase {
 	enabled: true;
-	provider: 'n8n-sandbox';
+	provider: 'resin-sandbox';
 	serviceUrl?: string;
 	apiKey?: string;
 }
@@ -77,7 +77,7 @@ export async function createSandbox(
 		});
 	}
 
-	if (config.provider === 'n8n-sandbox') {
+	if (config.provider === 'resin-sandbox') {
 		return new N8nSandboxServiceSandbox({
 			apiKey: config.apiKey,
 			serviceUrl: config.serviceUrl,

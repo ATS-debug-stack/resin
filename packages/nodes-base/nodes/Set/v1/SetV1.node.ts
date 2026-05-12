@@ -6,8 +6,8 @@ import type {
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, deepCopy } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, deepCopy } from 'resin-workflow';
 
 const versionDescription: INodeTypeDescription = {
 	displayName: 'Set',

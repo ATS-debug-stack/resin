@@ -1,9 +1,9 @@
-import type { PushMessage } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { ErrorReporter } from 'n8n-core';
-import { assert, jsonStringify } from 'n8n-workflow';
+import type { PushMessage } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import { Service } from '@resin/di';
+import { ErrorReporter } from 'resin-core';
+import { assert, jsonStringify } from 'resin-workflow';
 
 import type { OnPushMessage } from '@/push/types';
 import { TypedEmitter } from '@/typed-emitter';

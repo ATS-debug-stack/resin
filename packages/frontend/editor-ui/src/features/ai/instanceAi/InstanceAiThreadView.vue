@@ -17,11 +17,11 @@ import {
 	N8nResizeWrapper,
 	N8nScrollArea,
 	N8nText,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { useElementSize, useScroll } from '@vueuse/core';
-import { useI18n } from '@n8n/i18n';
-import type { InstanceAiAttachment } from '@n8n/api-types';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useI18n } from '@resin/i18n';
+import type { InstanceAiAttachment } from '@resin/api-types';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
 import { provideThread, useInstanceAiStore } from './instanceAi.store';
 import { useCanvasPreview } from './useCanvasPreview';

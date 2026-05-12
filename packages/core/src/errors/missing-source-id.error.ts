@@ -1,4 +1,4 @@
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 
 export class MissingSourceIdError extends UnexpectedError {
 	constructor(pathSegments: string[]) {

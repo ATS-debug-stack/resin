@@ -9,7 +9,7 @@ import {
 	type SupplyData,
 	NodeOperationError,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { z } from 'zod';
 
 import {
@@ -23,7 +23,7 @@ import {
 	N8nStructuredOutputParser,
 } from '@utils/output_parsers/N8nOutputParser';
 import { convertJsonSchemaToZod, generateSchemaFromExample } from '@utils/schemaParsing';
-import { getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 import { NAIVE_FIX_PROMPT } from './prompt';
 

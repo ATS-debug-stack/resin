@@ -20,7 +20,7 @@ import { languageModel, tool } from './workflow-builder/node-builders/subnode-bu
 /**
  * Helper to create a simple node with a name
  */
-function createNode(name: string, type = 'n8n-nodes-base.set') {
+function createNode(name: string, type = 'resin-nodes-base.set') {
 	return node({
 		type,
 		version: 3.4,
@@ -33,7 +33,7 @@ function createNode(name: string, type = 'n8n-nodes-base.set') {
  */
 function createTrigger(name: string) {
 	return trigger({
-		type: 'n8n-nodes-base.manualTrigger',
+		type: 'resin-nodes-base.manualTrigger',
 		version: 1,
 		config: { name },
 	});
@@ -44,7 +44,7 @@ function createTrigger(name: string) {
  */
 function createIfNode(name: string) {
 	return node({
-		type: 'n8n-nodes-base.if',
+		type: 'resin-nodes-base.if',
 		version: 2.2,
 		config: {
 			name,
@@ -59,7 +59,7 @@ function createIfNode(name: string) {
 				},
 			},
 		},
-	}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+	}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 }
 
 /**
@@ -67,13 +67,13 @@ function createIfNode(name: string) {
  */
 function createSwitchNode(name: string) {
 	return node({
-		type: 'n8n-nodes-base.switch',
+		type: 'resin-nodes-base.switch',
 		version: 3.2,
 		config: {
 			name,
 			parameters: { mode: 'rules' },
 		},
-	}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+	}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 }
 
 /**
@@ -81,7 +81,7 @@ function createSwitchNode(name: string) {
  */
 function createMergeNode(name: string) {
 	return node({
-		type: 'n8n-nodes-base.merge',
+		type: 'resin-nodes-base.merge',
 		version: 3,
 		config: {
 			name,
@@ -95,13 +95,13 @@ function createMergeNode(name: string) {
  */
 function createSplitInBatchesNode(name: string) {
 	return node({
-		type: 'n8n-nodes-base.splitInBatches',
+		type: 'resin-nodes-base.splitInBatches',
 		version: 3,
 		config: {
 			name,
 			parameters: { batchSize: 10 },
 		},
-	}) as NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>;
+	}) as NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>;
 }
 
 describe('New SDK API', () => {
@@ -281,12 +281,12 @@ describe('New SDK API', () => {
 	describe('Edge Case 5: Cycle/Loop Connections', () => {
 		it('allows node to connect back to earlier node', () => {
 			const checkStatus = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Check' },
 			});
 			const wait = node({
-				type: 'n8n-nodes-base.wait',
+				type: 'resin-nodes-base.wait',
 				version: 1,
 				config: { name: 'Wait' },
 			});
@@ -377,7 +377,7 @@ describe('New SDK API', () => {
 			const shared = createNode('Shared');
 			const manual = createTrigger('Manual');
 			const schedule = trigger({
-				type: 'n8n-nodes-base.scheduleTrigger',
+				type: 'resin-nodes-base.scheduleTrigger',
 				version: 1.1,
 				config: { name: 'Schedule' },
 			});
@@ -400,7 +400,7 @@ describe('New SDK API', () => {
 		it('supports .to(target, outputIndex) on any node type', () => {
 			// Text classifier has multiple outputs based on classification
 			const classifier = node({
-				type: '@n8n/n8n-nodes-langchain.textClassifier',
+				type: '@resin/n8n-nodes-langchain.textClassifier',
 				version: 1.2,
 				config: { name: 'Classifier' },
 			});
@@ -507,7 +507,7 @@ describe('New SDK API', () => {
 	describe('Edge Case 12: Error Output Connections', () => {
 		it('supports .onError() for error output', () => {
 			const http = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					name: 'HTTP',
@@ -535,7 +535,7 @@ describe('New SDK API', () => {
 	describe('Edge Case 13: Subnode Connections', () => {
 		it('handles subnodes via object config', () => {
 			const openAiModel = languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1.2,
 				config: {
 					name: 'OpenAI Model',
@@ -544,7 +544,7 @@ describe('New SDK API', () => {
 			});
 
 			const httpTool = tool({
-				type: '@n8n/n8n-nodes-langchain.toolHttpRequest',
+				type: '@resin/n8n-nodes-langchain.toolHttpRequest',
 				version: 1.1,
 				config: {
 					name: 'HTTP Tool',
@@ -553,7 +553,7 @@ describe('New SDK API', () => {
 			});
 
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					name: 'AI Agent',
@@ -585,12 +585,12 @@ describe('New SDK API', () => {
 	describe('Edge Case 14: Duplicate Node Names', () => {
 		it('auto-renames duplicate names at build time', () => {
 			const nodeA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Process' },
 			});
 			const nodeB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Process' }, // Same name
 			});
@@ -714,7 +714,7 @@ describe('New SDK API', () => {
 		it('builds a batch processing workflow with loop', () => {
 			const t = createTrigger('Start');
 			const fetchData = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Fetch Data' },
 			});
@@ -743,7 +743,7 @@ describe('New SDK API', () => {
 		it('builds an error handling workflow', () => {
 			const t = createTrigger('Start');
 			const riskyOperation = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: {
 					name: 'Risky API Call',
@@ -811,7 +811,7 @@ describe('New SDK API', () => {
 		it('allows ifElse.onError(splitInBatchesBuilder)', () => {
 			const t = createTrigger('Start');
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: {
 					name: 'Gate',
@@ -827,7 +827,7 @@ describe('New SDK API', () => {
 						},
 					},
 				},
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 			const sibNode = createSplitInBatchesNode('ErrorLoop');
 			const recover = createNode('Recover');
 			const ok = createNode('OK');

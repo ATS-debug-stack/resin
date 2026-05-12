@@ -15,9 +15,9 @@ import type {
 	IRun,
 	IBinaryKeyData,
 	INodeExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { ensureError, jsonParse, NodeOperationError, sleep } from 'n8n-workflow';
+import { ensureError, jsonParse, NodeOperationError, sleep } from 'resin-workflow';
 
 // Default delay in milliseconds before retrying after a failed offset resolution.
 // This prevents rapid retry loops that could overwhelm the Kafka broker

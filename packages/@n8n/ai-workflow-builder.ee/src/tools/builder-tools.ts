@@ -1,4 +1,4 @@
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import {
 	CODE_BUILDER_GET_NODE_TYPES_TOOL,

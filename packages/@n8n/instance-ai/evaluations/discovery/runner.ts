@@ -18,7 +18,7 @@
 
 import type { ToolsInput } from '@mastra/core/agent';
 import { InMemoryStore, type MastraCompositeStore } from '@mastra/core/storage';
-import type { InstanceAiEvent, TaskList } from '@n8n/api-types';
+import type { InstanceAiEvent, TaskList } from '@resin/api-types';
 import { nanoid } from 'nanoid';
 
 import { runExpectedToolsInvokedCheck } from './expected-tools-invoked';
@@ -150,7 +150,7 @@ export async function runDiscoveryScenario(
 			context: {
 				threadId,
 				runId,
-				agentId: 'n8n-instance-agent',
+				agentId: 'resin-instance-agent',
 				eventBus,
 				signal: abortController.signal,
 				logger: silentLogger(),
@@ -268,7 +268,7 @@ function createStubOrchestrationContext(
 		threadId: opts.threadId,
 		runId: opts.runId,
 		userId: opts.context.userId,
-		orchestratorAgentId: 'n8n-instance-agent',
+		orchestratorAgentId: 'resin-instance-agent',
 		modelId: opts.modelId,
 		storage: opts.storage,
 		subAgentMaxSteps: 10,

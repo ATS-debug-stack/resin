@@ -5,14 +5,14 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	logWrapper,
 	N8nJsonLoader,
 	getConnectionHintNoticeField,
 	metadataFilterField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 
 export class DocumentJsonInputLoader implements INodeType {
 	description: INodeTypeDescription = {

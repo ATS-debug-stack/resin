@@ -11,8 +11,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IRequestOptions,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, deepCopy, randomInt } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, deepCopy, randomInt } from 'resin-workflow';
 
 import {
 	contactDescription,

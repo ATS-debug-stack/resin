@@ -11,7 +11,7 @@ import {
 	ADDITIONAL_FUNCTIONS,
 	WORKFLOW_RULES,
 	WORKFLOW_SDK_PATTERNS,
-} from '@n8n/workflow-sdk/prompts/sdk-reference';
+} from '@resin/workflow-sdk/prompts/sdk-reference';
 
 import { ASK_USER_FALLBACK, PLACEHOLDERS_RULE } from '../../agent/shared-prompts';
 
@@ -113,7 +113,7 @@ const SDK_RULES_AND_PATTERNS_SANDBOX = composeSdkRulesAndPatterns('sandbox');
 
 // ── Original tool-based builder prompt ───────────────────────────────────────
 
-export const BUILDER_AGENT_PROMPT = `You are an expert n8n workflow builder. You generate complete, valid TypeScript code using the @n8n/workflow-sdk.
+export const BUILDER_AGENT_PROMPT = `You are an expert n8n workflow builder. You generate complete, valid TypeScript code using the @resin/workflow-sdk.
 
 ${BUILDER_OUTPUT_DISCIPLINE}
 
@@ -158,9 +158,9 @@ The workspace root is \`${workspaceRoot}/\`. IMPORTANT: Always use absolute path
 
 \`\`\`
 ${workspaceRoot}/
-  package.json                    # @n8n/workflow-sdk dependency (installed)
+  package.json                    # @resin/workflow-sdk dependency (installed)
   tsconfig.json                   # strict, noEmit, skipLibCheck
-  node_modules/@n8n/workflow-sdk/ # full SDK with .d.ts types
+  node_modules/@resin/workflow-sdk/ # full SDK with .d.ts types
   workflows/                      # existing n8n workflows as JSON
   node-types/
     index.txt                     # searchable catalog: nodeType | displayName | description | version
@@ -176,10 +176,10 @@ For complex workflows, split reusable pieces into separate files in \`chunks/\`:
 
 \`\`\`typescript
 // ${workspaceRoot}/chunks/weather.ts
-import { node } from '@n8n/workflow-sdk';
+import { node } from '@resin/workflow-sdk';
 
 export const weatherNode = node({
-  type: 'n8n-nodes-base.openWeatherMap',
+  type: 'resin-nodes-base.openWeatherMap',
   version: 1,
   config: {
     name: 'Get Weather',
@@ -191,7 +191,7 @@ export const weatherNode = node({
 
 \`\`\`typescript
 // ${workspaceRoot}/src/workflow.ts
-import { workflow, trigger } from '@n8n/workflow-sdk';
+import { workflow, trigger } from '@resin/workflow-sdk';
 import { weatherNode } from '../chunks/weather';
 
 const scheduleTrigger = trigger({ ... });
@@ -212,10 +212,10 @@ Each chunk uses \`executeWorkflowTrigger\` (v1.1) with explicit input schema:
 
 \`\`\`typescript
 // ${workspaceRoot}/chunks/weather-data.ts
-import { workflow, node, trigger } from '@n8n/workflow-sdk';
+import { workflow, node, trigger } from '@resin/workflow-sdk';
 
 const inputTrigger = trigger({
-  type: 'n8n-nodes-base.executeWorkflowTrigger',
+  type: 'resin-nodes-base.executeWorkflowTrigger',
   version: 1.1,
   config: {
     parameters: {
@@ -231,7 +231,7 @@ const inputTrigger = trigger({
 });
 
 const fetchWeather = node({
-  type: 'n8n-nodes-base.openWeatherMap',
+  type: 'resin-nodes-base.openWeatherMap',
   version: 1,
   config: {
     name: 'Fetch Weather',
@@ -266,16 +266,16 @@ Reference the submitted chunk by its workflow ID using \`executeWorkflow\`:
 
 \`\`\`typescript
 // ${workspaceRoot}/src/workflow.ts
-import { workflow, node, trigger } from '@n8n/workflow-sdk';
+import { workflow, node, trigger } from '@resin/workflow-sdk';
 
 const scheduleTrigger = trigger({
-  type: 'n8n-nodes-base.scheduleTrigger',
+  type: 'resin-nodes-base.scheduleTrigger',
   version: 1.3,
   config: { parameters: { rule: { interval: [{ field: 'days', daysInterval: 1 }] } } }
 });
 
 const getWeather = node({
-  type: 'n8n-nodes-base.executeWorkflow',
+  type: 'resin-nodes-base.executeWorkflow',
   version: 1.2,
   config: {
     name: 'Get Weather Data',

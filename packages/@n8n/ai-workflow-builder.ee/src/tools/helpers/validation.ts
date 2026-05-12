@@ -1,4 +1,4 @@
-import type { INode, INodeTypeDescription } from 'n8n-workflow';
+import type { INode, INodeTypeDescription } from 'resin-workflow';
 
 import {
 	ConnectionError,

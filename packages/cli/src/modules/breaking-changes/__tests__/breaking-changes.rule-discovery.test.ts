@@ -1,5 +1,5 @@
-import { BreakingChangeRuleMetadata } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { BreakingChangeRuleMetadata } from '@resin/decorators';
+import { Container } from '@resin/di';
 
 import '../rules';
 import type { IBreakingChangeRule } from '../types';

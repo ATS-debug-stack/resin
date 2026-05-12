@@ -63,7 +63,7 @@ export type {
 	SplitInBatchesConfig,
 	RunOnceForAllItemsFn,
 	RunOnceForEachItemFn,
-	// n8n-workflow type duplicates (self-contained in SDK)
+	// resin-workflow type duplicates (self-contained in SDK)
 	GenericValue,
 	IDataObject,
 	IConnection,

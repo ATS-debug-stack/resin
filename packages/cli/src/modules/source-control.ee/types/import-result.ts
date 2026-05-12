@@ -1,4 +1,4 @@
-import type { TagEntity, WorkflowTagMapping } from '@n8n/db';
+import type { TagEntity, WorkflowTagMapping } from '@resin/db';
 
 export interface WorkflowImportResult {
 	id: string;

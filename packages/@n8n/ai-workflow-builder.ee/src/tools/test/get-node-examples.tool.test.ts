@@ -1,5 +1,5 @@
 import { getCurrentTaskInput } from '@langchain/langgraph';
-import type { IConnections, INode } from 'n8n-workflow';
+import type { IConnections, INode } from 'resin-workflow';
 
 import {
 	parseToolResult,
@@ -83,7 +83,7 @@ describe('GetNodeExamplesTool', () => {
 						createNode({
 							id: 'http-1',
 							name: 'Fetch Data',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							parameters: { url: 'https://api.example.com', method: 'GET' },
 						}),
@@ -92,7 +92,7 @@ describe('GetNodeExamplesTool', () => {
 			);
 
 			const result = await configTool.invoke(
-				{ nodes: [{ nodeType: 'n8n-nodes-base.httpRequest' }] },
+				{ nodes: [{ nodeType: 'resin-nodes-base.httpRequest' }] },
 				mockConfig,
 			);
 
@@ -103,7 +103,7 @@ describe('GetNodeExamplesTool', () => {
 			expect(message).toContain('httpRequest');
 			expect(message).toContain('https://api.example.com');
 			expect(mockFetchWorkflowsFromTemplates).toHaveBeenCalledWith(
-				{ nodes: 'n8n-nodes-base.httpRequest', rows: 5 },
+				{ nodes: 'resin-nodes-base.httpRequest', rows: 5 },
 				expect.any(Object),
 			);
 		});
@@ -118,7 +118,7 @@ describe('GetNodeExamplesTool', () => {
 						createNode({
 							id: 'code-1',
 							name: 'Transform',
-							type: 'n8n-nodes-base.code',
+							type: 'resin-nodes-base.code',
 							typeVersion: 1,
 							parameters: { jsCode: 'return items;', mode: 'runOnceForAllItems' },
 						}),
@@ -129,7 +129,7 @@ describe('GetNodeExamplesTool', () => {
 			});
 
 			const result = await configTool.invoke(
-				{ nodes: [{ nodeType: 'n8n-nodes-base.code' }] },
+				{ nodes: [{ nodeType: 'resin-nodes-base.code' }] },
 				mockConfig,
 			);
 
@@ -151,14 +151,14 @@ describe('GetNodeExamplesTool', () => {
 						createNode({
 							id: 'http-v1',
 							name: 'HTTP V1',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 							parameters: { url: 'https://v1.example.com' },
 						}),
 						createNode({
 							id: 'http-v2',
 							name: 'HTTP V2',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 2,
 							parameters: { url: 'https://v2.example.com' },
 						}),
@@ -167,7 +167,7 @@ describe('GetNodeExamplesTool', () => {
 			);
 
 			const result = await configTool.invoke(
-				{ nodes: [{ nodeType: 'n8n-nodes-base.httpRequest', nodeVersion: 2 }] },
+				{ nodes: [{ nodeType: 'resin-nodes-base.httpRequest', nodeVersion: 2 }] },
 				mockConfig,
 			);
 
@@ -185,7 +185,7 @@ describe('GetNodeExamplesTool', () => {
 			mockFetchWorkflowsFromTemplates.mockResolvedValue(createMockFetchResult([]));
 
 			const result = await configTool.invoke(
-				{ nodes: [{ nodeType: 'n8n-nodes-base.unknownNode' }] },
+				{ nodes: [{ nodeType: 'resin-nodes-base.unknownNode' }] },
 				mockConfig,
 			);
 
@@ -212,13 +212,13 @@ describe('GetNodeExamplesTool', () => {
 					createMockWorkflow(
 						'Loop Workflow',
 						[
-							createNode({ id: 'trigger', name: 'Start', type: 'n8n-nodes-base.manualTrigger' }),
+							createNode({ id: 'trigger', name: 'Start', type: 'resin-nodes-base.manualTrigger' }),
 							createNode({
 								id: 'split',
 								name: 'Split Batches',
-								type: 'n8n-nodes-base.splitInBatches',
+								type: 'resin-nodes-base.splitInBatches',
 							}),
-							createNode({ id: 'http', name: 'Process', type: 'n8n-nodes-base.httpRequest' }),
+							createNode({ id: 'http', name: 'Process', type: 'resin-nodes-base.httpRequest' }),
 						],
 						{
 							Start: { main: [[{ node: 'Split Batches', type: 'main', index: 0 }]] },
@@ -229,7 +229,7 @@ describe('GetNodeExamplesTool', () => {
 			);
 
 			const result = await connectionTool.invoke(
-				{ nodes: [{ nodeType: 'n8n-nodes-base.splitInBatches' }] },
+				{ nodes: [{ nodeType: 'resin-nodes-base.splitInBatches' }] },
 				mockConfig,
 			);
 
@@ -248,8 +248,8 @@ describe('GetNodeExamplesTool', () => {
 			mockGetCurrentTaskInput.mockReturnValue({
 				cachedTemplates: [
 					createMockWorkflow('Cached Connection', [
-						createNode({ id: 'if', name: 'Check', type: 'n8n-nodes-base.if' }),
-						createNode({ id: 'code', name: 'Process', type: 'n8n-nodes-base.code' }),
+						createNode({ id: 'if', name: 'Check', type: 'resin-nodes-base.if' }),
+						createNode({ id: 'code', name: 'Process', type: 'resin-nodes-base.code' }),
 					]),
 				],
 				workflowJSON: { nodes: [], connections: {}, name: 'Test' },
@@ -257,7 +257,7 @@ describe('GetNodeExamplesTool', () => {
 			});
 
 			const result = await connectionTool.invoke(
-				{ nodes: [{ nodeType: 'n8n-nodes-base.if' }] },
+				{ nodes: [{ nodeType: 'resin-nodes-base.if' }] },
 				mockConfig,
 			);
 
@@ -275,7 +275,7 @@ describe('GetNodeExamplesTool', () => {
 			mockFetchWorkflowsFromTemplates.mockResolvedValue(createMockFetchResult([]));
 
 			const result = await connectionTool.invoke(
-				{ nodes: [{ nodeType: 'n8n-nodes-base.unknownNode' }] },
+				{ nodes: [{ nodeType: 'resin-nodes-base.unknownNode' }] },
 				mockConfig,
 			);
 
@@ -298,7 +298,7 @@ describe('GetNodeExamplesTool', () => {
 							createNode({
 								id: 'http-1',
 								name: 'HTTP Request',
-								type: 'n8n-nodes-base.httpRequest',
+								type: 'resin-nodes-base.httpRequest',
 								typeVersion: 1,
 								parameters: { url: 'https://api.example.com' },
 							}),
@@ -311,7 +311,7 @@ describe('GetNodeExamplesTool', () => {
 							createNode({
 								id: 'code-1',
 								name: 'Transform',
-								type: 'n8n-nodes-base.code',
+								type: 'resin-nodes-base.code',
 								typeVersion: 1,
 								parameters: { jsCode: 'return items.map(i => i);' },
 							}),
@@ -322,7 +322,10 @@ describe('GetNodeExamplesTool', () => {
 			// Request examples for both nodes in one call
 			const result = await configTool.invoke(
 				{
-					nodes: [{ nodeType: 'n8n-nodes-base.httpRequest' }, { nodeType: 'n8n-nodes-base.code' }],
+					nodes: [
+						{ nodeType: 'resin-nodes-base.httpRequest' },
+						{ nodeType: 'resin-nodes-base.code' },
+					],
 				},
 				mockConfig,
 			);
@@ -359,7 +362,7 @@ describe('GetNodeExamplesTool', () => {
 					createNode({
 						id: 'set-1',
 						name: 'Set Data',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						parameters: { mode: 'manual' },
 					}),
 				]),
@@ -368,7 +371,7 @@ describe('GetNodeExamplesTool', () => {
 			mockFetchWorkflowsFromTemplates.mockResolvedValue(createMockFetchResult(fetchedWorkflows));
 
 			const result = await configTool.invoke(
-				{ nodes: [{ nodeType: 'n8n-nodes-base.set' }] },
+				{ nodes: [{ nodeType: 'resin-nodes-base.set' }] },
 				mockConfig,
 			);
 
@@ -386,7 +389,7 @@ describe('GetNodeExamplesTool', () => {
 			mockGetCurrentTaskInput.mockReturnValue({
 				cachedTemplates: [
 					createMockWorkflow('Already Cached', [
-						createNode({ id: 'merge', name: 'Merge', type: 'n8n-nodes-base.merge' }),
+						createNode({ id: 'merge', name: 'Merge', type: 'resin-nodes-base.merge' }),
 					]),
 				],
 				workflowJSON: { nodes: [], connections: {}, name: 'Test' },
@@ -394,7 +397,7 @@ describe('GetNodeExamplesTool', () => {
 			});
 
 			const result = await configTool.invoke(
-				{ nodes: [{ nodeType: 'n8n-nodes-base.merge' }] },
+				{ nodes: [{ nodeType: 'resin-nodes-base.merge' }] },
 				mockConfig,
 			);
 

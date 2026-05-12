@@ -1,11 +1,11 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import {
 	ProjectSecretsProviderAccessRepository,
 	SecretsProviderConnectionRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import type { Scope } from '@n8n/permissions';
-import { combineScopes, getAuthPrincipalScopes, hasGlobalScope } from '@n8n/permissions';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import type { Scope } from '@resin/permissions';
+import { combineScopes, getAuthPrincipalScopes, hasGlobalScope } from '@resin/permissions';
 
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

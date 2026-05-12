@@ -14,7 +14,7 @@ export const PackageNameConventionRule = createRule({
 		messages: {
 			renameTo: "Rename to '{{suggestedName}}'",
 			invalidPackageName:
-				'Package name "{{ packageName }}" must follow the convention "n8n-nodes-[PACKAGE-NAME]" or "@[AUTHOR]/n8n-nodes-[PACKAGE-NAME]"',
+				'Package name "{{ packageName }}" must follow the convention "resin-nodes-[PACKAGE-NAME]" or "@[AUTHOR]/n8n-nodes-[PACKAGE-NAME]"',
 		},
 		schema: [],
 		hasSuggestions: true,

@@ -1,7 +1,7 @@
-import type { BooleanLicenseFeature } from '@n8n/constants';
-import { LICENSE_FEATURES, UNLIMITED_LICENSE_QUOTA } from '@n8n/constants';
-import { Service } from '@n8n/di';
-import { UnexpectedError } from 'n8n-workflow';
+import type { BooleanLicenseFeature } from '@resin/constants';
+import { LICENSE_FEATURES, UNLIMITED_LICENSE_QUOTA } from '@resin/constants';
+import { Service } from '@resin/di';
+import { UnexpectedError } from 'resin-workflow';
 
 import type { FeatureReturnType, LicenseProvider } from './types';
 

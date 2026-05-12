@@ -6,8 +6,8 @@
  * log diagnostics). Pulled here so those phases stay consistent.
  */
 import type { TestInfo } from '@playwright/test';
-import type { ServiceHelpers } from 'n8n-containers/services/types';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { ServiceHelpers } from 'resin-containers/services/types';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { DockerStatsSampler } from './docker-stats-fallback';
 import type { ApiHelpers } from '../../../../services/api-helper';
@@ -433,11 +433,11 @@ function getPostgresService(report: RunReport): PostgresMetrics | undefined {
 }
 
 function getN8nMainService(report: RunReport) {
-	return report.services.find((s) => s.kind === 'n8n-main');
+	return report.services.find((s) => s.kind === 'resin-main');
 }
 
 function getN8nWorkerService(report: RunReport) {
-	return report.services.find((s) => s.kind === 'n8n-worker');
+	return report.services.find((s) => s.kind === 'resin-worker');
 }
 
 function renderDiagBlock(report: RunReport): void {
@@ -445,8 +445,8 @@ function renderDiagBlock(report: RunReport): void {
 	const main = getN8nMainService(report);
 	const pg = getPostgresService(report);
 	const worker = getN8nWorkerService(report);
-	const eventLoopLag = main && main.kind === 'n8n-main' ? main.eventLoopLagSec : undefined;
-	const queueWaiting = worker && worker.kind === 'n8n-worker' ? worker.queueWaiting : undefined;
+	const eventLoopLag = main && main.kind === 'resin-main' ? main.eventLoopLagSec : undefined;
+	const queueWaiting = worker && worker.kind === 'resin-worker' ? worker.queueWaiting : undefined;
 
 	console.log(
 		`[DIAG] ${report.scenario.spec}\n` +
@@ -565,7 +565,7 @@ function renderResultBlock(report: RunReport): void {
 	const t = report.throughput;
 	const main = getN8nMainService(report);
 	const pg = getPostgresService(report);
-	const eventLoopLag = main && main.kind === 'n8n-main' ? main.eventLoopLagSec : undefined;
+	const eventLoopLag = main && main.kind === 'resin-main' ? main.eventLoopLagSec : undefined;
 	const evLagMs = eventLoopLag !== undefined ? `${(eventLoopLag * 1000).toFixed(0)}ms` : 'N/A';
 
 	if (t.reqPerSec !== undefined) {
@@ -627,11 +627,11 @@ export async function attachReportMetrics(
 		const sum = matches.reduce((acc, c) => acc + (c.cpuPct ?? 0), 0);
 		return sum / matches.length;
 	};
-	const mainCpu = avgCpuFor('n8n-main');
+	const mainCpu = avgCpuFor('resin-main');
 	if (mainCpu !== undefined) {
 		await attachMetric(testInfo, 'main-cpu-avg', mainCpu, '%', dimensions);
 	}
-	const workerCpu = avgCpuFor('n8n-worker');
+	const workerCpu = avgCpuFor('resin-worker');
 	if (workerCpu !== undefined) {
 		await attachMetric(testInfo, 'worker-cpu-avg', workerCpu, '%', dimensions);
 	}

@@ -6,9 +6,13 @@ import {
 	type IExecuteFunctions,
 	type INodeType,
 	type INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { MemoryVectorStoreManager, processDocuments, type N8nJsonLoader } from '@n8n/ai-utilities';
+import {
+	MemoryVectorStoreManager,
+	processDocuments,
+	type N8nJsonLoader,
+} from '@resin/ai-utilities';
 
 // This node is deprecated. Use VectorStoreInMemory instead.
 export class VectorStoreInMemoryInsert implements INodeType {

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { computed, ref, useCssModule } from 'vue';
-import { type ActionDropdownItem, N8nActionDropdown } from '@n8n/design-system';
-import type { WorkflowDataUpdate } from '@n8n/rest-api-client';
+import { type ActionDropdownItem, N8nActionDropdown } from '@resin/design-system';
+import type { WorkflowDataUpdate } from '@resin/rest-api-client';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { useI18n } from '@resin/i18n';
+import { createEventBus } from '@resin/utils/event-bus';
 import {
 	WORKFLOW_MENU_ACTIONS,
 	VIEWS,
@@ -19,17 +19,17 @@ import { hasPermission } from '@/app/utils/rbac/permissions';
 import { useRoute } from 'vue-router';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
-import type { PermissionsRecord } from '@n8n/permissions';
+import type { PermissionsRecord } from '@resin/permissions';
 import { useUIStore } from '@/app/stores/ui.store';
 import type { IWorkflowToShare, IWorkflowDb } from '@/Interface';
 import { telemetry } from '@/app/plugins/telemetry';
 import router from '@/app/router';
-import { sanitizeFilename } from '@n8n/utils';
+import { sanitizeFilename } from '@resin/utils';
 import saveAs from 'file-saver';
 import { nodeViewEventBus } from '@/app/event-bus';
 import type { FolderShortInfo, WorkflowListEventMap } from '@/features/core/folders/folders.types';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useTagsStore } from '@/features/shared/tags/tags.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useUsersStore } from '@/features/settings/users/users.store';

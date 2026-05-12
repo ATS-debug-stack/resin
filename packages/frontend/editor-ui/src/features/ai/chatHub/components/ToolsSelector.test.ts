@@ -6,13 +6,13 @@ import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useChatStore } from '@/features/ai/chatHub/chat.store';
 import ToolsSelector from './ToolsSelector.vue';
-import { NodeConnectionTypes, type INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes, type INodeTypeDescription } from 'resin-workflow';
 import { waitFor } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
-import type { ChatHubToolDto } from '@n8n/api-types';
+import type { ChatHubToolDto } from '@resin/api-types';
 import { TOOLS_MANAGER_MODAL_KEY } from '@/features/ai/chatHub/constants';
 
-vi.mock('@n8n/i18n', () => {
+vi.mock('@resin/i18n', () => {
 	const i18n = {
 		baseText: (key: string) => key,
 	};
@@ -31,7 +31,7 @@ vi.mock('vue-router', () => ({
 
 const TOOL_NODE_TYPE: INodeTypeDescription = {
 	displayName: 'Test Tool',
-	name: 'n8n-nodes-base.testTool',
+	name: 'resin-nodes-base.testTool',
 	group: ['transform'],
 	version: 1,
 	description: 'A tool for testing',
@@ -46,7 +46,7 @@ function createMockToolDto(id: string, name: string): ChatHubToolDto {
 		definition: {
 			id,
 			name,
-			type: 'n8n-nodes-base.testTool',
+			type: 'resin-nodes-base.testTool',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

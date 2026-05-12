@@ -1,8 +1,8 @@
 import { RunnableConfig } from '@langchain/core/runnables';
 import { type Checkpoint, MemorySaver } from '@langchain/langgraph';
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import { generateCodeBuilderThreadId } from '@/code-builder/utils/code-builder-session';
 import { getBuilderToolsForDisplay } from '@/tools/builder-tools';

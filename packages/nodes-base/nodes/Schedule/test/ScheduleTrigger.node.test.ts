@@ -1,6 +1,6 @@
-import { ExecutionsConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
-import * as n8nWorkflow from 'n8n-workflow';
+import { ExecutionsConfig } from '@resin/config';
+import { Container } from '@resin/di';
+import * as n8nWorkflow from 'resin-workflow';
 
 import { testTriggerNode } from '@test/nodes/TriggerHelpers';
 

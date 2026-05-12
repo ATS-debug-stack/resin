@@ -2,7 +2,7 @@ import { defaultSettings } from '@/__tests__/defaults';
 import { createComponentRenderer, type RenderOptions } from '@/__tests__/render';
 import { getTooltip, hoverTooltipTrigger } from '@/__tests__/utils';
 import * as workflowHelpers from '@/app/composables/useWorkflowHelpers';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { createTestingPinia } from '@pinia/testing';
 import userEvent from '@testing-library/user-event';
 import { cleanup, screen, waitFor, within } from '@testing-library/vue';

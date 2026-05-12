@@ -189,7 +189,7 @@ describe('isPropertyOptional', () => {
 		// End-to-end check: the generated .schema.js line for splitOut's
 		// fieldToSplitOut (required: true, default: '') must NOT be .optional().
 		const node: NodeTypeDescription = {
-			name: 'n8n-nodes-base.splitOut',
+			name: 'resin-nodes-base.splitOut',
 			displayName: 'Split Out',
 			version: 1,
 			group: ['transform'],
@@ -733,7 +733,7 @@ describe('generateDiscriminatorSchemaFile with displayOptions', () => {
 	it('imports resolveSchema when properties have remaining displayOptions', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [],
@@ -765,7 +765,7 @@ describe('generateDiscriminatorSchemaFile with displayOptions', () => {
 	it('uses resolveSchema for properties with remaining displayOptions', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [],
@@ -797,7 +797,7 @@ describe('generateDiscriminatorSchemaFile with displayOptions', () => {
 	it('uses static property schema when displayOptions only contain discriminator keys', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [],
@@ -832,7 +832,7 @@ describe('generateDiscriminatorSchemaFile with displayOptions', () => {
 	it('always exports factory function for discriminated schemas', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [],
@@ -866,7 +866,7 @@ describe('generateDiscriminatorSchemaFile with displayOptions', () => {
 	it('does not import resolveSchema when no properties need dynamic resolution', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [],
@@ -900,7 +900,7 @@ describe('generateDiscriminatorSchemaFile with displayOptions', () => {
 	it('strips @version from displayOptions along with resource/operation', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [],
@@ -937,7 +937,7 @@ describe('generateDiscriminatorSchemaFile with displayOptions', () => {
 	it('converts to static property when @version is the only remaining condition', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [],
@@ -980,7 +980,7 @@ describe('generateSingleVersionSchemaFile', () => {
 	it('generates factory function when node has properties with displayOptions', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [
@@ -1007,7 +1007,7 @@ describe('generateSingleVersionSchemaFile', () => {
 	it('generates static schema when node has no properties with displayOptions', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.simpleNode',
+			name: 'resin-nodes-base.simpleNode',
 			displayName: 'Simple Node',
 			version: 1,
 			properties: [
@@ -1026,7 +1026,7 @@ describe('generateSingleVersionSchemaFile', () => {
 	it('imports resolveSchema helper when generating factory function', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [
@@ -1049,7 +1049,7 @@ describe('generateSingleVersionSchemaFile', () => {
 	it('strips @version from displayOptions since version is implicit in file path', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [
@@ -1077,7 +1077,7 @@ describe('generateSingleVersionSchemaFile', () => {
 	it('generates static schema when @version is the only displayOption', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.simpleNode',
+			name: 'resin-nodes-base.simpleNode',
 			displayName: 'Simple Node',
 			version: 1,
 			properties: [
@@ -1107,7 +1107,7 @@ describe('generateSingleVersionSchemaFile', () => {
 		// The actual calTrigger has TWO version properties - one for each @version
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.calTrigger',
+			name: 'resin-nodes-base.calTrigger',
 			displayName: 'Cal.com Trigger',
 			version: [1, 2], // Multi-version node - this is key!
 			properties: [
@@ -1167,7 +1167,7 @@ describe('collection sub-fields with typeOptions.multipleValues', () => {
 	it('generates z.array(stringOrExpression) for a string sub-field with multipleValues: true', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [
@@ -1199,7 +1199,7 @@ describe('collection sub-fields with typeOptions.multipleValues', () => {
 	it('generates stringOrExpression (no array) for a string sub-field without multipleValues', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [
@@ -1229,7 +1229,7 @@ describe('collection sub-fields with typeOptions.multipleValues', () => {
 	it('generates z.array(numberOrExpression) for a number sub-field with multipleValues: true', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [
@@ -1259,7 +1259,7 @@ describe('collection sub-fields with typeOptions.multipleValues', () => {
 	it('generates z.array(...) for an options sub-field with multipleValues: true', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [
@@ -1293,7 +1293,7 @@ describe('collection sub-fields with typeOptions.multipleValues', () => {
 	it('generates z.array(z.string()) for a string sub-field with multipleValues: true and noDataExpression: true', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [
@@ -1326,7 +1326,7 @@ describe('collection sub-fields with typeOptions.multipleValues', () => {
 	it('generates z.array(z.number()) for a number sub-field with multipleValues: true and noDataExpression: true', () => {
 		const node: NodeTypeDescription = {
 			...baseNodeProps,
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			version: 1,
 			properties: [
@@ -1467,7 +1467,7 @@ describe('hasRequiredSubnodeFields behavior', () => {
 	it('makes subnodes optional when all required AI inputs have displayOptions', () => {
 		const node = {
 			...baseNodeProps,
-			name: 'n8n-nodes-langchain.outputParserStructured',
+			name: 'resin-nodes-langchain.outputParserStructured',
 			displayName: 'Structured Output Parser',
 			version: 1.3,
 			properties: [],
@@ -1491,7 +1491,7 @@ describe('hasRequiredSubnodeFields behavior', () => {
 	it('makes subnodes required when an AI input is unconditionally required', () => {
 		const node = {
 			...baseNodeProps,
-			name: 'n8n-nodes-langchain.agent',
+			name: 'resin-nodes-langchain.agent',
 			displayName: 'AI Agent',
 			version: 1,
 			properties: [],

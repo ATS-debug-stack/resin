@@ -3,14 +3,14 @@
  * These constants replace magic strings throughout the codebase.
  */
 export const NODE_TYPES = {
-	IF: 'n8n-nodes-base.if',
-	SWITCH: 'n8n-nodes-base.switch',
-	MERGE: 'n8n-nodes-base.merge',
-	STICKY_NOTE: 'n8n-nodes-base.stickyNote',
-	SPLIT_IN_BATCHES: 'n8n-nodes-base.splitInBatches',
-	HTTP_REQUEST: 'n8n-nodes-base.httpRequest',
-	WEBHOOK: 'n8n-nodes-base.webhook',
-	DATA_TABLE: 'n8n-nodes-base.dataTable',
+	IF: 'resin-nodes-base.if',
+	SWITCH: 'resin-nodes-base.switch',
+	MERGE: 'resin-nodes-base.merge',
+	STICKY_NOTE: 'resin-nodes-base.stickyNote',
+	SPLIT_IN_BATCHES: 'resin-nodes-base.splitInBatches',
+	HTTP_REQUEST: 'resin-nodes-base.httpRequest',
+	WEBHOOK: 'resin-nodes-base.webhook',
+	DATA_TABLE: 'resin-nodes-base.dataTable',
 } as const;
 
 /**

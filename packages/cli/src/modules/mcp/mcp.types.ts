@@ -1,6 +1,6 @@
 import { type ToolCallback } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { User } from '@n8n/db';
-import type { INode } from 'n8n-workflow';
+import type { User } from '@resin/db';
+import type { INode } from 'resin-workflow';
 import type z from 'zod';
 
 import type { SUPPORTED_PRODUCTION_MCP_TRIGGERS } from './mcp.constants';

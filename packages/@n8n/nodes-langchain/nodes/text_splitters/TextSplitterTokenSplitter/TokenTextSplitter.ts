@@ -4,7 +4,7 @@ import {
 	hasLongSequentialRepeat,
 	getEncoding,
 	estimateTextSplitsByTokens,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 import type * as tiktoken from 'js-tiktoken';
 
 /**

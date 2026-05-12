@@ -1,8 +1,8 @@
 import { BedrockRuntimeClient } from '@aws-sdk/client-bedrock-runtime';
 import { ChatBedrockConverse } from '@langchain/aws';
-import { makeN8nLlmFailedAttemptHandler, getNodeProxyAgent } from '@n8n/ai-utilities';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
+import { makeN8nLlmFailedAttemptHandler, getNodeProxyAgent } from '@resin/ai-utilities';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 
 import { LmChatAwsBedrock } from '../LmChatAwsBedrock.node';
@@ -10,7 +10,7 @@ import { LmChatAwsBedrock } from '../LmChatAwsBedrock.node';
 vi.mock('@langchain/aws', () => ({
 	ChatBedrockConverse: vi.fn(),
 }));
-vi.mock('@n8n/ai-utilities', () => ({
+vi.mock('@resin/ai-utilities', () => ({
 	getConnectionHintNoticeField: vi
 		.fn()
 		.mockReturnValue({ displayName: '', name: 'notice', type: 'notice', default: '' }),
@@ -35,7 +35,7 @@ describe('LmChatAwsBedrock', () => {
 		id: '1',
 		name: 'AWS Bedrock Chat Model',
 		typeVersion: 1.1,
-		type: 'n8n-nodes-langchain.lmChatAwsBedrock',
+		type: 'resin-nodes-langchain.lmChatAwsBedrock',
 		position: [0, 0],
 		parameters: {},
 	};

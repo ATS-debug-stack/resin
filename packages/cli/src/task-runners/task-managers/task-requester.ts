@@ -1,9 +1,9 @@
-import { GlobalConfig, TaskRunnersConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import type { TaskResultData, RequesterMessage, BrokerMessage, TaskData } from '@n8n/task-runner';
-import { AVAILABLE_RPC_METHODS } from '@n8n/task-runner';
-import { isSerializedBuffer, toBuffer, ErrorReporter } from 'n8n-core';
-import { createResultOk, createResultError } from 'n8n-workflow';
+import { GlobalConfig, TaskRunnersConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import type { TaskResultData, RequesterMessage, BrokerMessage, TaskData } from '@resin/task-runner';
+import { AVAILABLE_RPC_METHODS } from '@resin/task-runner';
+import { isSerializedBuffer, toBuffer, ErrorReporter } from 'resin-core';
+import { createResultOk, createResultError } from 'resin-workflow';
 import type {
 	EnvProviderState,
 	IExecuteFunctions,
@@ -18,7 +18,7 @@ import type {
 	IDataObject,
 	IWorkflowExecuteAdditionalData,
 	Result,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
 import { EventService } from '@/events/event.service';

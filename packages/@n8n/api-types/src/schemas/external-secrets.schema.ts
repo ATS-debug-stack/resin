@@ -1,4 +1,4 @@
-import type { NodeParameterValueType, INodeProperties } from 'n8n-workflow';
+import type { NodeParameterValueType, INodeProperties } from 'resin-workflow';
 
 export interface ExternalSecretsProviderSecret {
 	key: string;

@@ -5,13 +5,13 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	ITriggerResponse,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ensureError,
 	NodeConnectionTypes,
 	NodeOperationError,
 	TriggerCloseError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	type KafkaTriggerOptions,
@@ -61,7 +61,7 @@ export class KafkaTrigger implements INodeType {
 				type: 'string',
 				default: '',
 				required: true,
-				placeholder: 'n8n-kafka',
+				placeholder: 'resin-kafka',
 				description: 'ID of the consumer group',
 			},
 			{

@@ -57,13 +57,13 @@ describe('setNodeValidator', () => {
 		});
 
 		it('nodeTypes includes set node type', () => {
-			expect(setNodeValidator.nodeTypes).toContain('n8n-nodes-base.set');
+			expect(setNodeValidator.nodeTypes).toContain('resin-nodes-base.set');
 		});
 	});
 
 	describe('validateNode', () => {
 		it('returns SET_CREDENTIAL_FIELD warning for assignment named "password"', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					assignments: {
 						assignments: [createAssignment('password', 'secret123', 'string')],
@@ -83,7 +83,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns SET_CREDENTIAL_FIELD warning for assignment named "api_key"', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					assignments: {
 						assignments: [createAssignment('api_key', 'key123', 'string')],
@@ -103,7 +103,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns SET_CREDENTIAL_FIELD warning for assignment named "secret"', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					assignments: {
 						assignments: [createAssignment('secret', 'mysecret', 'string')],
@@ -123,7 +123,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns SET_CREDENTIAL_FIELD warning for assignment named "token"', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					assignments: {
 						assignments: [createAssignment('token', 'mytoken', 'string')],
@@ -143,7 +143,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns no warning for regular field names', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					assignments: {
 						assignments: [
@@ -161,7 +161,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns no issues when assignments is undefined', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -172,7 +172,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns no issues when parameters is undefined', () => {
-			const node = createMockNode('n8n-nodes-base.set', {});
+			const node = createMockNode('resin-nodes-base.set', {});
 			const ctx = createMockPluginContext();
 
 			const issues = setNodeValidator.validateNode(node, createGraphNode(node), ctx);
@@ -182,7 +182,7 @@ describe('setNodeValidator', () => {
 
 		it.each(['1', '2'])('skips validation for legacy Set node version %s', (version) => {
 			const node = createMockNode(
-				'n8n-nodes-base.set',
+				'resin-nodes-base.set',
 				{
 					parameters: {
 						mode: 'keepAllExistingFields',
@@ -204,7 +204,7 @@ describe('setNodeValidator', () => {
 			'returns SET_INVALID_MODE error for unsupported Set node mode on version %s',
 			(version) => {
 				const node = createMockNode(
-					'n8n-nodes-base.set',
+					'resin-nodes-base.set',
 					{
 						parameters: {
 							mode: 'keepAllExistingFields',
@@ -233,7 +233,7 @@ describe('setNodeValidator', () => {
 			'skips assignment validation for Set node version %s',
 			(version) => {
 				const node = createMockNode(
-					'n8n-nodes-base.set',
+					'resin-nodes-base.set',
 					{
 						parameters: {
 							mode: 'manual',
@@ -253,7 +253,7 @@ describe('setNodeValidator', () => {
 		);
 
 		it('allows raw mode because it is a valid Set node output mode', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					mode: 'raw',
 					jsonOutput: '={{ { id: $json.id, title: $json.title } }}',
@@ -267,7 +267,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns warnings for multiple credential-like fields', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					assignments: {
 						assignments: [
@@ -285,7 +285,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('includes nodeName in issues', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					assignments: {
 						assignments: [createAssignment('password', 'secret', 'string')],
@@ -301,7 +301,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns SET_INVALID_MODE error for unsupported Set node modes', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					mode: 'keepAllExistingFields',
 					includeOtherFields: true,
@@ -323,7 +323,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns SET_INVALID_ASSIGNMENT error when a manual assignment is missing an id', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					mode: 'manual',
 					includeOtherFields: true,
@@ -346,7 +346,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns SET_INVALID_ASSIGNMENT error when a manual assignment omits value', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					mode: 'manual',
 					assignments: {
@@ -368,7 +368,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns SET_INVALID_ASSIGNMENT error when a manual assignment has explicit undefined value', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					mode: 'manual',
 					assignments: {
@@ -397,7 +397,7 @@ describe('setNodeValidator', () => {
 		});
 
 		it('returns no issues for a canonical manual Set v3.4 assignment shape', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {
 					mode: 'manual',
 					includeOtherFields: true,

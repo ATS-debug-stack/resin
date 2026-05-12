@@ -1,4 +1,4 @@
-import { ApplicationError } from 'n8n-workflow';
+import { ApplicationError } from 'resin-workflow';
 
 global.fetch = jest.fn();
 
@@ -12,11 +12,11 @@ const mockContainer = {
 
 const mockReadFile = jest.fn();
 
-jest.mock('@n8n/di', () => ({
+jest.mock('@resin/di', () => ({
 	Container: mockContainer,
 }));
 
-jest.mock('@n8n/config', () => ({
+jest.mock('@resin/config', () => ({
 	SecurityConfig: MockSecurityConfig,
 }));
 
@@ -252,7 +252,7 @@ describe('system-credentials-utils', () => {
 				expect.objectContaining({
 					method: 'GET',
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 					},
 				}),
 			);
@@ -287,7 +287,7 @@ describe('system-credentials-utils', () => {
 				'http://169.254.170.2/v2/credentials/test-uuid',
 				expect.objectContaining({
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 						Authorization: 'Bearer test-auth-token',
 					},
 				}),
@@ -376,7 +376,7 @@ describe('system-credentials-utils', () => {
 				expect.objectContaining({
 					method: 'GET',
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 					},
 				}),
 			);
@@ -411,7 +411,7 @@ describe('system-credentials-utils', () => {
 				'https://eks-pod-identity.amazonaws.com/v1/credentials',
 				expect.objectContaining({
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 						Authorization: 'test-auth-token',
 					},
 				}),
@@ -490,7 +490,7 @@ describe('system-credentials-utils', () => {
 				'http://169.254.170.23/v1/credentials',
 				expect.objectContaining({
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 						Authorization: 'file-based-token',
 					},
 				}),
@@ -530,7 +530,7 @@ describe('system-credentials-utils', () => {
 				'http://169.254.170.23/v1/credentials',
 				expect.objectContaining({
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 						Authorization: 'file-token-with-whitespace',
 					},
 				}),
@@ -576,7 +576,7 @@ describe('system-credentials-utils', () => {
 				'http://169.254.170.23/v1/credentials',
 				expect.objectContaining({
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 						Authorization: 'fallback-direct-token',
 					},
 				}),
@@ -617,7 +617,7 @@ describe('system-credentials-utils', () => {
 				'http://169.254.170.23/v1/credentials',
 				expect.objectContaining({
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 						Authorization: 'file-token-has-priority',
 					},
 				}),
@@ -656,7 +656,7 @@ describe('system-credentials-utils', () => {
 				'http://169.254.170.23/v1/credentials',
 				expect.objectContaining({
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 						Authorization: 'direct-token',
 					},
 				}),
@@ -700,7 +700,7 @@ describe('system-credentials-utils', () => {
 				'http://169.254.170.23/v1/credentials',
 				expect.objectContaining({
 					headers: {
-						'User-Agent': 'n8n-aws-credential',
+						'User-Agent': 'resin-aws-credential',
 					},
 				}),
 			);

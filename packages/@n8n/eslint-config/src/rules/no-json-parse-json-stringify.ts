@@ -6,7 +6,7 @@ export const NoJsonParseJsonStringifyRule = ESLintUtils.RuleCreator.withoutDocs(
 		type: 'problem',
 		docs: {
 			description:
-				'Calls to `JSON.parse(JSON.stringify(arg))` must be replaced with `deepCopy(arg)` from `n8n-workflow`.',
+				'Calls to `JSON.parse(JSON.stringify(arg))` must be replaced with `deepCopy(arg)` from `resin-workflow`.',
 		},
 		schema: [],
 		messages: {

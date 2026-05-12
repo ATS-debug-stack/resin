@@ -1,5 +1,13 @@
-import type { DatasetRef, EvaluationConfigStatus, EvaluationMetric } from '@n8n/api-types';
-import { Column, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn, Unique } from '@n8n/typeorm';
+import type { DatasetRef, EvaluationConfigStatus, EvaluationMetric } from '@resin/api-types';
+import {
+	Column,
+	Entity,
+	Index,
+	JoinColumn,
+	ManyToOne,
+	PrimaryColumn,
+	Unique,
+} from '@resin/typeorm';
 
 import { JsonColumn, WithTimestamps } from './abstract-entity';
 import { WorkflowEntity } from './workflow-entity';

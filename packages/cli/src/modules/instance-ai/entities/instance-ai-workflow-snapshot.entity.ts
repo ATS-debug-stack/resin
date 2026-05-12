@@ -1,5 +1,5 @@
-import { WithTimestamps } from '@n8n/db';
-import { Column, Entity, PrimaryColumn } from '@n8n/typeorm';
+import { WithTimestamps } from '@resin/db';
+import { Column, Entity, PrimaryColumn } from '@resin/typeorm';
 
 @Entity({ name: 'instance_ai_workflow_snapshots' })
 export class InstanceAiWorkflowSnapshot extends WithTimestamps {

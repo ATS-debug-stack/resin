@@ -1,4 +1,4 @@
-import { NodeOperationError, type IExecuteFunctions, type INode } from 'n8n-workflow';
+import { NodeOperationError, type IExecuteFunctions, type INode } from 'resin-workflow';
 import { mockDeep } from 'vitest-mock-extended';
 
 import * as image from './image';
@@ -86,7 +86,7 @@ describe('Ollama Router', () => {
 				return undefined;
 			});
 
-			const mockNode = { name: 'Ollama', type: 'n8n-nodes-langchain.ollama' } as INode;
+			const mockNode = { name: 'Ollama', type: 'resin-nodes-langchain.ollama' } as INode;
 			executeFunctionsMock.getNode.mockReturnValue(mockNode);
 
 			await expect(router.call(executeFunctionsMock)).rejects.toThrow(NodeOperationError);
@@ -127,7 +127,7 @@ describe('Ollama Router', () => {
 			});
 
 			executeFunctionsMock.continueOnFail.mockReturnValue(false);
-			const mockNode = { name: 'Ollama', type: 'n8n-nodes-langchain.ollama' } as INode;
+			const mockNode = { name: 'Ollama', type: 'resin-nodes-langchain.ollama' } as INode;
 			executeFunctionsMock.getNode.mockReturnValue(mockNode);
 
 			const originalError = new Error('API Connection Failed');

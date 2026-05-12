@@ -1,4 +1,4 @@
-import type { AuthenticatedRequest, User, UserRepository } from '@n8n/db';
+import type { AuthenticatedRequest, User, UserRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 import type { Response } from 'express';
 

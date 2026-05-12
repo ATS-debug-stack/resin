@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { AGENT_BUILDER_DEFAULT_MODEL } from '@n8n/api-types';
+import { AGENT_BUILDER_DEFAULT_MODEL } from '@resin/api-types';
 import type {
 	ChatHubConversationModel,
 	ChatHubProvider,
 	ChatModelDto,
 	ChatModelsResponse,
-} from '@n8n/api-types';
-import { N8nButton, N8nHeading, N8nRadioButtons, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/api-types';
+import { N8nButton, N8nHeading, N8nRadioButtons, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
 import { useChatStore } from '@/features/ai/chatHub/chat.store';

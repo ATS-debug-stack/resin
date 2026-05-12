@@ -1,10 +1,10 @@
-import type { Logger } from '@n8n/backend-common';
-import type { GlobalConfig } from '@n8n/config';
-import type { Settings, SettingsRepository, User, WorkflowRepository } from '@n8n/db';
-import { WorkflowEntity } from '@n8n/db';
-import type { EntityManager, FindOperator } from '@n8n/typeorm';
+import type { Logger } from '@resin/backend-common';
+import type { GlobalConfig } from '@resin/config';
+import type { Settings, SettingsRepository, User, WorkflowRepository } from '@resin/db';
+import { WorkflowEntity } from '@resin/db';
+import type { EntityManager, FindOperator } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import { calculateWorkflowChecksum } from 'n8n-workflow';
+import { calculateWorkflowChecksum } from 'resin-workflow';
 
 import type { CollaborationService } from '@/collaboration/collaboration.service';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
@@ -221,7 +221,7 @@ describe('McpSettingsService', () => {
 					{
 						id: 'node-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},

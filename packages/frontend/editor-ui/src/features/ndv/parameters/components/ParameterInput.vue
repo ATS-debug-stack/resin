@@ -15,7 +15,7 @@ import type {
 	INodePropertyOptions,
 	IParameterLabel,
 	NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	CREDENTIAL_EMPTY_VALUE,
 	IconOrEmojiSchema,
@@ -23,9 +23,9 @@ import {
 	jsonParse,
 	NodeHelpers,
 	resolveRelativePath,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import type { IconOrEmoji as DesignSystemIconOrEmoji } from '@n8n/design-system/components/N8nIconPicker/types';
+import type { IconOrEmoji as DesignSystemIconOrEmoji } from '@resin/design-system/components/N8nIconPicker/types';
 
 import type { CodeNodeLanguageOption } from '@/features/shared/editors/components/CodeNodeEditor/CodeNodeEditor.vue';
 import CodeNodeEditor from '@/features/shared/editors/components/CodeNodeEditor/CodeNodeEditor.vue';
@@ -66,7 +66,7 @@ import {
 
 import { useDebounce } from '@/app/composables/useDebounce';
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useWorkflowHelpers } from '@/app/composables/useWorkflowHelpers';
@@ -79,8 +79,8 @@ import { useSettingsStore } from '@/app/stores/settings.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useUIStore } from '@/app/stores/ui.store';
-import type { EventBus } from '@n8n/utils/event-bus';
-import { createEventBus } from '@n8n/utils/event-bus';
+import type { EventBus } from '@resin/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import { captureMessage } from '@sentry/vue';
 import { isCredentialOnlyNodeType } from '@/app/utils/credentialOnlyNodes';
 import {
@@ -108,7 +108,7 @@ import {
 	N8nOption,
 	N8nSelect,
 	N8nSwitch,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { useCollectionOverhaul } from '@/app/composables/useCollectionOverhaul';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 import {
@@ -863,7 +863,7 @@ function trackExpressionEditOpen() {
 		return;
 	}
 
-	if (node.value.type.startsWith('n8n-nodes-base') || isCredentialOnlyNodeType(node.value.type)) {
+	if (node.value.type.startsWith('resin-nodes-base') || isCredentialOnlyNodeType(node.value.type)) {
 		telemetry.track('User opened Expression Editor', {
 			node_type: node.value.type,
 			parameter_name: props.parameter.displayName,

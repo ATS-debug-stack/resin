@@ -40,7 +40,7 @@ fetch it from the site directly. Using scraping nodes is the best way to get aro
 Fail" feature
 - Refresh expired tokens, verify API keys, and ensure correct permissions to avoid authentication failures
 
-### SerpAPI (@n8n/n8n-nodes-langchain.toolSerpApi)
+### SerpAPI (@resin/n8n-nodes-langchain.toolSerpApi)
 
 Purpose: Give an agent the ability to search for research materials and fact-checking results that have been retrieved
 from other sources.
@@ -117,7 +117,7 @@ Purpose: Stores scraped data in Excel files for offline analysis
 
 Purpose: Saves structured data to a database with rich data types and relationships
 
-### AI Agent (@n8n/n8n-nodes-langchain.agent)
+### AI Agent (@resin/n8n-nodes-langchain.agent)
 
 Purpose: For research, summarization, and advanced data extraction. AI agents can autonomously gather information
 from websites, analyze content, and organize findings into structured formats, integrating tools for web scraping,

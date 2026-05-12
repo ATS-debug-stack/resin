@@ -10,11 +10,11 @@
  * but still function as workflow entry points
  */
 const TRIGGER_NODE_TYPES = new Set([
-	'n8n-nodes-base.webhook',
-	'n8n-nodes-base.cron', // Legacy schedule trigger
-	'n8n-nodes-base.emailReadImap', // Email polling trigger
-	'n8n-nodes-base.telegramBot', // Can act as webhook trigger
-	'n8n-nodes-base.start', // Legacy trigger
+	'resin-nodes-base.webhook',
+	'resin-nodes-base.cron', // Legacy schedule trigger
+	'resin-nodes-base.emailReadImap', // Email polling trigger
+	'resin-nodes-base.telegramBot', // Can act as webhook trigger
+	'resin-nodes-base.start', // Legacy trigger
 ]);
 
 /**
@@ -24,7 +24,7 @@ const TRIGGER_NODE_TYPES = new Set([
  * 1. It's in the known TRIGGER_NODE_TYPES set, OR
  * 2. Its type name contains "trigger" (case insensitive)
  *
- * @param type - The node type string (e.g., 'n8n-nodes-base.manualTrigger')
+ * @param type - The node type string (e.g., 'resin-nodes-base.manualTrigger')
  * @returns true if the node type is a trigger
  */
 export function isTriggerNodeType(type: string): boolean {

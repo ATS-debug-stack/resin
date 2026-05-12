@@ -1,10 +1,10 @@
 import { NodeTestHarness } from '@nodes-testing/node-test-harness';
-import type * as nWorkflow from 'n8n-workflow';
+import type * as nWorkflow from 'resin-workflow';
 import nock from 'nock';
 
-// Mock sleep from n8n-workflow so polling tests run without real delays
-jest.mock('n8n-workflow', () => {
-	const actual = jest.requireActual<typeof nWorkflow>('n8n-workflow');
+// Mock sleep from resin-workflow so polling tests run without real delays
+jest.mock('resin-workflow', () => {
+	const actual = jest.requireActual<typeof nWorkflow>('resin-workflow');
 	return {
 		...actual,
 		sleep: jest.fn().mockResolvedValue(undefined),

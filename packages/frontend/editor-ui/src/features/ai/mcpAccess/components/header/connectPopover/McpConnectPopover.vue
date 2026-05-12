@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { ref, watch } from 'vue';
-import { N8nButton, N8nPopover, N8nRadioButtons } from '@n8n/design-system';
+import { N8nButton, N8nPopover, N8nRadioButtons } from '@resin/design-system';
 import MCPOAuthPopoverTab from '@/features/ai/mcpAccess/components/header/connectPopover/MCPOAuthPopoverTab.vue';
 import MCPAccessTokenPopoverTab from '@/features/ai/mcpAccess/components/header/connectPopover/MCPAccessTokenPopoverTab.vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useMCPStore } from '@/features/ai/mcpAccess/mcp.store';
 import { MCP_ENDPOINT, MCP_CONNECT_POPOVER_WIDTH } from '@/features/ai/mcpAccess/mcp.constants';

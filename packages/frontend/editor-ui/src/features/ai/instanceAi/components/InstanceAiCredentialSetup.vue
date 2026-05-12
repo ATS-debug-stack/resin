@@ -6,10 +6,10 @@ import CredentialIcon from '@/features/credentials/components/CredentialIcon.vue
 import NodeCredentials from '@/features/credentials/components/NodeCredentials.vue';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import type { INodeUi, INodeUpdatePropertiesInformation } from '@/Interface';
-import type { InstanceAiCredentialFlow, InstanceAiCredentialRequest } from '@n8n/api-types';
-import { N8nButton, N8nIcon, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import type { InstanceAiCredentialFlow, InstanceAiCredentialRequest } from '@resin/api-types';
+import { N8nButton, N8nIcon, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useThread } from '../instanceAi.store';
@@ -218,7 +218,7 @@ function syntheticNodeUi(req: InstanceAiCredentialRequest): INodeUi {
 	return {
 		id: req.credentialType,
 		name: req.credentialType,
-		type: 'n8n-nodes-base.noOp',
+		type: 'resin-nodes-base.noOp',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},

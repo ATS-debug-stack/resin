@@ -1,11 +1,11 @@
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type {
 	IDataObject,
 	INodeType,
 	INodeTypeDescription,
 	IWebhookFunctions,
 	IWebhookResponseData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getInputs } from '../../agents/Agent/V2/utils';
 

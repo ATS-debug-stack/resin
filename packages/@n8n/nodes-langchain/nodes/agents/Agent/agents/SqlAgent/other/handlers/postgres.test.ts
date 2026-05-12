@@ -1,5 +1,5 @@
-import type { PostgresNodeCredentials } from 'n8n-nodes-base/nodes/Postgres/v2/helpers/interfaces';
-import type { IExecuteFunctions } from 'n8n-workflow';
+import type { PostgresNodeCredentials } from 'resin-nodes-base/nodes/Postgres/v2/helpers/interfaces';
+import type { IExecuteFunctions } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import { getPostgresDataSource } from './postgres';

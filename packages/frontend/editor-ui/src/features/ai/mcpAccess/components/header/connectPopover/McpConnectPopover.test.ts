@@ -3,7 +3,7 @@ import { waitFor } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import { createComponentRenderer } from '@/__tests__/render';
 import { mockedStore, type MockedStore } from '@/__tests__/utils';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useMCPStore } from '@/features/ai/mcpAccess/mcp.store';
 import McpConnectPopover from './McpConnectPopover.vue';
 

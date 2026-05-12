@@ -30,7 +30,7 @@ withDefaults(defineProps<ActionBoxProps>(), {
 </script>
 
 <template>
-	<div :class="['n8n-action-box', $style.container]" data-test-id="action-box">
+	<div :class="['resin-action-box', $style.container]" data-test-id="action-box">
 		<div v-if="icon" :class="$style.icon">
 			<N8nIcon
 				v-if="icon.type === 'icon'"

@@ -1,5 +1,5 @@
 import { getCurrentTaskInput } from '@langchain/langgraph';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import {
 	createWorkflow,
@@ -43,7 +43,7 @@ describe('validateConfiguration tool', () => {
 
 	it('should return valid for simple workflow without AI nodes', async () => {
 		const workflow = createWorkflow([
-			createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+			createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 		]);
 
 		setupWorkflowState(mockGetCurrentTaskInput, workflow);
@@ -73,19 +73,19 @@ describe('validateConfiguration tool', () => {
 			createNode({
 				id: 'webhook1',
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				parameters: { path: 'test-webhook' },
 			}),
 			createNode({
 				id: 'http1',
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				parameters: { url: 'https://api.example.com', method: 'POST' },
 			}),
 			createNode({
 				id: 'code1',
 				name: 'Code',
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				parameters: { jsCode: 'return items;' },
 			}),
 		]);
@@ -101,7 +101,7 @@ describe('validateConfiguration tool', () => {
 
 	it('should return configuration validation results in state update', async () => {
 		const workflow = createWorkflow([
-			createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+			createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 		]);
 
 		setupWorkflowState(mockGetCurrentTaskInput, workflow);

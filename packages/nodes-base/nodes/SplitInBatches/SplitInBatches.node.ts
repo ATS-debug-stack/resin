@@ -1,5 +1,5 @@
-import type { INodeTypeBaseDescription, IVersionedNodeType } from 'n8n-workflow';
-import { VersionedNodeType } from 'n8n-workflow';
+import type { INodeTypeBaseDescription, IVersionedNodeType } from 'resin-workflow';
+import { VersionedNodeType } from 'resin-workflow';
 
 import { SplitInBatchesV1 } from './v1/SplitInBatchesV1.node';
 import { SplitInBatchesV2 } from './v2/SplitInBatchesV2.node';

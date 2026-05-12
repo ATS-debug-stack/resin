@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { CallbackManager as CallbackManagerLC } from '@langchain/core/callbacks/manager';
-import type { LogScope } from '@n8n/config';
+import type { LogScope } from '@resin/config';
 import type { AxiosProxyConfig, GenericAbortSignal } from 'axios';
 import type * as express from 'express';
 import type FormData from 'form-data';
@@ -1509,7 +1509,7 @@ export interface INodeExecutionData {
 	 * - Put execution to wait after sending.
 	 *
 	 * See example in
-	 * packages/@n8n/nodes-langchain/nodes/trigger/ChatTrigger/Chat.node.ts
+	 * packages/@resin/nodes-langchain/nodes/trigger/ChatTrigger/Chat.node.ts
 	 */
 	sendMessage?: ChatNodeMessage;
 
@@ -2547,7 +2547,7 @@ export type BuilderHintOutputs = Partial<Record<NodeConnectionType, IBuilderHint
  * Related node with explanation of why it's related
  */
 export interface IRelatedNode {
-	/** The node type ID (e.g., '@n8n/n8n-nodes-langchain.memoryBufferWindow') */
+	/** The node type ID (e.g., '@resin/n8n-nodes-langchain.memoryBufferWindow') */
 	nodeType: string;
 	/** Brief explanation of why this node is related (e.g., 'Maintains conversation history') */
 	relationHint: string;
@@ -3430,22 +3430,22 @@ export interface INodeGraphItem {
 	method?: string; // HTTP Request node v2
 	src_node_id?: string;
 	src_instance_id?: string;
-	agent?: string; //@n8n/n8n-nodes-langchain.agent
-	is_streaming?: boolean; //@n8n/n8n-nodes-langchain.agent
+	agent?: string; //@resin/n8n-nodes-langchain.agent
+	is_streaming?: boolean; //@resin/n8n-nodes-langchain.agent
 	prompts?: IDataObject[] | IDataObject; //ai node's prompts, cloud only
-	use_responses_api?: boolean; //@n8n/n8n-nodes-langchain.lmChatOpenAi
+	use_responses_api?: boolean; //@resin/n8n-nodes-langchain.lmChatOpenAi
 	toolSettings?: IDataObject; //various langchain tool's settings
 	sql?: string; //merge node combineBySql, cloud only
-	workflow_id?: string; //@n8n/n8n-nodes-langchain.toolWorkflow and n8n-nodes-base.executeWorkflow
-	response_mode?: string; // @n8n/n8n-nodes-langchain.chatTrigger, n8n-nodes-base.webhook selected response mode
-	public_chat?: boolean; // @n8n/n8n-nodes-langchain.chatTrigger
+	workflow_id?: string; //@resin/n8n-nodes-langchain.toolWorkflow and n8n-nodes-base.executeWorkflow
+	response_mode?: string; // @resin/n8n-nodes-langchain.chatTrigger, n8n-nodes-base.webhook selected response mode
+	public_chat?: boolean; // @resin/n8n-nodes-langchain.chatTrigger
 	runs?: number;
 	items_total?: number;
 	metric_names?: string[];
 	language?: string; // only for Code node: 'javascript' or 'python' or 'pythonNative'
 	package_version?: string; // only for community nodes
-	used_guardrails?: string[]; // only for @n8n/n8n-nodes-langchain.guardrails
-	mcp_client_auth_method?: string; // for @n8n/n8n-nodes-langchain.mcpClientTool and @n8n/n8n-nodes-langchain.mcpClient
+	used_guardrails?: string[]; // only for @resin/n8n-nodes-langchain.guardrails
+	mcp_client_auth_method?: string; // for @resin/n8n-nodes-langchain.mcpClientTool and @resin/n8n-nodes-langchain.mcpClient
 	ai_model?: string; // AI model for model nodes and standalone AI nodes
 	ai_input_tokens?: number; // AI input (prompt) tokens for model nodes
 	ai_output_tokens?: number; // AI output (completion) tokens for model nodes

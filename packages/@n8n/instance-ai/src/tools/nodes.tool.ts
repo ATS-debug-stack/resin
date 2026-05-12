@@ -12,7 +12,7 @@ import { categoryList, suggestedNodesData } from './nodes/suggested-nodes-data';
 
 // ── Action schemas ──────────────────────────────────────────────────────────
 
-const NODE_TYPE_ID_DESCRIPTION = 'Node type ID, e.g. "n8n-nodes-base.httpRequest"';
+const NODE_TYPE_ID_DESCRIPTION = 'Node type ID, e.g. "resin-nodes-base.httpRequest"';
 const NODE_TYPES_ARRAY_DESCRIPTION =
 	'Node type IDs for node-level lookups (max 5). Entries may be plain strings or objects with action-specific options.';
 
@@ -317,7 +317,7 @@ export function createNodesTool(
 			action: z
 				.literal('explore-resources')
 				.describe("Query real resources for a node's RLC parameters"),
-			nodeType: z.string().describe('Node type ID, e.g. "n8n-nodes-base.httpRequest"'),
+			nodeType: z.string().describe('Node type ID, e.g. "resin-nodes-base.httpRequest"'),
 			version: z.number().describe('Node version, e.g. 4.7'),
 			methodName: z
 				.string()

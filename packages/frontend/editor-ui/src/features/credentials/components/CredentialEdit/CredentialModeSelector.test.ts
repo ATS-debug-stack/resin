@@ -1,8 +1,8 @@
 import CredentialModeSelector from './CredentialModeSelector.vue';
 import { screen, waitFor } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
-import type { ICredentialType, INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { ICredentialType, INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { createTestingPinia } from '@pinia/testing';
 import { createComponentRenderer } from '@/__tests__/render';
 import { mockedStore } from '@/__tests__/utils';
@@ -34,7 +34,7 @@ const dropboxApiType: ICredentialType = {
 
 const twoAuthNodeType = {
 	displayName: 'Dropbox',
-	name: 'n8n-nodes-base.dropbox',
+	name: 'resin-nodes-base.dropbox',
 	group: ['input'],
 	version: 1,
 	description: 'Access data on Dropbox',
@@ -82,7 +82,7 @@ const threeAuthApiKeyType: ICredentialType = {
 
 const threeAuthNodeType = {
 	displayName: 'MultiAuth Service',
-	name: 'n8n-nodes-base.multiAuth',
+	name: 'resin-nodes-base.multiAuth',
 	group: ['input'],
 	version: 1,
 	description: 'Service with 3 auth types',
@@ -159,7 +159,7 @@ describe('CredentialModeSelector', () => {
 		it('should show dropdown trigger when there are 3+ options', () => {
 			const pinia = setupStores({
 				nodeType: threeAuthNodeType,
-				node: makeNode('n8n-nodes-base.multiAuth', 'accessToken'),
+				node: makeNode('resin-nodes-base.multiAuth', 'accessToken'),
 				credentialTypes: {
 					dropboxApi: dropboxApiType,
 					dropboxOAuth2Api: dropboxOAuth2ApiType,
@@ -182,7 +182,7 @@ describe('CredentialModeSelector', () => {
 		it('should show current auth type name on trigger button', async () => {
 			const pinia = setupStores({
 				nodeType: threeAuthNodeType,
-				node: makeNode('n8n-nodes-base.multiAuth', 'accessToken'),
+				node: makeNode('resin-nodes-base.multiAuth', 'accessToken'),
 				credentialTypes: {
 					dropboxApi: dropboxApiType,
 					dropboxOAuth2Api: dropboxOAuth2ApiType,
@@ -207,7 +207,7 @@ describe('CredentialModeSelector', () => {
 		it('should emit authTypeChanged when selecting a different option from dropdown', async () => {
 			const pinia = setupStores({
 				nodeType: threeAuthNodeType,
-				node: makeNode('n8n-nodes-base.multiAuth', 'accessToken'),
+				node: makeNode('resin-nodes-base.multiAuth', 'accessToken'),
 				credentialTypes: {
 					dropboxApi: dropboxApiType,
 					dropboxOAuth2Api: dropboxOAuth2ApiType,
@@ -241,7 +241,7 @@ describe('CredentialModeSelector', () => {
 		it('should split OAuth option into managed and custom when showManagedOauthOptions is true', () => {
 			const pinia = setupStores({
 				nodeType: twoAuthNodeType,
-				node: makeNode('n8n-nodes-base.dropbox', 'oAuth2'),
+				node: makeNode('resin-nodes-base.dropbox', 'oAuth2'),
 				credentialTypes: {
 					dropboxApi: dropboxApiType,
 					dropboxOAuth2Api: dropboxOAuth2ApiType,
@@ -267,7 +267,7 @@ describe('CredentialModeSelector', () => {
 		it('should emit update:authType with customOauth when switching from managed to custom OAuth', async () => {
 			const pinia = setupStores({
 				nodeType: twoAuthNodeType,
-				node: makeNode('n8n-nodes-base.dropbox', 'oAuth2'),
+				node: makeNode('resin-nodes-base.dropbox', 'oAuth2'),
 				credentialTypes: {
 					dropboxApi: dropboxApiType,
 					dropboxOAuth2Api: dropboxOAuth2ApiType,
@@ -300,7 +300,7 @@ describe('CredentialModeSelector', () => {
 		it('should emit update:authType with customOauth when switching from custom to managed OAuth', async () => {
 			const pinia = setupStores({
 				nodeType: twoAuthNodeType,
-				node: makeNode('n8n-nodes-base.dropbox', 'oAuth2'),
+				node: makeNode('resin-nodes-base.dropbox', 'oAuth2'),
 				credentialTypes: {
 					dropboxApi: dropboxApiType,
 					dropboxOAuth2Api: dropboxOAuth2ApiType,
@@ -333,7 +333,7 @@ describe('CredentialModeSelector', () => {
 		it('should emit update:authType when switching from OAuth to a different auth type via dropdown', async () => {
 			const pinia = setupStores({
 				nodeType: twoAuthNodeType,
-				node: makeNode('n8n-nodes-base.dropbox', 'oAuth2'),
+				node: makeNode('resin-nodes-base.dropbox', 'oAuth2'),
 				credentialTypes: {
 					dropboxApi: dropboxApiType,
 					dropboxOAuth2Api: dropboxOAuth2ApiType,
@@ -401,7 +401,7 @@ describe('CredentialModeSelector', () => {
 
 		const singleCredNodeType = {
 			displayName: 'Firecrawl',
-			name: 'n8n-nodes-base.firecrawl',
+			name: 'resin-nodes-base.firecrawl',
 			group: ['input'],
 			version: 1,
 			description: 'Crawl with Firecrawl',
@@ -419,7 +419,7 @@ describe('CredentialModeSelector', () => {
 
 		const singleCredMcpNodeType = {
 			displayName: 'Notion MCP',
-			name: '@n8n/n8n-nodes-langchain.mcpClientTool',
+			name: '@resin/n8n-nodes-langchain.mcpClientTool',
 			group: ['transform'],
 			version: 1,
 			description: 'MCP tool node',
@@ -438,7 +438,7 @@ describe('CredentialModeSelector', () => {
 		it('should emit quickConnectEnabled when selecting quick connect from dropdown', async () => {
 			const pinia = setupStores({
 				nodeType: singleCredNodeType,
-				node: makeNode('n8n-nodes-base.firecrawl', ''),
+				node: makeNode('resin-nodes-base.firecrawl', ''),
 				credentialTypes: { firecrawlApi: singleCredApiType },
 			});
 
@@ -470,7 +470,7 @@ describe('CredentialModeSelector', () => {
 		it('should emit manual fallback when selecting set up manually from dropdown in QC mode', async () => {
 			const pinia = setupStores({
 				nodeType: singleCredNodeType,
-				node: makeNode('n8n-nodes-base.firecrawl', ''),
+				node: makeNode('resin-nodes-base.firecrawl', ''),
 				credentialTypes: { firecrawlApi: singleCredApiType },
 			});
 
@@ -500,7 +500,7 @@ describe('CredentialModeSelector', () => {
 		it('should not show selector when there are no configurable credential fields', () => {
 			const pinia = setupStores({
 				nodeType: singleCredMcpNodeType,
-				node: makeNode('@n8n/n8n-nodes-langchain.mcpClientTool', ''),
+				node: makeNode('@resin/n8n-nodes-langchain.mcpClientTool', ''),
 				credentialTypes: {
 					mcpOAuth2Api: nonConfigurableOAuthType,
 				},
@@ -521,7 +521,7 @@ describe('CredentialModeSelector', () => {
 		it('should not show selector when quickConnectAvailable is false for single-cred nodes', () => {
 			const pinia = setupStores({
 				nodeType: singleCredNodeType,
-				node: makeNode('n8n-nodes-base.firecrawl', ''),
+				node: makeNode('resin-nodes-base.firecrawl', ''),
 				credentialTypes: { firecrawlApi: singleCredApiType },
 			});
 
@@ -539,7 +539,7 @@ describe('CredentialModeSelector', () => {
 		it('should show dropdown when QC + multi-auth node (3+ options)', () => {
 			const pinia = setupStores({
 				nodeType: twoAuthNodeType,
-				node: makeNode('n8n-nodes-base.dropbox', 'accessToken'),
+				node: makeNode('resin-nodes-base.dropbox', 'accessToken'),
 				credentialTypes: {
 					dropboxApi: dropboxApiType,
 					dropboxOAuth2Api: dropboxOAuth2ApiType,
@@ -575,7 +575,7 @@ describe('CredentialModeSelector', () => {
 		// but httpBasicAuth is gated by a different field "incomingAuthentication"
 		const nodeWithSecondaryCredential = {
 			displayName: 'Pipedrive Trigger',
-			name: 'n8n-nodes-base.pipedriveTrigger',
+			name: 'resin-nodes-base.pipedriveTrigger',
 			group: ['trigger'],
 			version: 1,
 			description: 'Trigger on Pipedrive events',
@@ -628,7 +628,7 @@ describe('CredentialModeSelector', () => {
 				nodeType: nodeWithSecondaryCredential,
 				node: {
 					parameters: { authentication: 'apiToken', incomingAuthentication: 'basicAuth' },
-					type: 'n8n-nodes-base.pipedriveTrigger',
+					type: 'resin-nodes-base.pipedriveTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					id: 'test-node-id',

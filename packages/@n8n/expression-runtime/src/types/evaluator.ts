@@ -1,4 +1,4 @@
-import type { TournamentHooks } from '@n8n/tournament';
+import type { TournamentHooks } from '@resin/tournament';
 
 import type { Logger } from './bridge';
 import type { RuntimeBridge } from './bridge';

@@ -1,14 +1,14 @@
-import { Logger } from '@n8n/backend-common';
-import { Container, Service } from '@n8n/di';
-import { Cipher } from 'n8n-core';
+import { Logger } from '@resin/backend-common';
+import { Container, Service } from '@resin/di';
+import { Cipher } from 'resin-core';
 import type {
 	ICredentialContext,
 	ICredentialDataDecryptedObject,
 	IDataObject,
 	IExecutionContext,
 	IWorkflowSettings,
-} from 'n8n-workflow';
-import { toCredentialContext, UnexpectedError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { toCredentialContext, UnexpectedError } from 'resin-workflow';
 
 import type {
 	CredentialResolutionResult,

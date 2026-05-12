@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import AgentSkillViewer from '../components/AgentSkillViewer.vue';
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({
 		baseText: (key: string) => key,
 	}),

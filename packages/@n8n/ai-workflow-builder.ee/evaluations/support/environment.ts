@@ -3,7 +3,7 @@ import { LangChainTracer } from '@langchain/core/tracers/tracer_langchain';
 import { MemorySaver } from '@langchain/langgraph';
 import fs from 'fs';
 import { Client } from 'langsmith/client';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 import path from 'path';
 
 import { DEFAULT_MODEL, getApiKeyEnvVar, MODEL_FACTORIES, type ModelId } from '@/llm-config';
@@ -186,7 +186,7 @@ export function resolveBuiltinNodeDefinitionDirs(): string[] {
 	const resolvePaths = repoRoot ? [path.join(repoRoot, 'packages', 'cli')] : undefined;
 
 	const dirs: string[] = [];
-	for (const packageId of ['n8n-nodes-base', '@n8n/n8n-nodes-langchain']) {
+	for (const packageId of ['resin-nodes-base', '@resin/n8n-nodes-langchain']) {
 		try {
 			const packageJsonPath = require.resolve(`${packageId}/package.json`, {
 				paths: resolvePaths,

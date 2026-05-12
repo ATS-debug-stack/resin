@@ -3,7 +3,7 @@ import {
 	ASK_CREDENTIAL_TOOL_NAME,
 	ASK_LLM_TOOL_NAME,
 	ASK_QUESTION_TOOL_NAME,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { summariseInteractiveOutput } from '../utils/interactive-summary';
 
 describe('summariseInteractiveOutput', () => {

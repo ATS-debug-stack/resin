@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { CronLoggingConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { CronLoggingConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { Service } from '@resin/di';
 import { CronJob, CronTime } from 'cron';
-import type { CronContext, Workflow } from 'n8n-workflow';
+import type { CronContext, Workflow } from 'resin-workflow';
 
 import { ErrorReporter } from '@/errors';
 import { InstanceSettings } from '@/instance-settings';

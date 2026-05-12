@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
 
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import type express from 'express';
 import { validate } from 'jsonschema';
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
 
 import { CredentialTypes } from '@/credential-types';
 import { CredentialsHelper } from '@/credentials-helper';

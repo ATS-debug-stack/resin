@@ -4,8 +4,8 @@ import {
 	ListFolderQueryDto,
 	TransferFolderBodyDto,
 	UpdateFolderDto,
-} from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
+} from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
 import {
 	Post,
 	RestController,
@@ -19,9 +19,9 @@ import {
 	Param,
 	Licensed,
 	Middleware,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import { NextFunction, Response } from 'express';
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 
 import { FolderNotFoundError } from '@/errors/folder-not-found.error';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

@@ -1,7 +1,7 @@
-import type { User } from '@n8n/db';
-import { ProjectRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import type { INodeCredentials, INodeParameters } from 'n8n-workflow';
+import type { User } from '@resin/db';
+import { ProjectRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import type { INodeCredentials, INodeParameters } from 'resin-workflow';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { NodeTypes } from '@/node-types';

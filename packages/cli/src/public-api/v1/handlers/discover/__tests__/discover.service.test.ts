@@ -1,4 +1,4 @@
-import type { ApiKeyScope } from '@n8n/permissions';
+import type { ApiKeyScope } from '@resin/permissions';
 
 import * as middlewares from '@/public-api/v1/shared/middlewares/global.middleware';
 

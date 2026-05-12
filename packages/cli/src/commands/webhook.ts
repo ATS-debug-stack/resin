@@ -1,7 +1,7 @@
-import { DeploymentKeyRepository } from '@n8n/db';
-import { Command } from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import { BinaryDataConfig } from 'n8n-core';
+import { DeploymentKeyRepository } from '@resin/db';
+import { Command } from '@resin/decorators';
+import { Container } from '@resin/di';
+import { BinaryDataConfig } from 'resin-core';
 
 import { ActiveExecutions } from '@/active-executions';
 import { DeprecationService } from '@/deprecation/deprecation.service';

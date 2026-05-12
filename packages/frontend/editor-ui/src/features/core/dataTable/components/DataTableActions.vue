@@ -11,11 +11,11 @@ import {
 
 import { useDataTableStore } from '@/features/core/dataTable/dataTable.store';
 import type { DataTable } from '@/features/core/dataTable/dataTable.types';
-import type { IUser, UserAction } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import type { IUser, UserAction } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
 
-import { N8nActionToggle } from '@n8n/design-system';
+import { N8nActionToggle } from '@resin/design-system';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useFavoritesStore } from '@/app/stores/favorites.store';
 import DownloadDataTableModal from './DownloadDataTableModal.vue';

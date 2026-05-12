@@ -1,13 +1,13 @@
-import { mockLogger } from '@n8n/backend-test-utils';
+import { mockLogger } from '@resin/backend-test-utils';
 import type {
 	ProjectSecretsProviderAccess,
 	ProjectSecretsProviderAccessRepository,
 	SecretsProviderConnection,
 	SecretsProviderConnectionRepository,
-} from '@n8n/db';
-import { In } from '@n8n/typeorm';
+} from '@resin/db';
+import { In } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import { CREDENTIAL_BLANKING_VALUE, type IDataObject, type INodeProperties } from 'n8n-workflow';
+import { CREDENTIAL_BLANKING_VALUE, type IDataObject, type INodeProperties } from 'resin-workflow';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 import type { EventService } from '@/events/event.service';

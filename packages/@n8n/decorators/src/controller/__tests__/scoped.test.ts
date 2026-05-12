@@ -1,5 +1,5 @@
-import { Container } from '@n8n/di';
-import type { Scope } from '@n8n/permissions';
+import { Container } from '@resin/di';
+import type { Scope } from '@resin/permissions';
 
 import { ControllerRegistryMetadata } from '../controller-registry-metadata';
 import { GlobalScope, ProjectScope } from '../scoped';

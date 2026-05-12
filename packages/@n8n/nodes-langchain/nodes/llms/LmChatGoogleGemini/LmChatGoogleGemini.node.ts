@@ -1,6 +1,6 @@
 import type { SafetySetting } from '@google/generative-ai';
 import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type {
 	NodeError,
 	INodeType,
@@ -8,14 +8,14 @@ import type {
 	ISupplyDataFunctions,
 	SupplyData,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getAdditionalOptions } from '../gemini-common/additional-options';
 import {
 	makeN8nLlmFailedAttemptHandler,
 	N8nLlmTracing,
 	getConnectionHintNoticeField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 
 function errorDescriptionMapper(error: NodeError) {
 	if (error.description?.includes('properties: should be non-empty for OBJECT type')) {

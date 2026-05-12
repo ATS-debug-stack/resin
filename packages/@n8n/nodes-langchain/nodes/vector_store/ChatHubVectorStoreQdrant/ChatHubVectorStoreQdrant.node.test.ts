@@ -11,7 +11,7 @@ vi.mock('@langchain/qdrant', () => {
 	return { QdrantVectorStore };
 });
 
-vi.mock('@n8n/ai-utilities', () => ({
+vi.mock('@resin/ai-utilities', () => ({
 	createVectorStoreNode: (config: any) => {
 		// @ts-expect-error - Mocking
 		globalThis.capturedDeleteDocuments = config.methods?.actionHandler?.deleteDocuments;

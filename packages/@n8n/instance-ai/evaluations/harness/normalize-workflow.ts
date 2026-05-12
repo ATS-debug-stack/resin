@@ -7,14 +7,14 @@
 // timestamps, version metadata — can shift scores. This normalizer drops
 // everything outside `{ name, nodes, connections }` and enforces key order.
 //
-// NOTE on types: WorkflowJSON from `@n8n/workflow-sdk` and SimpleWorkflow
-// from `n8n-workflow` are structurally identical JSON but nominally
+// NOTE on types: WorkflowJSON from `@resin/workflow-sdk` and SimpleWorkflow
+// from `resin-workflow` are structurally identical JSON but nominally
 // distinct. We go through JSON.parse(JSON.stringify(...)) to strip the
 // source nominal type and re-interpret the plain object as SimpleWorkflow.
 // ---------------------------------------------------------------------------
 
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
-import { deepCopy } from 'n8n-workflow';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
+import { deepCopy } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '../../../ai-workflow-builder.ee/evaluations/evaluators/pairwise';
 
@@ -51,9 +51,9 @@ export function normalizeWorkflow(raw: WorkflowJSON): SimpleWorkflow {
 		connections: { ...raw.connections },
 	};
 
-	// JSON round-trip strips the nominal type from `@n8n/workflow-sdk`
+	// JSON round-trip strips the nominal type from `@resin/workflow-sdk`
 	// so the plain object can be treated as `SimpleWorkflow` from
-	// `n8n-workflow`. Runtime shape is identical.
+	// `resin-workflow`. Runtime shape is identical.
 	const plain: unknown = deepCopy(shape);
 	return plain as SimpleWorkflow;
 }

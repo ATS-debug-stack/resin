@@ -15,7 +15,7 @@ import {
 	type INode,
 	type INodeTypeDescription,
 	type IPinData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { join } from 'path';
 
 import type { SimpleWorkflow } from '../../src/types/workflow';
@@ -55,8 +55,8 @@ interface NodeSchemaContext {
  * are excluded naturally because they have no credentials defined.
  */
 const NON_SERVICE_NODES_WITH_CREDENTIALS = new Set([
-	'n8n-nodes-base.wait', // optional webhook-resumption auth
-	'n8n-nodes-base.respondToWebhook', // optional JWT signing when responding
+	'resin-nodes-base.wait', // optional webhook-resumption auth
+	'resin-nodes-base.respondToWebhook', // optional JWT signing when responding
 ]);
 
 // ---------------------------------------------------------------------------
@@ -117,11 +117,11 @@ export function identifyPinDataNodes(
 		// - DataTable: requires the data-table module
 		// - Code/ExecuteCommand: require a task runner to execute
 		if (
-			node.type === 'n8n-nodes-base.httpRequest' ||
-			node.type === 'n8n-nodes-base.webhook' ||
-			node.type === 'n8n-nodes-base.dataTable' ||
-			node.type === 'n8n-nodes-base.code' ||
-			node.type === 'n8n-nodes-base.executeCommand'
+			node.type === 'resin-nodes-base.httpRequest' ||
+			node.type === 'resin-nodes-base.webhook' ||
+			node.type === 'resin-nodes-base.dataTable' ||
+			node.type === 'resin-nodes-base.code' ||
+			node.type === 'resin-nodes-base.executeCommand'
 		) {
 			return true;
 		}
@@ -135,7 +135,7 @@ export function identifyPinDataNodes(
 // ---------------------------------------------------------------------------
 
 /**
- * Build a map from node type name (e.g., "n8n-nodes-base.linear") to the
+ * Build a map from node type name (e.g., "resin-nodes-base.linear") to the
  * directory containing its __schema__ folder by scanning .node.ts files.
  * Cached per nodesBasePath.
  */

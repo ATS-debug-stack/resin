@@ -58,7 +58,7 @@ vi.mock('ag-grid-community', () => ({
 
 // Mock the n8n theme
 vi.mock('@/features/core/dataTable/components/dataGrid/n8nTheme', () => ({
-	n8nTheme: 'n8n-theme',
+	n8nTheme: 'resin-theme',
 }));
 
 // Mock AddColumnPopover
@@ -91,7 +91,7 @@ vi.mock('@/features/core/dataTable/composables/useDataTablePagination', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string) => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from '@jest/globals';
-import type { Schema } from 'n8n-workflow';
+import type { Schema } from 'resin-workflow';
 
 import { generateSchemaJSDoc, schemaToOutputSample } from './execution-schema-jsdoc';
 

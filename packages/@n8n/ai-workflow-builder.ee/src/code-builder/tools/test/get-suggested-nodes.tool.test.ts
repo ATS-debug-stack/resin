@@ -1,4 +1,4 @@
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import { NodeTypeParser } from '../../utils/node-type-parser';
 import { createGetSuggestedNodesTool } from '../get-suggested-nodes.tool';
@@ -6,7 +6,7 @@ import { categoryList, suggestedNodesData } from '../suggested-nodes-data';
 
 // Mock node types that match some suggested nodes
 const mockSlackNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.slack',
+	name: 'resin-nodes-base.slack',
 	displayName: 'Slack',
 	description: 'Send messages to Slack channels',
 	group: ['output'],
@@ -18,7 +18,7 @@ const mockSlackNode: INodeTypeDescription = {
 };
 
 const mockDataTableNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.dataTable',
+	name: 'resin-nodes-base.dataTable',
 	displayName: 'Data Table',
 	description: 'Store and query data in n8n',
 	group: ['transform'],
@@ -30,7 +30,7 @@ const mockDataTableNode: INodeTypeDescription = {
 };
 
 const mockAgentNode: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.agent',
+	name: '@resin/n8n-nodes-langchain.agent',
 	displayName: 'AI Agent',
 	description: 'Generates an action plan and executes it',
 	group: ['transform'],
@@ -42,7 +42,7 @@ const mockAgentNode: INodeTypeDescription = {
 };
 
 const mockMemoryNode: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+	name: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 	displayName: 'Window Buffer Memory',
 	description: 'Stores conversation history in memory',
 	group: ['transform'],
@@ -73,7 +73,7 @@ describe('GetSuggestedNodesTool', () => {
 			expect(result).toContain('chatbot');
 			expect(result).toContain('patternHint');
 			expect(result).toContain('Chat Trigger → AI Agent → Memory → Response');
-			expect(result).toContain('@n8n/n8n-nodes-langchain.agent');
+			expect(result).toContain('@resin/n8n-nodes-langchain.agent');
 		});
 
 		it('should return nodes for data_persistence category', async () => {
@@ -83,7 +83,7 @@ describe('GetSuggestedNodesTool', () => {
 			const result = await tool.invoke({ categories: ['data_persistence'] });
 
 			expect(result).toContain('data_persistence');
-			expect(result).toContain('n8n-nodes-base.dataTable');
+			expect(result).toContain('resin-nodes-base.dataTable');
 			expect(result).toContain('PREFERRED - no external config needed');
 		});
 	});
@@ -97,8 +97,8 @@ describe('GetSuggestedNodesTool', () => {
 
 			expect(result).toContain('chatbot');
 			expect(result).toContain('notification');
-			expect(result).toContain('@n8n/n8n-nodes-langchain.agent');
-			expect(result).toContain('n8n-nodes-base.slack');
+			expect(result).toContain('@resin/n8n-nodes-langchain.agent');
+			expect(result).toContain('resin-nodes-base.slack');
 		});
 	});
 
@@ -121,7 +121,7 @@ describe('GetSuggestedNodesTool', () => {
 			const result = await tool.invoke({ categories: ['chatbot'] });
 
 			// Should still list the node but indicate it's not found
-			expect(result).toContain('@n8n/n8n-nodes-langchain.chatTrigger');
+			expect(result).toContain('@resin/n8n-nodes-langchain.chatTrigger');
 			expect(result).toContain('(not found)');
 		});
 	});
@@ -142,7 +142,7 @@ describe('GetSuggestedNodesTool', () => {
 		it('should not include note marker when no note', async () => {
 			// lmChatOpenAi has no note in chatbot category
 			const mockLmChatOpenAi: INodeTypeDescription = {
-				name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				displayName: 'OpenAI Chat Model',
 				description: 'Use OpenAI Chat models',
 				group: ['transform'],
@@ -158,7 +158,7 @@ describe('GetSuggestedNodesTool', () => {
 			const result = await tool.invoke({ categories: ['chatbot'] });
 
 			// lmChatOpenAi should be there
-			expect(result).toContain('@n8n/n8n-nodes-langchain.lmChatOpenAi');
+			expect(result).toContain('@resin/n8n-nodes-langchain.lmChatOpenAi');
 			// And have description
 			expect(result).toContain('Use OpenAI Chat models');
 		});

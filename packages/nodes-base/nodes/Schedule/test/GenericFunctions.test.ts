@@ -1,5 +1,5 @@
 import moment from 'moment-timezone';
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 
 import {
 	intervalToRecurrence,
@@ -183,7 +183,7 @@ describe('validateInterval', () => {
 	const mockNode: INode = {
 		id: 'test-node',
 		name: 'Test Node',
-		type: 'n8n-nodes-base.scheduleTrigger',
+		type: 'resin-nodes-base.scheduleTrigger',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},

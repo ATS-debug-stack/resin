@@ -48,7 +48,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-	<component :is="tag" :class="['n8n-text', ...classes]" v-bind="$attrs">
+	<component :is="tag" :class="['resin-text', ...classes]" v-bind="$attrs">
 		<slot></slot>
 	</component>
 </template>

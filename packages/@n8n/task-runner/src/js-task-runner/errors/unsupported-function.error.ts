@@ -1,4 +1,4 @@
-import { ApplicationError } from '@n8n/errors';
+import { ApplicationError } from '@resin/errors';
 
 /**
  * Error that indicates that a specific function is not available in the

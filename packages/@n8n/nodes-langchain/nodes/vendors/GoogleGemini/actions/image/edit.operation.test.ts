@@ -1,4 +1,8 @@
-import type { IBinaryData, ICredentialDataDecryptedObject, IExecuteFunctions } from 'n8n-workflow';
+import type {
+	IBinaryData,
+	ICredentialDataDecryptedObject,
+	IExecuteFunctions,
+} from 'resin-workflow';
 import { mock, mockDeep } from 'vitest-mock-extended';
 
 import { execute } from './edit.operation';

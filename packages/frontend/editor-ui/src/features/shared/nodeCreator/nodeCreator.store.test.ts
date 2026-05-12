@@ -11,11 +11,11 @@ import type { ActionsRecord, INodeCreateElement, INodeUi, SimplifiedNodeType } f
 import { CanvasConnectionMode } from '@/features/workflows/canvas/canvas.types';
 import { parseCanvasConnectionHandleString } from '@/features/workflows/canvas/canvas.utils';
 import { getNodeIconSource } from '@/app/utils/nodeIcon';
-import type { CommunityNodeType } from '@n8n/api-types';
+import type { CommunityNodeType } from '@resin/api-types';
 import { createTestingPinia } from '@pinia/testing';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 import { setActivePinia } from 'pinia';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeCreatorStore } from '@/features/shared/nodeCreator/nodeCreator.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
@@ -249,9 +249,9 @@ describe('useNodeCreatorStore', () => {
 		const title = 'title';
 
 		const mockTrigger = {
-			key: 'n8n-node.exampleTrigger',
+			key: 'resin-node.exampleTrigger',
 			properties: {
-				name: 'n8n-node.exampleTrigger',
+				name: 'resin-node.exampleTrigger',
 				displayName: 'Example Trigger',
 			},
 		} as INodeCreateElement;
@@ -264,14 +264,14 @@ describe('useNodeCreatorStore', () => {
 		} as INodeCreateElement;
 
 		const mockRegular = {
-			key: 'n8n-node.example',
+			key: 'resin-node.example',
 			properties: {},
 		} as INodeCreateElement;
 
 		const mockCommunity1 = {
 			key: 'community-node1.example',
 			properties: {
-				name: 'n8n-nodes-community-node1',
+				name: 'resin-nodes-community-node1',
 			},
 		} as INodeCreateElement;
 

@@ -1,5 +1,5 @@
-import type { AuthenticationMethod, ProjectRelation } from '@n8n/api-types';
-import type { AuthProviderType, User, IWorkflowDb } from '@n8n/db';
+import type { AuthenticationMethod, ProjectRelation } from '@resin/api-types';
+import type { AuthProviderType, User, IWorkflowDb } from '@resin/db';
 import type {
 	CancellationReason,
 	IPersonalizationSurveyAnswersV4,
@@ -9,14 +9,14 @@ import type {
 	JsonValue,
 	WorkflowExecuteMode,
 	WorkflowSettings,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { ConcurrencyQueueType } from '@/concurrency/concurrency-control.service';
 import type { TokenExchangeFailureReason } from '@/modules/token-exchange/token-exchange.types';
 
 import type { AiEventMap } from './ai.event-map';
 
-export type WorkflowActionSource = 'ui' | 'api' | 'n8n-mcp' | 'n8n-ai';
+export type WorkflowActionSource = 'ui' | 'api' | 'resin-mcp' | 'resin-ai';
 
 export type UserLike = {
 	id: string;

@@ -743,7 +743,7 @@ describe('verify-built-workflow tool', () => {
 				workflowNodes: [
 					{
 						name: 'Insert Lead',
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						parameters: { operation: 'insert', dataTableId: 'tbl-leads' },
 					},
 				],
@@ -782,7 +782,7 @@ describe('verify-built-workflow tool', () => {
 				workflowNodes: [
 					{
 						name: 'Insert Lead',
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						parameters: { operation: 'insert', dataTableId: 'tbl-leads' },
 					},
 				],
@@ -821,7 +821,7 @@ describe('verify-built-workflow tool', () => {
 				workflowNodes: [
 					{
 						name: 'Upsert Lead',
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						parameters: { operation: 'upsert', dataTableId: 'tbl-leads' },
 					},
 				],
@@ -853,7 +853,7 @@ describe('verify-built-workflow tool', () => {
 				workflowNodes: [
 					{
 						name: 'Insert Lead',
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						parameters: { operation: 'insert', dataTableId: 'tbl-leads' },
 					},
 				],
@@ -935,7 +935,7 @@ describe('verify-built-workflow tool', () => {
 				workflowNodes: [
 					{
 						name: 'Insert Lead',
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						parameters: { operation: 'insert', dataTableId: 'tbl-leads' },
 					},
 				],
@@ -969,7 +969,7 @@ describe('verify-built-workflow tool', () => {
 				workflowNodes: [
 					{
 						name: 'Insert Lead',
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						parameters: { operation: 'insert', dataTableId: 'tbl-leads' },
 					},
 				],
@@ -996,7 +996,7 @@ describe('verify-built-workflow tool', () => {
 				workflowNodes: [
 					{
 						name: 'Lookup Lead',
-						type: 'n8n-nodes-base.dataTable',
+						type: 'resin-nodes-base.dataTable',
 						parameters: { operation: 'get', dataTableId: 'tbl-leads' },
 					},
 				],

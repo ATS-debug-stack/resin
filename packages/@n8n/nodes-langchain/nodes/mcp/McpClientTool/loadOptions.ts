@@ -1,4 +1,4 @@
-import { type ILoadOptionsFunctions, type INodePropertyOptions } from 'n8n-workflow';
+import { type ILoadOptionsFunctions, type INodePropertyOptions } from 'resin-workflow';
 
 import { loadMcpToolOptions } from '../shared/runtime';
 import type { McpAuthenticationOption, McpServerTransport } from '../shared/types';

@@ -4,7 +4,7 @@ import type {
 	IWorkflowExecuteAdditionalData,
 	Workflow,
 	IWorkflowNodeContext,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { NodeExecutionContext } from './node-execution-context';
 

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed, useCssModule } from 'vue';
-import type { NodeConnectionType } from 'n8n-workflow';
-import { isHitlToolType, NodeConnectionTypes } from 'n8n-workflow';
+import type { NodeConnectionType } from 'resin-workflow';
+import { isHitlToolType, NodeConnectionTypes } from 'resin-workflow';
 
-import { N8nIconButton } from '@n8n/design-system';
+import { N8nIconButton } from '@resin/design-system';
 import type { GraphNode } from '@vue-flow/core';
 import { AGENT_NODE_TYPE, AGENT_TOOL_NODE_TYPE } from '@/app/constants';
 import CanvasEdgeTooltip from './CanvasEdgeTooltip.vue';
@@ -91,7 +91,7 @@ function onDelete() {
 	gap: var(--spacing--2xs);
 	pointer-events: all;
 	padding: var(--spacing--2xs);
-	/* stylelint-disable-next-line @n8n/css-var-naming */
+	/* stylelint-disable-next-line @resin/css-var-naming */
 	transform: scale(var(--canvas-zoom-compensation-factor, 1));
 }
 </style>

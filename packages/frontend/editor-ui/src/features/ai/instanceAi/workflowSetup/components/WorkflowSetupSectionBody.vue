@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import { computed, provide, ref, watch } from 'vue';
-import { N8nText, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nText, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import NodeCredentials from '@/features/credentials/components/NodeCredentials.vue';
 import ParameterInputList from '@/features/ndv/parameters/components/ParameterInputList.vue';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import useEnvironmentsStore from '@/features/settings/environments.ee/environments.store';
 import { ExpressionLocalResolveContextSymbol } from '@/app/constants';
-import { Workflow, type IConnections, type INodeProperties } from 'n8n-workflow';
+import { Workflow, type IConnections, type INodeProperties } from 'resin-workflow';
 import type { ExpressionLocalResolveContext } from '@/app/types/expressions';
 import type { INodeUi, INodeUpdatePropertiesInformation, IUpdateInformation } from '@/Interface';
 import type { WorkflowSetupSection } from '../workflowSetup.types';

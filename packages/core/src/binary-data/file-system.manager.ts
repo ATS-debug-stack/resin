@@ -1,4 +1,4 @@
-import { jsonParse, UnexpectedError } from 'n8n-workflow';
+import { jsonParse, UnexpectedError } from 'resin-workflow';
 import { createReadStream } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';

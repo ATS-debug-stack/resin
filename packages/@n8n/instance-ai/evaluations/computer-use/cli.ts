@@ -8,7 +8,7 @@
 // inner loop — fast feedback, no LangSmith dependency.
 // ---------------------------------------------------------------------------
 
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import { execFile } from 'node:child_process';
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
@@ -183,7 +183,7 @@ async function collectManifest(): Promise<RunManifest> {
 	const repoRoot = resolve(__dirname, '../../../../..');
 	const [gitRef, daemonVersion, n8nVersion] = await Promise.all([
 		readGitRef(repoRoot),
-		readPackageVersion(join(repoRoot, 'packages/@n8n/computer-use/package.json')),
+		readPackageVersion(join(repoRoot, 'packages/@resin/computer-use/package.json')),
 		readPackageVersion(join(repoRoot, 'packages/cli/package.json')),
 	]);
 	return { gitRef, daemonVersion, n8nVersion };

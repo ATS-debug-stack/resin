@@ -6,7 +6,7 @@ import {
 	type AskLlmResume,
 	type AskQuestionInput,
 	type AskQuestionResume,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 /**
  * Build a one-line human-readable label for a resolved interactive tool call.

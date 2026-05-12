@@ -1,4 +1,4 @@
-import { ERROR_TRIGGER_NODE_TYPE, EXECUTE_WORKFLOW_TRIGGER_NODE_TYPE } from 'n8n-workflow';
+import { ERROR_TRIGGER_NODE_TYPE, EXECUTE_WORKFLOW_TRIGGER_NODE_TYPE } from 'resin-workflow';
 import { randomUUID } from 'node:crypto';
 
 import type { IrreversibleMigration, MigrationContext } from '../migration-types';

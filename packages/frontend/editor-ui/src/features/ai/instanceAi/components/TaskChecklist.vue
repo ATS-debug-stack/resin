@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { TaskList } from '@n8n/api-types';
-import { N8nCard, N8nIcon, N8nText, type IconName, type TextColor } from '@n8n/design-system';
+import type { TaskList } from '@resin/api-types';
+import { N8nCard, N8nIcon, N8nText, type IconName, type TextColor } from '@resin/design-system';
 import { computed } from 'vue';
 import ButtonLike from './ButtonLike.vue';
 

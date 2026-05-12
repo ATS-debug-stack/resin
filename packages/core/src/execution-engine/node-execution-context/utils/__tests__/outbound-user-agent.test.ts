@@ -1,7 +1,7 @@
-import type * as configModule from '@n8n/config';
-import { HttpRequestConfig } from '@n8n/config';
-import type * as diModule from '@n8n/di';
-import { Container } from '@n8n/di';
+import type * as configModule from '@resin/config';
+import { HttpRequestConfig } from '@resin/config';
+import type * as diModule from '@resin/di';
+import { Container } from '@resin/di';
 
 import type * as outboundUserAgentModule from '../outbound-user-agent';
 import { buildRfcStyleUserAgent, getDefaultN8nOutboundUserAgent } from '../outbound-user-agent';
@@ -69,9 +69,9 @@ describe('outbound-user-agent', () => {
 				}));
 
 				// eslint-disable-next-line @typescript-eslint/no-require-imports
-				const di = require('@n8n/di') as typeof diModule;
+				const di = require('@resin/di') as typeof diModule;
 				// eslint-disable-next-line @typescript-eslint/no-require-imports
-				const config = require('@n8n/config') as typeof configModule;
+				const config = require('@resin/config') as typeof configModule;
 				// eslint-disable-next-line @typescript-eslint/no-require-imports
 				const mod = require('../outbound-user-agent') as typeof outboundUserAgentModule;
 

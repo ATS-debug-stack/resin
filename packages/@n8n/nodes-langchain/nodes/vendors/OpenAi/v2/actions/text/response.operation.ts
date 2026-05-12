@@ -6,13 +6,13 @@ import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	accumulateTokenUsage,
 	jsonParse,
 	NodeOperationError,
 	updateDisplayOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { MODELS_NOT_SUPPORT_FUNCTION_CALLS } from '../../../helpers/constants';
 import type { ChatResponse } from '../../../helpers/interfaces';
 import { formatToOpenAIResponsesTool } from '../../../helpers/utils';

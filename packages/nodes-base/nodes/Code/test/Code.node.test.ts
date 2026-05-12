@@ -1,7 +1,7 @@
 import type { MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
-import { normalizeItems } from 'n8n-core';
-import type { IExecuteFunctions, INode, IWorkflowDataProxyData } from 'n8n-workflow';
+import { normalizeItems } from 'resin-core';
+import type { IExecuteFunctions, INode, IWorkflowDataProxyData } from 'resin-workflow';
 
 import { Code } from '../Code.node';
 import { PythonTaskRunnerSandbox } from '../PythonTaskRunnerSandbox';

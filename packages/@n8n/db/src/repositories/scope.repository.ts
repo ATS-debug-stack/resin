@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { DataSource, In, Repository } from '@n8n/typeorm';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { DataSource, In, Repository } from '@resin/typeorm';
 
 import { Scope } from '../entities';
 

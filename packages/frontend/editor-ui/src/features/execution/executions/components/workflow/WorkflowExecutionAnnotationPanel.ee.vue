@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import type { ExecutionSummary } from 'n8n-workflow';
-import { useI18n } from '@n8n/i18n';
-import { getResourcePermissions } from '@n8n/permissions';
+import type { ExecutionSummary } from 'resin-workflow';
+import { useI18n } from '@resin/i18n';
+import { getResourcePermissions } from '@resin/permissions';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useInjectWorkflowId } from '@/app/composables/useInjectWorkflowId';
 
 import { ElDropdown } from 'element-plus';
-import { N8nBadge, N8nButton, N8nHeading, N8nText } from '@n8n/design-system';
+import { N8nBadge, N8nButton, N8nHeading, N8nText } from '@resin/design-system';
 const props = defineProps<{
 	execution: ExecutionSummary & {
 		customData?: Record<string, string>;

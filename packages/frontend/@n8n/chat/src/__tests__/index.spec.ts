@@ -16,8 +16,8 @@ import {
 	getChatWrapper,
 	getGetStartedButton,
 	getMountingTarget,
-} from '@n8n/chat/__tests__/utils';
-import { createChat } from '@n8n/chat/index';
+} from '@resin/chat/__tests__/utils';
+import { createChat } from '@resin/chat/index';
 
 describe('createChat()', () => {
 	let app: ReturnType<typeof createChat>;

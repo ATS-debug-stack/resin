@@ -3,7 +3,7 @@ import { createTestingPinia } from '@pinia/testing';
 import { waitFor } from '@testing-library/vue';
 import { mockedStore, getTooltip, hoverTooltipTrigger } from '@/__tests__/utils';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 import userEvent from '@testing-library/user-event';
 import { faker } from '@faker-js/faker';
 import ExecutionsFilter from '../components/ExecutionsFilter.vue';
@@ -13,9 +13,9 @@ import { createComponentRenderer } from '@/__tests__/render';
 import * as telemetryModule from '@/app/composables/useTelemetry';
 import type { Telemetry } from '@/app/plugins/telemetry';
 import type { MockInstance } from 'vitest';
-import * as restApiClient from '@n8n/rest-api-client';
+import * as restApiClient from '@resin/rest-api-client';
 
-vi.mock('@n8n/rest-api-client');
+vi.mock('@resin/rest-api-client');
 
 vi.mock('vue-router', () => ({
 	useRoute: () =>

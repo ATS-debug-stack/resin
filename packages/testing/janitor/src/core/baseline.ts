@@ -4,14 +4,14 @@ import {
 	generateBaseline as engineGenerateBaseline,
 	loadBaseline as engineLoadBaseline,
 	saveBaseline as engineSaveBaseline,
-} from '@n8n/rules-engine';
-import type { BaselineFile } from '@n8n/rules-engine';
+} from '@resin/rules-engine';
+import type { BaselineFile } from '@resin/rules-engine';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
 import type { JanitorReport, Violation } from '../types.js';
 
-export type { BaselineFile, BaselineEntry } from '@n8n/rules-engine';
+export type { BaselineFile, BaselineEntry } from '@resin/rules-engine';
 
 const BASELINE_FILENAME = '.janitor-baseline.json';
 

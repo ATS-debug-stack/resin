@@ -1,13 +1,13 @@
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import CommunityPackageCard from './CommunityPackageCard.vue';
 import { createComponentRenderer } from '@/__tests__/render';
-import type { PublicInstalledNode, PublicInstalledPackage } from 'n8n-workflow';
+import type { PublicInstalledNode, PublicInstalledPackage } from 'resin-workflow';
 
 const communityPackage: PublicInstalledPackage = {
-	packageName: 'n8n-nodes-test',
+	packageName: 'resin-nodes-test',
 	installedVersion: '1.0.0',
 	installedNodes: [{ name: 'TestNode' } as PublicInstalledNode],
 	createdAt: new Date(0),
@@ -49,7 +49,7 @@ describe('CommunityPackageCard', () => {
 
 	it('should call nodeTypesStore methods and update latestVerifiedVersion when packageName changes', async () => {
 		Object.defineProperty(nodeTypesStore, 'visibleNodeTypes', {
-			get: () => [{ name: 'n8n-nodes-test' }],
+			get: () => [{ name: 'resin-nodes-test' }],
 		});
 		nodeTypesStore.loadNodeTypesIfNotLoaded = vi.fn().mockResolvedValue(undefined);
 		nodeTypesStore.getCommunityNodeAttributes = vi.fn().mockResolvedValue({ npmVersion: '2.0.0' });
@@ -63,7 +63,7 @@ describe('CommunityPackageCard', () => {
 		await flushPromises();
 
 		expect(nodeTypesStore.loadNodeTypesIfNotLoaded).toHaveBeenCalled();
-		expect(nodeTypesStore.getCommunityNodeAttributes).toHaveBeenCalledWith('n8n-nodes-test');
+		expect(nodeTypesStore.getCommunityNodeAttributes).toHaveBeenCalledWith('resin-nodes-test');
 	});
 
 	describe('uninstall action visibility', () => {

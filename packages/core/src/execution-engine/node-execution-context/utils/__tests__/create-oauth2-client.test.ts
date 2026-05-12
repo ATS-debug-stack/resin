@@ -1,12 +1,12 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IAllExecuteFunctions, INode, IWorkflowExecuteAdditionalData } from 'n8n-workflow';
+import type { IAllExecuteFunctions, INode, IWorkflowExecuteAdditionalData } from 'resin-workflow';
 
 const mockGetToken = jest.fn();
 const mockSign = jest.fn();
 const mockCreateToken = jest.fn();
 const MockClientOAuth2 = jest.fn();
 
-jest.mock('@n8n/client-oauth2', () => ({
+jest.mock('@resin/client-oauth2', () => ({
 	ClientOAuth2: MockClientOAuth2,
 }));
 

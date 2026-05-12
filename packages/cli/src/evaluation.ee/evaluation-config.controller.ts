@@ -1,6 +1,6 @@
-import { upsertEvaluationConfigSchema } from '@n8n/api-types';
-import type { AuthenticatedRequest, User } from '@n8n/db';
-import { Delete, Get, Post, Put, RestController } from '@n8n/decorators';
+import { upsertEvaluationConfigSchema } from '@resin/api-types';
+import type { AuthenticatedRequest, User } from '@resin/db';
+import { Delete, Get, Post, Put, RestController } from '@resin/decorators';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 import { WorkflowFinderService } from '@/workflows/workflow-finder.service';

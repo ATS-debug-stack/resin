@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { useBannersStore } from '@/features/shared/banners/banners.store';
 import { computed, useSlots } from 'vue';
-import type { BannerName } from '@n8n/api-types';
-import { useI18n } from '@n8n/i18n';
-import type { CalloutTheme } from '@n8n/design-system';
-import { type IconName } from '@n8n/design-system/components/N8nIcon/icons';
+import type { BannerName } from '@resin/api-types';
+import { useI18n } from '@resin/i18n';
+import type { CalloutTheme } from '@resin/design-system';
+import { type IconName } from '@resin/design-system/components/N8nIcon/icons';
 
-import { N8nCallout, N8nIcon } from '@n8n/design-system';
+import { N8nCallout, N8nIcon } from '@resin/design-system';
 interface Props {
 	name: BannerName;
 	theme?: CalloutTheme;

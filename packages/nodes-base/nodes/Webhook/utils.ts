@@ -1,7 +1,7 @@
 import basicAuth from 'basic-auth';
 import { rm } from 'fs/promises';
 import jwt from 'jsonwebtoken';
-import { WorkflowConfigurationError } from 'n8n-workflow';
+import { WorkflowConfigurationError } from 'resin-workflow';
 import type {
 	IWebhookFunctions,
 	INodeExecutionData,
@@ -9,7 +9,7 @@ import type {
 	ICredentialDataDecryptedObject,
 	MultiPartFormData,
 	INode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import * as a from 'node:assert';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { BlockList, isIPv6 } from 'node:net';
@@ -206,7 +206,7 @@ export const checkResponseModeConfiguration = (context: IWebhookFunctions) => {
 	const connectedNodes = context.getChildNodes(context.getNode().name);
 
 	const isRespondToWebhookConnected = connectedNodes.some(
-		(node) => node.type === 'n8n-nodes-base.respondToWebhook',
+		(node) => node.type === 'resin-nodes-base.respondToWebhook',
 	);
 
 	if (!isRespondToWebhookConnected && responseMode === 'responseNode') {

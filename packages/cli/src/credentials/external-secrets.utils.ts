@@ -1,6 +1,6 @@
-import { SECRETS_PROVIDER_KEY_PATTERN } from '@n8n/api-types';
+import { SECRETS_PROVIDER_KEY_PATTERN } from '@resin/api-types';
 import get from 'lodash/get';
-import type { ICredentialDataDecryptedObject } from 'n8n-workflow';
+import type { ICredentialDataDecryptedObject } from 'resin-workflow';
 
 import { getAllKeyPaths } from '@/utils';
 

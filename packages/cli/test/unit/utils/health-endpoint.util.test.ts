@@ -1,4 +1,4 @@
-import type { GlobalConfig } from '@n8n/config';
+import type { GlobalConfig } from '@resin/config';
 
 import {
 	resolveBackendHealthEndpointPath,

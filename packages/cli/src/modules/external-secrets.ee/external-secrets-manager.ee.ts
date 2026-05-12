@@ -1,10 +1,10 @@
-import { Logger } from '@n8n/backend-common';
-import { Time } from '@n8n/constants';
-import { SecretsProviderConnectionRepository } from '@n8n/db';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { Cipher, type IExternalSecretsManager } from 'n8n-core';
-import { jsonParse, UnexpectedError, type IDataObject, type INodeProperties } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Time } from '@resin/constants';
+import { SecretsProviderConnectionRepository } from '@resin/db';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { Cipher, type IExternalSecretsManager } from 'resin-core';
+import { jsonParse, UnexpectedError, type IDataObject, type INodeProperties } from 'resin-workflow';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 import { EventService } from '@/events/event.service';

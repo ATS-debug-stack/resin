@@ -8,7 +8,7 @@
  * (enriched parameter examples, no positions/output).
  */
 const SDK_IMPORT =
-	"import { workflow, node, trigger, sticky, placeholder, newCredential, ifElse, switchCase, merge, splitInBatches, nextBatch, languageModel, memory, tool, outputParser, embedding, embeddings, vectorStore, retriever, documentLoader, textSplitter, reranker, fromAi, expr } from '@n8n/workflow-sdk';";
+	"import { workflow, node, trigger, sticky, placeholder, newCredential, ifElse, switchCase, merge, splitInBatches, nextBatch, languageModel, memory, tool, outputParser, embedding, embeddings, vectorStore, retriever, documentLoader, textSplitter, reranker, fromAi, expr } from '@resin/workflow-sdk';";
 
 export const WORKFLOW_PATTERNS_DETAILED = `<linear_chain>
 \`\`\`javascript
@@ -16,21 +16,21 @@ ${SDK_IMPORT}
 
 // 1. Define all nodes first
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start', position: [240, 300] },
   output: [{}]
 });
 
 const fetchData = node({
-  type: 'n8n-nodes-base.httpRequest',
+  type: 'resin-nodes-base.httpRequest',
   version: 4.3,
   config: { name: 'Fetch Data', parameters: { method: 'GET', url: '...' }, position: [540, 300] },
   output: [{ id: 1, title: 'Item 1' }]
 });
 
 const processData = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: { name: 'Process Data', parameters: {}, position: [840, 300] },
   output: [{ id: 1, title: 'Item 1', processed: true }]
@@ -140,9 +140,9 @@ const combineResults = merge({
   }
 });
 
-const branch1 = node({ type: 'n8n-nodes-base.httpRequest', ... });
-const branch2 = node({ type: 'n8n-nodes-base.httpRequest', ... });
-const processResults = node({ type: 'n8n-nodes-base.set', ... });
+const branch1 = node({ type: 'resin-nodes-base.httpRequest', ... });
+const branch2 = node({ type: 'resin-nodes-base.httpRequest', ... });
+const processResults = node({ type: 'resin-nodes-base.set', ... });
 
 // Connect branches to specific merge inputs using .input(n).
 // Indices are 0-based: .input(0) is the FIRST input, .input(1) is the SECOND.
@@ -160,25 +160,25 @@ export default workflow('id', 'name')
 <batch_processing>
 \`\`\`javascript
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger', version: 1,
+  type: 'resin-nodes-base.manualTrigger', version: 1,
   config: { name: 'Start', position: [240, 300] },
   output: [{}]
 });
 
 const fetchRecords = node({
-  type: 'n8n-nodes-base.httpRequest', version: 4.3,
+  type: 'resin-nodes-base.httpRequest', version: 4.3,
   config: { name: 'Fetch Records', parameters: { method: 'GET', url: '...' }, position: [540, 300] },
   output: [{ id: 1 }, { id: 2 }, { id: 3 }]
 });
 
 const finalizeResults = node({
-  type: 'n8n-nodes-base.set', version: 3.4,
+  type: 'resin-nodes-base.set', version: 3.4,
   config: { name: 'Finalize', parameters: {}, position: [1140, 200] },
   output: [{ summary: 'Processed 3 records' }]
 });
 
 const processRecord = node({
-  type: 'n8n-nodes-base.httpRequest', version: 4.3,
+  type: 'resin-nodes-base.httpRequest', version: 4.3,
   config: { name: 'Process Record', parameters: { method: 'POST', url: '...' }, position: [1140, 400] },
   output: [{ id: 1, status: 'processed' }]
 });
@@ -199,25 +199,25 @@ export default workflow('id', 'name')
 <multiple_triggers>
 \`\`\`javascript
 const webhookTrigger = trigger({
-  type: 'n8n-nodes-base.webhook', version: 2.1,
+  type: 'resin-nodes-base.webhook', version: 2.1,
   config: { name: 'Webhook', position: [240, 200] },
   output: [{ body: { data: 'webhook payload' } }]
 });
 
 const processWebhook = node({
-  type: 'n8n-nodes-base.set', version: 3.4,
+  type: 'resin-nodes-base.set', version: 3.4,
   config: { name: 'Process Webhook', parameters: {}, position: [540, 200] },
   output: [{ data: 'webhook payload', processed: true }]
 });
 
 const scheduleTrigger = trigger({
-  type: 'n8n-nodes-base.scheduleTrigger', version: 1.3,
+  type: 'resin-nodes-base.scheduleTrigger', version: 1.3,
   config: { name: 'Daily Schedule', parameters: {}, position: [240, 500] },
   output: [{}]
 });
 
 const processSchedule = node({
-  type: 'n8n-nodes-base.set', version: 3.4,
+  type: 'resin-nodes-base.set', version: 3.4,
   config: { name: 'Process Schedule', parameters: {}, position: [540, 500] },
   output: [{ scheduled: true }]
 });
@@ -238,25 +238,25 @@ export default workflow('id', 'name')
 // Never duplicate chains for "isolation" - it's already guaranteed.
 
 const webhookTrigger = trigger({
-  type: 'n8n-nodes-base.webhook', version: 2.1,
+  type: 'resin-nodes-base.webhook', version: 2.1,
   config: { name: 'Webhook Trigger', position: [240, 200] },
   output: [{ source: 'webhook' }]
 });
 
 const scheduleTrigger = trigger({
-  type: 'n8n-nodes-base.scheduleTrigger', version: 1.3,
+  type: 'resin-nodes-base.scheduleTrigger', version: 1.3,
   config: { name: 'Daily Schedule', position: [240, 500] },
   output: [{ source: 'schedule' }]
 });
 
 const processData = node({
-  type: 'n8n-nodes-base.set', version: 3.4,
+  type: 'resin-nodes-base.set', version: 3.4,
   config: { name: 'Process Data', parameters: {}, position: [540, 350] },
   output: [{ processed: true }]
 });
 
 const sendNotification = node({
-  type: 'n8n-nodes-base.slack', version: 2.3,
+  type: 'resin-nodes-base.slack', version: 2.3,
   config: { name: 'Notify Slack', parameters: {}, position: [840, 350] },
   output: [{ ok: true }]
 });
@@ -274,18 +274,18 @@ export default workflow('id', 'name')
 <ai_agent_basic>
 \`\`\`javascript
 const openAiModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi', version: 1.3,
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi', version: 1.3,
   config: { name: 'OpenAI Model', parameters: {}, position: [540, 500] }
 });
 
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger', version: 1,
+  type: 'resin-nodes-base.manualTrigger', version: 1,
   config: { name: 'Start', position: [240, 300] },
   output: [{}]
 });
 
 const aiAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent', version: 3.1,
+  type: '@resin/n8n-nodes-langchain.agent', version: 3.1,
   config: {
     name: 'AI Assistant',
     parameters: { promptType: 'define', text: 'You are a helpful assistant' },
@@ -305,7 +305,7 @@ export default workflow('ai-assistant', 'AI Assistant')
 <ai_agent_with_tools>
 \`\`\`javascript
 const openAiModel = languageModel({
-  type: '@n8n/n8n-nodes-langchain.lmChatOpenAi', version: 1.3,
+  type: '@resin/n8n-nodes-langchain.lmChatOpenAi', version: 1.3,
   config: {
     name: 'OpenAI Model', parameters: {},
     credentials: { openAiApi: newCredential('OpenAI') },
@@ -314,18 +314,18 @@ const openAiModel = languageModel({
 });
 
 const calculatorTool = tool({
-  type: '@n8n/n8n-nodes-langchain.toolCalculator', version: 1,
+  type: '@resin/n8n-nodes-langchain.toolCalculator', version: 1,
   config: { name: 'Calculator', parameters: {}, position: [700, 500] }
 });
 
 const startTrigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger', version: 1,
+  type: 'resin-nodes-base.manualTrigger', version: 1,
   config: { name: 'Start', position: [240, 300] },
   output: [{}]
 });
 
 const aiAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent', version: 3.1,
+  type: '@resin/n8n-nodes-langchain.agent', version: 3.1,
   config: {
     name: 'Math Agent',
     parameters: { promptType: 'define', text: 'You can use tools to help users' },
@@ -345,7 +345,7 @@ export default workflow('ai-calculator', 'AI Calculator')
 <ai_agent_with_from_ai>
 \`\`\`javascript
 const gmailTool = tool({
-  type: 'n8n-nodes-base.gmailTool', version: 1,
+  type: 'resin-nodes-base.gmailTool', version: 1,
   config: {
     name: 'Gmail Tool',
     parameters: {
@@ -359,7 +359,7 @@ const gmailTool = tool({
 });
 
 const aiAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent', version: 3.1,
+  type: '@resin/n8n-nodes-langchain.agent', version: 3.1,
   config: {
     name: 'Email Agent',
     parameters: { promptType: 'define', text: 'You can send emails' },
@@ -378,7 +378,7 @@ export default workflow('ai-email', 'AI Email Sender')
 <ai_agent_with_structured_output>
 \`\`\`javascript
 const structuredParser = outputParser({
-  type: '@n8n/n8n-nodes-langchain.outputParserStructured', version: 1.3,
+  type: '@resin/n8n-nodes-langchain.outputParserStructured', version: 1.3,
   config: {
     name: 'Structured Output Parser',
     parameters: {
@@ -390,7 +390,7 @@ const structuredParser = outputParser({
 });
 
 const aiAgent = node({
-  type: '@n8n/n8n-nodes-langchain.agent', version: 3.1,
+  type: '@resin/n8n-nodes-langchain.agent', version: 3.1,
   config: {
     name: 'Sentiment Analyzer',
     parameters: { promptType: 'define', text: 'Analyze the sentiment of the input text', hasOutputParser: true },

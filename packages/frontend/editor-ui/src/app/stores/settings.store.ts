@@ -4,20 +4,20 @@ import type {
 	IUserManagementSettings,
 	FrontendSettings,
 	FrontendModuleSettings,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
-import * as eventsApi from '@n8n/rest-api-client/api/events';
-import * as settingsApi from '@n8n/rest-api-client/api/settings';
-import * as moduleSettingsApi from '@n8n/rest-api-client/api/module-settings';
-import * as aiUsageApi from '@n8n/rest-api-client/api/ai-usage';
-import { testHealthEndpoint } from '@n8n/rest-api-client/api/templates';
+import * as eventsApi from '@resin/rest-api-client/api/events';
+import * as settingsApi from '@resin/rest-api-client/api/settings';
+import * as moduleSettingsApi from '@resin/rest-api-client/api/module-settings';
+import * as aiUsageApi from '@resin/rest-api-client/api/ai-usage';
+import { testHealthEndpoint } from '@resin/rest-api-client/api/templates';
 import { INSECURE_CONNECTION_WARNING } from '@/app/constants';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { UserManagementAuthenticationMethod } from '@/Interface';
-import type { IDataObject, WorkflowSettings } from 'n8n-workflow';
+import type { IDataObject, WorkflowSettings } from 'resin-workflow';
 import { defineStore } from 'pinia';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { makeRestApiRequest } from '@n8n/rest-api-client';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { makeRestApiRequest } from '@resin/rest-api-client';
 
 export const useSettingsStore = defineStore(STORES.SETTINGS, () => {
 	const initialized = ref(false);

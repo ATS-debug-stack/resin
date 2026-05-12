@@ -4,7 +4,7 @@ import type {
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class GithubIssuesApi implements ICredentialType {
 	name = 'githubIssuesApi';

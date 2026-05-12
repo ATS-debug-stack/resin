@@ -33,7 +33,7 @@ import {
 	NodeConnectionTypes,
 	type IBinaryData,
 	type INodeExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { setActivePinia } from 'pinia';
 import { mock } from 'vitest-mock-extended';
 import { defaultSettings } from '@/__tests__/defaults';
@@ -72,14 +72,14 @@ const ifNode = createTestNode({
 
 const aiTool = createTestNode({
 	name: 'AI Tool',
-	type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+	type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 	typeVersion: 1,
 	disabled: false,
 });
 
 const nodeWithCredential = createTestNode({
 	name: 'Notion',
-	type: 'n8n-nodes-base.notion',
+	type: 'resin-nodes-base.notion',
 	typeVersion: 1,
 	credentials: { notionApi: { id: 'testId', name: 'testName' } },
 	disabled: false,
@@ -99,14 +99,14 @@ const splitInBatchesNode = createTestNode({
 
 const customerDatastoreNode = createTestNode({
 	name: 'Customer Datastore',
-	type: 'n8n-nodes-base.n8nTrainingCustomerDatastore',
+	type: 'resin-nodes-base.n8nTrainingCustomerDatastore',
 	typeVersion: 1,
 	disabled: false,
 });
 
 const mergeNode = createTestNode({
 	name: 'Merge',
-	type: 'n8n-nodes-base.merge',
+	type: 'resin-nodes-base.merge',
 	typeVersion: 3,
 	disabled: false,
 });
@@ -185,7 +185,7 @@ async function setupStore() {
 			outputs: [NodeConnectionTypes.Main, NodeConnectionTypes.Main],
 		}),
 		mockNodeTypeDescription({
-			name: 'n8n-nodes-base.notion',
+			name: 'resin-nodes-base.notion',
 			outputs: [NodeConnectionTypes.Main],
 		}),
 		mockNodeTypeDescription({
@@ -193,11 +193,11 @@ async function setupStore() {
 			outputs: [NodeConnectionTypes.Main, NodeConnectionTypes.Main],
 		}),
 		mockNodeTypeDescription({
-			name: 'n8n-nodes-base.n8nTrainingCustomerDatastore',
+			name: 'resin-nodes-base.n8nTrainingCustomerDatastore',
 			outputs: [NodeConnectionTypes.Main],
 		}),
 		mockNodeTypeDescription({
-			name: 'n8n-nodes-base.merge',
+			name: 'resin-nodes-base.merge',
 			outputs: [NodeConnectionTypes.Main],
 		}),
 	]);
@@ -263,7 +263,7 @@ describe('VirtualSchema.vue', () => {
 
 	const N8nCalloutStub = {
 		template:
-			'<div class="n8n-callout" v-bind="$attrs"><slot></slot><slot name="trailingContent"></slot></div>',
+			'<div class="resin-callout" v-bind="$attrs"><slot></slot><slot name="trailingContent"></slot></div>',
 	};
 
 	const NodeIconStub = {
@@ -658,7 +658,7 @@ describe('VirtualSchema.vue', () => {
 						src_view: 'schema',
 						src_field_name: 'name',
 						src_field_nest_level: 0,
-						src_node_type: 'n8n-nodes-base.manualTrigger',
+						src_node_type: 'resin-nodes-base.manualTrigger',
 						src_nodes_back: '1',
 						src_has_credential: false,
 					}),

@@ -1,5 +1,5 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { User } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { User } from '@resin/db';
 
 import { createValidateWorkflowCodeTool } from '../tools/workflow-builder/validate-workflow-code.tool';
 
@@ -8,7 +8,7 @@ import { Telemetry } from '@/telemetry';
 const mockParseAndValidate = jest.fn();
 const mockStripImportStatements = jest.fn((code: string) => code);
 
-jest.mock('@n8n/ai-workflow-builder', () => ({
+jest.mock('@resin/ai-workflow-builder', () => ({
 	ParseValidateHandler: jest.fn().mockImplementation(() => ({
 		parseAndValidate: mockParseAndValidate,
 	})),

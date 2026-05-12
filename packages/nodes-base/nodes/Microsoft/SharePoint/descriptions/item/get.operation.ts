@@ -1,5 +1,5 @@
-import type { IExecuteSingleFunctions, IHttpRequestOptions, INodeProperties } from 'n8n-workflow';
-import { updateDisplayOptions } from 'n8n-workflow';
+import type { IExecuteSingleFunctions, IHttpRequestOptions, INodeProperties } from 'resin-workflow';
+import { updateDisplayOptions } from 'resin-workflow';
 
 import {
 	itemRLC,

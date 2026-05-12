@@ -1,7 +1,7 @@
-import { testDb } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { User } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { createOwner, createMember } from '@test-integration/db/users';
 import { setupTestServer } from '@test-integration/utils';

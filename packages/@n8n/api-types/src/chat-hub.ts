@@ -1,4 +1,4 @@
-import type { Scope } from '@n8n/permissions';
+import type { Scope } from '@resin/permissions';
 import {
 	CHAT_TOOL_NODE_TYPE,
 	type ChunkType,
@@ -6,7 +6,7 @@ import {
 	type INode,
 	INodeSchema,
 	WORKFLOW_TOOL_LANGCHAIN_NODE_TYPE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { z } from 'zod';
 
 import { TimeZoneSchema } from './schemas/timezone.schema';

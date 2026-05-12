@@ -4,7 +4,7 @@
  * Parses n8n JSON format into internal graph structures.
  */
 
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 
 import {
 	foldLegacyErrorConnections,

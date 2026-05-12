@@ -2,14 +2,14 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { useChatStore } from './chat.store';
 import * as chatApi from './chat.api';
-import type { ChatHubToolDto, ChatHubAgentDto, ChatHubSessionDto } from '@n8n/api-types';
-import type { INode } from 'n8n-workflow';
+import type { ChatHubToolDto, ChatHubAgentDto, ChatHubSessionDto } from '@resin/api-types';
+import type { INode } from 'resin-workflow';
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({ restApiContext: {} }),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({ baseText: (key: string) => key }),
 	i18n: { baseText: (key: string) => key },
 }));
@@ -26,7 +26,7 @@ function createMockNode(overrides: Partial<INode> = {}): INode {
 	return {
 		id: 'tool-1',
 		name: 'Test Tool',
-		type: 'n8n-nodes-base.testTool',
+		type: 'resin-nodes-base.testTool',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},

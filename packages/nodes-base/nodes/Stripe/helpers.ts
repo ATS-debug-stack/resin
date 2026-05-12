@@ -9,7 +9,7 @@ import type {
 	INodePropertyOptions,
 	IHttpRequestMethods,
 	IRequestOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 /**
  * Make an API request to Stripe

@@ -1,4 +1,4 @@
-import type { ChatMessageContentChunk } from '@n8n/api-types';
+import type { ChatMessageContentChunk } from '@resin/api-types';
 
 import { collectChatArtifacts } from './artifact';
 

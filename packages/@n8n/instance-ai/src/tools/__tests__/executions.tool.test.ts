@@ -1,4 +1,4 @@
-import type { InstanceAiPermissions } from '@n8n/api-types';
+import type { InstanceAiPermissions } from '@resin/api-types';
 
 import type { InstanceAiContext, ExecutionResult } from '../../types';
 import { createExecutionsTool } from '../executions.tool';
@@ -334,13 +334,13 @@ describe('executions tool', () => {
 				status: 'error' as const,
 				failedNode: {
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					error: 'Connection refused',
 				},
 				nodeTrace: [
 					{
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						status: 'error' as const,
 					},
 				],

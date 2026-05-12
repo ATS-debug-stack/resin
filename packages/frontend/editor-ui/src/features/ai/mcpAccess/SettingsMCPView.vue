@@ -2,7 +2,7 @@
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { useToast } from '@/app/composables/useToast';
 import type { WorkflowListItem } from '@/Interface';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed, onMounted, ref } from 'vue';
 import { useMCPStore } from '@/features/ai/mcpAccess/mcp.store';
 import { useUsersStore } from '@/features/settings/users/users.store';
@@ -25,10 +25,10 @@ import {
 	N8nText,
 	N8nLink,
 	N8nPreviewTag,
-} from '@n8n/design-system';
-import type { TabOptions } from '@n8n/design-system';
+} from '@resin/design-system';
+import type { TabOptions } from '@resin/design-system';
 import { useMcp } from '@/features/ai/mcpAccess/composables/useMcp';
-import type { OAuthClientResponseDto } from '@n8n/api-types';
+import type { OAuthClientResponseDto } from '@resin/api-types';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { WORKFLOW_DESCRIPTION_MODAL_KEY } from '@/app/constants';
 

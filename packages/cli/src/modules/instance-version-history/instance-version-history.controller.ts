@@ -1,5 +1,5 @@
-import { VersionQueryDto, VersionSinceDateQueryDto } from '@n8n/api-types';
-import { Get, Query, RestController } from '@n8n/decorators';
+import { VersionQueryDto, VersionSinceDateQueryDto } from '@resin/api-types';
+import { Get, Query, RestController } from '@resin/decorators';
 
 import { InstanceVersionHistoryService } from './instance-version-history.service';
 

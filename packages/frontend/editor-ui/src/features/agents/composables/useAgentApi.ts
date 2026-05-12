@@ -6,9 +6,9 @@ import type {
 	AgentSkillMutationResponse,
 	AgentScheduleConfig,
 	ChatIntegrationDescriptor,
-} from '@n8n/api-types';
-import { makeRestApiRequest } from '@n8n/rest-api-client';
-import type { IRestApiContext } from '@n8n/rest-api-client';
+} from '@resin/api-types';
+import { makeRestApiRequest } from '@resin/rest-api-client';
+import type { IRestApiContext } from '@resin/rest-api-client';
 import type { AgentResource, AgentJsonConfig } from '../types';
 
 export const listAgents = async (

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { N8nCallout, N8nOption, N8nSelect } from '@n8n/design-system';
-import { useI18n, type BaseTextKey } from '@n8n/i18n';
+import { N8nCallout, N8nOption, N8nSelect } from '@resin/design-system';
+import { useI18n, type BaseTextKey } from '@resin/i18n';
 import { type SupportedProtocolType } from '../../sso.store';
 import { useRBACStore } from '@/app/stores/rbac.store';
 

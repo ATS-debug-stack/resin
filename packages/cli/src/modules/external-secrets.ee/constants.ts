@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 export const EXTERNAL_SECRETS_DB_KEY = 'feature.externalSecrets';
 export const EXTERNAL_SECRETS_INITIAL_BACKOFF = 10 * 1000;

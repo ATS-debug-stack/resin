@@ -1,4 +1,4 @@
-import { SsrfProtectionConfig } from '@n8n/config';
+import { SsrfProtectionConfig } from '@resin/config';
 import type { LookupAddress } from 'node:dns';
 
 import { InMemoryDnsCache } from '../in-memory-dns-cache.service';

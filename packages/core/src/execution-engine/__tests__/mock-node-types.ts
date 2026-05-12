@@ -5,7 +5,7 @@ import type {
 	EngineResponse,
 	EngineRequest,
 	NodeOutput,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { NodeTypes } from '@test/helpers';
 

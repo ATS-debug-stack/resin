@@ -8,10 +8,10 @@ import {
 	PromptTemplate,
 	SystemMessagePromptTemplate,
 } from '@langchain/core/prompts';
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { OperationalError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { OperationalError } from 'resin-workflow';
 
-import { isChatInstance } from '@n8n/ai-utilities';
+import { isChatInstance } from '@resin/ai-utilities';
 import type { N8nOutputParser } from '@utils/output_parsers/N8nOutputParser';
 
 import { createImageMessage } from './imageUtils';

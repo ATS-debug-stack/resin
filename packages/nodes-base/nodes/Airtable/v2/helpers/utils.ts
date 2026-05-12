@@ -4,7 +4,7 @@ import {
 	isResourceMapperValue,
 	type IDataObject,
 	type NodeApiError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { UpdateRecord } from './interfaces';
 

@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
 import { mock } from 'jest-mock-extended';
 import {
 	type INodeParameters,
@@ -7,7 +7,7 @@ import {
 	type IWorkflowExecuteAdditionalData,
 	type ResourceMapperFields,
 	Expression,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { DynamicNodeParametersService } from '../dynamic-node-parameters.service';
 import { WorkflowLoaderService } from '../workflow-loader.service';
@@ -16,8 +16,8 @@ import { CredentialsFinderService } from '@/credentials/credentials-finder.servi
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';
 import { NodeTypes } from '@/node-types';
 import * as checkAccess from '@/permissions.ee/check-access';
-import { SharedWorkflowRepository } from '@n8n/db';
-import type { User } from '@n8n/db';
+import { SharedWorkflowRepository } from '@resin/db';
+import type { User } from '@resin/db';
 
 describe('DynamicNodeParametersService', () => {
 	const logger = mockInstance(Logger);

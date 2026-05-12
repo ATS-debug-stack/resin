@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue';
-import { truncate } from '@n8n/utils';
-import { useI18n } from '@n8n/i18n';
+import { truncate } from '@resin/utils';
+import { useI18n } from '@resin/i18n';
 import { HoverCardContent, HoverCardPortal, HoverCardRoot, HoverCardTrigger } from 'reka-ui';
 import { convertToDisplayDate } from '@/app/utils/formatters/dateFormatter';
 import type { CSSProperties } from 'vue';

@@ -7,8 +7,8 @@ import type {
 	IWebhookFunctions,
 	IHttpRequestMethods,
 	IRequestOptions,
-} from 'n8n-workflow';
-import { BINARY_ENCODING, NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { BINARY_ENCODING, NodeApiError, NodeOperationError } from 'resin-workflow';
 
 function getEnvironment(env: string) {
 	return {

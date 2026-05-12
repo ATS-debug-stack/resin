@@ -1,10 +1,10 @@
 import { createPinia, setActivePinia } from 'pinia';
 import { useRoleMappingRules } from './useRoleMappingRules';
-import * as roleMappingRuleApi from '@n8n/rest-api-client/api/roleMappingRule';
-import type { RoleMappingRuleResponse } from '@n8n/rest-api-client/api/roleMappingRule';
+import * as roleMappingRuleApi from '@resin/rest-api-client/api/roleMappingRule';
+import type { RoleMappingRuleResponse } from '@resin/rest-api-client/api/roleMappingRule';
 
-vi.mock('@n8n/rest-api-client/api/roleMappingRule');
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/rest-api-client/api/roleMappingRule');
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({
 		restApiContext: {},
 	}),

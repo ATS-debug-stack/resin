@@ -1,6 +1,6 @@
 import type { BaseLanguageModel } from '@langchain/core/language_models/base';
 import { OutputParserException } from '@langchain/core/output_parsers';
-import { normalizeItems } from 'n8n-core';
+import { normalizeItems } from 'resin-core';
 import {
 	jsonParse,
 	NodeConnectionTypes,
@@ -8,7 +8,7 @@ import {
 	type INode,
 	type ISupplyDataFunctions,
 	type IWorkflowDataProxyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { mock, type MockProxy } from 'vitest-mock-extended';
 
 import {

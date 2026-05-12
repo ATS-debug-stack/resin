@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { N8nButton, N8nCard, N8nInput, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import type { InstanceAiConfirmation } from '@n8n/api-types';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { N8nButton, N8nCard, N8nInput, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import type { InstanceAiConfirmation } from '@resin/api-types';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { computed, ref } from 'vue';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useThread, type PendingConfirmationItem } from '../instanceAi.store';

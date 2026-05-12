@@ -1,6 +1,6 @@
-import { testDb } from '@n8n/backend-test-utils';
-import { AuthIdentityRepository, ProjectRepository, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb } from '@resin/backend-test-utils';
+import { AuthIdentityRepository, ProjectRepository, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { generateKeyPairSync, randomUUID } from 'crypto';
 import jwt from 'jsonwebtoken';
 
@@ -13,7 +13,7 @@ import {
 	type TokenExchangeSuccessResponse,
 } from '@/modules/token-exchange/token-exchange.types';
 import { JwtService } from '@/services/jwt.service';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import { createUser } from '../shared/db/users';
 import * as utils from '../shared/utils';

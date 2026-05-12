@@ -3,9 +3,9 @@ import {
 	ListEncryptionKeysQueryDto,
 	type EncryptionKey,
 	type EncryptionKeysList,
-} from '@n8n/api-types';
-import { type DeploymentKey } from '@n8n/db';
-import { Body, Get, GlobalScope, Post, Query, RestController } from '@n8n/decorators';
+} from '@resin/api-types';
+import { type DeploymentKey } from '@resin/db';
+import { Body, Get, GlobalScope, Post, Query, RestController } from '@resin/decorators';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 

@@ -10,7 +10,7 @@ ruleTester.run('no-template-placeholders', NoTemplatePlaceholdersRule, {
 			name: 'package.json with no placeholders',
 			filename: 'package.json',
 			code: `{
-				"name": "n8n-nodes-example",
+				"name": "resin-nodes-example",
 				"version": "1.0.0",
 				"description": "An example community node",
 				"homepage": "https://example.com",
@@ -35,14 +35,14 @@ ruleTester.run('no-template-placeholders', NoTemplatePlaceholdersRule, {
 		{
 			name: 'numeric and boolean values are not flagged',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-example", "private": false, "engines": { "node": ">=18" } }',
+			code: '{ "name": "resin-nodes-example", "private": false, "engines": { "node": ">=18" } }',
 		},
 	],
 	invalid: [
 		{
 			name: 'angle bracket placeholder in name',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-<PACKAGE_NAME>" }',
+			code: '{ "name": "resin-nodes-<PACKAGE_NAME>" }',
 			errors: [
 				{
 					messageId: 'unresolvedPlaceholder',

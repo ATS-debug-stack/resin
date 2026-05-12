@@ -1,5 +1,5 @@
 // Mock the barrel import to avoid pulling in @mastra/core (ESM-only transitive deps)
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	wrapUntrustedData(content: string, source: string, label?: string): string {
 		const esc = (s: string) =>
 			s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -9,7 +9,7 @@ jest.mock('@n8n/instance-ai', () => ({
 	},
 }));
 
-import type { ExecutionError, IRunExecutionData, ITaskData } from 'n8n-workflow';
+import type { ExecutionError, IRunExecutionData, ITaskData } from 'resin-workflow';
 
 import {
 	extractExecutionResult,
@@ -574,8 +574,8 @@ describe('extractExecutionDebugInfo', () => {
 		const execution = makeExecution({
 			status: 'success',
 			workflowNodes: [
-				{ name: 'Start', type: 'n8n-nodes-base.start' },
-				{ name: 'HTTP', type: 'n8n-nodes-base.httpRequest' },
+				{ name: 'Start', type: 'resin-nodes-base.start' },
+				{ name: 'HTTP', type: 'resin-nodes-base.httpRequest' },
 			],
 			runData: {
 				Start: [makeTaskData([{ ok: true }], { startTime: 1000, executionTime: 100 })],
@@ -594,12 +594,12 @@ describe('extractExecutionDebugInfo', () => {
 
 		const startTrace = result.nodeTrace.find((n) => n.name === 'Start');
 		expect(startTrace).toBeDefined();
-		expect(startTrace!.type).toBe('n8n-nodes-base.start');
+		expect(startTrace!.type).toBe('resin-nodes-base.start');
 		expect(startTrace!.status).toBe('success');
 
 		const httpTrace = result.nodeTrace.find((n) => n.name === 'HTTP');
 		expect(httpTrace).toBeDefined();
-		expect(httpTrace!.type).toBe('n8n-nodes-base.httpRequest');
+		expect(httpTrace!.type).toBe('resin-nodes-base.httpRequest');
 		expect(httpTrace!.status).toBe('success');
 	});
 
@@ -609,8 +609,8 @@ describe('extractExecutionDebugInfo', () => {
 			status: 'error',
 			error: { message: 'Workflow failed' },
 			workflowNodes: [
-				{ name: 'Start', type: 'n8n-nodes-base.start' },
-				{ name: 'HTTP', type: 'n8n-nodes-base.httpRequest' },
+				{ name: 'Start', type: 'resin-nodes-base.start' },
+				{ name: 'HTTP', type: 'resin-nodes-base.httpRequest' },
 			],
 			runData: {
 				Start: [makeTaskData([{ ok: true }], { startTime: 1000, executionTime: 100 })],
@@ -633,7 +633,7 @@ describe('extractExecutionDebugInfo', () => {
 		expect(result.status).toBe('error');
 		expect(result.failedNode).toBeDefined();
 		expect(result.failedNode!.name).toBe('HTTP');
-		expect(result.failedNode!.type).toBe('n8n-nodes-base.httpRequest');
+		expect(result.failedNode!.type).toBe('resin-nodes-base.httpRequest');
 		expect(result.failedNode!.error).toBe('Connection refused');
 	});
 
@@ -649,7 +649,7 @@ describe('extractExecutionDebugInfo', () => {
 		};
 		const execution = makeExecution({
 			status: 'error',
-			workflowNodes: [{ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }],
+			workflowNodes: [{ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }],
 			runData: {
 				'AI Agent': [
 					makeTaskData([{ chatInput: 'Hello' }], {
@@ -685,7 +685,7 @@ describe('extractExecutionDebugInfo', () => {
 		};
 		const execution = makeExecution({
 			status: 'error',
-			workflowNodes: [{ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }],
+			workflowNodes: [{ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }],
 			runData: {
 				'AI Agent': [makeTaskData([{ chatInput: 'Hello' }], { error: deserialized })],
 			},
@@ -937,11 +937,11 @@ import type {
 	ProjectRepository,
 	SharedWorkflowRepository,
 	WorkflowRepository,
-} from '@n8n/db';
+} from '@resin/db';
 import type { DataTableRepository } from '@/modules/data-table/data-table.repository';
 import type { DataTableService } from '@/modules/data-table/data-table.service';
 import type { SourceControlPreferencesService } from '@/modules/source-control.ee/source-control-preferences.service.ee';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 import type { WorkflowService } from '@/workflows/workflow.service';
 import type { License } from '@/license';
 import type { RoleService } from '@/services/role.service';
@@ -1015,7 +1015,7 @@ describe('createNodeAdapter', () => {
 	it('preserves credential displayOptions in getDescription()', async () => {
 		const adapter = createNodeAdapterForTests([
 			{
-				name: 'n8n-nodes-base.webhook',
+				name: 'resin-nodes-base.webhook',
 				displayName: 'Webhook',
 				description: 'Starts the workflow when a webhook is called',
 				group: ['trigger'],
@@ -1038,7 +1038,7 @@ describe('createNodeAdapter', () => {
 			},
 		]);
 
-		const result = await adapter.getDescription('n8n-nodes-base.webhook', 2.1);
+		const result = await adapter.getDescription('resin-nodes-base.webhook', 2.1);
 
 		expect(result.credentials).toEqual([
 			{

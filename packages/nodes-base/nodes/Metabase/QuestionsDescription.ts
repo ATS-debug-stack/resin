@@ -1,5 +1,5 @@
-import type { IDataObject, INodeProperties } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+import type { IDataObject, INodeProperties } from 'resin-workflow';
+import { jsonParse } from 'resin-workflow';
 
 export const questionsOperations: INodeProperties[] = [
 	{

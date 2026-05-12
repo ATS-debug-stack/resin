@@ -2,7 +2,7 @@ import type { ComputedRef } from 'vue';
 import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import type { LocationQueryValue } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 import { EVALS_SECTION_KEY, EXECUTIONS_SECTION_KEY } from '../constants';
 

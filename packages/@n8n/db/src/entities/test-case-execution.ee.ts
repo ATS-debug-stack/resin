@@ -1,5 +1,5 @@
-import { Column, Entity, ManyToOne, OneToOne } from '@n8n/typeorm';
-import type { IDataObject, JsonObject } from 'n8n-workflow';
+import { Column, Entity, ManyToOne, OneToOne } from '@resin/typeorm';
+import type { IDataObject, JsonObject } from 'resin-workflow';
 
 import { WithStringId, DateTimeColumn, JsonColumn } from './abstract-entity';
 import type { ExecutionEntity } from './execution-entity';

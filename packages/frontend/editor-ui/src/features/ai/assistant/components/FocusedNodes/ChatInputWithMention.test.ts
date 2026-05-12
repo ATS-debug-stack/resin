@@ -29,7 +29,7 @@ vi.mock('./NodeMentionDropdown.vue', () => ({
 }));
 
 // Mock N8nPromptInput
-vi.mock('@n8n/design-system', async (importOriginal) => {
+vi.mock('@resin/design-system', async (importOriginal) => {
 	const actual = await importOriginal<Record<string, unknown>>();
 	return {
 		...actual,
@@ -104,7 +104,7 @@ vi.mock('@vueuse/core', async (importOriginal) => {
 });
 
 // Mock i18n
-vi.mock('@n8n/i18n', async (importOriginal) => ({
+vi.mock('@resin/i18n', async (importOriginal) => ({
 	...(await importOriginal()),
 	useI18n: () => ({
 		baseText: (key: string, opts?: { interpolate?: Record<string, unknown> }) =>
@@ -124,7 +124,7 @@ const renderComponent = createComponentRenderer(ChatInputWithMention);
 const createFocusedNode = (id: string, name: string, state: FocusedNode['state']): FocusedNode => ({
 	nodeId: id,
 	nodeName: name,
-	nodeType: 'n8n-nodes-base.httpRequest',
+	nodeType: 'resin-nodes-base.httpRequest',
 	state,
 });
 

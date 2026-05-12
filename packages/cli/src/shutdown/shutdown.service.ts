@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import type { ShutdownHandler } from '@n8n/decorators';
-import { ShutdownMetadata } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { ErrorReporter } from 'n8n-core';
-import { assert, UnexpectedError, UserError } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import type { ShutdownHandler } from '@resin/decorators';
+import { ShutdownMetadata } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { ErrorReporter } from 'resin-core';
+import { assert, UnexpectedError, UserError } from 'resin-workflow';
 
 /** Error reported when a listener fails to shutdown gracefully */
 export class ComponentShutdownError extends UnexpectedError {

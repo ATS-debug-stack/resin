@@ -1,8 +1,8 @@
-import type { UpsertEvaluationConfigDto } from '@n8n/api-types';
-import { LicenseState } from '@n8n/backend-common';
-import type { EvaluationConfig, User, WorkflowEntity } from '@n8n/db';
-import { EvaluationConfigRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { UpsertEvaluationConfigDto } from '@resin/api-types';
+import { LicenseState } from '@resin/backend-common';
+import type { EvaluationConfig, User, WorkflowEntity } from '@resin/db';
+import { EvaluationConfigRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import { nanoid } from 'nanoid';
 
 import { EvaluationConfigValidator } from './evaluation-config-validator';

@@ -17,13 +17,13 @@ jest.mock('fs/promises', () => ({
 	readFile: jest.fn(),
 }));
 
-jest.mock('n8n-workflow', () => ({
+jest.mock('resin-workflow', () => ({
 	jsonParse: jest.fn(),
 }));
 
 describe('tiktoken utils', () => {
 	const mockReadFile = require('fs/promises').readFile;
-	const mockJsonParse = require('n8n-workflow').jsonParse;
+	const mockJsonParse = require('resin-workflow').jsonParse;
 
 	beforeEach(() => {
 		jest.clearAllMocks();

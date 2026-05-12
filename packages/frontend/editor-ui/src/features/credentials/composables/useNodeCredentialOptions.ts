@@ -13,7 +13,7 @@ import {
 	type INodeCredentialDescription,
 	type INodeTypeDescription,
 	type NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	computed,
 	toValue,

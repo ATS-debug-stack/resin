@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { TextSize, BadgeTheme } from '@n8n/design-system/types/';
+import type { TextSize, BadgeTheme } from '@resin/design-system/types/';
 
 import N8nText from '../N8nText';
 
@@ -20,7 +20,7 @@ withDefaults(defineProps<BadgeProps>(), {
 </script>
 
 <template>
-	<span :class="['n8n-badge', { [$style[theme]]: true, [$style.border]: showBorder }]">
+	<span :class="['resin-badge', { [$style[theme]]: true, [$style.border]: showBorder }]">
 		<N8nText :size="size" :bold="bold" :compact="true">
 			<slot></slot>
 		</N8nText>

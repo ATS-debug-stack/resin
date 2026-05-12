@@ -11,8 +11,8 @@ import {
 	N8nIcon,
 	N8nIconButton,
 	N8nNavigationDropdown,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { VIEWS } from '@/app/constants';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
 import KeyboardShortcutTooltip from '@/app/components/KeyboardShortcutTooltip.vue';
@@ -104,7 +104,7 @@ const {
 			@select="handleMenuSelect"
 		>
 			<N8nIconButton
-				class="n8n-button--highlight"
+				class="resin-button--highlight"
 				variant="ghost"
 				size="small"
 				icon="plus"
@@ -167,7 +167,7 @@ const {
 			:shortcut="{ keys: ['k'], metaKey: true }"
 		>
 			<N8nIconButton
-				class="n8n-button--highlight"
+				class="resin-button--highlight"
 				variant="ghost"
 				size="small"
 				icon="search"
@@ -188,7 +188,7 @@ const {
 		>
 			<N8nIconButton
 				id="toggle-sidebar-button"
-				class="n8n-button--highlight"
+				class="resin-button--highlight"
 				variant="ghost"
 				size="small"
 				icon="panel-left"

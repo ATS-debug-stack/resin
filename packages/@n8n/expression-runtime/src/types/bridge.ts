@@ -48,7 +48,7 @@ export interface RuntimeBridge {
 }
 
 /**
- * Logger interface matching n8n-workflow's Logger type.
+ * Logger interface matching resin-workflow's Logger type.
  * Accepts an optional metadata bag on each call.
  */
 export interface Logger {

@@ -4,11 +4,11 @@ jest.mock('@/modules/community-packages/npm-utils', () => ({
 	verifyIntegrity: jest.fn(),
 }));
 
-import { mockInstance, testDb } from '@n8n/backend-test-utils';
-import type { CommunityNodeType } from '@n8n/api-types';
-import type { User } from '@n8n/db';
-import type { ApiKeyScope } from '@n8n/permissions';
-import { OWNER_API_KEY_SCOPES } from '@n8n/permissions';
+import { mockInstance, testDb } from '@resin/backend-test-utils';
+import type { CommunityNodeType } from '@resin/api-types';
+import type { User } from '@resin/db';
+import type { ApiKeyScope } from '@resin/permissions';
+import { OWNER_API_KEY_SCOPES } from '@resin/permissions';
 import { mock } from 'jest-mock-extended';
 import path from 'node:path';
 

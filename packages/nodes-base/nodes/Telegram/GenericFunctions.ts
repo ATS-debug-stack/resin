@@ -7,8 +7,8 @@ import type {
 	IRequestOptions,
 	IWebhookFunctions,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import { getSendAndWaitConfig } from '../../utils/sendAndWait/utils';
 import { createUtmCampaignLink } from '../../utils/utilities';
@@ -81,7 +81,7 @@ export function addAdditionalFields(
 
 	if (operation === 'sendMessage') {
 		const attributionText = 'This message was sent automatically with ';
-		const link = createUtmCampaignLink('n8n-nodes-base.telegram', instanceId);
+		const link = createUtmCampaignLink('resin-nodes-base.telegram', instanceId);
 
 		if (nodeVersion && nodeVersion >= 1.1 && additionalFields.appendAttribution === undefined) {
 			additionalFields.appendAttribution = true;
@@ -263,7 +263,7 @@ export function createSendAndWaitMessageBody(context: IExecuteFunctions) {
 	if (config.appendAttribution !== false) {
 		const instanceId = context.getInstanceId();
 		const attributionText = 'This message was sent automatically with ';
-		const link = createUtmCampaignLink('n8n-nodes-base.telegram', instanceId);
+		const link = createUtmCampaignLink('resin-nodes-base.telegram', instanceId);
 		text = `${text}\n\n_${attributionText}_[n8n](${link})`;
 	}
 

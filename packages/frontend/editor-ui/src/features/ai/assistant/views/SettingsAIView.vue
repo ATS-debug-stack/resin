@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
-import { N8nHeading, N8nCheckbox, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nHeading, N8nCheckbox, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useToast } from '@/app/composables/useToast';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { useAssistantStore } from '@/features/ai/assistant/assistant.store';

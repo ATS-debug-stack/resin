@@ -1,6 +1,6 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import type { StructuredToolInterface } from '@langchain/core/tools';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import type { PlanOutput } from '../../../types/planning';
 import type { ChatPayload } from '../../../workflow-builder-agent';
@@ -26,7 +26,7 @@ function createMockLlm() {
 }
 
 const mockHttpRequestNodeType: INodeTypeDescription = {
-	name: 'n8n-nodes-base.httpRequest',
+	name: 'resin-nodes-base.httpRequest',
 	displayName: 'HTTP Request',
 	description: 'Makes HTTP requests',
 	group: ['transform'],
@@ -38,7 +38,7 @@ const mockHttpRequestNodeType: INodeTypeDescription = {
 };
 
 const mockSlackNodeType: INodeTypeDescription = {
-	name: 'n8n-nodes-base.slack',
+	name: 'resin-nodes-base.slack',
 	displayName: 'Slack',
 	description: 'Send messages to Slack',
 	group: ['output'],
@@ -50,7 +50,7 @@ const mockSlackNodeType: INodeTypeDescription = {
 };
 
 const mockSetNodeType: INodeTypeDescription = {
-	name: 'n8n-nodes-base.set',
+	name: 'resin-nodes-base.set',
 	displayName: 'Edit Fields',
 	description: 'Modify, add, or remove item fields',
 	group: ['transform'],
@@ -65,8 +65,8 @@ const mockPlan: PlanOutput = {
 	summary: 'Fetch weather and send Slack alert',
 	trigger: 'Runs every morning at 7 AM',
 	steps: [
-		{ description: 'Fetch weather forecast', suggestedNodes: ['n8n-nodes-base.httpRequest'] },
-		{ description: 'Send Slack notification', suggestedNodes: ['n8n-nodes-base.slack'] },
+		{ description: 'Fetch weather forecast', suggestedNodes: ['resin-nodes-base.httpRequest'] },
+		{ description: 'Send Slack notification', suggestedNodes: ['resin-nodes-base.slack'] },
 	],
 };
 
@@ -200,8 +200,8 @@ describe('ChatSetupHandler', () => {
 			// formatNodeResult calls getNodeType multiple times per node (for hints, discriminators, etc.)
 			// Verify that both node types were looked up
 			const calledNodeIds = new Set(getNodeTypeSpy.mock.calls.map((call) => call[0]));
-			expect(calledNodeIds).toContain('n8n-nodes-base.httpRequest');
-			expect(calledNodeIds).toContain('n8n-nodes-base.slack');
+			expect(calledNodeIds).toContain('resin-nodes-base.httpRequest');
+			expect(calledNodeIds).toContain('resin-nodes-base.slack');
 		});
 
 		it('does NOT look up nodes when planOutput is absent', async () => {
@@ -301,11 +301,11 @@ describe('ChatSetupHandler', () => {
 				steps: [
 					{
 						description: 'Step 1',
-						suggestedNodes: ['n8n-nodes-base.httpRequest', 'n8n-nodes-base.set'],
+						suggestedNodes: ['resin-nodes-base.httpRequest', 'resin-nodes-base.set'],
 					},
 					{
 						description: 'Step 2',
-						suggestedNodes: ['n8n-nodes-base.httpRequest', 'n8n-nodes-base.slack'],
+						suggestedNodes: ['resin-nodes-base.httpRequest', 'resin-nodes-base.slack'],
 					},
 				],
 			};
@@ -321,9 +321,9 @@ describe('ChatSetupHandler', () => {
 			// Verify all three unique nodes were looked up (getNodeType is called
 			// multiple times per node internally by formatNodeResult helpers)
 			const calledNodeIds = new Set(getNodeTypeSpy.mock.calls.map((call) => call[0]));
-			expect(calledNodeIds).toContain('n8n-nodes-base.httpRequest');
-			expect(calledNodeIds).toContain('n8n-nodes-base.set');
-			expect(calledNodeIds).toContain('n8n-nodes-base.slack');
+			expect(calledNodeIds).toContain('resin-nodes-base.httpRequest');
+			expect(calledNodeIds).toContain('resin-nodes-base.set');
+			expect(calledNodeIds).toContain('resin-nodes-base.slack');
 			// httpRequest appears in both steps but extractNodeNamesFromPlan deduplicates
 			expect(calledNodeIds.size).toBe(3);
 		});
@@ -368,9 +368,9 @@ describe('ChatSetupHandler', () => {
 					{
 						description: 'Step 1',
 						suggestedNodes: [
-							'n8n-nodes-base.httpRequest',
-							'@n8n/n8n-nodes-langchain.agent',
-							'n8n-nodes-base.slack',
+							'resin-nodes-base.httpRequest',
+							'@resin/n8n-nodes-langchain.agent',
+							'resin-nodes-base.slack',
 						],
 					},
 				],
@@ -379,9 +379,9 @@ describe('ChatSetupHandler', () => {
 			const names = extractNodeNamesFromPlan(plan);
 
 			expect(names).toEqual([
-				'n8n-nodes-base.httpRequest',
-				'@n8n/n8n-nodes-langchain.agent',
-				'n8n-nodes-base.slack',
+				'resin-nodes-base.httpRequest',
+				'@resin/n8n-nodes-langchain.agent',
+				'resin-nodes-base.slack',
 			]);
 		});
 
@@ -400,12 +400,12 @@ describe('ChatSetupHandler', () => {
 				summary: 'Test',
 				trigger: 'Manual',
 				steps: [
-					{ description: 'Step 1', suggestedNodes: ['n8n-nodes-base.httpRequest'] },
-					{ description: 'Step 2', suggestedNodes: ['n8n-nodes-base.httpRequest'] },
+					{ description: 'Step 1', suggestedNodes: ['resin-nodes-base.httpRequest'] },
+					{ description: 'Step 2', suggestedNodes: ['resin-nodes-base.httpRequest'] },
 				],
 			};
 
-			expect(extractNodeNamesFromPlan(plan)).toEqual(['n8n-nodes-base.httpRequest']);
+			expect(extractNodeNamesFromPlan(plan)).toEqual(['resin-nodes-base.httpRequest']);
 		});
 	});
 });

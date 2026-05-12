@@ -1,7 +1,7 @@
 import type { SecretsManager, SecretsManagerClientConfig } from '@aws-sdk/client-secrets-manager';
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
-import type { INodeProperties } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
+import type { INodeProperties } from 'resin-workflow';
 
 import { DOCS_HELP_NOTICE } from '../constants';
 import { UnknownAuthTypeError } from '../errors/unknown-auth-type.error';

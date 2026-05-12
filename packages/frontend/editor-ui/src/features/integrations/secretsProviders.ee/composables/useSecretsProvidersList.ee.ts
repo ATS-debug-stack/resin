@@ -1,10 +1,10 @@
 import { computed, ref } from 'vue';
-import type { SecretProviderConnection, SecretProviderTypeResponse } from '@n8n/api-types';
+import type { SecretProviderConnection, SecretProviderTypeResponse } from '@resin/api-types';
 import { EnterpriseEditionFeature } from '@/app/constants';
 import { useSettingsStore } from '@/app/stores/settings.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useRBACStore } from '@/app/stores/rbac.store';
-import * as secretsProviderApi from '@n8n/rest-api-client';
+import * as secretsProviderApi from '@resin/rest-api-client';
 
 export function useSecretsProvidersList() {
 	const settingsStore = useSettingsStore();

@@ -11,16 +11,16 @@ import {
 	type McpToolCallResult,
 	type ToolCategory,
 	type TaskList,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig, SsrfProtectionConfig } from '@n8n/config';
-import { ErrorReporter } from 'n8n-core';
-import type { InstanceAiConfig } from '@n8n/config';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig, SsrfProtectionConfig } from '@resin/config';
+import { ErrorReporter } from 'resin-core';
+import type { InstanceAiConfig } from '@resin/config';
 
 import { SsrfProtectionService } from '@/services/ssrf/ssrf-protection.service';
-import { AiBuilderTemporaryWorkflowRepository, UserRepository, type User } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
+import { AiBuilderTemporaryWorkflowRepository, UserRepository, type User } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
 import { UrlService } from '@/services/url.service';
 import {
 	MAX_STEPS,
@@ -83,10 +83,10 @@ import {
 	type WorkSummary,
 	WorkflowTaskCoordinator,
 	WorkflowLoopStorage,
-} from '@n8n/instance-ai';
-import { setSchemaBaseDirs } from '@n8n/workflow-sdk';
+} from '@resin/instance-ai';
+import { setSchemaBaseDirs } from '@resin/workflow-sdk';
 import { nanoid } from 'nanoid';
-import { OperationalError, UnexpectedError, UserError } from 'n8n-workflow';
+import { OperationalError, UnexpectedError, UserError } from 'resin-workflow';
 import type * as Undici from 'undici';
 import { v5 as uuidv5 } from 'uuid';
 
@@ -505,8 +505,8 @@ export class InstanceAiService {
 			return {
 				enabled: false,
 				provider:
-					sandboxProvider === 'n8n-sandbox'
-						? 'n8n-sandbox'
+					sandboxProvider === 'resin-sandbox'
+						? 'resin-sandbox'
 						: sandboxProvider === 'daytona'
 							? 'daytona'
 							: 'local',
@@ -526,10 +526,10 @@ export class InstanceAiService {
 			};
 		}
 
-		if (sandboxProvider === 'n8n-sandbox') {
+		if (sandboxProvider === 'resin-sandbox') {
 			return {
 				enabled: true,
-				provider: 'n8n-sandbox',
+				provider: 'resin-sandbox',
 				serviceUrl: n8nSandboxServiceUrl || undefined,
 				apiKey: n8nSandboxServiceApiKey || undefined,
 				timeout: sandboxTimeout,
@@ -574,7 +574,7 @@ export class InstanceAiService {
 				daytonaApiKey: daytona.apiKey ?? base.daytonaApiKey,
 			};
 		}
-		if (base.provider === 'n8n-sandbox') {
+		if (base.provider === 'resin-sandbox') {
 			const sandbox = await this.settingsService.resolveN8nSandboxConfig(user);
 			return {
 				...base,
@@ -2793,7 +2793,7 @@ export class InstanceAiService {
 			// When trace replay is enabled but LangSmith isn't configured,
 			// create a minimal context that only supports replay/record wrapping.
 			if (!tracing && process.env.E2E_TESTS === 'true') {
-				const { createTraceReplayOnlyContext } = await import('@n8n/instance-ai');
+				const { createTraceReplayOnlyContext } = await import('@resin/instance-ai');
 				tracing = createTraceReplayOnlyContext();
 			}
 

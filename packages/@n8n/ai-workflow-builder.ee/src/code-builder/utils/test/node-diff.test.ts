@@ -9,14 +9,14 @@ describe('calculateNodeChanges', () => {
 		it('should return zeros for identical workflows', () => {
 			const before = {
 				nodes: [
-					{ name: 'Node1', type: 'n8n-nodes-base.start' },
-					{ name: 'Node2', type: 'n8n-nodes-base.httpRequest' },
+					{ name: 'Node1', type: 'resin-nodes-base.start' },
+					{ name: 'Node2', type: 'resin-nodes-base.httpRequest' },
 				],
 			};
 			const after = {
 				nodes: [
-					{ name: 'Node1', type: 'n8n-nodes-base.start' },
-					{ name: 'Node2', type: 'n8n-nodes-base.httpRequest' },
+					{ name: 'Node1', type: 'resin-nodes-base.start' },
+					{ name: 'Node2', type: 'resin-nodes-base.httpRequest' },
 				],
 			};
 
@@ -31,13 +31,13 @@ describe('calculateNodeChanges', () => {
 
 		it('should detect added nodes', () => {
 			const before = {
-				nodes: [{ name: 'Node1', type: 'n8n-nodes-base.start' }],
+				nodes: [{ name: 'Node1', type: 'resin-nodes-base.start' }],
 			};
 			const after = {
 				nodes: [
-					{ name: 'Node1', type: 'n8n-nodes-base.start' },
-					{ name: 'Node2', type: 'n8n-nodes-base.httpRequest' },
-					{ name: 'Node3', type: 'n8n-nodes-base.set' },
+					{ name: 'Node1', type: 'resin-nodes-base.start' },
+					{ name: 'Node2', type: 'resin-nodes-base.httpRequest' },
+					{ name: 'Node3', type: 'resin-nodes-base.set' },
 				],
 			};
 
@@ -50,13 +50,13 @@ describe('calculateNodeChanges', () => {
 		it('should detect removed nodes', () => {
 			const before = {
 				nodes: [
-					{ name: 'Node1', type: 'n8n-nodes-base.start' },
-					{ name: 'Node2', type: 'n8n-nodes-base.httpRequest' },
-					{ name: 'Node3', type: 'n8n-nodes-base.set' },
+					{ name: 'Node1', type: 'resin-nodes-base.start' },
+					{ name: 'Node2', type: 'resin-nodes-base.httpRequest' },
+					{ name: 'Node3', type: 'resin-nodes-base.set' },
 				],
 			};
 			const after = {
-				nodes: [{ name: 'Node1', type: 'n8n-nodes-base.start' }],
+				nodes: [{ name: 'Node1', type: 'resin-nodes-base.start' }],
 			};
 
 			const result = calculateNodeChanges(before, after);
@@ -68,14 +68,14 @@ describe('calculateNodeChanges', () => {
 		it('should detect modified nodes', () => {
 			const before = {
 				nodes: [
-					{ name: 'Node1', type: 'n8n-nodes-base.start' },
-					{ name: 'Node2', type: 'n8n-nodes-base.httpRequest', parameters: { url: 'old' } },
+					{ name: 'Node1', type: 'resin-nodes-base.start' },
+					{ name: 'Node2', type: 'resin-nodes-base.httpRequest', parameters: { url: 'old' } },
 				],
 			};
 			const after = {
 				nodes: [
-					{ name: 'Node1', type: 'n8n-nodes-base.start' },
-					{ name: 'Node2', type: 'n8n-nodes-base.httpRequest', parameters: { url: 'new' } },
+					{ name: 'Node1', type: 'resin-nodes-base.start' },
+					{ name: 'Node2', type: 'resin-nodes-base.httpRequest', parameters: { url: 'new' } },
 				],
 			};
 
@@ -89,16 +89,16 @@ describe('calculateNodeChanges', () => {
 		it('should handle all three types of changes simultaneously', () => {
 			const before = {
 				nodes: [
-					{ name: 'Keep', type: 'n8n-nodes-base.start' },
-					{ name: 'Remove', type: 'n8n-nodes-base.set' },
-					{ name: 'Modify', type: 'n8n-nodes-base.httpRequest', parameters: { url: 'old' } },
+					{ name: 'Keep', type: 'resin-nodes-base.start' },
+					{ name: 'Remove', type: 'resin-nodes-base.set' },
+					{ name: 'Modify', type: 'resin-nodes-base.httpRequest', parameters: { url: 'old' } },
 				],
 			};
 			const after = {
 				nodes: [
-					{ name: 'Keep', type: 'n8n-nodes-base.start' },
-					{ name: 'Add', type: 'n8n-nodes-base.code' },
-					{ name: 'Modify', type: 'n8n-nodes-base.httpRequest', parameters: { url: 'new' } },
+					{ name: 'Keep', type: 'resin-nodes-base.start' },
+					{ name: 'Add', type: 'resin-nodes-base.code' },
+					{ name: 'Modify', type: 'resin-nodes-base.httpRequest', parameters: { url: 'new' } },
 				],
 			};
 
@@ -114,8 +114,8 @@ describe('calculateNodeChanges', () => {
 		it('should handle null before workflow', () => {
 			const after = {
 				nodes: [
-					{ name: 'Node1', type: 'n8n-nodes-base.start' },
-					{ name: 'Node2', type: 'n8n-nodes-base.httpRequest' },
+					{ name: 'Node1', type: 'resin-nodes-base.start' },
+					{ name: 'Node2', type: 'resin-nodes-base.httpRequest' },
 				],
 			};
 
@@ -129,8 +129,8 @@ describe('calculateNodeChanges', () => {
 		it('should handle null after workflow', () => {
 			const before = {
 				nodes: [
-					{ name: 'Node1', type: 'n8n-nodes-base.start' },
-					{ name: 'Node2', type: 'n8n-nodes-base.httpRequest' },
+					{ name: 'Node1', type: 'resin-nodes-base.start' },
+					{ name: 'Node2', type: 'resin-nodes-base.httpRequest' },
 				],
 			};
 

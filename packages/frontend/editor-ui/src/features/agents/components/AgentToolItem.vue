@@ -10,9 +10,9 @@
  * Kept as a sibling component so Chat Hub's list item remains untouched.
  */
 import NodeIcon from '@/app/components/NodeIcon.vue';
-import { N8nButton, N8nIconButton, N8nText, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import type { INode, INodeTypeDescription } from 'n8n-workflow';
+import { N8nButton, N8nIconButton, N8nText, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import type { INode, INodeTypeDescription } from 'resin-workflow';
 import { computed, useCssModule, useAttrs } from 'vue';
 
 import ToolConnectedBadge from './ToolConnectedBadge.vue';

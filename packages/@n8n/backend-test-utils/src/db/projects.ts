@@ -1,8 +1,8 @@
-import type { Project, User, ProjectRelation } from '@n8n/db';
-import { ProjectRelationRepository, ProjectRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { AssignableProjectRole } from '@n8n/permissions';
-import { PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
+import type { Project, User, ProjectRelation } from '@resin/db';
+import { ProjectRelationRepository, ProjectRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import type { AssignableProjectRole } from '@resin/permissions';
+import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
 
 import { randomName } from '../random';
 

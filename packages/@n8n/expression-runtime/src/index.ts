@@ -30,7 +30,7 @@ export {
 	SecurityViolationError,
 	SyntaxError,
 } from './types';
-export { IsolateError } from '@n8n/errors';
+export { IsolateError } from '@resin/errors';
 
 export { NoOpProvider } from './observability/noop-provider';
 export { EXPRESSION_METRICS } from './observability/metrics';

@@ -1,10 +1,10 @@
-import { LicenseState, Logger } from '@n8n/backend-common';
-import { createTeamProject, mockLogger, testDb } from '@n8n/backend-test-utils';
-import type { InstanceType } from '@n8n/constants';
-import { Container } from '@n8n/di';
+import { LicenseState, Logger } from '@resin/backend-common';
+import { createTeamProject, mockLogger, testDb } from '@resin/backend-test-utils';
+import type { InstanceType } from '@resin/constants';
+import { Container } from '@resin/di';
 import type { MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import { InsightsModule } from '../insights.module';
 import { InsightsService } from '../insights.service';

@@ -1,5 +1,5 @@
-import type { INodeProperties, IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
-import { updateDisplayOptions } from 'n8n-workflow';
+import type { INodeProperties, IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
+import { updateDisplayOptions } from 'resin-workflow';
 import { apiRequest } from '../../transport';
 import type { IModelStudioRequestBody } from '../../helpers/interfaces';
 import { modelRLC } from '../descriptions';

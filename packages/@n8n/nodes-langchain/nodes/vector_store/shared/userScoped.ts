@@ -1,5 +1,9 @@
-import type { IExecuteFunctions, ILoadOptionsFunctions, ISupplyDataFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type {
+	IExecuteFunctions,
+	ILoadOptionsFunctions,
+	ISupplyDataFunctions,
+} from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 /**
  * Derives a user-scoped slot name from the credential prefix and the current user ID.

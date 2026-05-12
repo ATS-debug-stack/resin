@@ -1,7 +1,7 @@
-import { LicenseState } from '@n8n/backend-common';
-import { mockInstance, testDb } from '@n8n/backend-test-utils';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { LicenseState } from '@resin/backend-common';
+import { mockInstance, testDb } from '@resin/backend-test-utils';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import { DateTime } from 'luxon';
 

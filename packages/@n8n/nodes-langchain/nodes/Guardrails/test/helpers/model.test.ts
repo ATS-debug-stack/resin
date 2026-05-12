@@ -1,6 +1,6 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type { Mock } from 'vitest';
 
 import { GuardrailError } from '../../actions/types';

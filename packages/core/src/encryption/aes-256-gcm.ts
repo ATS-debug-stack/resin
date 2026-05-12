@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import { createCipheriv, createDecipheriv, hkdfSync, randomBytes } from 'crypto';
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 
 import { CipherWrapper } from './interface';
 
@@ -8,7 +8,7 @@ const FORMAT_VERSION = 0x01;
 
 // Changing this value invalidates every ciphertext previously produced with it.
 // Introduce a new FORMAT_VERSION alongside any change.
-const HKDF_INFO = 'n8n-encryption-v1';
+const HKDF_INFO = 'resin-encryption-v1';
 
 const KEY_LENGTH_BYTES = 32;
 const SALT_LENGTH_BYTES = 32;

@@ -3,8 +3,8 @@ import type {
 	ICredentialsDecrypted,
 	ICredentialTestFunctions,
 	IExecuteFunctions,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 const mockClient = mock<RedisClient>();
 const createClient = jest.fn().mockReturnValue(mockClient);

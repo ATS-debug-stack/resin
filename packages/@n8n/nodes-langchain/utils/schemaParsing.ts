@@ -1,9 +1,9 @@
-import { jsonSchemaToZod } from '@n8n/json-schema-to-zod';
+import { jsonSchemaToZod } from '@resin/json-schema-to-zod';
 import { json as generateJsonSchema } from 'generate-schema';
 import type { SchemaObject } from 'generate-schema';
 import type { JSONSchema7 } from 'json-schema';
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { NodeOperationError, jsonParse } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { NodeOperationError, jsonParse } from 'resin-workflow';
 import type { z } from 'zod';
 
 function makeAllPropertiesRequired(schema: JSONSchema7): JSONSchema7 {

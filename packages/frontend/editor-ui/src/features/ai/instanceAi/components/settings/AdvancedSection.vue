@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { N8nHeading, N8nInput, N8nInputNumber, N8nInputLabel } from '@n8n/design-system';
+import { N8nHeading, N8nInput, N8nInputNumber, N8nInputLabel } from '@resin/design-system';
 import { ElSwitch } from 'element-plus';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useSettingsField } from './useSettingsField';
 
 const i18n = useI18n();

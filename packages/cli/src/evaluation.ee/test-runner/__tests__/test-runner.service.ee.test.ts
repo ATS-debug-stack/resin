@@ -1,22 +1,22 @@
-import { mockLogger, mockInstance } from '@n8n/backend-test-utils';
-import { ExecutionsConfig } from '@n8n/config';
+import { mockLogger, mockInstance } from '@resin/backend-test-utils';
+import { ExecutionsConfig } from '@resin/config';
 import type {
 	TestRun,
 	TestCaseExecutionRepository,
 	TestRunRepository,
 	WorkflowRepository,
-} from '@n8n/db';
+} from '@resin/db';
 import { mockNodeTypesData } from '@test-integration/utils/node-types-data';
 import { readFileSync } from 'fs';
 import { mock } from 'jest-mock-extended';
-import type { ErrorReporter, InstanceSettings } from 'n8n-core';
+import type { ErrorReporter, InstanceSettings } from 'resin-core';
 import {
 	createRunExecutionData,
 	EVALUATION_NODE_TYPE,
 	EVALUATION_TRIGGER_NODE_TYPE,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
-import type { IWorkflowBase, IRun, ExecutionError } from 'n8n-workflow';
+} from 'resin-workflow';
+import type { IWorkflowBase, IRun, ExecutionError } from 'resin-workflow';
 import path from 'path';
 
 import { TestRunnerService } from '../test-runner.service.ee';
@@ -93,7 +93,7 @@ describe('TestRunnerService', () => {
 					{
 						id: 'node2',
 						name: 'Regular Node',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [100, 0],
 						parameters: {},
@@ -118,7 +118,7 @@ describe('TestRunnerService', () => {
 					{
 						id: 'node1',
 						name: 'Regular Node 1',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -126,7 +126,7 @@ describe('TestRunnerService', () => {
 					{
 						id: 'node2',
 						name: 'Regular Node 2',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [100, 0],
 						parameters: {},
@@ -404,7 +404,7 @@ describe('TestRunnerService', () => {
 					{
 						id: 'node1',
 						name: 'Regular Node',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -963,7 +963,7 @@ describe('TestRunnerService', () => {
 					{
 						id: 'node1',
 						name: 'Regular Node',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1295,7 +1295,7 @@ describe('TestRunnerService', () => {
 						{
 							id: 'model1',
 							name: 'OpenAI Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {},
@@ -1426,7 +1426,7 @@ describe('TestRunnerService', () => {
 						{
 							id: 'model1',
 							name: 'OpenAI Model',
-							type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 							typeVersion: 1,
 							position: [0, 0],
 							parameters: {},
@@ -1485,7 +1485,7 @@ describe('TestRunnerService', () => {
 							{
 								id: 'model1',
 								name: 'OpenAI Model',
-								type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+								type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 								typeVersion: 1,
 								position: [0, 0],
 								parameters: {},
@@ -1545,7 +1545,7 @@ describe('TestRunnerService', () => {
 							{
 								id: 'model1',
 								name: 'OpenAI Model',
-								type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+								type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 								typeVersion: 1,
 								position: [0, 0],
 								parameters: {},

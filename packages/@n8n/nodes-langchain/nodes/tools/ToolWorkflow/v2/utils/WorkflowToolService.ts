@@ -2,9 +2,12 @@ import type { CallbackManagerForToolRun } from '@langchain/core/callbacks/manage
 import { DynamicStructuredTool, DynamicTool } from '@langchain/core/tools';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
-import type { SetField, SetNodeOptions } from 'n8n-nodes-base/dist/nodes/Set/v2/helpers/interfaces';
-import * as manual from 'n8n-nodes-base/dist/nodes/Set/v2/manual.mode';
-import { getCurrentWorkflowInputData } from 'n8n-nodes-base/dist/utils/workflowInputsResourceMapping/GenericFunctions';
+import type {
+	SetField,
+	SetNodeOptions,
+} from 'resin-nodes-base/dist/nodes/Set/v2/helpers/interfaces';
+import * as manual from 'resin-nodes-base/dist/nodes/Set/v2/manual.mode';
+import { getCurrentWorkflowInputData } from 'resin-nodes-base/dist/utils/workflowInputsResourceMapping/GenericFunctions';
 import type {
 	ExecuteWorkflowData,
 	ExecutionError,
@@ -18,16 +21,16 @@ import type {
 	IWorkflowBase,
 	IWorkflowDataProxyData,
 	ResourceMapperValue,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	jsonParse,
 	NodeConnectionTypes,
 	NodeOperationError,
 	parseErrorMetadata,
 	sleepWithAbort,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { createZodSchemaFromArgs, extractFromAIParameters } from '@n8n/ai-utilities';
+import { createZodSchemaFromArgs, extractFromAIParameters } from '@resin/ai-utilities';
 
 function isNodeExecutionData(data: unknown): data is INodeExecutionData[] {
 	return isArray(data) && Boolean(data.length) && isObject(data[0]) && 'json' in data[0];

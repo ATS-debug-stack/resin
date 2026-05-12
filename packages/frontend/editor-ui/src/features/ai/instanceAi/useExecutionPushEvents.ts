@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import type { PushMessage } from '@n8n/api-types';
+import type { PushMessage } from '@resin/api-types';
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
 
 export type ExecutionStatus = 'running' | 'success' | 'error';

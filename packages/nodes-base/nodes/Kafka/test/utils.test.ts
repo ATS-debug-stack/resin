@@ -1,11 +1,11 @@
 import { mock } from 'jest-mock-extended';
-import type { ITriggerFunctions, IRun, INode, Logger, IDeferredPromise } from 'n8n-workflow';
-import { NodeOperationError, sleep } from 'n8n-workflow';
+import type { ITriggerFunctions, IRun, INode, Logger, IDeferredPromise } from 'resin-workflow';
+import { NodeOperationError, sleep } from 'resin-workflow';
 
 import { getAutoCommitSettings, configureDataEmitter, type KafkaTriggerOptions } from '../utils';
 
-jest.mock('n8n-workflow', () => {
-	const actual = jest.requireActual('n8n-workflow');
+jest.mock('resin-workflow', () => {
+	const actual = jest.requireActual('resin-workflow');
 	return {
 		...actual,
 		sleep: jest.fn().mockResolvedValue(undefined),
@@ -120,7 +120,7 @@ describe('Kafka Utils', () => {
 		const mockNode: INode = {
 			id: 'test-node-id',
 			name: 'Test Kafka Trigger',
-			type: 'n8n-nodes-base.kafkaTrigger',
+			type: 'resin-nodes-base.kafkaTrigger',
 			typeVersion: 1.3,
 			position: [0, 0],
 			parameters: {},

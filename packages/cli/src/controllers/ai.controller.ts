@@ -3,7 +3,7 @@ import type {
 	AiGatewayConfigDto,
 	AiGatewayUsageResponse,
 	CreateCredentialDto,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import {
 	AiChatRequestDto,
 	AiApplySuggestionRequestDto,
@@ -15,12 +15,12 @@ import {
 	AiTruncateMessagesRequestDto,
 	AiClearSessionRequestDto,
 	AiGatewayUsageQueryDto,
-} from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Body, Get, Licensed, Post, Query, RestController, GlobalScope } from '@n8n/decorators';
+} from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
+import { Body, Get, Licensed, Post, Query, RestController, GlobalScope } from '@resin/decorators';
 import { type AiAssistantSDK, APIResponseError } from '@n8n_io/ai-assistant-sdk';
 import { Response } from 'express';
-import { OPEN_AI_API_CREDENTIAL_TYPE } from 'n8n-workflow';
+import { OPEN_AI_API_CREDENTIAL_TYPE } from 'resin-workflow';
 import { strict as assert } from 'node:assert';
 import { WritableStream } from 'node:stream/web';
 

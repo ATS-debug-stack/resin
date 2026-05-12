@@ -85,19 +85,19 @@ import { COMMUNITY_PLUS_ENROLLMENT_MODAL } from '@/features/settings/usage/usage
 import { useToast } from '@/app/composables/useToast';
 import Modal from '@/app/components/Modal.vue';
 import type { IFormInputs } from '@/Interface';
-import type { IPersonalizationLatestVersion } from '@n8n/rest-api-client/api/users';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import type { IPersonalizationLatestVersion } from '@resin/rest-api-client/api/users';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useUsersStore } from '../users.store';
-import { createFormEventBus } from '@n8n/design-system/utils';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { createFormEventBus } from '@resin/design-system/utils';
+import { createEventBus } from '@resin/utils/event-bus';
 import { usePostHog } from '@/app/stores/posthog.store';
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useRoute, useRouter } from 'vue-router';
 import { useUIStore } from '@/app/stores/ui.store';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 
-import { N8nButton, N8nFormInputs } from '@n8n/design-system';
+import { N8nButton, N8nFormInputs } from '@resin/design-system';
 const SURVEY_VERSION = 'v4';
 
 const externalHooks = useExternalHooks();

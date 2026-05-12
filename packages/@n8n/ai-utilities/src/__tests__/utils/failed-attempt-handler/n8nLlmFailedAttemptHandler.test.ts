@@ -1,6 +1,6 @@
 import { mock } from 'jest-mock-extended';
-import type { ISupplyDataFunctions } from 'n8n-workflow';
-import { ApplicationError, NodeApiError } from 'n8n-workflow';
+import type { ISupplyDataFunctions } from 'resin-workflow';
+import { ApplicationError, NodeApiError } from 'resin-workflow';
 
 import { makeN8nLlmFailedAttemptHandler } from 'src/utils/failed-attempt-handler/n8nLlmFailedAttemptHandler';
 

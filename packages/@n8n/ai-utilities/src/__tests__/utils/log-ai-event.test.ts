@@ -1,4 +1,4 @@
-import type { AiEvent, IDataObject, IExecuteFunctions, ISupplyDataFunctions } from 'n8n-workflow';
+import type { AiEvent, IDataObject, IExecuteFunctions, ISupplyDataFunctions } from 'resin-workflow';
 
 import { logAiEvent } from 'src/utils/log-ai-event';
 

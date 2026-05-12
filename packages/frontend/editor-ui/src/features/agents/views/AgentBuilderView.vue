@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick, onBeforeUnmount, useTemplateRef } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { N8nResizeWrapper, type DropdownMenuItemProps } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import { AGENT_SCHEDULE_TRIGGER_TYPE } from '@n8n/api-types';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { N8nResizeWrapper, type DropdownMenuItemProps } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import { AGENT_SCHEDULE_TRIGGER_TYPE } from '@resin/api-types';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useToast } from '@/app/composables/useToast';
@@ -13,7 +13,7 @@ import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useDocumentTitle } from '@/app/composables/useDocumentTitle';
 import { LOCAL_STORAGE_AGENT_BUILDER_CHAT_PANEL_WIDTH, MODAL_CONFIRM } from '@/app/constants';
 import { useResizablePanel } from '@/app/composables/useResizablePanel';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 import {
 	getAgent,
 	deleteAgent,

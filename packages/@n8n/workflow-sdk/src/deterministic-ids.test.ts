@@ -31,31 +31,55 @@ function generateDeterministicNodeId(
 describe('Deterministic Node ID Generation', () => {
 	describe('generateDeterministicNodeId', () => {
 		it('should produce same ID for same inputs', () => {
-			const id1 = generateDeterministicNodeId('wf-123', 'n8n-nodes-base.httpRequest', 'Fetch Data');
-			const id2 = generateDeterministicNodeId('wf-123', 'n8n-nodes-base.httpRequest', 'Fetch Data');
+			const id1 = generateDeterministicNodeId(
+				'wf-123',
+				'resin-nodes-base.httpRequest',
+				'Fetch Data',
+			);
+			const id2 = generateDeterministicNodeId(
+				'wf-123',
+				'resin-nodes-base.httpRequest',
+				'Fetch Data',
+			);
 			expect(id1).toBe(id2);
 		});
 
 		it('should produce different IDs for different workflow IDs', () => {
-			const id1 = generateDeterministicNodeId('wf-123', 'n8n-nodes-base.httpRequest', 'Fetch Data');
-			const id2 = generateDeterministicNodeId('wf-456', 'n8n-nodes-base.httpRequest', 'Fetch Data');
+			const id1 = generateDeterministicNodeId(
+				'wf-123',
+				'resin-nodes-base.httpRequest',
+				'Fetch Data',
+			);
+			const id2 = generateDeterministicNodeId(
+				'wf-456',
+				'resin-nodes-base.httpRequest',
+				'Fetch Data',
+			);
 			expect(id1).not.toBe(id2);
 		});
 
 		it('should produce different IDs for different node types', () => {
-			const id1 = generateDeterministicNodeId('wf-123', 'n8n-nodes-base.httpRequest', 'Process');
-			const id2 = generateDeterministicNodeId('wf-123', 'n8n-nodes-base.set', 'Process');
+			const id1 = generateDeterministicNodeId('wf-123', 'resin-nodes-base.httpRequest', 'Process');
+			const id2 = generateDeterministicNodeId('wf-123', 'resin-nodes-base.set', 'Process');
 			expect(id1).not.toBe(id2);
 		});
 
 		it('should produce different IDs for different node names', () => {
-			const id1 = generateDeterministicNodeId('wf-123', 'n8n-nodes-base.httpRequest', 'Fetch Data');
-			const id2 = generateDeterministicNodeId('wf-123', 'n8n-nodes-base.httpRequest', 'Send Data');
+			const id1 = generateDeterministicNodeId(
+				'wf-123',
+				'resin-nodes-base.httpRequest',
+				'Fetch Data',
+			);
+			const id2 = generateDeterministicNodeId(
+				'wf-123',
+				'resin-nodes-base.httpRequest',
+				'Send Data',
+			);
 			expect(id1).not.toBe(id2);
 		});
 
 		it('should produce valid UUID format', () => {
-			const id = generateDeterministicNodeId('wf-123', 'n8n-nodes-base.httpRequest', 'Test');
+			const id = generateDeterministicNodeId('wf-123', 'resin-nodes-base.httpRequest', 'Test');
 			expect(id).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
 		});
 	});
@@ -64,10 +88,10 @@ describe('Deterministic Node ID Generation', () => {
 		it('should regenerate node IDs deterministically', () => {
 			const wf = workflow('test-workflow-id', 'Test Workflow').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
-				}).to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: { name: 'Set Data' } })),
+				}).to(node({ type: 'resin-nodes-base.set', version: 3.4, config: { name: 'Set Data' } })),
 			);
 
 			// Regenerate IDs deterministically
@@ -79,20 +103,20 @@ describe('Deterministic Node ID Generation', () => {
 			const setNode = json.nodes.find((n) => n.name === 'Set Data');
 
 			expect(startNode?.id).toBe(
-				generateDeterministicNodeId('test-workflow-id', 'n8n-nodes-base.manualTrigger', 'Start'),
+				generateDeterministicNodeId('test-workflow-id', 'resin-nodes-base.manualTrigger', 'Start'),
 			);
 			expect(setNode?.id).toBe(
-				generateDeterministicNodeId('test-workflow-id', 'n8n-nodes-base.set', 'Set Data'),
+				generateDeterministicNodeId('test-workflow-id', 'resin-nodes-base.set', 'Set Data'),
 			);
 		});
 
 		it('should update connections to use new IDs', () => {
 			const wf = workflow('test-workflow-id', 'Test Workflow').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
-				}).to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: { name: 'Set Data' } })),
+				}).to(node({ type: 'resin-nodes-base.set', version: 3.4, config: { name: 'Set Data' } })),
 			);
 
 			wf.regenerateNodeIds();
@@ -106,7 +130,7 @@ describe('Deterministic Node ID Generation', () => {
 
 		it('should produce same IDs when called multiple times', () => {
 			const wf = workflow('test-workflow-id', 'Test Workflow').add(
-				trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } }),
+				trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } }),
 			);
 
 			wf.regenerateNodeIds();
@@ -115,7 +139,7 @@ describe('Deterministic Node ID Generation', () => {
 
 			// Create the same workflow again and regenerate
 			const wf2 = workflow('test-workflow-id', 'Test Workflow').add(
-				trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } }),
+				trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } }),
 			);
 			wf2.regenerateNodeIds();
 			const json2 = wf2.toJSON();
@@ -127,24 +151,24 @@ describe('Deterministic Node ID Generation', () => {
 		it('should preserve correct connections when nodes have duplicate names that get auto-renamed', () => {
 			// Two nodes with the same config name - the second will be auto-renamed to "Process 1"
 			const processA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Process' },
 			});
 			const processB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Process' }, // Will become "Process 1"
 			});
 			const downstream = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Send Data' },
 			});
 
 			const wf = workflow('test-workflow-id', 'Test Workflow').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				})
@@ -175,27 +199,27 @@ describe('Deterministic Node ID Generation', () => {
 			// Mimics the purchase-request-approval bug: two same-named nodes on
 			// different branches with different downstream targets
 			const approvalA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Approval' },
 			});
 			const approvalB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Approval' }, // Will become "Approval 1"
 			});
 			const targetA = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Target A' },
 			});
 			const targetB = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Target B' },
 			});
 			const router = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Router' },
 			});
@@ -203,7 +227,7 @@ describe('Deterministic Node ID Generation', () => {
 			const wf = workflow('test-workflow-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1,
 						config: { name: 'Start' },
 					}).to(router),
@@ -237,19 +261,19 @@ describe('Deterministic Node ID Generation', () => {
 
 		it('should produce unique deterministic IDs for auto-renamed duplicate nodes', () => {
 			const processA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Process' },
 			});
 			const processB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Process' }, // Will become "Process 1"
 			});
 
 			const wf = workflow('test-workflow-id', 'Test Workflow').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
 				})
@@ -272,10 +296,10 @@ describe('Deterministic Node ID Generation', () => {
 
 			// IDs should match what we'd expect from the map key (not instance.name)
 			expect(processNode!.id).toBe(
-				generateDeterministicNodeId('test-workflow-id', 'n8n-nodes-base.set', 'Process'),
+				generateDeterministicNodeId('test-workflow-id', 'resin-nodes-base.set', 'Process'),
 			);
 			expect(process1Node!.id).toBe(
-				generateDeterministicNodeId('test-workflow-id', 'n8n-nodes-base.set', 'Process 1'),
+				generateDeterministicNodeId('test-workflow-id', 'resin-nodes-base.set', 'Process 1'),
 			);
 		});
 
@@ -283,27 +307,27 @@ describe('Deterministic Node ID Generation', () => {
 			// This test verifies that the second toJSON() call produces the same
 			// correct result as the first (staleIdToKeyMap must not be cleared)
 			const approvalA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Approval' },
 			});
 			const approvalB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Approval' }, // Will become "Approval 1"
 			});
 			const targetA = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Target A' },
 			});
 			const targetB = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Target B' },
 			});
 			const router = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Router' },
 			});
@@ -311,7 +335,7 @@ describe('Deterministic Node ID Generation', () => {
 			const wf = workflow('test-workflow-id', 'Test Workflow')
 				.add(
 					trigger({
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						version: 1,
 						config: { name: 'Start' },
 					}).to(router),
@@ -361,7 +385,7 @@ describe('Deterministic Node ID Generation', () => {
 			// This test verifies that regenerateNodeIds() replaces existing random IDs
 			// with deterministic ones based on workflow ID, node type, and node name
 			const code = `
-const start = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } });
+const start = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { name: 'Start' } });
 const wf = workflow('existing-workflow', 'Existing');
 export default wf.add(start);
 			`;
@@ -378,7 +402,7 @@ export default wf.add(start);
 			// The ID should now be deterministic, not the original random one
 			const expectedId = generateDeterministicNodeId(
 				'existing-workflow',
-				'n8n-nodes-base.manualTrigger',
+				'resin-nodes-base.manualTrigger',
 				'Start',
 			);
 			expect(jsonAfter.nodes[0].id).toBe(expectedId);
@@ -391,10 +415,10 @@ export default wf.add(start);
 			// Create workflow
 			const wf1 = workflow('roundtrip-test', 'Roundtrip Test').add(
 				trigger({
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					version: 1,
 					config: { name: 'Start' },
-				}).to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: { name: 'Process' } })),
+				}).to(node({ type: 'resin-nodes-base.set', version: 3.4, config: { name: 'Process' } })),
 			);
 
 			wf1.regenerateNodeIds();

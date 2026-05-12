@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class MicrosoftDynamicsOAuth2Api implements ICredentialType {
 	name = 'microsoftDynamicsOAuth2Api';

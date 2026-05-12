@@ -1,6 +1,6 @@
 import type { DeepMockProxy } from 'jest-mock-extended';
 import { mockDeep } from 'jest-mock-extended';
-import type { IDataObject, IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import type { IDataObject, IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
 
 import * as GenericFunctions from '../GenericFunctions';
 import { Jira } from '../Jira.node';

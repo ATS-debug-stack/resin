@@ -1,7 +1,7 @@
-import type { InstanceAiAgentNode } from '@n8n/api-types';
-import { Service } from '@n8n/di';
-import type { AgentTreeSnapshot } from '@n8n/instance-ai';
-import { jsonParse } from 'n8n-workflow';
+import type { InstanceAiAgentNode } from '@resin/api-types';
+import { Service } from '@resin/di';
+import type { AgentTreeSnapshot } from '@resin/instance-ai';
+import { jsonParse } from 'resin-workflow';
 
 import { InstanceAiRunSnapshotRepository } from '../repositories/instance-ai-run-snapshot.repository';
 

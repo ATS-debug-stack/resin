@@ -18,8 +18,8 @@ import {
 import { createComponentRenderer } from '@/__tests__/render';
 import { setupServer } from '@/__tests__/server';
 import { defaultNodeDescriptions, mockNodes } from '@/__tests__/mocks';
-import { useI18n } from '@n8n/i18n';
-import { createRunExecutionData } from 'n8n-workflow';
+import { useI18n } from '@resin/i18n';
+import { createRunExecutionData } from 'resin-workflow';
 
 vi.mock('vue-router', () => {
 	return {

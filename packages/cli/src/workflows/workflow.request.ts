@@ -1,4 +1,4 @@
-import type { AuthenticatedRequest } from '@n8n/db';
+import type { AuthenticatedRequest } from '@resin/db';
 import type {
 	INode,
 	IConnections,
@@ -7,7 +7,7 @@ import type {
 	ITaskData,
 	AiAgentRequest,
 	IDestinationNode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { ListQuery } from '@/requests';
 

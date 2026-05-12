@@ -1,5 +1,5 @@
-import type { EngineResponse } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { EngineResponse } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { buildSteps } from '../buildSteps';
 import type { RequestResponseMetadata } from '../types';

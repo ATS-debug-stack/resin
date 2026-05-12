@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { type CredentialsEntity, type User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import { type CredentialsEntity, type User } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import axios from 'axios';
 import type { Response } from 'express';

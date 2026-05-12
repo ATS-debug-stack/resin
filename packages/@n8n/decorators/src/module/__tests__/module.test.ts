@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 
 import type { ModuleInterface } from '../module';
 import { BackendModule } from '../module';

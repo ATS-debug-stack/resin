@@ -1,6 +1,6 @@
-import type { Logger } from '@n8n/backend-common';
-import type { WorkflowEntity } from '@n8n/db';
-import { generateNanoId } from '@n8n/db';
+import type { Logger } from '@resin/backend-common';
+import type { WorkflowEntity } from '@resin/db';
+import { generateNanoId } from '@resin/db';
 import type * as express from 'express';
 import { mock } from 'jest-mock-extended';
 import type {
@@ -11,7 +11,7 @@ import type {
 	Workflow,
 	IHttpRequestMethods,
 	WorkflowExpression,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
@@ -161,7 +161,7 @@ describe('TestWebhooks', () => {
 				id: workflowEntity.id,
 				nodes: {
 					chatTriggerNode: {
-						type: '@n8n/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/n8n-nodes-langchain.chatTrigger',
 						name: 'chatTriggerNode',
 					},
 				},
@@ -201,7 +201,7 @@ describe('TestWebhooks', () => {
 				id: workflowEntity.id,
 				nodes: {
 					chatTriggerNode: {
-						type: '@n8n/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/n8n-nodes-langchain.chatTrigger',
 						name: 'chatTriggerNode',
 					},
 				},
@@ -232,7 +232,7 @@ describe('TestWebhooks', () => {
 				id: workflowEntity.id,
 				nodes: {
 					webhookNode: {
-						type: 'n8n-nodes-base.webhook',
+						type: 'resin-nodes-base.webhook',
 						name: 'webhookNode',
 					},
 				},
@@ -315,11 +315,11 @@ describe('TestWebhooks', () => {
 				});
 				const webhookNode = mock<IWorkflowBase['nodes'][number]>({
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 				});
 				const telegramNode = mock<IWorkflowBase['nodes'][number]>({
 					name: 'Telegram Trigger',
-					type: 'n8n-nodes-base.telegramTrigger',
+					type: 'resin-nodes-base.telegramTrigger',
 				});
 
 				jest.spyOn(testWebhooks, 'toWorkflow').mockReturnValueOnce(workflow);

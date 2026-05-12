@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { type TableHeader } from '@n8n/design-system/components/N8nDataTableServer';
+import { useI18n } from '@resin/i18n';
+import { type TableHeader } from '@resin/design-system/components/N8nDataTableServer';
 import {
 	N8nActionBox,
 	N8nActionToggle,
@@ -11,12 +11,12 @@ import {
 	N8nLoading,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import {
 	type ChatHubLLMProvider,
 	type ChatProviderSettingsDto,
 	PROVIDER_CREDENTIAL_TYPE_MAP,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { providerDisplayNames } from '../constants';
 import TimeAgo from '@/app/components/TimeAgo.vue';
 import CredentialIcon from '@/features/credentials/components/CredentialIcon.vue';

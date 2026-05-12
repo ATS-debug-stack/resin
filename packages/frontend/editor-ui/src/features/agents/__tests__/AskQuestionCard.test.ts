@@ -24,7 +24,7 @@ function mountCard(props = {}) {
 				N8nCheckbox: {
 					props: ['modelValue', 'disabled'],
 					template:
-						'<button type="button" data-testid="n8n-checkbox" :aria-checked="String(modelValue)" :disabled="disabled" @click="$emit(\'update:modelValue\', !modelValue)"></button>',
+						'<button type="button" data-testid="resin-checkbox" :aria-checked="String(modelValue)" :disabled="disabled" @click="$emit(\'update:modelValue\', !modelValue)"></button>',
 				},
 				N8nInput: {
 					props: ['modelValue', 'disabled', 'placeholder'],

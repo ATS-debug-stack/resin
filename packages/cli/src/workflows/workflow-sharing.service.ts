@@ -1,15 +1,15 @@
-import type { User } from '@n8n/db';
-import { ProjectRelationRepository, SharedWorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import type { User } from '@resin/db';
+import { ProjectRelationRepository, SharedWorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import {
 	hasGlobalScope,
 	type ProjectRole,
 	type WorkflowSharingRole,
 	type Scope,
 	PROJECT_OWNER_ROLE_SLUG,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
+import { In } from '@resin/typeorm';
 
 import { RoleService } from '@/services/role.service';
 

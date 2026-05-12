@@ -3,8 +3,8 @@ import type { LanguageServiceWorker, LanguageServiceWorkerInit } from '../types'
 import { indexedDbCache } from '@/app/plugins/cache';
 import { bufferChangeSets, fnPrefix } from './utils';
 
-import type { CodeExecutionMode } from 'n8n-workflow';
-import { BINARY_MODE_COMBINED } from 'n8n-workflow';
+import type { CodeExecutionMode } from 'resin-workflow';
+import { BINARY_MODE_COMBINED } from 'resin-workflow';
 
 import { pascalCase } from 'change-case';
 import { computed, reactive, ref, watch } from 'vue';

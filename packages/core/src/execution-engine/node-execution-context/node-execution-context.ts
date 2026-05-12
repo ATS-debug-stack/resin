@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { Memoized } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Memoized } from '@resin/decorators';
+import { Container } from '@resin/di';
 import get from 'lodash/get';
 import type {
 	FunctionsBase,
@@ -24,7 +24,7 @@ import type {
 	NodeTypeAndVersion,
 	Workflow,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ApplicationError,
 	CHAT_TRIGGER_NODE_TYPE,
@@ -33,7 +33,7 @@ import {
 	NodeHelpers,
 	NodeOperationError,
 	UnexpectedError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	HTTP_REQUEST_AS_TOOL_NODE_TYPE,
@@ -515,7 +515,7 @@ export abstract class NodeExecutionContext implements Omit<FunctionsBase, 'getCr
 			if (
 				e instanceof ExpressionError &&
 				node.continueOnFail &&
-				node.type === 'n8n-nodes-base.set'
+				node.type === 'resin-nodes-base.set'
 			) {
 				// https://linear.app/n8n/issue/PAY-684
 				returnData = [{ name: undefined, value: undefined }];

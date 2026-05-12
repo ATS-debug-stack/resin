@@ -1,5 +1,5 @@
-import type { StreamChunk } from '@n8n/agents';
-import { extractFromAICalls, isFromAIOnlyExpression } from 'n8n-workflow';
+import type { StreamChunk } from '@resin/agents';
+import { extractFromAICalls, isFromAIOnlyExpression } from 'resin-workflow';
 
 import type { ToolRegistry } from './tool-registry';
 

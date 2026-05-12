@@ -1,5 +1,5 @@
-import { ExecutionDataRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { ExecutionDataRepository } from '@resin/db';
+import { Service } from '@resin/di';
 
 import { EXECUTION_DATA_BUNDLE_VERSION } from './constants';
 import type {

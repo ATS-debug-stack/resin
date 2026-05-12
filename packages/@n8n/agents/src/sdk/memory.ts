@@ -120,7 +120,7 @@ export class Memory {
 	 *
 	 * Example:
 	 * ```typescript
-	 * import { WORKING_MEMORY_DEFAULT_INSTRUCTION } from '@n8n/agents';
+	 * import { WORKING_MEMORY_DEFAULT_INSTRUCTION } from '@resin/agents';
 	 *
 	 * memory.instruction(
 	 *   WORKING_MEMORY_DEFAULT_INSTRUCTION + '\nAlways update after every user message.',

@@ -52,7 +52,7 @@ describe('merge-pattern', () => {
 		it('should return false when all outputs go to merge', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([
 					['branch0', [{ from: 'Node1', outputSlot: 'output' }]],
@@ -61,7 +61,7 @@ describe('merge-pattern', () => {
 			);
 			const node1 = createMockNode(
 				'Node1',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([['output', [{ target: 'Merge', targetInputSlot: 'branch0' }]]]),
 			);
 
@@ -71,13 +71,13 @@ describe('merge-pattern', () => {
 		it('should return true when node has outputs to non-merge destinations', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([['branch0', [{ from: 'Node1', outputSlot: 'output' }]]]),
 			);
 			const node1 = createMockNode(
 				'Node1',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([
 					['output', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['output1', [{ target: 'OtherNode', targetInputSlot: 'input' }]],
@@ -90,13 +90,13 @@ describe('merge-pattern', () => {
 		it('should skip error outputs', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([['branch0', [{ from: 'Node1', outputSlot: 'output' }]]]),
 			);
 			const node1 = createMockNode(
 				'Node1',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([
 					['output', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['error', [{ target: 'ErrorHandler', targetInputSlot: 'input' }]],
@@ -109,16 +109,16 @@ describe('merge-pattern', () => {
 
 	describe('findDirectMergeInFanOut', () => {
 		it('should return null when no merge in targets', () => {
-			const node1 = createMockNode('Node1', 'n8n-nodes-base.httpRequest');
-			const node2 = createMockNode('Node2', 'n8n-nodes-base.httpRequest');
+			const node1 = createMockNode('Node1', 'resin-nodes-base.httpRequest');
+			const node2 = createMockNode('Node2', 'resin-nodes-base.httpRequest');
 			const ctx = createMockContext([node1, node2]);
 
 			expect(findDirectMergeInFanOut(['Node1', 'Node2'], ctx)).toBeNull();
 		});
 
 		it('should return null when multiple merge targets', () => {
-			const merge1 = createMockNode('Merge1', 'n8n-nodes-base.merge');
-			const merge2 = createMockNode('Merge2', 'n8n-nodes-base.merge');
+			const merge1 = createMockNode('Merge1', 'resin-nodes-base.merge');
+			const merge2 = createMockNode('Merge2', 'resin-nodes-base.merge');
 			const ctx = createMockContext([merge1, merge2]);
 
 			expect(findDirectMergeInFanOut(['Merge1', 'Merge2'], ctx)).toBeNull();
@@ -127,7 +127,7 @@ describe('merge-pattern', () => {
 		it('should return merge and non-merge targets when pattern detected', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([
 					['branch0', [{ from: 'Node1', outputSlot: 'output' }]],
@@ -136,12 +136,12 @@ describe('merge-pattern', () => {
 			);
 			const node1 = createMockNode(
 				'Node1',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([['output', [{ target: 'Merge', targetInputSlot: 'branch0' }]]]),
 			);
 			const node2 = createMockNode(
 				'Node2',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([['output', [{ target: 'Merge', targetInputSlot: 'branch1' }]]]),
 			);
 			const ctx = createMockContext([merge, node1, node2]);
@@ -156,13 +156,13 @@ describe('merge-pattern', () => {
 		it('should return null when non-merge targets do not feed into merge', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([['branch0', [{ from: 'SomeOtherNode', outputSlot: 'output' }]]]),
 			);
 			const node1 = createMockNode(
 				'Node1',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([['output', [{ target: 'Unrelated', targetInputSlot: 'input' }]]]),
 			);
 			const ctx = createMockContext([merge, node1]);
@@ -173,7 +173,7 @@ describe('merge-pattern', () => {
 
 	describe('detectMergePattern', () => {
 		it('should return null for single target', () => {
-			const node1 = createMockNode('Node1', 'n8n-nodes-base.httpRequest');
+			const node1 = createMockNode('Node1', 'resin-nodes-base.httpRequest');
 			const ctx = createMockContext([node1]);
 
 			expect(detectMergePattern(['Node1'], ctx)).toBeNull();
@@ -182,16 +182,16 @@ describe('merge-pattern', () => {
 		it('should return null when targets do not converge at same merge', () => {
 			const node1 = createMockNode(
 				'Node1',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([['output', [{ target: 'Merge1', targetInputSlot: 'branch0' }]]]),
 			);
 			const node2 = createMockNode(
 				'Node2',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([['output', [{ target: 'Merge2', targetInputSlot: 'branch0' }]]]),
 			);
-			const merge1 = createMockNode('Merge1', 'n8n-nodes-base.merge');
-			const merge2 = createMockNode('Merge2', 'n8n-nodes-base.merge');
+			const merge1 = createMockNode('Merge1', 'resin-nodes-base.merge');
+			const merge2 = createMockNode('Merge2', 'resin-nodes-base.merge');
 			const ctx = createMockContext([node1, node2, merge1, merge2]);
 
 			expect(detectMergePattern(['Node1', 'Node2'], ctx)).toBeNull();
@@ -200,7 +200,7 @@ describe('merge-pattern', () => {
 		it('should detect when all targets converge at same merge', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([
 					['branch0', [{ from: 'Node1', outputSlot: 'output' }]],
@@ -209,12 +209,12 @@ describe('merge-pattern', () => {
 			);
 			const node1 = createMockNode(
 				'Node1',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([['output', [{ target: 'Merge', targetInputSlot: 'branch0' }]]]),
 			);
 			const node2 = createMockNode(
 				'Node2',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([['output', [{ target: 'Merge', targetInputSlot: 'branch1' }]]]),
 			);
 			const ctx = createMockContext([merge, node1, node2]);
@@ -229,7 +229,7 @@ describe('merge-pattern', () => {
 		it('should return null when branch has outputs outside merge', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([
 					['branch0', [{ from: 'Node1', outputSlot: 'output' }]],
@@ -238,7 +238,7 @@ describe('merge-pattern', () => {
 			);
 			const node1 = createMockNode(
 				'Node1',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([
 					['output', [{ target: 'Merge', targetInputSlot: 'branch0' }]],
 					['output1', [{ target: 'OtherNode', targetInputSlot: 'input' }]],
@@ -246,7 +246,7 @@ describe('merge-pattern', () => {
 			);
 			const node2 = createMockNode(
 				'Node2',
-				'n8n-nodes-base.httpRequest',
+				'resin-nodes-base.httpRequest',
 				new Map([['output', [{ target: 'Merge', targetInputSlot: 'branch1' }]]]),
 			);
 			const ctx = createMockContext([merge, node1, node2]);
@@ -259,7 +259,7 @@ describe('merge-pattern', () => {
 		it('should return 0 when source not found', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([['branch0', [{ from: 'OtherNode', outputSlot: 'output' }]]]),
 			);
@@ -270,7 +270,7 @@ describe('merge-pattern', () => {
 		it('should return correct index for source node', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([
 					['branch0', [{ from: 'Node1', outputSlot: 'output' }]],
@@ -285,7 +285,7 @@ describe('merge-pattern', () => {
 		it('should match on source output slot when provided', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([
 					['branch0', [{ from: 'Switch', outputSlot: 'output0' }]],
@@ -300,7 +300,7 @@ describe('merge-pattern', () => {
 		it('should return 0 when output slot does not match', () => {
 			const merge = createMockNode(
 				'Merge',
-				'n8n-nodes-base.merge',
+				'resin-nodes-base.merge',
 				new Map(),
 				new Map([['branch0', [{ from: 'Switch', outputSlot: 'output0' }]]]),
 			);

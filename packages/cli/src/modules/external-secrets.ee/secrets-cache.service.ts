@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import { ensureError, OperationalError } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import { ensureError, OperationalError } from 'resin-workflow';
 
 import { EXTERNAL_SECRETS_REFRESH_TIMEOUT_MS } from './constants';
 import { ExternalSecretsProviderRegistry } from './provider-registry.service';

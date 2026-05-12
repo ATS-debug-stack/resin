@@ -1,5 +1,5 @@
 import { defineConfig, mergeConfig } from 'vitest/config';
-import { vitestConfig } from '@n8n/vitest-config/node';
+import { vitestConfig } from '@resin/vitest-config/node';
 
 export default mergeConfig(
 	defineConfig({

@@ -1,7 +1,7 @@
-import { UpdateExternalSecretsSettingsDto } from '@n8n/api-types';
-import { ModuleRegistry, Logger } from '@n8n/backend-common';
-import { Body, GlobalScope, Middleware, Post, RestController } from '@n8n/decorators';
-import type { AuthenticatedRequest } from '@n8n/db';
+import { UpdateExternalSecretsSettingsDto } from '@resin/api-types';
+import { ModuleRegistry, Logger } from '@resin/backend-common';
+import { Body, GlobalScope, Middleware, Post, RestController } from '@resin/decorators';
+import type { AuthenticatedRequest } from '@resin/db';
 import type { NextFunction, Request, Response } from 'express';
 
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';

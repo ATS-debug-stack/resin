@@ -1,7 +1,7 @@
-import { findPlaceholderDetails } from '@n8n/utils';
+import { findPlaceholderDetails } from '@resin/utils';
 import type { INodeUi } from '@/Interface';
-import type { INodeParameters, INodeProperties, INodeTypeDescription } from 'n8n-workflow';
-import { NodeHelpers } from 'n8n-workflow';
+import type { INodeParameters, INodeProperties, INodeTypeDescription } from 'resin-workflow';
+import { NodeHelpers } from 'resin-workflow';
 
 export function getWorkflowSetupParameterIssues(
 	node: INodeUi,

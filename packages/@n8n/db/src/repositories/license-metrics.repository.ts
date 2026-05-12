@@ -1,6 +1,6 @@
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import { DataSource, Repository, Entity } from '@n8n/typeorm';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import { DataSource, Repository, Entity } from '@resin/typeorm';
 
 @Entity()
 export class LicenseMetrics {}

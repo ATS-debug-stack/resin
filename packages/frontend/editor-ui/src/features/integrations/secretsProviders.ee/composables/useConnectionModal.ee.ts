@@ -3,15 +3,15 @@ import {
 	SECRETS_PROVIDER_KEY_REGEX,
 	type SecretProviderTypeResponse,
 	type ConnectionProjectSummary,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import type { IUpdateInformation } from '@/Interface';
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 import { useSecretsProviderConnection } from './useSecretsProviderConnection.ee';
 import { useRBACStore } from '@/app/stores/rbac.store';
 import { useToast } from '@/app/composables/useToast';
-import { i18n } from '@n8n/i18n';
-import type { Scope } from '@n8n/permissions';
-import { getResourcePermissions } from '@n8n/permissions';
+import { i18n } from '@resin/i18n';
+import type { Scope } from '@resin/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import type { ProjectSharingData } from '@/features/collaboration/projects/projects.types';
 import { isComponentPublicInstance } from '@/app/utils/typeGuards';

@@ -1,4 +1,4 @@
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 
 import {
 	parseToolResult,
@@ -49,7 +49,7 @@ describe('GetWorkflowExamplesTool', () => {
 			createNode({
 				id: `node-${i}`,
 				name: `Node ${i}`,
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 			}),
 		);
 	};

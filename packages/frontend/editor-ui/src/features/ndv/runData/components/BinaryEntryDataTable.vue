@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { N8nIcon } from '@n8n/design-system';
+import { N8nIcon } from '@resin/design-system';
 import { saveAs } from 'file-saver';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useUIStore } from '@/app/stores/ui.store';
@@ -7,7 +7,7 @@ import { BINARY_DATA_VIEW_MODAL_KEY } from '@/app/constants';
 import { computed } from 'vue';
 import type { BinaryMetadata } from '@/Interface';
 import { useToast } from '@/app/composables/useToast';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
 const BYTES_THRESHOLD = 1048576; // 1MB
 

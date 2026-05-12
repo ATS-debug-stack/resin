@@ -11,7 +11,7 @@ function createNode(
 	overrides: Partial<NodeInstance<string, string, unknown>> = {},
 ): NodeInstance<string, string, unknown> {
 	return {
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		version: 'v1',
 		id: overrides.id ?? 'node-id',
 		name: overrides.name ?? 'Test Node',

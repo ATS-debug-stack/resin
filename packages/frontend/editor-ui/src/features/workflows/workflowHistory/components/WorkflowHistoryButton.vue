@@ -2,10 +2,10 @@
 import { computed, ref, watch } from 'vue';
 import { RouterLink } from 'vue-router';
 import { AutoSaveState, VIEWS } from '@/app/constants';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowSaveStore } from '@/app/stores/workflowSave.store';
-import { N8nIconButton, N8nTooltip } from '@n8n/design-system';
+import { N8nIconButton, N8nTooltip } from '@resin/design-system';
 import { useDebounce } from '@/app/composables/useDebounce';
 import { LOADING_ANIMATION_MIN_DURATION } from '@/app/constants/durations';
 
@@ -61,7 +61,7 @@ const isDisabled = computed(
 			:to="isDisabled ? undefined : workflowHistoryRoute"
 		>
 			<N8nIconButton
-				class="n8n-button--highlight"
+				class="resin-button--highlight"
 				variant="ghost"
 				:disabled="isDisabled"
 				:loading="isWorkflowSaving"

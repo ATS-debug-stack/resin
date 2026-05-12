@@ -1,5 +1,5 @@
-import { GlobalConfig } from '@n8n/config';
-import { In, type SelectQueryBuilder } from '@n8n/typeorm';
+import { GlobalConfig } from '@resin/config';
+import { In, type SelectQueryBuilder } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import { WorkflowEntity } from '../../entities';
@@ -318,7 +318,7 @@ describe('WorkflowRepository', () => {
 		it('should left join activeVersion with addSelect and use COALESCE for PostgreSQL with single trigger type', async () => {
 			const workflowIds = ['workflow1'];
 			const options = {
-				filter: { triggerNodeTypes: ['n8n-nodes-base.executeWorkflowTrigger'] },
+				filter: { triggerNodeTypes: ['resin-nodes-base.executeWorkflowTrigger'] },
 			};
 
 			await workflowRepository.getMany(workflowIds, options);
@@ -339,9 +339,9 @@ describe('WorkflowRepository', () => {
 			const options = {
 				filter: {
 					triggerNodeTypes: [
-						'n8n-nodes-base.executeWorkflowTrigger',
-						'n8n-nodes-base.webhook',
-						'n8n-nodes-base.scheduleTrigger',
+						'resin-nodes-base.executeWorkflowTrigger',
+						'resin-nodes-base.webhook',
+						'resin-nodes-base.scheduleTrigger',
 					],
 				},
 			};
@@ -376,7 +376,7 @@ describe('WorkflowRepository', () => {
 
 			const workflowIds = ['workflow1'];
 			const options = {
-				filter: { triggerNodeTypes: ['n8n-nodes-base.errorTrigger'] },
+				filter: { triggerNodeTypes: ['resin-nodes-base.errorTrigger'] },
 			};
 
 			await sqliteWorkflowRepository.getMany(workflowIds, options);
@@ -406,7 +406,7 @@ describe('WorkflowRepository', () => {
 			const workflowIds = ['workflow1'];
 			const options = {
 				filter: {
-					triggerNodeTypes: ['n8n-nodes-base.webhook', 'n8n-nodes-base.scheduleTrigger'],
+					triggerNodeTypes: ['resin-nodes-base.webhook', 'resin-nodes-base.scheduleTrigger'],
 				},
 			};
 
@@ -432,7 +432,7 @@ describe('WorkflowRepository', () => {
 
 			const workflowIds = ['workflow1'];
 			const options = {
-				filter: { triggerNodeTypes: ['n8n-nodes-base.executeWorkflowTrigger'] },
+				filter: { triggerNodeTypes: ['resin-nodes-base.executeWorkflowTrigger'] },
 			};
 
 			await workflowRepository.getMany(workflowIds, options);
@@ -497,7 +497,7 @@ describe('WorkflowRepository', () => {
 			const options = {
 				filter: {
 					query: 'workflow',
-					triggerNodeTypes: ['n8n-nodes-base.executeWorkflowTrigger'],
+					triggerNodeTypes: ['resin-nodes-base.executeWorkflowTrigger'],
 					active: true,
 				},
 			};

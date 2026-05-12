@@ -2,7 +2,7 @@ import { screen, within } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import { createComponentRenderer } from '@/__tests__/render';
 import SecretsProviderConnectionCard from './SecretsProviderConnectionCard.ee.vue';
-import type { SecretProviderConnection, SecretProviderTypeResponse } from '@n8n/api-types';
+import type { SecretProviderConnection, SecretProviderTypeResponse } from '@resin/api-types';
 import { DateTime } from 'luxon';
 import { createTestingPinia } from '@pinia/testing';
 import { useRBACStore } from '@/app/stores/rbac.store';

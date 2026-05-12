@@ -10,7 +10,7 @@ import type {
 	WorkflowActivateMode,
 	WorkflowExecuteMode,
 	WorkflowExpression,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { TriggerContext } from '../trigger-context';
 

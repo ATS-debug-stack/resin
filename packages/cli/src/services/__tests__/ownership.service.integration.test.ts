@@ -1,6 +1,6 @@
-import { testDb } from '@n8n/backend-test-utils';
-import { GLOBAL_OWNER_ROLE } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb } from '@resin/backend-test-utils';
+import { GLOBAL_OWNER_ROLE } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { HooksService } from '@/services/hooks.service';
 import { OwnershipService } from '@/services/ownership.service';

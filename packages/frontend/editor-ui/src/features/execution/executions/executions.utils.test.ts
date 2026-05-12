@@ -18,7 +18,7 @@ import type {
 	ExecutionError,
 	INodeTypeDescription,
 	Workflow,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { type INodeUi, type IWorkflowDb } from '@/Interface';
 import {
 	CHAT_TRIGGER_NODE_TYPE,
@@ -35,7 +35,7 @@ const WAIT_NODE_TYPE = 'waitNode';
 
 const windowOpenSpy = vi.spyOn(window, 'open');
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({
 		formWaitingUrl: 'http://localhost:5678/form-waiting',
 		webhookWaitingUrl: 'http://localhost:5678/webhook-waiting',
@@ -48,7 +48,7 @@ vi.mock('@/app/stores/workflows.store', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	i18n: {
 		baseText: (key: string, options?: { interpolate?: { error?: string; details?: string } }) => {
 			const texts: { [key: string]: string } = {
@@ -69,15 +69,15 @@ vi.mock('@/app/stores/nodeTypes.store', () => ({
 	useNodeTypesStore: () => ({
 		getNodeType: (type: string) => {
 			const nodeTypes: Record<string, { waitingNodeTooltip?: string }> = {
-				'n8n-nodes-base.wait': {
+				'resin-nodes-base.wait': {
 					waitingNodeTooltip:
 						'={{$node.parameters.resume === "form" ? "Waiting for form submission: <a href=\\"" + $execution.resumeFormUrl + "\\" target=\\"_blank\\">" + $execution.resumeFormUrl + "</a>" : $node.parameters.resume === "webhook" ? "Waiting for webhook call: <a href=\\"" + $execution.resumeUrl + "\\" target=\\"_blank\\">" + $execution.resumeUrl + "</a>" : "Waiting for execution to resume..."}}',
 				},
-				'n8n-nodes-base.form': {
+				'resin-nodes-base.form': {
 					waitingNodeTooltip:
 						'Waiting for form submission: <a href="{{$execution.resumeFormUrl}}" target="_blank">{{$execution.resumeFormUrl}}</a>',
 				},
-				'n8n-nodes-base.sendWait': {
+				'resin-nodes-base.sendWait': {
 					waitingNodeTooltip: 'Waiting for approval...',
 				},
 				[GITHUB_NODE_TYPE]: {
@@ -154,7 +154,7 @@ describe('displayForm', () => {
 				id: '1',
 				name: 'RegularNode',
 				typeVersion: 1,
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				position: [0, 0],
 				parameters: {},
 			},
@@ -403,7 +403,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'Wait',
-			type: 'n8n-nodes-base.wait',
+			type: 'resin-nodes-base.wait',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {
@@ -418,7 +418,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'Wait',
-			type: 'n8n-nodes-base.wait',
+			type: 'resin-nodes-base.wait',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {
@@ -436,7 +436,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'Wait',
-			type: 'n8n-nodes-base.wait',
+			type: 'resin-nodes-base.wait',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {
@@ -457,7 +457,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'Form',
-			type: 'n8n-nodes-base.form',
+			type: 'resin-nodes-base.form',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},
@@ -473,7 +473,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'SendWait',
-			type: 'n8n-nodes-base.sendWait',
+			type: 'resin-nodes-base.sendWait',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {
@@ -506,7 +506,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'Wait',
-			type: 'n8n-nodes-base.wait',
+			type: 'resin-nodes-base.wait',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {
@@ -527,7 +527,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'SendWait',
-			type: 'n8n-nodes-base.sendWait',
+			type: 'resin-nodes-base.sendWait',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {
@@ -543,7 +543,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'Wait',
-			type: 'n8n-nodes-base.wait',
+			type: 'resin-nodes-base.wait',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {
@@ -559,7 +559,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'Wait',
-			type: 'n8n-nodes-base.wait',
+			type: 'resin-nodes-base.wait',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {
@@ -575,7 +575,7 @@ describe('waitingNodeTooltip', () => {
 		const node: INodeUi = {
 			id: '1',
 			name: 'Wait',
-			type: 'n8n-nodes-base.wait',
+			type: 'resin-nodes-base.wait',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {
@@ -762,7 +762,7 @@ describe('buildExecutionResponseFromSchema', () => {
 		name: 'Test Workflow',
 		nodes: [
 			createTestNode({ name: 'Start', type: MANUAL_TRIGGER_NODE_TYPE }),
-			createTestNode({ name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+			createTestNode({ name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 		],
 		connections: {},
 	} as unknown as IWorkflowDb;

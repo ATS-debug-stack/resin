@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 import { repoNameSelect, repoOwnerSelect } from '../../shared/descriptions';
 import { issueGetManyDescription } from './getAll';
 import { issueGetDescription } from './get';

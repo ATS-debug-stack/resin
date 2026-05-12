@@ -1,7 +1,7 @@
-import type { Logger } from '@n8n/backend-common';
-import type { GlobalConfig, InstanceSettingsLoaderConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { GLOBAL_MEMBER_ROLE, type AuthenticatedRequest, type User } from '@n8n/db';
+import type { Logger } from '@resin/backend-common';
+import type { GlobalConfig, InstanceSettingsLoaderConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { GLOBAL_MEMBER_ROLE, type AuthenticatedRequest, type User } from '@resin/db';
 import { type Request, type Response } from 'express';
 import { mock } from 'jest-mock-extended';
 

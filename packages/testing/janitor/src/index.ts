@@ -1,11 +1,11 @@
 /**
- * @n8n/playwright-janitor
+ * @resin/playwright-janitor
  *
  * Static analysis and architecture enforcement for Playwright test suites.
  *
  * @example
  * ```typescript
- * import { defineConfig, runAnalysis, createDefaultRunner } from '@n8n/playwright-janitor';
+ * import { defineConfig, runAnalysis, createDefaultRunner } from '@resin/playwright-janitor';
  *
  * const config = defineConfig({
  *   rootDir: __dirname,

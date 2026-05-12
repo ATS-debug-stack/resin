@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import { DataSource, EntityManager, In, Repository } from '@n8n/typeorm';
-import { UserError } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import { DataSource, EntityManager, In, Repository } from '@resin/typeorm';
+import { UserError } from 'resin-workflow';
 
 import { Project, ProjectRelation, Role, User } from '../entities';
 

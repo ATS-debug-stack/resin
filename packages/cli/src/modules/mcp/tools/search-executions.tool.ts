@@ -1,5 +1,5 @@
-import type { User } from '@n8n/db';
-import { ExecutionStatusList, WorkflowExecuteModeList, type ExecutionStatus } from 'n8n-workflow';
+import type { User } from '@resin/db';
+import { ExecutionStatusList, WorkflowExecuteModeList, type ExecutionStatus } from 'resin-workflow';
 import z from 'zod';
 
 import type { ExecutionService } from '@/executions/execution.service';

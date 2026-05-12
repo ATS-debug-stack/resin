@@ -1,5 +1,5 @@
-import { mockInstance, testModules } from '@n8n/backend-test-utils';
-import { Logger } from '@n8n/backend-common';
+import { mockInstance, testModules } from '@resin/backend-test-utils';
+import { Logger } from '@resin/backend-common';
 
 import type { DataTableColumn } from '../data-table-column.entity';
 import { DataTableCsvImportService } from '../data-table-csv-import.service';

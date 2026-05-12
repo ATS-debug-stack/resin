@@ -8,10 +8,10 @@ import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { getWorkflow } from '@/app/api/workflows';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { DEBOUNCE_TIME, getDebounceTime } from '@/app/constants';
-import { N8nHeading, N8nIcon, N8nInput, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nHeading, N8nIcon, N8nInput, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useDebounceFn } from '@vueuse/core';
 import {
 	AI_VENDOR_NODE_TYPES,
@@ -19,11 +19,11 @@ import {
 	type INode,
 	type INodeProperties,
 	type INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	INCOMPATIBLE_WORKFLOW_TOOL_BODY_NODE_TYPES,
 	SUPPORTED_WORKFLOW_TOOL_TRIGGERS,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import nodePopularity from 'virtual:node-popularity-data';
 
 import AgentToolItem from './AgentToolItem.vue';

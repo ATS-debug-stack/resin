@@ -4,7 +4,7 @@ import { join } from 'path';
 
 process.env.N8N_ENCRYPTION_KEY = 'test_key';
 
-const baseDir = join(tmpdir(), 'n8n-tests/');
+const baseDir = join(tmpdir(), 'resin-tests/');
 mkdirSync(baseDir, { recursive: true });
 
 const testDir = mkdtempSync(baseDir);

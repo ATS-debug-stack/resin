@@ -2,15 +2,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
 import { ChatOpenAI } from '@langchain/openai';
-import { makeN8nLlmFailedAttemptHandler, getProxyAgent } from '@n8n/ai-utilities';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
+import { makeN8nLlmFailedAttemptHandler, getProxyAgent } from '@resin/ai-utilities';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 
 import { LmChatAlibabaCloud } from '../LmChatAlibabaCloud.node';
 
 vi.mock('@langchain/openai');
-vi.mock('@n8n/ai-utilities');
+vi.mock('@resin/ai-utilities');
 
 const MockedChatOpenAI = vi.mocked(ChatOpenAI);
 const mockedMakeN8nLlmFailedAttemptHandler = vi.mocked(makeN8nLlmFailedAttemptHandler);
@@ -23,7 +23,7 @@ describe('LmChatAlibabaCloud', () => {
 		id: '1',
 		name: 'Alibaba Cloud Chat Model',
 		typeVersion: 1,
-		type: '@n8n/n8n-nodes-langchain.lmChatAlibabaCloud',
+		type: '@resin/n8n-nodes-langchain.lmChatAlibabaCloud',
 		position: [0, 0],
 		parameters: {},
 	};

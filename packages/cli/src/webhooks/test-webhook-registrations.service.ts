@@ -1,15 +1,15 @@
-import { Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+import { Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 import {
 	type IWebhookData,
 	type IWorkflowBase,
 	type IDestinationNode,
 	UserError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { TEST_WEBHOOK_TIMEOUT, TEST_WEBHOOK_TIMEOUT_BUFFER } from '@/constants';
 import { CacheService } from '@/services/cache/cache.service';
-import { isObjectLiteral } from '@n8n/backend-common';
+import { isObjectLiteral } from '@resin/backend-common';
 
 const TEST_WEBHOOK_REGISTRATION_VERSION = 1;
 

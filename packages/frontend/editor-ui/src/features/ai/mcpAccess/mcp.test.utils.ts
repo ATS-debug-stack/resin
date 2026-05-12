@@ -1,6 +1,6 @@
 import type { WorkflowListItem } from '@/Interface';
 import type { ProjectSharingData } from '@/features/collaboration/projects/projects.types';
-import type { OAuthClientResponseDto } from '@n8n/api-types';
+import type { OAuthClientResponseDto } from '@resin/api-types';
 
 export const createHomeProject = (
 	overrides: Partial<ProjectSharingData> = {},

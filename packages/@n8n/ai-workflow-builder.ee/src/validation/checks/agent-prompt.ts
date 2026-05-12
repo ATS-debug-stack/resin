@@ -1,4 +1,4 @@
-import type { INodeParameters } from 'n8n-workflow';
+import type { INodeParameters } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 
@@ -37,7 +37,7 @@ export function validateAgentPrompt(workflow: SimpleWorkflow): ProgrammaticViola
 	// Find all agent nodes and check their prompts
 	for (const node of workflow.nodes) {
 		// Check if this is an Agent node (ToolsAgent)
-		if (node.type === '@n8n/n8n-nodes-langchain.agent') {
+		if (node.type === '@resin/n8n-nodes-langchain.agent') {
 			// Check the text parameter for expressions
 			const textParam = node.parameters?.text;
 			const promptType = node.parameters?.promptType;

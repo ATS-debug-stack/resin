@@ -1,4 +1,4 @@
-import type { IDataObject, IHookFunctions, IWebhookFunctions } from 'n8n-workflow';
+import type { IDataObject, IHookFunctions, IWebhookFunctions } from 'resin-workflow';
 
 import {
 	createWebhook,

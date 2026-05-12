@@ -1,5 +1,5 @@
-import { testModules } from '@n8n/backend-test-utils';
-import type { GlobalConfig } from '@n8n/config';
+import { testModules } from '@resin/backend-test-utils';
+import type { GlobalConfig } from '@resin/config';
 import { mkdtempSync, writeFileSync, rmSync } from 'fs';
 import { mock } from 'jest-mock-extended';
 import { tmpdir } from 'os';

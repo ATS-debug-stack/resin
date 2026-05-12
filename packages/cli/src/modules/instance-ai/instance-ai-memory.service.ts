@@ -4,12 +4,12 @@ import type {
 	InstanceAiThreadInfo,
 	InstanceAiThreadListResponse,
 	InstanceAiThreadMessagesResponse,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { InstanceAiConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import { createMemory, patchThread, type AgentTreeSnapshot } from '@n8n/instance-ai';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { InstanceAiConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import { createMemory, patchThread, type AgentTreeSnapshot } from '@resin/instance-ai';
 
 import { DbSnapshotStorage } from './storage/db-snapshot-storage';
 

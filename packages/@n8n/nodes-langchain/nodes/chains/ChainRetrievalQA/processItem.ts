@@ -8,9 +8,9 @@ import {
 import type { BaseRetriever } from '@langchain/core/retrievers';
 import { createStuffDocumentsChain } from '@langchain/classic/chains/combine_documents';
 import { createRetrievalChain } from '@langchain/classic/chains/retrieval';
-import { type IExecuteFunctions, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { type IExecuteFunctions, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 
-import { isChatInstance } from '@n8n/ai-utilities';
+import { isChatInstance } from '@resin/ai-utilities';
 import { getPromptInputByType } from '@utils/helpers';
 import { getTracingConfig } from '@utils/tracing';
 

@@ -1,5 +1,5 @@
-import { Service } from '@n8n/di';
-import { UnexpectedError } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import { UnexpectedError } from 'resin-workflow';
 
 export type KeyInfo = { id: string; value: string; algorithm: string };
 

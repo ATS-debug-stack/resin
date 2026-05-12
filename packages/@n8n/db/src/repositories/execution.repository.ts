@@ -1,14 +1,14 @@
-import { Logger, parseFlatted } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
+import { Logger, parseFlatted } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
 import type {
 	FindManyOptions,
 	FindOneOptions,
 	FindOperator,
 	FindOptionsWhere,
 	SelectQueryBuilder,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 import {
 	Brackets,
 	DataSource,
@@ -20,24 +20,24 @@ import {
 	Not,
 	Repository,
 	And,
-} from '@n8n/typeorm';
-import { DateUtils } from '@n8n/typeorm/util/DateUtils';
+} from '@resin/typeorm';
+import { DateUtils } from '@resin/typeorm/util/DateUtils';
 import { stringify } from 'flatted';
 import pick from 'lodash/pick';
-import { BinaryDataService, ErrorReporter } from 'n8n-core';
+import { BinaryDataService, ErrorReporter } from 'resin-core';
 import type {
 	AnnotationVote,
 	ExecutionStatus,
 	ExecutionSummary,
 	IRunExecutionData,
 	IRunExecutionDataAll,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	createEmptyRunExecutionData,
 	ManualExecutionCancelledError,
 	migrateRunExecutionData,
 	UnexpectedError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	AnnotationTagEntity,

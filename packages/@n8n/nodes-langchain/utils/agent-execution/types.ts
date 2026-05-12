@@ -1,5 +1,5 @@
 import type { AIMessage } from '@langchain/core/messages';
-import type { IDataObject, GenericValue } from 'n8n-workflow';
+import type { IDataObject, GenericValue } from 'resin-workflow';
 import type { ZodType } from 'zod';
 
 /**

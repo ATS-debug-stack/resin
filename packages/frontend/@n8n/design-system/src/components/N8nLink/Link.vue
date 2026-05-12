@@ -28,7 +28,7 @@ withDefaults(defineProps<LinkProps>(), {
 </script>
 
 <template>
-	<N8nRoute :to="to" :title="title" :new-window="newWindow" v-bind="$attrs" class="n8n-link">
+	<N8nRoute :to="to" :title="title" :new-window="newWindow" v-bind="$attrs" class="resin-link">
 		<span :class="$style[`${underline ? `${theme}-underline` : theme}`]">
 			<N8nText :size="size" :bold="bold">
 				<slot></slot>

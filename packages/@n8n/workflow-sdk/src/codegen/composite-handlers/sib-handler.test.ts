@@ -57,7 +57,7 @@ describe('buildSplitInBatchesComposite', () => {
 		// Create the SIB node with done (output 0) and loop (output 1) branches
 		const sibNode = createSemanticNode(
 			'SplitInBatches',
-			'n8n-nodes-base.splitInBatches',
+			'resin-nodes-base.splitInBatches',
 			new Map([
 				['done', [{ target: 'DoneHandler', targetInputSlot: 'input' }]],
 				['loop', [{ target: 'LoopBody', targetInputSlot: 'input' }]],
@@ -65,8 +65,8 @@ describe('buildSplitInBatchesComposite', () => {
 		);
 
 		// Create branch targets
-		const doneHandler = createSemanticNode('DoneHandler', 'n8n-nodes-base.noOp');
-		const loopBody = createSemanticNode('LoopBody', 'n8n-nodes-base.noOp');
+		const doneHandler = createSemanticNode('DoneHandler', 'resin-nodes-base.noOp');
+		const loopBody = createSemanticNode('LoopBody', 'resin-nodes-base.noOp');
 
 		// Build the graph
 		const graph: SemanticGraph = {
@@ -104,14 +104,14 @@ describe('buildSplitInBatchesComposite', () => {
 	it('handles SplitInBatches with only done branch', () => {
 		const sibNode = createSemanticNode(
 			'SplitInBatches',
-			'n8n-nodes-base.splitInBatches',
+			'resin-nodes-base.splitInBatches',
 			new Map([
 				['done', [{ target: 'DoneHandler', targetInputSlot: 'input' }]],
 				['loop', []],
 			]),
 		);
 
-		const doneHandler = createSemanticNode('DoneHandler', 'n8n-nodes-base.noOp');
+		const doneHandler = createSemanticNode('DoneHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -133,14 +133,14 @@ describe('buildSplitInBatchesComposite', () => {
 	it('handles SplitInBatches with only loop branch', () => {
 		const sibNode = createSemanticNode(
 			'SplitInBatches',
-			'n8n-nodes-base.splitInBatches',
+			'resin-nodes-base.splitInBatches',
 			new Map([
 				['done', []],
 				['loop', [{ target: 'LoopBody', targetInputSlot: 'input' }]],
 			]),
 		);
 
-		const loopBody = createSemanticNode('LoopBody', 'n8n-nodes-base.noOp');
+		const loopBody = createSemanticNode('LoopBody', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -162,7 +162,7 @@ describe('buildSplitInBatchesComposite', () => {
 	it('handles SplitInBatches with no branches', () => {
 		const sibNode = createSemanticNode(
 			'SplitInBatches',
-			'n8n-nodes-base.splitInBatches',
+			'resin-nodes-base.splitInBatches',
 			new Map([
 				['done', []],
 				['loop', []],
@@ -186,15 +186,15 @@ describe('buildSplitInBatchesComposite', () => {
 	it('marks branch targets as visited in context', () => {
 		const sibNode = createSemanticNode(
 			'SplitInBatches',
-			'n8n-nodes-base.splitInBatches',
+			'resin-nodes-base.splitInBatches',
 			new Map([
 				['done', [{ target: 'DoneHandler', targetInputSlot: 'input' }]],
 				['loop', [{ target: 'LoopBody', targetInputSlot: 'input' }]],
 			]),
 		);
 
-		const doneHandler = createSemanticNode('DoneHandler', 'n8n-nodes-base.noOp');
-		const loopBody = createSemanticNode('LoopBody', 'n8n-nodes-base.noOp');
+		const doneHandler = createSemanticNode('DoneHandler', 'resin-nodes-base.noOp');
+		const loopBody = createSemanticNode('LoopBody', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -218,15 +218,15 @@ describe('buildSplitInBatchesComposite', () => {
 		// Simple SIB without going to same merge at different inputs
 		const sibNode = createSemanticNode(
 			'SplitInBatches',
-			'n8n-nodes-base.splitInBatches',
+			'resin-nodes-base.splitInBatches',
 			new Map([
 				['done', [{ target: 'Done', targetInputSlot: 'input' }]],
 				['loop', [{ target: 'Loop', targetInputSlot: 'input' }]],
 			]),
 		);
 
-		const done = createSemanticNode('Done', 'n8n-nodes-base.noOp');
-		const loop = createSemanticNode('Loop', 'n8n-nodes-base.noOp');
+		const done = createSemanticNode('Done', 'resin-nodes-base.noOp');
+		const loop = createSemanticNode('Loop', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([

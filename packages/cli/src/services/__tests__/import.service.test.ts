@@ -1,14 +1,14 @@
-import { safeJoinPath, type Logger } from '@n8n/backend-common';
+import { safeJoinPath, type Logger } from '@resin/backend-common';
 import type {
 	CredentialsRepository,
 	TagRepository,
 	WorkflowPublishHistoryRepository,
 	WorkflowRepository,
-} from '@n8n/db';
-import { type DataSource, type EntityManager } from '@n8n/typeorm';
+} from '@resin/db';
+import { type DataSource, type EntityManager } from '@resin/typeorm';
 import { readdir, readFile } from 'fs/promises';
 import { mock } from 'jest-mock-extended';
-import type { Cipher } from 'n8n-core';
+import type { Cipher } from 'resin-core';
 
 import type { ActiveWorkflowManager } from '@/active-workflow-manager';
 import type { DataTableDDLService } from '@/modules/data-table/data-table-ddl.service';
@@ -21,12 +21,12 @@ jest.mock('fs/promises');
 
 jest.mock('@/utils/compression.util');
 
-jest.mock('@n8n/backend-common', () => ({
+jest.mock('@resin/backend-common', () => ({
 	safeJoinPath: jest.fn(),
 }));
 
-// Mock @n8n/db
-jest.mock('@n8n/db', () => ({
+// Mock @resin/db
+jest.mock('@resin/db', () => ({
 	CredentialsRepository: mock<CredentialsRepository>(),
 	TagRepository: mock<TagRepository>(),
 	DataSource: mock<DataSource>(),

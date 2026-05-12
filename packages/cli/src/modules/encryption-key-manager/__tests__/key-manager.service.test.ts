@@ -1,8 +1,8 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { DeploymentKey } from '@n8n/db';
-import { DeploymentKeyRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { Cipher } from 'n8n-core';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { DeploymentKey } from '@resin/db';
+import { DeploymentKeyRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { Cipher } from 'resin-core';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 import { KeyManagerService } from '@/modules/encryption-key-manager/key-manager.service';

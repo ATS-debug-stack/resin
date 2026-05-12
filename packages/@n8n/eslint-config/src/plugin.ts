@@ -3,7 +3,7 @@ import { rules } from './rules/index.js';
 
 const plugin = {
 	meta: {
-		name: 'n8n-local-rules',
+		name: 'resin-local-rules',
 	},
 	configs: {},
 	// @ts-expect-error Rules type does not match for typescript-eslint and eslint
@@ -15,17 +15,17 @@ export const localRulesPlugin = {
 	configs: {
 		recommended: {
 			plugins: {
-				'n8n-local-rules': plugin,
+				'resin-local-rules': plugin,
 			},
 			rules: {
-				'n8n-local-rules/no-uncaught-json-parse': 'error',
-				'n8n-local-rules/no-json-parse-json-stringify': 'error',
-				'n8n-local-rules/no-unneeded-backticks': 'error',
-				'n8n-local-rules/no-interpolation-in-regular-string': 'error',
-				'n8n-local-rules/no-unused-param-in-catch-clause': 'error',
-				'n8n-local-rules/no-useless-catch-throw': 'error',
-				'n8n-local-rules/no-internal-package-import': 'error',
-				'n8n-local-rules/no-type-only-import-in-di': 'error',
+				'resin-local-rules/no-uncaught-json-parse': 'error',
+				'resin-local-rules/no-json-parse-json-stringify': 'error',
+				'resin-local-rules/no-unneeded-backticks': 'error',
+				'resin-local-rules/no-interpolation-in-regular-string': 'error',
+				'resin-local-rules/no-unused-param-in-catch-clause': 'error',
+				'resin-local-rules/no-useless-catch-throw': 'error',
+				'resin-local-rules/no-internal-package-import': 'error',
+				'resin-local-rules/no-type-only-import-in-di': 'error',
 			},
 		},
 	},

@@ -15,10 +15,10 @@ import {
 	N8nIcon,
 	N8nTag,
 	N8nText,
-} from '@n8n/design-system';
-import type { TableHeader } from '@n8n/design-system/components/N8nDataTableServer';
-import { useI18n } from '@n8n/i18n';
-import type { Role } from '@n8n/permissions';
+} from '@resin/design-system';
+import type { TableHeader } from '@resin/design-system/components/N8nDataTableServer';
+import { useI18n } from '@resin/i18n';
+import type { Role } from '@resin/permissions';
 import dateformat from 'dateformat';
 import { onMounted, ref, useCssModule } from 'vue';
 import { RouterLink, useRouter } from 'vue-router';

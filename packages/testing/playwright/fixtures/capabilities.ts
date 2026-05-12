@@ -1,4 +1,4 @@
-import type { N8NConfig } from 'n8n-containers/stack';
+import type { N8NConfig } from 'resin-containers/stack';
 
 /**
  * Capability definitions for `test.use({ capability: 'email' })`.

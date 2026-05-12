@@ -1,5 +1,5 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import {
 	setupIntegrationLLM,
@@ -25,14 +25,14 @@ const testPrompts = [
 		name: 'Monitoring workflow',
 		prompt:
 			'Create a workflow that monitors my website every 5 minutes and sends me a Slack notification if it goes down',
-		expectedNodes: ['n8n-nodes-base.httpRequest', 'n8n-nodes-base.scheduleTrigger'],
+		expectedNodes: ['resin-nodes-base.httpRequest', 'resin-nodes-base.scheduleTrigger'],
 		minNodes: 2,
 	},
 	{
 		name: 'Form input workflow',
 		prompt:
 			'Set up a form to collect customer feedback, analyze sentiment with AI, and store the results in Airtable',
-		expectedNodes: ['n8n-nodes-base.formTrigger'],
+		expectedNodes: ['resin-nodes-base.formTrigger'],
 		minNodes: 3,
 	},
 	{
@@ -40,41 +40,44 @@ const testPrompts = [
 		prompt:
 			'Build a chatbot that can answer customer questions using information from our knowledge base with RAG',
 		expectedNodes: [
-			'@n8n/n8n-nodes-langchain.chatTrigger',
-			'@n8n/n8n-nodes-langchain.agent',
-			'@n8n/n8n-nodes-langchain.vectorStore',
+			'@resin/n8n-nodes-langchain.chatTrigger',
+			'@resin/n8n-nodes-langchain.agent',
+			'@resin/n8n-nodes-langchain.vectorStore',
 		],
 		minNodes: 4,
 	},
 	{
 		name: 'API integration workflow',
 		prompt: 'Fetch weather data from OpenWeatherMap API and send daily forecast email via Gmail',
-		expectedNodes: ['n8n-nodes-base.httpRequest', 'n8n-nodes-base.gmail'],
+		expectedNodes: ['resin-nodes-base.httpRequest', 'resin-nodes-base.gmail'],
 		minNodes: 2,
 	},
 	{
 		name: 'Data transformation workflow',
 		prompt: 'Read CSV file, transform data with JavaScript, and upload to Google Sheets',
-		expectedNodes: ['n8n-nodes-base.readBinaryFile', 'n8n-nodes-base.code'],
+		expectedNodes: ['resin-nodes-base.readBinaryFile', 'resin-nodes-base.code'],
 		minNodes: 3,
 	},
 	{
 		name: 'Multi-agent AI workflow',
 		prompt:
 			'Create 4 AI agents (research, fact-check, writer, formatter) that work together to create and send weekly newsletter',
-		expectedNodes: ['@n8n/n8n-nodes-langchain.agent', '@n8n/n8n-nodes-langchain.lmChatAnthropic'],
+		expectedNodes: [
+			'@resin/n8n-nodes-langchain.agent',
+			'@resin/n8n-nodes-langchain.lmChatAnthropic',
+		],
 		minNodes: 5,
 	},
 	{
 		name: 'Webhook workflow',
 		prompt: 'Receive webhook from Stripe, validate payment, and update customer record in database',
-		expectedNodes: ['n8n-nodes-base.webhook'],
+		expectedNodes: ['resin-nodes-base.webhook'],
 		minNodes: 2,
 	},
 	{
 		name: 'Scheduled scraping',
 		prompt: 'Scrape competitor pricing daily and save to Notion database',
-		expectedNodes: ['n8n-nodes-base.scheduleTrigger', 'n8n-nodes-base.httpRequest'],
+		expectedNodes: ['resin-nodes-base.scheduleTrigger', 'resin-nodes-base.httpRequest'],
 		minNodes: 2,
 	},
 ];

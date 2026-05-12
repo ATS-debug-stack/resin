@@ -1,10 +1,10 @@
 import * as schemaPreviewApi from './schemaPreview.api';
-import { createResultError, createResultOk, type INode, type Result } from 'n8n-workflow';
+import { createResultError, createResultOk, type INode, type Result } from 'resin-workflow';
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import type { JSONSchema7 } from 'json-schema';
-import type { PushPayload } from '@n8n/api-types';
+import type { PushPayload } from '@resin/api-types';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { generateJsonSchema } from '@/app/utils/json-schema';
 

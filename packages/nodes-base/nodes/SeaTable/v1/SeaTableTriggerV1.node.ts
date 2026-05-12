@@ -8,7 +8,7 @@ import {
 	type INodeTypeDescription,
 	NodeConnectionTypes,
 	type INodeTypeBaseDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	escapeSqlIdentifier,

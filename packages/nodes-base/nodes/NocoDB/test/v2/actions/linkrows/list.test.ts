@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 
 import { execute } from '../../../../v2/actions/linkrows/list.operation';
 import { apiRequest, apiRequestAllItems } from '../../../../v2/transport';
@@ -31,7 +31,7 @@ describe('NocoDB Link Rows List Action', () => {
 			parameters: {},
 			id: 'node1',
 			name: 'NocoDB',
-			type: 'n8n-nodes-base.nocodb',
+			type: 'resin-nodes-base.nocodb',
 			typeVersion: 1,
 			position: [0, 0],
 			disabled: false,

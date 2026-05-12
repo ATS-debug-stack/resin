@@ -3,7 +3,7 @@ import {
 	NodeOperationError,
 	EVALUATION_TRIGGER_NODE_TYPE,
 	jsonStringify,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	INodeParameters,
 	IDataObject,
@@ -12,7 +12,7 @@ import type {
 	JsonObject,
 	JsonValue,
 	DataTableColumnJsType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getGoogleSheet, getSheet } from './evaluationTriggerUtils';
 import { metricHandlers } from './metricHandlers';
@@ -235,7 +235,9 @@ export function setInputs(this: IExecuteFunctions): INodeExecutionData[][] {
 	const evaluationNode = this.getNode();
 	const parentNodes = this.getParentNodes(evaluationNode.name);
 
-	const evalTrigger = parentNodes.find((node) => node.type === 'n8n-nodes-base.evaluationTrigger');
+	const evalTrigger = parentNodes.find(
+		(node) => node.type === 'resin-nodes-base.evaluationTrigger',
+	);
 	const isEvalTriggerExecuted = evalTrigger
 		? this.evaluateExpression(`{{ $('${evalTrigger?.name}').isExecuted }}`, 0)
 		: false;
@@ -305,7 +307,9 @@ export async function checkIfEvaluating(this: IExecuteFunctions): Promise<INodeE
 	const evaluationNode = this.getNode();
 	const parentNodes = this.getParentNodes(evaluationNode.name);
 
-	const evalTrigger = parentNodes.find((node) => node.type === 'n8n-nodes-base.evaluationTrigger');
+	const evalTrigger = parentNodes.find(
+		(node) => node.type === 'resin-nodes-base.evaluationTrigger',
+	);
 	const isEvalTriggerExecuted = evalTrigger
 		? this.evaluateExpression(`{{ $('${evalTrigger?.name}').isExecuted }}`, 0)
 		: false;

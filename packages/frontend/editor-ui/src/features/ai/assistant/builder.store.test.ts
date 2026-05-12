@@ -29,7 +29,7 @@ import {
 	type WorkflowState,
 } from '@/app/composables/useWorkflowState';
 import type { Telemetry } from '@/app/plugins/telemetry';
-import type { ChatUI } from '@n8n/design-system/types/assistant';
+import type { ChatUI } from '@resin/design-system/types/assistant';
 import type { ChatRequest } from '@/features/ai/assistant/assistant.types';
 import type { INodeUi } from '@/Interface';
 import { mockedStore } from '@/__tests__/utils';
@@ -44,7 +44,7 @@ import {
 import { AI_BUILDER_PLAN_MODE_EXPERIMENT } from '@/app/constants/experiments';
 
 // Mock useI18n to return the keys instead of translations
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({
 		baseText: (key: string) => key,
 	}),
@@ -54,8 +54,9 @@ vi.mock('@n8n/i18n', () => ({
 }));
 
 // Mock workflowHistory API
-vi.mock('@n8n/rest-api-client/api/workflowHistory', async (importOriginal) => {
-	const actual = await importOriginal<typeof import('@n8n/rest-api-client/api/workflowHistory')>();
+vi.mock('@resin/rest-api-client/api/workflowHistory', async (importOriginal) => {
+	const actual =
+		await importOriginal<typeof import('@resin/rest-api-client/api/workflowHistory')>();
 	return {
 		...actual,
 		getWorkflowVersionsByIds: vi.fn(),
@@ -1424,7 +1425,7 @@ describe('AI Builder store', () => {
 			const builderStore = useBuilderStore();
 
 			builderStore.trackWorkflowBuilderJourney('user_clicked_todo', {
-				node_type: 'n8n-nodes-base.httpRequest',
+				node_type: 'resin-nodes-base.httpRequest',
 				type: 'parameters',
 			});
 
@@ -1433,7 +1434,7 @@ describe('AI Builder store', () => {
 				session_id: expect.any(String),
 				event_type: 'user_clicked_todo',
 				event_properties: {
-					node_type: 'n8n-nodes-base.httpRequest',
+					node_type: 'resin-nodes-base.httpRequest',
 					type: 'parameters',
 				},
 			});
@@ -1479,7 +1480,7 @@ describe('AI Builder store', () => {
 
 			track.mockClear();
 			builderStore.trackWorkflowBuilderJourney('user_clicked_todo', {
-				node_type: 'n8n-nodes-base.httpRequest',
+				node_type: 'resin-nodes-base.httpRequest',
 				type: 'parameters',
 			});
 
@@ -1488,7 +1489,7 @@ describe('AI Builder store', () => {
 				session_id: expect.any(String),
 				event_type: 'user_clicked_todo',
 				event_properties: {
-					node_type: 'n8n-nodes-base.httpRequest',
+					node_type: 'resin-nodes-base.httpRequest',
 					type: 'parameters',
 				},
 				last_user_message_id: expect.any(String),
@@ -1615,7 +1616,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1635,7 +1636,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1668,7 +1669,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -1684,7 +1685,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 				} as INodeUi,
@@ -1699,7 +1700,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1726,7 +1727,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1752,7 +1753,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1772,7 +1773,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1782,7 +1783,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-2',
 					name: 'Slack',
-					type: 'n8n-nodes-base.slack',
+					type: 'resin-nodes-base.slack',
 					typeVersion: 1,
 					position: [200, 0],
 					parameters: {
@@ -1805,7 +1806,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1829,7 +1830,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1854,7 +1855,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1879,7 +1880,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1899,7 +1900,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -1920,7 +1921,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -2382,7 +2383,7 @@ describe('AI Builder store', () => {
 				workflowsStore.isWorkflowSaved = { 'test-workflow-id': true };
 
 				// Import the mocked module
-				const workflowHistoryModule = await import('@n8n/rest-api-client/api/workflowHistory');
+				const workflowHistoryModule = await import('@resin/rest-api-client/api/workflowHistory');
 
 				// Mock API to return messages with revertVersionId
 				mockGetAiSessions.mockResolvedValueOnce({
@@ -2443,7 +2444,7 @@ describe('AI Builder store', () => {
 				// Mark workflow as saved to allow loadSessions
 				workflowsStore.isWorkflowSaved = { 'test-workflow-id': true };
 
-				const workflowHistoryModule = await import('@n8n/rest-api-client/api/workflowHistory');
+				const workflowHistoryModule = await import('@resin/rest-api-client/api/workflowHistory');
 
 				// Mock API to return messages matching real backend format:
 				// tool messages (add_nodes, connect_nodes) instead of workflow-updated
@@ -2510,7 +2511,7 @@ describe('AI Builder store', () => {
 
 				workflowsStore.isWorkflowSaved = { 'test-workflow-id': true };
 
-				const workflowHistoryModule = await import('@n8n/rest-api-client/api/workflowHistory');
+				const workflowHistoryModule = await import('@resin/rest-api-client/api/workflowHistory');
 
 				// Mock with only non-modifying tools (search_nodes, validate_structure)
 				mockGetAiSessions.mockResolvedValueOnce({
@@ -2564,7 +2565,7 @@ describe('AI Builder store', () => {
 
 				workflowsStore.isWorkflowSaved = { 'test-workflow-id': true };
 
-				const workflowHistoryModule = await import('@n8n/rest-api-client/api/workflowHistory');
+				const workflowHistoryModule = await import('@resin/rest-api-client/api/workflowHistory');
 
 				// Session with revertVersionId on user message + tool messages
 				mockGetAiSessions.mockResolvedValueOnce({
@@ -2653,7 +2654,7 @@ describe('AI Builder store', () => {
 				workflowsStore.isWorkflowSaved = { 'test-workflow-id': true };
 
 				// Import the mocked module
-				const workflowHistoryModule = await import('@n8n/rest-api-client/api/workflowHistory');
+				const workflowHistoryModule = await import('@resin/rest-api-client/api/workflowHistory');
 
 				mockGetAiSessions.mockResolvedValueOnce({
 					sessions: [
@@ -3088,7 +3089,7 @@ describe('AI Builder store', () => {
 				const builderStore = useBuilderStore();
 				workflowsStore.isWorkflowSaved = { 'test-workflow-id': true };
 
-				const workflowHistoryModule = await import('@n8n/rest-api-client/api/workflowHistory');
+				const workflowHistoryModule = await import('@resin/rest-api-client/api/workflowHistory');
 
 				// Version card IDs are generated as `version-card-${userMessageId}`
 				// by loadSessions (line ~1248). The session stores the generated ID.
@@ -3358,7 +3359,7 @@ describe('AI Builder store', () => {
 
 			// Mock the workflow history API to return the version as existing
 			// Called twice: once for saveWorkflowAndGetRevertVersion, once for savePostModificationVersion
-			const workflowHistoryModule = await import('@n8n/rest-api-client/api/workflowHistory');
+			const workflowHistoryModule = await import('@resin/rest-api-client/api/workflowHistory');
 			vi.mocked(workflowHistoryModule.getWorkflowVersionsByIds)
 				.mockResolvedValueOnce({
 					versions: [{ versionId: 'version-1', createdAt: '2024-01-01T00:00:00Z' }],
@@ -3666,7 +3667,7 @@ describe('AI Builder store', () => {
 			});
 
 			// Mock version check for saveWorkflowAndGetRevertVersion + savePostModificationVersion
-			const workflowHistoryModule = await import('@n8n/rest-api-client/api/workflowHistory');
+			const workflowHistoryModule = await import('@resin/rest-api-client/api/workflowHistory');
 			vi.mocked(workflowHistoryModule.getWorkflowVersionsByIds).mockResolvedValue({
 				versions: [{ versionId: 'version-1', createdAt: '2024-01-01T00:00:00Z' }],
 			});
@@ -3806,7 +3807,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'test-node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -3839,7 +3840,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'test-node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -3884,7 +3885,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'test-node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -3916,7 +3917,7 @@ describe('AI Builder store', () => {
 				{
 					id: 'test-node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},

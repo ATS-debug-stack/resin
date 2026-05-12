@@ -1,9 +1,9 @@
 import type { PineconeStoreParams } from '@langchain/pinecone';
 import { PineconeStore } from '@langchain/pinecone';
 import { Pinecone } from '@pinecone-database/pinecone';
-import { NodeOperationError, type INodeProperties } from 'n8n-workflow';
+import { NodeOperationError, type INodeProperties } from 'resin-workflow';
 
-import { metadataFilterField, createVectorStoreNode } from '@n8n/ai-utilities';
+import { metadataFilterField, createVectorStoreNode } from '@resin/ai-utilities';
 
 import { pineconeIndexSearch } from '../shared/methods/listSearch';
 import { pineconeIndexRLC } from '../shared/descriptions';

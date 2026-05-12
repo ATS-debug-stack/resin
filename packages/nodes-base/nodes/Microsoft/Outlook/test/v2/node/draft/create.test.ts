@@ -1,6 +1,6 @@
 import { NodeTestHarness } from '@nodes-testing/node-test-harness';
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 import nock from 'nock';
 import { Readable } from 'stream';
 
@@ -111,7 +111,7 @@ describe('Test MicrosoftOutlookV2, draft => create', () => {
 		const mockNode: INode = {
 			id: 'test-node-id',
 			name: 'Microsoft Outlook Test',
-			type: 'n8n-nodes-base.microsoftOutlook',
+			type: 'resin-nodes-base.microsoftOutlook',
 			typeVersion: 2,
 			position: [0, 0],
 			parameters: {},

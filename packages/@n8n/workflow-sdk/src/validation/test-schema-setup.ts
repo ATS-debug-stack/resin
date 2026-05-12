@@ -77,19 +77,19 @@ export async function setupTestSchemas(): Promise<void> {
 			await generateNodeDefinitions({
 				nodesJsonPath: nodesBaseJson,
 				outputDir: SCHEMA_TEST_DIR,
-				packageName: 'n8n-nodes-base',
+				packageName: 'resin-nodes-base',
 			});
 		}
 
 		const langchainJson = path.join(
 			repoRoot,
-			'packages/@n8n/nodes-langchain/dist/types/nodes.json',
+			'packages/@resin/nodes-langchain/dist/types/nodes.json',
 		);
 		if (fs.existsSync(langchainJson)) {
 			await generateNodeDefinitions({
 				nodesJsonPath: langchainJson,
 				outputDir: SCHEMA_TEST_DIR,
-				packageName: '@n8n/n8n-nodes-langchain',
+				packageName: '@resin/n8n-nodes-langchain',
 			});
 		}
 

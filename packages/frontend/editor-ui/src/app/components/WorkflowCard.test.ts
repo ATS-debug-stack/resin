@@ -6,8 +6,8 @@ import { type MockedStore, mockedStore } from '@/__tests__/utils';
 import { MODAL_CONFIRM, VIEWS } from '@/app/constants';
 import WorkflowCard from '@/app/components/WorkflowCard.vue';
 import type { WorkflowResource } from '@/Interface';
-import type { IUser } from '@n8n/rest-api-client/api/users';
-import type { FrontendSettings } from '@n8n/api-types';
+import type { IUser } from '@resin/rest-api-client/api/users';
+import type { FrontendSettings } from '@resin/api-types';
 import * as vueRouter from 'vue-router';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import type { ProjectListItem } from '@/features/collaboration/projects/projects.types';
@@ -66,7 +66,7 @@ vi.mock('@/app/composables/useWorkflowActivate', () => {
 	};
 });
 
-vi.mock('@n8n/utils/event-bus', () => ({
+vi.mock('@resin/utils/event-bus', () => ({
 	createEventBus: () => ({
 		once: vi.fn((event, callback) => {
 			// Auto-trigger the callback for testing

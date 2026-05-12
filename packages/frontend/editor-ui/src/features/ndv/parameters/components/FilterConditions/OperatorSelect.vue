@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed, useCssModule } from 'vue';
 import { OPERATOR_GROUPS } from './constants';
 import type { FilterOperator } from './types';
 import { getFilterOperator } from './utils';
-import type { FilterOperatorType } from 'n8n-workflow';
+import type { FilterOperatorType } from 'resin-workflow';
 import { Primitive } from 'reka-ui';
 
-import { N8nIcon } from '@n8n/design-system';
-import { N8nDropdownMenu, type DropdownMenuItemProps } from '@n8n/design-system';
+import { N8nIcon } from '@resin/design-system';
+import { N8nDropdownMenu, type DropdownMenuItemProps } from '@resin/design-system';
 
 interface Props {
 	selected: string;

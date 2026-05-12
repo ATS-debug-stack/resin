@@ -1,5 +1,5 @@
 import { computed, type ComputedRef, type Ref } from 'vue';
-import type { InstanceAiWorkflowSetupNode } from '@n8n/api-types';
+import type { InstanceAiWorkflowSetupNode } from '@resin/api-types';
 import type {
 	WorkflowSetupGroup,
 	WorkflowSetupSection,

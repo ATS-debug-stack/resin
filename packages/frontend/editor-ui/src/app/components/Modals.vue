@@ -122,7 +122,7 @@ import WorkflowVersionFormModal, {
 import WorkflowSettings from '@/app/components/WorkflowSettings.vue';
 import WorkflowShareModal from '@/app/components/WorkflowShareModal.ee.vue';
 import WorkflowDiffModal from '@/features/workflows/workflowDiff/WorkflowDiffModal.vue';
-import type { EventBus } from '@n8n/utils/event-bus';
+import type { EventBus } from '@resin/utils/event-bus';
 import PromptMfaCodeModal from '@/features/core/auth/components/PromptMfaCodeModal.vue';
 import DynamicModalLoader from './DynamicModalLoader.vue';
 import NodeRecommendationModalV2 from '@/experiments/templateRecoV2/components/NodeRecommendationModal.vue';

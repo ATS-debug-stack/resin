@@ -1,11 +1,11 @@
 import { mockDeep } from 'vitest-mock-extended';
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { apiRequest, pollVideoTask, getVideoDownloadUrl } from '../transport';
 
-vi.mock('n8n-workflow', async () => {
-	const actual = await import('n8n-workflow');
+vi.mock('resin-workflow', async () => {
+	const actual = await import('resin-workflow');
 	return {
 		...actual,
 		sleep: vi.fn(),
@@ -24,7 +24,7 @@ describe('MiniMax Transport', () => {
 		mockExecuteFunctions.getNode.mockReturnValue({
 			id: 'test-node-id',
 			name: 'Test Node',
-			type: '@n8n/n8n-nodes-langchain.minimax',
+			type: '@resin/n8n-nodes-langchain.minimax',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

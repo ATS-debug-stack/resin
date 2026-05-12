@@ -1,8 +1,8 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { GlobalConfig } from '@n8n/config';
-import type { Project, User, WorkflowEntity } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { GlobalConfig } from '@resin/config';
+import type { Project, User, WorkflowEntity } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { INode, Workflow } from 'n8n-workflow';
+import type { INode, Workflow } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import {

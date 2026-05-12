@@ -8,8 +8,8 @@ import type {
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
-import { deepCopy, BINARY_ENCODING, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy, BINARY_ENCODING, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import { pipeline } from 'stream/promises';
 import { v4 as uuid } from 'uuid';
 

@@ -1,4 +1,4 @@
-import type { INodeTypeDescription, INodeProperties, Logger } from 'n8n-workflow';
+import type { INodeTypeDescription, INodeProperties, Logger } from 'resin-workflow';
 
 import {
 	extractResourceOperations,
@@ -12,7 +12,7 @@ function createMockNodeType(
 ): INodeTypeDescription {
 	return {
 		displayName: 'Test Node',
-		name: 'n8n-nodes-base.testNode',
+		name: 'resin-nodes-base.testNode',
 		group: ['transform'],
 		version: 1,
 		description: 'Test node for unit tests',

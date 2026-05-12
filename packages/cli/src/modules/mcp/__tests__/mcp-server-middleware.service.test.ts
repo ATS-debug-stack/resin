@@ -1,8 +1,8 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
 import type { Request, Response, NextFunction } from 'express';
 import { mock, mockDeep } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
 
 import { JwtService } from '@/services/jwt.service';
 import { Telemetry } from '@/telemetry';
@@ -270,7 +270,7 @@ describe('McpServerMiddlewareService', () => {
 		it('should authenticate with a delegated scoped JWT and set req.user to the actor', async () => {
 			const actor = mock<User>({ id: 'actor-1' });
 			const scopedJwt = jwtService.sign({
-				iss: 'n8n-token-exchange',
+				iss: 'resin-token-exchange',
 				sub: 'subject-1',
 				act: { sub: 'actor-1' },
 				jti: 'test-jti',

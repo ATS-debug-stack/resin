@@ -136,7 +136,7 @@ describe('isDisplayableConfirmationRequest', () => {
 						{
 							node: {
 								name: 'Webhook',
-								type: 'n8n-nodes-base.webhook',
+								type: 'resin-nodes-base.webhook',
 								typeVersion: 1,
 								parameters: {},
 								position: [0, 0],

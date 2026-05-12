@@ -1,7 +1,7 @@
 import { DynamicStructuredTool, DynamicTool } from '@langchain/core/tools';
 import type { JSONSchema7 } from 'json-schema';
-import { JsTaskRunnerSandbox } from 'n8n-nodes-base/dist/nodes/Code/JsTaskRunnerSandbox';
-import { PythonTaskRunnerSandbox } from 'n8n-nodes-base/dist/nodes/Code/PythonTaskRunnerSandbox';
+import { JsTaskRunnerSandbox } from 'resin-nodes-base/dist/nodes/Code/JsTaskRunnerSandbox';
+import { PythonTaskRunnerSandbox } from 'resin-nodes-base/dist/nodes/Code/PythonTaskRunnerSandbox';
 import type {
 	ExecutionError,
 	IDataObject,
@@ -11,13 +11,13 @@ import type {
 	INodeTypeDescription,
 	ISupplyDataFunctions,
 	SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	jsonParse,
 	NodeConnectionTypes,
 	nodeNameToToolName,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	buildInputSchemaField,
@@ -26,7 +26,7 @@ import {
 	schemaTypeField,
 } from '@utils/descriptions';
 import { convertJsonSchemaToZod, generateSchemaFromExample } from '@utils/schemaParsing';
-import { getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 import type { DynamicZodObject } from '../../../types/zod.types';
 

@@ -1,6 +1,6 @@
-import type { IconName } from '@n8n/design-system/components/N8nIcon/icons';
-import type { BaseTextKey } from '@n8n/i18n';
-import type { FilterConditionValue, FilterOperatorValue } from 'n8n-workflow';
+import type { IconName } from '@resin/design-system/components/N8nIcon/icons';
+import type { BaseTextKey } from '@resin/i18n';
+import type { FilterConditionValue, FilterOperatorValue } from 'resin-workflow';
 
 export interface FilterOperator extends FilterOperatorValue {
 	name: BaseTextKey;

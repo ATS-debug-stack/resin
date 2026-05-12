@@ -1,7 +1,7 @@
-import { GLOBAL_OWNER_ROLE, type IWorkflowDb } from '@n8n/db';
+import { GLOBAL_OWNER_ROLE, type IWorkflowDb } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
-import type { INode, IRun, IWorkflowBase, IWorkflowExecutionDataProcess } from 'n8n-workflow';
+import type { InstanceSettings } from 'resin-core';
+import type { INode, IRun, IWorkflowBase, IWorkflowExecutionDataProcess } from 'resin-workflow';
 
 import type { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';
 import { EventService } from '@/events/event.service';
@@ -929,14 +929,14 @@ describe('LogStreamingEventRelay', () => {
 					{
 						id: 'node1',
 						name: 'Start Node',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [100, 200],
 					},
 					{
 						id: 'node2',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 1,
 						position: [300, 200],
 					},
@@ -950,7 +950,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'HTTP Request',
 				workflow,
 				nodeId: 'node2',
-				nodeType: 'n8n-nodes-base.httpRequest',
+				nodeType: 'resin-nodes-base.httpRequest',
 			};
 
 			eventService.emit('node-pre-execute', event);
@@ -962,7 +962,7 @@ describe('LogStreamingEventRelay', () => {
 					nodeName: 'HTTP Request',
 					workflowId: 'wf303',
 					workflowName: 'Test Workflow with Nodes',
-					nodeType: 'n8n-nodes-base.httpRequest',
+					nodeType: 'resin-nodes-base.httpRequest',
 					nodeId: 'node2',
 				},
 			});
@@ -978,14 +978,14 @@ describe('LogStreamingEventRelay', () => {
 					{
 						id: 'node1',
 						name: 'Start Node',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [100, 200],
 					},
 					{
 						id: 'node2',
 						name: 'HTTP Response',
-						type: 'n8n-nodes-base.httpResponse',
+						type: 'resin-nodes-base.httpResponse',
 						typeVersion: 1,
 						position: [300, 200],
 					},
@@ -999,7 +999,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'HTTP Response',
 				workflow,
 				nodeId: 'node2',
-				nodeType: 'n8n-nodes-base.httpResponse',
+				nodeType: 'resin-nodes-base.httpResponse',
 			};
 
 			eventService.emit('node-post-execute', event);
@@ -1011,7 +1011,7 @@ describe('LogStreamingEventRelay', () => {
 					nodeName: 'HTTP Response',
 					workflowId: 'wf404',
 					workflowName: 'Test Workflow with Completed Node',
-					nodeType: 'n8n-nodes-base.httpResponse',
+					nodeType: 'resin-nodes-base.httpResponse',
 					nodeId: 'node2',
 				},
 			});
@@ -1507,7 +1507,7 @@ describe('LogStreamingEventRelay', () => {
 					lastName: 'Updater',
 					role: { slug: 'global:admin' },
 				},
-				packageName: 'n8n-nodes-awesome-package',
+				packageName: 'resin-nodes-awesome-package',
 				packageVersionCurrent: '1.0.0',
 				packageVersionNew: '1.1.0',
 				packageNodeNames: ['AwesomeNode1', 'AwesomeNode2'],
@@ -1525,7 +1525,7 @@ describe('LogStreamingEventRelay', () => {
 					_firstName: 'Package',
 					_lastName: 'Updater',
 					globalRole: 'global:admin',
-					packageName: 'n8n-nodes-awesome-package',
+					packageName: 'resin-nodes-awesome-package',
 					packageVersionCurrent: '1.0.0',
 					packageVersionNew: '1.1.0',
 					packageNodeNames: ['AwesomeNode1', 'AwesomeNode2'],
@@ -1544,8 +1544,8 @@ describe('LogStreamingEventRelay', () => {
 					lastName: 'User',
 					role: { slug: 'global:admin' },
 				},
-				inputString: 'n8n-nodes-custom-package',
-				packageName: 'n8n-nodes-custom-package',
+				inputString: 'resin-nodes-custom-package',
+				packageName: 'resin-nodes-custom-package',
 				success: true,
 				packageVersion: '1.0.0',
 				packageNodeNames: ['CustomNode1', 'CustomNode2'],
@@ -1563,8 +1563,8 @@ describe('LogStreamingEventRelay', () => {
 					_firstName: 'Admin',
 					_lastName: 'User',
 					globalRole: 'global:admin',
-					inputString: 'n8n-nodes-custom-package',
-					packageName: 'n8n-nodes-custom-package',
+					inputString: 'resin-nodes-custom-package',
+					packageName: 'resin-nodes-custom-package',
 					success: true,
 					packageVersion: '1.0.0',
 					packageNodeNames: ['CustomNode1', 'CustomNode2'],
@@ -1583,7 +1583,7 @@ describe('LogStreamingEventRelay', () => {
 					lastName: 'Deleter',
 					role: { slug: 'global:admin' },
 				},
-				packageName: 'n8n-nodes-awesome-package',
+				packageName: 'resin-nodes-awesome-package',
 				packageVersion: '1.0.0',
 				packageNodeNames: ['AwesomeNode1', 'AwesomeNode2'],
 				packageAuthor: 'John Doe',
@@ -1600,7 +1600,7 @@ describe('LogStreamingEventRelay', () => {
 					_firstName: 'Package',
 					_lastName: 'Deleter',
 					globalRole: 'global:admin',
-					packageName: 'n8n-nodes-awesome-package',
+					packageName: 'resin-nodes-awesome-package',
 					packageVersion: '1.0.0',
 					packageNodeNames: ['AwesomeNode1', 'AwesomeNode2'],
 					packageAuthor: 'John Doe',
@@ -2139,7 +2139,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Memory',
 				workflowId: 'wf123',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.memory',
+				nodeType: 'resin-nodes-base.memory',
 			};
 
 			eventService.emit('ai-messages-retrieved-from-memory', payload);
@@ -2157,7 +2157,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Memory',
 				workflowId: 'wf789',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.memory',
+				nodeType: 'resin-nodes-base.memory',
 			};
 
 			eventService.emit('ai-message-added-to-memory', payload);
@@ -2175,7 +2175,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Output Parser',
 				workflowId: 'wf456',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.outputParser',
+				nodeType: 'resin-nodes-base.outputParser',
 			};
 
 			eventService.emit('ai-output-parsed', payload);
@@ -2193,7 +2193,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Retriever',
 				workflowId: 'wf123',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.retriever',
+				nodeType: 'resin-nodes-base.retriever',
 			};
 
 			eventService.emit('ai-documents-retrieved', payload);
@@ -2211,7 +2211,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Embeddings',
 				workflowId: 'wf789',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.embeddings',
+				nodeType: 'resin-nodes-base.embeddings',
 			};
 
 			eventService.emit('ai-document-embedded', payload);
@@ -2229,7 +2229,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Embeddings',
 				workflowId: 'wf456',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.embeddings',
+				nodeType: 'resin-nodes-base.embeddings',
 			};
 
 			eventService.emit('ai-query-embedded', payload);
@@ -2247,7 +2247,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Embeddings',
 				workflowId: 'wf789',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.embeddings',
+				nodeType: 'resin-nodes-base.embeddings',
 			};
 
 			eventService.emit('ai-document-processed', payload);
@@ -2265,7 +2265,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Text Splitter',
 				workflowId: 'wf789',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.textSplitter',
+				nodeType: 'resin-nodes-base.textSplitter',
 			};
 
 			eventService.emit('ai-text-split', payload);
@@ -2283,7 +2283,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Tool',
 				workflowId: 'wf456',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.tool',
+				nodeType: 'resin-nodes-base.tool',
 			};
 
 			eventService.emit('ai-tool-called', payload);
@@ -2301,7 +2301,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Vector Store',
 				workflowId: 'wf123',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.vectorStore',
+				nodeType: 'resin-nodes-base.vectorStore',
 			};
 
 			eventService.emit('ai-vector-store-searched', payload);
@@ -2319,7 +2319,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'OpenAI',
 				workflowId: 'wf789',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.openai',
+				nodeType: 'resin-nodes-base.openai',
 			};
 
 			eventService.emit('ai-llm-generated-output', payload);
@@ -2337,7 +2337,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'OpenAI',
 				workflowId: 'wf123',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.openai',
+				nodeType: 'resin-nodes-base.openai',
 			};
 
 			eventService.emit('ai-llm-errored', payload);
@@ -2355,7 +2355,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Vector Store',
 				workflowId: 'wf789',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.vectorStore',
+				nodeType: 'resin-nodes-base.vectorStore',
 			};
 
 			eventService.emit('ai-vector-store-populated', payload);
@@ -2373,7 +2373,7 @@ describe('LogStreamingEventRelay', () => {
 				nodeName: 'Vector Store',
 				workflowId: 'wf123',
 				workflowName: 'My Workflow',
-				nodeType: 'n8n-nodes-base.vectorStore',
+				nodeType: 'resin-nodes-base.vectorStore',
 			};
 
 			eventService.emit('ai-vector-store-updated', payload);

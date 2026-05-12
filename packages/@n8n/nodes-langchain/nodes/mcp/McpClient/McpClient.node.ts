@@ -7,8 +7,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	NodeExecutionWithMetadata,
-} from 'n8n-workflow';
-import { jsonParse, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { jsonParse, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import { ZodError } from 'zod';
 import { prettifyError } from 'zod/v4/core';
 

@@ -8,7 +8,7 @@ import { useUIStore } from '@/app/stores/ui.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { getActivatableTriggerNodes, getTriggerNodeServiceName } from '@/app/utils/nodeTypesUtils';
 import { useExecutionsStore } from '@/features/execution/executions/executions.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useRouter } from 'vue-router';
 import {
 	LOCAL_STORAGE_ACTIVATION_FLAG,
@@ -17,7 +17,7 @@ import {
 	WORKFLOW_SETTINGS_MODAL_KEY,
 } from '../constants';
 
-import { N8nButton, N8nCheckbox, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nCheckbox, N8nText } from '@resin/design-system';
 import { injectWorkflowDocumentStore } from '../stores/workflowDocument.store';
 
 const checked = ref(false);

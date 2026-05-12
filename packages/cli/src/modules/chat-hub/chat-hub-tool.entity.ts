@@ -1,6 +1,6 @@
-import { User, JsonColumn, WithTimestamps } from '@n8n/db';
-import { Column, Entity, ManyToOne, JoinColumn, PrimaryColumn } from '@n8n/typeorm';
-import type { INode } from 'n8n-workflow';
+import { User, JsonColumn, WithTimestamps } from '@resin/db';
+import { Column, Entity, ManyToOne, JoinColumn, PrimaryColumn } from '@resin/typeorm';
+import type { INode } from 'resin-workflow';
 
 export interface IChatHubTool {
 	id: string;

@@ -2,12 +2,12 @@ import {
 	CreateVariableRequestDto,
 	UpdateVariableRequestDto,
 	NEW_VARIABLE_KEY_REGEX,
-} from '@n8n/api-types';
-import { LicenseState } from '@n8n/backend-common';
-import type { User, Variables } from '@n8n/db';
-import { generateNanoId, VariablesRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope, Scope } from '@n8n/permissions';
+} from '@resin/api-types';
+import { LicenseState } from '@resin/backend-common';
+import type { User, Variables } from '@resin/db';
+import { generateNanoId, VariablesRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope, Scope } from '@resin/permissions';
 
 import { FeatureNotLicensedError } from '@/errors/feature-not-licensed.error';
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';

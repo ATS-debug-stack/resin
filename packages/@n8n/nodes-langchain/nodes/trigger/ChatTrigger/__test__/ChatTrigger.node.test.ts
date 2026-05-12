@@ -1,7 +1,7 @@
-import { ChatTriggerConfig } from '@n8n/config/src';
-import { Container } from '@n8n/di';
+import { ChatTriggerConfig } from '@resin/config/src';
+import { Container } from '@resin/di';
 import type { Request, Response } from 'express';
-import type { INode, IWebhookFunctions } from 'n8n-workflow';
+import type { INode, IWebhookFunctions } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import { ChatTrigger } from '../ChatTrigger.node';
@@ -47,7 +47,7 @@ describe('ChatTrigger Node', () => {
 		mockContext.getResponseObject.mockReturnValue(mockResponse);
 		mockContext.getNode.mockReturnValue({
 			name: 'Chat Trigger',
-			type: 'n8n-nodes-langchain.chatTrigger',
+			type: 'resin-nodes-langchain.chatTrigger',
 			typeVersion: 1,
 		} as INode);
 		mockContext.getMode.mockReturnValue('webhook');

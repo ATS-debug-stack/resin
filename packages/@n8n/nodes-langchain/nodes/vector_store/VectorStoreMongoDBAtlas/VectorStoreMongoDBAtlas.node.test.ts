@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import type { ILoadOptionsFunctions, ISupplyDataFunctions } from 'n8n-workflow';
+import type { ILoadOptionsFunctions, ISupplyDataFunctions } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import {

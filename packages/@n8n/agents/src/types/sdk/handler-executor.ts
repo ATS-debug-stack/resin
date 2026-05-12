@@ -32,7 +32,7 @@ export interface HandlerExecutor {
 	/**
 	 * Evaluate an arbitrary source expression in the sandbox and return the result.
 	 * Used for provider tool sources, MCP configs, telemetry sources, etc.
-	 * The expression has access to `@n8n/agents` exports (e.g. `providerTools`, `Telemetry`)
+	 * The expression has access to `@resin/agents` exports (e.g. `providerTools`, `Telemetry`)
 	 * and `zod`.
 	 */
 	evaluateExpression(source: string): Promise<unknown>;

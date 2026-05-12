@@ -6,16 +6,16 @@ import {
 	type ChatHubProvider,
 	type ChatModelDto,
 	type ChatModelsResponse,
-} from '@n8n/api-types';
-import { In, WorkflowRepository, type User, type WorkflowEntity } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { Scope } from '@n8n/permissions';
+} from '@resin/api-types';
+import { In, WorkflowRepository, type User, type WorkflowEntity } from '@resin/db';
+import { Service } from '@resin/di';
+import { Scope } from '@resin/permissions';
 import {
 	CHAT_TRIGGER_NODE_TYPE,
 	type INodeCredentials,
 	type INodePropertyOptions,
 	type IWorkflowExecuteAdditionalData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { DynamicNodeParametersService } from '@/services/dynamic-node-parameters.service';

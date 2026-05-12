@@ -1,4 +1,4 @@
-import { type User, type ProjectRepository, WorkflowEntity } from '@n8n/db';
+import { type User, type ProjectRepository, WorkflowEntity } from '@resin/db';
 import z from 'zod';
 
 import { MCP_CREATE_WORKFLOW_FROM_CODE_TOOL, CODE_BUILDER_VALIDATE_TOOL } from './constants';
@@ -141,7 +141,7 @@ export const createCreateWorkflowFromCodeTool = (
 
 		try {
 			const { ParseValidateHandler, stripImportStatements } = await import(
-				'@n8n/ai-workflow-builder'
+				'@resin/ai-workflow-builder'
 			);
 
 			const handler = new ParseValidateHandler({ generatePinData: false });
@@ -184,7 +184,7 @@ export const createCreateWorkflowFromCodeTool = (
 			const savedWorkflow = await workflowCreationService.createWorkflow(user, newWorkflow, {
 				projectId,
 				parentFolderId: folderId,
-				source: 'n8n-mcp',
+				source: 'resin-mcp',
 			});
 
 			const baseUrl = urlService.getInstanceBaseUrl();

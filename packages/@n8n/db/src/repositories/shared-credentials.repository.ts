@@ -1,8 +1,8 @@
-import { Service } from '@n8n/di';
-import type { CredentialSharingRole, Scope } from '@n8n/permissions';
-import { hasGlobalScope, PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
-import type { EntityManager, FindOptionsWhere, SelectQueryBuilder } from '@n8n/typeorm';
-import { DataSource, In, Not, Repository } from '@n8n/typeorm';
+import { Service } from '@resin/di';
+import type { CredentialSharingRole, Scope } from '@resin/permissions';
+import { hasGlobalScope, PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
+import type { EntityManager, FindOptionsWhere, SelectQueryBuilder } from '@resin/typeorm';
+import { DataSource, In, Not, Repository } from '@resin/typeorm';
 
 import type { User } from '../entities';
 import { Project, ProjectRelation, SharedCredentials } from '../entities';

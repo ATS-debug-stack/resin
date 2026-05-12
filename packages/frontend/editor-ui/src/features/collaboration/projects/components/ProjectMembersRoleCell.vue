@@ -7,11 +7,11 @@ import {
 	N8nSelect2Item,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
-import type { AllRolesMap, Role } from '@n8n/permissions';
+} from '@resin/design-system';
+import type { AllRolesMap, Role } from '@resin/permissions';
 import { computed, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { VIEWS } from '@/app/constants';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { useSettingsStore } from '@/app/stores/settings.store';
@@ -20,7 +20,7 @@ import type { ProjectMemberData } from '../projects.types';
 import type {
 	SelectItemProps,
 	SelectValue,
-} from '@n8n/design-system/v2/components/Select/Select.types';
+} from '@resin/design-system/v2/components/Select/Select.types';
 import RoleHoverPopover from './RoleHoverPopover.vue';
 import ProjectRoleContactAdminModal from './ProjectRoleContactAdminModal.vue';
 import ProjectCustomRolesUpgradeModal from './ProjectCustomRolesUpgradeModal.vue';

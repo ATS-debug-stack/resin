@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 import * as oracleDBTypes from 'oracledb';
-import type { IExecuteFunctions, INode, INodeExecutionData } from 'n8n-workflow';
+import type { IExecuteFunctions, INode, INodeExecutionData } from 'resin-workflow';
 
 import type { ExecuteOpBindParam } from '../helpers/interfaces';
 import {

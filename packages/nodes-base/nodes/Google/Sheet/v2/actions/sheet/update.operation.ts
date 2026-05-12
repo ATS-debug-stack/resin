@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-workflow';
-import { NodeOperationError, UserError } from 'n8n-workflow';
+import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'resin-workflow';
+import { NodeOperationError, UserError } from 'resin-workflow';
 
 import {
 	cellFormat,

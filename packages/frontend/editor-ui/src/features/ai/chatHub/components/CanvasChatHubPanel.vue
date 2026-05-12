@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, useTemplateRef, watch } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
-import { useI18n } from '@n8n/i18n';
-import { N8nIconButton, N8nScrollArea, N8nText, N8nTooltip } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nIconButton, N8nScrollArea, N8nText, N8nTooltip } from '@resin/design-system';
 import { useClipboard } from '@/app/composables/useClipboard';
 import { useToast } from '@/app/composables/useToast';
 import type {
@@ -11,7 +11,7 @@ import type {
 	ChatMessageId,
 	ChatModelDto,
 	ChatSessionId,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import { CHAT_TRIGGER_NODE_TYPE } from '@/app/constants';
 import { useTelemetry } from '@/app/composables/useTelemetry';
 import { flattenModel } from '@/features/ai/chatHub/chat.utils';

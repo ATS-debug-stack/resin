@@ -51,7 +51,7 @@ export class InstanceSettingsLoaderConfig {
 	@Env('N8N_SSO_OIDC_LOGIN_ENABLED')
 	oidcLoginEnabled: boolean = false;
 
-	/**  Values can be found in packages/@n8n/api-types/src/dto/oidc/config.dto.ts */
+	/**  Values can be found in packages/@resin/api-types/src/dto/oidc/config.dto.ts */
 	@Env('N8N_SSO_OIDC_PROMPT')
 	oidcPrompt: string = 'select_account';
 
@@ -137,8 +137,8 @@ export class InstanceSettingsLoaderConfig {
 	 * @example
 	 * ```json
 	 * [
-	 *   { "name": "n8n-nodes-foo", "version": "1.2.3" },
-	 *   { "name": "n8n-nodes-bar", "version": "0.5.0", "checksum": "sha512-..." }
+	 *   { "name": "resin-nodes-foo", "version": "1.2.3" },
+	 *   { "name": "resin-nodes-bar", "version": "0.5.0", "checksum": "sha512-..." }
 	 * ]
 	 * ```
 	 */

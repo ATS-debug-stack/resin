@@ -1,6 +1,6 @@
-import type { AuthenticatedRequest } from '@n8n/db';
+import type { AuthenticatedRequest } from '@resin/db';
 import type { Request } from 'express';
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 
 import { SUPPORTED_MCP_TRIGGERS, SUPPORTED_PRODUCTION_MCP_TRIGGERS } from './mcp.constants';
 import { isRecord, isJSONRPCRequest } from './mcp.typeguards';

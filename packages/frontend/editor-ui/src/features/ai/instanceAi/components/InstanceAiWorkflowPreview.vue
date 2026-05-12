@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, watch, nextTick, onBeforeUnmount, useTemplateRef } from 'vue';
-import { N8nText, N8nIcon, N8nIconButton } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import type { PushMessage } from '@n8n/api-types';
+import { N8nText, N8nIcon, N8nIconButton } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import type { PushMessage } from '@resin/api-types';
 import WorkflowPreview from '@/app/components/WorkflowPreview.vue';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import type { IWorkflowDb } from '@/Interface';

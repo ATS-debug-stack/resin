@@ -9,8 +9,8 @@ import type {
 	INodeExecutionData,
 	IPairedItemData,
 	IPollFunctions,
-} from 'n8n-workflow';
-import { jsonParse, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { jsonParse, NodeOperationError } from 'resin-workflow';
 
 interface IAttachment {
 	url: string;

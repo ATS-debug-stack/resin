@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
 
 export const buildOperations: INodeProperties[] = [
 	{
@@ -238,7 +238,7 @@ export const buildFields: INodeProperties[] = [
 				resource: ['build'],
 			},
 		},
-		placeholder: 'n8n-io/n8n',
+		placeholder: 'resin-io/n8n',
 		default: '',
 		description: 'Same as {ownerName}/{repositoryName}',
 	},

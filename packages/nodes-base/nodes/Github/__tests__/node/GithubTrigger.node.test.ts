@@ -1,7 +1,7 @@
 import { GithubTrigger } from '../../GithubTrigger.node';
 import * as GenericFunctions from '../../GenericFunctions';
 import * as GithubTriggerHelpers from '../../GithubTriggerHelpers';
-import { NodeOperationError } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 describe('GithubTrigger Node', () => {
 	describe('checkExists webhook method', () => {

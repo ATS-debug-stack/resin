@@ -1,10 +1,10 @@
-import { type InsightsSummary } from '@n8n/api-types';
-import { LicenseState, Logger } from '@n8n/backend-common';
-import { OnLeaderStepdown, OnLeaderTakeover } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+import { type InsightsSummary } from '@resin/api-types';
+import { LicenseState, Logger } from '@resin/backend-common';
+import { OnLeaderStepdown, OnLeaderTakeover } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import { DateTime } from 'luxon';
-import { InstanceSettings } from 'n8n-core';
-import { UserError } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { UserError } from 'resin-workflow';
 
 import type { PeriodUnit, TypeUnit } from './database/entities/insights-shared';
 import { NumberToType, TypeToNumber } from './database/entities/insights-shared';

@@ -1,20 +1,20 @@
-import type { BuiltTool } from '@n8n/agents';
-import { Tool } from '@n8n/agents';
-import { INCOMPATIBLE_WORKFLOW_TOOL_BODY_NODE_TYPES } from '@n8n/api-types';
-import type { SUPPORTED_WORKFLOW_TOOL_TRIGGERS } from '@n8n/api-types';
+import type { BuiltTool } from '@resin/agents';
+import { Tool } from '@resin/agents';
+import { INCOMPATIBLE_WORKFLOW_TOOL_BODY_NODE_TYPES } from '@resin/api-types';
+import type { SUPPORTED_WORKFLOW_TOOL_TRIGGERS } from '@resin/api-types';
 import type {
 	ExecutionRepository,
 	UserRepository,
 	WorkflowRepository,
 	WorkflowEntity,
-} from '@n8n/db';
+} from '@resin/db';
 import type {
 	IDataObject,
 	INode,
 	IPinData,
 	IWorkflowExecutionDataProcess,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	createRunExecutionData,
 	CHAT_TRIGGER_NODE_TYPE,
@@ -23,7 +23,7 @@ import {
 	MANUAL_TRIGGER_NODE_TYPE,
 	EXECUTE_WORKFLOW_TRIGGER_NODE_TYPE,
 	TimeoutExecutionCancelledError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { z } from 'zod';
 
 import type { ActiveExecutions } from '@/active-executions';
@@ -40,7 +40,7 @@ import type { AgentJsonToolConfig } from '../json-config/agent-json-config';
 /**
  * Map a supported trigger node type to the input-schema key the workflow tool
  * builds against. Keys are sourced from `SUPPORTED_WORKFLOW_TOOL_TRIGGERS` in
- * `@n8n/api-types` so the backend compatibility check and the frontend
+ * `@resin/api-types` so the backend compatibility check and the frontend
  * Available list can't drift.
  */
 const SUPPORTED_TRIGGERS: Record<string, string> = {

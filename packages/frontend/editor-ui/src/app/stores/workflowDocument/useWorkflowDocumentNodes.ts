@@ -8,8 +8,8 @@ import type {
 	INodeIssueObjectProperty,
 	INodeParameters,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeHelpers } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeHelpers } from 'resin-workflow';
 import type {
 	INodeUi,
 	INodeUpdatePropertiesInformation,
@@ -197,7 +197,8 @@ export function useWorkflowDocumentNodes(deps: WorkflowDocumentNodesDeps) {
 		nodes.value.filter(
 			(node) =>
 				node.type.includes('langchain') ||
-				(node.type === 'n8n-nodes-base.evaluation' && node.parameters?.operation === 'setMetrics'),
+				(node.type === 'resin-nodes-base.evaluation' &&
+					node.parameters?.operation === 'setMetrics'),
 		),
 	);
 

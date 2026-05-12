@@ -15,7 +15,7 @@
 
 import { createHash } from 'crypto';
 import * as fs from 'fs';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import * as path from 'path';
 
 import type { NodeTypeDescription } from './generate-types';

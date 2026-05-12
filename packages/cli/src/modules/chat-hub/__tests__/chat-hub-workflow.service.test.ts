@@ -1,9 +1,9 @@
-import type { Logger } from '@n8n/backend-common';
-import type { WorkflowRepository, SharedWorkflowRepository, User } from '@n8n/db';
-import type { EntityManager } from '@n8n/typeorm';
+import type { Logger } from '@resin/backend-common';
+import type { WorkflowRepository, SharedWorkflowRepository, User } from '@resin/db';
+import type { EntityManager } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import type { Cipher, BinaryDataService } from 'n8n-core';
-import { type IBinaryData, type INode, CHAT_TRIGGER_NODE_TYPE } from 'n8n-workflow';
+import type { Cipher, BinaryDataService } from 'resin-core';
+import { type IBinaryData, type INode, CHAT_TRIGGER_NODE_TYPE } from 'resin-workflow';
 
 import type { ChatHubAgent } from '../chat-hub-agent.entity';
 import type { ChatHubAgentRepository } from '../chat-hub-agent.repository';
@@ -281,7 +281,7 @@ describe('ChatHubWorkflowService', () => {
 					(node) => node.name === NODE_NAMES.EMBEDDINGS_MODEL,
 				);
 				expect(embeddingsNode).toBeDefined();
-				expect(embeddingsNode?.type).toBe('@n8n/n8n-nodes-langchain.embeddingsOpenAi');
+				expect(embeddingsNode?.type).toBe('@resin/n8n-nodes-langchain.embeddingsOpenAi');
 			});
 
 			it('should wire vector store to agent and embeddings to vector store', async () => {
@@ -1008,7 +1008,7 @@ describe('ChatHubWorkflowService', () => {
 		});
 
 		it('should return allowFileUploads false when no chat trigger node exists', () => {
-			const nodes = [{ type: 'n8n-nodes-base.someOtherNode', parameters: {} } as any];
+			const nodes = [{ type: 'resin-nodes-base.someOtherNode', parameters: {} } as any];
 
 			const result = service.resolveWorkflowAttachmentPolicy(nodes);
 
@@ -1032,7 +1032,7 @@ describe('ChatHubWorkflowService', () => {
 		it('should encrypt executionMetadata before adding to trigger item', async () => {
 			const triggerNode = {
 				name: 'Chat Trigger',
-				type: 'n8n-nodes-base.chatTrigger',
+				type: 'resin-nodes-base.chatTrigger',
 				parameters: {},
 			} as any;
 			const executionMetadata: ChatHubAuthenticationMetadata = {
@@ -1203,7 +1203,7 @@ describe('ChatHubWorkflowService', () => {
 				(node) => node.name === NODE_NAMES.EMBEDDINGS_MODEL,
 			);
 			expect(embeddingsNode).toBeDefined();
-			expect(embeddingsNode?.type).toBe('@n8n/n8n-nodes-langchain.embeddingsOpenAi');
+			expect(embeddingsNode?.type).toBe('@resin/n8n-nodes-langchain.embeddingsOpenAi');
 		});
 	});
 

@@ -6,8 +6,8 @@ import type {
 	DateValue,
 	N8nDateRangePickerProps,
 	N8nDateRangePickerRootEmits,
-} from '@n8n/design-system';
-import { N8nButton, N8nDateRangePicker, N8nIcon } from '@n8n/design-system';
+} from '@resin/design-system';
+import { N8nButton, N8nDateRangePicker, N8nIcon } from '@resin/design-system';
 import { computed, ref, shallowRef, watch } from 'vue';
 import { formatDateRange, getAdjustedDateRange } from '../insights.utils';
 import InsightsUpgradeModal from './InsightsUpgradeModal.vue';

@@ -11,7 +11,7 @@ import {
 import type { useToast } from '@/app/composables/useToast';
 import type { Router } from 'vue-router';
 
-import { SOURCE_CONTROL_FILE_STATUS } from '@n8n/api-types';
+import { SOURCE_CONTROL_FILE_STATUS } from '@resin/api-types';
 
 describe('source control utils', () => {
 	describe('getStatusText()', () => {

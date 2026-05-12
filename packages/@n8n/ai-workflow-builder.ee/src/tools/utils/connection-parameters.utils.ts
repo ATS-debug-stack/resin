@@ -1,4 +1,4 @@
-import type { INodeParameters } from 'n8n-workflow';
+import type { INodeParameters } from 'resin-workflow';
 
 /**
  * Whitelist of parameter names that commonly affect node connections

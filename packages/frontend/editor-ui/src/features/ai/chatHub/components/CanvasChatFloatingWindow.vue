@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
 import { useStorage } from '@vueuse/core';
-import { useI18n } from '@n8n/i18n';
-import { N8nFloatingWindow, N8nText } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nFloatingWindow, N8nText } from '@resin/design-system';
 import { LOCAL_STORAGE_FLOATING_CHAT_WINDOW } from '@/app/constants';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 

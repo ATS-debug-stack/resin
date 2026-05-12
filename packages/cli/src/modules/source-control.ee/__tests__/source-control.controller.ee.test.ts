@@ -1,7 +1,7 @@
-import type { PullWorkFolderRequestDto, PushWorkFolderRequestDto } from '@n8n/api-types';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { ControllerRegistryMetadata, type Controller } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import type { PullWorkFolderRequestDto, PushWorkFolderRequestDto } from '@resin/api-types';
+import type { AuthenticatedRequest } from '@resin/db';
+import { ControllerRegistryMetadata, type Controller } from '@resin/decorators';
+import { Container } from '@resin/di';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
 

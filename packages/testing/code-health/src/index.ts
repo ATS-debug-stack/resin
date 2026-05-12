@@ -1,5 +1,5 @@
-import { RuleRunner } from '@n8n/rules-engine';
-import type { RuleSettingsMap } from '@n8n/rules-engine';
+import { RuleRunner } from '@resin/rules-engine';
+import type { RuleSettingsMap } from '@resin/rules-engine';
 
 import type { CodeHealthContext } from './context.js';
 import { CatalogViolationsRule } from './rules/catalog-violations.rule.js';

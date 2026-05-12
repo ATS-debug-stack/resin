@@ -1,15 +1,15 @@
-import { LicenseState } from '@n8n/backend-common';
-import { createTeamProject, testDb } from '@n8n/backend-test-utils';
-import type { Project } from '@n8n/db';
+import { LicenseState } from '@resin/backend-common';
+import { createTeamProject, testDb } from '@resin/backend-test-utils';
+import type { Project } from '@resin/db';
 import {
 	CredentialsRepository,
 	ProjectSecretsProviderAccessRepository,
 	SecretsProviderConnectionRepository,
 	SharedCredentialsRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { Cipher } from 'n8n-core';
+import { Cipher } from 'resin-core';
 
 describe('SecretsProviderConnectionRepository', () => {
 	let connectionRepository: SecretsProviderConnectionRepository;

@@ -1,14 +1,14 @@
-import type { ApiKeyWithRawValue } from '@n8n/api-types';
-import { testDb, randomValidPassword, mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { User } from '@n8n/db';
-import { ApiKeyRepository, GLOBAL_MEMBER_ROLE, GLOBAL_OWNER_ROLE } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { ApiKeyWithRawValue } from '@resin/api-types';
+import { testDb, randomValidPassword, mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { User } from '@resin/db';
+import { ApiKeyRepository, GLOBAL_MEMBER_ROLE, GLOBAL_OWNER_ROLE } from '@resin/db';
+import { Container } from '@resin/di';
 import {
 	getApiKeyScopesForRole,
 	getOwnerOnlyApiKeyScopes,
 	type ApiKeyScope,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 import { PublicApiKeyService } from '@/services/public-api-key.service';
 
 import { createOwnerWithApiKey, createUser, createUserShell } from './shared/db/users';

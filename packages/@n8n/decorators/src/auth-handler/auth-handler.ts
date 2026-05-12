@@ -1,4 +1,4 @@
-import type { Constructable } from '@n8n/di';
+import type { Constructable } from '@resin/di';
 
 /**
  * Authentication type discriminator.
@@ -40,7 +40,7 @@ interface IAuthHandlerBase<TUser> {
  * Interface for password-based authentication handlers.
  * Implementations can provide custom authentication logic for different auth methods (LDAP, SAML, etc.).
  *
- * @template TUser - The user type returned by the auth handler (typically from @n8n/db)
+ * @template TUser - The user type returned by the auth handler (typically from @resin/db)
  */
 export interface IPasswordAuthHandler<TUser> extends IAuthHandlerBase<TUser> {
 	readonly metadata: AuthHandlerMetadata & { type: 'password' };

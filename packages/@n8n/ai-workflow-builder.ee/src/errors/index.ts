@@ -1,5 +1,5 @@
-import { OperationalError, UnexpectedError } from 'n8n-workflow';
-import type { OperationalErrorOptions, UnexpectedErrorOptions } from 'n8n-workflow';
+import { OperationalError, UnexpectedError } from 'resin-workflow';
+import type { OperationalErrorOptions, UnexpectedErrorOptions } from 'resin-workflow';
 
 /**
  * Base error class for AI Workflow Builder specific errors

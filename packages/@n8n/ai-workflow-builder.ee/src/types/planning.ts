@@ -19,7 +19,7 @@ export interface PlanStep {
 	description: string;
 	subSteps?: string[];
 	/**
-	 * Suggested internal node type names (e.g. "n8n-nodes-base.gmail").
+	 * Suggested internal node type names (e.g. "resin-nodes-base.gmail").
 	 */
 	suggestedNodes?: string[];
 }

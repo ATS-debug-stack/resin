@@ -4,7 +4,7 @@ import type {
 	IFormInput,
 	FormFieldValueUpdate,
 	FormValues,
-} from '@n8n/design-system/types';
+} from '@resin/design-system/types';
 
 import { createFormEventBus } from '../../utils';
 import N8nButton from '../N8nButton';
@@ -45,7 +45,7 @@ const onSecondaryButtonClick = (event: Event) => emit('secondaryClick', event);
 </script>
 
 <template>
-	<div :class="['n8n-form-box', $style.container]">
+	<div :class="['resin-form-box', $style.container]">
 		<div v-if="title" :class="$style.heading">
 			<N8nHeading size="xlarge">
 				{{ title }}

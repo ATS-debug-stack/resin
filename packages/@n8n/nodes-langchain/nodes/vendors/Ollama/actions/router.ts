@@ -1,4 +1,8 @@
-import { NodeOperationError, type IExecuteFunctions, type INodeExecutionData } from 'n8n-workflow';
+import {
+	NodeOperationError,
+	type IExecuteFunctions,
+	type INodeExecutionData,
+} from 'resin-workflow';
 
 import * as image from './image';
 import type { OllamaType } from './node.type';

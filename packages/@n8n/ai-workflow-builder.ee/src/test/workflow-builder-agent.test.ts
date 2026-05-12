@@ -2,10 +2,10 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import type { MemorySaver } from '@langchain/langgraph';
 import { GraphRecursionError } from '@langchain/langgraph';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import { mock } from 'jest-mock-extended';
-import type { INodeTypeDescription } from 'n8n-workflow';
-import { ApplicationError, OperationalError } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
+import { ApplicationError, OperationalError } from 'resin-workflow';
 
 jest.mock('@/utils/stream-processor', () => ({
 	createStreamProcessor: jest.fn(),
@@ -337,9 +337,9 @@ describe('WorkflowBuilderAgent', () => {
 			summary: 'Fetch weather and send Slack alert',
 			trigger: 'Runs every morning at 7 AM',
 			steps: [
-				{ description: 'Fetch weather forecast', suggestedNodes: ['n8n-nodes-base.httpRequest'] },
+				{ description: 'Fetch weather forecast', suggestedNodes: ['resin-nodes-base.httpRequest'] },
 				{ description: 'Check if rain is predicted' },
-				{ description: 'Send Slack notification', suggestedNodes: ['n8n-nodes-base.slack'] },
+				{ description: 'Send Slack notification', suggestedNodes: ['resin-nodes-base.slack'] },
 			],
 		};
 

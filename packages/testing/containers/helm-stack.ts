@@ -118,7 +118,7 @@ async function preloadImage(container: StartedK3sContainer, imageName: string): 
 
 function cloneChartToHost(repo: string, ref: string): string {
 	log(`Downloading chart from ${repo} @ ${ref}...`);
-	const dir = mkdtempSync(join(tmpdir(), 'n8n-chart-'));
+	const dir = mkdtempSync(join(tmpdir(), 'resin-chart-'));
 	const repoPath = repo.replace('https://github.com/', '').replace('.git', '');
 	const tarUrl = `https://github.com/${repoPath}/archive/${ref}.tar.gz`;
 

@@ -4,7 +4,7 @@ import type {
 	CredentialProvider,
 	StreamChunk,
 	ToolDescriptor,
-} from '@n8n/agents';
+} from '@resin/agents';
 import {
 	AGENT_SCHEDULE_TRIGGER_TYPE,
 	AGENT_WORKFLOW_TRIGGER_TYPE,
@@ -13,29 +13,29 @@ import {
 	type AgentSkill,
 	type AgentSkillMutationResponse,
 	type ChatIntegrationDescriptor,
-} from '@n8n/api-types';
-import * as agents from '@n8n/agents';
-import { extractFromAIParameters } from '@n8n/ai-utilities';
-import { Logger } from '@n8n/backend-common';
-import { AgentsConfig, GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
+} from '@resin/api-types';
+import * as agents from '@resin/agents';
+import { extractFromAIParameters } from '@resin/ai-utilities';
+import { Logger } from '@resin/backend-common';
+import { AgentsConfig, GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
 import {
 	CredentialsRepository,
 	ExecutionRepository,
 	ProjectRelationRepository,
 	UserRepository,
 	WorkflowRepository,
-} from '@n8n/db';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { In } from '@n8n/typeorm';
+} from '@resin/db';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { In } from '@resin/typeorm';
 import {
 	deepCopy,
 	OperationalError,
 	UserError,
 	type ExecuteAgentData,
 	type INodeParameters,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { ActiveExecutions } from '@/active-executions';
@@ -1581,7 +1581,7 @@ export class AgentsService {
 
 		if (nodeTools.length === 0) return null;
 
-		const { setSchemaBaseDirs, validateNodeConfig } = await import('@n8n/workflow-sdk');
+		const { setSchemaBaseDirs, validateNodeConfig } = await import('@resin/workflow-sdk');
 
 		const dirs = resolveBuiltinNodeDefinitionDirs();
 		if (dirs.length > 0) {

@@ -1,5 +1,5 @@
-import { ChatHubProvider, type ChatHubSessionType } from '@n8n/api-types';
-import { WithTimestamps, DateTimeColumn, User, CredentialsEntity, WorkflowEntity } from '@n8n/db';
+import { ChatHubProvider, type ChatHubSessionType } from '@resin/api-types';
+import { WithTimestamps, DateTimeColumn, User, CredentialsEntity, WorkflowEntity } from '@resin/db';
 import {
 	Column,
 	Entity,
@@ -10,7 +10,7 @@ import {
 	JoinColumn,
 	type Relation,
 	PrimaryGeneratedColumn,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 
 import type { ChatHubMessage } from './chat-hub-message.entity';
 import type { ChatHubAgent } from './chat-hub-agent.entity';

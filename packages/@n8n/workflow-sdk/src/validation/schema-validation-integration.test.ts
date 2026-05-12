@@ -32,7 +32,7 @@ describe('Schema Validation Integration', () => {
 		// Optional field: options (no displayOptions)
 
 		it('returns no warning when all required fields are provided', () => {
-			const result = validateNodeConfig('n8n-nodes-base.microsoftTeams', 2, {
+			const result = validateNodeConfig('resin-nodes-base.microsoftTeams', 2, {
 				parameters: {
 					resource: 'task',
 					operation: 'create',
@@ -48,7 +48,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('rejects config when required title field is missing', () => {
-			const result = validateNodeConfig('n8n-nodes-base.microsoftTeams', 2, {
+			const result = validateNodeConfig('resin-nodes-base.microsoftTeams', 2, {
 				parameters: {
 					resource: 'task',
 					operation: 'create',
@@ -62,7 +62,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('accepts expression in groupId field', () => {
-			const result = validateNodeConfig('n8n-nodes-base.microsoftTeams', 2, {
+			const result = validateNodeConfig('resin-nodes-base.microsoftTeams', 2, {
 				parameters: {
 					resource: 'task',
 					operation: 'create',
@@ -77,7 +77,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('accepts optional options field', () => {
-			const result = validateNodeConfig('n8n-nodes-base.microsoftTeams', 2, {
+			const result = validateNodeConfig('resin-nodes-base.microsoftTeams', 2, {
 				parameters: {
 					resource: 'task',
 					operation: 'create',
@@ -103,7 +103,7 @@ describe('Schema Validation Integration', () => {
 		// duplicateCount: optional, show: { duplicateItem: [true] }
 
 		it('validates when duplicateItem is true and duplicateCount is provided', () => {
-			const result = validateNodeConfig('n8n-nodes-base.set', 3, {
+			const result = validateNodeConfig('resin-nodes-base.set', 3, {
 				parameters: {
 					mode: 'manual',
 					duplicateItem: true,
@@ -115,7 +115,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('accepts any duplicateCount value when duplicateItem is false (field hidden)', () => {
-			const result = validateNodeConfig('n8n-nodes-base.set', 3, {
+			const result = validateNodeConfig('resin-nodes-base.set', 3, {
 				parameters: {
 					mode: 'manual',
 					duplicateItem: false,
@@ -128,7 +128,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('returns warning when duplicateItem has invalid type', () => {
-			const result = validateNodeConfig('n8n-nodes-base.set', 3, {
+			const result = validateNodeConfig('resin-nodes-base.set', 3, {
 				parameters: {
 					mode: 'manual',
 					duplicateItem: 'not-a-boolean', // Should be boolean
@@ -149,7 +149,7 @@ describe('Schema Validation Integration', () => {
 		it('accepts missing responseBinaryPropertyName when show condition is met (field has default)', () => {
 			// responseBinaryPropertyName has required: true but also has default: 'data'
 			// In n8n semantics, fields with defaults are optional (the default is used if not provided)
-			const result = validateNodeConfig('n8n-nodes-base.webhook', 1, {
+			const result = validateNodeConfig('resin-nodes-base.webhook', 1, {
 				parameters: {
 					responseMode: 'lastNode', // Required to make responseData visible
 					responseData: 'firstEntryBinary',
@@ -161,7 +161,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('does not require responseBinaryPropertyName when show condition is not met', () => {
-			const result = validateNodeConfig('n8n-nodes-base.webhook', 1, {
+			const result = validateNodeConfig('resin-nodes-base.webhook', 1, {
 				parameters: {
 					responseMode: 'lastNode', // Required to make responseData visible
 					responseData: 'allEntries', // Not 'firstEntryBinary'
@@ -173,7 +173,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('accepts responseBinaryPropertyName when condition is met', () => {
-			const result = validateNodeConfig('n8n-nodes-base.webhook', 1, {
+			const result = validateNodeConfig('resin-nodes-base.webhook', 1, {
 				parameters: {
 					responseMode: 'lastNode', // Required to make responseData visible
 					responseData: 'firstEntryBinary',
@@ -185,7 +185,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('hides responseCode when responseMode is responseNode', () => {
-			const result = validateNodeConfig('n8n-nodes-base.webhook', 1, {
+			const result = validateNodeConfig('resin-nodes-base.webhook', 1, {
 				parameters: {
 					responseMode: 'responseNode',
 					// responseCode is hidden when responseMode is 'responseNode'
@@ -197,7 +197,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('validates responseCode when show conditions are met', () => {
-			const result = validateNodeConfig('n8n-nodes-base.webhook', 1, {
+			const result = validateNodeConfig('resin-nodes-base.webhook', 1, {
 				parameters: {
 					'@version': 1,
 					responseMode: 'onReceived', // Not 'responseNode' so hide condition doesn't apply
@@ -217,7 +217,7 @@ describe('Schema Validation Integration', () => {
 		it('accepts missing user when hide condition is NOT met (field has default)', () => {
 			// user has required: true but also has default: { mode: 'username', value: '' }
 			// In n8n semantics, fields with defaults are optional (the default is used if not provided)
-			const result = validateNodeConfig('n8n-nodes-base.twitter', 2, {
+			const result = validateNodeConfig('resin-nodes-base.twitter', 2, {
 				parameters: {
 					resource: 'user',
 					operation: 'searchUser',
@@ -230,7 +230,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('does not require user when hide condition IS met (me is true)', () => {
-			const result = validateNodeConfig('n8n-nodes-base.twitter', 2, {
+			const result = validateNodeConfig('resin-nodes-base.twitter', 2, {
 				parameters: {
 					resource: 'user',
 					operation: 'searchUser',
@@ -243,7 +243,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('validates when user is provided with valid resource locator', () => {
-			const result = validateNodeConfig('n8n-nodes-base.twitter', 2, {
+			const result = validateNodeConfig('resin-nodes-base.twitter', 2, {
 				parameters: {
 					resource: 'user',
 					operation: 'searchUser',
@@ -265,7 +265,7 @@ describe('Schema Validation Integration', () => {
 		// events: required array (no displayOptions, static schema)
 
 		it('validates when events array is provided', () => {
-			const result = validateNodeConfig('n8n-nodes-base.chargebeeTrigger', 1, {
+			const result = validateNodeConfig('resin-nodes-base.chargebeeTrigger', 1, {
 				parameters: {
 					events: ['card_added', 'card_deleted'],
 				},
@@ -275,7 +275,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('returns warning when events is a string instead of array', () => {
-			const result = validateNodeConfig('n8n-nodes-base.chargebeeTrigger', 1, {
+			const result = validateNodeConfig('resin-nodes-base.chargebeeTrigger', 1, {
 				parameters: {
 					events: 'card_added', // Should be an array
 				},
@@ -285,7 +285,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('validates with all valid event types', () => {
-			const result = validateNodeConfig('n8n-nodes-base.chargebeeTrigger', 1, {
+			const result = validateNodeConfig('resin-nodes-base.chargebeeTrigger', 1, {
 				parameters: {
 					events: ['subscription_created', 'payment_succeeded', 'invoice_generated'],
 				},
@@ -298,7 +298,7 @@ describe('Schema Validation Integration', () => {
 	describe('Expression Validation', () => {
 		it('accepts expression in resourceLocator fields', () => {
 			// resourceLocator fields accept either expressions OR proper object format
-			const result = validateNodeConfig('n8n-nodes-base.microsoftTeams', 2, {
+			const result = validateNodeConfig('resin-nodes-base.microsoftTeams', 2, {
 				parameters: {
 					resource: 'task',
 					operation: 'create',
@@ -313,7 +313,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('accepts expression in number fields', () => {
-			const result = validateNodeConfig('n8n-nodes-base.set', 3, {
+			const result = validateNodeConfig('resin-nodes-base.set', 3, {
 				parameters: {
 					mode: 'manual',
 					duplicateItem: true,
@@ -325,7 +325,7 @@ describe('Schema Validation Integration', () => {
 		});
 
 		it('accepts expression in boolean fields', () => {
-			const result = validateNodeConfig('n8n-nodes-base.set', 3, {
+			const result = validateNodeConfig('resin-nodes-base.set', 3, {
 				parameters: {
 					mode: 'manual',
 					duplicateItem: '={{ $json.shouldDuplicate }}', // Expression instead of boolean
@@ -338,31 +338,31 @@ describe('Schema Validation Integration', () => {
 
 	describe('Schema Loading', () => {
 		it('loads discriminated schema for MS Teams v2 task/create', () => {
-			const schema = loadSchema('n8n-nodes-base.microsoftTeams', 2);
+			const schema = loadSchema('resin-nodes-base.microsoftTeams', 2);
 			expect(schema).not.toBeNull();
 			expect(typeof schema).toBe('function'); // Factory function for discriminated schemas
 		});
 
 		it('loads discriminated schema for Set v3 manual mode', () => {
-			const schema = loadSchema('n8n-nodes-base.set', 3);
+			const schema = loadSchema('resin-nodes-base.set', 3);
 			expect(schema).not.toBeNull();
 			expect(typeof schema).toBe('function'); // Factory function for mode-discriminated schemas
 		});
 
 		it('loads factory schema for Webhook v1', () => {
-			const schema = loadSchema('n8n-nodes-base.webhook', 1);
+			const schema = loadSchema('resin-nodes-base.webhook', 1);
 			expect(schema).not.toBeNull();
 			expect(typeof schema).toBe('function'); // Factory function
 		});
 
 		it('loads discriminated schema for Twitter v2 user/searchUser', () => {
-			const schema = loadSchema('n8n-nodes-base.twitter', 2);
+			const schema = loadSchema('resin-nodes-base.twitter', 2);
 			expect(schema).not.toBeNull();
 			expect(typeof schema).toBe('function'); // Factory function for discriminated schemas
 		});
 
 		it('loads schema factory for ChargebeeTrigger v1', () => {
-			const schema = loadSchema('n8n-nodes-base.chargebeeTrigger', 1);
+			const schema = loadSchema('resin-nodes-base.chargebeeTrigger', 1);
 			expect(schema).not.toBeNull();
 			// All schemas are now factory functions
 			expect(typeof schema).toBe('function');
@@ -374,12 +374,12 @@ describe('Schema Validation Integration', () => {
 			// Code format matches what generateWorkflowCode produces
 			const code = `
 const manual_Trigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Manual Trigger' }
 });
 const set_Data = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3,
   config: {
     name: 'Set Data',
@@ -406,12 +406,12 @@ export default workflow('test-id', 'Test Workflow')
 		it('parses workflow with invalid parameter type and returns warning', () => {
 			const code = `
 const manual_Trigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Manual Trigger' }
 });
 const set_Data = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3,
   config: {
     name: 'Set Data',
@@ -438,12 +438,12 @@ export default workflow('test-id', 'Test Workflow')
 		it('validates workflow with expressions correctly', () => {
 			const code = `
 const manual_Trigger = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Manual Trigger' }
 });
 const set_Data = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3,
   config: {
     name: 'Set Data',
@@ -473,11 +473,11 @@ export default workflow('test-id', 'Test Workflow')
 		// Schema: nodes/n8n-nodes-langchain/openAi/v21/resource_text/operation_response.schema.js
 
 		beforeAll(() => {
-			requireSchema('@n8n/n8n-nodes-langchain.openAi', 2.1);
+			requireSchema('@resin/n8n-nodes-langchain.openAi', 2.1);
 		});
 
 		it('accepts valid subnodes (tools, memory) for OpenAI text/response', () => {
-			const result = validateNodeConfig('@n8n/n8n-nodes-langchain.openAi', 2.1, {
+			const result = validateNodeConfig('@resin/n8n-nodes-langchain.openAi', 2.1, {
 				parameters: {
 					resource: 'text',
 					operation: 'response',
@@ -492,7 +492,7 @@ export default workflow('test-id', 'Test Workflow')
 		});
 
 		it('rejects unsupported subnode (outputParser) for OpenAI text/response', () => {
-			const result = validateNodeConfig('@n8n/n8n-nodes-langchain.openAi', 2.1, {
+			const result = validateNodeConfig('@resin/n8n-nodes-langchain.openAi', 2.1, {
 				parameters: {
 					resource: 'text',
 					operation: 'response',
@@ -508,7 +508,7 @@ export default workflow('test-id', 'Test Workflow')
 		});
 
 		it('rejects multiple unsupported subnodes', () => {
-			const result = validateNodeConfig('@n8n/n8n-nodes-langchain.openAi', 2.1, {
+			const result = validateNodeConfig('@resin/n8n-nodes-langchain.openAi', 2.1, {
 				parameters: {
 					resource: 'text',
 					operation: 'response',
@@ -525,7 +525,7 @@ export default workflow('test-id', 'Test Workflow')
 
 	describe('Edge Cases', () => {
 		it('handles missing parameters object gracefully', () => {
-			const result = validateNodeConfig('n8n-nodes-base.set', 3, {});
+			const result = validateNodeConfig('resin-nodes-base.set', 3, {});
 			expect(result.valid).toBe(true);
 			expect(result.errors).toEqual([]);
 		});
@@ -533,7 +533,7 @@ export default workflow('test-id', 'Test Workflow')
 		it('handles empty parameters object (uses discriminator defaults)', () => {
 			// For Set v3, mode defaults to 'manual'
 			// Empty parameters means mode defaults to 'manual', which is valid
-			const result = validateNodeConfig('n8n-nodes-base.set', 3, {
+			const result = validateNodeConfig('resin-nodes-base.set', 3, {
 				parameters: {},
 			});
 			// Empty parameters are valid because mode defaults to 'manual'
@@ -551,7 +551,7 @@ export default workflow('test-id', 'Test Workflow')
 
 		it('handles both show and hide conditions simultaneously', () => {
 			// Webhook responseCode has both show (@version) and hide (responseMode)
-			const result = validateNodeConfig('n8n-nodes-base.webhook', 1, {
+			const result = validateNodeConfig('resin-nodes-base.webhook', 1, {
 				parameters: {
 					'@version': 1, // show condition met
 					responseMode: 'onReceived', // hide condition NOT met

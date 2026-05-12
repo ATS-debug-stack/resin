@@ -1,5 +1,5 @@
 import type InfisicalClient from 'infisical-node';
-import { UnexpectedError, type IDataObject, type INodeProperties } from 'n8n-workflow';
+import { UnexpectedError, type IDataObject, type INodeProperties } from 'resin-workflow';
 
 import { SecretsProvider } from '../types';
 import type { SecretsProviderSettings } from '../types';

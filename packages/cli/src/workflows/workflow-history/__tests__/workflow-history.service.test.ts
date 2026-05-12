@@ -1,6 +1,6 @@
-import { mockLogger, mockInstance } from '@n8n/backend-test-utils';
-import { User, WorkflowHistoryRepository } from '@n8n/db';
-import type { UpdateResult } from '@n8n/typeorm';
+import { mockLogger, mockInstance } from '@resin/backend-test-utils';
+import { User, WorkflowHistoryRepository } from '@resin/db';
+import type { UpdateResult } from '@resin/typeorm';
 import { mockClear } from 'jest-mock-extended';
 
 import { EventService } from '@/events/event.service';

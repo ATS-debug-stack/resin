@@ -1,8 +1,8 @@
-import type { Logger } from '@n8n/backend-common';
-import type { InstanceSettingsLoaderConfig } from '@n8n/config';
-import type { EntityManager } from '@n8n/typeorm';
+import type { Logger } from '@resin/backend-common';
+import type { InstanceSettingsLoaderConfig } from '@resin/config';
+import type { EntityManager } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import { MessageEventBusDestinationTypeNames } from 'n8n-workflow';
+import { MessageEventBusDestinationTypeNames } from 'resin-workflow';
 
 import type { EventDestinationsRepository } from '@/modules/log-streaming.ee/database/repositories/event-destination.repository';
 

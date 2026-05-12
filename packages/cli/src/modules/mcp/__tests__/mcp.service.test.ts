@@ -1,16 +1,16 @@
-import type { Logger } from '@n8n/backend-common';
-import { mockInstance, mockLogger } from '@n8n/backend-test-utils';
-import { ExecutionsConfig, GlobalConfig } from '@n8n/config';
+import type { Logger } from '@resin/backend-common';
+import { mockInstance, mockLogger } from '@resin/backend-test-utils';
+import { ExecutionsConfig, GlobalConfig } from '@resin/config';
 import {
 	ExecutionRepository,
 	FolderRepository,
 	ProjectRepository,
 	SharedWorkflowRepository,
 	User,
-} from '@n8n/db';
-import { InstanceSettings } from 'n8n-core';
-import type { IRun } from 'n8n-workflow';
-import { createEmptyRunExecutionData, ManualExecutionCancelledError } from 'n8n-workflow';
+} from '@resin/db';
+import { InstanceSettings } from 'resin-core';
+import type { IRun } from 'resin-workflow';
+import { createEmptyRunExecutionData, ManualExecutionCancelledError } from 'resin-workflow';
 
 import { McpService } from '../mcp.service';
 import { NodeCatalogService } from '@/node-catalog';

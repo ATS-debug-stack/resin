@@ -1,6 +1,6 @@
 import { mock } from 'jest-mock-extended';
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { createResultOk, createResultError, NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { createResultOk, createResultError, NodeOperationError } from 'resin-workflow';
 
 import { PythonTaskRunnerSandbox } from '../PythonTaskRunnerSandbox';
 
@@ -24,7 +24,7 @@ const createMockExecuteFunctions = (inputData: any[] = []) => {
 	executeFunctions.getNode.mockReturnValue({
 		id: 'node-id',
 		name: 'Code',
-		type: 'n8n-nodes-base.code',
+		type: 'resin-nodes-base.code',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},

@@ -165,7 +165,7 @@ function makeDaytonaConfig(overrides: Partial<SandboxConfig> = {}): SandboxConfi
 function makeN8nSandboxConfig(): SandboxConfig {
 	return {
 		enabled: true,
-		provider: 'n8n-sandbox',
+		provider: 'resin-sandbox',
 		serviceUrl: 'https://sandbox.example.com',
 		apiKey: 'secret',
 	} as SandboxConfig;

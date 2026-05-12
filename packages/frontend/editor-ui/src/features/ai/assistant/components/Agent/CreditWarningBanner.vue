@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { N8nButton, N8nIcon, N8nTooltip } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nButton, N8nIcon, N8nTooltip } from '@resin/design-system';
 
 const props = defineProps<{
 	creditsRemaining?: number;

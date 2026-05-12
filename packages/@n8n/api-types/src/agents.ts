@@ -4,7 +4,7 @@ import {
 	FORM_TRIGGER_NODE_TYPE,
 	MANUAL_TRIGGER_NODE_TYPE,
 	SCHEDULE_TRIGGER_NODE_TYPE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { z } from 'zod';
 
 /**
@@ -41,9 +41,9 @@ export const SUPPORTED_WORKFLOW_TOOL_TRIGGERS = [
  * `AgentToolsModal.vue` so the two sides can't drift.
  */
 export const INCOMPATIBLE_WORKFLOW_TOOL_BODY_NODE_TYPES = [
-	'n8n-nodes-base.wait',
-	'n8n-nodes-base.form',
-	'n8n-nodes-base.respondToWebhook',
+	'resin-nodes-base.wait',
+	'resin-nodes-base.form',
+	'resin-nodes-base.respondToWebhook',
 ] as const;
 
 export const AGENT_SCHEDULE_TRIGGER_TYPE = 'schedule';

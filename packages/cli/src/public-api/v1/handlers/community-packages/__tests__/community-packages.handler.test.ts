@@ -1,5 +1,5 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import { Container } from '@resin/di';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
 
@@ -26,11 +26,11 @@ describe('CommunityPackages Handler', () => {
 	const mockUser = { id: 'test-user-id', role: { slug: 'global:owner' } };
 
 	const mockInstalledPackage = mock<InstalledPackages>({
-		packageName: 'n8n-nodes-test',
+		packageName: 'resin-nodes-test',
 		installedVersion: '1.0.0',
 		authorName: 'Test Author',
 		authorEmail: 'test@example.com',
-		installedNodes: [{ name: 'TestNode', type: 'n8n-nodes-test.testNode', latestVersion: 1 }],
+		installedNodes: [{ name: 'TestNode', type: 'resin-nodes-test.testNode', latestVersion: 1 }],
 		createdAt: new Date(),
 		updatedAt: new Date(),
 	});
@@ -53,7 +53,7 @@ describe('CommunityPackages Handler', () => {
 	describe('installPackage', () => {
 		it('should install a package successfully', async () => {
 			const req = {
-				body: { name: 'n8n-nodes-test' },
+				body: { name: 'resin-nodes-test' },
 				user: mockUser,
 			};
 
@@ -62,7 +62,7 @@ describe('CommunityPackages Handler', () => {
 			await handler.installPackage[handler.installPackage.length - 1](req, mockResponse);
 
 			expect(mockLifecycle.install).toHaveBeenCalledWith(
-				{ name: 'n8n-nodes-test', version: undefined, verify: true },
+				{ name: 'resin-nodes-test', version: undefined, verify: true },
 				mockUser,
 				'publicApi',
 			);
@@ -71,7 +71,7 @@ describe('CommunityPackages Handler', () => {
 
 		it('should forward verify:false to lifecycle when explicitly provided', async () => {
 			const req = {
-				body: { name: 'n8n-nodes-test', verify: false },
+				body: { name: 'resin-nodes-test', verify: false },
 				user: mockUser,
 			};
 
@@ -80,7 +80,7 @@ describe('CommunityPackages Handler', () => {
 			await handler.installPackage[handler.installPackage.length - 1](req, mockResponse);
 
 			expect(mockLifecycle.install).toHaveBeenCalledWith(
-				{ name: 'n8n-nodes-test', version: undefined, verify: false },
+				{ name: 'resin-nodes-test', version: undefined, verify: false },
 				mockUser,
 				'publicApi',
 			);
@@ -112,12 +112,12 @@ describe('CommunityPackages Handler', () => {
 
 		it('should throw BadRequestError when package is already installed', async () => {
 			const req = {
-				body: { name: 'n8n-nodes-test' },
+				body: { name: 'resin-nodes-test' },
 				user: mockUser,
 			};
 
 			mockLifecycle.install.mockRejectedValue(
-				new BadRequestError('Package "n8n-nodes-test" is already installed'),
+				new BadRequestError('Package "resin-nodes-test" is already installed'),
 			);
 
 			const handlerFn = handler.installPackage[handler.installPackage.length - 1];
@@ -129,7 +129,7 @@ describe('CommunityPackages Handler', () => {
 			}
 			expect(caught).toBeInstanceOf(BadRequestError);
 			expect(caught).toMatchObject({
-				message: 'Package "n8n-nodes-test" is already installed',
+				message: 'Package "resin-nodes-test" is already installed',
 				httpStatusCode: 400,
 			});
 		});
@@ -168,7 +168,7 @@ describe('CommunityPackages Handler', () => {
 	describe('updatePackage', () => {
 		it('should update a package successfully', async () => {
 			const req = {
-				params: { name: 'n8n-nodes-test' },
+				params: { name: 'resin-nodes-test' },
 				body: {},
 				user: mockUser,
 			};
@@ -183,7 +183,7 @@ describe('CommunityPackages Handler', () => {
 			await handler.updatePackage[handler.updatePackage.length - 1](req, mockResponse);
 
 			expect(mockLifecycle.update).toHaveBeenCalledWith(
-				{ name: 'n8n-nodes-test', version: undefined, verify: true },
+				{ name: 'resin-nodes-test', version: undefined, verify: true },
 				mockUser,
 				'notFound',
 			);
@@ -192,7 +192,7 @@ describe('CommunityPackages Handler', () => {
 
 		it('should throw NotFoundError when package is not installed', async () => {
 			const req = {
-				params: { name: 'n8n-nodes-missing' },
+				params: { name: 'resin-nodes-missing' },
 				body: {},
 				user: mockUser,
 			};
@@ -219,7 +219,7 @@ describe('CommunityPackages Handler', () => {
 	describe('uninstallPackage', () => {
 		it('should uninstall a package successfully', async () => {
 			const req = {
-				params: { name: 'n8n-nodes-test' },
+				params: { name: 'resin-nodes-test' },
 				user: mockUser,
 			};
 
@@ -227,13 +227,17 @@ describe('CommunityPackages Handler', () => {
 
 			await handler.uninstallPackage[handler.uninstallPackage.length - 1](req, mockResponse);
 
-			expect(mockLifecycle.uninstall).toHaveBeenCalledWith('n8n-nodes-test', mockUser, 'notFound');
+			expect(mockLifecycle.uninstall).toHaveBeenCalledWith(
+				'resin-nodes-test',
+				mockUser,
+				'notFound',
+			);
 			expect(mockResponse.status).toHaveBeenCalledWith(204);
 		});
 
 		it('should throw NotFoundError when package is not installed', async () => {
 			const req = {
-				params: { name: 'n8n-nodes-missing' },
+				params: { name: 'resin-nodes-missing' },
 				user: mockUser,
 			};
 

@@ -1,5 +1,5 @@
-import { Tool } from '@n8n/agents';
-import type { BuiltTool, CredentialListItem, CredentialProvider } from '@n8n/agents';
+import { Tool } from '@resin/agents';
+import type { BuiltTool, CredentialListItem, CredentialProvider } from '@resin/agents';
 import { z } from 'zod';
 
 import { BUILDER_TOOLS } from '../builder-tool-names';

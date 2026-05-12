@@ -2,14 +2,14 @@
 import Close from 'virtual:icons/mdi/close';
 import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue';
 
-import GetStarted from '@n8n/chat/components/GetStarted.vue';
-import GetStartedFooter from '@n8n/chat/components/GetStartedFooter.vue';
-import Input from '@n8n/chat/components/Input.vue';
-import type { ArrowKeyDownPayload } from '@n8n/chat/components/Input.vue';
-import Layout from '@n8n/chat/components/Layout.vue';
-import MessagesList from '@n8n/chat/components/MessagesList.vue';
-import { useI18n, useChat, useOptions } from '@n8n/chat/composables';
-import { chatEventBus } from '@n8n/chat/event-buses';
+import GetStarted from '@resin/chat/components/GetStarted.vue';
+import GetStartedFooter from '@resin/chat/components/GetStartedFooter.vue';
+import Input from '@resin/chat/components/Input.vue';
+import type { ArrowKeyDownPayload } from '@resin/chat/components/Input.vue';
+import Layout from '@resin/chat/components/Layout.vue';
+import MessagesList from '@resin/chat/components/MessagesList.vue';
+import { useI18n, useChat, useOptions } from '@resin/chat/composables';
+import { chatEventBus } from '@resin/chat/event-buses';
 
 const { t } = useI18n();
 const chatStore = useChat();

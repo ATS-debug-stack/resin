@@ -40,7 +40,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4,
 					position: [100, 200],
 					parameters: { url: 'https://example.com' },
@@ -53,7 +53,7 @@ describe('parseWorkflowJSON', () => {
 
 		expect(result.nodes.size).toBe(1);
 		const node = result.nodes.get('HTTP Request');
-		expect(node?.instance.type).toBe('n8n-nodes-base.httpRequest');
+		expect(node?.instance.type).toBe('resin-nodes-base.httpRequest');
 		expect(node?.instance.name).toBe('HTTP Request');
 		expect(node?.instance.config?.parameters).toEqual({ url: 'https://example.com' });
 	});
@@ -66,7 +66,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-1',
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [0, 0],
 					parameters: {},
@@ -91,7 +91,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-1',
 					name: 'OpenAI',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					parameters: {},
@@ -117,7 +117,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -125,7 +125,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-2',
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3,
 					position: [200, 0],
 					parameters: {},
@@ -156,7 +156,7 @@ describe('parseWorkflowJSON', () => {
 			nodes: [
 				{
 					id: 'sticky-1',
-					type: 'n8n-nodes-base.stickyNote',
+					type: 'resin-nodes-base.stickyNote',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: { content: 'Hello' },
@@ -230,7 +230,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-1',
 					name: 'First',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -238,7 +238,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-2',
 					name: 'Second',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 1,
 					position: [200, 0],
 					parameters: {},
@@ -273,7 +273,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-1',
 					name: 'HTTP',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4,
 					position: [0, 0],
 					parameters: {},
@@ -281,7 +281,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-2',
 					name: 'HTTP',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4,
 					position: [200, 0],
 					parameters: {},
@@ -305,7 +305,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-1',
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: '3' as unknown as number,
 					position: [0, 0],
 					parameters: {},
@@ -328,7 +328,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -336,7 +336,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: 'node-2',
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3,
 					position: [200, 0],
 					parameters: {},
@@ -368,7 +368,7 @@ describe('parseWorkflowJSON', () => {
 				{
 					id: '1',
 					name: 'Node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: '3' as unknown as number,
 					position: [0, 0],
 					parameters: {},

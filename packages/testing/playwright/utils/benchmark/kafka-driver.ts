@@ -1,5 +1,5 @@
-import { trigger } from '@n8n/workflow-sdk';
-import type { KafkaHelper } from 'n8n-containers';
+import { trigger } from '@resin/workflow-sdk';
+import type { KafkaHelper } from 'resin-containers';
 import { nanoid } from 'nanoid';
 
 import type {
@@ -149,7 +149,7 @@ function createKafkaTriggerNode(options: {
 	credentialName: string;
 }) {
 	return trigger({
-		type: 'n8n-nodes-base.kafkaTrigger',
+		type: 'resin-nodes-base.kafkaTrigger',
 		version: 1.1,
 		config: {
 			name: 'Kafka Trigger',

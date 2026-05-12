@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
-import { N8nTooltip } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nTooltip } from '@resin/design-system';
 
 const i18n = useI18n();
 </script>
@@ -10,7 +10,7 @@ const i18n = useI18n();
 		<template #content>
 			{{ i18n.baseText('dataTable.cell.oversized.tooltip') }}
 		</template>
-		<span class="n8n-oversized-value">{{ i18n.baseText('dataTable.cell.oversized') }}</span>
+		<span class="resin-oversized-value">{{ i18n.baseText('dataTable.cell.oversized') }}</span>
 	</N8nTooltip>
 </template>
 

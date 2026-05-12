@@ -1,6 +1,6 @@
-import type { InstanceAiEvent } from '@n8n/api-types';
-import { Time } from '@n8n/constants';
-import type { InstanceAiLivenessPolicy, InstanceAiLivenessTimeoutReason } from '@n8n/instance-ai';
+import type { InstanceAiEvent } from '@resin/api-types';
+import { Time } from '@resin/constants';
+import type { InstanceAiLivenessPolicy, InstanceAiLivenessTimeoutReason } from '@resin/instance-ai';
 
 const ORCHESTRATOR_AGENT_ID = 'agent-001';
 

@@ -4,12 +4,12 @@ import { workflow } from '../../workflow-builder';
 import { node, trigger, isIfElseBuilder, ifElse } from '../node-builders/node-builder';
 
 // Helper type for IF node
-type IfNode = NodeInstance<'n8n-nodes-base.if', string, unknown>;
+type IfNode = NodeInstance<'resin-nodes-base.if', string, unknown>;
 
 describe('ifElse() factory function', () => {
 	it('ifElse() creates an IF node with correct type', () => {
 		const ifN = ifElse({ version: 2.2, config: { name: 'My IF' } });
-		expect(ifN.type).toBe('n8n-nodes-base.if');
+		expect(ifN.type).toBe('resin-nodes-base.if');
 	});
 
 	it('ifElse() uses provided version', () => {
@@ -19,8 +19,8 @@ describe('ifElse() factory function', () => {
 
 	it('ifElse() supports .onTrue() and .onFalse()', () => {
 		const ifN = ifElse({ version: 2.2, config: { name: 'My IF' } });
-		const trueBranch = node({ type: 'n8n-nodes-base.noOp', version: 1, config: {} });
-		const falseBranch = node({ type: 'n8n-nodes-base.noOp', version: 1, config: {} });
+		const trueBranch = node({ type: 'resin-nodes-base.noOp', version: 1, config: {} });
+		const falseBranch = node({ type: 'resin-nodes-base.noOp', version: 1, config: {} });
 
 		// Use non-null assertion since onTrue is only guaranteed on IF nodes
 		const builder = ifN.onTrue!(trueBranch).onFalse(falseBranch);
@@ -32,8 +32,8 @@ describe('parseWorkflowCode with ifElse', () => {
 	it('parseWorkflowCode recognizes ifElse()', () => {
 		const code = `
 export default workflow('test', 'Test')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
-  .to(ifElse({ version: 2.2, config: { name: 'Check' } }).onTrue(node({ type: 'n8n-nodes-base.noOp', version: 1, config: {} })).onFalse(null));
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
+  .to(ifElse({ version: 2.2, config: { name: 'Check' } }).onTrue(node({ type: 'resin-nodes-base.noOp', version: 1, config: {} })).onFalse(null));
 `;
 		expect(() => parseWorkflowCode(code)).not.toThrow();
 	});
@@ -43,12 +43,12 @@ describe('IF Else fluent API', () => {
 	describe('ifNode.onTrue().onFalse() syntax', () => {
 		it('should require an IF node for onTrue()', () => {
 			const regularNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set Node' },
 			});
 			const target = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Target' },
 			});
@@ -61,12 +61,12 @@ describe('IF Else fluent API', () => {
 
 		it('should require an IF node for onFalse()', () => {
 			const regularNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3.4,
 				config: { name: 'Set Node' },
 			});
 			const target = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Target' },
 			});
@@ -79,17 +79,17 @@ describe('IF Else fluent API', () => {
 
 		it('should work with fluent syntax: ifNode.onTrue!(trueBranch).onFalse(falseBranch)', () => {
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'My IF' },
 			}) as IfNode;
 			const trueBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'True Branch' },
 			});
 			const falseBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'False Branch' },
 			});
@@ -102,17 +102,17 @@ describe('IF Else fluent API', () => {
 
 		it('should return an IfElseBuilder', () => {
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'My IF' },
 			}) as IfNode;
 			const trueBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'True Branch' },
 			});
 			const falseBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'False Branch' },
 			});
@@ -124,24 +124,24 @@ describe('IF Else fluent API', () => {
 
 	describe('fluent API in workflow', () => {
 		it('should support ifNode.onTrue!(trueBranch).onFalse(falseBranch) in workflow', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'My IF' },
 			}) as IfNode;
 			const trueBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'True Branch' },
 			});
 			const falseBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'False Branch' },
 			});
 			const downstream = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Downstream' },
 			});
@@ -168,14 +168,14 @@ describe('IF Else fluent API', () => {
 		});
 
 		it('should support null for empty branches', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'My IF' },
 			}) as IfNode;
 			const trueBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'True Branch' },
 			});
@@ -199,24 +199,24 @@ describe('IF Else fluent API', () => {
 		});
 
 		it('should support plain array for multiple targets from one branch', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'My IF' },
 			}) as IfNode;
 			const targetA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Target A' },
 			});
 			const targetB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Target B' },
 			});
 			const targetC = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Target C' },
 			});
@@ -246,17 +246,17 @@ describe('IF Else fluent API', () => {
 
 		it('should identify builder with isIfElseBuilder', () => {
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'My IF' },
 			}) as IfNode;
 			const trueBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'True Branch' },
 			});
 			const falseBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'False Branch' },
 			});
@@ -267,19 +267,19 @@ describe('IF Else fluent API', () => {
 		});
 
 		it('should support chain passed to onTrue with internal connections', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'My IF' },
 			}) as IfNode;
 			const nodeA = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Node A' },
 			});
 			const nodeB = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Node B' },
 			});
@@ -307,19 +307,19 @@ describe('IF Else fluent API', () => {
 		});
 
 		it('should handle duplicate node names in true/false branches', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'My IF' },
 			}) as IfNode;
 			const trueBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
 			const falseBranch = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Process' },
 			});
@@ -347,32 +347,32 @@ describe('IF Else fluent API', () => {
 		});
 
 		it('should handle duplicate-named chains in true/false branches', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const ifNode = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'My IF' },
 			}) as IfNode;
 
 			const trueHead = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Fetch' },
 			});
 			const trueTail = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Save' },
 			});
 			const trueChain = trueHead.to(trueTail);
 
 			const falseHead = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Fetch' },
 			});
 			const falseTail = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Save' },
 			});

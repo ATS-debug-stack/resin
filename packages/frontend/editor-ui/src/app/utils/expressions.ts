@@ -1,11 +1,11 @@
-import { i18n } from '@n8n/i18n';
+import { i18n } from '@resin/i18n';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import {
 	useWorkflowDocumentStore,
 	createWorkflowDocumentId,
 } from '@/app/stores/workflowDocument.store';
 import type { ResolvableState } from '@/app/types/expressions';
-import { ExpressionError, ExpressionParser, isExpression, type Result } from 'n8n-workflow';
+import { ExpressionError, ExpressionParser, isExpression, type Result } from 'resin-workflow';
 
 export { isExpression };
 

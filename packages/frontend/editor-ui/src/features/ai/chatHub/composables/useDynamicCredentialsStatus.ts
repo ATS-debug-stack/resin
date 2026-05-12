@@ -1,11 +1,11 @@
 import { computed, ref, watch, type ComputedRef, type Ref } from 'vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import {
 	fetchWorkflowExecutionStatus,
 	authorizeDynamicCredential,
 	revokeDynamicCredential,
 } from '@/features/ai/chatHub/chat.api';
-import type { WorkflowExecutionStatus } from '@n8n/api-types';
+import type { WorkflowExecutionStatus } from '@resin/api-types';
 
 export interface DynamicCredentialItem {
 	credentialId: string;

@@ -1,7 +1,7 @@
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import type { Scope } from '@n8n/permissions';
-import { DataSource, Repository, In, Like, Not, IsNull } from '@n8n/typeorm';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import type { Scope } from '@resin/permissions';
+import { DataSource, Repository, In, Like, Not, IsNull } from '@resin/typeorm';
 import type {
 	SelectQueryBuilder,
 	UpdateResult,
@@ -10,8 +10,8 @@ import type {
 	FindManyOptions,
 	FindOptionsRelations,
 	EntityManager,
-} from '@n8n/typeorm';
-import { PROJECT_ROOT, UserError } from 'n8n-workflow';
+} from '@resin/typeorm';
+import { PROJECT_ROOT, UserError } from 'resin-workflow';
 
 import { FolderRepository } from './folder.repository';
 import { SharedWorkflowRepository } from './shared-workflow.repository';

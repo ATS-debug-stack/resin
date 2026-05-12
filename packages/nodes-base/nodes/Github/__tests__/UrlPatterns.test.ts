@@ -93,7 +93,7 @@ describe('GitHub Node URL Pattern Tests', () => {
 				const regex = getOwnerExtractRegex();
 				const url = 'https://github.com/n8n-io';
 				const match = url.match(regex);
-				expect(match?.[1]).toBe('n8n-io');
+				expect(match?.[1]).toBe('resin-io');
 			});
 
 			it('should extract owner from custom GitHub URL', () => {
@@ -171,7 +171,7 @@ describe('GitHub Node URL Pattern Tests', () => {
 				const regex = getTriggerOwnerExtractRegex();
 				const url = 'https://github.com/n8n-io';
 				const match = url.match(regex);
-				expect(match?.[1]).toBe('n8n-io');
+				expect(match?.[1]).toBe('resin-io');
 			});
 
 			it('should extract owner from custom GitHub URL', () => {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { N8nIcon, N8nTooltip } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nIcon, N8nTooltip } from '@resin/design-system';
 import { useResourceCenterStore } from '../stores/resourceCenter.store';
 import { useSidebarLayout } from '@/app/composables/useSidebarLayout';
 

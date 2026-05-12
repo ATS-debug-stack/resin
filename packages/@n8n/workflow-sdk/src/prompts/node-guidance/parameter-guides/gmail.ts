@@ -1,7 +1,7 @@
 import type { NodeTypeGuide } from './types';
 
 export const GMAIL_GUIDE: NodeTypeGuide = {
-	patterns: ['n8n-nodes-base.gmail', 'n8n-nodes-base.gmailTrigger'],
+	patterns: ['resin-nodes-base.gmail', 'resin-nodes-base.gmailTrigger'],
 	content: `
 ### Gmail Node Updates
 

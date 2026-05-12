@@ -1,6 +1,6 @@
-import { mockInstance, testDb, testModules } from '@n8n/backend-test-utils';
-import { Container } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+import { mockInstance, testDb, testModules } from '@resin/backend-test-utils';
+import { Container } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 import type { KeyObject } from 'node:crypto';
 
 import type { TrustedKeySourceEntity } from '@/modules/token-exchange/database/entities/trusted-key-source.entity';

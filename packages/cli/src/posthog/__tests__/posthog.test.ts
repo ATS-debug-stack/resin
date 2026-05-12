@@ -1,7 +1,7 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { GlobalConfig } from '@n8n/config';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { GlobalConfig } from '@resin/config';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 import { PostHog } from 'posthog-node';
 
 import { PostHogClient } from '@/posthog';

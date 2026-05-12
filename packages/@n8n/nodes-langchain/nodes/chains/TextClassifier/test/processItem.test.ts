@@ -1,7 +1,7 @@
 import { ChatPromptTemplate, SystemMessagePromptTemplate } from '@langchain/core/prompts';
 import { FakeChatModel } from '@langchain/core/utils/testing';
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import * as tracing from '@utils/tracing';

@@ -1,4 +1,4 @@
-import type { InstanceAiAgentNode } from '@n8n/api-types';
+import type { InstanceAiAgentNode } from '@resin/api-types';
 
 import { InstanceAiMemoryService } from '../instance-ai-memory.service';
 
@@ -12,7 +12,7 @@ const mockMemory = {
 	saveThread: mockSaveThread,
 };
 
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	createMemory: () => mockMemory,
 }));
 

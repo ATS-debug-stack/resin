@@ -118,7 +118,7 @@ async function createOtlpTracer(endpoint: string): Promise<{
 	// Intentionally NOT calling provider.register() — we only use
 	// the tracer directly, without replacing the global tracer provider.
 
-	const tracer = provider.getTracer('@n8n/agents');
+	const tracer = provider.getTracer('@resin/agents');
 
 	return { tracer, provider };
 }
@@ -132,7 +132,7 @@ async function createOtlpTracer(endpoint: string): Promise<{
  *
  * @example
  * ```typescript
- * import { Telemetry, LangSmithTelemetry } from '@n8n/agents';
+ * import { Telemetry, LangSmithTelemetry } from '@resin/agents';
  *
  * const ls = new LangSmithTelemetry({ project: 'my-project' });
  * const telemetry = new Telemetry()

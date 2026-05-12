@@ -1,4 +1,4 @@
-import { OperationalError } from 'n8n-workflow';
+import { OperationalError } from 'resin-workflow';
 import type {
 	FilterValue,
 	GeoRangeFilter,

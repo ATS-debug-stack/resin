@@ -1,4 +1,4 @@
-jest.mock('n8n-core', () => ({
+jest.mock('resin-core', () => ({
 	getHtmlSandboxCSP: jest.fn(
 		() =>
 			'sandbox allow-downloads allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-presentation allow-scripts allow-top-navigation-by-user-activation allow-top-navigation-to-custom-protocols',
@@ -8,8 +8,8 @@ jest.mock('n8n-core', () => ({
 
 import { type Response } from 'express';
 import { type MockProxy, mock } from 'jest-mock-extended';
-import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'n8n-core';
-import { type INode, type IWebhookFunctions } from 'n8n-workflow';
+import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'resin-core';
+import { type INode, type IWebhookFunctions } from 'resin-workflow';
 
 import { binaryResponse, renderFormCompletion } from '../utils/formCompletionUtils';
 import * as utils from '../utils/utils';

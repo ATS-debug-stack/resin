@@ -1,9 +1,9 @@
-import { UserUpdateRequestDto } from '@n8n/api-types';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { AuthenticatedRequest, User, PublicUser, AuthIdentity } from '@n8n/db';
-import { GLOBAL_OWNER_ROLE, InvalidAuthTokenRepository, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { UserUpdateRequestDto } from '@resin/api-types';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { AuthenticatedRequest, User, PublicUser, AuthIdentity } from '@resin/db';
+import { GLOBAL_OWNER_ROLE, InvalidAuthTokenRepository, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import type { Response } from 'express';
 import { mock, anyObject } from 'jest-mock-extended';
 import jwt from 'jsonwebtoken';

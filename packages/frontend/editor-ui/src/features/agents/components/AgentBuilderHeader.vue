@@ -14,11 +14,11 @@ import {
 	N8nButton,
 	N8nDropdownMenu,
 	N8nIcon,
-} from '@n8n/design-system';
-import type { PathItem } from '@n8n/design-system/components/N8nBreadcrumbs/Breadcrumbs.vue';
-import type { DropdownMenuItemProps } from '@n8n/design-system';
-import type { ActionDropdownItem } from '@n8n/design-system/types/action-dropdown';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import type { PathItem } from '@resin/design-system/components/N8nBreadcrumbs/Breadcrumbs.vue';
+import type { DropdownMenuItemProps } from '@resin/design-system';
+import type { ActionDropdownItem } from '@resin/design-system/types/action-dropdown';
+import { useI18n } from '@resin/i18n';
 import { VIEWS } from '@/app/constants';
 
 import AgentPublishButton from './AgentPublishButton.vue';

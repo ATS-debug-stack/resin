@@ -35,7 +35,7 @@ const log = createLogger('agent-browser');
 
 const execFileAsync = promisify(execFile);
 
-const SESSION_NAME = 'n8n-computer-use';
+const SESSION_NAME = 'resin-computer-use';
 // Stable extension ID derived from the "key" field in mcp-browser-extension/manifest.json
 const BROWSER_USE_EXTENSION_ID = 'cegmdpndekdfpnafgacidejijecomlhh';
 

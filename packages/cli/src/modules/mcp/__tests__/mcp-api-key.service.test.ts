@@ -1,4 +1,4 @@
-import type { ApiKeyRepository, UserRepository, User, TokenGrant } from '@n8n/db';
+import type { ApiKeyRepository, UserRepository, User, TokenGrant } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import type { AuthStrategyRegistry } from '@/services/auth-strategy.registry';

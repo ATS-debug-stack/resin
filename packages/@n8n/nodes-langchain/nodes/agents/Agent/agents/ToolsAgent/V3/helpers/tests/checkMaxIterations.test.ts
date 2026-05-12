@@ -1,5 +1,5 @@
-import { NodeOperationError } from 'n8n-workflow';
-import type { INode, EngineResponse } from 'n8n-workflow';
+import { NodeOperationError } from 'resin-workflow';
+import type { INode, EngineResponse } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import type { RequestResponseMetadata } from '@utils/agent-execution';

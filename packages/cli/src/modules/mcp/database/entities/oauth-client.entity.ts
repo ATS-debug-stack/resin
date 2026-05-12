@@ -1,5 +1,5 @@
-import { JsonColumn, WithTimestamps } from '@n8n/db';
-import { Column, Entity, OneToMany } from '@n8n/typeorm';
+import { JsonColumn, WithTimestamps } from '@resin/db';
+import { Column, Entity, OneToMany } from '@resin/typeorm';
 
 import type { AccessToken } from './oauth-access-token.entity';
 import type { AuthorizationCode } from './oauth-authorization-code.entity';

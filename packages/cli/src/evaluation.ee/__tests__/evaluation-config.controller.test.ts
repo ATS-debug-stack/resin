@@ -1,4 +1,4 @@
-import type { AuthenticatedRequest, EvaluationConfig, User, WorkflowEntity } from '@n8n/db';
+import type { AuthenticatedRequest, EvaluationConfig, User, WorkflowEntity } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

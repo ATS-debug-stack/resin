@@ -1,15 +1,15 @@
-import { LicenseState } from '@n8n/backend-common';
-import type { CredentialPayload } from '@n8n/backend-test-utils';
-import { createTeamProject, randomName, testDb } from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
-import { CredentialsRepository, SharedCredentialsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { LicenseState } from '@resin/backend-common';
+import type { CredentialPayload } from '@resin/backend-test-utils';
+import { createTeamProject, randomName, testDb } from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
+import { CredentialsRepository, SharedCredentialsRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 import {
 	CREDENTIAL_BLANKING_VALUE,
 	type ICredentialDataDecryptedObject,
 	randomString,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { CredentialsService } from '@/credentials/credentials.service';
 import { CredentialsTester } from '@/services/credentials-tester.service';

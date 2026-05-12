@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import { PROJECT_OWNER_ROLE_SLUG, type ProjectRole } from '@n8n/permissions';
-import { DataSource, In, Repository } from '@n8n/typeorm';
+import { Service } from '@resin/di';
+import { PROJECT_OWNER_ROLE_SLUG, type ProjectRole } from '@resin/permissions';
+import { DataSource, In, Repository } from '@resin/typeorm';
 
 import { ProjectRelation } from '../entities';
 

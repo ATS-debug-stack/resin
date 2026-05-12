@@ -1,9 +1,12 @@
 import type { CallbackManagerForRetrieverRun } from '@langchain/core/callbacks/manager';
 import { Document } from '@langchain/core/documents';
 import { BaseRetriever, type BaseRetrieverInput } from '@langchain/core/retrievers';
-import type { SetField, SetNodeOptions } from 'n8n-nodes-base/dist/nodes/Set/v2/helpers/interfaces';
-import * as manual from 'n8n-nodes-base/dist/nodes/Set/v2/manual.mode';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import type {
+	SetField,
+	SetNodeOptions,
+} from 'resin-nodes-base/dist/nodes/Set/v2/helpers/interfaces';
+import * as manual from 'resin-nodes-base/dist/nodes/Set/v2/manual.mode';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type {
 	IDataObject,
 	IExecuteWorkflowInfo,
@@ -15,9 +18,9 @@ import type {
 	SupplyData,
 	INodeParameterResourceLocator,
 	ExecuteWorkflowData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper } from '@n8n/ai-utilities';
+import { logWrapper } from '@resin/ai-utilities';
 
 function objectToString(obj: Record<string, string> | IDataObject, level = 0) {
 	let result = '';
@@ -296,7 +299,7 @@ export class RetrieverWorkflow implements INodeType {
 		const workflowProxy = this.getWorkflowDataProxy(0);
 
 		class WorkflowRetriever extends BaseRetriever {
-			lc_namespace = ['n8n-nodes-langchain', 'retrievers', 'workflow'];
+			lc_namespace = ['resin-nodes-langchain', 'retrievers', 'workflow'];
 
 			constructor(
 				private executeFunctions: ISupplyDataFunctions,

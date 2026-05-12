@@ -5,13 +5,13 @@ import {
 	toAgentTree,
 	findAgent,
 	isSafeObjectKey,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 import type {
 	InstanceAiEvent,
 	InstanceAiMessage,
 	InstanceAiAgentNode,
 	AgentRunState,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export interface InstanceAiReducerState {
 	messages: InstanceAiMessage[];

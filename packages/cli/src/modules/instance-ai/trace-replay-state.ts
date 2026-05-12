@@ -3,7 +3,7 @@ import type {
 	TraceIndex as TraceIndexType,
 	IdRemapper as IdRemapperType,
 	TraceEvent,
-} from '@n8n/instance-ai';
+} from '@resin/instance-ai';
 
 /**
  * Manages test-only trace replay state for Instance AI e2e tests.
@@ -95,7 +95,7 @@ export class TraceReplayState {
 			return;
 		}
 
-		const { TraceIndex: TI, IdRemapper: IR, TraceWriter: TW } = await import('@n8n/instance-ai');
+		const { TraceIndex: TI, IdRemapper: IR, TraceWriter: TW } = await import('@resin/instance-ai');
 
 		const slug = this.activeSlug;
 		const events = slug ? this.eventsBySlug.get(slug) : undefined;

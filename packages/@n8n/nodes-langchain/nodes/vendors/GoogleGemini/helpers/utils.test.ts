@@ -1,6 +1,6 @@
 import axios from 'axios';
-import type { IBinaryData, IExecuteFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IBinaryData, IExecuteFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 import { mockDeep } from 'vitest-mock-extended';
 

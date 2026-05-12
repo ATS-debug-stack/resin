@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
 import type { Exception, Span } from '@opentelemetry/api';
 import { context, propagation, SpanStatusCode, trace } from '@opentelemetry/api';
-import type { ExecutionStatus } from 'n8n-workflow';
+import type { ExecutionStatus } from 'resin-workflow';
 
 import {
 	type StartWorkflowParams,
@@ -15,7 +15,7 @@ import { OtelConfig } from './otel.config';
 import { ATTR } from './otel.constants';
 import type { TracingContext } from './tracing-context';
 
-const TRACER_NAME = 'n8n-workflow';
+const TRACER_NAME = 'resin-workflow';
 function isError(status: ExecutionStatus): boolean {
 	return status === 'error' || status === 'crashed';
 }

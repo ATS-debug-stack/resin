@@ -1,7 +1,7 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { AuthIdentity } from '@n8n/db';
-import { generateNanoId, User, AuthIdentityRepository, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { AuthIdentity } from '@resin/db';
+import { generateNanoId, User, AuthIdentityRepository, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { UrlService } from '@/services/url.service';
 
@@ -14,7 +14,7 @@ mockInstance(AuthIdentityRepository);
 describe('sso/saml/samlHelpers', () => {
 	describe('updateUserFromSamlAttributes', () => {
 		// We need to use `save` so that that the subscriber in
-		// packages/@n8n/db/src/entities/Project.ts receives the full user.
+		// packages/@resin/db/src/entities/Project.ts receives the full user.
 		// With `update` it would only receive the updated fields, e.g. the `id`
 		// would be missing.
 		test('does not user `Repository.update`, but `Repository.save` instead', async () => {
@@ -286,7 +286,7 @@ describe('sso/saml/samlHelpers', () => {
 					lastName: 'test',
 					userPrincipalName: 'test',
 					customDepartment: 'engineering',
-					groups: ['devops', 'n8n-admins'],
+					groups: ['devops', 'resin-admins'],
 				},
 			},
 		} as any;
@@ -310,7 +310,7 @@ describe('sso/saml/samlHelpers', () => {
 			lastName: 'test',
 			userPrincipalName: 'test',
 			customDepartment: 'engineering',
-			groups: ['devops', 'n8n-admins'],
+			groups: ['devops', 'resin-admins'],
 		});
 	});
 

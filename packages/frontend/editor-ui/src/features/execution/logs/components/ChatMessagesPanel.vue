@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
-import Chat from '@n8n/chat/components/Chat.vue';
-import { ChatPlugin } from '@n8n/chat/plugins';
+import { useI18n } from '@resin/i18n';
+import Chat from '@resin/chat/components/Chat.vue';
+import { ChatPlugin } from '@resin/chat/plugins';
 import {
 	computed,
 	createApp,
@@ -13,7 +13,7 @@ import {
 	type App,
 } from 'vue';
 import LogsPanelHeader from '@/features/execution/logs/components/LogsPanelHeader.vue';
-import { N8nButton, N8nIconButton, N8nTooltip } from '@n8n/design-system';
+import { N8nButton, N8nIconButton, N8nTooltip } from '@resin/design-system';
 import { useClipboard } from '@vueuse/core';
 import { useInjectWorkflowId } from '@/app/composables/useInjectWorkflowId';
 import { useToast } from '@/app/composables/useToast';

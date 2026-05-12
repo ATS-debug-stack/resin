@@ -1,4 +1,4 @@
-import type { INodeProperties, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeProperties, INodeTypeDescription } from 'resin-workflow';
 
 export const lemonadeDescription: Partial<INodeTypeDescription> = {
 	credentials: [

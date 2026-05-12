@@ -1,5 +1,5 @@
-import { createInitialState, reduceEvent, toAgentTree } from '@n8n/api-types';
-import type { InstanceAiAgentNode, InstanceAiEvent } from '@n8n/api-types';
+import { createInitialState, reduceEvent, toAgentTree } from '@resin/api-types';
+import type { InstanceAiAgentNode, InstanceAiEvent } from '@resin/api-types';
 
 export function buildAgentTreeFromEvents(events: InstanceAiEvent[]): InstanceAiAgentNode {
 	let state = createInitialState();

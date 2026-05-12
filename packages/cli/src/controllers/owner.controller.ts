@@ -1,6 +1,6 @@
-import { DismissBannerRequestDto, OwnerSetupRequestDto } from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Body, GlobalScope, Post, RestController } from '@n8n/decorators';
+import { DismissBannerRequestDto, OwnerSetupRequestDto } from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
+import { Body, GlobalScope, Post, RestController } from '@resin/decorators';
 import { Response } from 'express';
 
 import { AuthService } from '@/auth/auth.service';

@@ -1,6 +1,6 @@
 import { mock } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode, INodeExecutionData, IPairedItemData } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INode, INodeExecutionData, IPairedItemData } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import pgPromise from 'pg-promise';
 
 import type {
@@ -34,7 +34,7 @@ const node: INode = {
 	id: '1',
 	name: 'Postgres node',
 	typeVersion: 2,
-	type: 'n8n-nodes-base.postgres',
+	type: 'resin-nodes-base.postgres',
 	position: [60, 760],
 	parameters: {
 		operation: 'executeQuery',

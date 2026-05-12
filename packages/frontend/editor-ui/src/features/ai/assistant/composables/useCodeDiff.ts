@@ -1,17 +1,17 @@
 import { ref, h } from 'vue';
 import type { Ref } from 'vue';
-import type { ChatUI } from '@n8n/design-system/types/assistant';
-import type { INodeParameters } from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
-import { assert } from '@n8n/utils/assert';
+import type { ChatUI } from '@resin/design-system/types/assistant';
+import type { INodeParameters } from 'resin-workflow';
+import { deepCopy } from 'resin-workflow';
+import { assert } from '@resin/utils/assert';
 import { replaceCode } from '@/features/ai/assistant/assistant.api';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import {
 	useWorkflowDocumentStore,
 	createWorkflowDocumentId,
 } from '@/app/stores/workflowDocument.store';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useToast } from '@/app/composables/useToast';
 import { codeNodeEditorEventBus } from '@/app/event-bus';
 import { ndvEventBus } from '@/features/ndv/shared/ndv.eventBus';

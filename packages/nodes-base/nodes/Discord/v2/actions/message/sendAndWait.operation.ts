@@ -3,7 +3,7 @@ import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getSendAndWaitProperties } from '../../../../../utils/sendAndWait/utils';
 import {

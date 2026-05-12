@@ -9,7 +9,7 @@ import { defineComponent, h, onMounted, ref } from 'vue';
 import AgentSkillModal from '../components/AgentSkillModal.vue';
 import type { AgentSkill } from '../types';
 
-vi.mock('@n8n/i18n', () => {
+vi.mock('@resin/i18n', () => {
 	const i18n = { baseText: (key: string) => key };
 	return { useI18n: () => i18n, i18n, i18nInstance: { install: vi.fn() } };
 });

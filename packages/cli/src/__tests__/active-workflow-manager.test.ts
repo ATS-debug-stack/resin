@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/unbound-method */
-import type { Logger } from '@n8n/backend-common';
-import { mockLogger } from '@n8n/backend-test-utils';
-import type { WorkflowEntity, WorkflowHistory, WorkflowRepository } from '@n8n/db';
+import type { Logger } from '@resin/backend-common';
+import { mockLogger } from '@resin/backend-test-utils';
+import type { WorkflowEntity, WorkflowHistory, WorkflowRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { ActiveWorkflows, InstanceSettings } from 'n8n-core';
+import type { ActiveWorkflows, InstanceSettings } from 'resin-core';
 import type {
 	ExecutionError,
 	INodeExecutionData,
@@ -13,9 +13,9 @@ import type {
 	Workflow,
 	WorkflowActivateMode,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { createDeferredPromise, WorkflowActivationError } from 'n8n-workflow';
+import { createDeferredPromise, WorkflowActivationError } from 'resin-workflow';
 
 import type { ActivationErrorsService } from '@/activation-errors.service';
 import { ActiveWorkflowManager } from '@/active-workflow-manager';
@@ -230,7 +230,7 @@ describe('ActiveWorkflowManager', () => {
 				{
 					id: 'draft-node-1',
 					name: 'Draft Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					parameters: {},
@@ -241,7 +241,7 @@ describe('ActiveWorkflowManager', () => {
 				{
 					id: 'active-node-1',
 					name: 'Active Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					parameters: {},

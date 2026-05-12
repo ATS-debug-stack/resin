@@ -2,11 +2,11 @@ import { createComponentRenderer } from '@/__tests__/render';
 import { type MockedStore, mockedStore } from '@/__tests__/utils';
 import { createTestingPinia } from '@pinia/testing';
 import CredentialResolverEditModal from '@/app/components/CredentialResolverEditModal.vue';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useToast } from '@/app/composables/useToast';
 import { CREDENTIAL_RESOLVER_EDIT_MODAL_KEY } from '../constants';
-import * as restApiClient from '@n8n/rest-api-client';
-import type { CredentialResolverType } from '@n8n/api-types';
+import * as restApiClient from '@resin/rest-api-client';
+import type { CredentialResolverType } from '@resin/api-types';
 import { defineComponent, h, watch, toRefs } from 'vue';
 
 vi.mock('@/app/composables/useToast', () => {
@@ -18,7 +18,7 @@ vi.mock('@/app/composables/useToast', () => {
 	};
 });
 
-vi.mock('@n8n/rest-api-client', async (importOriginal) => {
+vi.mock('@resin/rest-api-client', async (importOriginal) => {
 	const actual = await importOriginal<typeof restApiClient>();
 	return {
 		...actual,

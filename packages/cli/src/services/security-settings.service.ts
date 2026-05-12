@@ -3,12 +3,12 @@ import {
 	SharedCredentialsRepository,
 	SharedWorkflowRepository,
 	WorkflowRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import { Service } from '@resin/di';
 import {
 	PERSONAL_SPACE_PUBLISHING_SETTING,
 	PERSONAL_SPACE_SHARING_SETTING,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 
 import { RoleService } from '@/services/role.service';
 

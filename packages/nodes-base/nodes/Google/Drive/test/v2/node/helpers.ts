@@ -1,13 +1,18 @@
 import get from 'lodash/get';
-import { constructExecutionMetaData } from 'n8n-core';
-import type { IDataObject, IExecuteFunctions, IGetNodeParameterOptions, INode } from 'n8n-workflow';
+import { constructExecutionMetaData } from 'resin-core';
+import type {
+	IDataObject,
+	IExecuteFunctions,
+	IGetNodeParameterOptions,
+	INode,
+} from 'resin-workflow';
 import { Readable } from 'stream';
 
 export const driveNode: INode = {
 	id: '11',
 	name: 'Google Drive node',
 	typeVersion: 3,
-	type: 'n8n-nodes-base.googleDrive',
+	type: 'resin-nodes-base.googleDrive',
 	position: [42, 42],
 	parameters: {},
 };

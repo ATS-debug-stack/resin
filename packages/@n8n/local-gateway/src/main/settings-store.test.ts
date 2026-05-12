@@ -14,7 +14,7 @@ jest.mock('electron', () => ({
 	},
 }));
 
-jest.mock('@n8n/computer-use/logger', () => ({
+jest.mock('@resin/computer-use/logger', () => ({
 	logger: {
 		debug: jest.fn(),
 		warn: jest.fn(),

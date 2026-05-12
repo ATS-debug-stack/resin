@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { N8nButton, N8nIcon, N8nSpinner, N8nText, N8nTooltip } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { N8nButton, N8nIcon, N8nSpinner, N8nText, N8nTooltip } from '@resin/design-system';
 import { formatDuration, formatTokens } from '../../evaluation.utils';
 import { useCyclingVerb } from '../../composables/useCyclingVerb';
 import type { TestCaseExecutionStatus } from '../../evaluation.api';
@@ -120,7 +120,7 @@ const cyclingVerbKey = useCyclingVerb(isRunning);
 </template>
 
 <style module lang="scss">
-@use '@n8n/design-system/css/mixins/motion';
+@use '@resin/design-system/css/mixins/motion';
 
 .header {
 	display: flex;

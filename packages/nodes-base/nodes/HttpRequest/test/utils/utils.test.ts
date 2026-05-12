@@ -4,7 +4,7 @@ import type {
 	ICredentialDataDecryptedObject,
 	INodeExecutionData,
 	IRequestOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	REDACTED,

@@ -11,7 +11,7 @@
  * and its TypeScript path-alias issues.
  *
  * Uses path-based resolution to import WorkflowExecute and
- * ExecutionLifecycleHooks from @n8n/core dist without adding it as a package
+ * ExecutionLifecycleHooks from @resin/core dist without adding it as a package
  * dependency, following the NodeTestHarness pattern.
  */
 
@@ -25,8 +25,13 @@ import type {
 	INodeTypes,
 	IVersionedNodeType,
 	IWorkflowExecuteAdditionalData,
-} from 'n8n-workflow';
-import { createDeferredPromise, createRunExecutionData, NodeHelpers, Workflow } from 'n8n-workflow';
+} from 'resin-workflow';
+import {
+	createDeferredPromise,
+	createRunExecutionData,
+	NodeHelpers,
+	Workflow,
+} from 'resin-workflow';
 import path from 'path';
 
 import { findRepoRoot } from './environment';
@@ -83,7 +88,7 @@ class DistNodeTypes implements INodeTypes {
 		this.knownNodes = new Map();
 		for (const { packagePrefix, packageDir, knownNodes } of packages) {
 			for (const [shortName, info] of Object.entries(knownNodes)) {
-				// Workflow nodes use the full type name: "n8n-nodes-base.set"
+				// Workflow nodes use the full type name: "resin-nodes-base.set"
 				// The known.nodes JSON uses just the short name: "set"
 				this.knownNodes.set(`${packagePrefix}.${shortName}`, { ...info, packageDir });
 			}
@@ -202,12 +207,12 @@ async function resolveImports(): Promise<ResolvedImports> {
 
 	const nodeTypes = new DistNodeTypes([
 		{
-			packagePrefix: 'n8n-nodes-base',
+			packagePrefix: 'resin-nodes-base',
 			packageDir: nodesBasePath,
 			knownNodes: nodesBaseKnown,
 		},
 		{
-			packagePrefix: '@n8n/n8n-nodes-langchain',
+			packagePrefix: '@resin/n8n-nodes-langchain',
 			packageDir: langchainPath,
 			knownNodes: langchainKnown,
 		},
@@ -294,7 +299,8 @@ export async function executeWorkflowWithPinData(
 		// Find start node. getStartNode() only recognises nodes with a trigger()/poll()
 		// method or those in STARTING_NODE_TYPES. Webhook-based triggers like ChatTrigger
 		// are missed, so fall back to any node whose description group includes 'trigger'.
-		const startNode = workflowInstance.getStartNode() ?? findTriggerByGroup(workflow.nodes, imports.nodeTypes);
+		const startNode =
+			workflowInstance.getStartNode() ?? findTriggerByGroup(workflow.nodes, imports.nodeTypes);
 		if (!startNode) {
 			return {
 				success: false,

@@ -1,5 +1,5 @@
 import { getCurrentTaskInput } from '@langchain/langgraph';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import {
 	createWorkflow,
@@ -40,8 +40,8 @@ describe('validateStructure tool', () => {
 
 	it('should return valid when workflow has trigger and proper connections', async () => {
 		const workflow = createWorkflow([
-			createNode({ id: 'webhook1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-			createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+			createNode({ id: 'webhook1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+			createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 		]);
 		workflow.connections = {
 			Webhook: {
@@ -60,7 +60,7 @@ describe('validateStructure tool', () => {
 
 	it('should report missing trigger node', async () => {
 		const workflow = createWorkflow([
-			createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+			createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 		]);
 
 		setupWorkflowState(mockGetCurrentTaskInput, workflow);
@@ -75,8 +75,8 @@ describe('validateStructure tool', () => {
 
 	it('should report connection issues', async () => {
 		const workflow = createWorkflow([
-			createNode({ id: 'webhook1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-			createNode({ id: 'http1', name: 'HTTP Request', type: 'n8n-nodes-base.httpRequest' }),
+			createNode({ id: 'webhook1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+			createNode({ id: 'http1', name: 'HTTP Request', type: 'resin-nodes-base.httpRequest' }),
 		]);
 		// HTTP Request has no incoming connection (missing required input)
 
@@ -105,8 +105,8 @@ describe('validateStructure tool', () => {
 
 	it('should allow multiple trigger nodes', async () => {
 		const workflow = createWorkflow([
-			createNode({ id: 'webhook1', name: 'Webhook 1', type: 'n8n-nodes-base.webhook' }),
-			createNode({ id: 'webhook2', name: 'Webhook 2', type: 'n8n-nodes-base.webhook' }),
+			createNode({ id: 'webhook1', name: 'Webhook 1', type: 'resin-nodes-base.webhook' }),
+			createNode({ id: 'webhook2', name: 'Webhook 2', type: 'resin-nodes-base.webhook' }),
 		]);
 
 		setupWorkflowState(mockGetCurrentTaskInput, workflow);
@@ -124,15 +124,15 @@ describe('validateStructure tool', () => {
 		// as having required input - reproduces issue where validation incorrectly reported
 		// "missing required input" for nodes connected to error branch
 		const workflow = createWorkflow([
-			createNode({ id: 'webhook1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
+			createNode({ id: 'webhook1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
 			createNode({
 				id: 'http1',
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				onError: 'continueErrorOutput',
 			}),
-			createNode({ id: 'code1', name: 'Success Handler', type: 'n8n-nodes-base.code' }),
-			createNode({ id: 'code2', name: 'Error Handler', type: 'n8n-nodes-base.code' }),
+			createNode({ id: 'code1', name: 'Success Handler', type: 'resin-nodes-base.code' }),
+			createNode({ id: 'code2', name: 'Error Handler', type: 'resin-nodes-base.code' }),
 		]);
 		workflow.connections = {
 			Webhook: {

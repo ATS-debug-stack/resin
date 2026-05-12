@@ -1,6 +1,6 @@
-import type { INodeType, INodeTypeDescription, ISupplyDataFunctions } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
-import { supplyModel } from '@n8n/ai-node-sdk';
+import type { INodeType, INodeTypeDescription, ISupplyDataFunctions } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
+import { supplyModel } from '@resin/ai-node-sdk';
 
 type ModelOptions = {
 	temperature?: number;

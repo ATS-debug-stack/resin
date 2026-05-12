@@ -27,7 +27,7 @@ export const kent: Service<KentResult> = {
 
 	async start(network: StartedNetwork, projectName: string): Promise<KentResult> {
 		const container = await GenericContainer.fromDockerfile(DOCKERFILE_PATH)
-			.build('n8n-kent:local', { deleteOnExit: false })
+			.build('resin-kent:local', { deleteOnExit: false })
 			.then(
 				async (image) =>
 					await image

@@ -63,7 +63,7 @@ describe('InstanceAiMarkdown', () => {
 		const registry = makeRegistry([{ type: 'workflow', id: 'wf-1', name: 'My Workflow' }]);
 		const result = getProcessedContent('Use `My Workflow` for this', registry);
 		// The name is surrounded by backticks — lookbehind/lookahead should prevent replacement
-		expect(result).not.toContain('n8n-resource://');
+		expect(result).not.toContain('resin-resource://');
 		expect(result).toContain('`My Workflow`');
 	});
 
@@ -101,8 +101,8 @@ describe('InstanceAiMarkdown', () => {
 			{ type: 'data-table', id: 'dt-1', name: 'User Data' },
 		]);
 		const result = getProcessedContent('Connect Slack API Key to User Data', registry);
-		expect(result).toContain('n8n-resource://credential/cred-1');
-		expect(result).toContain('n8n-resource://data-table/dt-1');
+		expect(result).toContain('resin-resource://credential/cred-1');
+		expect(result).toContain('resin-resource://data-table/dt-1');
 	});
 
 	it('should NOT replace names that are inside existing markdown links', () => {
@@ -112,6 +112,6 @@ describe('InstanceAiMarkdown', () => {
 			registry,
 		);
 		// The name inside [...] is preceded by [ — lookbehind should block replacement
-		expect(result).not.toContain('n8n-resource://');
+		expect(result).not.toContain('resin-resource://');
 	});
 });

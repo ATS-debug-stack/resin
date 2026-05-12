@@ -16,9 +16,9 @@ import {
 	doRectsOverlap,
 	canUsePosition,
 } from './nodeViewUtils';
-import type { INode, INodeTypeDescription, INodeExecutionData, Workflow } from 'n8n-workflow';
+import type { INode, INodeTypeDescription, INodeExecutionData, Workflow } from 'resin-workflow';
 import type { INodeUi, XYPosition } from '@/Interface';
-import { NodeHelpers, SEND_AND_WAIT_OPERATION } from 'n8n-workflow';
+import { NodeHelpers, SEND_AND_WAIT_OPERATION } from 'resin-workflow';
 
 import { describe, it, expect, beforeEach } from 'vitest';
 import { mock, type MockProxy } from 'vitest-mock-extended';
@@ -106,7 +106,7 @@ describe('getGenericHints', () => {
 	});
 
 	it('should return a hint for expression in field name if found in Set node', () => {
-		mockNode.type = 'n8n-nodes-base.set';
+		mockNode.type = 'resin-nodes-base.set';
 		mockNode.parameters.mode = 'manual';
 		mockNodeType.properties = [];
 
@@ -146,7 +146,7 @@ describe('getGenericHints', () => {
 	});
 
 	it('should return Split In Batches setup hints if loop is not set up correctly', () => {
-		mockNode.type = 'n8n-nodes-base.splitInBatches';
+		mockNode.type = 'resin-nodes-base.splitInBatches';
 		mockWorkflow.getChildNodes.mockReturnValue([]);
 
 		const hints = getGenericHints({

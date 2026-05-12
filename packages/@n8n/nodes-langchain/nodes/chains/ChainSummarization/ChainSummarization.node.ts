@@ -1,5 +1,5 @@
-import type { INodeTypeBaseDescription, IVersionedNodeType } from 'n8n-workflow';
-import { VersionedNodeType } from 'n8n-workflow';
+import type { INodeTypeBaseDescription, IVersionedNodeType } from 'resin-workflow';
+import { VersionedNodeType } from 'resin-workflow';
 
 import { ChainSummarizationV1 } from './V1/ChainSummarizationV1.node';
 import { ChainSummarizationV2 } from './V2/ChainSummarizationV2.node';

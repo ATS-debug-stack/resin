@@ -4,7 +4,7 @@ import type {
 	InstanceAiAdminSettingsUpdateRequest,
 	InstanceAiUserPreferencesResponse,
 	InstanceAiUserPreferencesUpdateRequest,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 type StringField = keyof {
 	[K in keyof InstanceAiAdminSettingsResponse as InstanceAiAdminSettingsResponse[K] extends string

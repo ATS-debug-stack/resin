@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import type { DataTableFilterConditionType } from '@n8n/api-types';
-import { createTeamProject, testDb, testModules } from '@n8n/backend-test-utils';
-import { Project } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { DataTableFilterConditionType } from '@resin/api-types';
+import { createTeamProject, testDb, testModules } from '@resin/backend-test-utils';
+import { Project } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { mockDataTableSizeValidator } from './test-helpers';
 import { DataTableService } from '../data-table.service';

@@ -63,7 +63,7 @@ describe('hasErrorOutput', () => {
 	it('returns true when node has onError: continueErrorOutput', () => {
 		const node = createSemanticNode(
 			'Node',
-			'n8n-nodes-base.noOp',
+			'resin-nodes-base.noOp',
 			new Map(),
 			'continueErrorOutput',
 		);
@@ -71,19 +71,19 @@ describe('hasErrorOutput', () => {
 	});
 
 	it('returns false when node has different onError value', () => {
-		const node = createSemanticNode('Node', 'n8n-nodes-base.noOp', new Map(), 'stopWorkflow');
+		const node = createSemanticNode('Node', 'resin-nodes-base.noOp', new Map(), 'stopWorkflow');
 		expect(hasErrorOutput(node)).toBe(false);
 	});
 
 	it('returns false when node has no onError', () => {
-		const node = createSemanticNode('Node', 'n8n-nodes-base.noOp');
+		const node = createSemanticNode('Node', 'resin-nodes-base.noOp');
 		expect(hasErrorOutput(node)).toBe(false);
 	});
 
 	it('returns true when node has error output connections without continueErrorOutput setting', () => {
 		const node = createSemanticNode(
 			'Node',
-			'n8n-nodes-base.noOp',
+			'resin-nodes-base.noOp',
 			new Map([['error', [{ target: 'ErrorHandler', targetInputSlot: 'input0' }]]]),
 		);
 		// No onError setting, but has error connections
@@ -91,7 +91,7 @@ describe('hasErrorOutput', () => {
 	});
 
 	it('returns false when node has empty error output connections', () => {
-		const node = createSemanticNode('Node', 'n8n-nodes-base.noOp', new Map([['error', []]]));
+		const node = createSemanticNode('Node', 'resin-nodes-base.noOp', new Map([['error', []]]));
 		expect(hasErrorOutput(node)).toBe(false);
 	});
 });
@@ -100,7 +100,7 @@ describe('getErrorOutputTargets', () => {
 	it('returns error output targets', () => {
 		const node = createSemanticNode(
 			'Node',
-			'n8n-nodes-base.noOp',
+			'resin-nodes-base.noOp',
 			new Map([
 				['output0', [{ target: 'Next', targetInputSlot: 'input' }]],
 				['error', [{ target: 'ErrorHandler', targetInputSlot: 'input' }]],
@@ -112,7 +112,7 @@ describe('getErrorOutputTargets', () => {
 	it('returns empty array when no error output', () => {
 		const node = createSemanticNode(
 			'Node',
-			'n8n-nodes-base.noOp',
+			'resin-nodes-base.noOp',
 			new Map([['output0', [{ target: 'Next', targetInputSlot: 'input' }]]]),
 		);
 		expect(getErrorOutputTargets(node)).toEqual([]);
@@ -121,7 +121,7 @@ describe('getErrorOutputTargets', () => {
 	it('returns multiple targets when error output has multiple connections', () => {
 		const node = createSemanticNode(
 			'Node',
-			'n8n-nodes-base.noOp',
+			'resin-nodes-base.noOp',
 			new Map([
 				[
 					'error',
@@ -140,12 +140,12 @@ describe('buildErrorHandler', () => {
 	it('builds error handler chain for node with error output', () => {
 		const node = createSemanticNode(
 			'Node',
-			'n8n-nodes-base.noOp',
+			'resin-nodes-base.noOp',
 			new Map([['error', [{ target: 'ErrorHandler', targetInputSlot: 'input' }]]]),
 			'continueErrorOutput',
 		);
 
-		const errorHandler = createSemanticNode('ErrorHandler', 'n8n-nodes-base.noOp');
+		const errorHandler = createSemanticNode('ErrorHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -166,7 +166,7 @@ describe('buildErrorHandler', () => {
 	});
 
 	it('returns undefined when node has no error output', () => {
-		const node = createSemanticNode('Node', 'n8n-nodes-base.noOp');
+		const node = createSemanticNode('Node', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([['Node', node]]),
@@ -183,7 +183,7 @@ describe('buildErrorHandler', () => {
 	it('returns undefined when error output has no targets', () => {
 		const node = createSemanticNode(
 			'Node',
-			'n8n-nodes-base.noOp',
+			'resin-nodes-base.noOp',
 			new Map([['error', []]]),
 			'continueErrorOutput',
 		);
@@ -203,12 +203,12 @@ describe('buildErrorHandler', () => {
 	it('returns varRef when error target is already visited', () => {
 		const node = createSemanticNode(
 			'Node',
-			'n8n-nodes-base.noOp',
+			'resin-nodes-base.noOp',
 			new Map([['error', [{ target: 'SharedHandler', targetInputSlot: 'input' }]]]),
 			'continueErrorOutput',
 		);
 
-		const sharedHandler = createSemanticNode('SharedHandler', 'n8n-nodes-base.noOp');
+		const sharedHandler = createSemanticNode('SharedHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -233,12 +233,12 @@ describe('buildErrorHandler', () => {
 	it('marks error handler as visited', () => {
 		const node = createSemanticNode(
 			'Node',
-			'n8n-nodes-base.noOp',
+			'resin-nodes-base.noOp',
 			new Map([['error', [{ target: 'ErrorHandler', targetInputSlot: 'input' }]]]),
 			'continueErrorOutput',
 		);
 
-		const errorHandler = createSemanticNode('ErrorHandler', 'n8n-nodes-base.noOp');
+		const errorHandler = createSemanticNode('ErrorHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([

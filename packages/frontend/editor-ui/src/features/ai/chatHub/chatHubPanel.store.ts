@@ -1,6 +1,6 @@
 import { computed, nextTick, ref, watch } from 'vue';
 import { defineStore } from 'pinia';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { useRoute } from 'vue-router';
 import { FLOATING_CHAT_HUB_PANEL_EXPERIMENT } from '@/app/constants';
 import { usePostHog } from '@/app/stores/posthog.store';

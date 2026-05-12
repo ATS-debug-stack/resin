@@ -3,7 +3,7 @@ import { AST_NODE_TYPES } from '@typescript-eslint/utils';
 
 import { createRule, findJsonProperty } from '../utils/index.js';
 
-const REQUIRED_KEYWORD = 'n8n-community-node-package';
+const REQUIRED_KEYWORD = 'resin-community-node-package';
 
 export const RequireCommunityNodeKeywordRule = createRule({
 	name: 'require-community-node-keyword',
@@ -11,7 +11,7 @@ export const RequireCommunityNodeKeywordRule = createRule({
 		type: 'problem',
 		docs: {
 			description:
-				'Require the "n8n-community-node-package" keyword in community node package.json',
+				'Require the "resin-community-node-package" keyword in community node package.json',
 		},
 		fixable: 'code',
 		messages: {

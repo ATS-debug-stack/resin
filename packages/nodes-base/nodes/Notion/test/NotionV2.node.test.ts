@@ -6,7 +6,7 @@ import type {
 	INode,
 	INodeExecutionData,
 	IPairedItemData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import * as GenericFunctions from '../shared/GenericFunctions';
 import { NotionV2 } from '../v2/NotionV2.node';
@@ -34,7 +34,7 @@ function createMockExecuteFunction(nodeParameters: IDataObject): IExecuteFunctio
 			({
 				typeVersion: 2.2,
 				name: 'Notion',
-				type: 'n8n-nodes-base.notion',
+				type: 'resin-nodes-base.notion',
 			}) as unknown as INode,
 		getTimezone: () => 'UTC',
 		continueOnFail: () => false,

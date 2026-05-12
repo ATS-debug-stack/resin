@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
 
-import { N8nIconButton } from '@n8n/design-system';
+import { N8nIconButton } from '@resin/design-system';
 const props = defineProps<{
 	stopping?: boolean;
 	size?: 'small' | 'medium' | 'large' | 'xlarge';

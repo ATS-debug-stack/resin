@@ -1,7 +1,7 @@
 import type { z as zType } from 'zod';
 
 // Manual mocks — must be declared before any imports that touch the mocked modules.
-jest.mock('@n8n/instance-ai', () => {
+jest.mock('@resin/instance-ai', () => {
 	const { z } = jest.requireActual<{ z: typeof zType }>('zod');
 	return {
 		McpClientManager: class {

@@ -1,7 +1,7 @@
-import type { UpdateWorkflowHistoryVersionDto } from '@n8n/api-types';
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { AuthenticatedRequest, User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { UpdateWorkflowHistoryVersionDto } from '@resin/api-types';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { AuthenticatedRequest, User } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

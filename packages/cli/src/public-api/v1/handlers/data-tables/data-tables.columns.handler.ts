@@ -1,5 +1,5 @@
-import { AddDataTableColumnDto, updateDataTableColumnSchema } from '@n8n/api-types';
-import { Container } from '@n8n/di';
+import { AddDataTableColumnDto, updateDataTableColumnSchema } from '@resin/api-types';
+import { Container } from '@resin/di';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { ConflictError } from '@/errors/response-errors/conflict.error';

@@ -1,4 +1,4 @@
-import type { ListQueryDb } from '@n8n/db';
+import type { ListQueryDb } from '@resin/db';
 import {
 	GLOBAL_OWNER_ROLE,
 	Project,
@@ -10,16 +10,16 @@ import {
 	Role,
 	SettingsRepository,
 	Scope,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
-import { Logger } from '@n8n/backend-common';
+} from '@resin/db';
+import { Service } from '@resin/di';
+import { Logger } from '@resin/backend-common';
 import { CacheService } from '@/services/cache/cache.service';
-import { OwnerSetupRequestDto } from '@n8n/api-types';
+import { OwnerSetupRequestDto } from '@resin/api-types';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { EventService } from '@/events/event.service';
 import { PasswordUtility } from './password.utility';
-import { IsNull } from '@n8n/typeorm/find-options/operator/IsNull';
-import { Not } from '@n8n/typeorm/find-options/operator/Not';
+import { IsNull } from '@resin/typeorm/find-options/operator/IsNull';
+import { Not } from '@resin/typeorm/find-options/operator/Not';
 import config from '@/config';
 
 @Service()

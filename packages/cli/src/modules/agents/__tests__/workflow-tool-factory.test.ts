@@ -1,12 +1,12 @@
 import { mock } from 'jest-mock-extended';
-import type { WorkflowRepository, UserRepository } from '@n8n/db';
-import type { WorkflowEntity } from '@n8n/db';
-import type { INode } from 'n8n-workflow';
+import type { WorkflowRepository, UserRepository } from '@resin/db';
+import type { WorkflowEntity } from '@resin/db';
+import type { INode } from 'resin-workflow';
 
 import type { WorkflowFinderService } from '@/workflows/workflow-finder.service';
 import type { WorkflowRunner } from '@/workflow-runner';
 import type { ActiveExecutions } from '@/active-executions';
-import type { ExecutionRepository } from '@n8n/db';
+import type { ExecutionRepository } from '@resin/db';
 
 import { resolveWorkflowTool } from '../tools/workflow-tool-factory';
 import type { WorkflowToolContext } from '../tools/workflow-tool-factory';
@@ -19,7 +19,7 @@ function makeManualTriggerNode(overrides: Partial<INode> = {}): INode {
 	return {
 		id: 'trigger-node-id',
 		name: 'Manual Trigger',
-		type: 'n8n-nodes-base.manualTrigger',
+		type: 'resin-nodes-base.manualTrigger',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -31,7 +31,7 @@ function makeFormTriggerNode(overrides: Partial<INode> = {}): INode {
 	return {
 		id: 'trigger-node-id',
 		name: 'Form Trigger',
-		type: 'n8n-nodes-base.formTrigger',
+		type: 'resin-nodes-base.formTrigger',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: { path: 'my-form' },

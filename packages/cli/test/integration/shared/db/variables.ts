@@ -1,7 +1,7 @@
-import type { Project } from '@n8n/db';
-import { generateNanoId, VariablesRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { randomString } from 'n8n-workflow';
+import type { Project } from '@resin/db';
+import { generateNanoId, VariablesRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { randomString } from 'resin-workflow';
 
 import { VariablesService } from '@/environments.ee/variables/variables.service.ee';
 

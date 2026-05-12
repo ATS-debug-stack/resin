@@ -9,7 +9,7 @@ import * as nodeHelpers from '@/app/composables/useNodeHelpers';
 import * as workflowHelpers from '@/app/composables/useWorkflowHelpers';
 import * as nodeSettingsUtils from '@/features/ndv/shared/ndv.utils';
 import * as nodeTypesUtils from '@/app/utils/nodeTypesUtils';
-import type { INodeParameters, INodeProperties, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeParameters, INodeProperties, INodeTypeDescription } from 'resin-workflow';
 import type { MockedStore } from '@/__tests__/utils';
 import { mockedStore } from '@/__tests__/utils';
 import type { INodeUi } from '@/Interface';
@@ -451,7 +451,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Other Node',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.other',
+					type: 'resin-nodes-base.other',
 					parameters: {},
 				};
 
@@ -630,7 +630,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Other Node',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.other',
+					type: 'resin-nodes-base.other',
 					parameters: {},
 				};
 
@@ -703,7 +703,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -739,7 +739,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -765,7 +765,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -799,7 +799,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -841,7 +841,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -889,7 +889,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -947,7 +947,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -991,7 +991,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -1027,7 +1027,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -1067,7 +1067,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -1114,7 +1114,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -1152,7 +1152,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -1188,7 +1188,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -1218,7 +1218,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -1260,7 +1260,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: {},
 				};
 
@@ -1282,7 +1282,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -1319,7 +1319,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 
@@ -1361,7 +1361,7 @@ describe('useNodeSettingsParameters', () => {
 					name: 'Node1',
 					position: [0, 0],
 					typeVersion: 1,
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					parameters: nodeParameters,
 				};
 

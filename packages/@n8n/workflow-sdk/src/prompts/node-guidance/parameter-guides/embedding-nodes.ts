@@ -1,7 +1,7 @@
 import type { NodeTypeGuide } from './types';
 
 export const EMBEDDING_NODES_GUIDE: NodeTypeGuide = {
-	patterns: ['@n8n/n8n-nodes-langchain.embeddings*'],
+	patterns: ['@resin/n8n-nodes-langchain.embeddings*'],
 	content: `
 ## CRITICAL: Embedding Models vs Chat Models
 

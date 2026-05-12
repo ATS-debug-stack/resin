@@ -1,4 +1,4 @@
 /**
- * Re-export best practices registry from the shared @n8n/workflow-sdk/prompts package.
+ * Re-export best practices registry from the shared @resin/workflow-sdk/prompts package.
  */
-export { bestPracticesRegistry as documentation } from '@n8n/workflow-sdk/prompts/best-practices';
+export { bestPracticesRegistry as documentation } from '@resin/workflow-sdk/prompts/best-practices';

@@ -1,11 +1,11 @@
-import type { CheckpointStore, SerializableAgentState } from '@n8n/agents';
-import { Logger, ModuleRegistry } from '@n8n/backend-common';
-import { AgentsConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@n8n/decorators';
-import { Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
-import { jsonParse, UserError } from 'n8n-workflow';
+import type { CheckpointStore, SerializableAgentState } from '@resin/agents';
+import { Logger, ModuleRegistry } from '@resin/backend-common';
+import { AgentsConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@resin/decorators';
+import { Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
+import { jsonParse, UserError } from 'resin-workflow';
 import { strict } from 'node:assert';
 
 import { AgentCheckpointRepository } from '../repositories/agent-checkpoint.repository';

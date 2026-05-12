@@ -1,6 +1,6 @@
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { mock } from 'jest-mock-extended';
-import { StructuredToolkit } from 'n8n-core';
+import { StructuredToolkit } from 'resin-core';
 import {
 	NodeConnectionTypes,
 	NodeOperationError,
@@ -8,7 +8,7 @@ import {
 	type ILoadOptionsFunctions,
 	type INode,
 	type ISupplyDataFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { buildMcpToolkit, executeMcpTool, loadMcpToolOptions } from './runtime';
 import type { ResolvedMcpConfig, McpConnectionConfig } from './runtime';
@@ -17,8 +17,8 @@ import { buildMcpToolName } from '../McpClientTool/utils';
 jest.mock('@modelcontextprotocol/sdk/client/sse.js');
 jest.mock('@modelcontextprotocol/sdk/client/streamableHttp.js');
 jest.mock('@modelcontextprotocol/sdk/client/index.js');
-jest.mock('@n8n/ai-utilities', () => ({
-	...jest.requireActual('@n8n/ai-utilities'),
+jest.mock('@resin/ai-utilities', () => ({
+	...jest.requireActual('@resin/ai-utilities'),
 	proxyFetch: jest.fn(),
 }));
 

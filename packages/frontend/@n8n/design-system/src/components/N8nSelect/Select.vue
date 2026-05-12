@@ -115,7 +115,7 @@ defineExpose({
 <template>
 	<div
 		:class="{
-			'n8n-select': true,
+			'resin-select': true,
 			[$style.container]: true,
 			[$style.withPrepend]: !!$slots.prepend,
 		}"

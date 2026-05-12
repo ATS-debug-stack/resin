@@ -1,17 +1,17 @@
-import { LicenseState, Logger } from '@n8n/backend-common';
+import { LicenseState, Logger } from '@resin/backend-common';
 import {
 	createTeamProject,
 	linkUserToProject,
 	mockInstance,
 	mockLogger,
 	testDb,
-} from '@n8n/backend-test-utils';
-import type { Project, Role, User } from '@n8n/db';
+} from '@resin/backend-test-utils';
+import type { Project, Role, User } from '@resin/db';
 import {
 	ProjectSecretsProviderAccessRepository,
 	SecretsProviderConnectionRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import { ExternalSecretsManager } from '@/modules/external-secrets.ee/external-secrets-manager.ee';
@@ -23,7 +23,7 @@ import { createCustomRoleWithScopeSlugs } from '../shared/db/roles';
 import { createAdmin, createMember, createOwner } from '../shared/db/users';
 import type { SuperAgentTest } from '../shared/types';
 import { setupTestServer } from '../shared/utils';
-import { Cipher } from 'n8n-core';
+import { Cipher } from 'resin-core';
 import { mockCipher } from '@test/mocking';
 
 const resetManager = async () => {

@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions, ResourceMapperField } from 'n8n-workflow';
+import type { ILoadOptionsFunctions, ResourceMapperField } from 'resin-workflow';
 
 import { apiRequest } from '../transport';
 

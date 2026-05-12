@@ -2,7 +2,7 @@ import type {
 	ICredentialsDecrypted,
 	ICredentialTestFunctions,
 	INodeCredentialTestResult,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getGoogleAccessToken } from '../../../GenericFunctions';
 

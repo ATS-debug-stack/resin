@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { GLOBAL_OWNER_ROLE } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { GLOBAL_OWNER_ROLE } from '@resin/db';
+import { Container } from '@resin/di';
 import * as fs from 'fs';
 import * as path from 'path';
 import type TestAgent from 'supertest/lib/agent';

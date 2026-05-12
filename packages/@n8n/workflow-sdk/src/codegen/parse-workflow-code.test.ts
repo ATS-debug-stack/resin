@@ -4,7 +4,7 @@ describe('parseWorkflowCodeToBuilder', () => {
 	describe('SDK builder code', () => {
 		it('should return a WorkflowBuilder from SDK workflow() calls', () => {
 			const code = `export default workflow('test-id', 'My Workflow')
-				.add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} }))
+				.add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} }))
 			`;
 
 			const builder = parseWorkflowCodeToBuilder(code);
@@ -21,12 +21,12 @@ describe('parseWorkflowCodeToBuilder', () => {
 		it('should parse SDK code using nodeJson()', () => {
 			const code = `
 				const telegramTrigger = trigger({
-					type: 'n8n-nodes-base.telegramTrigger',
+					type: 'resin-nodes-base.telegramTrigger',
 					version: 1,
 					config: { name: 'Telegram Trigger', parameters: {} }
 				});
 				const setChat = node({
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					version: 3.4,
 					config: {
 						name: 'Set Chat',
@@ -55,7 +55,7 @@ describe('parseWorkflowCodeToBuilder', () => {
 						{
 							id: 'sticky-test',
 							name: 'Test Note',
-							type: 'n8n-nodes-base.stickyNote',
+							type: 'resin-nodes-base.stickyNote',
 							typeVersion: 1,
 							position: [100, 100],
 							parameters: { content: 'Hello', height: 200, width: 300, color: 3 }
@@ -76,7 +76,7 @@ describe('parseWorkflowCodeToBuilder', () => {
 			const json = builder.toJSON();
 			expect(json.name).toBe('TEST');
 			expect(json.nodes).toHaveLength(1);
-			expect(json.nodes[0].type).toBe('n8n-nodes-base.stickyNote');
+			expect(json.nodes[0].type).toBe('resin-nodes-base.stickyNote');
 		});
 
 		it('should convert a directly exported object literal', () => {
@@ -86,7 +86,7 @@ describe('parseWorkflowCodeToBuilder', () => {
 					{
 						id: 'node-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {}
@@ -110,7 +110,7 @@ describe('parseWorkflowCodeToBuilder', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {}
@@ -118,7 +118,7 @@ describe('parseWorkflowCodeToBuilder', () => {
 					{
 						id: 'set-1',
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [200, 0],
 						parameters: {}

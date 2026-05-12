@@ -1,15 +1,15 @@
-import type { SamlPreferences, SamlPreferencesAttributeMapping } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { Settings, User } from '@n8n/db';
-import { isValidEmail, SettingsRepository, UserRepository } from '@n8n/db';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+import type { SamlPreferences, SamlPreferencesAttributeMapping } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { Settings, User } from '@resin/db';
+import { isValidEmail, SettingsRepository, UserRepository } from '@resin/db';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import axios from 'axios';
 import { createPublicKey, randomBytes, X509Certificate } from 'crypto';
 import type express from 'express';
-import { Cipher, createHttpProxyAgent, createHttpsProxyAgent, InstanceSettings } from 'n8n-core';
-import { CREDENTIAL_BLANKING_VALUE, jsonParse, UnexpectedError } from 'n8n-workflow';
+import { Cipher, createHttpProxyAgent, createHttpsProxyAgent, InstanceSettings } from 'resin-core';
+import { CREDENTIAL_BLANKING_VALUE, jsonParse, UnexpectedError } from 'resin-workflow';
 import { type IdentityProviderInstance, type ServiceProviderInstance } from 'samlify';
 import type { BindingContext, PostBindingContext } from 'samlify/types/src/entity';
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { N8nIcon, type IconName } from '@n8n/design-system';
+import { N8nIcon, type IconName } from '@resin/design-system';
 
 const props = defineProps<{
 	type: 'workflow' | 'credential' | 'data-table';

@@ -3,10 +3,10 @@ import {
 	DeleteFolderDto,
 	ListFolderQueryDto,
 	UpdateFolderDto,
-} from '@n8n/api-types';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { UserError } from 'n8n-workflow';
+} from '@resin/api-types';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Container } from '@resin/di';
+import { UserError } from 'resin-workflow';
 
 import { FolderNotFoundError } from '@/errors/folder-not-found.error';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

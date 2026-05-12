@@ -11,7 +11,7 @@ import { useSettingsStore } from '@/app/stores/settings.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import type { ProjectListItem } from '@/features/collaboration/projects/projects.types';
-import type { SecretProviderConnection } from '@n8n/api-types';
+import type { SecretProviderConnection } from '@resin/api-types';
 import {
 	N8nActionBox,
 	N8nButton,
@@ -20,10 +20,10 @@ import {
 	N8nLink,
 	N8nLoading,
 	N8nText,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import * as externalSecretsApi from '@n8n/rest-api-client';
-import { useRootStore } from '@n8n/stores/useRootStore';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import * as externalSecretsApi from '@resin/rest-api-client';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { ElSwitch } from 'element-plus';
 import { computed, onMounted, ref } from 'vue';
 import { I18nT } from 'vue-i18n';

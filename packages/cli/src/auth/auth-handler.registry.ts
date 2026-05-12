@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { User } from '@n8n/db';
-import type { AuthType, IAuthHandler, IPasswordAuthHandler } from '@n8n/decorators';
-import { AuthHandlerEntryMetadata } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { User } from '@resin/db';
+import type { AuthType, IAuthHandler, IPasswordAuthHandler } from '@resin/decorators';
+import { AuthHandlerEntryMetadata } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 
 function isUserHandler(handler: IAuthHandler): handler is IAuthHandler<User> {
 	return handler.userClass === User;

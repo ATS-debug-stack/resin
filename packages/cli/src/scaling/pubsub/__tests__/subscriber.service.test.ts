@@ -1,6 +1,6 @@
-import type { Logger } from '@n8n/backend-common';
-import { mockInstance, mockLogger } from '@n8n/backend-test-utils';
-import { ExecutionsConfig, GlobalConfig } from '@n8n/config';
+import type { Logger } from '@resin/backend-common';
+import { mockInstance, mockLogger } from '@resin/backend-test-utils';
+import { ExecutionsConfig, GlobalConfig } from '@resin/config';
 import type { Redis as SingleNodeClient } from 'ioredis';
 import { mock } from 'jest-mock-extended';
 
@@ -84,7 +84,7 @@ describe('Subscriber', () => {
 
 	describe('prefix isolation', () => {
 		it('should apply configured prefix when subscribing to channels', async () => {
-			const customConfig = mockInstance(GlobalConfig, { redis: { prefix: 'n8n-instance-1' } });
+			const customConfig = mockInstance(GlobalConfig, { redis: { prefix: 'resin-instance-1' } });
 			const subscriber = new Subscriber(
 				mock(),
 				mock(),
@@ -98,11 +98,11 @@ describe('Subscriber', () => {
 			await subscriber.subscribe(subscriber.getWorkerResponseChannel());
 
 			expect(client.subscribe).toHaveBeenCalledWith(
-				'n8n-instance-1:n8n.commands',
+				'resin-instance-1:n8n.commands',
 				expect.any(Function),
 			);
 			expect(client.subscribe).toHaveBeenCalledWith(
-				'n8n-instance-1:n8n.worker-response',
+				'resin-instance-1:n8n.worker-response',
 				expect.any(Function),
 			);
 		});

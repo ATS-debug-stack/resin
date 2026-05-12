@@ -1,5 +1,5 @@
 import { tool } from '@langchain/core/tools';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import { z } from 'zod';
 
 import type { WorkflowMetadata } from '@/types';
@@ -61,7 +61,7 @@ Use this tool when you need reference examples for configuring node parameters:
 
 Parameters:
 - nodes: Array of objects with nodeType (required) and nodeVersion (optional)
-  Example: [{ nodeType: "n8n-nodes-base.httpRequest" }, { nodeType: "n8n-nodes-base.gmail", nodeVersion: 2 }]
+  Example: [{ nodeType: "resin-nodes-base.httpRequest" }, { nodeType: "resin-nodes-base.gmail", nodeVersion: 2 }]
 
 Returns markdown-formatted examples showing proven parameter configurations for each node.`,
 	},
@@ -79,7 +79,7 @@ Use this tool when you need to understand node connection patterns:
 
 Parameters:
 - nodes: Array of objects with nodeType (required) and nodeVersion (optional)
-  Example: [{ nodeType: "n8n-nodes-base.splitInBatches" }, { nodeType: "n8n-nodes-base.if" }]
+  Example: [{ nodeType: "resin-nodes-base.splitInBatches" }, { nodeType: "resin-nodes-base.if" }]
 
 Returns mermaid diagrams from community workflows containing each node.`,
 	},

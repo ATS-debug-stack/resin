@@ -4,10 +4,10 @@ import {
 	CreateProjectDto,
 	DeleteProjectDto,
 	UpdateProjectWithRelationsDto,
-} from '@n8n/api-types';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { ProjectRelationRepository, ProjectRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/api-types';
+import type { AuthenticatedRequest } from '@resin/db';
+import { ProjectRelationRepository, ProjectRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import pick from 'lodash/pick';
 
 import { ProjectController } from '@/controllers/project.controller';

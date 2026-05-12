@@ -4,8 +4,8 @@ import type {
 	INode,
 	INodeExecutionData,
 	INodeParameterResourceLocator,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import { SlackV2 } from '../../V2/SlackV2.node';
 import * as GenericFunctions from '../../V2/GenericFunctions';
@@ -19,7 +19,7 @@ describe('SlackV2', () => {
 	const mockNode: INode = {
 		id: 'test-node-id',
 		name: 'Slack Test',
-		type: 'n8n-nodes-base.slack',
+		type: 'resin-nodes-base.slack',
 		typeVersion: 2,
 		position: [0, 0],
 		parameters: {},

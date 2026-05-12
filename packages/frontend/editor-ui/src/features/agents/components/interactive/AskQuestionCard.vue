@@ -8,9 +8,9 @@ import {
 	N8nInput,
 	N8nInputLabel,
 	N8nText,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import type { AskQuestionResume } from '@n8n/api-types';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import type { AskQuestionResume } from '@resin/api-types';
 
 interface Option {
 	label: string;

@@ -1,5 +1,5 @@
-import { NodeOperationError, sleep } from 'n8n-workflow';
-import type { IDataObject, IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
+import { NodeOperationError, sleep } from 'resin-workflow';
+import type { IDataObject, IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
 
 import { extractResourceLocatorValue, getActiveCredentialType, getHost } from '../helpers';
 import type { DatabricksStatementResponse } from '../interfaces';

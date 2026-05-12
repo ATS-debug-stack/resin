@@ -1,10 +1,10 @@
-import * as aiUtilities from '@n8n/ai-utilities';
-import { OperationalError } from 'n8n-workflow';
+import * as aiUtilities from '@resin/ai-utilities';
+import { OperationalError } from 'resin-workflow';
 import type { Mock, Mocked } from 'vitest';
 
 import { TokenTextSplitter } from '../TokenTextSplitter';
 
-vi.mock('@n8n/ai-utilities');
+vi.mock('@resin/ai-utilities');
 
 describe('TokenTextSplitter', () => {
 	let mockTokenizer: Mocked<{

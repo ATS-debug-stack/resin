@@ -1,4 +1,4 @@
-import { Column, Entity } from '@n8n/typeorm';
+import { Column, Entity } from '@resin/typeorm';
 
 import { WithTimestampsAndStringId } from './abstract-entity';
 

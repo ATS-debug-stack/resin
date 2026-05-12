@@ -1,5 +1,5 @@
-import { Time } from '@n8n/constants';
-import { Service } from '@n8n/di';
+import { Time } from '@resin/constants';
+import { Service } from '@resin/di';
 import { Response } from 'express';
 
 import { JwtService } from '@/services/jwt.service';
@@ -11,7 +11,7 @@ export interface OAuthSessionPayload {
 	state: string | null;
 }
 
-const COOKIE_NAME = 'n8n-oauth-session';
+const COOKIE_NAME = 'resin-oauth-session';
 const SESSION_EXPIRY_MS = 10 * Time.minutes.toMilliseconds; // 10 minutes
 
 /**

@@ -1,5 +1,5 @@
-import { GATEWAY_CONFIRMATION_REQUIRED_PREFIX } from '@n8n/api-types';
-import type { McpTool, McpToolCallResult } from '@n8n/api-types';
+import { GATEWAY_CONFIRMATION_REQUIRED_PREFIX } from '@resin/api-types';
+import type { McpTool, McpToolCallResult } from '@resin/api-types';
 
 import type { LocalMcpServer } from '../../../types';
 import { createToolsFromLocalMcpServer } from '../create-tools-from-mcp-server';

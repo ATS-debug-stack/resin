@@ -5,14 +5,14 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { ollamaDescription, ollamaModel, ollamaOptions } from './description';
 import {
 	makeN8nLlmFailedAttemptHandler,
 	N8nLlmTracing,
 	getConnectionHintNoticeField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 
 export class LmOllama implements INodeType {
 	description: INodeTypeDescription = {

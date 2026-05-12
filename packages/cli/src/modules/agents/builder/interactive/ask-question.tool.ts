@@ -1,12 +1,12 @@
-import { Tool } from '@n8n/agents';
-import type { BuiltTool, InterruptibleToolContext } from '@n8n/agents';
+import { Tool } from '@resin/agents';
+import type { BuiltTool, InterruptibleToolContext } from '@resin/agents';
 import {
 	ASK_QUESTION_TOOL_NAME,
 	askQuestionInputSchema,
 	askQuestionResumeSchema,
 	type AskQuestionInput,
 	type AskQuestionResume,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export function buildAskQuestionTool(): BuiltTool {
 	return new Tool(ASK_QUESTION_TOOL_NAME)

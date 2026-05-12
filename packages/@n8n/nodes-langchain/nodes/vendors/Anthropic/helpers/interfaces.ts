@@ -1,4 +1,4 @@
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
 import type { JsonSchema7Type } from 'zod-to-json-schema';
 
 export type FileSource =

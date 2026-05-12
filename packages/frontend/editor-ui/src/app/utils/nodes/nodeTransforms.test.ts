@@ -1,14 +1,14 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
-import { NodeHelpers } from 'n8n-workflow';
-import type { INodePropertyOptions, INodeTypeDescription } from 'n8n-workflow';
+import { NodeHelpers } from 'resin-workflow';
+import type { INodePropertyOptions, INodeTypeDescription } from 'resin-workflow';
 
 import { getParameterDisplayableOptions, serializeNode } from './nodeTransforms';
 import type { INodeUi } from '@/Interface';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 
-vi.mock('n8n-workflow', async (importOriginal) => ({
+vi.mock('resin-workflow', async (importOriginal) => ({
 	...(await importOriginal()),
 	NodeHelpers: {
 		displayParameter: vi.fn(),

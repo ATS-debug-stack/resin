@@ -1,4 +1,4 @@
-import type { Agent } from '@n8n/agents';
+import type { Agent } from '@resin/agents';
 
 import { createEvalAgent, extractText } from '../../../src/utils/eval-agents';
 import type { WorkflowResponse } from '../../clients/n8n-client';

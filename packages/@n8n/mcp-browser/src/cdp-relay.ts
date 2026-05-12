@@ -80,7 +80,7 @@ export class CDPRelayServer {
 	/** The most recently created tab ID (for adapter.newPage() to pick up). */
 	private lastCreatedTabId: string | undefined;
 	/** Browser context ID returned to Playwright (required in targetInfo). */
-	private browserContextId = 'n8n-default-context';
+	private browserContextId = 'resin-default-context';
 
 	private extensionConnectedResolve?: () => void;
 	private extensionConnectedReject?: (error: Error) => void;
@@ -364,7 +364,7 @@ export class CDPRelayServer {
 				return {
 					protocolVersion: '1.3',
 					product: 'Chrome/Extension-Bridge',
-					userAgent: 'n8n-CDP-Bridge/1.0.0',
+					userAgent: 'resin-CDP-Bridge/1.0.0',
 				};
 
 			case 'Browser.setDownloadBehavior':
@@ -845,7 +845,7 @@ export class CDPRelayServer {
 		this.activatedTabs.clear();
 		this.primaryTabId = undefined;
 		this.lastCreatedTabId = undefined;
-		this.browserContextId = 'n8n-default-context';
+		this.browserContextId = 'resin-default-context';
 		this.extensionConn = null;
 		this.extensionConnectedPromise = new Promise((resolve, reject) => {
 			this.extensionConnectedResolve = resolve;

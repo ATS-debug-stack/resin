@@ -2,7 +2,7 @@ import { createComponentRenderer } from '@/__tests__/render';
 import { createTestingPinia } from '@pinia/testing';
 import CollectionParameter from './CollectionParameter.vue';
 import { createTestNodeProperties } from '@/__tests__/mocks';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { SETTINGS_STORE_DEFAULT_STATE } from '@/__tests__/utils';
 
 const renderComponent = createComponentRenderer(CollectionParameter, {

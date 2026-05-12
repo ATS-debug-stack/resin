@@ -1,6 +1,6 @@
 import { AIMessage } from '@langchain/core/messages';
-import { nodeNameToToolName } from 'n8n-workflow';
-import type { EngineResponse, EngineResult, IDataObject } from 'n8n-workflow';
+import { nodeNameToToolName } from 'resin-workflow';
+import type { EngineResponse, EngineResult, IDataObject } from 'resin-workflow';
 
 import type {
 	RequestResponseMetadata,

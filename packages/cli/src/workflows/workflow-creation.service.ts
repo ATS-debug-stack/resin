@@ -1,14 +1,14 @@
-import { LicenseState, Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { User, Project } from '@n8n/db';
+import { LicenseState, Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { User, Project } from '@resin/db';
 import {
 	WorkflowEntity,
 	SharedWorkflow,
 	SharedWorkflowRepository,
 	ProjectRepository,
 	TagRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import { Service } from '@resin/di';
 import { v4 as uuid } from 'uuid';
 
 import { CredentialsService } from '@/credentials/credentials.service';

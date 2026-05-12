@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useFreeAiCredits } from '@/app/composables/useFreeAiCredits';
 import { computed, ref } from 'vue';
-import { OPEN_AI_API_CREDENTIAL_TYPE } from 'n8n-workflow';
-import { N8nButton, N8nCallout, N8nText } from '@n8n/design-system';
+import { OPEN_AI_API_CREDENTIAL_TYPE } from 'resin-workflow';
+import { N8nButton, N8nCallout, N8nText } from '@resin/design-system';
 
 type Props = {
 	credentialTypeName?: string;
@@ -12,8 +12,8 @@ type Props = {
 
 const props = defineProps<Props>();
 
-const LANGCHAIN_NODES_PREFIX = '@n8n/n8n-nodes-langchain.';
-const N8N_NODES_PREFIX = '@n8n/n8n-nodes.';
+const LANGCHAIN_NODES_PREFIX = '@resin/n8n-nodes-langchain.';
+const N8N_NODES_PREFIX = '@resin/n8n-nodes.';
 
 const NODES_WITH_OPEN_AI_API_CREDENTIAL = [
 	`${LANGCHAIN_NODES_PREFIX}openAi`,

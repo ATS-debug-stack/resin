@@ -1,6 +1,6 @@
 import FormData from 'form-data';
-import type { INodeProperties, IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
-import { updateDisplayOptions, NodeOperationError } from 'n8n-workflow';
+import type { INodeProperties, IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
+import { updateDisplayOptions, NodeOperationError } from 'resin-workflow';
 
 import { getBinaryDataFile } from '../../../helpers/binary-data';
 import { apiRequest } from '../../../transport';

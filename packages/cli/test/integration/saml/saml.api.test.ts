@@ -3,15 +3,15 @@
 // Restore the real fs so the ACS handler can render its handlebars template.
 jest.unmock('node:fs');
 
-import type { SamlPreferences } from '@n8n/api-types';
+import type { SamlPreferences } from '@resin/api-types';
 import {
 	createTeamProject,
 	getProjectRoleForUser,
 	randomEmail,
 	randomName,
 	randomValidPassword,
-} from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
+} from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
 import {
 	AuthIdentity,
 	AuthIdentityRepository,
@@ -19,10 +19,10 @@ import {
 	UserRepository,
 	RoleRepository,
 	RoleMappingRuleRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import type express from 'express';
-import { CREDENTIAL_BLANKING_VALUE } from 'n8n-workflow';
+import { CREDENTIAL_BLANKING_VALUE } from 'resin-workflow';
 
 import {
 	EC_TEST_CERTIFICATE,
@@ -920,7 +920,7 @@ describe('SAML SSO provisioning', () => {
 
 		const editorRole = await roleRepository.findOneOrFail({ where: { slug: 'project:editor' } });
 		const rule = roleMappingRuleRepository.create({
-			expression: "{{ $claims.groups !== undefined && $claims.groups.includes('n8n-editors') }}",
+			expression: "{{ $claims.groups !== undefined && $claims.groups.includes('resin-editors') }}",
 			role: editorRole,
 			type: 'project',
 			order: 0,
@@ -937,7 +937,7 @@ describe('SAML SSO provisioning', () => {
 			},
 			raw: {
 				email: 'saml-expr-project@example.com',
-				groups: ['n8n-editors', 'devops'],
+				groups: ['resin-editors', 'devops'],
 			},
 		});
 

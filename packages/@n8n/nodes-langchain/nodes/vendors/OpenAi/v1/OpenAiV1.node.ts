@@ -4,7 +4,7 @@ import {
 	type INodeType,
 	type INodeTypeBaseDescription,
 	type INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { listSearch, loadOptions } from '../methods';
 import { router } from './actions/router';

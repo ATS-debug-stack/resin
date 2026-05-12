@@ -101,9 +101,9 @@ const handleClick = (event: MouseEvent) => {
 		aria-live="polite"
 		@click="handleClick"
 	>
-		<Transition name="n8n-button-fade">
+		<Transition name="resin-button-fade">
 			<div v-if="loading" :class="$style['loading-container']">
-				<div :class="[$style['loading-spinner'], 'n8n-spinner']">
+				<div :class="[$style['loading-spinner'], 'resin-spinner']">
 					<N8nIcon icon="loader" :size="computedIconSize" transform-origin="center" />
 				</div>
 			</div>

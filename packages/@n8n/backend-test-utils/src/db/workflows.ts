@@ -1,4 +1,9 @@
-import type { SharedWorkflow, IWorkflowDb, WorkflowPublishHistory, WorkflowHistory } from '@n8n/db';
+import type {
+	SharedWorkflow,
+	IWorkflowDb,
+	WorkflowPublishHistory,
+	WorkflowHistory,
+} from '@resin/db';
 import {
 	Project,
 	User,
@@ -7,12 +12,12 @@ import {
 	WorkflowRepository,
 	WorkflowHistoryRepository,
 	WorkflowPublishHistoryRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { WorkflowSharingRole } from '@n8n/permissions';
-import type { DeepPartial } from '@n8n/typeorm';
-import type { IWorkflowBase } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from '@resin/db';
+import { Container } from '@resin/di';
+import type { WorkflowSharingRole } from '@resin/permissions';
+import type { DeepPartial } from '@resin/typeorm';
+import type { IWorkflowBase } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 export function newWorkflow(attributes: Partial<IWorkflowDb> = {}): IWorkflowDb {
@@ -28,7 +33,7 @@ export function newWorkflow(attributes: Partial<IWorkflowDb> = {}): IWorkflowDb 
 				name: 'Schedule Trigger',
 				parameters: {},
 				position: [-20, 260],
-				type: 'n8n-nodes-base.scheduleTrigger',
+				type: 'resin-nodes-base.scheduleTrigger',
 				typeVersion: 1,
 			},
 		],
@@ -157,7 +162,7 @@ export async function createWorkflowWithTrigger(
 					id: 'uuid-1',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -165,7 +170,7 @@ export async function createWorkflowWithTrigger(
 					id: 'uuid-2',
 					parameters: { triggerTimes: { item: [{ mode: 'everyMinute' }] } },
 					name: 'Cron',
-					type: 'n8n-nodes-base.cron',
+					type: 'resin-nodes-base.cron',
 					typeVersion: 1,
 					position: [500, 300],
 				},
@@ -173,7 +178,7 @@ export async function createWorkflowWithTrigger(
 					id: 'uuid-3',
 					parameters: { options: {} },
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 1,
 					position: [780, 300],
 				},

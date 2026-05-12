@@ -11,7 +11,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'node-1',
 					name: 'Schedule Trigger',
-					type: 'n8n-nodes-base.scheduleTrigger',
+					type: 'resin-nodes-base.scheduleTrigger',
 					typeVersion: 1.1,
 					position: [0, 0],
 					parameters: {
@@ -21,7 +21,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'node-2',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 0],
 					parameters: {
@@ -50,11 +50,11 @@ describe('generateWorkflowCode', () => {
 
 		// Should have trigger node variable declaration
 		expect(code).toContain('const schedule_Trigger = trigger({');
-		expect(code).toContain("type: 'n8n-nodes-base.scheduleTrigger'");
+		expect(code).toContain("type: 'resin-nodes-base.scheduleTrigger'");
 
 		// Should have regular node variable declaration
 		expect(code).toContain('const hTTP_Request = node({');
-		expect(code).toContain("type: 'n8n-nodes-base.httpRequest'");
+		expect(code).toContain("type: 'resin-nodes-base.httpRequest'");
 
 		// Should have connection chain
 		expect(code).toContain('.add(');
@@ -69,14 +69,14 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'node-1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 				},
 				{
 					id: 'node-2',
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {
@@ -120,7 +120,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'node-1',
 					name: 'Slack',
-					type: 'n8n-nodes-base.slack',
+					type: 'resin-nodes-base.slack',
 					typeVersion: 2.2,
 					position: [0, 0],
 					parameters: { channel: '#general' },
@@ -146,7 +146,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'sticky-1',
 					name: 'Sticky Note',
-					type: 'n8n-nodes-base.stickyNote',
+					type: 'resin-nodes-base.stickyNote',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {
@@ -174,7 +174,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'if-1',
 					name: 'IF',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {},
@@ -182,7 +182,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'true-1',
 					name: 'True Handler',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [200, -100],
 					parameters: {},
@@ -190,7 +190,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'false-1',
 					name: 'False Handler',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [200, 100],
 					parameters: {},
@@ -223,7 +223,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'if-1',
 					name: 'IF',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {},
@@ -231,7 +231,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'true-1',
 					name: 'True Handler',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [200, -100],
 					parameters: {},
@@ -261,7 +261,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'trigger-1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -269,7 +269,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'if-1',
 					name: 'IF',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2.2,
 					position: [200, 0],
 					parameters: {},
@@ -277,7 +277,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'true-1',
 					name: 'True Branch',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 0],
 					parameters: { mode: 'manual' },
@@ -285,7 +285,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'downstream-1',
 					name: 'Downstream Node',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [600, 0],
 					parameters: { url: 'https://api.example.com' },
@@ -293,7 +293,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'downstream-2',
 					name: 'Final Node',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [800, 0],
 					parameters: {},
@@ -341,7 +341,7 @@ describe('generateWorkflowCode', () => {
 				{
 					id: 'node-1',
 					name: 'Code',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					typeVersion: 2,
 					position: [0, 0],
 					parameters: {
@@ -402,7 +402,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'trigger-1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -410,7 +410,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'agent-1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 1.7,
 					position: [200, 0],
 					parameters: {
@@ -421,7 +421,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'model-1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					typeVersion: 1.2,
 					position: [200, 200],
 					parameters: {
@@ -446,7 +446,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 
 		// Should have subnode as a variable declaration
 		expect(code).toMatch(/const \w+ = languageModel\(/);
-		expect(code).toContain("type: '@n8n/n8n-nodes-langchain.lmChatOpenAi'");
+		expect(code).toContain("type: '@resin/n8n-nodes-langchain.lmChatOpenAi'");
 		// Should reference the variable in subnodes config
 		expect(code).toContain('subnodes:');
 		expect(code).toMatch(/model: \w+/); // Variable reference, not inline call
@@ -460,7 +460,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'agent-1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 1.7,
 					position: [0, 0],
 					parameters: {},
@@ -468,7 +468,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'model-1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					typeVersion: 1.2,
 					position: [0, 200],
 					parameters: { model: 'gpt-4' },
@@ -476,7 +476,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'tool-1',
 					name: 'Code Tool',
-					type: '@n8n/n8n-nodes-langchain.toolCode',
+					type: '@resin/n8n-nodes-langchain.toolCode',
 					typeVersion: 1.1,
 					position: [0, 300],
 					parameters: { code: 'return "test"' },
@@ -484,7 +484,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'tool-2',
 					name: 'Calculator Tool',
-					type: '@n8n/n8n-nodes-langchain.toolCalculator',
+					type: '@resin/n8n-nodes-langchain.toolCalculator',
 					typeVersion: 1,
 					position: [0, 400],
 					parameters: {},
@@ -492,7 +492,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'memory-1',
 					name: 'Buffer Memory',
-					type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+					type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 					typeVersion: 1.2,
 					position: [0, 500],
 					parameters: { contextWindowLength: 5 },
@@ -542,7 +542,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'agent-1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 1.7,
 					position: [0, 0],
 					parameters: {},
@@ -550,7 +550,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'model-1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					typeVersion: 1.2,
 					position: [0, 200],
 					parameters: {},
@@ -558,7 +558,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'parser-1',
 					name: 'Structured Parser',
-					type: '@n8n/n8n-nodes-langchain.outputParserStructured',
+					type: '@resin/n8n-nodes-langchain.outputParserStructured',
 					typeVersion: 1,
 					position: [0, 300],
 					parameters: { schemaType: 'manual' },
@@ -590,7 +590,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'trigger-1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -598,7 +598,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'agent-1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 1.7,
 					position: [200, 0],
 					parameters: { promptType: 'auto' },
@@ -606,7 +606,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'model-1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					typeVersion: 1.2,
 					position: [200, 200],
 					parameters: { model: 'gpt-4' },
@@ -644,7 +644,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'trigger-1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -652,7 +652,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'http-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 0],
 					parameters: { url: 'https://api.example.com' },
@@ -661,7 +661,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'agent-1',
 					name: 'Disconnected AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 1.7,
 					position: [0, 300],
 					parameters: { promptType: 'auto' },
@@ -670,7 +670,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'model-1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					typeVersion: 1.2,
 					position: [0, 500],
 					parameters: { model: 'gpt-4' },
@@ -708,7 +708,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'trigger-1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -716,7 +716,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'http-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 0],
 					parameters: { url: 'https://api.example.com' },
@@ -725,7 +725,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'agent-1',
 					name: 'Disconnected Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 1.7,
 					position: [0, 300],
 					parameters: { promptType: 'auto' },
@@ -734,7 +734,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'model-1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					typeVersion: 1.2,
 					position: [0, 500],
 					parameters: { model: 'gpt-4' },
@@ -779,7 +779,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'vs-1',
 					name: 'Pinecone Store',
-					type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+					type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: { indexName: 'test' },
@@ -787,7 +787,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 				{
 					id: 'emb-1',
 					name: 'OpenAI Embeddings',
-					type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+					type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 					typeVersion: 1,
 					position: [0, 200],
 					parameters: { model: 'text-embedding-ada-002' },
@@ -817,14 +817,14 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
 					{
 						id: 'source-1',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [200, 0],
 						parameters: { url: 'https://api.example.com' },
@@ -832,7 +832,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'target-1',
 						name: 'Process A',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [400, -100],
 						parameters: { jsCode: 'return items' },
@@ -840,7 +840,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'target-2',
 						name: 'Process B',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [400, 100],
 						parameters: { jsCode: 'return items' },
@@ -881,14 +881,14 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
 					{
 						id: 'source-1',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [200, 0],
 						parameters: { url: 'https://api.example.com' },
@@ -896,7 +896,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'target-1',
 						name: 'Process A',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [400, -100],
 						parameters: { jsCode: 'return items' },
@@ -904,7 +904,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'target-2',
 						name: 'Process B',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [400, 100],
 						parameters: { jsCode: 'return items' },
@@ -950,14 +950,14 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
 					{
 						id: 'source-1',
 						name: 'Source 1',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [200, -100],
 						parameters: { url: 'https://api1.example.com' },
@@ -965,7 +965,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'source-2',
 						name: 'Source 2',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [200, 100],
 						parameters: { url: 'https://api2.example.com' },
@@ -973,7 +973,7 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'merge-1',
 						name: 'Merge',
-						type: 'n8n-nodes-base.merge',
+						type: 'resin-nodes-base.merge',
 						typeVersion: 3.2,
 						position: [400, 0],
 						parameters: { mode: 'append' },
@@ -1014,14 +1014,14 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
 					{
 						id: 'if-1',
 						name: 'IF',
-						type: 'n8n-nodes-base.if',
+						type: 'resin-nodes-base.if',
 						typeVersion: 2.3,
 						position: [200, 0],
 						parameters: {
@@ -1033,14 +1033,14 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'true-1',
 						name: 'True Path',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, -100],
 					},
 					{
 						id: 'false-1',
 						name: 'False Path',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, 100],
 					},
@@ -1073,14 +1073,14 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 					},
 					{
 						id: 'switch-1',
 						name: 'Switch',
-						type: 'n8n-nodes-base.switch',
+						type: 'resin-nodes-base.switch',
 						typeVersion: 3.4,
 						position: [200, 0],
 						parameters: { mode: 'rules' },
@@ -1088,21 +1088,21 @@ describe('generateWorkflowCode with AI subnodes', () => {
 					{
 						id: 'case-0',
 						name: 'Case 0',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, -100],
 					},
 					{
 						id: 'case-1',
 						name: 'Case 1',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, 0],
 					},
 					{
 						id: 'case-2',
 						name: 'Case 2',
-						type: 'n8n-nodes-base.noOp',
+						type: 'resin-nodes-base.noOp',
 						typeVersion: 1,
 						position: [400, 100],
 					},
@@ -1137,7 +1137,7 @@ describe('parseWorkflowCode with template literals in jsCode', () => {
 		// before the newline in the subject line
 		const malformedCode = `export default workflow('test', 'Test')
   .add(node({
-    type: 'n8n-nodes-base.code',
+    type: 'resin-nodes-base.code',
     version: 2,
     config: {
       parameters: {
@@ -1156,7 +1156,7 @@ describe('parseWorkflowCode with template literals in jsCode', () => {
 		// and was generated by an LLM - the parser must handle this correctly
 		const code = `export default workflow('IH8D5PUFd8JhwyZP8Ng0g', 'My workflow 15')
   .add(trigger({
-    type: 'n8n-nodes-base.scheduleTrigger',
+    type: 'resin-nodes-base.scheduleTrigger',
     version: 1.3,
     config: {
       name: 'Every Monday Morning',
@@ -1175,7 +1175,7 @@ describe('parseWorkflowCode with template literals in jsCode', () => {
     }
   }))
   .to(node({
-    type: 'n8n-nodes-base.gmail',
+    type: 'resin-nodes-base.gmail',
     version: 2.2,
     config: {
       name: 'Get Weekend Emails',
@@ -1196,7 +1196,7 @@ describe('parseWorkflowCode with template literals in jsCode', () => {
     }
   }))
   .to(node({
-    type: '@n8n/n8n-nodes-langchain.agent',
+    type: '@resin/n8n-nodes-langchain.agent',
     version: 3.1,
     config: {
       name: 'Analyze Emails with GPT-4',
@@ -1221,7 +1221,7 @@ Provide a clear, organized summary that I can quickly review.\`,
       },
       subnodes: {
         model: node({
-          type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+          type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
           version: 1.3,
           config: {
             name: 'GPT-4 Mini Model',
@@ -1238,7 +1238,7 @@ Provide a clear, organized summary that I can quickly review.\`,
     }
   }))
   .to(node({
-    type: 'n8n-nodes-base.code',
+    type: 'resin-nodes-base.code',
     version: 2,
     config: {
       name: 'Format Email Summary',
@@ -1279,7 +1279,7 @@ return [{
     }
   }))
   .to(node({
-    type: 'n8n-nodes-base.gmail',
+    type: 'resin-nodes-base.gmail',
     version: 2.2,
     config: {
       name: 'Send Summary Email',
@@ -1323,9 +1323,9 @@ return [{
 		// When jsCode is defined as a template literal with unescaped ${$today},
 		// the parser now auto-escapes it to prevent "$today is not defined" errors
 		const codeWithUnescapedVars = `export default workflow('test', 'Test')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { position: [0, 0] } }))
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { position: [0, 0] } }))
   .to(node({
-    type: 'n8n-nodes-base.code',
+    type: 'resin-nodes-base.code',
     version: 2,
     config: {
       parameters: {
@@ -1337,7 +1337,7 @@ return [{
 
 		// Should now work - variables are auto-escaped
 		const workflow = parseWorkflowCode(codeWithUnescapedVars);
-		const codeNode = workflow.nodes.find((n) => n.type === 'n8n-nodes-base.code');
+		const codeNode = workflow.nodes.find((n) => n.type === 'resin-nodes-base.code');
 
 		// The jsCode should contain the literal ${$today}
 		const jsCode = (codeNode?.parameters?.jsCode as string) || '';
@@ -1347,9 +1347,9 @@ return [{
 	it('should parse jsCode with properly escaped n8n runtime variables', () => {
 		// To preserve ${$today} as a literal string in jsCode, escape it as \${$today}
 		const codeWithEscapedVars = `export default workflow('test', 'Test')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { position: [0, 0] } }))
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { position: [0, 0] } }))
   .to(node({
-    type: 'n8n-nodes-base.code',
+    type: 'resin-nodes-base.code',
     version: 2,
     config: {
       parameters: {
@@ -1361,7 +1361,7 @@ return [{
 
 		// This should work - the escaped expressions become literal strings
 		const workflow = parseWorkflowCode(codeWithEscapedVars);
-		const codeNode = workflow.nodes.find((n) => n.type === 'n8n-nodes-base.code');
+		const codeNode = workflow.nodes.find((n) => n.type === 'resin-nodes-base.code');
 		expect(codeNode).toBeDefined();
 
 		// The jsCode should contain the literal ${$today} and ${$now} strings
@@ -1372,9 +1372,9 @@ return [{
 
 	it('should not double-escape already-escaped \\${{ in template literals', () => {
 		const codeWithAlreadyEscaped = `export default workflow('test', 'Test')
-  .add(trigger({ type: 'n8n-nodes-base.webhook', version: 2.1, config: { parameters: { httpMethod: 'POST', path: 'test' }, position: [0, 0] }, output: [{ body: { amount: 50 } }] })
+  .add(trigger({ type: 'resin-nodes-base.webhook', version: 2.1, config: { parameters: { httpMethod: 'POST', path: 'test' }, position: [0, 0] }, output: [{ body: { amount: 50 } }] })
   .to(node({
-    type: 'n8n-nodes-base.gmail',
+    type: 'resin-nodes-base.gmail',
     version: 2.2,
     config: {
       name: 'Send Email',
@@ -1392,7 +1392,7 @@ return [{
   })))`;
 
 		const workflow = parseWorkflowCode(codeWithAlreadyEscaped);
-		const emailNode = workflow.nodes.find((n) => n.type === 'n8n-nodes-base.gmail');
+		const emailNode = workflow.nodes.find((n) => n.type === 'resin-nodes-base.gmail');
 		expect(emailNode).toBeDefined();
 
 		const message = (emailNode?.parameters?.message as string) || '';
@@ -1405,9 +1405,9 @@ return [{
 		// followed by n8n expression {{ }}), JS interprets ${{ as ${...} template interpolation.
 		// The parser should auto-escape ${{ → \${{ to prevent parse errors.
 		const codeWithDollarBrace = `export default workflow('test', 'Test')
-  .add(trigger({ type: 'n8n-nodes-base.webhook', version: 2.1, config: { parameters: { httpMethod: 'POST', path: 'test' }, position: [0, 0] }, output: [{ body: { amount: 50 } }] })
+  .add(trigger({ type: 'resin-nodes-base.webhook', version: 2.1, config: { parameters: { httpMethod: 'POST', path: 'test' }, position: [0, 0] }, output: [{ body: { amount: 50 } }] })
   .to(node({
-    type: 'n8n-nodes-base.gmail',
+    type: 'resin-nodes-base.gmail',
     version: 2.2,
     config: {
       name: 'Send Email',
@@ -1425,7 +1425,7 @@ return [{
   })))`;
 
 		const workflow = parseWorkflowCode(codeWithDollarBrace);
-		const emailNode = workflow.nodes.find((n) => n.type === 'n8n-nodes-base.gmail');
+		const emailNode = workflow.nodes.find((n) => n.type === 'resin-nodes-base.gmail');
 		expect(emailNode).toBeDefined();
 
 		// The message parameter should contain the n8n expression with literal $
@@ -1448,7 +1448,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'trigger-a',
 					name: 'Schedule Trigger',
-					type: 'n8n-nodes-base.scheduleTrigger',
+					type: 'resin-nodes-base.scheduleTrigger',
 					typeVersion: 1.1,
 					position: [0, 0],
 					parameters: { rule: { interval: [{ field: 'hours', hour: 9 }] } },
@@ -1456,7 +1456,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'node-a1',
 					name: 'HTTP Request A',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 0],
 					parameters: { url: 'https://api-a.example.com' },
@@ -1464,7 +1464,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'node-a2',
 					name: 'Process A',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					typeVersion: 2,
 					position: [400, 0],
 					parameters: { jsCode: 'return items' },
@@ -1473,7 +1473,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'trigger-b',
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 2,
 					position: [0, 300],
 					parameters: { path: 'webhook-b' },
@@ -1481,7 +1481,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'node-b1',
 					name: 'HTTP Request B',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 300],
 					parameters: { url: 'https://api-b.example.com' },
@@ -1489,7 +1489,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'node-b2',
 					name: 'Process B',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					typeVersion: 2,
 					position: [400, 300],
 					parameters: { jsCode: 'return items' },
@@ -1538,7 +1538,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'trigger-1',
 					name: 'Schedule Trigger',
-					type: 'n8n-nodes-base.scheduleTrigger',
+					type: 'resin-nodes-base.scheduleTrigger',
 					typeVersion: 1.1,
 					position: [0, 0],
 					parameters: {},
@@ -1546,7 +1546,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'http-1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 0],
 					parameters: { url: 'https://api.example.com' },
@@ -1555,7 +1555,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'trigger-2',
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 2,
 					position: [0, 300],
 					parameters: { path: 'ai-webhook' },
@@ -1563,7 +1563,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'agent-1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 1.7,
 					position: [200, 300],
 					parameters: { promptType: 'auto' },
@@ -1571,7 +1571,7 @@ describe('multiple triggers / disconnected chains', () => {
 				{
 					id: 'model-1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					typeVersion: 1.2,
 					position: [200, 500],
 					parameters: { model: 'gpt-4' },
@@ -1609,14 +1609,14 @@ describe('multiple triggers / disconnected chains', () => {
 describe('parseWorkflowCode with splitInBatches', () => {
 	it('should parse code that uses splitInBatches() with new fluent API syntax', () => {
 		// This is the type of code the LLM might generate using splitInBatches new API
-		const code = `const loop = node({ type: 'n8n-nodes-base.splitInBatches', version: 3, config: { parameters: { batchSize: 2 }, position: [400, 100], name: 'Loop' } });
+		const code = `const loop = node({ type: 'resin-nodes-base.splitInBatches', version: 3, config: { parameters: { batchSize: 2 }, position: [400, 100], name: 'Loop' } });
 export default workflow('test-sib', 'Split In Batches Test')
-  .add(trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: { position: [0, 0] } }))
-  .to(node({ type: 'n8n-nodes-base.set', version: 3.4, config: { parameters: { assignments: { assignments: [{ name: 'items', type: 'array', value: '[1,2,3,4,5]' }] } }, position: [200, 0], name: 'Generate Items' } }))
+  .add(trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: { position: [0, 0] } }))
+  .to(node({ type: 'resin-nodes-base.set', version: 3.4, config: { parameters: { assignments: { assignments: [{ name: 'items', type: 'array', value: '[1,2,3,4,5]' }] } }, position: [200, 0], name: 'Generate Items' } }))
   .to(
     splitInBatches(loop)
-      .onDone(node({ type: 'n8n-nodes-base.noOp', version: 1, config: { position: [600, 0], name: 'Done Processing' } }))
-      .onEachBatch(node({ type: 'n8n-nodes-base.noOp', version: 1, config: { position: [600, 200], name: 'Process Batch' } }).to(loop))
+      .onDone(node({ type: 'resin-nodes-base.noOp', version: 1, config: { position: [600, 0], name: 'Done Processing' } }))
+      .onEachBatch(node({ type: 'resin-nodes-base.noOp', version: 1, config: { position: [600, 200], name: 'Process Batch' } }).to(loop))
   )`;
 
 		// This should NOT throw "splitInBatches is not defined"
@@ -1627,14 +1627,14 @@ export default workflow('test-sib', 'Split In Batches Test')
 		expect(workflow.nodes.length).toBeGreaterThan(0);
 
 		// Should have the Split In Batches node
-		const sibNode = workflow.nodes.find((n) => n.type === 'n8n-nodes-base.splitInBatches');
+		const sibNode = workflow.nodes.find((n) => n.type === 'resin-nodes-base.splitInBatches');
 		expect(sibNode).toBeDefined();
 	});
 
 	it('should parse splitInBatches code with onEachBatch and onDone', () => {
 		// This tests the new fluent API syntax with onEachBatch and onDone
 		const code = `const processEachArticle = node({
-  type: 'n8n-nodes-base.splitInBatches',
+  type: 'resin-nodes-base.splitInBatches',
   version: 3,
   config: {
     name: 'Process Each Article',
@@ -1644,7 +1644,7 @@ export default workflow('test-sib', 'Split In Batches Test')
 });
 export default workflow('IH8D5PUFd8JhwyZP8Ng0g', 'My workflow 15')
   .add(trigger({
-    type: 'n8n-nodes-base.scheduleTrigger',
+    type: 'resin-nodes-base.scheduleTrigger',
     version: 1.3,
     config: {
       name: 'Every Night at 8pm',
@@ -1661,7 +1661,7 @@ export default workflow('IH8D5PUFd8JhwyZP8Ng0g', 'My workflow 15')
     }
   }))
   .to(node({
-    type: 'n8n-nodes-base.httpRequest',
+    type: 'resin-nodes-base.httpRequest',
     version: 4.3,
     config: {
       name: 'Fetch AI News from NewsAPI',
@@ -1673,7 +1673,7 @@ export default workflow('IH8D5PUFd8JhwyZP8Ng0g', 'My workflow 15')
     }
   }))
   .to(node({
-    type: 'n8n-nodes-base.code',
+    type: 'resin-nodes-base.code',
     version: 2,
     config: {
       name: 'Extract Top 5 Articles',
@@ -1687,7 +1687,7 @@ export default workflow('IH8D5PUFd8JhwyZP8Ng0g', 'My workflow 15')
   .to(splitInBatches(processEachArticle)
     .onEachBatch(
       node({
-        type: 'n8n-nodes-base.set',
+        type: 'resin-nodes-base.set',
         version: 3.4,
         config: {
           name: 'Process Item',
@@ -1698,7 +1698,7 @@ export default workflow('IH8D5PUFd8JhwyZP8Ng0g', 'My workflow 15')
     )
     .onDone(
       node({
-        type: 'n8n-nodes-base.code',
+        type: 'resin-nodes-base.code',
         version: 2,
         config: {
           name: 'Prepare Message',
@@ -1706,7 +1706,7 @@ export default workflow('IH8D5PUFd8JhwyZP8Ng0g', 'My workflow 15')
           position: [2040, 300]
         }
       }).to(node({
-        type: 'n8n-nodes-base.set',
+        type: 'resin-nodes-base.set',
         version: 3.4,
         config: {
           name: 'Final Output',
@@ -1724,7 +1724,7 @@ export default workflow('IH8D5PUFd8JhwyZP8Ng0g', 'My workflow 15')
 		expect(workflow.name).toBe('My workflow 15');
 
 		// Should have the Split In Batches node
-		const sibNode = workflow.nodes.find((n) => n.type === 'n8n-nodes-base.splitInBatches');
+		const sibNode = workflow.nodes.find((n) => n.type === 'resin-nodes-base.splitInBatches');
 		expect(sibNode).toBeDefined();
 		expect(sibNode?.name).toBe('Process Each Article');
 
@@ -1746,7 +1746,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -1754,7 +1754,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'node-a',
 					name: 'Node A',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {},
@@ -1762,7 +1762,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'node-b',
 					name: 'Node B',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 0],
 					parameters: {},
@@ -1795,7 +1795,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -1803,7 +1803,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'if-1',
 					name: 'Check Status',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {},
@@ -1811,7 +1811,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'done-1',
 					name: 'Done',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, -100],
 					parameters: {},
@@ -1819,7 +1819,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'wait-1',
 					name: 'Wait',
-					type: 'n8n-nodes-base.wait',
+					type: 'resin-nodes-base.wait',
 					typeVersion: 1.1,
 					position: [400, 100],
 					parameters: { amount: 5 },
@@ -1842,7 +1842,7 @@ describe('cycle detection and variable generation', () => {
 		// All nodes are now variables in the variables-first format
 		expect(code).toContain('const trigger_node = trigger({');
 		expect(code).toContain('const check_Status = node({');
-		expect(code).toContain("type: 'n8n-nodes-base.if'");
+		expect(code).toContain("type: 'resin-nodes-base.if'");
 		expect(code).toContain('const done = node({');
 		expect(code).toContain('const wait = node({');
 
@@ -1859,7 +1859,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -1867,7 +1867,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'node-a',
 					name: 'Node A',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {},
@@ -1875,7 +1875,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'node-b',
 					name: 'Node B',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 0],
 					parameters: {},
@@ -1883,7 +1883,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'node-c',
 					name: 'Node C',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [600, 0],
 					parameters: {},
@@ -1918,7 +1918,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -1926,7 +1926,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'node-1',
 					name: 'Node 1',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {},
@@ -1934,7 +1934,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'node-2',
 					name: 'Node 2',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 0],
 					parameters: {},
@@ -1969,7 +1969,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -1977,7 +1977,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'if-1',
 					name: 'Check',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {},
@@ -1985,7 +1985,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'done-1',
 					name: 'Success',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, -100],
 					parameters: {},
@@ -1993,7 +1993,7 @@ describe('cycle detection and variable generation', () => {
 				{
 					id: 'retry-1',
 					name: 'Retry',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 100],
 					parameters: {},
@@ -2043,7 +2043,7 @@ describe('SplitInBatches multi-output handling', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2051,7 +2051,7 @@ describe('SplitInBatches multi-output handling', () => {
 				{
 					id: '2',
 					name: 'Loop',
-					type: 'n8n-nodes-base.splitInBatches',
+					type: 'resin-nodes-base.splitInBatches',
 					typeVersion: 3,
 					position: [200, 0],
 					parameters: {},
@@ -2059,7 +2059,7 @@ describe('SplitInBatches multi-output handling', () => {
 				{
 					id: '3',
 					name: 'Process',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 100],
 					parameters: {},
@@ -2067,7 +2067,7 @@ describe('SplitInBatches multi-output handling', () => {
 				{
 					id: '4',
 					name: 'Done',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, -100],
 					parameters: {},
@@ -2106,7 +2106,7 @@ describe('SplitInBatches multi-output handling', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2114,7 +2114,7 @@ describe('SplitInBatches multi-output handling', () => {
 				{
 					id: '2',
 					name: 'Loop',
-					type: 'n8n-nodes-base.splitInBatches',
+					type: 'resin-nodes-base.splitInBatches',
 					typeVersion: 3,
 					position: [200, 0],
 					parameters: {},
@@ -2122,7 +2122,7 @@ describe('SplitInBatches multi-output handling', () => {
 				{
 					id: '3',
 					name: 'Process',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 100],
 					parameters: {},
@@ -2130,7 +2130,7 @@ describe('SplitInBatches multi-output handling', () => {
 				{
 					id: '4',
 					name: 'Done',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, -100],
 					parameters: {},
@@ -2138,7 +2138,7 @@ describe('SplitInBatches multi-output handling', () => {
 				{
 					id: '5',
 					name: 'Final',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [600, -100],
 					parameters: {},
@@ -2176,7 +2176,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2184,7 +2184,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '2',
 					name: 'Source',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {},
@@ -2192,7 +2192,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '3',
 					name: 'TargetA',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, -100],
 					parameters: {},
@@ -2200,7 +2200,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '4',
 					name: 'TargetB',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, 100],
 					parameters: {},
@@ -2239,7 +2239,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2247,7 +2247,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '2',
 					name: 'FanOutSource',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {},
@@ -2255,7 +2255,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '3',
 					name: 'PathA',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, -100],
 					parameters: {},
@@ -2263,7 +2263,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '4',
 					name: 'PathB',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 100],
 					parameters: {},
@@ -2271,7 +2271,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '5',
 					name: 'ProcessA',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [600, -100],
 					parameters: {},
@@ -2279,7 +2279,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '6',
 					name: 'ProcessB',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [600, 100],
 					parameters: {},
@@ -2287,7 +2287,7 @@ describe('Fan-out pattern handling', () => {
 				{
 					id: '7',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3,
 					position: [800, 0],
 					parameters: {},
@@ -2339,7 +2339,7 @@ describe('IF branches feeding into Merge', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2347,7 +2347,7 @@ describe('IF branches feeding into Merge', () => {
 				{
 					id: '2',
 					name: 'IF',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {},
@@ -2355,7 +2355,7 @@ describe('IF branches feeding into Merge', () => {
 				{
 					id: '3',
 					name: 'TrueNode',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, -100],
 					parameters: {},
@@ -2363,7 +2363,7 @@ describe('IF branches feeding into Merge', () => {
 				{
 					id: '4',
 					name: 'FalseNode',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 100],
 					parameters: {},
@@ -2371,7 +2371,7 @@ describe('IF branches feeding into Merge', () => {
 				{
 					id: '5',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3,
 					position: [600, 0],
 					parameters: {},
@@ -2412,7 +2412,7 @@ describe('IF branches feeding into Merge', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2420,7 +2420,7 @@ describe('IF branches feeding into Merge', () => {
 				{
 					id: '2',
 					name: 'Source',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {},
@@ -2428,7 +2428,7 @@ describe('IF branches feeding into Merge', () => {
 				{
 					id: '3',
 					name: 'IF',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [400, 0],
 					parameters: {},
@@ -2436,7 +2436,7 @@ describe('IF branches feeding into Merge', () => {
 				{
 					id: '4',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3,
 					position: [600, 0],
 					parameters: {},
@@ -2483,7 +2483,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2491,7 +2491,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '2',
 					name: 'IF',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {},
@@ -2499,7 +2499,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '3',
 					name: 'TrueProcess',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, -100],
 					parameters: {},
@@ -2507,7 +2507,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '4',
 					name: 'FalseProcess',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 100],
 					parameters: {},
@@ -2515,7 +2515,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '5',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3,
 					position: [600, 0],
 					parameters: {},
@@ -2570,7 +2570,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2578,7 +2578,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '2',
 					name: 'IF',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [200, 0],
 					parameters: {},
@@ -2586,7 +2586,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '3',
 					name: 'PathA',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, -100],
 					parameters: {},
@@ -2594,7 +2594,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '4',
 					name: 'PathB',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [400, 100],
 					parameters: {},
@@ -2602,7 +2602,7 @@ describe('Phase 2b: .input(n) syntax for merge patterns', () => {
 				{
 					id: '5',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3,
 					position: [600, 0],
 					parameters: {},
@@ -2639,7 +2639,7 @@ describe('Multiple triggers', () => {
 				{
 					id: '1',
 					name: 'TriggerA',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, -100],
 					parameters: {},
@@ -2647,7 +2647,7 @@ describe('Multiple triggers', () => {
 				{
 					id: '2',
 					name: 'TriggerB',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 2,
 					position: [0, 100],
 					parameters: {},
@@ -2655,7 +2655,7 @@ describe('Multiple triggers', () => {
 				{
 					id: '3',
 					name: 'SharedNode',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {},
@@ -2663,7 +2663,7 @@ describe('Multiple triggers', () => {
 				{
 					id: '4',
 					name: 'EndNode',
-					type: 'n8n-nodes-base.noOp',
+					type: 'resin-nodes-base.noOp',
 					typeVersion: 1,
 					position: [400, 0],
 					parameters: {},
@@ -2703,7 +2703,7 @@ describe('Multiple triggers', () => {
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2711,7 +2711,7 @@ describe('Multiple triggers', () => {
 				{
 					id: '2',
 					name: 'Settings',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [200, 0],
 					parameters: {},
@@ -2719,7 +2719,7 @@ describe('Multiple triggers', () => {
 				{
 					id: '3',
 					name: 'Send Typing',
-					type: 'n8n-nodes-base.telegram',
+					type: 'resin-nodes-base.telegram',
 					typeVersion: 1,
 					position: [400, 100],
 					parameters: {},
@@ -2727,7 +2727,7 @@ describe('Multiple triggers', () => {
 				{
 					id: '4',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 2.1,
 					position: [400, 0],
 					parameters: { mode: 'chooseBranch' },
@@ -2735,7 +2735,7 @@ describe('Multiple triggers', () => {
 				{
 					id: '5',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 					typeVersion: 1.7,
 					position: [600, 0],
 					parameters: {},
@@ -2784,7 +2784,7 @@ describe('SplitInBatches with IF branch converging to Merge (workflow 6993 patte
 				{
 					id: '1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2792,7 +2792,7 @@ describe('SplitInBatches with IF branch converging to Merge (workflow 6993 patte
 				{
 					id: '2',
 					name: 'Loop Over Items',
-					type: 'n8n-nodes-base.splitInBatches',
+					type: 'resin-nodes-base.splitInBatches',
 					typeVersion: 3,
 					position: [200, 0],
 					parameters: {},
@@ -2800,7 +2800,7 @@ describe('SplitInBatches with IF branch converging to Merge (workflow 6993 patte
 				{
 					id: '3',
 					name: 'Company website exists',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [400, 100],
 					parameters: {},
@@ -2808,7 +2808,7 @@ describe('SplitInBatches with IF branch converging to Merge (workflow 6993 patte
 				{
 					id: '4',
 					name: 'Scrape & Summarize',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [600, 0],
 					parameters: {},
@@ -2816,7 +2816,7 @@ describe('SplitInBatches with IF branch converging to Merge (workflow 6993 patte
 				{
 					id: '5',
 					name: 'Set Fields',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [800, 0],
 					parameters: {},
@@ -2824,7 +2824,7 @@ describe('SplitInBatches with IF branch converging to Merge (workflow 6993 patte
 				{
 					id: '6',
 					name: 'Merge',
-					type: 'n8n-nodes-base.merge',
+					type: 'resin-nodes-base.merge',
 					typeVersion: 3.2,
 					position: [1000, 100],
 					parameters: {},
@@ -2832,7 +2832,7 @@ describe('SplitInBatches with IF branch converging to Merge (workflow 6993 patte
 				{
 					id: '7',
 					name: 'Message Generator',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [1200, 100],
 					parameters: {},
@@ -2840,7 +2840,7 @@ describe('SplitInBatches with IF branch converging to Merge (workflow 6993 patte
 				{
 					id: '8',
 					name: 'Supabase Upsert',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [1400, 100],
 					parameters: {},
@@ -2917,7 +2917,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'trigger-1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -2925,7 +2925,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'check1',
 					name: 'Check Job 1',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [200, 0],
 					parameters: { url: 'https://api.example.com/job1' },
@@ -2933,7 +2933,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'if1',
 					name: 'Job 1 Done?',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [400, 0],
 					parameters: {},
@@ -2941,7 +2941,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'retry-wait1',
 					name: 'Retry Wait 1',
-					type: 'n8n-nodes-base.wait',
+					type: 'resin-nodes-base.wait',
 					typeVersion: 1.1,
 					position: [400, 200],
 					parameters: { amount: 5 },
@@ -2949,7 +2949,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'submit2',
 					name: 'Submit Job 2',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [600, 0],
 					parameters: { url: 'https://api.example.com/submit2' },
@@ -2957,7 +2957,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'wait2',
 					name: 'Wait For Job 2',
-					type: 'n8n-nodes-base.wait',
+					type: 'resin-nodes-base.wait',
 					typeVersion: 1.1,
 					position: [700, 0],
 					parameters: { amount: 10 },
@@ -2965,7 +2965,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'check2',
 					name: 'Check Job 2',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4.2,
 					position: [800, 0],
 					parameters: { url: 'https://api.example.com/job2' },
@@ -2973,7 +2973,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'if2',
 					name: 'Job 2 Done?',
-					type: 'n8n-nodes-base.if',
+					type: 'resin-nodes-base.if',
 					typeVersion: 2,
 					position: [1000, 0],
 					parameters: {},
@@ -2981,7 +2981,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'retry-wait2',
 					name: 'Retry Wait 2',
-					type: 'n8n-nodes-base.wait',
+					type: 'resin-nodes-base.wait',
 					typeVersion: 1.1,
 					position: [1000, 200],
 					parameters: { amount: 5 },
@@ -2989,7 +2989,7 @@ describe('Sequential polling loops', () => {
 				{
 					id: 'done',
 					name: 'Done',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 3.4,
 					position: [1200, 0],
 					parameters: {},

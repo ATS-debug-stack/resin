@@ -3,7 +3,7 @@ import type {
 	ILoadOptionsFunctions,
 	INodeListSearchItems,
 	INodeListSearchResult,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export async function getProjects(
 	this: ILoadOptionsFunctions,

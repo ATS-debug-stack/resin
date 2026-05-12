@@ -1,4 +1,4 @@
-import type { InstanceRegistration } from '@n8n/api-types';
+import type { InstanceRegistration } from '@resin/api-types';
 import { mock } from 'jest-mock-extended';
 
 import type { InstanceRegistryProvider } from '../instance-registry-proxy.service';

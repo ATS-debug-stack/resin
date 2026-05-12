@@ -1,4 +1,4 @@
-import type { LogLevel, WorkflowSettings } from 'n8n-workflow';
+import type { LogLevel, WorkflowSettings } from 'resin-workflow';
 
 import type {
 	ChatHubLLMProvider,

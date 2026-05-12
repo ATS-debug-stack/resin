@@ -107,7 +107,7 @@ Valid Connection Methods:
    - Do NOT use Merge for this - Merge waits for all inputs, but only one branch executes per item
 
 9. **Chat Trigger Auto-Response**: Chat Trigger handles responses automatically
-   - Chat Trigger (@n8n/n8n-nodes-langchain.chatTrigger) is BIDIRECTIONAL
+   - Chat Trigger (@resin/n8n-nodes-langchain.chatTrigger) is BIDIRECTIONAL
    - AI Agent output is automatically sent back to the chat interface
    - There is NO main connection back to Chat Trigger - this is correct behavior
    - **NEVER flag "AI Agent has no connection back to Chat Trigger"** - responses are built-in

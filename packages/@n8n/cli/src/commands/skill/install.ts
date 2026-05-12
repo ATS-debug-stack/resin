@@ -30,7 +30,7 @@ export default class SkillInstall extends Command {
 	async run(): Promise<void> {
 		const { flags } = await this.parse(SkillInstall);
 
-		const skillSource = path.resolve(this.config.root, 'skills', 'n8n-cli', 'SKILL.md');
+		const skillSource = path.resolve(this.config.root, 'skills', 'resin-cli', 'SKILL.md');
 
 		if (!fs.existsSync(skillSource)) {
 			this.error('Could not find SKILL.md in the n8n-cli package.');
@@ -52,8 +52,8 @@ export default class SkillInstall extends Command {
 
 	private installClaudeCode(content: string, global: boolean): void {
 		const dir = global
-			? path.join(os.homedir(), '.claude', 'skills', 'n8n-cli')
-			: path.join(process.cwd(), '.claude', 'skills', 'n8n-cli');
+			? path.join(os.homedir(), '.claude', 'skills', 'resin-cli')
+			: path.join(process.cwd(), '.claude', 'skills', 'resin-cli');
 
 		const targetFile = path.join(dir, 'SKILL.md');
 

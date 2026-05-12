@@ -1,6 +1,6 @@
-import type { GitCommitInfo, SourceControlledFile } from '@n8n/api-types';
+import type { GitCommitInfo, SourceControlledFile } from '@resin/api-types';
 import { expect } from '@playwright/test';
-import type { GiteaHelper } from 'n8n-containers';
+import type { GiteaHelper } from 'resin-containers';
 
 import type { n8nPage } from '../pages/n8nPage';
 
@@ -49,7 +49,7 @@ const initSourceControlSSHKey = async ({ n8n, gitea }: { n8n: n8nPage; gitea: Gi
 	const sshKey = preferences.data.publicKey;
 
 	try {
-		await gitea.addSSHKey('n8n-source-control', sshKey);
+		await gitea.addSSHKey('resin-source-control', sshKey);
 	} catch {
 		// Key might already exist in Gitea - this is fine if we're reusing keys
 	}

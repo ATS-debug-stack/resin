@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { Project, User } from '@n8n/db';
-import { ExecutionRepository, UserRepository } from '@n8n/db';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { Project, User } from '@resin/db';
+import { ExecutionRepository, UserRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 import {
 	BinaryDataService,
@@ -9,9 +9,9 @@ import {
 	InstanceSettings,
 	ExecutionLifecycleHooks,
 	BinaryDataConfig,
-} from 'n8n-core';
+} from 'resin-core';
 import { stringify } from 'flatted';
-import { createRunExecutionData, ExpressionError } from 'n8n-workflow';
+import { createRunExecutionData, ExpressionError } from 'resin-workflow';
 import type {
 	IRunExecutionData,
 	ITaskData,
@@ -22,7 +22,7 @@ import type {
 	IWorkflowBase,
 	WorkflowExecuteMode,
 	ITaskStartedData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { EventService } from '@/events/event.service';
 import { ExecutionRedactionServiceProxy } from '@/executions/execution-redaction-proxy.service';
@@ -61,7 +61,7 @@ describe('Execution Lifecycle Hooks', () => {
 	const redactionProxy = mockInstance(ExecutionRedactionServiceProxy);
 
 	const nodeName = 'Test Node';
-	const nodeType = 'n8n-nodes-base.testNode';
+	const nodeType = 'resin-nodes-base.testNode';
 	const nodeId = 'test-node-id';
 	const node = mock<INode>();
 	const workflowId = 'test-workflow-id';

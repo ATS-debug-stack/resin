@@ -4,7 +4,7 @@ import {
 	makeN8nLlmFailedAttemptHandler,
 	N8nLlmTracing,
 	getConnectionHintNoticeField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 import {
 	NodeConnectionTypes,
 	NodeOperationError,
@@ -12,7 +12,7 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { COMPATIBLE_MODE_SUFFIX } from './alibaba-cloud-base-url';
 import { openAiFailedAttemptHandler } from '../../vendors/OpenAi/helpers/error-handling';

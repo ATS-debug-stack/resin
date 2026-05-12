@@ -1,20 +1,20 @@
 import { RESPONSE_ERROR_MESSAGES } from '@/constants';
-import { GlobalConfig } from '@n8n/config';
-import { type BooleanLicenseFeature } from '@n8n/constants';
-import { ControllerRegistryMetadata } from '@n8n/decorators';
+import { GlobalConfig } from '@resin/config';
+import { type BooleanLicenseFeature } from '@resin/constants';
+import { ControllerRegistryMetadata } from '@resin/decorators';
 import type {
 	AccessScope,
 	Controller,
 	RateLimiterLimits,
 	StaticRouterMetadata,
 	KeyedRateLimiterConfig,
-} from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+} from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import { Router } from 'express';
 import type { Application, Request, Response, RequestHandler } from 'express';
-import { UnexpectedError } from 'n8n-workflow';
+import { UnexpectedError } from 'resin-workflow';
 import assert from 'node:assert';
-import type { ZodClass } from '@n8n/api-types';
+import type { ZodClass } from '@resin/api-types';
 
 import { AbstractServer } from './abstract-server';
 import { NotFoundError } from './errors/response-errors/not-found.error';
@@ -27,8 +27,8 @@ import { License } from '@/license';
 import { userHasScopes } from '@/permissions.ee/check-access';
 import { send } from '@/response-helper';
 import { CorsService } from './services/cors-service';
-import { inProduction } from '@n8n/backend-common';
-import { isAuthenticatedRequest } from '@n8n/db';
+import { inProduction } from '@resin/backend-common';
+import { isAuthenticatedRequest } from '@resin/db';
 
 @Service()
 export class ControllerRegistry {

@@ -10,7 +10,7 @@ import type {
 	IUsedCredential,
 } from '@/features/credentials/credentials.types';
 import type { IWorkflowDb } from '@/Interface';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useProjectsStore } from '../projects.store';
 import { useUIStore } from '@/app/stores/ui.store';
@@ -24,9 +24,9 @@ import {
 	ResourceType,
 	splitName,
 } from '../projects.utils';
-import { useI18n } from '@n8n/i18n';
-import type { EventBus } from '@n8n/utils/event-bus';
-import { truncate } from '@n8n/utils/string/truncate';
+import { useI18n } from '@resin/i18n';
+import type { EventBus } from '@resin/utils/event-bus';
+import { truncate } from '@resin/utils/string/truncate';
 import { computed, onMounted, ref } from 'vue';
 import { I18nT } from 'vue-i18n';
 
@@ -37,7 +37,7 @@ import {
 	N8nHeading,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 const props = defineProps<{
 	modalName: string;
 	data: {

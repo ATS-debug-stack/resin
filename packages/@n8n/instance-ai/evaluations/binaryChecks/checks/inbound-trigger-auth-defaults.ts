@@ -2,10 +2,10 @@ import type { WorkflowNodeResponse } from '../../clients/n8n-client';
 import type { BinaryCheck } from '../types';
 
 const INBOUND_TRIGGER_TYPES = new Set([
-	'n8n-nodes-base.webhook',
-	'n8n-nodes-base.formTrigger',
-	'@n8n/n8n-nodes-langchain.chatTrigger',
-	'@n8n/n8n-nodes-langchain.mcpTrigger',
+	'resin-nodes-base.webhook',
+	'resin-nodes-base.formTrigger',
+	'@resin/n8n-nodes-langchain.chatTrigger',
+	'@resin/n8n-nodes-langchain.mcpTrigger',
 ]);
 
 const EXPLICIT_INBOUND_AUTH_PATTERNS = [

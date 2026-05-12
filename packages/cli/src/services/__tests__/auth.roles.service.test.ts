@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { AuthRolesService, Role, Scope } from '@n8n/db';
-import type { DbLock, DbLockService } from '@n8n/db';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import { AuthRolesService, Role, Scope } from '@resin/db';
+import type { DbLock, DbLockService } from '@resin/db';
 import {
 	ALL_SCOPES,
 	ALL_ROLES,
@@ -12,8 +12,8 @@ import {
 	PERSONAL_SPACE_PUBLISHING_SETTING,
 	PERSONAL_SPACE_SHARING_SETTING,
 	EXTERNAL_SECRETS_SYSTEM_ROLES_ENABLED_SETTING,
-} from '@n8n/permissions';
-import type { EntityManager, FindManyOptions, Repository } from '@n8n/typeorm';
+} from '@resin/permissions';
+import type { EntityManager, FindManyOptions, Repository } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
 
 const SHARING_SCOPES = PERSONAL_SPACE_SHARING_SETTING.scopes;

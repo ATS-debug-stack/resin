@@ -1,6 +1,6 @@
-import type { Logger } from '@n8n/backend-common';
-import type { GlobalConfig } from '@n8n/config';
-import type { ErrorReporter, InstanceSettings } from 'n8n-core';
+import type { Logger } from '@resin/backend-common';
+import type { GlobalConfig } from '@resin/config';
+import type { ErrorReporter, InstanceSettings } from 'resin-core';
 
 import type { Publisher } from '@/scaling/pubsub/publisher.service';
 import type { RedisClientService } from '@/services/redis-client.service';

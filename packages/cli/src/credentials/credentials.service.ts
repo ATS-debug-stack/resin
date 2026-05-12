@@ -1,5 +1,5 @@
-import type { CreateCredentialDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
+import type { CreateCredentialDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
 import {
 	Project,
 	CredentialsEntity,
@@ -8,18 +8,18 @@ import {
 	ProjectRepository,
 	SharedCredentialsRepository,
 	UserRepository,
-} from '@n8n/db';
-import type { User, ICredentialsDb, ScopesField } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope, PROJECT_OWNER_ROLE_SLUG, type Scope } from '@n8n/permissions';
+} from '@resin/db';
+import type { User, ICredentialsDb, ScopesField } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope, PROJECT_OWNER_ROLE_SLUG, type Scope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
 import {
 	In,
 	type EntityManager,
 	type FindOptionsRelations,
 	type FindOptionsWhere,
-} from '@n8n/typeorm';
-import { CredentialDataError, Credentials, ErrorReporter } from 'n8n-core';
+} from '@resin/typeorm';
+import { CredentialDataError, Credentials, ErrorReporter } from 'resin-core';
 import type {
 	ICredentialDataDecryptedObject,
 	ICredentialsDecrypted,
@@ -27,7 +27,7 @@ import type {
 	IDataObject,
 	INodeProperties,
 	INodePropertyCollection,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	CREDENTIAL_BLANKING_VALUE,
 	CREDENTIAL_EMPTY_VALUE,
@@ -38,7 +38,7 @@ import {
 	jsonParse,
 	jsonStringify,
 	NodeHelpers,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { CredentialTypes } from '@/credential-types';
 import { createCredentialsFromCredentialsEntity, CredentialsHelper } from '@/credentials-helper';

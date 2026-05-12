@@ -1,6 +1,6 @@
-import { GlobalConfig } from '@n8n/config';
-import { DbConnection } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { DbConnection } from '@resin/db';
+import { Container } from '@resin/di';
 import type express from 'express';
 import { mock } from 'jest-mock-extended';
 import type * as http from 'node:http';

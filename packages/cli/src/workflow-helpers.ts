@@ -1,7 +1,11 @@
-import { MAX_PINNED_DATA_SIZE, MAX_WORKFLOW_SIZE, MAX_EXPECTED_REQUEST_SIZE } from '@n8n/api-types';
-import { CredentialsRepository } from '@n8n/db';
-import type { WorkflowEntity, WorkflowHistory, ExecutionRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import {
+	MAX_PINNED_DATA_SIZE,
+	MAX_WORKFLOW_SIZE,
+	MAX_EXPECTED_REQUEST_SIZE,
+} from '@resin/api-types';
+import { CredentialsRepository } from '@resin/db';
+import type { WorkflowEntity, WorkflowHistory, ExecutionRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import type {
 	IDataObject,
 	INodeCredentialsDetails,
@@ -11,12 +15,12 @@ import type {
 	IWorkflowBase,
 	IWorkflowSettings,
 	RelatedExecution,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	formatWorkflowStructureIssuePath,
 	resolveNodeWebhookId,
 	safeParseWorkflowStructure,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

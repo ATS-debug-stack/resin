@@ -1,6 +1,6 @@
 import type { IWorkflowDb, INodeUi } from '@/Interface';
-import type { ITag } from '@n8n/rest-api-client/api/tags';
-import type { IConnection, IConnections, INodeConnections } from 'n8n-workflow';
+import type { ITag } from '@resin/rest-api-client/api/tags';
+import type { IConnection, IConnections, INodeConnections } from 'resin-workflow';
 import { SPLIT_IN_BATCHES_NODE_TYPE } from '@/app/constants';
 import { isObject } from '@/app/utils/objectUtils';
 

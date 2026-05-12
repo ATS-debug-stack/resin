@@ -18,9 +18,9 @@ import {
 	N8nSwitch2,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
-import N8nOption from '@n8n/design-system/components/N8nOption';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import N8nOption from '@resin/design-system/components/N8nOption';
+import { useI18n } from '@resin/i18n';
 
 import type { AgentJsonConfig } from '../types';
 import {

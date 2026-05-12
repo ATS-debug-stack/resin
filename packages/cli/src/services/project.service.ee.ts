@@ -1,6 +1,6 @@
-import type { CreateProjectDto, ProjectType, UpdateProjectDto } from '@n8n/api-types';
-import { LicenseState, ModuleRegistry } from '@n8n/backend-common';
-import { UNLIMITED_LICENSE_QUOTA } from '@n8n/constants';
+import type { CreateProjectDto, ProjectType, UpdateProjectDto } from '@resin/api-types';
+import { LicenseState, ModuleRegistry } from '@resin/backend-common';
+import { UNLIMITED_LICENSE_QUOTA } from '@resin/constants';
 import {
 	type User,
 	Project,
@@ -10,8 +10,8 @@ import {
 	SharedCredentialsRepository,
 	SharedWorkflowRepository,
 	type ProjectListOptions,
-} from '@n8n/db';
-import { Container, Service } from '@n8n/di';
+} from '@resin/db';
+import { Container, Service } from '@resin/di';
 import {
 	combineScopes,
 	getAuthPrincipalScopes,
@@ -21,12 +21,12 @@ import {
 	PROJECT_OWNER_ROLE_SLUG,
 	PROJECT_ADMIN_ROLE_SLUG,
 	isAssignableProjectRoleSlug,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { FindOptionsWhere, EntityManager } from '@n8n/typeorm';
+import type { FindOptionsWhere, EntityManager } from '@resin/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
-import { UserError } from 'n8n-workflow';
+import { In } from '@resin/typeorm';
+import { UserError } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';

@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useClipboard } from '@/app/composables/useClipboard';
 import { useInjectWorkflowId } from '@/app/composables/useInjectWorkflowId';
 import { useToast } from '@/app/composables/useToast';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import type {
 	IDataObject,
 	INodeProperties,
@@ -17,11 +17,11 @@ import type {
 	NodeApiError,
 	NodeError,
 	NodeOperationError,
-} from 'n8n-workflow';
-import { isCommunityPackageName } from 'n8n-workflow';
+} from 'resin-workflow';
+import { isCommunityPackageName } from 'resin-workflow';
 import { sanitizeHtml } from '@/app/utils/htmlUtils';
 import { MAX_DISPLAY_DATA_SIZE, NEW_ASSISTANT_SESSION_MODAL, VIEWS } from '@/app/constants';
-import type { BaseTextKey } from '@n8n/i18n';
+import type { BaseTextKey } from '@resin/i18n';
 import { useChatPanelStore } from '@/features/ai/assistant/chatPanel.store';
 import { useAssistantStore } from '@/features/ai/assistant/assistant.store';
 import type { ChatRequest } from '@/features/ai/assistant/assistant.types';
@@ -33,7 +33,7 @@ import {
 	N8nIcon,
 	N8nIconButton,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 
 type Props = {
 	// TODO: .node can be undefined

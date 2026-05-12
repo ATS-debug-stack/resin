@@ -15,7 +15,7 @@ ruleTester.run('no-import-enterprise-edition', NoImportEnterpriseEditionRule, {
 			filename: '/Users/test/project/src/controllers/controller.ts',
 		},
 		{
-			code: 'import { Config } from "@n8n/config"',
+			code: 'import { Config } from "@resin/config"',
 			filename: '/Users/test/project/src/services/service.ts',
 		},
 
@@ -31,7 +31,7 @@ ruleTester.run('no-import-enterprise-edition', NoImportEnterpriseEditionRule, {
 			filename: '/Users/test/project/src/environments.ee/controllers/enterprise-controller.ts',
 		},
 		{
-			code: 'import { Config } from "@n8n/config"',
+			code: 'import { Config } from "@resin/config"',
 			filename: '/Users/test/project/src/environments.ee/services/service.ts',
 		},
 
@@ -44,7 +44,7 @@ ruleTester.run('no-import-enterprise-edition', NoImportEnterpriseEditionRule, {
 	],
 	invalid: [
 		{
-			code: 'import { something } from "@n8n/package/environments.ee/file"',
+			code: 'import { something } from "@resin/package/environments.ee/file"',
 			filename: '/Users/test/project/src/index.ts',
 			errors: [{ messageId: 'noImportEnterpriseEdition' }],
 		},

@@ -5,8 +5,8 @@ import type {
 	JsonObject,
 	IRequestOptions,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError, sanitizeXmlName, sleep } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeOperationError, sanitizeXmlName, sleep } from 'resin-workflow';
 import { parseString } from 'xml2js';
 
 import {

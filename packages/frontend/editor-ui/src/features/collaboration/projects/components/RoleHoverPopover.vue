@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Role } from '@n8n/permissions';
-import { N8nButton, N8nIcon, N8nText, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import type { Role } from '@resin/permissions';
+import { N8nButton, N8nIcon, N8nText, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { VIEWS } from '@/app/constants';

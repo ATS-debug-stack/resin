@@ -1,5 +1,5 @@
-import type { ISupplyDataFunctions } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { ISupplyDataFunctions } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { DocumentDefaultDataLoader } from '../DocumentDefaultDataLoader.node';
 

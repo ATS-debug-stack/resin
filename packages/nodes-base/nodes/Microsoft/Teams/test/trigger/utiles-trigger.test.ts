@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import { NodeApiError } from 'n8n-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import {
 	fetchAllTeams,

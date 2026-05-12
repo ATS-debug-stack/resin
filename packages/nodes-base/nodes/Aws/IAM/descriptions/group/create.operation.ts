@@ -1,5 +1,5 @@
-import type { INodeProperties } from 'n8n-workflow';
-import { updateDisplayOptions } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
+import { updateDisplayOptions } from 'resin-workflow';
 
 import { validatePath } from '../../helpers/utils';
 import { groupNameParameter, pathParameter } from '../common';

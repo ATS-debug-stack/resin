@@ -1,5 +1,5 @@
 /**
- * Re-export parameter guides from the shared @n8n/workflow-sdk/prompts package.
+ * Re-export parameter guides from the shared @resin/workflow-sdk/prompts package.
  */
 export {
 	SET_NODE_GUIDE,
@@ -13,4 +13,4 @@ export {
 	SYSTEM_MESSAGE_GUIDE,
 	TEXT_FIELDS_GUIDE,
 	PREDECESSOR_OUTPUT_GUIDE,
-} from '@n8n/workflow-sdk/prompts/node-guidance/parameter-guides';
+} from '@resin/workflow-sdk/prompts/node-guidance/parameter-guides';

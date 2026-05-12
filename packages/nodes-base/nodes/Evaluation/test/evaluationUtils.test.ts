@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { UserError } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { UserError } from 'resin-workflow';
 
 import { setInputs, setOutputs } from '../utils/evaluationUtils';
 
@@ -18,7 +18,7 @@ describe('setInputs', () => {
 			getNode: jest.fn().mockReturnValue({ name: 'EvalNode' }),
 			getParentNodes: jest
 				.fn()
-				.mockReturnValue([{ name: 'EvalTrigger', type: 'n8n-nodes-base.evaluationTrigger' }]),
+				.mockReturnValue([{ name: 'EvalTrigger', type: 'resin-nodes-base.evaluationTrigger' }]),
 			evaluateExpression: jest.fn().mockReturnValue(true),
 			getNodeParameter: jest.fn().mockReturnValue([
 				{ inputName: 'foo', inputValue: 'bar' },
@@ -76,7 +76,7 @@ describe('setOutputs', () => {
 				getNode: jest.fn().mockReturnValue({ name: 'EvalNode' }),
 				getParentNodes: jest
 					.fn()
-					.mockReturnValue([{ name: 'EvalTrigger', type: 'n8n-nodes-base.evaluationTrigger' }]),
+					.mockReturnValue([{ name: 'EvalTrigger', type: 'resin-nodes-base.evaluationTrigger' }]),
 				evaluateExpression: jest.fn().mockImplementation((expr: string) => {
 					if (expr.includes('isExecuted')) return true;
 					if (expr.includes('first().json')) return { row_id: 1, inputField: 'inputValue' };
@@ -156,7 +156,7 @@ describe('setOutputs', () => {
 				getNode: jest.fn().mockReturnValue({ name: 'EvalNode' }),
 				getParentNodes: jest
 					.fn()
-					.mockReturnValue([{ name: 'EvalTrigger', type: 'n8n-nodes-base.evaluationTrigger' }]),
+					.mockReturnValue([{ name: 'EvalTrigger', type: 'resin-nodes-base.evaluationTrigger' }]),
 				evaluateExpression: jest.fn().mockImplementation((expr: string) => {
 					if (expr.includes('isExecuted')) return true;
 					if (expr.includes('first().json')) return { row_id: 1, inputField: 'inputValue' };
@@ -396,7 +396,7 @@ describe('setOutputs', () => {
 				getNode: jest.fn().mockReturnValue({ name: 'EvalNode' }),
 				getParentNodes: jest
 					.fn()
-					.mockReturnValue([{ name: 'EvalTrigger', type: 'n8n-nodes-base.evaluationTrigger' }]),
+					.mockReturnValue([{ name: 'EvalTrigger', type: 'resin-nodes-base.evaluationTrigger' }]),
 				evaluateExpression: jest.fn().mockImplementation((expr) => {
 					if (expr.includes('isExecuted')) return true;
 					if (expr.includes('first().json')) return { row_number: 2, inputField: 'inputValue' };

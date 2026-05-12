@@ -5,7 +5,7 @@ import { waitFor } from '@testing-library/vue';
 import { useRolesStore } from '@/app/stores/roles.store';
 import { mockedStore, type MockedStore } from '@/__tests__/utils';
 import RoleAssignmentsTab from './RoleAssignmentsTab.vue';
-import type { RoleAssignmentsResponse, RoleProjectAssignment } from '@n8n/api-types';
+import type { RoleAssignmentsResponse, RoleProjectAssignment } from '@resin/api-types';
 
 vi.mock('vue-router', async () => {
 	const actual = await vi.importActual('vue-router');

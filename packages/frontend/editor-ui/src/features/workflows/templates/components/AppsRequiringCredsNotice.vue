@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { formatList } from '@/app/utils/formatters/listFormatter';
-import { useI18n, type BaseTextKey } from '@n8n/i18n';
+import { useI18n, type BaseTextKey } from '@resin/i18n';
 import type { AppCredentials, BaseNode } from '../templates.types';
 import { I18nT } from 'vue-i18n';
 import type { SetupCredentialsModalSource } from './SetupWorkflowCredentialsModal.vue';
 
-import { N8nNotice } from '@n8n/design-system';
+import { N8nNotice } from '@resin/design-system';
 const i18n = useI18n();
 
 const props = defineProps<{

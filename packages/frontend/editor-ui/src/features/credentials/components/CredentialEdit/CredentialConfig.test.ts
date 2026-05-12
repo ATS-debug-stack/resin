@@ -4,22 +4,22 @@ import type {
 	ICredentialDataDecryptedObject,
 	ICredentialType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { createTestingPinia } from '@pinia/testing';
 import type { RenderOptions } from '@/__tests__/render';
 import { createComponentRenderer } from '@/__tests__/render';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { vi } from 'vitest';
 import { useCredentialsStore } from '../../credentials.store';
 import { useNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { mockedStore } from '@/__tests__/utils';
-import { addCredentialTranslation } from '@n8n/i18n';
+import { addCredentialTranslation } from '@resin/i18n';
 import type { INodeUi } from '@/Interface';
 
-vi.mock('@n8n/i18n', async () => {
-	const actual = await vi.importActual('@n8n/i18n');
+vi.mock('@resin/i18n', async () => {
+	const actual = await vi.importActual('@resin/i18n');
 	return {
 		...actual,
 		addCredentialTranslation: vi.fn(),
@@ -468,7 +468,7 @@ describe('CredentialConfig', () => {
 
 		const twoAuthNodeType = {
 			displayName: 'Dropbox',
-			name: 'n8n-nodes-base.dropbox',
+			name: 'resin-nodes-base.dropbox',
 			group: ['input'],
 			version: 1,
 			description: 'Access data on Dropbox',
@@ -524,7 +524,7 @@ describe('CredentialConfig', () => {
 			const ndvStore = mockedStore(useNDVStore);
 			ndvStore.activeNode = {
 				parameters: { authentication: 'accessToken' },
-				type: 'n8n-nodes-base.dropbox',
+				type: 'resin-nodes-base.dropbox',
 				typeVersion: 1,
 				position: [0, 0],
 				id: 'test-node-id',

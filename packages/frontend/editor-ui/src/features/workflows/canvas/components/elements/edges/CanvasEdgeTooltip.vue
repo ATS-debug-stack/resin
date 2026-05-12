@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useCssModule } from 'vue';
-import { N8nTooltip } from '@n8n/design-system';
+import { N8nTooltip } from '@resin/design-system';
 
 defineProps<{
 	content: string;

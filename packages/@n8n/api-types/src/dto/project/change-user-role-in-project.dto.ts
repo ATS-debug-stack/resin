@@ -1,4 +1,4 @@
-import { assignableProjectRoleSchema } from '@n8n/permissions';
+import { assignableProjectRoleSchema } from '@resin/permissions';
 
 import { Z } from '../../zod-class';
 

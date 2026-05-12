@@ -1,6 +1,6 @@
 import type { BinaryCheck } from '../types';
 
-const CODE_NODE_TYPE = 'n8n-nodes-base.code';
+const CODE_NODE_TYPE = 'resin-nodes-base.code';
 
 export const noUnnecessaryCodeNodes: BinaryCheck = {
 	name: 'no_unnecessary_code_nodes',

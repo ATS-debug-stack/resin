@@ -140,7 +140,7 @@ test.describe(
 						nodes: [
 							{
 								name: 'Start',
-								type: 'n8n-nodes-base.manualTrigger',
+								type: 'resin-nodes-base.manualTrigger',
 								typeVersion: 1,
 								position: [250, 300],
 								parameters: {},
@@ -264,7 +264,7 @@ test.describe(
 				// Verify session cookie was set
 				const cookies = response.headers()['set-cookie'];
 				expect(cookies).toBeDefined();
-				expect(cookies).toContain('n8n-auth');
+				expect(cookies).toContain('resin-auth');
 
 				// Extract cookie and verify session works
 				const cookieMatch = cookies?.match(/n8n-auth=([^;]+)/);
@@ -291,7 +291,7 @@ test.describe(
 
 				const cookies = response.headers()['set-cookie'];
 				expect(cookies).toBeDefined();
-				expect(cookies).toContain('n8n-auth');
+				expect(cookies).toContain('resin-auth');
 			});
 
 			test('should reject embed login with long-lived token @auth:owner', async ({ api }) => {

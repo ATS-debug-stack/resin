@@ -1,18 +1,18 @@
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 import {
 	SettingsRepository,
 	StatisticsNames,
 	WorkflowRepository,
 	WorkflowStatisticsRepository,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import { Service } from '@resin/di';
 import type {
 	ExecutionStatus,
 	INode,
 	IRun,
 	IWorkflowBase,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { EventService } from '@/events/event.service';
 import { UserService } from '@/services/user.service';

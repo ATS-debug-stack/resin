@@ -1,11 +1,11 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { SettingsRepository } from '@n8n/db';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { Cipher } from 'n8n-core';
-import type { ICredentialDataDecryptedObject } from 'n8n-workflow';
-import { deepCopy, jsonParse } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { SettingsRepository } from '@resin/db';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { Cipher } from 'resin-core';
+import type { ICredentialDataDecryptedObject } from 'resin-workflow';
+import { deepCopy, jsonParse } from 'resin-workflow';
 
 import { CredentialTypes } from '@/credential-types';
 import type { ICredentialsOverwrite } from '@/interfaces';

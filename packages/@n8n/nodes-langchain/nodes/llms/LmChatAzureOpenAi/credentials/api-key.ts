@@ -1,4 +1,4 @@
-import { NodeOperationError, OperationalError, type ISupplyDataFunctions } from 'n8n-workflow';
+import { NodeOperationError, OperationalError, type ISupplyDataFunctions } from 'resin-workflow';
 
 import type { AzureOpenAIApiKeyModelConfig } from '../types';
 

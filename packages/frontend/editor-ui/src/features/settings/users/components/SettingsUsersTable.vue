@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import { ROLE, type Role, type UsersList } from '@n8n/api-types';
-import { useI18n } from '@n8n/i18n';
-import type { TableHeader, TableOptions } from '@n8n/design-system/components/N8nDataTableServer';
-import type { IUser } from '@n8n/rest-api-client/api/users';
+import { ROLE, type Role, type UsersList } from '@resin/api-types';
+import { useI18n } from '@resin/i18n';
+import type { TableHeader, TableOptions } from '@resin/design-system/components/N8nDataTableServer';
+import type { IUser } from '@resin/rest-api-client/api/users';
 import SettingsUsersRoleCell from './SettingsUsersRoleCell.vue';
 import SettingsUsersProjectsCell from './SettingsUsersProjectsCell.vue';
 import SettingsUsersActionsCell from './SettingsUsersActionsCell.vue';
 import SettingsUsersLastActiveCell from './SettingsUsersLastActiveCell.vue';
 import { hasPermission } from '@/app/utils/rbac/permissions';
-import type { UsersInfoProps } from '@n8n/design-system/components/N8nUserInfo/UserInfo.vue';
+import type { UsersInfoProps } from '@resin/design-system/components/N8nUserInfo/UserInfo.vue';
 
 import {
 	N8nDataTableServer,
@@ -17,7 +17,7 @@ import {
 	N8nUserInfo,
 	type ActionDropdownItem,
 	type UserAction,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 import { useSettingsStore } from '@/app/stores/settings.store';
 type Item = UsersList['items'][number];
 

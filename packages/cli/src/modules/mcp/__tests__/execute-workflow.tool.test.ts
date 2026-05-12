@@ -1,5 +1,5 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { User } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { User } from '@resin/db';
 import {
 	CHAT_TRIGGER_NODE_TYPE,
 	FORM_TRIGGER_NODE_TYPE,
@@ -7,7 +7,7 @@ import {
 	WEBHOOK_NODE_TYPE,
 	type INode,
 	type IWorkflowExecutionDataProcess,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { createWorkflow } from './mock.utils';
@@ -252,7 +252,7 @@ describe('execute-workflow MCP tool', () => {
 						{
 							id: 'node-1',
 							name: 'Error Trigger',
-							type: 'n8n-nodes-base.errorTrigger',
+							type: 'resin-nodes-base.errorTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 							disabled: false,
@@ -292,7 +292,7 @@ describe('execute-workflow MCP tool', () => {
 						{
 							id: 'node-1',
 							name: 'Error Trigger',
-							type: 'n8n-nodes-base.errorTrigger',
+							type: 'resin-nodes-base.errorTrigger',
 							typeVersion: 1,
 							position: [0, 0],
 							disabled: false,

@@ -6,14 +6,14 @@ import type {
 	INodeProperties,
 	INodePropertyCollection,
 	NodeParameterValueType,
-} from 'n8n-workflow';
-import { deepCopy, isINodePropertyCollectionList } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy, isINodePropertyCollectionList } from 'resin-workflow';
 
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 
 import { computed, ref, watch, onBeforeMount } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import ParameterInputList from '../ParameterInputList.vue';
 import Draggable from 'vuedraggable';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
@@ -30,7 +30,7 @@ import {
 	N8nOption,
 	N8nSelect,
 	N8nText,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 
 const locale = useI18n();
 const nodeHelpers = useNodeHelpers();

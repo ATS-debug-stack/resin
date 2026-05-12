@@ -4,8 +4,8 @@ import type {
 	INodeProperties,
 	IExecuteFunctions,
 	INodeExecutionData,
-} from 'n8n-workflow';
-import { accumulateTokenUsage, NodeOperationError, updateDisplayOptions } from 'n8n-workflow';
+} from 'resin-workflow';
+import { accumulateTokenUsage, NodeOperationError, updateDisplayOptions } from 'resin-workflow';
 import zodToJsonSchema from 'zod-to-json-schema';
 
 import { getConnectedTools } from '@utils/helpers';

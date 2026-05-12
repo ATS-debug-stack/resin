@@ -1,13 +1,13 @@
-import type { CredentialPayload } from '@n8n/backend-test-utils';
-import type { Project, User, ICredentialsDb } from '@n8n/db';
+import type { CredentialPayload } from '@resin/backend-test-utils';
+import type { Project, User, ICredentialsDb } from '@resin/db';
 import {
 	CredentialsEntity,
 	CredentialsRepository,
 	ProjectRepository,
 	SharedCredentialsRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { CredentialSharingRole } from '@n8n/permissions';
+} from '@resin/db';
+import { Container } from '@resin/di';
+import type { CredentialSharingRole } from '@resin/permissions';
 
 export async function encryptCredentialData(
 	credential: CredentialsEntity,

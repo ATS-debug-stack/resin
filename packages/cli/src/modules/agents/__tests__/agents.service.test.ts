@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/require-await, @typescript-eslint/unbound-method, id-denylist -- async mock stubs, unbound-method references and short `cb` names are acceptable test idioms */
-import type { AgentsConfig, GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
-import { DEFAULT_AGENT_SCHEDULE_WAKE_UP_PROMPT, type AgentIntegration } from '@n8n/api-types';
-import { mockLogger } from '@n8n/backend-test-utils';
+import type { AgentsConfig, GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
+import { DEFAULT_AGENT_SCHEDULE_WAKE_UP_PROMPT, type AgentIntegration } from '@resin/api-types';
+import { mockLogger } from '@resin/backend-test-utils';
 import { mock } from 'jest-mock-extended';
 
 import type { Publisher } from '@/scaling/pubsub/publisher.service';
@@ -143,7 +143,7 @@ describe('AgentsService', () => {
 							required: ['url'],
 						},
 						node: {
-							nodeType: 'n8n-nodes-base.httpRequestTool',
+							nodeType: 'resin-nodes-base.httpRequestTool',
 							nodeTypeVersion: 4,
 							nodeParameters: {
 								method: 'GET',
@@ -730,7 +730,7 @@ describe('AgentsService', () => {
 				model: 'anthropic/claude-sonnet-4-5',
 				instructions: 'Be helpful',
 			};
-			const n8nPublisherId = 'n8n-user-publisher';
+			const n8nPublisherId = 'resin-user-publisher';
 			const chatUserId = 'slack-user-abc';
 			const agent = makeAgent({
 				schema,
@@ -1097,7 +1097,7 @@ describe('AgentsService', () => {
 
 	describe('resumeForChat', () => {
 		it('does not use n8n userId as resourceId — resume passes no resourceId to agentInstance.resume', async () => {
-			const n8nPublisherId = 'n8n-user-publisher';
+			const n8nPublisherId = 'resin-user-publisher';
 			const runId = 'run-abc';
 			const toolCallId = 'tool-xyz';
 			const schema: AgentJsonConfig = {

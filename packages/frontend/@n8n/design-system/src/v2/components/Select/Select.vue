@@ -24,9 +24,9 @@ import {
 } from 'reka-ui';
 import { computed, useCssModule, useTemplateRef } from 'vue';
 
-import Icon from '@n8n/design-system/components/N8nIcon/Icon.vue';
-import { get } from '@n8n/design-system/v2/utils';
-import type { GetItemKeys, GetModelValue } from '@n8n/design-system/v2/utils/types';
+import Icon from '@resin/design-system/components/N8nIcon/Icon.vue';
+import { get } from '@resin/design-system/v2/utils';
+import type { GetItemKeys, GetModelValue } from '@resin/design-system/v2/utils/types';
 
 import type {
 	SelectEmits,

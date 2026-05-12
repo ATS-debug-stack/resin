@@ -1,5 +1,5 @@
-import { NodeApiError } from 'n8n-workflow';
-import type { INodeExecutionData, IN8nHttpFullResponse, JsonObject } from 'n8n-workflow';
+import { NodeApiError } from 'resin-workflow';
+import type { INodeExecutionData, IN8nHttpFullResponse, JsonObject } from 'resin-workflow';
 
 import { ERROR_DESCRIPTIONS } from '../../helpers/constants';
 import { handleError } from '../../helpers/errorHandler';

@@ -1,4 +1,4 @@
-import { NodeConnectionTypes, type INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes, type INodeTypeDescription } from 'resin-workflow';
 
 import {
 	extractModeDiscriminator,
@@ -8,7 +8,7 @@ import {
 
 // Mock vector store node with mode discriminator that includes outputConnectionType
 const mockVectorStoreNode: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+	name: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 	displayName: 'Pinecone Vector Store',
 	description: 'Work with your data in Pinecone Vector Store',
 	group: ['transform'],
@@ -59,7 +59,7 @@ const mockVectorStoreNode: INodeTypeDescription = {
 
 // Simple Code node without outputConnectionType
 const mockCodeNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.code',
+	name: 'resin-nodes-base.code',
 	displayName: 'Code',
 	description: 'Run custom JavaScript code',
 	group: ['transform'],
@@ -95,7 +95,7 @@ describe('extractModeDiscriminator', () => {
 
 		it('should return null for nodes without mode property', () => {
 			const nodeWithoutMode: INodeTypeDescription = {
-				name: 'n8n-nodes-base.httpRequest',
+				name: 'resin-nodes-base.httpRequest',
 				displayName: 'HTTP Request',
 				description: 'Makes HTTP requests',
 				group: ['transform'],
@@ -202,7 +202,7 @@ describe('extractModeDiscriminator', () => {
 
 		it('should include builderHint when present on mode options', () => {
 			const nodeWithBuilderHints: INodeTypeDescription = {
-				name: 'n8n-nodes-base.testNodeWithHints',
+				name: 'resin-nodes-base.testNodeWithHints',
 				displayName: 'Test Node',
 				description: 'A test node with builderHints',
 				group: ['transform'],
@@ -252,7 +252,7 @@ describe('extractModeDiscriminator', () => {
 
 // Mock operation-only node (like Remove Duplicates V2)
 const mockOperationOnlyNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.removeDuplicates',
+	name: 'resin-nodes-base.removeDuplicates',
 	displayName: 'Remove Duplicates',
 	description: 'Delete items with matching field values',
 	group: ['transform'],
@@ -308,7 +308,7 @@ const mockOperationOnlyNode: INodeTypeDescription = {
 
 // Mock node with both resource and operation
 const mockResourceAndOperationNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.googleSheets',
+	name: 'resin-nodes-base.googleSheets',
 	displayName: 'Google Sheets',
 	description: 'Read, update and write data to Google Sheets',
 	group: ['transform'],
@@ -375,7 +375,7 @@ describe('extractOperationOnlyDiscriminator', () => {
 
 	it('should return null for nodes with no properties', () => {
 		const emptyNode: INodeTypeDescription = {
-			name: 'n8n-nodes-base.empty',
+			name: 'resin-nodes-base.empty',
 			displayName: 'Empty',
 			description: 'Empty node',
 			group: ['transform'],

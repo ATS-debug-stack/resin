@@ -1,4 +1,4 @@
-import { projectRoleSchema } from '@n8n/permissions';
+import { projectRoleSchema } from '@resin/permissions';
 import { z } from 'zod';
 
 import { userSettingsSchema } from './user-settings.schema';

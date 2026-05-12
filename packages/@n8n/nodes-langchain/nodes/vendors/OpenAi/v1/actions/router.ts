@@ -3,7 +3,7 @@ import {
 	type IExecuteFunctions,
 	type INodeExecutionData,
 	NodeApiError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import * as assistant from './assistant';
 import * as audio from './audio';

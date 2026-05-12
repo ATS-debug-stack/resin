@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
 
 import { Github } from '../Github.node';
 import * as GenericFunctions from '../GenericFunctions';
@@ -23,7 +23,7 @@ describe('Github Node - File Create/Edit Operations', () => {
 			getNode: jest.fn().mockReturnValue({
 				id: 'test-node-id',
 				name: 'Github',
-				type: 'n8n-nodes-base.github',
+				type: 'resin-nodes-base.github',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},

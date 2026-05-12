@@ -3,15 +3,15 @@ import type { ComponentPublicInstance } from 'vue';
 import { computed, ref, onMounted, onUnmounted, watch } from 'vue';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
-import type { EventBus } from '@n8n/utils/event-bus';
-import { createEventBus } from '@n8n/utils/event-bus';
+import type { EventBus } from '@resin/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import type {
 	INodeParameterResourceLocator,
 	INodeProperties,
 	NodeParameterValue,
 	ResourceLocatorModes,
-} from 'n8n-workflow';
-import { useI18n } from '@n8n/i18n';
+} from 'resin-workflow';
+import { useI18n } from '@resin/i18n';
 import DraggableTarget from '@/app/components/DraggableTarget.vue';
 import ExpressionParameterInput from '../ExpressionParameterInput.vue';
 import ResourceLocatorDropdown from '../ResourceLocator/ResourceLocatorDropdown.vue';
@@ -28,7 +28,7 @@ import {
 	SAMPLE_SUBWORKFLOW_TRIGGER_ID,
 	SAMPLE_SUBWORKFLOW_WORKFLOW,
 } from '@/app/constants/samples';
-import type { WorkflowDataCreate } from '@n8n/rest-api-client/api/workflows';
+import type { WorkflowDataCreate } from '@resin/rest-api-client/api/workflows';
 import { useDocumentVisibility } from '@/app/composables/useDocumentVisibility';
 import { useToast } from '@/app/composables/useToast';
 
@@ -40,7 +40,7 @@ import {
 	N8nSelect,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 export interface Props {
 	modelValue: INodeParameterResourceLocator;
 	eventBus?: EventBus;

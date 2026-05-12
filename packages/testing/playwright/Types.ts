@@ -1,4 +1,4 @@
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 
 export class TestError extends Error {
 	constructor(message: string) {
@@ -35,7 +35,7 @@ export class TestError extends Error {
  *     }
  *   },
  *   storage: {
- *     'n8n-telemetry': '{"enabled": true}'
+ *     'resin-telemetry': '{"enabled": true}'
  *   }
  * };
  * ```
@@ -103,8 +103,8 @@ export interface TestRequirements {
 	 * @example
 	 * ```typescript
 	 * storage: {
-	 *   'n8n-telemetry': '{"enabled": true}',
-	 *   'n8n-instance-id': 'test-instance-id'
+	 *   'resin-telemetry': '{"enabled": true}',
+	 *   'resin-instance-id': 'test-instance-id'
 	 * }
 	 * ```
 	 */

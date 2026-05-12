@@ -1,6 +1,6 @@
-import type { ExecutionsConfig } from '@n8n/config';
+import type { ExecutionsConfig } from '@resin/config';
 import { mock } from 'jest-mock-extended';
-import type { BinaryDataConfig } from 'n8n-core';
+import type { BinaryDataConfig } from 'resin-core';
 
 import { BinaryDataStorageRule } from '../binary-data-storage.rule';
 

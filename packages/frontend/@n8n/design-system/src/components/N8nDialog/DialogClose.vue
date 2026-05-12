@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { DialogClose } from 'reka-ui';
 
-import Icon from '@n8n/design-system/components/N8nIcon/Icon.vue';
+import Icon from '@resin/design-system/components/N8nIcon/Icon.vue';
 
 export interface DialogCloseProps {
 	/**
@@ -30,7 +30,7 @@ defineProps<DialogCloseProps>();
 </template>
 
 <style module lang="scss">
-@use '@n8n/design-system/css/mixins/focus';
+@use '@resin/design-system/css/mixins/focus';
 
 .close-button {
 	position: absolute;

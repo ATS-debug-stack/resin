@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 
 import { SsrfProtectionConfig, SSRF_DEFAULT_BLOCKED_IP_RANGES } from '../ssrf-protection.config';
 

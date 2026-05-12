@@ -4,9 +4,9 @@ import {
 	BreakingChangeReportResult,
 	BreakingChangeVersion,
 	BreakingChangeWorkflowRuleResult,
-} from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Get, RestController, GlobalScope, Query, Post, Param } from '@n8n/decorators';
+} from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
+import { Get, RestController, GlobalScope, Query, Post, Param } from '@resin/decorators';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';
 

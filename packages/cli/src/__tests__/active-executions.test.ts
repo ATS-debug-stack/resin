@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { ExecutionsConfig } from '@n8n/config';
-import type { ExecutionRepository } from '@n8n/db';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import { ExecutionsConfig } from '@resin/config';
+import type { ExecutionRepository } from '@resin/db';
 import type { Response } from 'express';
 import { captor, mock } from 'jest-mock-extended';
 import type {
@@ -10,13 +10,13 @@ import type {
 	IRun,
 	IWorkflowExecutionDataProcess,
 	StructuredChunk,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	createEmptyRunExecutionData,
 	ManualExecutionCancelledError,
 	sleep,
 	SystemShutdownExecutionCancelledError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import PCancelable from 'p-cancelable';
 import { v4 as uuid } from 'uuid';
 
@@ -24,8 +24,8 @@ import { ActiveExecutions } from '@/active-executions';
 import { ConcurrencyControlService } from '@/concurrency/concurrency-control.service';
 import type { ExecutionPersistence } from '@/executions/execution-persistence';
 
-jest.mock('n8n-workflow', () => ({
-	...jest.requireActual('n8n-workflow'),
+jest.mock('resin-workflow', () => ({
+	...jest.requireActual('resin-workflow'),
 	sleep: jest.fn(),
 }));
 

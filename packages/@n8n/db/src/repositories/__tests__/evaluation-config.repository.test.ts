@@ -1,5 +1,5 @@
-import type { UpsertEvaluationConfigDto } from '@n8n/api-types';
-import { Container } from '@n8n/di';
+import type { UpsertEvaluationConfigDto } from '@resin/api-types';
+import { Container } from '@resin/di';
 
 import { EvaluationConfig } from '../../entities/evaluation-config.ee';
 import { mockEntityManager } from '../../utils/test-utils/mock-entity-manager';

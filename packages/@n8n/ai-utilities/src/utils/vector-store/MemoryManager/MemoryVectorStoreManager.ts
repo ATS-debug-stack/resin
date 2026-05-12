@@ -2,7 +2,7 @@ import { MemoryVectorStore } from '@langchain/classic/vectorstores/memory';
 import type { Document } from '@langchain/core/documents';
 import type { Embeddings } from '@langchain/core/embeddings';
 import type { OpenAIEmbeddings, AzureOpenAIEmbeddings } from '@langchain/openai';
-import type { Logger } from 'n8n-workflow';
+import type { Logger } from 'resin-workflow';
 
 import { getConfig, mbToBytes, hoursToMs } from './config';
 import { MemoryCalculator } from './MemoryCalculator';

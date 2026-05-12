@@ -7,10 +7,10 @@ import {
 } from '@/features/execution/insights/insights.constants';
 import type { InsightsSummaryDisplay } from '@/features/execution/insights/insights.types';
 import type { DateValue } from '@internationalized/date';
-import type { InsightsSummary } from '@n8n/api-types';
-import { N8nIcon, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import { smartDecimal } from '@n8n/utils/number/smartDecimal';
+import type { InsightsSummary } from '@resin/api-types';
+import { N8nIcon, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import { smartDecimal } from '@resin/utils/number/smartDecimal';
 import { computed, useCssModule } from 'vue';
 import { I18nT } from 'vue-i18n';
 import { useRoute } from 'vue-router';

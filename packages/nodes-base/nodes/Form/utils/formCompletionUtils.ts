@@ -1,5 +1,5 @@
 import { type Response } from 'express';
-import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'n8n-core';
+import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'resin-core';
 import {
 	type NodeTypeAndVersion,
 	type IWebhookFunctions,
@@ -7,7 +7,7 @@ import {
 	type IBinaryData,
 	type IDataObject,
 	OperationalError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { handleNewlines, sanitizeCustomCss, sanitizeHtml, validateSafeRedirectUrl } from './utils';
 

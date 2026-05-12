@@ -3,7 +3,7 @@ import type {
 	ILoadOptionsFunctions,
 	INode,
 	ISupplyDataFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { MockedFunction } from 'vitest';
 import { mock, mockDeep } from 'vitest-mock-extended';
 

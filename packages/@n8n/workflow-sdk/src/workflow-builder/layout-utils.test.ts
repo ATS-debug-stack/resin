@@ -69,7 +69,7 @@ describe('calculateNodePositions (BFS)', () => {
 
 	it('positions a single root node at START_X, DEFAULT_Y', () => {
 		const nodes = new Map<string, GraphNode>();
-		nodes.set('trigger', createGraphNode('trigger', 'n8n-nodes-base.manualTrigger'));
+		nodes.set('trigger', createGraphNode('trigger', 'resin-nodes-base.manualTrigger'));
 
 		const positions = calculateNodePositions(nodes);
 
@@ -80,8 +80,11 @@ describe('calculateNodePositions (BFS)', () => {
 		const nodes = new Map<string, GraphNode>();
 		const triggerConns = makeMainConns([[0, [makeTarget('set')]]]);
 
-		nodes.set('trigger', createGraphNode('trigger', 'n8n-nodes-base.manualTrigger', triggerConns));
-		nodes.set('set', createGraphNode('set', 'n8n-nodes-base.set'));
+		nodes.set(
+			'trigger',
+			createGraphNode('trigger', 'resin-nodes-base.manualTrigger', triggerConns),
+		);
+		nodes.set('set', createGraphNode('set', 'resin-nodes-base.set'));
 
 		const positions = calculateNodePositions(nodes);
 
@@ -96,9 +99,9 @@ describe('calculateNodePositions (BFS)', () => {
 			[1, [makeTarget('falseBranch')]],
 		]);
 
-		nodes.set('if', createGraphNode('if', 'n8n-nodes-base.if', ifConns));
-		nodes.set('trueBranch', createGraphNode('trueBranch', 'n8n-nodes-base.set'));
-		nodes.set('falseBranch', createGraphNode('falseBranch', 'n8n-nodes-base.set'));
+		nodes.set('if', createGraphNode('if', 'resin-nodes-base.if', ifConns));
+		nodes.set('trueBranch', createGraphNode('trueBranch', 'resin-nodes-base.set'));
+		nodes.set('falseBranch', createGraphNode('falseBranch', 'resin-nodes-base.set'));
 
 		const positions = calculateNodePositions(nodes);
 
@@ -120,7 +123,7 @@ describe('calculateNodePositions (BFS)', () => {
 			'trigger',
 			createGraphNode(
 				'trigger',
-				'n8n-nodes-base.manualTrigger',
+				'resin-nodes-base.manualTrigger',
 				new Map([['main', new Map<number, ConnectionTarget[]>()]]),
 				[500, 600],
 			),
@@ -145,7 +148,7 @@ describe('calculateNodePositionsDagre', () => {
 
 		it('positions a single node', () => {
 			const nodes = new Map<string, GraphNode>();
-			nodes.set('trigger', createGraphNode('trigger', 'n8n-nodes-base.manualTrigger'));
+			nodes.set('trigger', createGraphNode('trigger', 'resin-nodes-base.manualTrigger'));
 
 			const positions = calculateNodePositionsDagre(nodes);
 
@@ -160,9 +163,9 @@ describe('calculateNodePositionsDagre', () => {
 
 			nodes.set(
 				'trigger',
-				createGraphNode('trigger', 'n8n-nodes-base.manualTrigger', triggerConns),
+				createGraphNode('trigger', 'resin-nodes-base.manualTrigger', triggerConns),
 			);
-			nodes.set('set', createGraphNode('set', 'n8n-nodes-base.set'));
+			nodes.set('set', createGraphNode('set', 'resin-nodes-base.set'));
 
 			const positions = calculateNodePositionsDagre(nodes);
 
@@ -180,10 +183,10 @@ describe('calculateNodePositionsDagre', () => {
 			const bConns = makeMainConns([[0, [makeTarget('C')]]]);
 			const cConns = makeMainConns([[0, [makeTarget('D')]]]);
 
-			nodes.set('A', createGraphNode('A', 'n8n-nodes-base.manualTrigger', aConns));
-			nodes.set('B', createGraphNode('B', 'n8n-nodes-base.set', bConns));
-			nodes.set('C', createGraphNode('C', 'n8n-nodes-base.set', cConns));
-			nodes.set('D', createGraphNode('D', 'n8n-nodes-base.set'));
+			nodes.set('A', createGraphNode('A', 'resin-nodes-base.manualTrigger', aConns));
+			nodes.set('B', createGraphNode('B', 'resin-nodes-base.set', bConns));
+			nodes.set('C', createGraphNode('C', 'resin-nodes-base.set', cConns));
+			nodes.set('D', createGraphNode('D', 'resin-nodes-base.set'));
 
 			const positions = calculateNodePositionsDagre(nodes);
 
@@ -210,9 +213,9 @@ describe('calculateNodePositionsDagre', () => {
 				[1, [makeTarget('falseBranch')]],
 			]);
 
-			nodes.set('if', createGraphNode('if', 'n8n-nodes-base.if', ifConns));
-			nodes.set('trueBranch', createGraphNode('trueBranch', 'n8n-nodes-base.set'));
-			nodes.set('falseBranch', createGraphNode('falseBranch', 'n8n-nodes-base.set'));
+			nodes.set('if', createGraphNode('if', 'resin-nodes-base.if', ifConns));
+			nodes.set('trueBranch', createGraphNode('trueBranch', 'resin-nodes-base.set'));
+			nodes.set('falseBranch', createGraphNode('falseBranch', 'resin-nodes-base.set'));
 
 			const positions = calculateNodePositionsDagre(nodes);
 
@@ -233,10 +236,10 @@ describe('calculateNodePositionsDagre', () => {
 			const aConns = makeMainConns([[0, [makeTarget('B')]]]);
 			const cConns = makeMainConns([[0, [makeTarget('D')]]]);
 
-			nodes.set('A', createGraphNode('A', 'n8n-nodes-base.manualTrigger', aConns));
-			nodes.set('B', createGraphNode('B', 'n8n-nodes-base.set'));
-			nodes.set('C', createGraphNode('C', 'n8n-nodes-base.scheduleTrigger', cConns));
-			nodes.set('D', createGraphNode('D', 'n8n-nodes-base.set'));
+			nodes.set('A', createGraphNode('A', 'resin-nodes-base.manualTrigger', aConns));
+			nodes.set('B', createGraphNode('B', 'resin-nodes-base.set'));
+			nodes.set('C', createGraphNode('C', 'resin-nodes-base.scheduleTrigger', cConns));
+			nodes.set('D', createGraphNode('D', 'resin-nodes-base.set'));
 
 			const positions = calculateNodePositionsDagre(nodes);
 
@@ -256,14 +259,14 @@ describe('calculateNodePositionsDagre', () => {
 
 			nodes.set(
 				'trigger',
-				createGraphNode('trigger', 'n8n-nodes-base.manualTrigger', triggerConns),
+				createGraphNode('trigger', 'resin-nodes-base.manualTrigger', triggerConns),
 			);
-			nodes.set('Agent', createGraphNode('Agent', '@n8n/n8n-nodes-langchain.agent'));
+			nodes.set('Agent', createGraphNode('Agent', '@resin/n8n-nodes-langchain.agent'));
 			nodes.set(
 				'OpenAI Model',
 				createGraphNode(
 					'OpenAI Model',
-					'@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					'@resin/n8n-nodes-langchain.lmChatOpenAi',
 					makeAiConns('Agent', 'ai_languageModel'),
 				),
 			);
@@ -271,7 +274,7 @@ describe('calculateNodePositionsDagre', () => {
 				'Calculator',
 				createGraphNode(
 					'Calculator',
-					'@n8n/n8n-nodes-langchain.toolCalculator',
+					'@resin/n8n-nodes-langchain.toolCalculator',
 					makeAiConns('Agent', 'ai_tool'),
 				),
 			);
@@ -301,7 +304,7 @@ describe('calculateNodePositionsDagre', () => {
 				'trigger',
 				createGraphNode(
 					'trigger',
-					'n8n-nodes-base.manualTrigger',
+					'resin-nodes-base.manualTrigger',
 					new Map([['main', new Map<number, ConnectionTarget[]>()]]),
 					[500, 600],
 				),
@@ -317,9 +320,9 @@ describe('calculateNodePositionsDagre', () => {
 
 			nodes.set(
 				'trigger',
-				createGraphNode('trigger', 'n8n-nodes-base.manualTrigger', triggerConns, [500, 600]),
+				createGraphNode('trigger', 'resin-nodes-base.manualTrigger', triggerConns, [500, 600]),
 			);
-			nodes.set('set', createGraphNode('set', 'n8n-nodes-base.set'));
+			nodes.set('set', createGraphNode('set', 'resin-nodes-base.set'));
 
 			const positions = calculateNodePositionsDagre(nodes);
 
@@ -337,10 +340,10 @@ describe('calculateNodePositionsDagre', () => {
 				[1, [makeTarget('D')]],
 			]);
 
-			nodes.set('A', createGraphNode('A', 'n8n-nodes-base.manualTrigger', aConns));
-			nodes.set('B', createGraphNode('B', 'n8n-nodes-base.if', bConns));
-			nodes.set('C', createGraphNode('C', 'n8n-nodes-base.set'));
-			nodes.set('D', createGraphNode('D', 'n8n-nodes-base.set'));
+			nodes.set('A', createGraphNode('A', 'resin-nodes-base.manualTrigger', aConns));
+			nodes.set('B', createGraphNode('B', 'resin-nodes-base.if', bConns));
+			nodes.set('C', createGraphNode('C', 'resin-nodes-base.set'));
+			nodes.set('D', createGraphNode('D', 'resin-nodes-base.set'));
 
 			const positions = calculateNodePositionsDagre(nodes);
 
@@ -358,9 +361,9 @@ describe('calculateNodePositionsDagre', () => {
 
 			nodes.set(
 				'trigger',
-				createGraphNode('trigger', 'n8n-nodes-base.manualTrigger', triggerConns),
+				createGraphNode('trigger', 'resin-nodes-base.manualTrigger', triggerConns),
 			);
-			nodes.set('set', createGraphNode('set', 'n8n-nodes-base.set'));
+			nodes.set('set', createGraphNode('set', 'resin-nodes-base.set'));
 			// Sticky note behind the trigger and set nodes (covers them at origin)
 			nodes.set('note', createGraphNode('note', STICKY_NODE_TYPE));
 
@@ -390,9 +393,9 @@ describe('calculateNodePositionsDagre', () => {
 
 			nodes.set(
 				'trigger',
-				createGraphNode('trigger', 'n8n-nodes-base.manualTrigger', triggerConns, [500, 600]),
+				createGraphNode('trigger', 'resin-nodes-base.manualTrigger', triggerConns, [500, 600]),
 			);
-			nodes.set('set', createGraphNode('set', 'n8n-nodes-base.set'));
+			nodes.set('set', createGraphNode('set', 'resin-nodes-base.set'));
 
 			const positions = calculateNodePositionsDagre(nodes);
 
@@ -408,9 +411,9 @@ describe('calculateNodePositionsDagre', () => {
 
 			nodes.set(
 				'trigger',
-				createGraphNode('trigger', 'n8n-nodes-base.manualTrigger', triggerConns, [500, 600]),
+				createGraphNode('trigger', 'resin-nodes-base.manualTrigger', triggerConns, [500, 600]),
 			);
-			nodes.set('set', createGraphNode('set', 'n8n-nodes-base.set'));
+			nodes.set('set', createGraphNode('set', 'resin-nodes-base.set'));
 			// Sticky overlapping the explicitly positioned trigger
 			nodes.set('note', createGraphNode('note', STICKY_NODE_TYPE, undefined, [500, 600]));
 

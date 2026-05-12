@@ -1,6 +1,6 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { SharedWorkflowRepository, User, WorkflowEntity } from '@n8n/db';
-import type { IConnections, INode } from 'n8n-workflow';
+import { mockInstance } from '@resin/backend-test-utils';
+import { SharedWorkflowRepository, User, WorkflowEntity } from '@resin/db';
+import type { IConnections, INode } from 'resin-workflow';
 
 import { createUpdateWorkflowTool } from '../tools/workflow-builder/update-workflow.tool';
 
@@ -21,7 +21,7 @@ jest.mock('../tools/workflow-builder/credentials-auto-assign', () => ({
 }));
 
 const mockValidateJSON = jest.fn().mockReturnValue([]);
-jest.mock('@n8n/ai-workflow-builder', () => ({
+jest.mock('@resin/ai-workflow-builder', () => ({
 	MCP_UPDATE_WORKFLOW_TOOL: {
 		toolName: 'update_workflow',
 		displayTitle: 'Updating workflow',
@@ -37,7 +37,7 @@ const parseResult = (result: { content: Array<{ type: string; text?: string }> }
 const makeNode = (overrides: Partial<INode> = {}): INode => ({
 	id: 'node-id',
 	name: 'A',
-	type: 'n8n-nodes-base.set',
+	type: 'resin-nodes-base.set',
 	typeVersion: 1,
 	position: [0, 0],
 	parameters: {},
@@ -209,7 +209,7 @@ describe('update-workflow MCP tool', () => {
 				user,
 				expect.any(WorkflowEntity),
 				'wf-1',
-				{ aiBuilderAssisted: true, source: 'n8n-mcp' },
+				{ aiBuilderAssisted: true, source: 'resin-mcp' },
 			);
 			expect(updateMock.mock.calls[0][1].name).toBe('Renamed');
 			expect(updateMock.mock.calls[0][1].meta).toEqual(
@@ -231,7 +231,7 @@ describe('update-workflow MCP tool', () => {
 				operations: [
 					{
 						type: 'addNode',
-						node: { name: 'C', type: 'n8n-nodes-base.slack', typeVersion: 1 },
+						node: { name: 'C', type: 'resin-nodes-base.slack', typeVersion: 1 },
 					},
 					{
 						type: 'updateNodeParameters',
@@ -271,7 +271,7 @@ describe('update-workflow MCP tool', () => {
 				operations: [
 					{
 						type: 'addNode',
-						node: { name: 'C', type: 'n8n-nodes-base.slack', typeVersion: 1 },
+						node: { name: 'C', type: 'resin-nodes-base.slack', typeVersion: 1 },
 					},
 				],
 			});
@@ -295,7 +295,7 @@ describe('update-workflow MCP tool', () => {
 						type: 'addNode',
 						node: {
 							name: 'HTTP Request',
-							type: 'n8n-nodes-base.httpRequest',
+							type: 'resin-nodes-base.httpRequest',
 							typeVersion: 1,
 						},
 					},
@@ -310,7 +310,7 @@ describe('update-workflow MCP tool', () => {
 
 		test('assigns webhookId to a webhook node added via addNode', async () => {
 			nodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === 'n8n-nodes-base.webhook') {
+				if (type === 'resin-nodes-base.webhook') {
 					return { description: { webhooks: [{ httpMethod: 'GET', path: '' }] } };
 				}
 				return { description: {} };
@@ -321,7 +321,7 @@ describe('update-workflow MCP tool', () => {
 				operations: [
 					{
 						type: 'addNode',
-						node: { name: 'Webhook', type: 'n8n-nodes-base.webhook', typeVersion: 1 },
+						node: { name: 'Webhook', type: 'resin-nodes-base.webhook', typeVersion: 1 },
 					},
 				],
 			});
@@ -457,10 +457,10 @@ describe('update-workflow MCP tool', () => {
 		describe('credential validation', () => {
 			beforeEach(() => {
 				nodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-					if (type === 'n8n-nodes-base.slack') {
+					if (type === 'resin-nodes-base.slack') {
 						return { description: { credentials: [{ name: 'slackApi' }] } };
 					}
-					if (type === 'n8n-nodes-base.set') {
+					if (type === 'resin-nodes-base.set') {
 						return { description: { credentials: [] } };
 					}
 					return { description: {} };
@@ -476,7 +476,7 @@ describe('update-workflow MCP tool', () => {
 			test('rejects setNodeCredential with a non-existent credential id', async () => {
 				findWorkflowMock.mockResolvedValue(
 					Object.assign(buildExistingWorkflow(), {
-						nodes: [makeNode({ id: 's', name: 'Slack', type: 'n8n-nodes-base.slack' })],
+						nodes: [makeNode({ id: 's', name: 'Slack', type: 'resin-nodes-base.slack' })],
 						connections: {},
 					}),
 				);
@@ -504,7 +504,7 @@ describe('update-workflow MCP tool', () => {
 			test('rejects setNodeCredential when credential type does not match the key', async () => {
 				findWorkflowMock.mockResolvedValue(
 					Object.assign(buildExistingWorkflow(), {
-						nodes: [makeNode({ id: 's', name: 'Slack', type: 'n8n-nodes-base.slack' })],
+						nodes: [makeNode({ id: 's', name: 'Slack', type: 'resin-nodes-base.slack' })],
 						connections: {},
 					}),
 				);
@@ -531,7 +531,7 @@ describe('update-workflow MCP tool', () => {
 			test('rejects setNodeCredential when the node type does not accept the credential key', async () => {
 				findWorkflowMock.mockResolvedValue(
 					Object.assign(buildExistingWorkflow(), {
-						nodes: [makeNode({ id: 's', name: 'Setter', type: 'n8n-nodes-base.set' })],
+						nodes: [makeNode({ id: 's', name: 'Setter', type: 'resin-nodes-base.set' })],
 						connections: {},
 					}),
 				);
@@ -558,7 +558,7 @@ describe('update-workflow MCP tool', () => {
 			test('accepts a setNodeCredential whose id, type and key all match', async () => {
 				findWorkflowMock.mockResolvedValue(
 					Object.assign(buildExistingWorkflow(), {
-						nodes: [makeNode({ id: 's', name: 'Slack', type: 'n8n-nodes-base.slack' })],
+						nodes: [makeNode({ id: 's', name: 'Slack', type: 'resin-nodes-base.slack' })],
 						connections: {},
 					}),
 				);
@@ -588,7 +588,7 @@ describe('update-workflow MCP tool', () => {
 							type: 'addNode',
 							node: {
 								name: 'Slack',
-								type: 'n8n-nodes-base.slack',
+								type: 'resin-nodes-base.slack',
 								typeVersion: 1,
 								credentials: {
 									slackApi: { id: 'cred-missing', name: 'Whatever' },
@@ -612,7 +612,7 @@ describe('update-workflow MCP tool', () => {
 							type: 'addNode',
 							node: {
 								name: 'Slack',
-								type: 'n8n-nodes-base.slack',
+								type: 'resin-nodes-base.slack',
 								typeVersion: 1,
 								credentials: { slackApi: { name: 'My Slack' } },
 							},

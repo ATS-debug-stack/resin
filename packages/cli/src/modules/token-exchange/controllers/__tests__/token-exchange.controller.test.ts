@@ -1,9 +1,9 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { Container } from '@n8n/di';
+import { mockInstance } from '@resin/backend-test-utils';
+import { Container } from '@resin/di';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';
-import { ErrorReporter } from 'n8n-core';
-import { UnexpectedError } from 'n8n-workflow';
+import { ErrorReporter } from 'resin-core';
+import { UnexpectedError } from 'resin-workflow';
 
 import { AuthError } from '@/errors/response-errors/auth.error';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

@@ -1,7 +1,7 @@
-import type { ModuleInterface } from '@n8n/decorators';
-import { BackendModule } from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+import type { ModuleInterface } from '@resin/decorators';
+import { BackendModule } from '@resin/decorators';
+import { Container } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 
 function isKeyRotationApiEnabled(): boolean {
 	return process.env.N8N_ENV_FEAT_ENCRYPTION_KEY_ROTATION === 'true';

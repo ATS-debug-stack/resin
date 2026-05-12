@@ -9,14 +9,14 @@ import type {
 	INodePropertyCollection,
 	INodePropertyOptions,
 	NodeParameterValueType,
-} from 'n8n-workflow';
-import { deepCopy, isINodeProperties, isINodePropertyCollection } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy, isINodeProperties, isINodePropertyCollection } from 'resin-workflow';
 
 import get from 'lodash/get';
 
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { storeToRefs } from 'pinia';
 
 import {
@@ -27,8 +27,8 @@ import {
 	N8nSectionHeader,
 	N8nTooltip,
 	TOOLTIP_DELAY_MS,
-} from '@n8n/design-system';
-import type { DropdownMenuItemProps } from '@n8n/design-system';
+} from '@resin/design-system';
+import type { DropdownMenuItemProps } from '@resin/design-system';
 import { isPresent } from '@/app/utils/typesUtils';
 
 export interface Props {
@@ -308,7 +308,7 @@ function valueChanged(parameterData: IUpdateInformation) {
 				>
 					<template #trigger>
 						<N8nButton
-							class="n8n-button--highlightFill"
+							class="resin-button--highlightFill"
 							variant="subtle"
 							size="small"
 							icon="plus"
@@ -376,7 +376,7 @@ function valueChanged(parameterData: IUpdateInformation) {
 				>
 					<template #trigger>
 						<N8nButton
-							class="n8n-button--highlightFill"
+							class="resin-button--highlightFill"
 							variant="subtle"
 							size="small"
 							icon="plus"

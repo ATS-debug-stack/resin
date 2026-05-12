@@ -1,6 +1,6 @@
 import { createHash } from 'crypto';
 import moment from 'moment-timezone';
-import { type CronExpression, type INode, NodeOperationError } from 'n8n-workflow';
+import { type CronExpression, type INode, NodeOperationError } from 'resin-workflow';
 
 import type { IRecurrenceRule, ScheduleInterval } from './SchedulerInterface';
 

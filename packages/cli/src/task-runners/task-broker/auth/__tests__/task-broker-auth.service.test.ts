@@ -1,7 +1,7 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { sleep } from 'n8n-workflow';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { sleep } from 'resin-workflow';
 
 import config from '@/config';
 import { CacheService } from '@/services/cache/cache.service';

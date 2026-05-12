@@ -56,7 +56,7 @@ describe('buildSwitchCaseComposite', () => {
 		// Create the Switch node
 		const switchNode = createSemanticNode(
 			'Switch',
-			'n8n-nodes-base.switch',
+			'resin-nodes-base.switch',
 			new Map([
 				['case0', [{ target: 'Handler0', targetInputSlot: 'input' }]],
 				['case1', [{ target: 'Handler1', targetInputSlot: 'input' }]],
@@ -65,9 +65,9 @@ describe('buildSwitchCaseComposite', () => {
 		);
 
 		// Create case handlers
-		const handler0 = createSemanticNode('Handler0', 'n8n-nodes-base.noOp');
-		const handler1 = createSemanticNode('Handler1', 'n8n-nodes-base.noOp');
-		const handler2 = createSemanticNode('Handler2', 'n8n-nodes-base.noOp');
+		const handler0 = createSemanticNode('Handler0', 'resin-nodes-base.noOp');
+		const handler1 = createSemanticNode('Handler1', 'resin-nodes-base.noOp');
+		const handler2 = createSemanticNode('Handler2', 'resin-nodes-base.noOp');
 
 		// Build the graph
 		const graph: SemanticGraph = {
@@ -109,7 +109,7 @@ describe('buildSwitchCaseComposite', () => {
 	it('handles Switch with empty cases', () => {
 		const switchNode = createSemanticNode(
 			'Switch',
-			'n8n-nodes-base.switch',
+			'resin-nodes-base.switch',
 			new Map([
 				['case0', [{ target: 'Handler0', targetInputSlot: 'input' }]],
 				['case1', []], // Empty case
@@ -117,8 +117,8 @@ describe('buildSwitchCaseComposite', () => {
 			]),
 		);
 
-		const handler0 = createSemanticNode('Handler0', 'n8n-nodes-base.noOp');
-		const handler2 = createSemanticNode('Handler2', 'n8n-nodes-base.noOp');
+		const handler0 = createSemanticNode('Handler0', 'resin-nodes-base.noOp');
+		const handler2 = createSemanticNode('Handler2', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -147,7 +147,7 @@ describe('buildSwitchCaseComposite', () => {
 	it('handles Switch with fallback output', () => {
 		const switchNode = createSemanticNode(
 			'Switch',
-			'n8n-nodes-base.switch',
+			'resin-nodes-base.switch',
 			new Map([
 				['case0', [{ target: 'Handler0', targetInputSlot: 'input' }]],
 				['fallback', [{ target: 'FallbackHandler', targetInputSlot: 'input' }]],
@@ -156,8 +156,8 @@ describe('buildSwitchCaseComposite', () => {
 		// 1 rule → fallback index = 1
 		switchNode.json.parameters = { rules: { rules: [{}] } };
 
-		const handler0 = createSemanticNode('Handler0', 'n8n-nodes-base.noOp');
-		const fallbackHandler = createSemanticNode('FallbackHandler', 'n8n-nodes-base.noOp');
+		const handler0 = createSemanticNode('Handler0', 'resin-nodes-base.noOp');
+		const fallbackHandler = createSemanticNode('FallbackHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -181,7 +181,7 @@ describe('buildSwitchCaseComposite', () => {
 	it('computes fallback index from rule count', () => {
 		const switchNode = createSemanticNode(
 			'Switch',
-			'n8n-nodes-base.switch',
+			'resin-nodes-base.switch',
 			new Map([
 				['case0', [{ target: 'Handler0', targetInputSlot: 'input' }]],
 				['case1', [{ target: 'Handler1', targetInputSlot: 'input' }]],
@@ -192,10 +192,10 @@ describe('buildSwitchCaseComposite', () => {
 		// 3 rules → fallback index = 3
 		switchNode.json.parameters = { rules: { rules: [{}, {}, {}] } };
 
-		const handler0 = createSemanticNode('Handler0', 'n8n-nodes-base.noOp');
-		const handler1 = createSemanticNode('Handler1', 'n8n-nodes-base.noOp');
-		const handler2 = createSemanticNode('Handler2', 'n8n-nodes-base.noOp');
-		const fallbackHandler = createSemanticNode('FallbackHandler', 'n8n-nodes-base.noOp');
+		const handler0 = createSemanticNode('Handler0', 'resin-nodes-base.noOp');
+		const handler1 = createSemanticNode('Handler1', 'resin-nodes-base.noOp');
+		const handler2 = createSemanticNode('Handler2', 'resin-nodes-base.noOp');
+		const fallbackHandler = createSemanticNode('FallbackHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -217,7 +217,7 @@ describe('buildSwitchCaseComposite', () => {
 	});
 
 	it('handles Switch with no cases', () => {
-		const switchNode = createSemanticNode('Switch', 'n8n-nodes-base.switch', new Map());
+		const switchNode = createSemanticNode('Switch', 'resin-nodes-base.switch', new Map());
 
 		const graph: SemanticGraph = {
 			nodes: new Map([['Switch', switchNode]]),
@@ -236,15 +236,15 @@ describe('buildSwitchCaseComposite', () => {
 	it('marks case targets as visited in context', () => {
 		const switchNode = createSemanticNode(
 			'Switch',
-			'n8n-nodes-base.switch',
+			'resin-nodes-base.switch',
 			new Map([
 				['case0', [{ target: 'Handler0', targetInputSlot: 'input' }]],
 				['case1', [{ target: 'Handler1', targetInputSlot: 'input' }]],
 			]),
 		);
 
-		const handler0 = createSemanticNode('Handler0', 'n8n-nodes-base.noOp');
-		const handler1 = createSemanticNode('Handler1', 'n8n-nodes-base.noOp');
+		const handler0 = createSemanticNode('Handler0', 'resin-nodes-base.noOp');
+		const handler1 = createSemanticNode('Handler1', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -269,7 +269,7 @@ describe('buildSwitchCaseComposite', () => {
 		// Fallback should be at index 4, not 2 (the count of connected case outputs)
 		const switchNode = createSemanticNode(
 			'Switch',
-			'n8n-nodes-base.switch',
+			'resin-nodes-base.switch',
 			new Map([
 				['case0', [{ target: 'Handler0', targetInputSlot: 'input' }]],
 				['case3', [{ target: 'Handler3', targetInputSlot: 'input' }]],
@@ -279,9 +279,9 @@ describe('buildSwitchCaseComposite', () => {
 		// Set 4 rules in node parameters
 		switchNode.json.parameters = { rules: { rules: [{}, {}, {}, {}] } };
 
-		const handler0 = createSemanticNode('Handler0', 'n8n-nodes-base.noOp');
-		const handler3 = createSemanticNode('Handler3', 'n8n-nodes-base.noOp');
-		const fallbackHandler = createSemanticNode('FallbackHandler', 'n8n-nodes-base.noOp');
+		const handler0 = createSemanticNode('Handler0', 'resin-nodes-base.noOp');
+		const handler3 = createSemanticNode('Handler3', 'resin-nodes-base.noOp');
+		const fallbackHandler = createSemanticNode('FallbackHandler', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([
@@ -306,15 +306,15 @@ describe('buildSwitchCaseComposite', () => {
 		// Cases 0 and 3 (skipping 1, 2)
 		const switchNode = createSemanticNode(
 			'Switch',
-			'n8n-nodes-base.switch',
+			'resin-nodes-base.switch',
 			new Map([
 				['case0', [{ target: 'Handler0', targetInputSlot: 'input' }]],
 				['case3', [{ target: 'Handler3', targetInputSlot: 'input' }]],
 			]),
 		);
 
-		const handler0 = createSemanticNode('Handler0', 'n8n-nodes-base.noOp');
-		const handler3 = createSemanticNode('Handler3', 'n8n-nodes-base.noOp');
+		const handler0 = createSemanticNode('Handler0', 'resin-nodes-base.noOp');
+		const handler3 = createSemanticNode('Handler3', 'resin-nodes-base.noOp');
 
 		const graph: SemanticGraph = {
 			nodes: new Map([

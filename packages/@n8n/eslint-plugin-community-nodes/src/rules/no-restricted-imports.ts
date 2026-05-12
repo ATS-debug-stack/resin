@@ -6,7 +6,7 @@ import {
 } from '../utils/index.js';
 
 const allowedModules = [
-	'n8n-workflow',
+	'resin-workflow',
 	'ai-node-sdk',
 	'lodash',
 	'moment',
@@ -15,7 +15,7 @@ const allowedModules = [
 	'zod',
 	'crypto',
 	'node:crypto',
-	'@n8n/ai-node-sdk',
+	'@resin/ai-node-sdk',
 ];
 
 const isModuleAllowed = (modulePath: string): boolean => {

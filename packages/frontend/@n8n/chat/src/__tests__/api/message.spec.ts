@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { sendMessageStreaming } from '@n8n/chat/api';
-import type { ChatOptions } from '@n8n/chat/types';
+import { sendMessageStreaming } from '@resin/chat/api';
+import type { ChatOptions } from '@resin/chat/types';
 
 describe('sendMessageStreaming', () => {
 	const mockOptions: ChatOptions = {

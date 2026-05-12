@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import type { INodeExecutionData, IPinData } from 'n8n-workflow';
+import type { INodeExecutionData, IPinData } from 'resin-workflow';
 import {
 	useWorkflowDocumentPinData,
 	getPinDataSize,

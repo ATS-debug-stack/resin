@@ -1,9 +1,9 @@
-import { Logger } from '@n8n/backend-common';
-import { AgentsConfig } from '@n8n/config';
-import type { ModuleInterface } from '@n8n/decorators';
-import { BackendModule } from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
+import { Logger } from '@resin/backend-common';
+import { AgentsConfig } from '@resin/config';
+import type { ModuleInterface } from '@resin/decorators';
+import { BackendModule } from '@resin/decorators';
+import { Container } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
 
 @BackendModule({ name: 'agents' })
 export class AgentsModule implements ModuleInterface {

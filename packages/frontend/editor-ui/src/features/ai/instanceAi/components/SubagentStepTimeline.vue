@@ -3,9 +3,9 @@ import type {
 	InstanceAiAgentNode,
 	InstanceAiTimelineEntry,
 	InstanceAiToolCallState,
-} from '@n8n/api-types';
-import { N8nButton, N8nIcon, type IconName } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/api-types';
+import { N8nButton, N8nIcon, type IconName } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { CollapsibleRoot, CollapsibleTrigger } from 'reka-ui';
 import { computed } from 'vue';
 import { getToolIcon, useToolLabel } from '../toolLabels';

@@ -1,5 +1,5 @@
-import type { InstanceRegistration } from '@n8n/api-types';
-import type { ClusterCheckContext } from '@n8n/decorators';
+import type { InstanceRegistration } from '@resin/api-types';
+import type { ClusterCheckContext } from '@resin/decorators';
 
 import { VersionMismatchCheck } from '../../checks/version-mismatch.check';
 

@@ -107,24 +107,24 @@ describe('workflow-builder/validation-helpers', () => {
 
 	describe('isToolNode', () => {
 		it('returns true for types containing tool', () => {
-			expect(isToolNode('@n8n/n8n-nodes-langchain.toolCalculator')).toBe(true);
-			expect(isToolNode('@n8n/n8n-nodes-langchain.toolCode')).toBe(true);
+			expect(isToolNode('@resin/n8n-nodes-langchain.toolCalculator')).toBe(true);
+			expect(isToolNode('@resin/n8n-nodes-langchain.toolCode')).toBe(true);
 		});
 
 		it('returns true for types containing Tool', () => {
-			expect(isToolNode('@n8n/n8n-nodes-langchain.mcpClientTool')).toBe(true);
+			expect(isToolNode('@resin/n8n-nodes-langchain.mcpClientTool')).toBe(true);
 		});
 
 		it('returns false for non-tool types', () => {
-			expect(isToolNode('n8n-nodes-base.httpRequest')).toBe(false);
-			expect(isToolNode('@n8n/n8n-nodes-langchain.agent')).toBe(false);
+			expect(isToolNode('resin-nodes-base.httpRequest')).toBe(false);
+			expect(isToolNode('@resin/n8n-nodes-langchain.agent')).toBe(false);
 		});
 	});
 
 	describe('TOOLS_WITHOUT_PARAMETERS', () => {
 		it('contains known tools without parameters', () => {
-			expect(TOOLS_WITHOUT_PARAMETERS.has('@n8n/n8n-nodes-langchain.toolCalculator')).toBe(true);
-			expect(TOOLS_WITHOUT_PARAMETERS.has('@n8n/n8n-nodes-langchain.toolWikipedia')).toBe(true);
+			expect(TOOLS_WITHOUT_PARAMETERS.has('@resin/n8n-nodes-langchain.toolCalculator')).toBe(true);
+			expect(TOOLS_WITHOUT_PARAMETERS.has('@resin/n8n-nodes-langchain.toolWikipedia')).toBe(true);
 		});
 	});
 
@@ -151,12 +151,12 @@ describe('workflow-builder/validation-helpers', () => {
 
 	describe('isTriggerNode', () => {
 		it('returns true for trigger nodes', () => {
-			expect(isTriggerNode('n8n-nodes-base.manualTrigger')).toBe(true);
-			expect(isTriggerNode('n8n-nodes-base.webhook')).toBe(true);
+			expect(isTriggerNode('resin-nodes-base.manualTrigger')).toBe(true);
+			expect(isTriggerNode('resin-nodes-base.webhook')).toBe(true);
 		});
 
 		it('returns false for non-trigger nodes', () => {
-			expect(isTriggerNode('n8n-nodes-base.httpRequest')).toBe(false);
+			expect(isTriggerNode('resin-nodes-base.httpRequest')).toBe(false);
 		});
 	});
 

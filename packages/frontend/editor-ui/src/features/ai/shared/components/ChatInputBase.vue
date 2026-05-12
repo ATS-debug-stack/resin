@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, useTemplateRef, watch } from 'vue';
-import { N8nIconButton, N8nInput, N8nTooltip } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nIconButton, N8nInput, N8nTooltip } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useSpeechRecognition } from '@vueuse/core';
 
 const props = withDefaults(

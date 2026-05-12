@@ -1,17 +1,17 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
 import {
 	ProjectRelationRepository,
 	ProjectRepository,
 	WorkflowRepository,
 	UserRepository,
-} from '@n8n/db';
-import { OnShutdown } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+} from '@resin/db';
+import { OnShutdown } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import type RudderStack from '@rudderstack/rudder-sdk-node';
 import axios from 'axios';
-import { ErrorReporter, InstanceSettings } from 'n8n-core';
-import type { ITelemetryTrackProperties } from 'n8n-workflow';
+import { ErrorReporter, InstanceSettings } from 'resin-core';
+import type { ITelemetryTrackProperties } from 'resin-workflow';
 
 import { LOWEST_SHUTDOWN_PRIORITY, N8N_VERSION } from '@/constants';
 import type { IExecutionTrackProperties } from '@/interfaces';
@@ -270,7 +270,7 @@ export class Telemetry {
 			if (
 				!properties.success &&
 				properties.is_manual &&
-				properties.error_node_type?.startsWith('n8n-nodes-base')
+				properties.error_node_type?.startsWith('resin-nodes-base')
 			) {
 				this.track('Workflow execution errored', properties);
 			}

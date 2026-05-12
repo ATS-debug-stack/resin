@@ -1,6 +1,6 @@
 import type { Tool } from '@langchain/classic/tools';
 import type { ChatPromptTemplate } from '@langchain/core/prompts';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import * as helpers from '@utils/helpers';

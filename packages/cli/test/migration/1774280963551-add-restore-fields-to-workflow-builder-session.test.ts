@@ -3,10 +3,10 @@ import {
 	initDbUpToMigration,
 	runSingleMigration,
 	undoLastSingleMigration,
-} from '@n8n/backend-test-utils';
-import { DbConnection } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { DataSource } from '@n8n/typeorm';
+} from '@resin/backend-test-utils';
+import { DbConnection } from '@resin/db';
+import { Container } from '@resin/di';
+import { DataSource } from '@resin/typeorm';
 import { randomUUID } from 'node:crypto';
 
 const MIGRATION_NAME = 'AddRestoreFieldsToWorkflowBuilderSession1774280963551';

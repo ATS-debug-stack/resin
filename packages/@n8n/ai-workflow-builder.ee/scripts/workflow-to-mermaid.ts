@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 
 import { readFileSync, writeFileSync } from 'fs';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import { basename, dirname, join } from 'path';
 import pc from 'picocolors';
 
@@ -204,7 +204,7 @@ function main(): void {
 		writeFileSync(outputFile, markdownContent);
 
 		const nodeCount = workflow.workflow.nodes.filter(
-			(n) => n.type !== 'n8n-nodes-base.stickyNote',
+			(n) => n.type !== 'resin-nodes-base.stickyNote',
 		).length;
 
 		console.log(pc.green('\n✓ Successfully converted workflow to Mermaid!'));

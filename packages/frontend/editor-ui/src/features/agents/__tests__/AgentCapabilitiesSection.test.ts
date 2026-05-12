@@ -16,7 +16,7 @@ vi.mock('../composables/useAgentIntegrationsCatalog', () => ({
 	}),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({
 		baseText: (key: string) => key,
 	}),
@@ -57,7 +57,7 @@ describe('AgentCapabilitiesSection', () => {
 					type: 'node',
 					name: 'fetch_webpage',
 					node: {
-						nodeType: 'n8n-nodes-base.httpRequestTool',
+						nodeType: 'resin-nodes-base.httpRequestTool',
 						nodeTypeVersion: 4.4,
 						nodeParameters: {},
 					},

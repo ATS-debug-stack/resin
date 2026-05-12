@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { mock } from 'jest-mock-extended';
-import { NodeOperationError, type INode } from 'n8n-workflow';
+import { NodeOperationError, type INode } from 'resin-workflow';
 
 import { testVersionedWebhookTriggerNode } from '@test/nodes/TriggerHelpers';
 
@@ -233,7 +233,7 @@ describe('FormTrigger', () => {
 					childNodes: [
 						{
 							name: 'Test Respond To Webhook',
-							type: 'n8n-nodes-base.respondToWebhook',
+							type: 'resin-nodes-base.respondToWebhook',
 							typeVersion: 1,
 							disabled: false,
 						},

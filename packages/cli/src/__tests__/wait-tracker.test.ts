@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/unbound-method */
-import { mockLogger } from '@n8n/backend-test-utils';
-import type { Project, IExecutionResponse, ExecutionRepository } from '@n8n/db';
+import { mockLogger } from '@resin/backend-test-utils';
+import type { Project, IExecutionResponse, ExecutionRepository } from '@resin/db';
 import { mock, captor } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
-import type { IWorkflowBase, IRun, INode, IExecuteData, ITaskData } from 'n8n-workflow';
-import { createDeferredPromise, createRunExecutionData, WAIT_INDEFINITELY } from 'n8n-workflow';
+import type { InstanceSettings } from 'resin-core';
+import type { IWorkflowBase, IRun, INode, IExecuteData, ITaskData } from 'resin-workflow';
+import { createDeferredPromise, createRunExecutionData, WAIT_INDEFINITELY } from 'resin-workflow';
 
 import type { ActiveExecutions } from '@/active-executions';
 import type { MultiMainSetup } from '@/scaling/multi-main-setup.ee';

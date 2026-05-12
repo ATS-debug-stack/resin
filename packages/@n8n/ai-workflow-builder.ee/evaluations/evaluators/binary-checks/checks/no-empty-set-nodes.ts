@@ -37,7 +37,7 @@ export const noEmptySetNodes: BinaryCheck = {
 
 		const emptySetNodes: string[] = [];
 		for (const node of workflow.nodes) {
-			if (node.type !== 'n8n-nodes-base.set') continue;
+			if (node.type !== 'resin-nodes-base.set') continue;
 
 			if (!hasSetNodeValues(node.parameters)) {
 				emptySetNodes.push(node.name);

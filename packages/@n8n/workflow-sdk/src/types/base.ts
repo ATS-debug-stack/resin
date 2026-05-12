@@ -106,18 +106,18 @@ export interface WorkflowSettings {
 }
 
 // =============================================================================
-// Internal: n8n-workflow type duplicates
+// Internal: resin-workflow type duplicates
 // =============================================================================
 
 /**
  * Generic value type for data objects
- * Duplicate of n8n-workflow GenericValue
+ * Duplicate of resin-workflow GenericValue
  */
 export type GenericValue = string | object | number | boolean | undefined | null;
 
 /**
  * Single connection target in n8n workflow
- * Duplicate of n8n-workflow IConnection
+ * Duplicate of resin-workflow IConnection
  */
 export interface IConnection {
 	node: string;
@@ -162,15 +162,15 @@ interface ErrorIndexNodeInfo {
  * with 1 as the fallback for community / unknown nodes.
  */
 export function resolveErrorOutputIndex(type: string, parameters?: IDataObject): number {
-	if (type === 'n8n-nodes-base.if') return 2; // trueBranch + falseBranch
-	if (type === 'n8n-nodes-base.switch') {
+	if (type === 'resin-nodes-base.if') return 2; // trueBranch + falseBranch
+	if (type === 'resin-nodes-base.switch') {
 		const rules = parameters?.rules as { rules?: unknown[]; values?: unknown[] } | undefined;
 		const rulesArray = rules?.rules ?? rules?.values;
 		const numCases = Array.isArray(rulesArray) ? rulesArray.length : 4;
 		return numCases + 1; // cases + fallback
 	}
-	if (type === 'n8n-nodes-base.splitInBatches') return 2; // done + loop
-	if (type === 'n8n-nodes-base.merge') return 1; // single output
+	if (type === 'resin-nodes-base.splitInBatches') return 2; // done + loop
+	if (type === 'resin-nodes-base.merge') return 1; // single output
 	return 1;
 }
 
@@ -504,7 +504,7 @@ export interface NodeInstance<TType extends string, TVersion extends string, TOu
 		outputIndex?: number,
 	): NodeChain<
 		NodeInstance<TType, TVersion, TOutput>,
-		NodeInstance<'n8n-nodes-base.if', string, T>
+		NodeInstance<'resin-nodes-base.if', string, T>
 	>;
 
 	to<T>(
@@ -512,7 +512,7 @@ export interface NodeInstance<TType extends string, TVersion extends string, TOu
 		outputIndex?: number,
 	): NodeChain<
 		NodeInstance<TType, TVersion, TOutput>,
-		NodeInstance<'n8n-nodes-base.switch', string, T>
+		NodeInstance<'resin-nodes-base.switch', string, T>
 	>;
 
 	to<T>(
@@ -605,12 +605,12 @@ export interface NodeChain<
 	to<T>(
 		target: IfElseBuilder<T>,
 		outputIndex?: number,
-	): NodeChain<THead, NodeInstance<'n8n-nodes-base.if', string, T>>;
+	): NodeChain<THead, NodeInstance<'resin-nodes-base.if', string, T>>;
 
 	to<T>(
 		target: SwitchCaseBuilder<T>,
 		outputIndex?: number,
-	): NodeChain<THead, NodeInstance<'n8n-nodes-base.switch', string, T>>;
+	): NodeChain<THead, NodeInstance<'resin-nodes-base.switch', string, T>>;
 
 	to<T>(target: SplitInBatchesBuilder<T>, outputIndex?: number): NodeChain<THead, TTail>;
 }
@@ -741,7 +741,7 @@ export interface IfElseConfig {
  * - array of NodeInstance: fan-out to multiple parallel targets
  */
 export interface IfElseComposite {
-	readonly ifNode: NodeInstance<'n8n-nodes-base.if', string, unknown>;
+	readonly ifNode: NodeInstance<'resin-nodes-base.if', string, unknown>;
 	readonly trueBranch:
 		| NodeInstance<string, string, unknown>
 		| Array<NodeInstance<string, string, unknown>>;
@@ -764,7 +764,7 @@ export interface SwitchCaseConfig {
  * Switch case composite
  */
 export interface SwitchCaseComposite {
-	readonly switchNode: NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+	readonly switchNode: NodeInstance<'resin-nodes-base.switch', string, unknown>;
 	/** Cases can be null (no connection), single node, or array (fan-out to multiple parallel nodes) */
 	readonly cases: Array<
 		NodeInstance<string, string, unknown> | Array<NodeInstance<string, string, unknown>> | null
@@ -831,7 +831,7 @@ export type SplitInBatchesTarget =
  *
  * @example
  * ```typescript
- * const ifNode = node({ type: 'n8n-nodes-base.if', version: 2.2, config: {...} });
+ * const ifNode = node({ type: 'resin-nodes-base.if', version: 2.2, config: {...} });
  * workflow('id', 'Test')
  *   .add(trigger)
  *   .to(ifNode.onTrue(trueHandler).onFalse(falseHandler))
@@ -841,7 +841,7 @@ export interface IfElseBuilder<TOutput = unknown> {
 	/** Marker for workflow-builder detection */
 	readonly _isIfElseBuilder: true;
 	/** The IF node this builder wraps */
-	readonly ifNode: NodeInstance<'n8n-nodes-base.if', string, TOutput>;
+	readonly ifNode: NodeInstance<'resin-nodes-base.if', string, TOutput>;
 	/** The true branch target (set via .onTrue()) */
 	readonly trueBranch: IfElseTarget;
 	/** The false branch target (set via .onFalse()) */
@@ -883,7 +883,7 @@ export interface IfElseBuilder<TOutput = unknown> {
 	to<T extends NodeInstance<string, string, unknown>>(
 		target: T | T[],
 		outputIndex?: number,
-	): NodeChain<NodeInstance<'n8n-nodes-base.if', string, TOutput>, T>;
+	): NodeChain<NodeInstance<'resin-nodes-base.if', string, TOutput>, T>;
 }
 
 /**
@@ -892,7 +892,7 @@ export interface IfElseBuilder<TOutput = unknown> {
  *
  * @example
  * ```typescript
- * const switchNode = node({ type: 'n8n-nodes-base.switch', version: 3.4, config: {...} });
+ * const switchNode = node({ type: 'resin-nodes-base.switch', version: 3.4, config: {...} });
  * workflow('id', 'Test')
  *   .add(trigger)
  *   .to(switchNode.onCase(0, caseA).onCase(1, caseB).onCase(2, caseC))
@@ -902,7 +902,7 @@ export interface SwitchCaseBuilder<TOutput = unknown> {
 	/** Marker for workflow-builder detection */
 	readonly _isSwitchCaseBuilder: true;
 	/** The Switch node this builder wraps */
-	readonly switchNode: NodeInstance<'n8n-nodes-base.switch', string, TOutput>;
+	readonly switchNode: NodeInstance<'resin-nodes-base.switch', string, TOutput>;
 	/** Map from output index to case target */
 	readonly caseMapping: Map<number, SwitchCaseTarget>;
 
@@ -921,7 +921,7 @@ export interface SwitchCaseBuilder<TOutput = unknown> {
 	to<T extends NodeInstance<string, string, unknown>>(
 		target: T | T[],
 		outputIndex?: number,
-	): NodeChain<NodeInstance<'n8n-nodes-base.switch', string, TOutput>, T>;
+	): NodeChain<NodeInstance<'resin-nodes-base.switch', string, TOutput>, T>;
 }
 
 // =============================================================================
@@ -948,7 +948,7 @@ export interface SplitInBatchesConfig extends NodeConfig {
 }
 
 export interface SplitInBatchesBuilder<TOutput = unknown> {
-	readonly sibNode: NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>;
+	readonly sibNode: NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>;
 
 	/**
 	 * Fluent API: Set the "each batch" branch target (output 1).
@@ -1033,8 +1033,8 @@ export interface WorkflowBuilder {
 	 *
 	 * @example
 	 * ```typescript
-	 * const sib = node({ type: 'n8n-nodes-base.splitInBatches', ... });
-	 * const mergeNode = node({ type: 'n8n-nodes-base.merge', ... });
+	 * const sib = node({ type: 'resin-nodes-base.splitInBatches', ... });
+	 * const mergeNode = node({ type: 'resin-nodes-base.merge', ... });
 	 *
 	 * workflow('id', 'Test')
 	 *   .add(sib)
@@ -1158,7 +1158,7 @@ export type StickyFn = (
 	content: string,
 	nodes?: Array<NodeInstance<string, string, unknown>>,
 	config?: StickyNoteConfig,
-) => NodeInstance<'n8n-nodes-base.stickyNote', 'v1', void>;
+) => NodeInstance<'resin-nodes-base.stickyNote', 'v1', void>;
 
 export type PlaceholderFn = (hint: string) => string;
 
@@ -1174,12 +1174,12 @@ export type IfElseFn = (
 
 export type SwitchCaseFn = (
 	config?: SwitchCaseConfig,
-) => NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+) => NodeInstance<'resin-nodes-base.switch', string, unknown>;
 
 export type SplitInBatchesFn = (
 	configOrNode:
 		| SplitInBatchesFactoryConfig
-		| NodeInstance<'n8n-nodes-base.splitInBatches', string, unknown>,
+		| NodeInstance<'resin-nodes-base.splitInBatches', string, unknown>,
 ) => SplitInBatchesBuilder<unknown>;
 
 // =============================================================================

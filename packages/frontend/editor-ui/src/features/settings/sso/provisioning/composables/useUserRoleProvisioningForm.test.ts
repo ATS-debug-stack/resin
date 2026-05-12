@@ -1,18 +1,18 @@
 import { createPinia, setActivePinia } from 'pinia';
 import { useUserRoleProvisioningForm } from './useUserRoleProvisioningForm';
-import * as provisioningApi from '@n8n/rest-api-client/api/provisioning';
-import * as roleMappingRuleApi from '@n8n/rest-api-client/api/roleMappingRule';
-import type { ProvisioningConfig } from '@n8n/rest-api-client/api/provisioning';
-import type { RoleMappingRuleResponse } from '@n8n/rest-api-client/api/roleMappingRule';
+import * as provisioningApi from '@resin/rest-api-client/api/provisioning';
+import * as roleMappingRuleApi from '@resin/rest-api-client/api/roleMappingRule';
+import type { ProvisioningConfig } from '@resin/rest-api-client/api/provisioning';
+import type { RoleMappingRuleResponse } from '@resin/rest-api-client/api/roleMappingRule';
 
-vi.mock('@n8n/rest-api-client/api/provisioning');
-vi.mock('@n8n/rest-api-client/api/roleMappingRule');
+vi.mock('@resin/rest-api-client/api/provisioning');
+vi.mock('@resin/rest-api-client/api/roleMappingRule');
 vi.mock('@/app/composables/useTelemetry', () => ({
 	useTelemetry: () => ({
 		track: vi.fn(),
 	}),
 }));
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({
 		restApiContext: {},
 		instanceId: 'test-instance-id',

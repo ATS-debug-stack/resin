@@ -14,8 +14,8 @@
  * trigger type — we don't configure it here.
  */
 import { ref, watch } from 'vue';
-import { N8nCheckbox, N8nInput, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nCheckbox, N8nInput, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 
 import type { AgentJsonToolRef } from '../types';
 

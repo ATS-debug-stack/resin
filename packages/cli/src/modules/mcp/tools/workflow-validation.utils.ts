@@ -1,5 +1,5 @@
-import type { User } from '@n8n/db';
-import type { Scope } from '@n8n/permissions';
+import type { User } from '@resin/db';
+import type { Scope } from '@resin/permissions';
 
 import type { WorkflowFinderService } from '@/workflows/workflow-finder.service';
 

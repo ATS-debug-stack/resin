@@ -1,6 +1,6 @@
 // Manual mock — must be declared before any imports that touch the mocked module.
 const mockGenerateCompactionSummary = jest.fn();
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	generateCompactionSummary: (...args: unknown[]) => mockGenerateCompactionSummary(...args),
 	// Inline the patchThread fallback path (getThreadById → update → updateThread)
 	patchThread: async (

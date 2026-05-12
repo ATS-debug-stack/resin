@@ -9,9 +9,9 @@ import {
 } from 'reka-ui';
 import { computed, inject, ref, useCssModule, watch, toRef } from 'vue';
 
-import Icon from '@n8n/design-system/components/N8nIcon/Icon.vue';
-import N8nLoading from '@n8n/design-system/components/N8nLoading';
-import N8nText from '@n8n/design-system/components/N8nText/Text.vue';
+import Icon from '@resin/design-system/components/N8nIcon/Icon.vue';
+import N8nLoading from '@resin/design-system/components/N8nLoading';
+import N8nText from '@resin/design-system/components/N8nText/Text.vue';
 
 import { useMenuKeyboardNavigation } from './composables/useMenuKeyboardNavigation';
 import {

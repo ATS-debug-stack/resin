@@ -8,7 +8,7 @@
  */
 
 import { createTool } from '@mastra/core/tools';
-import { plannedTaskArgSchema, taskListSchema } from '@n8n/api-types';
+import { plannedTaskArgSchema, taskListSchema } from '@resin/api-types';
 import { nanoid } from 'nanoid';
 import { z } from 'zod';
 

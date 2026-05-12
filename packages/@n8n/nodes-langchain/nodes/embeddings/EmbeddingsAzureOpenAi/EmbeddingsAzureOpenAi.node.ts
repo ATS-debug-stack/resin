@@ -1,12 +1,12 @@
 import { AzureOpenAIEmbeddings } from '@langchain/openai';
-import { getProxyAgent, logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getProxyAgent, logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 import {
 	NodeConnectionTypes,
 	type INodeType,
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class EmbeddingsAzureOpenAi implements INodeType {
 	description: INodeTypeDescription = {

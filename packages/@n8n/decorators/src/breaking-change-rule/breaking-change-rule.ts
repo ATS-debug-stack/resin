@@ -1,4 +1,4 @@
-import { Container, Service } from '@n8n/di';
+import { Container, Service } from '@resin/di';
 
 import { BreakingChangeRuleMetadata } from './breaking-change-rule-metadata';
 

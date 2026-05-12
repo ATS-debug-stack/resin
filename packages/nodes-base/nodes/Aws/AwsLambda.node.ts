@@ -7,8 +7,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeApiError } from 'resin-workflow';
 
 import { awsApiRequestREST } from './GenericFunctions';
 import { awsNodeAuthOptions, awsNodeCredentials } from './utils';

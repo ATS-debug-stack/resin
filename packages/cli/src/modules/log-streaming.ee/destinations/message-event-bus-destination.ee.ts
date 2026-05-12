@@ -1,14 +1,14 @@
-import { Logger } from '@n8n/backend-common';
+import { Logger } from '@resin/backend-common';
 import {
 	LOGSTREAMING_CB_DEFAULT_CONCURRENT_HALF_OPEN_REQUESTS,
 	LOGSTREAMING_CB_DEFAULT_FAILURE_WINDOW_MS,
 	LOGSTREAMING_CB_DEFAULT_HALF_OPEN_REQUESTS,
 	LOGSTREAMING_CB_DEFAULT_MAX_DURATION_MS,
 	LOGSTREAMING_CB_DEFAULT_MAX_FAILURES,
-} from '@n8n/constants';
-import { Container } from '@n8n/di';
-import type { INodeCredentials, MessageEventBusDestinationOptions } from 'n8n-workflow';
-import { MessageEventBusDestinationTypeNames } from 'n8n-workflow';
+} from '@resin/constants';
+import { Container } from '@resin/di';
+import type { INodeCredentials, MessageEventBusDestinationOptions } from 'resin-workflow';
+import { MessageEventBusDestinationTypeNames } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import type { AbstractEventMessage } from '@/eventbus/event-message-classes/abstract-event-message';

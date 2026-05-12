@@ -23,7 +23,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -31,7 +31,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'node-a',
 						name: 'Source A',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [200, -100],
 						parameters: {},
@@ -39,7 +39,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'node-b',
 						name: 'Source B',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [200, 100],
 						parameters: {},
@@ -47,7 +47,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'merge-1',
 						name: 'Merge',
-						type: 'n8n-nodes-base.merge',
+						type: 'resin-nodes-base.merge',
 						typeVersion: 3,
 						position: [400, 0],
 						parameters: { mode: 'combine' },
@@ -98,7 +98,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -106,7 +106,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'if-1',
 						name: 'IF',
-						type: 'n8n-nodes-base.if',
+						type: 'resin-nodes-base.if',
 						typeVersion: 2,
 						position: [200, 0],
 						parameters: {},
@@ -114,7 +114,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'true-a',
 						name: 'True A',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, -100],
 						parameters: {},
@@ -122,7 +122,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'true-b',
 						name: 'True B',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 0],
 						parameters: {},
@@ -130,7 +130,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'false-1',
 						name: 'False Handler',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 100],
 						parameters: {},
@@ -177,7 +177,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -185,7 +185,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'if-1',
 						name: 'IF',
-						type: 'n8n-nodes-base.if',
+						type: 'resin-nodes-base.if',
 						typeVersion: 2,
 						position: [200, 0],
 						parameters: {},
@@ -193,7 +193,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'true-1',
 						name: 'True Handler',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, -100],
 						parameters: {},
@@ -201,7 +201,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'false-1',
 						name: 'False Handler',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 100],
 						parameters: {},
@@ -209,7 +209,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'convergence-1',
 						name: 'Convergence',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [600, 0],
 						parameters: {},
@@ -255,7 +255,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -263,7 +263,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'check-1',
 						name: 'Check Status',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [200, 0],
 						parameters: { url: 'https://api.example.com/status' },
@@ -271,7 +271,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'if-1',
 						name: 'Is Done',
-						type: 'n8n-nodes-base.if',
+						type: 'resin-nodes-base.if',
 						typeVersion: 2,
 						position: [400, 0],
 						parameters: {},
@@ -279,7 +279,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'wait-1',
 						name: 'Wait',
-						type: 'n8n-nodes-base.wait',
+						type: 'resin-nodes-base.wait',
 						typeVersion: 1.1,
 						position: [600, 100],
 						parameters: { amount: 30, unit: 'seconds' },
@@ -287,7 +287,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'result-1',
 						name: 'Get Result',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [600, -100],
 						parameters: {},
@@ -329,7 +329,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -337,7 +337,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'switch-1',
 						name: 'Router',
-						type: 'n8n-nodes-base.switch',
+						type: 'resin-nodes-base.switch',
 						typeVersion: 3,
 						position: [200, 0],
 						parameters: { mode: 'rules' },
@@ -345,7 +345,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'case-0',
 						name: 'Case 0',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, -100],
 						parameters: {},
@@ -353,7 +353,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'case-3',
 						name: 'Case 3',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 100],
 						parameters: {},
@@ -400,7 +400,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -408,7 +408,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'if-1',
 						name: 'IF',
-						type: 'n8n-nodes-base.if',
+						type: 'resin-nodes-base.if',
 						typeVersion: 2,
 						position: [200, 0],
 						parameters: {},
@@ -416,7 +416,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'true-1',
 						name: 'True Handler',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 0],
 						parameters: {},
@@ -457,7 +457,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'manual-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -465,7 +465,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'schedule-1',
 						name: 'Schedule Trigger',
-						type: 'n8n-nodes-base.scheduleTrigger',
+						type: 'resin-nodes-base.scheduleTrigger',
 						typeVersion: 1.1,
 						position: [0, 200],
 						parameters: {},
@@ -473,7 +473,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'shared-1',
 						name: 'Shared Node',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [200, 100],
 						parameters: {},
@@ -511,7 +511,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -519,7 +519,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'classifier-1',
 						name: 'Classifier',
-						type: '@n8n/n8n-nodes-langchain.textClassifier',
+						type: '@resin/n8n-nodes-langchain.textClassifier',
 						typeVersion: 1,
 						position: [200, 0],
 						parameters: {},
@@ -527,7 +527,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'cat-a',
 						name: 'Category A',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, -100],
 						parameters: {},
@@ -535,7 +535,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'cat-b',
 						name: 'Category B',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 0],
 						parameters: {},
@@ -543,7 +543,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'cat-c',
 						name: 'Category C',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 100],
 						parameters: {},
@@ -582,7 +582,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -590,7 +590,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'sib-1',
 						name: 'Split In Batches',
-						type: 'n8n-nodes-base.splitInBatches',
+						type: 'resin-nodes-base.splitInBatches',
 						typeVersion: 3,
 						position: [200, 0],
 						parameters: { batchSize: 10 },
@@ -598,7 +598,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'process-1',
 						name: 'Process Item',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 100],
 						parameters: {},
@@ -606,7 +606,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'done-1',
 						name: 'Done',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, -100],
 						parameters: {},
@@ -650,7 +650,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -658,7 +658,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'http-1',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [200, 0],
 						parameters: { url: 'https://api.example.com' },
@@ -667,7 +667,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'success-1',
 						name: 'Success Handler',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, -100],
 						parameters: {},
@@ -675,7 +675,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'error-1',
 						name: 'Error Handler',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 100],
 						parameters: {},
@@ -718,7 +718,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -726,7 +726,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [400, 0],
 						parameters: { promptType: 'define', text: 'You are helpful' },
@@ -734,7 +734,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'model-1',
 						name: 'OpenAI Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [200, 200],
 						parameters: { model: 'gpt-4' },
@@ -742,7 +742,7 @@ describe('Edge Case Roundtrip Tests', () => {
 					{
 						id: 'tool-1',
 						name: 'HTTP Tool',
-						type: '@n8n/n8n-nodes-langchain.toolHttpRequest',
+						type: '@resin/n8n-nodes-langchain.toolHttpRequest',
 						typeVersion: 1.1,
 						position: [200, 400],
 						parameters: {},
@@ -775,14 +775,14 @@ describe('Edge Case Roundtrip Tests', () => {
 	describe('Edge Case: Apostrophes in single-quoted output strings', () => {
 		it('should handle English contractions in single-quoted strings', () => {
 			const code = `const t = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start', position: [0, 0] },
   output: [{}]
 });
 
 const n = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: { name: 'Process', parameters: {}, position: [200, 0] },
   output: [{ text: 'I\\'ve arrived and it\\'s great' }]
@@ -796,14 +796,14 @@ export default workflow('test', 'Test').add(t.to(n));`;
 		it('should escape unescaped contractions in single-quoted output strings', () => {
 			// This simulates AI-generated code with unescaped contractions
 			const code = `const t = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start', position: [0, 0] },
   output: [{}]
 });
 
 const n = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: { name: 'Process', parameters: {}, position: [200, 0] },
   output: [{ text: 'I've arrived and it's great' }]
@@ -816,14 +816,14 @@ export default workflow('test', 'Test').add(t.to(n));`;
 
 		it('should handle multiple contractions in one string', () => {
 			const code = `const t = trigger({
-  type: 'n8n-nodes-base.manualTrigger',
+  type: 'resin-nodes-base.manualTrigger',
   version: 1,
   config: { name: 'Start', position: [0, 0] },
   output: [{}]
 });
 
 const n = node({
-  type: 'n8n-nodes-base.set',
+  type: 'resin-nodes-base.set',
   version: 3.4,
   config: { name: 'Process', parameters: {}, position: [200, 0] },
   output: [{ text: 'They don't know what they're doing' }]
@@ -846,7 +846,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -854,7 +854,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'set-1',
 						name: 'Process',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [200, 0],
 						parameters: {},
@@ -862,7 +862,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'set-2',
 						name: 'Process 1', // Already unique
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [400, 0],
 						parameters: {},
@@ -899,7 +899,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -907,7 +907,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'http-1',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [200, 0],
 						parameters: { url: 'https://api.example.com' },
@@ -916,7 +916,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'if-1',
 						name: 'Error IF',
-						type: 'n8n-nodes-base.if',
+						type: 'resin-nodes-base.if',
 						typeVersion: 2,
 						position: [400, 100],
 						parameters: {},
@@ -924,7 +924,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'true-1',
 						name: 'Retry',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [600, 0],
 						parameters: {},
@@ -932,7 +932,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'false-1',
 						name: 'Log Error',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [600, 200],
 						parameters: {},
@@ -976,7 +976,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -984,7 +984,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'http-1',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [200, 0],
 						parameters: { url: 'https://api.example.com' },
@@ -993,7 +993,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'switch-1',
 						name: 'Error Router',
-						type: 'n8n-nodes-base.switch',
+						type: 'resin-nodes-base.switch',
 						typeVersion: 3,
 						position: [400, 100],
 						parameters: { mode: 'rules' },
@@ -1001,7 +1001,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'case-0',
 						name: 'Handle 404',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [600, 0],
 						parameters: {},
@@ -1009,7 +1009,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'case-1',
 						name: 'Handle 500',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [600, 200],
 						parameters: {},
@@ -1053,7 +1053,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'trigger-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0],
 						parameters: {},
@@ -1061,7 +1061,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'http-1',
 						name: 'HTTP Request',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [200, 0],
 						parameters: { url: 'https://api.example.com' },
@@ -1070,7 +1070,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'sib-1',
 						name: 'Error Batcher',
-						type: 'n8n-nodes-base.splitInBatches',
+						type: 'resin-nodes-base.splitInBatches',
 						typeVersion: 3,
 						position: [400, 100],
 						parameters: { batchSize: 10 },
@@ -1078,7 +1078,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'done-1',
 						name: 'All Done',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [600, 0],
 						parameters: {},
@@ -1086,7 +1086,7 @@ export default workflow('test', 'Test').add(t.to(n));`;
 					{
 						id: 'each-1',
 						name: 'Process Each',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 3.4,
 						position: [600, 200],
 						parameters: {},

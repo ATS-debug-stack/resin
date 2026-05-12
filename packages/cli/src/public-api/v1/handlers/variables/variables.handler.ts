@@ -1,6 +1,6 @@
-import { CreateVariableRequestDto, UpdateVariableRequestDto } from '@n8n/api-types';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { CreateVariableRequestDto, UpdateVariableRequestDto } from '@resin/api-types';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { VariablesController } from '@/environments.ee/variables/variables.controller.ee';
 import { VariablesService } from '@/environments.ee/variables/variables.service.ee';

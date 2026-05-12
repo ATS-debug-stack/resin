@@ -9,7 +9,7 @@ const JAEGER_UI_PORT = 16686;
 const N8N_TRACER_INGEST_PORT = 8889;
 const N8N_TRACER_HEALTH_PORT = 8888;
 const JAEGER_HOSTNAME = 'jaeger';
-const N8N_TRACER_HOSTNAME = 'n8n-tracer';
+const N8N_TRACER_HOSTNAME = 'resin-tracer';
 
 export interface TracingConfig {
 	deploymentMode?: 'scaling';
@@ -77,7 +77,7 @@ export const tracing: Service<TracingResult> = {
 			.withNetworkAliases(N8N_TRACER_HOSTNAME)
 			.withLabels({
 				'com.docker.compose.project': projectName,
-				'com.docker.compose.service': 'n8n-tracer',
+				'com.docker.compose.service': 'resin-tracer',
 			})
 			.withExposedPorts(N8N_TRACER_INGEST_PORT, N8N_TRACER_HEALTH_PORT)
 			.withEnvironment({
@@ -157,7 +157,7 @@ export class TracingHelper {
 		return this.meta.tracer.ingestUrl;
 	}
 
-	getWebhookConfig(label = 'n8n-tracer'): TracerWebhookConfig {
+	getWebhookConfig(label = 'resin-tracer'): TracerWebhookConfig {
 		return {
 			url: this.meta.tracer.ingestUrl,
 			method: 'POST',

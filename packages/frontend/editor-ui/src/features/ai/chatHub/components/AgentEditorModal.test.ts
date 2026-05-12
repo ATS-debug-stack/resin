@@ -13,11 +13,11 @@ import { waitFor, fireEvent, within } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import { MODAL_CONFIRM } from '@/app/constants';
 import { ref } from 'vue';
-import type { ChatModelDto, FrontendModuleSettings } from '@n8n/api-types';
+import type { ChatModelDto, FrontendModuleSettings } from '@resin/api-types';
 import { createMockAgentDto, createMockKnowledgeItem } from '@/features/ai/chatHub/__test__/data';
 
-vi.mock('@n8n/i18n', async (importOriginal) => {
-	const actual = await importOriginal<typeof import('@n8n/i18n')>();
+vi.mock('@resin/i18n', async (importOriginal) => {
+	const actual = await importOriginal<typeof import('@resin/i18n')>();
 	const i18n = {
 		baseText: (key: string) => key,
 		nodeText: () => ({
@@ -77,7 +77,7 @@ vi.mock('@/features/ai/chatHub/chat.api', () => ({
 	deleteAgentFileApi: (...args: unknown[]) => mockDeleteAgentFileApi(...args),
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({ restApiContext: {} }),
 }));
 

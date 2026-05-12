@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import type { IDataObject } from 'n8n-workflow';
-import { UserError } from 'n8n-workflow';
+import { Service } from '@resin/di';
+import type { IDataObject } from 'resin-workflow';
+import { UserError } from 'resin-workflow';
 
 import { OAuthJweKeyService } from './oauth-jwe-key.service';
 import { decryptJweToken, isJweToken } from './oauth-jwe.utils';

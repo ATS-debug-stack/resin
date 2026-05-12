@@ -1,4 +1,4 @@
-import type { ExecutionStatus, WorkflowExecuteMode, INode } from 'n8n-workflow';
+import type { ExecutionStatus, WorkflowExecuteMode, INode } from 'resin-workflow';
 
 import type { TracingContext } from './tracing-context';
 

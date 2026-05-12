@@ -1,8 +1,8 @@
 import { NodeTestHarness } from '@nodes-testing/node-test-harness';
 import { mockDeep } from 'jest-mock-extended';
 import get from 'lodash/get';
-import { constructExecutionMetaData, returnJsonArray } from 'n8n-core';
-import type { IDataObject, IExecuteFunctions } from 'n8n-workflow';
+import { constructExecutionMetaData, returnJsonArray } from 'resin-core';
+import type { IDataObject, IExecuteFunctions } from 'resin-workflow';
 import nock from 'nock';
 
 import { GraphQL } from '../GraphQL.node';
@@ -26,7 +26,7 @@ describe('GraphQL Node', () => {
 							{
 								id: '1',
 								attributes: {
-									name: 'n8n-nodes-base.activeCampaign',
+									name: 'resin-nodes-base.activeCampaign',
 									displayName: 'ActiveCampaign',
 									description: 'Create and edit data in ActiveCampaign',
 									group: '["transform"]',

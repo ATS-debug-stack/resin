@@ -1,7 +1,7 @@
 import { mock } from 'jest-mock-extended';
-import type { StorageConfig } from 'n8n-core';
-import { NodeOperationError } from 'n8n-workflow';
-import type { INode, WorkflowExecuteMode } from 'n8n-workflow';
+import type { StorageConfig } from 'resin-core';
+import { NodeOperationError } from 'resin-workflow';
+import type { INode, WorkflowExecuteMode } from 'resin-workflow';
 
 import { FailedRunFactory } from '../failed-run-factory';
 

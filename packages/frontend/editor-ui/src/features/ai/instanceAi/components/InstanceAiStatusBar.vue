@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, computed, watch, onUnmounted } from 'vue';
-import { useI18n } from '@n8n/i18n';
-import { N8nIcon } from '@n8n/design-system';
-import type { InstanceAiMessage } from '@n8n/api-types';
+import { useI18n } from '@resin/i18n';
+import { N8nIcon } from '@resin/design-system';
+import type { InstanceAiMessage } from '@resin/api-types';
 import { useThread } from '../instanceAi.store';
 import { useToolLabel } from '../toolLabels';
 
@@ -121,7 +121,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" module>
-@use '@n8n/design-system/css/mixins/motion';
+@use '@resin/design-system/css/mixins/motion';
 
 .bar {
 	display: flex;

@@ -1,8 +1,8 @@
-import { Time } from '@n8n/constants';
-import { Post, RestController } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { Time } from '@resin/constants';
+import { Post, RestController } from '@resin/decorators';
+import { Container } from '@resin/di';
 import type { Response } from 'express';
-import { ErrorReporter } from 'n8n-core';
+import { ErrorReporter } from 'resin-core';
 import { z, ZodError } from 'zod';
 
 import { AuthError } from '@/errors/response-errors/auth.error';

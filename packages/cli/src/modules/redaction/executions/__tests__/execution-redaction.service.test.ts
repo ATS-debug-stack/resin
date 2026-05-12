@@ -1,7 +1,7 @@
-import { LicenseState, Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
-import type { IRunExecutionData, ITaskData, WorkflowExecuteMode } from 'n8n-workflow';
+import { LicenseState, Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
+import type { IRunExecutionData, ITaskData, WorkflowExecuteMode } from 'resin-workflow';
 import { mock } from 'jest-mock-extended';
 
 import type {

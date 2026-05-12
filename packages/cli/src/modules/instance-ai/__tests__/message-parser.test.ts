@@ -1,4 +1,4 @@
-import type { InstanceAiAgentNode } from '@n8n/api-types';
+import type { InstanceAiAgentNode } from '@resin/api-types';
 
 import { parseStoredMessages } from '../message-parser';
 import type { MastraDBMessage } from '../message-parser';

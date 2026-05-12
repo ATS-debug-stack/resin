@@ -24,9 +24,9 @@ import { useViewStacks } from '../../composables/useViewStacks';
 
 import ItemsRenderer from '../Renderers/ItemsRenderer.vue';
 import CategorizedItemsRenderer from '../Renderers/CategorizedItemsRenderer.vue';
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from 'resin-workflow';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useNodeCreatorStore } from '@/features/shared/nodeCreator/nodeCreator.store';
 import OrderSwitcher from './../OrderSwitcher.vue';
 import { isNodePreviewKey } from '../../nodeCreator.utils';
@@ -37,7 +37,7 @@ import { useCalloutHelpers } from '@/app/composables/useCalloutHelpers';
 import { useQuickConnect } from '@/features/credentials/quickConnect/composables/useQuickConnect';
 import QuickConnectBanner from '@/features/credentials/quickConnect/components/QuickConnectBanner.vue';
 
-import { N8nCallout, N8nInfoTip } from '@n8n/design-system';
+import { N8nCallout, N8nInfoTip } from '@resin/design-system';
 const emit = defineEmits<{
 	nodeTypeSelected: [value: NodeTypeSelectedPayload[]];
 }>();

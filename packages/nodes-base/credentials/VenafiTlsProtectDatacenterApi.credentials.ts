@@ -5,7 +5,7 @@ import type {
 	IHttpRequestHelper,
 	IHttpRequestOptions,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export class VenafiTlsProtectDatacenterApi implements ICredentialType {
 	name = 'venafiTlsProtectDatacenterApi';

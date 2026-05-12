@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { ButtonVariant, UserAction } from '@n8n/design-system';
-import type { IUser } from 'n8n-workflow';
+import type { ButtonVariant, UserAction } from '@resin/design-system';
+import type { IUser } from 'resin-workflow';
 import { useTemplateRef } from 'vue';
 
-import { N8nActionToggle, N8nIconButton } from '@n8n/design-system';
+import { N8nActionToggle, N8nIconButton } from '@resin/design-system';
 
 defineProps<{
 	actions: Array<UserAction<IUser>>;

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { N8nIcon, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import type { AgentSseEvent } from '@n8n/api-types';
+import { N8nIcon, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
+import type { AgentSseEvent } from '@resin/api-types';
 import { formatToolNameForDisplay } from '../utils/toolDisplayName';
 
 const props = defineProps<{
@@ -84,7 +84,7 @@ async function streamBuild(message: string) {
 	emit('update:streaming', true);
 
 	const { baseUrl } = rootStore.restApiContext;
-	const browserId = localStorage.getItem('n8n-browserId') ?? '';
+	const browserId = localStorage.getItem('resin-browserId') ?? '';
 	const url = `${baseUrl}/projects/${props.projectId}/agents/v2/${props.agentId}/build`;
 	const state: StreamState = { textBuffer: '', doneSeen: false };
 

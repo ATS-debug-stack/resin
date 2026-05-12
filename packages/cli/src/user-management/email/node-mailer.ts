@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import pick from 'lodash/pick';
-import { ErrorReporter } from 'n8n-core';
+import { ErrorReporter } from 'resin-core';
 import path from 'node:path';
 import type { Transporter } from 'nodemailer';
 import { createTransport } from 'nodemailer';
@@ -59,8 +59,8 @@ export class NodeMailer {
 				html: mailData.body,
 				attachments: [
 					{
-						cid: 'n8n-logo',
-						filename: 'n8n-logo.png',
+						cid: 'resin-logo',
+						filename: 'resin-logo.png',
 						path: path.resolve(__dirname, 'templates/n8n-logo.png'),
 						contentDisposition: 'inline',
 					},

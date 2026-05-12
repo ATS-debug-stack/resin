@@ -10,7 +10,7 @@ const STREAM_SEPARATOR = '⧉⇋⇋➽⌑⧉§§\n';
 const telegramNode = {
 	id: 'telegram-1',
 	name: 'Telegram',
-	type: 'n8n-nodes-base.telegram',
+	type: 'resin-nodes-base.telegram',
 	typeVersion: 1.2,
 	position: [440, 0],
 	parameters: {
@@ -27,7 +27,7 @@ const telegramNode = {
 const scheduleTriggerNode = {
 	id: 'schedule-trigger-1',
 	name: 'Schedule Trigger',
-	type: 'n8n-nodes-base.scheduleTrigger',
+	type: 'resin-nodes-base.scheduleTrigger',
 	typeVersion: 1.2,
 	position: [0, 0],
 	parameters: {
@@ -41,7 +41,7 @@ const scheduleTriggerNode = {
 const agentNode = {
 	id: 'agent-1',
 	name: 'AI Agent',
-	type: '@n8n/n8n-nodes-langchain.agent',
+	type: '@resin/n8n-nodes-langchain.agent',
 	typeVersion: 2,
 	position: [220, 0] as [number, number],
 	parameters: {
@@ -56,7 +56,7 @@ const agentNode = {
 const openAiModelNode = {
 	id: 'openai-model-1',
 	name: 'OpenAI Chat Model',
-	type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+	type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 	typeVersion: 1.2,
 	position: [220, 200] as [number, number],
 	parameters: {
@@ -72,7 +72,7 @@ const openAiModelNode = {
 const slackNode = {
 	id: 'slack-1',
 	name: 'Slack',
-	type: 'n8n-nodes-base.slack',
+	type: 'resin-nodes-base.slack',
 	typeVersion: 2.2,
 	position: [220, 0] as [number, number],
 	parameters: {
@@ -225,7 +225,7 @@ export function createBuilderResponseMultipleTriggers(): string {
 			{
 				id: 'slack-1',
 				name: 'Slack',
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				typeVersion: 2.2,
 				position: [220, 0],
 				parameters: {
@@ -239,7 +239,7 @@ export function createBuilderResponseMultipleTriggers(): string {
 			{
 				id: 'telegram-trigger-1',
 				name: 'Telegram Listener',
-				type: 'n8n-nodes-base.telegramTrigger',
+				type: 'resin-nodes-base.telegramTrigger',
 				typeVersion: 1.2,
 				position: [0, 300],
 				parameters: {
@@ -269,7 +269,7 @@ export function createBuilderResponseSharedCredential(): string {
 			{
 				id: 'slack-alerts',
 				name: 'Slack Alerts',
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				typeVersion: 2.2,
 				position: [220, 0],
 				parameters: {
@@ -283,7 +283,7 @@ export function createBuilderResponseSharedCredential(): string {
 			{
 				id: 'slack-reports',
 				name: 'Slack Reports',
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				typeVersion: 2.2,
 				position: [440, 0],
 				parameters: {
@@ -319,7 +319,7 @@ export function createBuilderResponseBranchingWorkflow(): string {
 			{
 				id: 'if-1',
 				name: 'Check Condition',
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				typeVersion: 2,
 				position: [220, 0],
 				parameters: {
@@ -339,7 +339,7 @@ export function createBuilderResponseBranchingWorkflow(): string {
 			{
 				id: 'slack-1',
 				name: 'Slack Notification',
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				typeVersion: 2.2,
 				position: [440, -100],
 				parameters: {
@@ -353,7 +353,7 @@ export function createBuilderResponseBranchingWorkflow(): string {
 			{
 				id: 'telegram-1',
 				name: 'Telegram Fallback',
-				type: 'n8n-nodes-base.telegram',
+				type: 'resin-nodes-base.telegram',
 				typeVersion: 1.2,
 				position: [440, 100],
 				parameters: {

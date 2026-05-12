@@ -1,5 +1,5 @@
-import { NodeConnectionTypes } from 'n8n-workflow';
-import type { INodePropertyOptions } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
+import type { INodePropertyOptions } from 'resin-workflow';
 
 import type { NodeOperationMode } from './types';
 

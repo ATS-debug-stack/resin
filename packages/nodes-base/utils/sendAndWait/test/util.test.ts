@@ -5,8 +5,8 @@ import type {
 	INodeProperties,
 	IWebhookFunctions,
 	IWorkflowSettings,
-} from 'n8n-workflow';
-import { NodeOperationError, WAIT_INDEFINITELY } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, WAIT_INDEFINITELY } from 'resin-workflow';
 
 import { configureWaitTillDate } from '../configureWaitTillDate.util';
 import {

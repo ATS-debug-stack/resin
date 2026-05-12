@@ -1,5 +1,5 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { ProjectRepository, User } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { ProjectRepository, User } from '@resin/db';
 
 import { createSearchProjectsTool } from '../tools/search-projects.tool';
 

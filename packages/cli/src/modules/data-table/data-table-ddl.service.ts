@@ -1,7 +1,7 @@
-import { CreateTable, DslColumn, withTransaction } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { DataSource, DataSourceOptions, EntityManager } from '@n8n/typeorm';
-import { UnexpectedError } from 'n8n-workflow';
+import { CreateTable, DslColumn, withTransaction } from '@resin/db';
+import { Service } from '@resin/di';
+import { DataSource, DataSourceOptions, EntityManager } from '@resin/typeorm';
+import { UnexpectedError } from 'resin-workflow';
 
 import { DataTableColumn } from './data-table-column.entity';
 import {

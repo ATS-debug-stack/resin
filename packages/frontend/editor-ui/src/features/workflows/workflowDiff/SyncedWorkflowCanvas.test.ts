@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { defineComponent, h, ref } from 'vue';
 import { createTestingPinia } from '@pinia/testing';
 import { render } from '@testing-library/vue';
-import type { EventBus } from '@n8n/utils/event-bus';
+import type { EventBus } from '@resin/utils/event-bus';
 import type { CanvasEventBusEvents } from '@/features/workflows/canvas/canvas.types';
 
 // Mock useVueFlow - capture onNodesInitialized callback and updateNode spy

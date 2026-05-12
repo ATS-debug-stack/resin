@@ -6,9 +6,9 @@ import 'vue-router';
 import type { VNode, ComponentPublicInstance } from 'vue';
 import type { PartialDeep } from 'type-fest';
 import type { ExternalHooks } from '@/app/types/externalHooks';
-import type { FrontendSettings } from '@n8n/api-types';
+import type { FrontendSettings } from '@resin/api-types';
 import type { Plugin as PrettierPlugin } from 'prettier';
-import type { I18nClass } from '@n8n/i18n';
+import type { I18nClass } from '@resin/i18n';
 import type { Route, Router, RouteLocation } from 'vue-router';
 import type { Telemetry } from '@/app/plugins/telemetry';
 import type { VIEWS } from '@/app/constants';
@@ -50,7 +50,7 @@ declare global {
 	interface Window {
 		BASE_PATH: string;
 		REST_ENDPOINT: string;
-		n8nExternalHooks?: PartialDeep<ExternalHooks>;
+		resinExternalHooks?: PartialDeep<ExternalHooks>;
 		preventNodeViewBeforeUnload?: boolean;
 		maxPinnedDataSize?: number;
 	}

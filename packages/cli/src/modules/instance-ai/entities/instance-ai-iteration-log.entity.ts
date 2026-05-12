@@ -1,5 +1,5 @@
-import { WithTimestamps } from '@n8n/db';
-import { Column, Entity, Index, PrimaryColumn } from '@n8n/typeorm';
+import { WithTimestamps } from '@resin/db';
+import { Column, Entity, Index, PrimaryColumn } from '@resin/typeorm';
 
 @Entity({ name: 'instance_ai_iteration_logs' })
 @Index(['threadId', 'taskKey', 'createdAt'])

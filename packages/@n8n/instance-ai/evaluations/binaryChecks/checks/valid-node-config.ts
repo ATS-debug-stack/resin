@@ -1,5 +1,5 @@
-import { validateWorkflow } from '@n8n/workflow-sdk';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import { validateWorkflow } from '@resin/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 import type { WorkflowResponse } from '../../clients/n8n-client';
 import type { BinaryCheck } from '../types';

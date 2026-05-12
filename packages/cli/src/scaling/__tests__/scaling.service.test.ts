@@ -1,11 +1,11 @@
-import { mockLogger, mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { ExecutionRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { mockLogger, mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { ExecutionRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import * as BullModule from 'bull';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
-import { ApplicationError } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { ApplicationError } from 'resin-workflow';
 
 import type { ActiveExecutions } from '@/active-executions';
 

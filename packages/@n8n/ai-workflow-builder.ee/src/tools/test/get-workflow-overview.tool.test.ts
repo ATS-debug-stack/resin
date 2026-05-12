@@ -48,7 +48,7 @@ describe('GetWorkflowOverviewTool', () => {
 	describe('mermaid format', () => {
 		it('should return mermaid diagram for single node workflow', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'node1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'node1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 
@@ -67,12 +67,12 @@ describe('GetWorkflowOverviewTool', () => {
 
 		it('should return mermaid diagram showing flow for multi-node connected workflow', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'trigger1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'trigger1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 				createNode({
 					id: 'http1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 				}),
 			]);
 			workflow.connections = {
@@ -103,7 +103,7 @@ describe('GetWorkflowOverviewTool', () => {
 				createNode({
 					id: 'code1',
 					name: 'Code',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					parameters: { jsCode: 'return items;' },
 				}),
 			]);
@@ -122,8 +122,8 @@ describe('GetWorkflowOverviewTool', () => {
 	describe('summary format', () => {
 		it('should return summary format output with node list', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'trigger1', name: 'Webhook', type: 'n8n-nodes-base.webhook' }),
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'trigger1', name: 'Webhook', type: 'resin-nodes-base.webhook' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 
@@ -146,7 +146,7 @@ describe('GetWorkflowOverviewTool', () => {
 				createNode({
 					id: 'code1',
 					name: 'Code',
-					type: 'n8n-nodes-base.code',
+					type: 'resin-nodes-base.code',
 					parameters: { jsCode: 'return items;' },
 				}),
 			]);
@@ -166,7 +166,7 @@ describe('GetWorkflowOverviewTool', () => {
 	describe('trigger node detection', () => {
 		it('should detect webhook trigger node', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'trigger1', name: 'My Webhook', type: 'n8n-nodes-base.webhook' }),
+				createNode({ id: 'trigger1', name: 'My Webhook', type: 'resin-nodes-base.webhook' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 
@@ -184,7 +184,7 @@ describe('GetWorkflowOverviewTool', () => {
 				createNode({
 					id: 'trigger1',
 					name: 'Manual Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 				}),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
@@ -200,7 +200,7 @@ describe('GetWorkflowOverviewTool', () => {
 
 		it('should show no trigger when workflow has none', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 
@@ -220,12 +220,12 @@ describe('GetWorkflowOverviewTool', () => {
 				createNode({
 					id: 'agent1',
 					name: 'AI Agent',
-					type: '@n8n/n8n-nodes-langchain.agent',
+					type: '@resin/n8n-nodes-langchain.agent',
 				}),
 				createNode({
 					id: 'model1',
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				}),
 			]);
 			setupAIWorkflowConnections(workflow, 'OpenAI Model', 'AI Agent');
@@ -245,7 +245,7 @@ describe('GetWorkflowOverviewTool', () => {
 	describe('default values', () => {
 		it('should use mermaid format by default', async () => {
 			const workflow = createWorkflow([
-				createNode({ id: 'code1', name: 'Code', type: 'n8n-nodes-base.code' }),
+				createNode({ id: 'code1', name: 'Code', type: 'resin-nodes-base.code' }),
 			]);
 			setupWorkflowState(mockGetCurrentTaskInput, workflow);
 

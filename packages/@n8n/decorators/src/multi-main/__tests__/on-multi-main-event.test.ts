@@ -1,4 +1,4 @@
-import { Container, Service } from '@n8n/di';
+import { Container, Service } from '@resin/di';
 import { EventEmitter } from 'node:events';
 
 import { NonMethodError } from '../../errors';

@@ -1,5 +1,5 @@
 import { getCurrentTaskInput } from '@langchain/langgraph';
-import type { INode, IConnection } from 'n8n-workflow';
+import type { INode, IConnection } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '../../types/workflow';
 import { applyOperations } from '../../utils/operations-processor';

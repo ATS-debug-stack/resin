@@ -1,19 +1,19 @@
 /* eslint-disable id-denylist */
 /* eslint-disable @typescript-eslint/unbound-method */
 
-import type { DatabaseConfig, ExecutionsConfig } from '@n8n/config';
+import type { DatabaseConfig, ExecutionsConfig } from '@resin/config';
 import {
 	ExecutionData,
 	ExecutionEntity,
 	type CreateExecutionPayload,
 	type EntityManager,
 	type ExecutionRepository,
-} from '@n8n/db';
-import { QueryFailedError } from '@n8n/typeorm';
+} from '@resin/db';
+import { QueryFailedError } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import type { BinaryDataService, StorageConfig } from 'n8n-core';
-import type { IWorkflowBase } from 'n8n-workflow';
-import { createEmptyRunExecutionData } from 'n8n-workflow';
+import type { BinaryDataService, StorageConfig } from 'resin-core';
+import type { IWorkflowBase } from 'resin-workflow';
+import { createEmptyRunExecutionData } from 'resin-workflow';
 
 import { DuplicateExecutionError } from '@/errors/duplicate-execution.error';
 import type { FsStore } from '@/executions/execution-data/fs-store';

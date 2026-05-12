@@ -8,7 +8,7 @@ import type {
 	IWebhookFunctions,
 	IWorkflowSettings,
 	NodeTypeAndVersion,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { Form } from '../Form.node';
 
@@ -46,7 +46,7 @@ describe('Form Node', () => {
 		it('should put execution to wait if operation is not completion', async () => {
 			mockExecuteFunctions.getNodeParameter.mockReturnValue('page');
 			mockExecuteFunctions.getParentNodes.mockReturnValue([
-				mock<NodeTypeAndVersion>({ type: 'n8n-nodes-base.formTrigger' }),
+				mock<NodeTypeAndVersion>({ type: 'resin-nodes-base.formTrigger' }),
 			]);
 			mockExecuteFunctions.getChildNodes.mockReturnValue([]);
 			mockExecuteFunctions.getNode.mockReturnValue(mock<INode>());
@@ -59,10 +59,10 @@ describe('Form Node', () => {
 		it('should throw an error if completion is not the last Form node', async () => {
 			mockExecuteFunctions.getNodeParameter.mockReturnValue('completion');
 			mockExecuteFunctions.getParentNodes.mockReturnValue([
-				mock<NodeTypeAndVersion>({ type: 'n8n-nodes-base.formTrigger' }),
+				mock<NodeTypeAndVersion>({ type: 'resin-nodes-base.formTrigger' }),
 			]);
 			mockExecuteFunctions.getChildNodes.mockReturnValue([
-				mock<NodeTypeAndVersion>({ type: 'n8n-nodes-base.form' }),
+				mock<NodeTypeAndVersion>({ type: 'resin-nodes-base.form' }),
 			]);
 			mockExecuteFunctions.getNode.mockReturnValue(mock<INode>());
 
@@ -75,7 +75,7 @@ describe('Form Node', () => {
 			const inputData: INodeExecutionData[] = [{ json: { test: 'data' } }];
 			mockExecuteFunctions.getNodeParameter.mockReturnValue('completion');
 			mockExecuteFunctions.getParentNodes.mockReturnValue([
-				mock<NodeTypeAndVersion>({ type: 'n8n-nodes-base.formTrigger' }),
+				mock<NodeTypeAndVersion>({ type: 'resin-nodes-base.formTrigger' }),
 			]);
 			mockExecuteFunctions.getChildNodes.mockReturnValue([]);
 			mockExecuteFunctions.getInputData.mockReturnValue(inputData);
@@ -104,7 +104,7 @@ describe('Form Node', () => {
 			mockWebhookFunctions.getRequestObject.mockReturnValue({ method: 'GET' } as Request);
 			mockWebhookFunctions.getParentNodes.mockReturnValue([
 				{
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 					name: 'Form Trigger',
 					typeVersion: 2.1,
 					disabled: false,
@@ -183,7 +183,7 @@ describe('Form Node', () => {
 			} as Request);
 			mockWebhookFunctions.getParentNodes.mockReturnValue([
 				{
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 					name: 'Form Trigger',
 					typeVersion: 2.1,
 					disabled: false,
@@ -292,7 +292,7 @@ describe('Form Node', () => {
 				});
 				mockWebhookFunctions.getParentNodes.mockReturnValue([
 					{
-						type: 'n8n-nodes-base.formTrigger',
+						type: 'resin-nodes-base.formTrigger',
 						name: 'Form Trigger',
 						typeVersion: 2.1,
 						disabled: false,
@@ -331,7 +331,7 @@ describe('Form Node', () => {
 			mockWebhookFunctions.getRequestObject.mockReturnValue({ method: 'GET' } as Request);
 			mockWebhookFunctions.getParentNodes.mockReturnValue([
 				{
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 					name: 'Form Trigger',
 					typeVersion: 2.1,
 					disabled: false,
@@ -380,7 +380,7 @@ describe('Form Node', () => {
 			});
 			mockWebhookFunctions.getParentNodes.mockReturnValue([
 				{
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 					name: 'Form Trigger',
 					typeVersion: 2.1,
 					disabled: false,
@@ -430,7 +430,7 @@ describe('Form Node', () => {
 				mockWebhookFunctions.getRequestObject.mockReturnValue({ method: 'GET' } as Request);
 				mockWebhookFunctions.getParentNodes.mockReturnValue([
 					{
-						type: 'n8n-nodes-base.formTrigger',
+						type: 'resin-nodes-base.formTrigger',
 						name: 'Form Trigger',
 						typeVersion: 2.1,
 						disabled: false,
@@ -502,7 +502,7 @@ describe('Form Node', () => {
 			});
 			mockWebhookFunctions.getParentNodes.mockReturnValue([
 				{
-					type: 'n8n-nodes-base.formTrigger',
+					type: 'resin-nodes-base.formTrigger',
 					name: 'Form Trigger',
 					typeVersion: 2.1,
 					disabled: false,

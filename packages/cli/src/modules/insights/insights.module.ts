@@ -1,6 +1,6 @@
-import type { ModuleInterface } from '@n8n/decorators';
-import { BackendModule, OnShutdown } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import type { ModuleInterface } from '@resin/decorators';
+import { BackendModule, OnShutdown } from '@resin/decorators';
+import { Container } from '@resin/di';
 
 /**
  * Only main- and webhook-type instances collect insights because

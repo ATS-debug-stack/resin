@@ -2,7 +2,7 @@ import { reactive, computed } from 'vue';
 import { createTestingPinia } from '@pinia/testing';
 import { WorkflowIdKey } from '@/app/constants/injectionKeys';
 import userEvent from '@testing-library/user-event';
-import type { NodeError } from 'n8n-workflow';
+import type { NodeError } from 'resin-workflow';
 import { mockedStore } from '@/__tests__/utils';
 import { createComponentRenderer } from '@/__tests__/render';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
@@ -76,7 +76,7 @@ describe('NodeErrorView.vue', () => {
 				},
 				id: 'd1ce5dc9-f9ae-4ac6-84e5-0696ba175dd9',
 				name: 'ErrorCode',
-				type: 'n8n-nodes-base.code',
+				type: 'resin-nodes-base.code',
 				typeVersion: 2,
 				position: [940, 240],
 			},
@@ -120,7 +120,7 @@ describe('NodeErrorView.vue', () => {
 	it('should not render AI assistant button when error happens in deprecated function node', () => {
 		// @ts-expect-error - Mock node type store method
 		mockNodeTypeStore.getNodeType = vi.fn(() => ({
-			type: 'n8n-nodes-base.function',
+			type: 'resin-nodes-base.function',
 			typeVersion: 1,
 			hidden: true,
 		}));
@@ -132,7 +132,7 @@ describe('NodeErrorView.vue', () => {
 				error: {
 					node: {
 						...error.node,
-						type: 'n8n-nodes-base.function',
+						type: 'resin-nodes-base.function',
 						typeVersion: 1,
 					},
 				} as NodeError,

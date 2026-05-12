@@ -23,7 +23,7 @@
   *
   */
 
-/* stylelint-disable @n8n/css-var-naming */
+/* stylelint-disable @resin/css-var-naming */
 
 @mixin theme-legacy {
 	--color--primary--h: 7;
@@ -143,4 +143,4 @@
 		var(--border-width) var(--border-style) var(--color--white-alpha-100)
 	);
 }
-/* stylelint-enable @n8n/css-var-naming */
+/* stylelint-enable @resin/css-var-naming */

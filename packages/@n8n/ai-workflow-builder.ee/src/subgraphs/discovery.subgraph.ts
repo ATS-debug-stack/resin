@@ -11,8 +11,8 @@ import { ChatPromptTemplate } from '@langchain/core/prompts';
 import type { Runnable, RunnableConfig } from '@langchain/core/runnables';
 import { tool, type StructuredTool } from '@langchain/core/tools';
 import { Annotation, END, START, StateGraph, type BaseCheckpointSaver } from '@langchain/langgraph';
-import type { Logger } from '@n8n/backend-common';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { Logger } from '@resin/backend-common';
+import type { INodeTypeDescription } from 'resin-workflow';
 import { z } from 'zod';
 
 import { createPlannerAgent, invokePlannerNode } from '@/agents/planner.agent';
@@ -476,25 +476,25 @@ export class DiscoverySubgraph extends BaseSubgraph<
 	 * Reasoning is kept neutral - describes what the node does, not when/how to use it.
 	 */
 	private readonly BASELINE_NODES = [
-		{ name: 'n8n-nodes-base.aggregate', reasoning: 'Combines multiple items into a single item' },
+		{ name: 'resin-nodes-base.aggregate', reasoning: 'Combines multiple items into a single item' },
 		{
-			name: 'n8n-nodes-base.if',
+			name: 'resin-nodes-base.if',
 			reasoning: 'Routes items to different output paths based on true/false condition evaluation',
 		},
 		{
-			name: 'n8n-nodes-base.switch',
+			name: 'resin-nodes-base.switch',
 			reasoning: 'Routes items to different output paths based on rules or expression evaluation',
 		},
 		{
-			name: 'n8n-nodes-base.splitOut',
+			name: 'resin-nodes-base.splitOut',
 			reasoning: 'Converts a single item containing an array field into multiple separate items',
 		},
 		{
-			name: 'n8n-nodes-base.merge',
+			name: 'resin-nodes-base.merge',
 			reasoning: 'Combines data from multiple parallel input branches into a single output',
 		},
 		{
-			name: 'n8n-nodes-base.set',
+			name: 'resin-nodes-base.set',
 			reasoning: 'Transforms data by adding, modifying, or removing fields from items',
 		},
 	];

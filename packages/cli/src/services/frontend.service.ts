@@ -1,13 +1,17 @@
-import type { FrontendSettings, ITelemetrySettings, N8nEnvFeatFlags } from '@n8n/api-types';
-import { LicenseState, Logger, ModuleRegistry } from '@n8n/backend-common';
-import { GlobalConfig, SecurityConfig } from '@n8n/config';
-import { LICENSE_FEATURES, LICENSE_QUOTAS } from '@n8n/constants';
-import { Container, Service } from '@n8n/di';
+import type { FrontendSettings, ITelemetrySettings, N8nEnvFeatFlags } from '@resin/api-types';
+import { LicenseState, Logger, ModuleRegistry } from '@resin/backend-common';
+import { GlobalConfig, SecurityConfig } from '@resin/config';
+import { LICENSE_FEATURES, LICENSE_QUOTAS } from '@resin/constants';
+import { Container, Service } from '@resin/di';
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
 import uniq from 'lodash/uniq';
-import { BinaryDataConfig, InstanceSettings } from 'n8n-core';
-import type { ICredentialType, INodeTypeBaseDescription, INodeTypeDescription } from 'n8n-workflow';
+import { BinaryDataConfig, InstanceSettings } from 'resin-core';
+import type {
+	ICredentialType,
+	INodeTypeBaseDescription,
+	INodeTypeDescription,
+} from 'resin-workflow';
 import path from 'path';
 
 import config from '@/config';

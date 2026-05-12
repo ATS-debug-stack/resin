@@ -1,5 +1,5 @@
 import { createWriteStream } from 'fs';
-import { BINARY_ENCODING, NodeApiError, NodeConnectionTypes } from 'n8n-workflow';
+import { BINARY_ENCODING, NodeApiError, NodeConnectionTypes } from 'resin-workflow';
 import type {
 	ICredentialDataDecryptedObject,
 	ICredentialsDecrypted,
@@ -12,7 +12,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { basename, dirname } from 'path';
 import ftpClient from 'promise-ftp';
 import sftpClient from 'ssh2-sftp-client';
@@ -727,7 +727,7 @@ export class Ftp implements INodeType {
 						if (operation === 'download') {
 							const path = this.getNodeParameter('path', i) as string;
 							const options = this.getNodeParameter('options', i);
-							const binaryFile = await tmpFile({ prefix: 'n8n-sftp-' });
+							const binaryFile = await tmpFile({ prefix: 'resin-sftp-' });
 							try {
 								if (!options.enableConcurrentReads) {
 									await sftp!.get(path, createWriteStream(binaryFile.path));
@@ -834,7 +834,7 @@ export class Ftp implements INodeType {
 
 						if (operation === 'download') {
 							const path = this.getNodeParameter('path', i) as string;
-							const binaryFile = await tmpFile({ prefix: 'n8n-sftp-' });
+							const binaryFile = await tmpFile({ prefix: 'resin-sftp-' });
 							try {
 								const stream = await ftp!.get(path);
 								await pipeline(stream, createWriteStream(binaryFile.path));

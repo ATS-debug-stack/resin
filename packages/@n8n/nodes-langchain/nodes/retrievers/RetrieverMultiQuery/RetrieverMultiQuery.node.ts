@@ -7,9 +7,9 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper } from '@n8n/ai-utilities';
+import { logWrapper } from '@resin/ai-utilities';
 
 export class RetrieverMultiQuery implements INodeType {
 	description: INodeTypeDescription = {

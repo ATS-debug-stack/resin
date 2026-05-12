@@ -1,10 +1,10 @@
-import type { CredentialsEntity, Project, SharedCredentials, User } from '@n8n/db';
-import { CredentialsRepository, GLOBAL_OWNER_ROLE, GLOBAL_MEMBER_ROLE } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { CredentialsEntity, Project, SharedCredentials, User } from '@resin/db';
+import { CredentialsRepository, GLOBAL_OWNER_ROLE, GLOBAL_MEMBER_ROLE } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { Cipher, CipherAes256GCM, CipherAes256CBC, EncryptionKeyProxy } from 'n8n-core';
-import type { InstanceSettings } from 'n8n-core';
-import type { GenericValue, IDataObject, INodeProperties } from 'n8n-workflow';
+import { Cipher, CipherAes256GCM, CipherAes256CBC, EncryptionKeyProxy } from 'resin-core';
+import type { InstanceSettings } from 'resin-core';
+import type { GenericValue, IDataObject, INodeProperties } from 'resin-workflow';
 
 import { buildSharedForCredential, toJsonSchema, updateCredential } from '../credentials.service';
 

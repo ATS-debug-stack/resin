@@ -1,5 +1,5 @@
 import { getCurrentTaskInput } from '@langchain/langgraph';
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import {
 	createWorkflow,
@@ -36,7 +36,7 @@ describe('getResourceLocatorOptions tool', () => {
 			nodeTypes.code,
 			nodeTypes.httpRequest,
 			createNodeTypeWithResourceLocator(
-				'n8n-nodes-base.googleCalendar',
+				'resin-nodes-base.googleCalendar',
 				'calendarId',
 				'getCalendars',
 			),
@@ -50,7 +50,7 @@ describe('getResourceLocatorOptions tool', () => {
 				createNode({
 					id: 'calendar1',
 					name: 'Google Calendar',
-					type: 'n8n-nodes-base.googleCalendar',
+					type: 'resin-nodes-base.googleCalendar',
 					credentials: { googleCalendarOAuth2Api: { id: 'cred1', name: 'Google Calendar' } },
 				}),
 			]);
@@ -93,7 +93,7 @@ describe('getResourceLocatorOptions tool', () => {
 				createNode({
 					id: 'unknown1',
 					name: 'Unknown Node',
-					type: 'n8n-nodes-base.unknownNode',
+					type: 'resin-nodes-base.unknownNode',
 					credentials: { api: { id: 'cred1', name: 'API' } },
 				}),
 			]);
@@ -116,7 +116,7 @@ describe('getResourceLocatorOptions tool', () => {
 				createNode({
 					id: 'calendar1',
 					name: 'Google Calendar',
-					type: 'n8n-nodes-base.googleCalendar',
+					type: 'resin-nodes-base.googleCalendar',
 					// No credentials
 				}),
 			]);
@@ -142,7 +142,7 @@ describe('getResourceLocatorOptions tool', () => {
 				createNode({
 					id: 'http1',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					credentials: { httpBasicAuth: { id: 'cred1', name: 'HTTP Auth' } },
 				}),
 			]);
@@ -169,7 +169,7 @@ describe('getResourceLocatorOptions tool', () => {
 				createNode({
 					id: 'calendar1',
 					name: 'Google Calendar',
-					type: 'n8n-nodes-base.googleCalendar',
+					type: 'resin-nodes-base.googleCalendar',
 					credentials: { googleCalendarOAuth2Api: { id: 'cred1', name: 'Google Calendar' } },
 				}),
 			]);
@@ -201,7 +201,7 @@ describe('getResourceLocatorOptions tool', () => {
 				createNode({
 					id: 'calendar1',
 					name: 'Google Calendar',
-					type: 'n8n-nodes-base.googleCalendar',
+					type: 'resin-nodes-base.googleCalendar',
 					credentials: { googleCalendarOAuth2Api: { id: 'cred1', name: 'Google Calendar' } },
 				}),
 			]);
@@ -217,7 +217,7 @@ describe('getResourceLocatorOptions tool', () => {
 			expect(mockCallback).toHaveBeenCalledWith(
 				'getCalendars',
 				'parameters.calendarId',
-				{ name: 'n8n-nodes-base.googleCalendar', version: 1 },
+				{ name: 'resin-nodes-base.googleCalendar', version: 1 },
 				{},
 				{ googleCalendarOAuth2Api: { id: 'cred1', name: 'Google Calendar' } },
 				'work',
@@ -232,7 +232,7 @@ describe('getResourceLocatorOptions tool', () => {
 				createNode({
 					id: 'calendar1',
 					name: 'Google Calendar',
-					type: 'n8n-nodes-base.googleCalendar',
+					type: 'resin-nodes-base.googleCalendar',
 					credentials: { googleCalendarOAuth2Api: { id: 'cred1', name: 'Google Calendar' } },
 				}),
 			]);
@@ -263,7 +263,7 @@ describe('getResourceLocatorOptions tool', () => {
 				createNode({
 					id: 'calendar1',
 					name: 'Google Calendar',
-					type: 'n8n-nodes-base.googleCalendar',
+					type: 'resin-nodes-base.googleCalendar',
 					credentials: { googleCalendarOAuth2Api: { id: 'cred1', name: 'Google Calendar' } },
 				}),
 			]);
@@ -292,7 +292,7 @@ describe('getResourceLocatorOptions tool', () => {
 				createNode({
 					id: 'calendar1',
 					name: 'Google Calendar',
-					type: 'n8n-nodes-base.googleCalendar',
+					type: 'resin-nodes-base.googleCalendar',
 					credentials: { googleCalendarOAuth2Api: { id: 'cred1', name: 'Google Calendar' } },
 				}),
 			]);

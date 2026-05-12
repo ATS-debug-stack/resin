@@ -4,14 +4,14 @@ import type { BaseChatModel } from '@langchain/core/language_models/chat_models'
 import { processHitlResponses } from '@utils/agent-execution';
 import type { RequestResponseMetadata } from '@utils/agent-execution/types';
 import { getOptionalOutputParser } from '@utils/output_parsers/N8nOutputParser';
-import { NodeOperationError, assertParamIsNumber } from 'n8n-workflow';
+import { NodeOperationError, assertParamIsNumber } from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	ISupplyDataFunctions,
 	INodeExecutionData,
 	EngineResponse,
 	EngineRequest,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { AgentResult } from '../types';
 import { checkMaxIterations } from './checkMaxIterations';

@@ -3,15 +3,15 @@ import { computed, onBeforeMount, onMounted, ref } from 'vue';
 import { MODAL_CONFIRM } from '@/app/constants';
 import { useMessage } from '@/app/composables/useMessage';
 import { useLogStreamingStore } from '../logStreaming.store';
-import type { MessageEventBusDestinationOptions } from 'n8n-workflow';
-import { deepCopy, defaultMessageEventBusDestinationOptions } from 'n8n-workflow';
-import type { BaseTextKey } from '@n8n/i18n';
-import type { EventBus } from '@n8n/utils/event-bus';
-import { useI18n } from '@n8n/i18n';
-import { assert } from '@n8n/utils/assert';
+import type { MessageEventBusDestinationOptions } from 'resin-workflow';
+import { deepCopy, defaultMessageEventBusDestinationOptions } from 'resin-workflow';
+import type { BaseTextKey } from '@resin/i18n';
+import type { EventBus } from '@resin/utils/event-bus';
+import { useI18n } from '@resin/i18n';
+import { assert } from '@resin/utils/assert';
 
 import { ElSwitch } from 'element-plus';
-import { N8nActionToggle, N8nCard, N8nHeading, N8nText } from '@n8n/design-system';
+import { N8nActionToggle, N8nCard, N8nHeading, N8nText } from '@resin/design-system';
 
 const DESTINATION_LIST_ITEM_ACTIONS = {
 	OPEN: 'open',

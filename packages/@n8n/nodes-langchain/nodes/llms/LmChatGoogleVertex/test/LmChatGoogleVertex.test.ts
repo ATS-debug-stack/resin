@@ -1,14 +1,14 @@
 import { ChatVertexAI } from '@langchain/google-vertexai';
-import { makeN8nLlmFailedAttemptHandler } from '@n8n/ai-utilities';
-import { createMockExecuteFunction } from 'n8n-nodes-base/test/nodes/Helpers';
-import type { INode, ISupplyDataFunctions } from 'n8n-workflow';
+import { makeN8nLlmFailedAttemptHandler } from '@resin/ai-utilities';
+import { createMockExecuteFunction } from 'resin-nodes-base/test/nodes/Helpers';
+import type { INode, ISupplyDataFunctions } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 
 import { LmChatGoogleVertex } from '../LmChatGoogleVertex.node';
 
 vi.mock('@langchain/google-vertexai');
-vi.mock('@n8n/ai-utilities');
-vi.mock('n8n-nodes-base/dist/utils/utilities', () => ({
+vi.mock('@resin/ai-utilities');
+vi.mock('resin-nodes-base/dist/utils/utilities', () => ({
 	formatPrivateKey: vi.fn().mockImplementation((key: string) => key),
 }));
 
@@ -23,7 +23,7 @@ describe('LmChatGoogleVertex - Thinking Budget', () => {
 		id: '1',
 		name: 'Google Vertex Chat Model',
 		typeVersion: 1,
-		type: 'n8n-nodes-langchain.lmChatGoogleVertex',
+		type: 'resin-nodes-langchain.lmChatGoogleVertex',
 		position: [0, 0],
 		parameters: {},
 	};

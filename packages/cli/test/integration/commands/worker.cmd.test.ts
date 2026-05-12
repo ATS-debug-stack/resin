@@ -1,9 +1,9 @@
 process.argv[2] = 'worker';
 
-import { mockInstance } from '@n8n/backend-test-utils';
-import { ExecutionsConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
-import { BinaryDataService } from 'n8n-core';
+import { mockInstance } from '@resin/backend-test-utils';
+import { ExecutionsConfig } from '@resin/config';
+import { Container } from '@resin/di';
+import { BinaryDataService } from 'resin-core';
 
 import { Worker } from '@/commands/worker';
 import config from '@/config';

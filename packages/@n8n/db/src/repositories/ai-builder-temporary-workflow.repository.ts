@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import { DataSource, Repository } from '@n8n/typeorm';
-import type { EntityManager } from '@n8n/typeorm';
+import { Service } from '@resin/di';
+import { DataSource, Repository } from '@resin/typeorm';
+import type { EntityManager } from '@resin/typeorm';
 
 import { AiBuilderTemporaryWorkflow } from '../entities';
 

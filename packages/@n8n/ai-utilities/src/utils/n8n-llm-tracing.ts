@@ -9,8 +9,8 @@ import type {
 import type { BaseMessage } from '@langchain/core/messages';
 import type { LLMResult } from '@langchain/core/outputs';
 import pick from 'lodash/pick';
-import type { IDataObject, ISupplyDataFunctions, JsonObject } from 'n8n-workflow';
-import { NodeConnectionTypes, NodeError, NodeOperationError } from 'n8n-workflow';
+import type { IDataObject, ISupplyDataFunctions, JsonObject } from 'resin-workflow';
+import { NodeConnectionTypes, NodeError, NodeOperationError } from 'resin-workflow';
 
 import { logAiEvent } from './log-ai-event';
 import { estimateTokensFromStringList } from './tokenizer/token-estimator';

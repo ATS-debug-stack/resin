@@ -1,4 +1,4 @@
-import type { IBinaryData, IExecuteFunctions } from 'n8n-workflow';
+import type { IBinaryData, IExecuteFunctions } from 'resin-workflow';
 
 /** Chunk size to use for streaming. 256Kb */
 const CHUNK_SIZE = 256 * 1024;

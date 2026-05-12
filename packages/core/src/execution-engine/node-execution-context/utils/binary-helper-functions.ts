@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import chardet from 'chardet';
 import FileType from 'file-type';
 import { IncomingMessage } from 'http';
@@ -13,7 +13,7 @@ import type {
 	ITaskDataConnections,
 	IWorkflowExecuteAdditionalData,
 	WorkflowSettingsBinaryMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	NodeOperationError,
 	fileTypeFromMimeType,
@@ -23,7 +23,7 @@ import {
 	BINARY_MODE_COMBINED,
 	BINARY_MODE_SEPARATE,
 	sanitizeFilename,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import path from 'path';
 import type { Readable } from 'stream';
 import { URL } from 'url';

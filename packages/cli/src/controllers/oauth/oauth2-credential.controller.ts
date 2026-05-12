@@ -1,13 +1,13 @@
-import { Logger } from '@n8n/backend-common';
-import type { ClientOAuth2Options, OAuth2CredentialData } from '@n8n/client-oauth2';
-import { ClientOAuth2 } from '@n8n/client-oauth2';
-import { Get, RestController } from '@n8n/decorators';
+import { Logger } from '@resin/backend-common';
+import type { ClientOAuth2Options, OAuth2CredentialData } from '@resin/client-oauth2';
+import { ClientOAuth2 } from '@resin/client-oauth2';
+import { Get, RestController } from '@resin/decorators';
 import { Response } from 'express';
 import omit from 'lodash/omit';
 import set from 'lodash/set';
 import split from 'lodash/split';
-import type { ICredentialDataDecryptedObject, IDataObject } from 'n8n-workflow';
-import { ensureError, jsonParse, jsonStringify } from 'n8n-workflow';
+import type { ICredentialDataDecryptedObject, IDataObject } from 'resin-workflow';
+import { ensureError, jsonParse, jsonStringify } from 'resin-workflow';
 
 import { ExternalHooks } from '@/external-hooks';
 import { OAuthJweServiceProxy } from '@/oauth/oauth-jwe-service.proxy';

@@ -1,8 +1,8 @@
-import { type ProvisioningMode, type ProvisioningModeFlags } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import { SettingsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { type ProvisioningMode, type ProvisioningModeFlags } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import { SettingsRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import { z } from 'zod';
 
 import { PROVISIONING_PREFERENCES_DB_KEY } from '@/modules/provisioning.ee/constants';

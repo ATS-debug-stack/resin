@@ -1,5 +1,5 @@
-import type { GlobalConfig, TaskRunnersConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
+import type { GlobalConfig, TaskRunnersConfig } from '@resin/config';
+import { Time } from '@resin/constants';
 import { mock } from 'jest-mock-extended';
 import type WebSocket from 'ws';
 

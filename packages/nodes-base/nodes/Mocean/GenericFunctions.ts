@@ -4,8 +4,8 @@ import type {
 	IDataObject,
 	JsonObject,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 /**
  * Make an API request to Twilio

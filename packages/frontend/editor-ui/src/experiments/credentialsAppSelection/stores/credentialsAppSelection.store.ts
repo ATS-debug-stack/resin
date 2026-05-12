@@ -4,7 +4,7 @@ import { useCloudPlanStore } from '@/app/stores/cloudPlan.store';
 import { usePostHog } from '@/app/stores/posthog.store';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useStorage } from '@/app/composables/useStorage';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { defineStore } from 'pinia';
 import { computed } from 'vue';
 

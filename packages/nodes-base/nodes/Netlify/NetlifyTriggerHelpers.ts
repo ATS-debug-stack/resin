@@ -1,6 +1,6 @@
 import { createHash } from 'crypto';
 import jwt from 'jsonwebtoken';
-import type { IDataObject, IWebhookFunctions } from 'n8n-workflow';
+import type { IDataObject, IWebhookFunctions } from 'resin-workflow';
 
 import { verifySignature as verifySignatureGeneric } from '../../utils/webhook-signature-verification';
 

@@ -99,8 +99,8 @@ export async function evaluateWorkflowSimilarity(
 ): Promise<SingleEvaluatorResult> {
 	const tmpDir = tmpdir();
 	const uniqueId = randomUUID();
-	const generatedPath = join(tmpDir, `n8n-workflow-generated-${uniqueId}.json`);
-	const groundTruthPath = join(tmpDir, `n8n-workflow-groundtruth-${uniqueId}.json`);
+	const generatedPath = join(tmpDir, `resin-workflow-generated-${uniqueId}.json`);
+	const groundTruthPath = join(tmpDir, `resin-workflow-groundtruth-${uniqueId}.json`);
 
 	let stdout = '';
 	let stderr = '';

@@ -1,4 +1,4 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import { WorkflowsStorage } from '@mastra/core/storage';
 import type {
 	StorageListWorkflowRunsInput,
@@ -7,7 +7,7 @@ import type {
 	UpdateWorkflowStateOptions,
 } from '@mastra/core/storage';
 import type { StepResult, WorkflowRunState } from '@mastra/core/workflows';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 
 import { InstanceAiWorkflowSnapshotRepository } from '../repositories/instance-ai-workflow-snapshot.repository';
 

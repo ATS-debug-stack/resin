@@ -1,7 +1,7 @@
 import { BaseOutputParser, OutputParserException } from '@langchain/core/output_parsers';
 
 export class N8nItemListOutputParser extends BaseOutputParser<string[]> {
-	lc_namespace = ['n8n-nodes-langchain', 'output_parsers', 'list_items'];
+	lc_namespace = ['resin-nodes-langchain', 'output_parsers', 'list_items'];
 
 	private numberOfItems: number | undefined;
 

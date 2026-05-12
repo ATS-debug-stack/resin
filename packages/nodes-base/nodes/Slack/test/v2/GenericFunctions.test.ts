@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-workflow';
-import { NodeOperationError, sleep } from 'n8n-workflow';
+import type { IExecuteFunctions } from 'resin-workflow';
+import { NodeOperationError, sleep } from 'resin-workflow';
 
 import {
 	slackApiRequest,
@@ -9,8 +9,8 @@ import {
 	getMessageContent,
 } from '../../V2/GenericFunctions';
 
-jest.mock('n8n-workflow', () => ({
-	...jest.requireActual('n8n-workflow'),
+jest.mock('resin-workflow', () => ({
+	...jest.requireActual('resin-workflow'),
 	NodeApiError: jest.fn(),
 	sleep: jest.fn().mockResolvedValue(undefined),
 }));
@@ -24,7 +24,7 @@ describe('Slack V2 > GenericFunctions', () => {
 			helpers: {
 				requestWithAuthentication: jest.fn(),
 			},
-			getNode: jest.fn().mockReturnValue({ type: 'n8n-nodes-base.slack', typeVersion: 2 }),
+			getNode: jest.fn().mockReturnValue({ type: 'resin-nodes-base.slack', typeVersion: 2 }),
 			getNodeParameter: jest.fn().mockReturnValue('accessToken'),
 			getWorkflow: jest.fn().mockReturnValue({ id: 'workflow-123', active: true }),
 			getInstanceBaseUrl: jest.fn().mockReturnValue('https://test.n8n.io/'),

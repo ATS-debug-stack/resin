@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, IHookFunctions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IExecuteFunctions, IHookFunctions } from 'resin-workflow';
+import { NodeApiError } from 'resin-workflow';
 
 import { spotifyApiRequest } from '../GenericFunctions';
 

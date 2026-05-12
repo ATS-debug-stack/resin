@@ -8,10 +8,10 @@ import {
 	type INodeProperties,
 	type IExecuteFunctions,
 	type ISupplyDataFunctions,
-} from 'n8n-workflow';
-import { metadataFilterField, createVectorStoreNode } from '@n8n/ai-utilities';
+} from 'resin-workflow';
+import { metadataFilterField, createVectorStoreNode } from '@resin/ai-utilities';
 
-import { validateAndResolveMongoCredentials } from 'n8n-nodes-base/dist/nodes/MongoDb/GenericFunctions';
+import { validateAndResolveMongoCredentials } from 'resin-nodes-base/dist/nodes/MongoDb/GenericFunctions';
 
 /**
  * Constants for the name of the credentials and Node parameters.

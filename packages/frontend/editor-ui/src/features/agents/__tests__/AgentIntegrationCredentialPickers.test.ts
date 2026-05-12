@@ -39,12 +39,12 @@ const slackIntegration = {
 	noCredentialsMessage: 'No Slack credentials found.',
 };
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({ baseText: (key: string) => key }),
 	i18n: { baseText: (key: string) => key },
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({
 		restApiContext: {},
 		urlBaseWebhook: 'https://hooks.example',

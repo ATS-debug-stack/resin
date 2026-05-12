@@ -1,9 +1,9 @@
-import type { InstanceType } from '@n8n/constants';
-import { ModuleMetadata } from '@n8n/decorators';
-import type { EntityClass, ModuleContext, ModuleSettings } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
+import type { InstanceType } from '@resin/constants';
+import { ModuleMetadata } from '@resin/decorators';
+import type { EntityClass, ModuleContext, ModuleSettings } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
 import { existsSync } from 'fs';
-import type { NodeLoader } from 'n8n-workflow';
+import type { NodeLoader } from 'resin-workflow';
 import path from 'path';
 
 import { MissingModuleError } from './errors/missing-module.error';

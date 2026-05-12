@@ -1,9 +1,9 @@
-import { BROWSER_ID_STORAGE_KEY } from '@n8n/constants';
-import { assert } from '@n8n/utils/assert';
+import { BROWSER_ID_STORAGE_KEY } from '@resin/constants';
+import { assert } from '@resin/utils/assert';
 import type { AxiosRequestConfig, Method, RawAxiosRequestHeaders } from 'axios';
 import axios from 'axios';
-import { ApplicationError, jsonParse } from 'n8n-workflow';
-import type { GenericValue, IDataObject } from 'n8n-workflow';
+import { ApplicationError, jsonParse } from 'resin-workflow';
+import type { GenericValue, IDataObject } from 'resin-workflow';
 
 import type { IRestApiContext } from './types';
 

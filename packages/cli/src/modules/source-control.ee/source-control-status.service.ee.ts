@@ -1,11 +1,11 @@
-import type { SourceControlledFile } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { FolderRepository, TagRepository, type User, WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { hasGlobalScope } from '@n8n/permissions';
-import { In } from '@n8n/typeorm';
+import type { SourceControlledFile } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { FolderRepository, TagRepository, type User, WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { hasGlobalScope } from '@resin/permissions';
+import { In } from '@resin/typeorm';
 import pick from 'lodash/pick';
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 
 import { SOURCE_CONTROL_DATATABLES_EXPORT_FOLDER } from './constants';
 import { SourceControlGitService } from './source-control-git.service.ee';

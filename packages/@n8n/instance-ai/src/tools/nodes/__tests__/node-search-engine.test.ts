@@ -18,27 +18,27 @@ function makeNode(overrides: Partial<SearchableNodeType> & { name: string }): Se
 }
 
 const httpNode = makeNode({
-	name: 'n8n-nodes-base.httpRequest',
+	name: 'resin-nodes-base.httpRequest',
 	displayName: 'HTTP Request',
 	description: 'Makes HTTP requests',
 	codex: { alias: ['api', 'fetch', 'curl'] },
 });
 
 const setNode = makeNode({
-	name: 'n8n-nodes-base.set',
+	name: 'resin-nodes-base.set',
 	displayName: 'Edit Fields',
 	description: 'Set or change values',
 	codex: { alias: ['set', 'assign'] },
 });
 
 const slackNode = makeNode({
-	name: 'n8n-nodes-base.slack',
+	name: 'resin-nodes-base.slack',
 	displayName: 'Slack',
 	description: 'Send messages to Slack',
 });
 
 const agentNode = makeNode({
-	name: '@n8n/n8n-nodes-langchain.agent',
+	name: '@resin/n8n-nodes-langchain.agent',
 	displayName: 'AI Agent',
 	description: 'An AI agent that uses tools',
 	inputs: ['main', 'ai_languageModel', 'ai_memory', 'ai_tool'],
@@ -60,62 +60,62 @@ const agentNode = makeNode({
 });
 
 const openAiLmNode = makeNode({
-	name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+	name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 	displayName: 'OpenAI Chat Model',
 	description: 'OpenAI language model',
 	outputs: ['ai_languageModel'],
 });
 
 const memoryNode = makeNode({
-	name: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+	name: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 	displayName: 'Window Buffer Memory',
 	description: 'Simple buffer memory',
 	outputs: ['ai_memory'],
 });
 
 const embeddingNode = makeNode({
-	name: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+	name: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 	displayName: 'OpenAI Embeddings',
 	description: 'OpenAI embeddings model',
 	outputs: ['ai_embedding'],
 });
 
 const vectorStoreNode = makeNode({
-	name: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+	name: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 	displayName: 'In-Memory Vector Store',
 	description: 'In-memory vector store',
 	outputs: ['ai_vectorStore'],
 });
 
 const expressionOutputNode = makeNode({
-	name: 'n8n-nodes-base.dynamicOutput',
+	name: 'resin-nodes-base.dynamicOutput',
 	displayName: 'Dynamic Output',
 	description: 'Node with expression outputs',
 	outputs: '={{["main","ai_tool"]}}',
 });
 
 const dataTableToolNode = makeNode({
-	name: 'n8n-nodes-base.dataTableTool',
+	name: 'resin-nodes-base.dataTableTool',
 	displayName: 'n8n Data Table Tool',
 	description: 'Read, create, update, and delete rows in n8n data tables from an AI agent',
 	outputs: ['ai_tool'],
 });
 
 const googleCalendarNode = makeNode({
-	name: 'n8n-nodes-base.googleCalendar',
+	name: 'resin-nodes-base.googleCalendar',
 	displayName: 'Google Calendar',
 	description: 'Consume Google Calendar API',
 });
 
 const googleCalendarToolNode = makeNode({
-	name: 'n8n-nodes-base.googleCalendarTool',
+	name: 'resin-nodes-base.googleCalendarTool',
 	displayName: 'Google Calendar Tool',
 	description: 'Consume Google Calendar API as a tool for AI agents',
 	outputs: ['ai_tool'],
 });
 
 const slackToolNode = makeNode({
-	name: 'n8n-nodes-base.slackTool',
+	name: 'resin-nodes-base.slackTool',
 	displayName: 'Slack Tool',
 	description: 'Send messages to Slack from an AI agent',
 	outputs: ['ai_tool'],
@@ -156,13 +156,13 @@ describe('NodeSearchEngine', () => {
 		it('should find nodes by display name', () => {
 			const results = engine.searchByName('HTTP');
 			expect(results.length).toBeGreaterThan(0);
-			expect(results[0].name).toBe('n8n-nodes-base.httpRequest');
+			expect(results[0].name).toBe('resin-nodes-base.httpRequest');
 		});
 
 		it('should find nodes by alias', () => {
 			const results = engine.searchByName('curl');
 			expect(results.length).toBeGreaterThan(0);
-			expect(results[0].name).toBe('n8n-nodes-base.httpRequest');
+			expect(results[0].name).toBe('resin-nodes-base.httpRequest');
 		});
 
 		it('should respect the limit parameter', () => {
@@ -172,14 +172,14 @@ describe('NodeSearchEngine', () => {
 
 		it('should include builder hint message when present', () => {
 			const results = engine.searchByName('AI Agent');
-			const agentResult = results.find((r) => r.name === '@n8n/n8n-nodes-langchain.agent');
+			const agentResult = results.find((r) => r.name === '@resin/n8n-nodes-langchain.agent');
 			expect(agentResult).toBeDefined();
 			expect(agentResult?.builderHintMessage).toBe('Use an AI Agent for autonomous task execution');
 		});
 
 		it('should NOT surface builderHint.extraTypeDefContent in search results', () => {
 			const results = engine.searchByName('AI Agent');
-			const agentResult = results.find((r) => r.name === '@n8n/n8n-nodes-langchain.agent');
+			const agentResult = results.find((r) => r.name === '@resin/n8n-nodes-langchain.agent');
 			expect(agentResult).toBeDefined();
 			// Result type has no extraTypeDefContent field; assert it never leaks in
 			// via untyped assignment either.
@@ -194,7 +194,7 @@ describe('NodeSearchEngine', () => {
 
 		it('should include subnode requirements when present', () => {
 			const results = engine.searchByName('AI Agent');
-			const agentResult = results.find((r) => r.name === '@n8n/n8n-nodes-langchain.agent');
+			const agentResult = results.find((r) => r.name === '@resin/n8n-nodes-langchain.agent');
 			expect(agentResult?.subnodeRequirements).toBeDefined();
 			expect(agentResult?.subnodeRequirements).toEqual(
 				expect.arrayContaining([
@@ -208,27 +208,27 @@ describe('NodeSearchEngine', () => {
 
 		it('should match by exact type name even when fuzzy search misses', () => {
 			const results = engine.searchByName('set');
-			const setResult = results.find((r) => r.name === 'n8n-nodes-base.set');
+			const setResult = results.find((r) => r.name === 'resin-nodes-base.set');
 			expect(setResult).toBeDefined();
 		});
 
 		it('should return latest version in results', () => {
 			const results = engine.searchByName('HTTP');
-			const httpResult = results.find((r) => r.name === 'n8n-nodes-base.httpRequest');
+			const httpResult = results.find((r) => r.name === 'resin-nodes-base.httpRequest');
 			expect(httpResult?.version).toBe(1);
 		});
 
 		it('should handle multi-word queries by splitting into terms', () => {
 			const results = engine.searchByName('data table tool');
-			const dataTableResult = results.find((r) => r.name === 'n8n-nodes-base.dataTableTool');
+			const dataTableResult = results.find((r) => r.name === 'resin-nodes-base.dataTableTool');
 			expect(dataTableResult).toBeDefined();
 		});
 
 		it('should find nodes when multi-word query matches display name partially', () => {
 			const results = engine.searchByName('google calendar');
 			const names = results.map((r) => r.name);
-			expect(names).toContain('n8n-nodes-base.googleCalendar');
-			expect(names).toContain('n8n-nodes-base.googleCalendarTool');
+			expect(names).toContain('resin-nodes-base.googleCalendar');
+			expect(names).toContain('resin-nodes-base.googleCalendarTool');
 		});
 	});
 
@@ -240,13 +240,13 @@ describe('NodeSearchEngine', () => {
 		it('should find nodes by connection type in outputs array', () => {
 			const results = engine.searchByConnectionType('ai_languageModel');
 			expect(results.length).toBeGreaterThan(0);
-			expect(results[0].name).toBe('@n8n/n8n-nodes-langchain.lmChatOpenAi');
+			expect(results[0].name).toBe('@resin/n8n-nodes-langchain.lmChatOpenAi');
 			expect(results[0].score).toBe(SCORE_WEIGHTS.CONNECTION_EXACT);
 		});
 
 		it('should find nodes by connection type in expression string', () => {
 			const results = engine.searchByConnectionType('ai_tool');
-			const dynamicResult = results.find((r) => r.name === 'n8n-nodes-base.dynamicOutput');
+			const dynamicResult = results.find((r) => r.name === 'resin-nodes-base.dynamicOutput');
 			expect(dynamicResult).toBeDefined();
 			expect(dynamicResult?.score).toBe(SCORE_WEIGHTS.CONNECTION_IN_EXPRESSION);
 		});
@@ -254,7 +254,7 @@ describe('NodeSearchEngine', () => {
 		it('should apply name filter when provided', () => {
 			const results = engine.searchByConnectionType('ai_memory', 20, 'window');
 			expect(results.length).toBeGreaterThan(0);
-			expect(results[0].name).toBe('@n8n/n8n-nodes-langchain.memoryBufferWindow');
+			expect(results[0].name).toBe('@resin/n8n-nodes-langchain.memoryBufferWindow');
 		});
 
 		it('should return empty for unknown connection type', () => {
@@ -269,19 +269,19 @@ describe('NodeSearchEngine', () => {
 
 		it('should find tool nodes with multi-word name filter', () => {
 			const results = engine.searchByConnectionType('ai_tool', 10, 'data table tool');
-			const dataTableResult = results.find((r) => r.name === 'n8n-nodes-base.dataTableTool');
+			const dataTableResult = results.find((r) => r.name === 'resin-nodes-base.dataTableTool');
 			expect(dataTableResult).toBeDefined();
 		});
 
 		it('should find google calendar tool via connectionType + query', () => {
 			const results = engine.searchByConnectionType('ai_tool', 10, 'google calendar');
-			const calendarTool = results.find((r) => r.name === 'n8n-nodes-base.googleCalendarTool');
+			const calendarTool = results.find((r) => r.name === 'resin-nodes-base.googleCalendarTool');
 			expect(calendarTool).toBeDefined();
 		});
 
 		it('should not return regular nodes when filtering by connectionType', () => {
 			const results = engine.searchByConnectionType('ai_tool', 10, 'google calendar');
-			const regularCalendar = results.find((r) => r.name === 'n8n-nodes-base.googleCalendar');
+			const regularCalendar = results.find((r) => r.name === 'resin-nodes-base.googleCalendar');
 			expect(regularCalendar).toBeUndefined();
 		});
 	});
@@ -292,28 +292,28 @@ describe('NodeSearchEngine', () => {
 
 	describe('getRelatedSubnodeIds', () => {
 		it('should return related subnode IDs from builderHint.inputs', () => {
-			const related = engine.getRelatedSubnodeIds(['@n8n/n8n-nodes-langchain.agent'], new Set());
-			expect(related.has('@n8n/n8n-nodes-langchain.lmChatOpenAi')).toBe(true);
-			expect(related.has('@n8n/n8n-nodes-langchain.memoryBufferWindow')).toBe(true);
+			const related = engine.getRelatedSubnodeIds(['@resin/n8n-nodes-langchain.agent'], new Set());
+			expect(related.has('@resin/n8n-nodes-langchain.lmChatOpenAi')).toBe(true);
+			expect(related.has('@resin/n8n-nodes-langchain.memoryBufferWindow')).toBe(true);
 		});
 
 		it('should exclude IDs in the excludeNodeIds set', () => {
 			const related = engine.getRelatedSubnodeIds(
-				['@n8n/n8n-nodes-langchain.agent'],
-				new Set(['@n8n/n8n-nodes-langchain.lmChatOpenAi']),
+				['@resin/n8n-nodes-langchain.agent'],
+				new Set(['@resin/n8n-nodes-langchain.lmChatOpenAi']),
 			);
-			expect(related.has('@n8n/n8n-nodes-langchain.lmChatOpenAi')).toBe(false);
-			expect(related.has('@n8n/n8n-nodes-langchain.memoryBufferWindow')).toBe(true);
+			expect(related.has('@resin/n8n-nodes-langchain.lmChatOpenAi')).toBe(false);
+			expect(related.has('@resin/n8n-nodes-langchain.memoryBufferWindow')).toBe(true);
 		});
 
 		it('should return empty set for nodes without builderHint.inputs', () => {
-			const related = engine.getRelatedSubnodeIds(['n8n-nodes-base.httpRequest'], new Set());
+			const related = engine.getRelatedSubnodeIds(['resin-nodes-base.httpRequest'], new Set());
 			expect(related.size).toBe(0);
 		});
 
 		it('should not include the initial node IDs in the result', () => {
-			const related = engine.getRelatedSubnodeIds(['@n8n/n8n-nodes-langchain.agent'], new Set());
-			expect(related.has('@n8n/n8n-nodes-langchain.agent')).toBe(false);
+			const related = engine.getRelatedSubnodeIds(['@resin/n8n-nodes-langchain.agent'], new Set());
+			expect(related.has('@resin/n8n-nodes-langchain.agent')).toBe(false);
 		});
 	});
 
@@ -325,7 +325,7 @@ describe('NodeSearchEngine', () => {
 		it('should produce XML with node_name, version, description, inputs, outputs', () => {
 			const result: NodeSearchEngine extends { formatResult: (r: infer R) => string } ? R : never =
 				{
-					name: 'n8n-nodes-base.httpRequest',
+					name: 'resin-nodes-base.httpRequest',
 					displayName: 'HTTP Request',
 					description: 'Makes HTTP requests',
 					version: 1,
@@ -408,37 +408,37 @@ describe('NodeSearchEngine', () => {
 	describe('deduplication', () => {
 		it('should keep only the latest version of a node', () => {
 			const v1 = makeNode({
-				name: 'n8n-nodes-base.http',
+				name: 'resin-nodes-base.http',
 				displayName: 'HTTP v1',
 				version: 1,
 			});
 			const v2 = makeNode({
-				name: 'n8n-nodes-base.http',
+				name: 'resin-nodes-base.http',
 				displayName: 'HTTP v2',
 				version: 2,
 			});
 
 			const deduped = new NodeSearchEngine([v1, v2]);
 			const results = deduped.searchByName('HTTP');
-			const httpResults = results.filter((r) => r.name === 'n8n-nodes-base.http');
+			const httpResults = results.filter((r) => r.name === 'resin-nodes-base.http');
 			expect(httpResults).toHaveLength(1);
 			expect(httpResults[0].version).toBe(2);
 		});
 
 		it('should handle version arrays and keep the one with highest max', () => {
 			const v1 = makeNode({
-				name: 'n8n-nodes-base.http',
+				name: 'resin-nodes-base.http',
 				displayName: 'HTTP',
 				version: [1, 2],
 			});
 			const v2 = makeNode({
-				name: 'n8n-nodes-base.http',
+				name: 'resin-nodes-base.http',
 				displayName: 'HTTP',
 				version: [1, 2, 3],
 			});
 
 			const deduped = new NodeSearchEngine([v1, v2]);
-			const nodeType = deduped.getNodeType('n8n-nodes-base.http');
+			const nodeType = deduped.getNodeType('resin-nodes-base.http');
 			expect(nodeType).toBeDefined();
 			// The version with max 3 should win
 			expect(nodeType?.version).toEqual([1, 2, 3]);
@@ -482,7 +482,7 @@ describe('NodeSearchEngine', () => {
 
 	describe('getNodeType', () => {
 		it('should return the node type for a known ID', () => {
-			const nodeType = engine.getNodeType('n8n-nodes-base.httpRequest');
+			const nodeType = engine.getNodeType('resin-nodes-base.httpRequest');
 			expect(nodeType).toBeDefined();
 			expect(nodeType?.displayName).toBe('HTTP Request');
 		});
@@ -499,7 +499,7 @@ describe('NodeSearchEngine', () => {
 	describe('getSubnodesForConnectionType', () => {
 		it('should return default subnodes for known connection types', () => {
 			const lmSubnodes = engine.getSubnodesForConnectionType('ai_languageModel');
-			expect(lmSubnodes).toEqual(['@n8n/n8n-nodes-langchain.lmChatOpenAi']);
+			expect(lmSubnodes).toEqual(['@resin/n8n-nodes-langchain.lmChatOpenAi']);
 		});
 
 		it('should return empty array for ai_tool (intentionally excluded)', () => {

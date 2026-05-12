@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { IHookFunctions } from 'n8n-workflow';
+import type { IHookFunctions } from 'resin-workflow';
 
 import { BoxTrigger } from '../BoxTrigger.node';
 

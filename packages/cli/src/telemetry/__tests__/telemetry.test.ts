@@ -1,8 +1,8 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import type { GlobalConfig } from '@n8n/config';
+import { mockInstance } from '@resin/backend-test-utils';
+import type { GlobalConfig } from '@resin/config';
 import type RudderStack from '@rudderstack/rudder-sdk-node';
 import { mock } from 'jest-mock-extended';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import { PostHogClient } from '@/posthog';
 import { Telemetry } from '@/telemetry';
@@ -31,7 +31,7 @@ describe('Telemetry', () => {
 
 		jest.useFakeTimers();
 		jest.setSystemTime(testDateTime);
-		globalConfig.deployment.type = 'n8n-testing';
+		globalConfig.deployment.type = 'resin-testing';
 	});
 
 	afterAll(async () => {
@@ -139,7 +139,7 @@ describe('Telemetry', () => {
 			expect(execBuffer['1'].manual_error?.count).toBe(2);
 			expect(execBuffer['1'].manual_error?.first).toEqual(execTime1);
 
-			payload.error_node_type = 'n8n-nodes-base.node-type';
+			payload.error_node_type = 'resin-nodes-base.node-type';
 			fakeJestSystemTime('2022-01-01 13:00:00');
 			telemetry.trackWorkflowExecution(payload);
 			fakeJestSystemTime('2022-01-01 12:30:00');
@@ -177,7 +177,7 @@ describe('Telemetry', () => {
 			expect(execBuffer['1'].prod_success?.first).toEqual(execTime1);
 
 			// successful execution n8n node
-			payload.error_node_type = 'n8n-nodes-base.merge';
+			payload.error_node_type = 'resin-nodes-base.merge';
 			payload.workflow_id = '2';
 
 			telemetry.trackWorkflowExecution(payload);
@@ -196,12 +196,12 @@ describe('Telemetry', () => {
 			expect(execBuffer['2'].prod_success?.first).toEqual(execTime1);
 
 			// additional successful execution
-			payload.error_node_type = 'n8n-nodes-base.merge';
+			payload.error_node_type = 'resin-nodes-base.merge';
 			payload.workflow_id = '2';
 
 			telemetry.trackWorkflowExecution(payload);
 
-			payload.error_node_type = 'n8n-nodes-base.merge';
+			payload.error_node_type = 'resin-nodes-base.merge';
 			payload.workflow_id = '1';
 
 			telemetry.trackWorkflowExecution(payload);
@@ -248,7 +248,7 @@ describe('Telemetry', () => {
 
 			// failed execution n8n node
 			payload.success = false;
-			payload.error_node_type = 'n8n-nodes-base.merge';
+			payload.error_node_type = 'resin-nodes-base.merge';
 			payload.is_manual = true;
 			telemetry.trackWorkflowExecution(payload);
 
@@ -276,7 +276,7 @@ describe('Telemetry', () => {
 				is_manual: true,
 				success: false,
 				crashed: true,
-				error_node_type: 'n8n-nodes-base.node-type',
+				error_node_type: 'resin-nodes-base.node-type',
 			};
 
 			// Manual crashed execution
@@ -315,7 +315,7 @@ describe('Telemetry', () => {
 				is_manual: true,
 				success: false,
 				crashed: true,
-				error_node_type: 'n8n-nodes-base.node-type',
+				error_node_type: 'resin-nodes-base.node-type',
 			};
 
 			const payload2 = {
@@ -323,7 +323,7 @@ describe('Telemetry', () => {
 				is_manual: false,
 				success: false,
 				crashed: true,
-				error_node_type: 'n8n-nodes-base.another-node',
+				error_node_type: 'resin-nodes-base.another-node',
 			};
 
 			const execTime1 = fakeJestSystemTime('2022-01-01 12:00:00');
@@ -361,7 +361,7 @@ describe('Telemetry', () => {
 				path: '/workflows',
 				method: 'GET',
 				api_version: 'v1',
-				user_agent: 'n8n-cli/1.0',
+				user_agent: 'resin-cli/1.0',
 			});
 
 			telemetry.trackApiInvocation({
@@ -369,7 +369,7 @@ describe('Telemetry', () => {
 				path: '/workflows',
 				method: 'GET',
 				api_version: 'v1',
-				user_agent: 'n8n-cli/1.0',
+				user_agent: 'resin-cli/1.0',
 			});
 
 			telemetry.trackApiInvocation({
@@ -386,7 +386,7 @@ describe('Telemetry', () => {
 			expect(buffer['user1'].first).toEqual(execTime1);
 			expect(buffer['user1'].endpoints['GET /workflows']).toBe(2);
 			expect(buffer['user1'].endpoints['POST /executions']).toBe(1);
-			expect(buffer['user1'].user_agents['n8n-cli/1.0']).toBe(2);
+			expect(buffer['user1'].user_agents['resin-cli/1.0']).toBe(2);
 			expect(buffer['user1'].user_agents['custom-app/2.0']).toBe(1);
 		});
 
@@ -410,7 +410,7 @@ describe('Telemetry', () => {
 				path: '/workflows',
 				method: 'GET',
 				api_version: 'v1',
-				user_agent: 'n8n-cli/1.0',
+				user_agent: 'resin-cli/1.0',
 			});
 
 			telemetry.trackApiInvocation({

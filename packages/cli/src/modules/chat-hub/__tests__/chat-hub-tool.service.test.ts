@@ -1,8 +1,8 @@
-import type { Logger } from '@n8n/backend-common';
-import type { User } from '@n8n/db';
-import type { EntityManager } from '@n8n/typeorm';
+import type { Logger } from '@resin/backend-common';
+import type { User } from '@resin/db';
+import type { EntityManager } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import type { INode, INodeType } from 'n8n-workflow';
+import type { INode, INodeType } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import type { ChatHubTool } from '../chat-hub-tool.entity';
@@ -19,7 +19,7 @@ const mockDefinition: INode = {
 		active: true,
 		options: {},
 	},
-	type: 'n8n-nodes-base.httpRequestTool',
+	type: 'resin-nodes-base.httpRequestTool',
 	typeVersion: 4.4,
 	position: [0, 0],
 	id: uuid(),

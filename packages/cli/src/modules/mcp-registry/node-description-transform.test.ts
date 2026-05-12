@@ -1,4 +1,4 @@
-import { deepCopy, type INodeTypeDescription } from 'n8n-workflow';
+import { deepCopy, type INodeTypeDescription } from 'resin-workflow';
 
 import {
 	serverToNodeDescription,
@@ -289,7 +289,7 @@ describe('serverToCredentialDescription', () => {
 			name: 'notionMcpOAuth2Api',
 			displayName: 'Notion MCP OAuth2',
 			extends: ['mcpOAuth2Api'],
-			icon: 'node:@n8n/mcp-registry.notion',
+			icon: 'node:@resin/mcp-registry.notion',
 			properties: [
 				{
 					displayName: 'Use Dynamic Client Registration',

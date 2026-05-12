@@ -1,6 +1,6 @@
 import get from 'lodash/get';
-import type { INodeTypes, IConnections as N8nIConnections, IDisplayOptions } from 'n8n-workflow';
-import { mapConnectionsByDestination } from 'n8n-workflow';
+import type { INodeTypes, IConnections as N8nIConnections, IDisplayOptions } from 'resin-workflow';
+import { mapConnectionsByDestination } from 'resin-workflow';
 
 import { matchesDisplayOptions } from './display-options';
 import type { DisplayOptions, DisplayOptionsContext } from './display-options';
@@ -534,7 +534,7 @@ function checkMergeNodeInputCount(json: WorkflowJSON, warnings: ValidationWarnin
 
 	for (const node of json.nodes) {
 		if (!node.name) continue;
-		if (node.type !== 'n8n-nodes-base.merge') continue;
+		if (node.type !== 'resin-nodes-base.merge') continue;
 
 		const numberInputsParam = node.parameters?.numberInputs;
 		const declaredInputs = typeof numberInputsParam === 'number' ? numberInputsParam : 2;
@@ -631,7 +631,7 @@ function validateSubnodeParameters(
 	}
 
 	// Invert connections to find incoming connections by destination
-	// Cast to n8n-workflow IConnections since our local type has string for connection type
+	// Cast to resin-workflow IConnections since our local type has string for connection type
 	const connectionsByDest = mapConnectionsByDestination(
 		json.connections as unknown as N8nIConnections,
 	);

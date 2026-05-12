@@ -1,15 +1,15 @@
-import { ModuleRegistry } from '@n8n/backend-common';
-import { testDb, testModules } from '@n8n/backend-test-utils';
-import type { WorkflowEntity } from '@n8n/db';
-import { ExecutionRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { InstanceSettings, UnrecognizedNodeTypeError } from 'n8n-core';
-import { DebugHelper } from 'n8n-nodes-base/nodes/DebugHelper/DebugHelper.node';
-import { ManualTrigger } from 'n8n-nodes-base/nodes/ManualTrigger/ManualTrigger.node';
+import { ModuleRegistry } from '@resin/backend-common';
+import { testDb, testModules } from '@resin/backend-test-utils';
+import type { WorkflowEntity } from '@resin/db';
+import { ExecutionRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { InstanceSettings, UnrecognizedNodeTypeError } from 'resin-core';
+import { DebugHelper } from 'resin-nodes-base/nodes/DebugHelper/DebugHelper.node';
+import { ManualTrigger } from 'resin-nodes-base/nodes/ManualTrigger/ManualTrigger.node';
 
 import { TestNodeWithTracing } from './test-node-with-tracing';
-import { createRunExecutionData } from 'n8n-workflow';
-import type { INodeType, INodeTypeData, NodeLoadingDetails } from 'n8n-workflow';
+import { createRunExecutionData } from 'resin-workflow';
+import type { INodeType, INodeTypeData, NodeLoadingDetails } from 'resin-workflow';
 import { readFileSync } from 'fs';
 import path from 'path';
 
@@ -28,9 +28,9 @@ function loadNodesFromDist(nodeNames: string[]): INodeTypeData {
 	) as Record<string, NodeLoadingDetails>;
 
 	for (const nodeName of nodeNames) {
-		const loadInfo = knownNodes[nodeName.replace('n8n-nodes-base.', '')];
+		const loadInfo = knownNodes[nodeName.replace('resin-nodes-base.', '')];
 		if (!loadInfo) {
-			throw new UnrecognizedNodeTypeError('n8n-nodes-base', nodeName);
+			throw new UnrecognizedNodeTypeError('resin-nodes-base', nodeName);
 		}
 		const nodeDistPath = path.join(BASE_DIR, 'nodes-base', loadInfo.sourcePath);
 		const node = new (require(nodeDistPath)[loadInfo.className])() as INodeType;
@@ -47,13 +47,13 @@ export async function initOtelTestEnvironment() {
 	await testDb.init();
 	await Container.get(ModuleRegistry).initModules('main');
 	const distNodes = loadNodesFromDist([
-		'n8n-nodes-base.executeWorkflow',
-		'n8n-nodes-base.executeWorkflowTrigger',
+		'resin-nodes-base.executeWorkflow',
+		'resin-nodes-base.executeWorkflowTrigger',
 	]);
 	await utils.initNodeTypes({
-		'n8n-nodes-base.manualTrigger': { type: new ManualTrigger(), sourcePath: '' },
-		'n8n-nodes-base.debugHelper': { type: new DebugHelper(), sourcePath: '' },
-		'n8n-nodes-base.tracingTestNode': { type: new TestNodeWithTracing(), sourcePath: '' },
+		'resin-nodes-base.manualTrigger': { type: new ManualTrigger(), sourcePath: '' },
+		'resin-nodes-base.debugHelper': { type: new DebugHelper(), sourcePath: '' },
+		'resin-nodes-base.tracingTestNode': { type: new TestNodeWithTracing(), sourcePath: '' },
 		...distNodes,
 	});
 	await utils.initBinaryDataService();
@@ -106,7 +106,7 @@ export async function executeWorkflow(
 	} = {},
 ): Promise<string> {
 	const { mode = 'webhook', retryOf, tracingContext } = options;
-	const triggerNode = workflow.nodes.find((n) => n.type === 'n8n-nodes-base.manualTrigger')!;
+	const triggerNode = workflow.nodes.find((n) => n.type === 'resin-nodes-base.manualTrigger')!;
 	const executionData = createRunExecutionData({
 		executionData: {
 			nodeExecutionStack: [

@@ -15,7 +15,7 @@ jest.mock('@mastra/core/mastra', () => ({
 jest.mock('@mastra/core/tools', () => ({
 	createTool: jest.fn((config: unknown) => config),
 }));
-jest.mock('@n8n/workflow-sdk', () => ({
+jest.mock('@resin/workflow-sdk', () => ({
 	generateWorkflowCode: jest.fn(() => '// generated code'),
 }));
 jest.mock('../../../agent/register-with-mastra', () => ({
@@ -29,7 +29,7 @@ jest.mock('../../../stream/consume-with-hitl', () => ({
 }));
 
 import { Agent } from '@mastra/core/agent';
-import { DEFAULT_INSTANCE_AI_PERMISSIONS } from '@n8n/api-types';
+import { DEFAULT_INSTANCE_AI_PERMISSIONS } from '@resin/api-types';
 
 import type { InstanceAiContext, OrchestrationContext } from '../../../types';
 import { createBuildWorkflowAgentTool } from '../build-workflow-agent.tool';

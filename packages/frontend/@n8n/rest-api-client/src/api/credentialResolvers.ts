@@ -2,7 +2,7 @@ import type {
 	CredentialResolver,
 	CredentialResolverAffectedWorkflow,
 	CredentialResolverType,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 import type { IRestApiContext } from '../types';
 import { makeRestApiRequest } from '../utils';

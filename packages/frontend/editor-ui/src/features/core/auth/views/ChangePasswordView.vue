@@ -4,8 +4,8 @@ import { useRouter } from 'vue-router';
 
 import AuthView from './AuthView.vue';
 
-import { useI18n } from '@n8n/i18n';
-import { createPasswordRules } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import { createPasswordRules } from '@resin/design-system';
 import { useToast } from '@/app/composables/useToast';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useUsersStore } from '@/features/settings/users/users.store';

@@ -4,7 +4,7 @@
 // a `@/*` path alias. That alias collides with instance-ai's own `@/*` mapping
 // when type-checked transitively, so the type resolves to `error` here even
 // though the runtime behaviour is correct.
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 import { normalizeWorkflow, serializeNormalizedWorkflow } from '../harness/normalize-workflow';
 
@@ -44,7 +44,7 @@ describe('normalizeWorkflow', () => {
 				{
 					id: 'n1',
 					name: 'Trigger',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 					parameters: {},
@@ -52,7 +52,7 @@ describe('normalizeWorkflow', () => {
 				{
 					id: 'n2',
 					name: 'HTTP Request',
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 4,
 					position: [200, 0],
 					parameters: { url: 'https://example.com' },
@@ -84,7 +84,7 @@ describe('normalizeWorkflow', () => {
 				{
 					id: 'n1',
 					name: 'Start',
-					type: 'n8n-nodes-base.manualTrigger',
+					type: 'resin-nodes-base.manualTrigger',
 					typeVersion: 1,
 					position: [0, 0],
 				},
@@ -103,7 +103,7 @@ describe('normalizeWorkflow', () => {
 			nodes: [
 				{
 					id: 'sticky-1',
-					type: 'n8n-nodes-base.stickyNote',
+					type: 'resin-nodes-base.stickyNote',
 					typeVersion: 1,
 					position: [0, 0],
 				},

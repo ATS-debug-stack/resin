@@ -1,6 +1,6 @@
 import type { Basic } from '@/Interface';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
-import type { IConnections, IWorkflowDataProxyAdditionalKeys } from 'n8n-workflow';
+import type { IConnections, IWorkflowDataProxyAdditionalKeys } from 'resin-workflow';
 import type { WorkflowObjectAccessors } from './workflow';
 
 type Range = { from: number; to: number };

@@ -7,12 +7,12 @@ export const NoUncaughtJsonParseRule = ESLintUtils.RuleCreator.withoutDocs({
 		hasSuggestions: true,
 		docs: {
 			description:
-				'Calls to `JSON.parse()` must be replaced with `jsonParse()` from `n8n-workflow` or surrounded with a try/catch block.',
+				'Calls to `JSON.parse()` must be replaced with `jsonParse()` from `resin-workflow` or surrounded with a try/catch block.',
 		},
 		schema: [],
 		messages: {
 			noUncaughtJsonParse:
-				'Use `jsonParse()` from `n8n-workflow` or surround the `JSON.parse()` call with a try/catch block.',
+				'Use `jsonParse()` from `resin-workflow` or surround the `JSON.parse()` call with a try/catch block.',
 		},
 	},
 	defaultOptions: [],

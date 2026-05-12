@@ -1,4 +1,8 @@
-import { NodeConnectionTypes, type INodeProperties, type INodeTypeDescription } from 'n8n-workflow';
+import {
+	NodeConnectionTypes,
+	type INodeProperties,
+	type INodeTypeDescription,
+} from 'resin-workflow';
 import { useActionsGenerator } from './useActionsGeneration';
 import { usePostHog } from '@/app/stores/posthog.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
@@ -12,7 +16,7 @@ let settingsStore: ReturnType<typeof mockedStore<typeof useSettingsStore>>;
 
 describe('useActionsGenerator', () => {
 	const { generateMergedNodesAndActions } = useActionsGenerator();
-	const NODE_NAME = 'n8n-nodes-base.test';
+	const NODE_NAME = 'resin-nodes-base.test';
 	const baseV2NodeWoProps: INodeTypeDescription = {
 		name: NODE_NAME,
 		displayName: 'Test',
@@ -425,7 +429,7 @@ describe('useActionsGenerator', () => {
 		};
 
 		const regularNode: INodeTypeDescription = {
-			name: 'n8n-nodes-base.regularNode',
+			name: 'resin-nodes-base.regularNode',
 			displayName: 'Regular Node',
 			description: 'A regular node',
 			defaultVersion: 1,
@@ -447,7 +451,7 @@ describe('useActionsGenerator', () => {
 
 			const nodeNames = mergedNodes.map((n) => n.name);
 			expect(nodeNames).toContain(SIMPLE_MEMORY_NODE_TYPE);
-			expect(nodeNames).toContain('n8n-nodes-base.regularNode');
+			expect(nodeNames).toContain('resin-nodes-base.regularNode');
 		});
 
 		it('should filter out Simple Memory node when queue mode is enabled', () => {
@@ -458,7 +462,7 @@ describe('useActionsGenerator', () => {
 
 			const nodeNames = mergedNodes.map((n) => n.name);
 			expect(nodeNames).not.toContain(SIMPLE_MEMORY_NODE_TYPE);
-			expect(nodeNames).toContain('n8n-nodes-base.regularNode');
+			expect(nodeNames).toContain('resin-nodes-base.regularNode');
 		});
 
 		it('should filter out Simple Memory node when multi-main is enabled', () => {
@@ -469,7 +473,7 @@ describe('useActionsGenerator', () => {
 
 			const nodeNames = mergedNodes.map((n) => n.name);
 			expect(nodeNames).not.toContain(SIMPLE_MEMORY_NODE_TYPE);
-			expect(nodeNames).toContain('n8n-nodes-base.regularNode');
+			expect(nodeNames).toContain('resin-nodes-base.regularNode');
 		});
 	});
 });

@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import { useConnectionModal } from './useConnectionModal.ee';
 import { vi } from 'vitest';
-import type { SecretProviderTypeResponse } from '@n8n/api-types';
+import type { SecretProviderTypeResponse } from '@resin/api-types';
 import type { ProjectListItem } from '@/features/collaboration/projects/projects.types';
 
 // Mock module settings

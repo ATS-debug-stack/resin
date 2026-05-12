@@ -3,12 +3,12 @@ import {
 	PasswordUpdateRequestDto,
 	UserSelfSettingsUpdateRequestDto,
 	UserUpdateRequestDto,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { User, PublicUser, AuthIdentity } from '@n8n/db';
-import { UserRepository, AuthenticatedRequest } from '@n8n/db';
-import { Body, createUserKeyedRateLimiter, Patch, Post, RestController } from '@n8n/decorators';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { User, PublicUser, AuthIdentity } from '@resin/db';
+import { UserRepository, AuthenticatedRequest } from '@resin/db';
+import { Body, createUserKeyedRateLimiter, Patch, Post, RestController } from '@resin/decorators';
 import { plainToInstance } from 'class-transformer';
 import { Response } from 'express';
 

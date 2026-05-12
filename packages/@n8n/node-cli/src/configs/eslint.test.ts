@@ -8,10 +8,10 @@ import { tmpdirTest } from '../test-utils/temp-fs';
 
 /**
  * These tests guard against regressions in the flat-config layout where
- * `@n8n/eslint-plugin-community-nodes` rules that target `package.json`
+ * `@resin/eslint-plugin-community-nodes` rules that target `package.json`
  * (e.g. `no-overrides-field`) get loaded but never actually fire because
  * they are wrapped inside a `**\/*.ts`-scoped `extends:` block. See CE-1023
- * for the analogous bug in `@n8n/scan-community-package`.
+ * for the analogous bug in `@resin/scan-community-package`.
  */
 async function lintFile(filePath: string, eslintConfig: typeof config) {
 	const eslint = new ESLint({
@@ -27,22 +27,22 @@ async function lintFile(filePath: string, eslintConfig: typeof config) {
 }
 
 const packageJsonWithOverrides = `{
-	"name": "n8n-nodes-fixture",
+	"name": "resin-nodes-fixture",
 	"version": "1.0.0",
-	"keywords": ["n8n-community-node-package"],
-	"peerDependencies": { "n8n-workflow": "*" },
+	"keywords": ["resin-community-node-package"],
+	"peerDependencies": { "resin-workflow": "*" },
 	"overrides": { "change-case": "4.1.2" }
 }`;
 
 const packageJsonWithLifecycleScript = `{
-	"name": "n8n-nodes-fixture",
+	"name": "resin-nodes-fixture",
 	"version": "1.0.0",
-	"keywords": ["n8n-community-node-package"],
-	"peerDependencies": { "n8n-workflow": "*" },
+	"keywords": ["resin-community-node-package"],
+	"peerDependencies": { "resin-workflow": "*" },
 	"scripts": { "postinstall": "node ./malicious.js" }
 }`;
 
-describe('@n8n/node-cli eslint config', () => {
+describe('@resin/node-cli eslint config', () => {
 	tmpdirTest(
 		'flags an `overrides` field in package.json (regression for CE-1023)',
 		async ({ tmpdir }) => {
@@ -52,7 +52,7 @@ describe('@n8n/node-cli eslint config', () => {
 			const result = await lintFile(pkgPath, config);
 
 			const ruleIds = result.messages.map((m) => m.ruleId);
-			expect(ruleIds).toContain('@n8n/community-nodes/no-overrides-field');
+			expect(ruleIds).toContain('@resin/community-nodes/no-overrides-field');
 		},
 	);
 
@@ -63,7 +63,7 @@ describe('@n8n/node-cli eslint config', () => {
 		const result = await lintFile(pkgPath, config);
 
 		const ruleIds = result.messages.map((m) => m.ruleId);
-		expect(ruleIds).toContain('@n8n/community-nodes/no-forbidden-lifecycle-scripts');
+		expect(ruleIds).toContain('@resin/community-nodes/no-forbidden-lifecycle-scripts');
 	});
 
 	tmpdirTest('configWithoutCloudSupport also lints package.json rules', async ({ tmpdir }) => {
@@ -73,6 +73,6 @@ describe('@n8n/node-cli eslint config', () => {
 		const result = await lintFile(pkgPath, configWithoutCloudSupport);
 
 		const ruleIds = result.messages.map((m) => m.ruleId);
-		expect(ruleIds).toContain('@n8n/community-nodes/no-overrides-field');
+		expect(ruleIds).toContain('@resin/community-nodes/no-overrides-field');
 	});
 });

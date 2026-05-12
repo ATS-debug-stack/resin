@@ -10,14 +10,14 @@ import {
 	CHAT_WORKFLOW_AGENTS_VIEW,
 	CHAT_PERSONAL_AGENTS_VIEW,
 } from '@/features/ai/chatHub/constants';
-import { type IMenuItem, N8nMenuItem, N8nScrollArea, N8nText } from '@n8n/design-system';
+import { type IMenuItem, N8nMenuItem, N8nScrollArea, N8nText } from '@resin/design-system';
 import { computed, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import ChatSessionMenuItem from './ChatSessionMenuItem.vue';
 import SkeletonMenuItem from './SkeletonMenuItem.vue';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import { type ChatHubSessionDto } from '@n8n/api-types';
-import { useI18n } from '@n8n/i18n';
+import { type ChatHubSessionDto } from '@resin/api-types';
+import { useI18n } from '@resin/i18n';
 import KeyboardShortcutTooltip from '@/app/components/KeyboardShortcutTooltip.vue';
 
 defineProps<{ isCollapsed: boolean }>();

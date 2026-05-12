@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import type { ITag } from '@n8n/rest-api-client/api/tags';
+import type { ITag } from '@resin/rest-api-client/api/tags';
 import type { ITagRow } from '../../../tags.types';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import TagsTableHeader from './TagsTableHeader.vue';
 import TagsTable from './TagsTable.vue';
 import { useRBACStore } from '@/app/stores/rbac.store';
-import type { BaseTextKey } from '@n8n/i18n';
+import type { BaseTextKey } from '@resin/i18n';
 
 defineOptions({ name: 'TagsView' });
 

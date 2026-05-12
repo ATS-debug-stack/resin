@@ -1,5 +1,5 @@
-import { createTeamProject, linkUserToProject, testDb } from '@n8n/backend-test-utils';
-import type { Project, User, Variables } from '@n8n/db';
+import { createTeamProject, linkUserToProject, testDb } from '@resin/backend-test-utils';
+import type { Project, User, Variables } from '@resin/db';
 import { createMemberWithApiKey, createOwnerWithApiKey } from '@test-integration/db/users';
 import {
 	createProjectVariable,

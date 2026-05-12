@@ -1,7 +1,7 @@
 import type { NodeTypeGuide } from './types';
 
 export const HTTP_REQUEST_GUIDE: NodeTypeGuide = {
-	patterns: ['n8n-nodes-base.httpRequest', 'n8n-nodes-base.webhook'],
+	patterns: ['resin-nodes-base.httpRequest', 'resin-nodes-base.webhook'],
 	content: `
 ### HTTP Request Node Updates
 

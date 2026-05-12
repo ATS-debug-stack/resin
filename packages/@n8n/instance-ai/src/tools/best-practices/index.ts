@@ -1,9 +1,9 @@
 /**
  * Registry mapping workflow techniques to their documentation getter functions.
  *
- * Sources best-practice content from the shared @n8n/workflow-sdk/prompts package.
+ * Sources best-practice content from the shared @resin/workflow-sdk/prompts package.
  */
-import { bestPracticesRegistry } from '@n8n/workflow-sdk/prompts/best-practices';
+import { bestPracticesRegistry } from '@resin/workflow-sdk/prompts/best-practices';
 
 import { WorkflowTechnique, type WorkflowTechniqueType } from './techniques';
 

@@ -5,7 +5,7 @@ import type {
 	ICredentialType,
 	IHttpRequestHelper,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 // https://api.baserow.io/api/redoc/#section/Authentication
 

@@ -11,7 +11,7 @@
 // dispatch decision is what we measure, not downstream tool execution.
 // ---------------------------------------------------------------------------
 
-import type { McpTool, McpToolCallRequest, McpToolCallResult } from '@n8n/api-types';
+import type { McpTool, McpToolCallRequest, McpToolCallResult } from '@resin/api-types';
 
 import type { LocalMcpServer } from '../../src/types';
 

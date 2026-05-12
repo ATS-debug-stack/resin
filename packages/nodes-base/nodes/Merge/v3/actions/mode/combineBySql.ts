@@ -1,5 +1,5 @@
-import { Container } from '@n8n/di';
-import { ErrorReporter } from 'n8n-core';
+import { Container } from '@resin/di';
+import { ErrorReporter } from 'resin-core';
 
 import type {
 	IDataObject,
@@ -8,8 +8,8 @@ import type {
 	INodeExecutionData,
 	INodeProperties,
 	IPairedItemData,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import { getResolvables, updateDisplayOptions } from '@utils/utilities';
 
 import { numberInputsProperty } from '../../helpers/descriptions';

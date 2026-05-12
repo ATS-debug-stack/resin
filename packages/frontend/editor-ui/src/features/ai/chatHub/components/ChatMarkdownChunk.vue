@@ -2,7 +2,7 @@
 import VueMarkdown from 'vue-markdown-render';
 import { useChatHubMarkdownOptions } from '@/features/ai/chatHub/composables/useChatHubMarkdownOptions';
 import { ref, useCssModule } from 'vue';
-import type { ChatMessageContentChunk } from '@n8n/api-types';
+import type { ChatMessageContentChunk } from '@resin/api-types';
 import ChatButtons from './ChatButtons.vue';
 
 const {
@@ -92,7 +92,7 @@ defineExpose({
 </template>
 
 <style lang="scss" module>
-@use '@n8n/design-system/css/mixins' as ds-mixins;
+@use '@resin/design-system/css/mixins' as ds-mixins;
 
 .container {
 	display: flex;

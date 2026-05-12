@@ -17,7 +17,7 @@ import FocusSidebar from '@/app/components/FocusSidebar.vue';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useUIStore } from '@/app/stores/ui.store';
 import CanvasRunWorkflowButton from '@/features/workflows/canvas/components/elements/buttons/CanvasRunWorkflowButton.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useRunWorkflow } from '@/app/composables/useRunWorkflow';
@@ -32,7 +32,7 @@ import type {
 	XYPosition,
 } from '@/Interface';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
-import type { WorkflowDataUpdate } from '@n8n/rest-api-client/api/workflows';
+import type { WorkflowDataUpdate } from '@resin/rest-api-client/api/workflows';
 import type {
 	Connection,
 	Dimensions,
@@ -75,14 +75,14 @@ import {
 	isTriggerNode,
 	NodeHelpers,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type {
 	NodeConnectionType,
 	IDataObject,
 	ExecutionSummary,
 	IConnection,
 	INodeParameters,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { useToast } from '@/app/composables/useToast';
 import { useCredentialsStore } from '@/features/credentials/credentials.store';
 import { useEnvironmentsStore } from '@/features/settings/environments.ee/environments.store';
@@ -108,7 +108,7 @@ import { nodeViewEventBus } from '@/app/event-bus';
 import type { PinDataSource } from '@/app/composables/usePinnedData';
 import { useClipboard } from '@/app/composables/useClipboard';
 import { useBeforeUnload } from '@/app/composables/useBeforeUnload';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import NodeViewUnfinishedWorkflowMessage from '@/app/components/NodeViewUnfinishedWorkflowMessage.vue';
 import {
 	parseCanvasConnectionHandleString,
@@ -119,7 +119,7 @@ import { useWorkflowSaving } from '@/app/composables/useWorkflowSaving';
 import { useBuilderStore } from '@/features/ai/assistant/builder.store';
 import KeyboardShortcutTooltip from '@/app/components/KeyboardShortcutTooltip.vue';
 import { useWorkflowExtraction } from '@/app/composables/useWorkflowExtraction';
-import { useAgentRequestStore } from '@n8n/stores/useAgentRequestStore';
+import { useAgentRequestStore } from '@resin/stores/useAgentRequestStore';
 import { needsAgentInput } from '@/app/utils/nodes/nodeTransforms';
 import { useLogsStore } from '@/app/stores/logs.store';
 import { canvasEventBus } from '@/features/workflows/canvas/canvas.eventBus';
@@ -136,7 +136,11 @@ import { useCollaborationStore } from '@/features/collaboration/collaboration/co
 import { useInjectWorkflowId } from '@/app/composables/useInjectWorkflowId';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 
-import { N8nCallout, N8nCanvasThinkingPill, N8nCanvasCollaborationPill } from '@n8n/design-system';
+import {
+	N8nCallout,
+	N8nCanvasThinkingPill,
+	N8nCanvasCollaborationPill,
+} from '@resin/design-system';
 import { useWorkflowHelpers } from '../composables/useWorkflowHelpers';
 import { findTriggerNodeToAutoSelect } from '@/features/execution/executions/executions.utils';
 

@@ -11,7 +11,7 @@ import {
 	useAttrs,
 } from 'vue';
 
-import Icon from '@n8n/design-system/components/N8nIcon/Icon.vue';
+import Icon from '@resin/design-system/components/N8nIcon/Icon.vue';
 
 import type { InputProps, InputEmits, InputSlots, InputSize } from './Input.types';
 
@@ -90,7 +90,7 @@ const sizeClass = computed(() => sizes[props.size]);
 const isTextarea = computed(() => props.type === 'textarea');
 
 const containerClasses = computed(() => [
-	'n8n-input', // Global class for backwards compatibility
+	'resin-input', // Global class for backwards compatibility
 	$style.inputContainer,
 	sizeClass.value,
 	{
@@ -104,7 +104,7 @@ const containerClasses = computed(() => [
 ]);
 
 const inputWrapperClasses = computed(() => [
-	'n8n-input__wrapper',
+	'resin-input__wrapper',
 	$style.inputWrapper,
 	{
 		[$style.disabled]: props.disabled,

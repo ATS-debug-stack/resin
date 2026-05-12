@@ -1,4 +1,4 @@
-import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryColumn } from '@n8n/typeorm';
+import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryColumn } from '@resin/typeorm';
 
 import { WithTimestamps } from './abstract-entity';
 import type { ProjectRelation } from './project-relation';

@@ -1,5 +1,5 @@
-import { Container } from '@n8n/di';
-import { Cipher } from 'n8n-core';
+import { Container } from '@resin/di';
+import { Cipher } from 'resin-core';
 
 import type { MigrationContext, ReversibleMigration } from '../migration-types';
 

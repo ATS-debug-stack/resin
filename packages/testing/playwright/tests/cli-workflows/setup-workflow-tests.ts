@@ -92,12 +92,12 @@ export async function globalWorkflowSetup(): Promise<void> {
 		await fsPromises.mkdir(BASE_TMP_DIR, { recursive: true });
 
 		await copyAsset(
-			path.join(ASSETS_SOURCE_PATH, 'n8n-logo.png'),
-			path.join(BASE_TMP_DIR, 'n8n-logo.png'),
+			path.join(ASSETS_SOURCE_PATH, 'resin-logo.png'),
+			path.join(BASE_TMP_DIR, 'resin-logo.png'),
 		);
 		await copyAsset(
-			path.join(ASSETS_SOURCE_PATH, 'n8n-screenshot.png'),
-			path.join(BASE_TMP_DIR, 'n8n-screenshot.png'),
+			path.join(ASSETS_SOURCE_PATH, 'resin-screenshot.png'),
+			path.join(BASE_TMP_DIR, 'resin-screenshot.png'),
 		);
 
 		await copyAsset(PDF_SOURCE_DIR, TMP_PDF_DEST_DIR);

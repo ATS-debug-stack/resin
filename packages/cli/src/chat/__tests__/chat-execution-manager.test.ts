@@ -1,16 +1,16 @@
-import { ExecutionRepository } from '@n8n/db';
-import type { IExecutionResponse } from '@n8n/db';
-import { TOOL_EXECUTOR_NODE_NAME } from '@n8n/constants';
+import { ExecutionRepository } from '@resin/db';
+import type { IExecutionResponse } from '@resin/db';
+import { TOOL_EXECUTOR_NODE_NAME } from '@resin/constants';
 
 import * as WorkflowExecuteAdditionalData from '@/workflow-execute-additional-data';
 import { WorkflowRunner } from '@/workflow-runner';
-import { mockInstance } from '@n8n/backend-test-utils';
+import { mockInstance } from '@resin/backend-test-utils';
 import {
 	CHAT_NODE_TYPE,
 	CHAT_TOOL_NODE_TYPE,
 	NodeConnectionTypes,
 	RESPOND_TO_WEBHOOK_NODE_TYPE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { NodeTypes } from '../../node-types';
 import { OwnershipService } from '../../services/ownership.service';
@@ -558,7 +558,7 @@ describe('ChatExecutionManager', () => {
 			const message: ChatMessage = { sessionId: '123', action: 'sendMessage', chatInput: 'input' };
 			const toolNode = {
 				name: 'My Tool',
-				type: 'n8n-nodes-base.myTool',
+				type: 'resin-nodes-base.myTool',
 				typeVersion: 1,
 				parameters: {},
 			};

@@ -1,5 +1,5 @@
-import { type User, type SharedWorkflowRepository, WorkflowEntity } from '@n8n/db';
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import { type User, type SharedWorkflowRepository, WorkflowEntity } from '@resin/db';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 import z from 'zod';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../../mcp.constants';
@@ -189,7 +189,7 @@ export const createUpdateWorkflowTool = (
 				skippedHttpNodes = autoAssign.skippedHttpNodes;
 			}
 
-			const { ParseValidateHandler } = await import('@n8n/ai-workflow-builder');
+			const { ParseValidateHandler } = await import('@resin/ai-workflow-builder');
 			const validator = new ParseValidateHandler({ generatePinData: false });
 			const validationWarnings = validator.validateJSON({
 				name: workflowUpdateData.name,
@@ -199,7 +199,7 @@ export const createUpdateWorkflowTool = (
 
 			const updatedWorkflow = await workflowService.update(user, workflowUpdateData, workflowId, {
 				aiBuilderAssisted: true,
-				source: 'n8n-mcp',
+				source: 'resin-mcp',
 			});
 
 			void collaborationService.broadcastWorkflowUpdate(workflowId, user.id).catch(() => {});

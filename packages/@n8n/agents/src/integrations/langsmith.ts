@@ -252,7 +252,7 @@ async function createLangSmithTracer(
 		registeredOtelContext = true;
 	}
 
-	return { tracer: provider.getTracer('@n8n/agents'), provider };
+	return { tracer: provider.getTracer('@resin/agents'), provider };
 }
 
 /**
@@ -264,7 +264,7 @@ async function createLangSmithTracer(
  *
  * @example
  * ```typescript
- * import { Agent, LangSmithTelemetry } from '@n8n/agents';
+ * import { Agent, LangSmithTelemetry } from '@resin/agents';
  *
  * const telemetry = new LangSmithTelemetry({ project: 'my-project' })
  *   .credential('langsmith')

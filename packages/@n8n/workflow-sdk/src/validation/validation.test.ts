@@ -8,9 +8,9 @@ import { languageModel, tool } from '../workflow-builder/node-builders/subnode-b
 describe('Validation', () => {
 	describe('validateWorkflow()', () => {
 		it('should validate a workflow with a trigger', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { parameters: { url: 'https://example.com' } },
 			});
@@ -23,7 +23,7 @@ describe('Validation', () => {
 
 		it('should warn when workflow has no trigger', () => {
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { parameters: { url: 'https://example.com' } },
 			});
@@ -34,14 +34,14 @@ describe('Validation', () => {
 		});
 
 		it('should warn about disconnected nodes', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const connected = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { name: 'Connected' },
 			});
 			const disconnected = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: { name: 'Disconnected' },
 			});
@@ -54,10 +54,10 @@ describe('Validation', () => {
 		});
 
 		it('should validate required parameters if specified', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			// HTTP Request without URL should potentially warn
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { parameters: {} }, // Missing url
 			});
@@ -77,9 +77,9 @@ describe('Validation', () => {
 		});
 
 		it('should not flag sticky notes as disconnected', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const n = node({
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				version: 4.2,
 				config: { parameters: { url: 'https://example.com' } },
 			});
@@ -95,22 +95,22 @@ describe('Validation', () => {
 		});
 
 		it('should not flag subnodes connected to agent as disconnected', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 
 			const model = languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1.2,
 				config: { parameters: { model: 'gpt-4' } },
 			});
 
 			const codeTool = tool({
-				type: '@n8n/n8n-nodes-langchain.toolCode',
+				type: '@resin/n8n-nodes-langchain.toolCode',
 				version: 1.1,
 				config: { parameters: { code: 'return "hello"' } },
 			});
 
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					parameters: { promptType: 'auto', text: 'Hello' },
@@ -145,10 +145,10 @@ describe('Validation', () => {
 
 	describe('chained .to() connections', () => {
 		it('should not flag nodes connected via chained .to() as disconnected', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
-			const node1 = node({ type: 'n8n-nodes-base.set', version: 3, config: { name: 'Node1' } });
-			const node2 = node({ type: 'n8n-nodes-base.set', version: 3, config: { name: 'Node2' } });
-			const node3 = node({ type: 'n8n-nodes-base.set', version: 3, config: { name: 'Node3' } });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
+			const node1 = node({ type: 'resin-nodes-base.set', version: 3, config: { name: 'Node1' } });
+			const node2 = node({ type: 'resin-nodes-base.set', version: 3, config: { name: 'Node2' } });
+			const node3 = node({ type: 'resin-nodes-base.set', version: 3, config: { name: 'Node3' } });
 
 			// Chained .to() pattern: t -> node1 -> node2 -> node3
 			const wf = workflow('test', 'Test').add(t.to(node1.to(node2.to(node3))));
@@ -160,10 +160,10 @@ describe('Validation', () => {
 		});
 
 		it('should not flag nodes in chained .to() as disconnected when using builder validate', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
-			const node1 = node({ type: 'n8n-nodes-base.set', version: 3, config: { name: 'Node1' } });
-			const node2 = node({ type: 'n8n-nodes-base.set', version: 3, config: { name: 'Node2' } });
-			const node3 = node({ type: 'n8n-nodes-base.set', version: 3, config: { name: 'Node3' } });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
+			const node1 = node({ type: 'resin-nodes-base.set', version: 3, config: { name: 'Node1' } });
+			const node2 = node({ type: 'resin-nodes-base.set', version: 3, config: { name: 'Node2' } });
+			const node3 = node({ type: 'resin-nodes-base.set', version: 3, config: { name: 'Node3' } });
 
 			// Chained .to() pattern: t -> node1 -> node2 -> node3
 			const wf = workflow('test', 'Test').add(t.to(node1.to(node2.to(node3))));
@@ -177,9 +177,9 @@ describe('Validation', () => {
 
 	describe('MISSING_EXPRESSION_PREFIX false positives', () => {
 		it('should not flag {{ $json }} inside expression strings starting with =', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					parameters: {
@@ -203,9 +203,9 @@ describe('Validation', () => {
 		});
 
 		it('should still flag {{ $json }} in strings NOT starting with =', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					parameters: {
@@ -230,9 +230,9 @@ describe('Validation', () => {
 
 	describe('AGENT_STATIC_PROMPT with malformed expressions', () => {
 		it('should not emit AGENT_STATIC_PROMPT when malformed expressions exist', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					parameters: {
@@ -254,9 +254,9 @@ describe('Validation', () => {
 		});
 
 		it('should emit AGENT_STATIC_PROMPT when no expressions exist at all', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					parameters: {
@@ -278,9 +278,9 @@ describe('Validation', () => {
 		});
 
 		it('should not emit AGENT_STATIC_PROMPT for ChainLlm when malformed expressions exist', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const chainLlm = node({
-				type: '@n8n/n8n-nodes-langchain.chainLlm',
+				type: '@resin/n8n-nodes-langchain.chainLlm',
 				version: 1.4,
 				config: {
 					parameters: {
@@ -303,32 +303,32 @@ describe('Validation', () => {
 
 	describe('nested ifElse validation', () => {
 		it('should not flag nodes in nested ifElse branches as disconnected', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 
 			const outerIF = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'Outer IF' },
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 
 			const innerIF = node({
-				type: 'n8n-nodes-base.if',
+				type: 'resin-nodes-base.if',
 				version: 2.2,
 				config: { name: 'Inner IF' },
-			}) as NodeInstance<'n8n-nodes-base.if', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.if', string, unknown>;
 
 			const innerTrueNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Inner True' },
 			});
 			const innerFalseNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Inner False' },
 			});
 			const outerFalseNode = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Outer False' },
 			});
@@ -358,32 +358,32 @@ describe('Validation', () => {
 		});
 
 		it('should not flag nodes in nested switch cases as disconnected', () => {
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 
 			const outerSwitch = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.2,
 				config: { name: 'Outer Switch' },
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 
 			const innerSwitch = node({
-				type: 'n8n-nodes-base.switch',
+				type: 'resin-nodes-base.switch',
 				version: 3.2,
 				config: { name: 'Inner Switch' },
-			}) as NodeInstance<'n8n-nodes-base.switch', string, unknown>;
+			}) as NodeInstance<'resin-nodes-base.switch', string, unknown>;
 
 			const innerCase0 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Inner Case 0' },
 			});
 			const innerCase1 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Inner Case 1' },
 			});
 			const outerCase1 = node({
-				type: 'n8n-nodes-base.noOp',
+				type: 'resin-nodes-base.noOp',
 				version: 1,
 				config: { name: 'Outer Case 1' },
 			});
@@ -408,9 +408,9 @@ describe('Validation', () => {
 
 	describe('containsExpression handles non-string values', () => {
 		it('should not throw when parameter values are numbers', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					parameters: {
@@ -428,9 +428,9 @@ describe('Validation', () => {
 		});
 
 		it('should not throw when parameter values are objects', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					parameters: {
@@ -448,9 +448,9 @@ describe('Validation', () => {
 		});
 
 		it('should not throw when parameter values are null or undefined', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					parameters: {
@@ -473,10 +473,10 @@ describe('Validation', () => {
 		afterAll(teardownTestSchemas);
 
 		it('should validate node parameters against schema by default', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			// keepOnlySet should be boolean, not a string
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 2,
 				config: {
 					name: 'Set',
@@ -491,9 +491,9 @@ describe('Validation', () => {
 		});
 
 		it('should skip schema validation when validateSchema: false', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 2,
 				config: {
 					name: 'Set',
@@ -508,9 +508,9 @@ describe('Validation', () => {
 		});
 
 		it('should not warn for valid parameters', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 2,
 				config: {
 					name: 'Set',
@@ -525,7 +525,7 @@ describe('Validation', () => {
 		});
 
 		it('should gracefully handle nodes without schemas', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			// Use a custom node type that doesn't have a schema
 			const customNode = node({
 				type: 'custom-nodes.myNode',
@@ -545,9 +545,9 @@ describe('Validation', () => {
 		});
 
 		it('should accept expressions as valid parameter values', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 2,
 				config: {
 					name: 'Set',
@@ -562,9 +562,9 @@ describe('Validation', () => {
 		});
 
 		it('should include node name in INVALID_PARAMETER warning', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 2,
 				config: {
 					name: 'My Set Node',
@@ -592,7 +592,7 @@ describe('Validation', () => {
 					{
 						id: 'node-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -600,7 +600,7 @@ describe('Validation', () => {
 					{
 						id: 'node-2',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1,
 						position: [200, 0] as [number, number],
 						parameters: {
@@ -641,7 +641,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [0, 0] as [number, number],
 						parameters: { text: 'Hello' },
@@ -649,7 +649,7 @@ describe('Validation', () => {
 					{
 						id: 'model-1',
 						name: 'OpenAI Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [0, 100] as [number, number],
 						parameters: { model: { __rl: true, mode: 'list', value: 'gpt-4o' } },
@@ -679,7 +679,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [0, 0] as [number, number],
 						parameters: { text: 'Hello' },
@@ -687,7 +687,7 @@ describe('Validation', () => {
 					{
 						id: 'model-1',
 						name: 'OpenAI Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [0, 100] as [number, number],
 						parameters: { model: { __rl: true, mode: 'list', value: 'gpt-4o' } },
@@ -695,7 +695,7 @@ describe('Validation', () => {
 					{
 						id: 'tool-1',
 						name: 'Tool 1',
-						type: '@n8n/n8n-nodes-langchain.toolCode',
+						type: '@resin/n8n-nodes-langchain.toolCode',
 						typeVersion: 1.1,
 						position: [0, 200] as [number, number],
 						parameters: {},
@@ -703,7 +703,7 @@ describe('Validation', () => {
 					{
 						id: 'tool-2',
 						name: 'Tool 2',
-						type: '@n8n/n8n-nodes-langchain.toolCode',
+						type: '@resin/n8n-nodes-langchain.toolCode',
 						typeVersion: 1.1,
 						position: [0, 300] as [number, number],
 						parameters: {},
@@ -735,7 +735,7 @@ describe('Validation', () => {
 		it('should validate AI agent workflow built with SDK without false warnings', () => {
 			// Build workflow using SDK (simulating user's code pattern)
 			const openAiModel = languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1.2,
 				config: {
 					name: 'OpenAI Model',
@@ -747,7 +747,7 @@ describe('Validation', () => {
 			});
 
 			const codeTool = tool({
-				type: '@n8n/n8n-nodes-langchain.toolCode',
+				type: '@resin/n8n-nodes-langchain.toolCode',
 				version: 1.1,
 				config: {
 					name: 'Code Tool',
@@ -759,7 +759,7 @@ describe('Validation', () => {
 			});
 
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					name: 'AI Agent',
@@ -774,7 +774,7 @@ describe('Validation', () => {
 				},
 			});
 
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 
 			const wf = workflow('test', 'Test').add(t).to(agent);
 			const result = wf.validate();
@@ -797,7 +797,7 @@ describe('Validation', () => {
 		it('should auto-add __rl: true to resource locator values during toJSON', () => {
 			// Build workflow using SDK with resource locator missing __rl
 			const openAiModel = languageModel({
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				version: 1.2,
 				config: {
 					name: 'OpenAI Model',
@@ -809,7 +809,7 @@ describe('Validation', () => {
 			});
 
 			const agent = node({
-				type: '@n8n/n8n-nodes-langchain.agent',
+				type: '@resin/n8n-nodes-langchain.agent',
 				version: 1.7,
 				config: {
 					name: 'AI Agent',
@@ -823,7 +823,7 @@ describe('Validation', () => {
 				},
 			});
 
-			const t = trigger({ type: 'n8n-nodes-base.manualTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.manualTrigger', version: 1, config: {} });
 			const wf = workflow('test', 'Test').add(t).to(agent);
 
 			// Get the JSON output
@@ -844,7 +844,7 @@ describe('Validation', () => {
 	describe('expression path validation', () => {
 		it('should warn when $json references a field not in predecessor output', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -853,7 +853,7 @@ describe('Validation', () => {
 			});
 
 			const slackApproval = node({
-				type: 'n8n-nodes-base.slack',
+				type: 'resin-nodes-base.slack',
 				version: 2,
 				config: {
 					name: 'Approval',
@@ -864,7 +864,7 @@ describe('Validation', () => {
 			// This email node incorrectly uses $json.amount after the Slack node
 			// which doesn't output 'amount'
 			const emailNode = node({
-				type: 'n8n-nodes-base.emailSend',
+				type: 'resin-nodes-base.emailSend',
 				version: 2,
 				config: {
 					name: 'Send Email',
@@ -887,7 +887,7 @@ describe('Validation', () => {
 
 		it('should not warn when $json references a field that exists in predecessor output', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -897,7 +897,7 @@ describe('Validation', () => {
 
 			// This node correctly uses $json.amount - which exists in webhook output
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -919,7 +919,7 @@ describe('Validation', () => {
 
 		it('should warn when $("NodeName").item.json references a field that does not exist', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -928,7 +928,7 @@ describe('Validation', () => {
 			});
 
 			const processNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Process',
@@ -937,7 +937,7 @@ describe('Validation', () => {
 
 			// This node references a field that doesn't exist in Webhook output
 			const emailNode = node({
-				type: 'n8n-nodes-base.emailSend',
+				type: 'resin-nodes-base.emailSend',
 				version: 2,
 				config: {
 					name: 'Send Email',
@@ -961,13 +961,13 @@ describe('Validation', () => {
 		it('should not warn when no pinData is available', () => {
 			// Without pinData, we can't validate expression paths
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: { name: 'Webhook' },
 			});
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -991,7 +991,7 @@ describe('Validation', () => {
 			// Create an IF node that branches to two paths, then merge
 			// One branch provides a field, the other doesn't
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1000,7 +1000,7 @@ describe('Validation', () => {
 			});
 
 			const branchA = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Branch A',
@@ -1009,7 +1009,7 @@ describe('Validation', () => {
 			});
 
 			const branchB = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Branch B',
@@ -1019,7 +1019,7 @@ describe('Validation', () => {
 
 			// This node gets input from both branches but only one has 'amount'
 			const finalNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Final',
@@ -1047,7 +1047,7 @@ describe('Validation', () => {
 		it('should use output property over pinData for expression validation', () => {
 			// When both output and pinData are set, output should take priority
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1058,7 +1058,7 @@ describe('Validation', () => {
 			});
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1082,7 +1082,7 @@ describe('Validation', () => {
 		it('should warn when referencing field that exists in pinData but not in output', () => {
 			// When output is set, pinData fields are ignored
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1092,7 +1092,7 @@ describe('Validation', () => {
 			});
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1117,7 +1117,7 @@ describe('Validation', () => {
 		it('should fall back to pinData when output is not set', () => {
 			// Without output property, pinData should be used
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1126,7 +1126,7 @@ describe('Validation', () => {
 			});
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1149,7 +1149,7 @@ describe('Validation', () => {
 
 		it('should not warn when expression uses JS method on existing field (e.g. $json.output.includes)', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1159,7 +1159,7 @@ describe('Validation', () => {
 
 			// This node uses $json.output.includes() - "includes" is a JS method, not a field
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1182,7 +1182,7 @@ describe('Validation', () => {
 
 		it('should not warn when expression uses chained JS methods on existing field', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1192,7 +1192,7 @@ describe('Validation', () => {
 
 			// Uses multiple chained methods: $json.data.items.map(...).join(...)
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1215,7 +1215,7 @@ describe('Validation', () => {
 
 		it('should warn when JS method is used on non-existing field', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1225,7 +1225,7 @@ describe('Validation', () => {
 
 			// Uses nonexistent.includes() - even after filtering "includes", "nonexistent" doesn't exist
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1249,7 +1249,7 @@ describe('Validation', () => {
 
 		it('should filter common JS string methods: toLowerCase, toUpperCase, trim, split, replace', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1258,7 +1258,7 @@ describe('Validation', () => {
 			});
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1285,7 +1285,7 @@ describe('Validation', () => {
 
 		it('should filter common JS array methods: filter, map, find, some, every', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1294,7 +1294,7 @@ describe('Validation', () => {
 			});
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1321,7 +1321,7 @@ describe('Validation', () => {
 
 		it('should include parameterPath in expression validation warnings', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1330,7 +1330,7 @@ describe('Validation', () => {
 			});
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1352,7 +1352,7 @@ describe('Validation', () => {
 
 		it('should include nested parameterPath in expression validation warnings', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1361,7 +1361,7 @@ describe('Validation', () => {
 			});
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1386,7 +1386,7 @@ describe('Validation', () => {
 
 		it('should include parameterPath for array index in expression validation warnings', () => {
 			const webhookTrigger = trigger({
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				version: 2,
 				config: {
 					name: 'Webhook',
@@ -1395,7 +1395,7 @@ describe('Validation', () => {
 			});
 
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1417,9 +1417,9 @@ describe('Validation', () => {
 
 	describe('INVALID_DATE_METHOD validation', () => {
 		it('should warn when using .toISOString() instead of .toISO() for $now', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1439,9 +1439,9 @@ describe('Validation', () => {
 		});
 
 		it('should warn when using .toISOString() instead of .toISO() for $today', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1460,9 +1460,9 @@ describe('Validation', () => {
 		});
 
 		it('should warn when .toISOString() is used in nested parameters', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1485,9 +1485,9 @@ describe('Validation', () => {
 		});
 
 		it('should warn when .toISOString() is used in array parameters', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1505,9 +1505,9 @@ describe('Validation', () => {
 		});
 
 		it('should not warn when using correct .toISO() method', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1525,9 +1525,9 @@ describe('Validation', () => {
 		});
 
 		it('should not warn when toISOString is used on regular JS Date objects', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Set',
@@ -1547,9 +1547,9 @@ describe('Validation', () => {
 		});
 
 		it('should include node name in the warning', () => {
-			const t = trigger({ type: 'n8n-nodes-base.webhookTrigger', version: 1, config: {} });
+			const t = trigger({ type: 'resin-nodes-base.webhookTrigger', version: 1, config: {} });
 			const setNode = node({
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: 3,
 				config: {
 					name: 'Date Formatter',
@@ -1573,7 +1573,7 @@ describe('Validation', () => {
 		// Note: builderHint is on description, not on the INodeType directly
 		const mockNodeTypesProviderWithBuilderHints = {
 			getByNameAndVersion: (type: string, _version?: number) => {
-				if (type === '@n8n/n8n-nodes-langchain.agent') {
+				if (type === '@resin/n8n-nodes-langchain.agent') {
 					return {
 						description: {
 							inputs: ['main'],
@@ -1597,10 +1597,10 @@ describe('Validation', () => {
 						},
 					};
 				}
-				if (type === '@n8n/n8n-nodes-langchain.vectorStorePinecone') {
+				if (type === '@resin/n8n-nodes-langchain.vectorStorePinecone') {
 					return { description: { inputs: ['main'] } };
 				}
-				if (type === '@n8n/n8n-nodes-langchain.lmChatOpenAi') {
+				if (type === '@resin/n8n-nodes-langchain.lmChatOpenAi') {
 					return { description: { inputs: [] } };
 				}
 				return { description: { inputs: ['main'] } };
@@ -1618,7 +1618,7 @@ describe('Validation', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -1626,7 +1626,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [200, 0] as [number, number],
 						parameters: { text: 'Hello' },
@@ -1634,7 +1634,7 @@ describe('Validation', () => {
 					{
 						id: 'model-1',
 						name: 'OpenAI Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [200, 100] as [number, number],
 						parameters: { model: 'gpt-4o' },
@@ -1642,7 +1642,7 @@ describe('Validation', () => {
 					{
 						id: 'pinecone-1',
 						name: 'Pinecone Retriever',
-						type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+						type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 						typeVersion: 1,
 						position: [200, 200] as [number, number],
 						parameters: {
@@ -1686,7 +1686,7 @@ describe('Validation', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -1694,7 +1694,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [200, 0] as [number, number],
 						parameters: { text: 'Hello' },
@@ -1702,7 +1702,7 @@ describe('Validation', () => {
 					{
 						id: 'model-1',
 						name: 'OpenAI Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [200, 100] as [number, number],
 						parameters: { model: 'gpt-4o' },
@@ -1710,7 +1710,7 @@ describe('Validation', () => {
 					{
 						id: 'pinecone-1',
 						name: 'Pinecone Retriever',
-						type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+						type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 						typeVersion: 1,
 						position: [200, 200] as [number, number],
 						parameters: {
@@ -1749,7 +1749,7 @@ describe('Validation', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -1757,7 +1757,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [200, 0] as [number, number],
 						parameters: { text: 'Hello' },
@@ -1765,7 +1765,7 @@ describe('Validation', () => {
 					{
 						id: 'model-1',
 						name: 'OpenAI Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [200, 100] as [number, number],
 						parameters: { model: 'gpt-4o' },
@@ -1773,7 +1773,7 @@ describe('Validation', () => {
 					{
 						id: 'pinecone-1',
 						name: 'Pinecone VS',
-						type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+						type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 						typeVersion: 1,
 						position: [200, 200] as [number, number],
 						parameters: {
@@ -1816,7 +1816,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [200, 0] as [number, number],
 						parameters: { text: 'Hello' },
@@ -1824,7 +1824,7 @@ describe('Validation', () => {
 					{
 						id: 'pinecone-1',
 						name: 'Pinecone',
-						type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+						type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 						typeVersion: 1,
 						position: [200, 200] as [number, number],
 						parameters: { mode: 'retrieve' }, // Wrong mode but no provider
@@ -1854,7 +1854,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [200, 0] as [number, number],
 						parameters: { text: 'Hello' },
@@ -1862,7 +1862,7 @@ describe('Validation', () => {
 					{
 						id: 'pinecone-1',
 						name: 'Pinecone',
-						type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+						type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 						typeVersion: 1,
 						position: [200, 200] as [number, number],
 						parameters: { mode: 'retrieve' },
@@ -1890,7 +1890,7 @@ describe('Validation', () => {
 		// These displayOptions describe when the parent accepts a given AI input type
 		const mockNodeTypesProviderForParentValidation = {
 			getByNameAndVersion: (type: string, _version?: number) => {
-				if (type === '@n8n/n8n-nodes-langchain.vectorStorePinecone') {
+				if (type === '@resin/n8n-nodes-langchain.vectorStorePinecone') {
 					return {
 						description: {
 							inputs: ['main'],
@@ -1908,7 +1908,7 @@ describe('Validation', () => {
 						},
 					};
 				}
-				if (type === '@n8n/n8n-nodes-langchain.agent') {
+				if (type === '@resin/n8n-nodes-langchain.agent') {
 					return {
 						description: {
 							inputs: ['main'],
@@ -1943,7 +1943,7 @@ describe('Validation', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -1951,7 +1951,7 @@ describe('Validation', () => {
 					{
 						id: 'vs-1',
 						name: 'Pinecone Store',
-						type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+						type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 						typeVersion: 1.3,
 						position: [200, 0] as [number, number],
 						parameters: { mode: 'retrieve' }, // retrieve mode - doesn't support ai_document
@@ -1959,7 +1959,7 @@ describe('Validation', () => {
 					{
 						id: 'doc-1',
 						name: 'Document Loader',
-						type: '@n8n/n8n-nodes-langchain.documentDefaultDataLoader',
+						type: '@resin/n8n-nodes-langchain.documentDefaultDataLoader',
 						typeVersion: 1.1,
 						position: [200, 100] as [number, number],
 						parameters: {},
@@ -1967,7 +1967,7 @@ describe('Validation', () => {
 					{
 						id: 'emb-1',
 						name: 'Embeddings',
-						type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+						type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 						typeVersion: 1.2,
 						position: [200, 200] as [number, number],
 						parameters: {},
@@ -2006,7 +2006,7 @@ describe('Validation', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -2014,7 +2014,7 @@ describe('Validation', () => {
 					{
 						id: 'vs-1',
 						name: 'Pinecone Store',
-						type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+						type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 						typeVersion: 1.3,
 						position: [200, 0] as [number, number],
 						parameters: { mode: 'insert' }, // insert mode - supports ai_document
@@ -2022,7 +2022,7 @@ describe('Validation', () => {
 					{
 						id: 'doc-1',
 						name: 'Document Loader',
-						type: '@n8n/n8n-nodes-langchain.documentDefaultDataLoader',
+						type: '@resin/n8n-nodes-langchain.documentDefaultDataLoader',
 						typeVersion: 1.1,
 						position: [200, 100] as [number, number],
 						parameters: {},
@@ -2054,7 +2054,7 @@ describe('Validation', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -2062,7 +2062,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3.1,
 						position: [200, 0] as [number, number],
 						parameters: { hasOutputParser: false },
@@ -2070,7 +2070,7 @@ describe('Validation', () => {
 					{
 						id: 'parser-1',
 						name: 'Output Parser',
-						type: '@n8n/n8n-nodes-langchain.outputParserStructured',
+						type: '@resin/n8n-nodes-langchain.outputParserStructured',
 						typeVersion: 1,
 						position: [200, 100] as [number, number],
 						parameters: {},
@@ -2105,7 +2105,7 @@ describe('Validation', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -2113,7 +2113,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3.1,
 						position: [200, 0] as [number, number],
 						parameters: { hasOutputParser: true },
@@ -2121,7 +2121,7 @@ describe('Validation', () => {
 					{
 						id: 'parser-1',
 						name: 'Output Parser',
-						type: '@n8n/n8n-nodes-langchain.outputParserStructured',
+						type: '@resin/n8n-nodes-langchain.outputParserStructured',
 						typeVersion: 1,
 						position: [200, 100] as [number, number],
 						parameters: {},
@@ -2153,7 +2153,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3.1,
 						position: [200, 0] as [number, number],
 						parameters: {},
@@ -2161,7 +2161,7 @@ describe('Validation', () => {
 					{
 						id: 'model-1',
 						name: 'OpenAI Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [200, 100] as [number, number],
 						parameters: {},
@@ -2190,7 +2190,7 @@ describe('Validation', () => {
 					{
 						id: 'vs-1',
 						name: 'Pinecone Store',
-						type: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+						type: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 						typeVersion: 1.3,
 						position: [200, 0] as [number, number],
 						parameters: { mode: '={{ $json.mode }}' }, // expression - can't evaluate statically
@@ -2198,7 +2198,7 @@ describe('Validation', () => {
 					{
 						id: 'doc-1',
 						name: 'Document Loader',
-						type: '@n8n/n8n-nodes-langchain.documentDefaultDataLoader',
+						type: '@resin/n8n-nodes-langchain.documentDefaultDataLoader',
 						typeVersion: 1.1,
 						position: [200, 100] as [number, number],
 						parameters: {},
@@ -2228,7 +2228,7 @@ describe('Validation', () => {
 			// positive when the subnode doesn't even own those params.
 			const provider = {
 				getByNameAndVersion: (type: string) => {
-					if (type === '@n8n/n8n-nodes-langchain.chatTrigger') {
+					if (type === '@resin/n8n-nodes-langchain.chatTrigger') {
 						return {
 							description: {
 								inputs: ['main'],
@@ -2261,7 +2261,7 @@ describe('Validation', () => {
 					{
 						id: 'ct-1',
 						name: 'Chat Trigger',
-						type: '@n8n/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/n8n-nodes-langchain.chatTrigger',
 						typeVersion: 1.4,
 						position: [0, 0] as [number, number],
 						// Parent's own `mode` and `options.loadPreviousSession` not set
@@ -2271,7 +2271,7 @@ describe('Validation', () => {
 					{
 						id: 'mem-1',
 						name: 'Session Memory',
-						type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+						type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 						typeVersion: 1,
 						position: [0, 200] as [number, number],
 						parameters: {}, // memory subnode has no `mode` or `options.loadPreviousSession`
@@ -2304,7 +2304,7 @@ describe('Validation', () => {
 	describe('MISSING_REQUIRED_INPUT validation', () => {
 		const mockNodeTypesProvider = {
 			getByNameAndVersion: (type: string, _version?: number) => {
-				if (type === '@n8n/n8n-nodes-langchain.chatTrigger') {
+				if (type === '@resin/n8n-nodes-langchain.chatTrigger') {
 					return {
 						description: {
 							inputs: ['main'],
@@ -2324,7 +2324,7 @@ describe('Validation', () => {
 						},
 					};
 				}
-				if (type === '@n8n/n8n-nodes-langchain.agent') {
+				if (type === '@resin/n8n-nodes-langchain.agent') {
 					return {
 						description: {
 							inputs: ['main'],
@@ -2351,7 +2351,7 @@ describe('Validation', () => {
 					{
 						id: 'ct-1',
 						name: 'Chat Trigger',
-						type: '@n8n/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/n8n-nodes-langchain.chatTrigger',
 						typeVersion: 1.4,
 						position: [0, 0] as [number, number],
 						parameters: {
@@ -2389,7 +2389,7 @@ describe('Validation', () => {
 					{
 						id: 'ct-1',
 						name: 'Chat Trigger',
-						type: '@n8n/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/n8n-nodes-langchain.chatTrigger',
 						typeVersion: 1.4,
 						position: [0, 0] as [number, number],
 						parameters: {
@@ -2400,7 +2400,7 @@ describe('Validation', () => {
 					{
 						id: 'mem-1',
 						name: 'Memory',
-						type: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+						type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 						typeVersion: 1,
 						position: [0, 200] as [number, number],
 						parameters: {},
@@ -2430,7 +2430,7 @@ describe('Validation', () => {
 					{
 						id: 'ct-1',
 						name: 'Chat Trigger',
-						type: '@n8n/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/n8n-nodes-langchain.chatTrigger',
 						typeVersion: 1.4,
 						position: [0, 0] as [number, number],
 						parameters: {
@@ -2459,7 +2459,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -2490,7 +2490,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 3,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -2498,7 +2498,7 @@ describe('Validation', () => {
 					{
 						id: 'lm-1',
 						name: 'Model',
-						type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [0, 200] as [number, number],
 						parameters: {},
@@ -2528,7 +2528,7 @@ describe('Validation', () => {
 					{
 						id: 'n-1',
 						name: 'Some Node',
-						type: 'n8n-nodes-base.httpRequest',
+						type: 'resin-nodes-base.httpRequest',
 						typeVersion: 4.2,
 						position: [0, 0] as [number, number],
 						parameters: { url: 'https://example.com' },
@@ -2554,7 +2554,7 @@ describe('Validation', () => {
 					{
 						id: 'ct-1',
 						name: 'Chat Trigger',
-						type: '@n8n/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/n8n-nodes-langchain.chatTrigger',
 						typeVersion: 1.4,
 						position: [0, 0] as [number, number],
 						parameters: {
@@ -2579,7 +2579,7 @@ describe('Validation', () => {
 		// Mock node types provider that returns builderHint.inputs for OpenAI
 		const mockNodeTypesProviderForOpenAi = {
 			getByNameAndVersion: (type: string, _version?: number) => {
-				if (type === '@n8n/n8n-nodes-langchain.openAi') {
+				if (type === '@resin/n8n-nodes-langchain.openAi') {
 					return {
 						description: {
 							inputs: ['main'],
@@ -2608,7 +2608,7 @@ describe('Validation', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -2616,7 +2616,7 @@ describe('Validation', () => {
 					{
 						id: 'openai-1',
 						name: 'OpenAI',
-						type: '@n8n/n8n-nodes-langchain.openAi',
+						type: '@resin/n8n-nodes-langchain.openAi',
 						typeVersion: 2.1,
 						position: [200, 0] as [number, number],
 						parameters: {
@@ -2657,7 +2657,7 @@ describe('Validation', () => {
 					{
 						id: 'trigger-1',
 						name: 'Manual Trigger',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [0, 0] as [number, number],
 						parameters: {},
@@ -2665,7 +2665,7 @@ describe('Validation', () => {
 					{
 						id: 'openai-1',
 						name: 'OpenAI',
-						type: '@n8n/n8n-nodes-langchain.openAi',
+						type: '@resin/n8n-nodes-langchain.openAi',
 						typeVersion: 2.1,
 						position: [200, 0] as [number, number],
 						parameters: {
@@ -2717,10 +2717,10 @@ describe('Validation', () => {
 
 		const mockNodeTypesProviderWithOutputs = {
 			getByNameAndVersion: (type: string, _version?: number) => {
-				if (type === '@n8n/n8n-nodes-langchain.vectorStoreInMemory') {
+				if (type === '@resin/n8n-nodes-langchain.vectorStoreInMemory') {
 					return { description: vectorStoreInMemoryDescription };
 				}
-				if (type === '@n8n/n8n-nodes-langchain.agent') {
+				if (type === '@resin/n8n-nodes-langchain.agent') {
 					return { description: { inputs: ['main'], outputs: ['main'] } };
 				}
 				return { description: { inputs: ['main'], outputs: ['main'] } };
@@ -2733,7 +2733,7 @@ describe('Validation', () => {
 			{
 				id: 'trigger-1',
 				name: 'Manual Trigger',
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				parameters: {},
@@ -2749,7 +2749,7 @@ describe('Validation', () => {
 					{
 						id: 'vs-1',
 						name: 'Retrieve Relevant Regulations',
-						type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+						type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 						typeVersion: 1,
 						position: [200, 0] as [number, number],
 						parameters: { mode: 'retrieve', topK: 8 },
@@ -2757,7 +2757,7 @@ describe('Validation', () => {
 					{
 						id: 'fmt-1',
 						name: 'Format Retrieved Regulations',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [400, 0] as [number, number],
 						parameters: {},
@@ -2797,7 +2797,7 @@ describe('Validation', () => {
 					{
 						id: 'agent-1',
 						name: 'AI Agent',
-						type: '@n8n/n8n-nodes-langchain.agent',
+						type: '@resin/n8n-nodes-langchain.agent',
 						typeVersion: 1.7,
 						position: [400, 0] as [number, number],
 						parameters: { text: 'hi' },
@@ -2805,7 +2805,7 @@ describe('Validation', () => {
 					{
 						id: 'vs-1',
 						name: 'Vector Store',
-						type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+						type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 						typeVersion: 1,
 						position: [200, 0] as [number, number],
 						parameters: { mode: 'retrieve' },
@@ -2838,7 +2838,7 @@ describe('Validation', () => {
 					{
 						id: 'vs-1',
 						name: 'Vector Store',
-						type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+						type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 						typeVersion: 1,
 						position: [200, 0] as [number, number],
 						parameters: { mode: 'retrieve-as-tool' },
@@ -2846,7 +2846,7 @@ describe('Validation', () => {
 					{
 						id: 'next-1',
 						name: 'Next Step',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [400, 0] as [number, number],
 						parameters: {},
@@ -2883,7 +2883,7 @@ describe('Validation', () => {
 					{
 						id: 'vs-1',
 						name: 'Vector Store',
-						type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+						type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 						typeVersion: 1,
 						position: [200, 0] as [number, number],
 						parameters: { mode: 'load' },
@@ -2891,7 +2891,7 @@ describe('Validation', () => {
 					{
 						id: 'fmt-1',
 						name: 'Format',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [400, 0] as [number, number],
 						parameters: {},
@@ -2924,7 +2924,7 @@ describe('Validation', () => {
 					{
 						id: 'vs-1',
 						name: 'Vector Store',
-						type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+						type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 						typeVersion: 1,
 						position: [200, 0] as [number, number],
 						parameters: { mode: 'retrieve' },
@@ -2932,7 +2932,7 @@ describe('Validation', () => {
 					{
 						id: 'fmt-1',
 						name: 'Format',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [400, 0] as [number, number],
 						parameters: {},
@@ -2959,7 +2959,7 @@ describe('Validation', () => {
 					{
 						id: 'vs-1',
 						name: 'Vector Store',
-						type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+						type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 						typeVersion: 1,
 						position: [200, 0] as [number, number],
 						parameters: { mode: '={{ $json.mode }}' },
@@ -2967,7 +2967,7 @@ describe('Validation', () => {
 					{
 						id: 'fmt-1',
 						name: 'Format',
-						type: 'n8n-nodes-base.code',
+						type: 'resin-nodes-base.code',
 						typeVersion: 2,
 						position: [400, 0] as [number, number],
 						parameters: {},
@@ -3022,7 +3022,7 @@ describe('Validation', () => {
 				{
 					id: 'webhook-1',
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					parameters: { path: paramValue },

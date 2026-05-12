@@ -1,12 +1,17 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { LicenseState } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { User, WorkflowEntity } from '@n8n/db';
-import { WorkflowRepository, DbConnection, AuthRolesService, BinaryDataRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { type SelectQueryBuilder } from '@n8n/typeorm';
+import { mockInstance } from '@resin/backend-test-utils';
+import { LicenseState } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { User, WorkflowEntity } from '@resin/db';
+import {
+	WorkflowRepository,
+	DbConnection,
+	AuthRolesService,
+	BinaryDataRepository,
+} from '@resin/db';
+import { Container } from '@resin/di';
+import { type SelectQueryBuilder } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import type { IRun } from 'n8n-workflow';
+import type { IRun } from 'resin-workflow';
 
 import { ActiveExecutions } from '@/active-executions';
 import { DeprecationService } from '@/deprecation/deprecation.service';
@@ -53,7 +58,7 @@ test('should start a task runner', async () => {
 
 	const workflow = mock<WorkflowEntity>({
 		id: '123',
-		nodes: [{ type: 'n8n-nodes-base.manualTrigger' }],
+		nodes: [{ type: 'resin-nodes-base.manualTrigger' }],
 	});
 
 	const run = mock<IRun>({ data: { resultData: { error: undefined } } });

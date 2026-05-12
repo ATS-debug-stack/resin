@@ -1,5 +1,5 @@
 import { createTool } from '@mastra/core/tools';
-import { generateWorkflowCode } from '@n8n/workflow-sdk';
+import { generateWorkflowCode } from '@resin/workflow-sdk';
 import { z } from 'zod';
 
 import { buildCredentialSnapshot, resolveCredentials } from './resolve-credentials';
@@ -31,7 +31,9 @@ export const buildWorkflowInputSchema = z.object({
 	code: z
 		.string()
 		.optional()
-		.describe('Full TypeScript workflow code using @n8n/workflow-sdk. Required for new workflows.'),
+		.describe(
+			'Full TypeScript workflow code using @resin/workflow-sdk. Required for new workflows.',
+		),
 	patches: z
 		.preprocess(coercePatches, z.array(patchSchema))
 		.optional()

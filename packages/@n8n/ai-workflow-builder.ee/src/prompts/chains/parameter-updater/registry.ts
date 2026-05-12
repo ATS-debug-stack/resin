@@ -72,10 +72,10 @@ const examples: NodeTypeExamples[] = [
  * Checks if a node type matches a pattern.
  *
  * Pattern types:
- * - Exact match: 'n8n-nodes-base.set' matches 'n8n-nodes-base.set'
+ * - Exact match: 'resin-nodes-base.set' matches 'resin-nodes-base.set'
  * - Suffix wildcard: '*Tool' matches 'gmailTool', 'slackTool'
- * - Prefix wildcard: 'n8n-nodes-base.*' matches 'n8n-nodes-base.set'
- * - Substring match: '.set' matches 'n8n-nodes-base.set'
+ * - Prefix wildcard: 'resin-nodes-base.*' matches 'resin-nodes-base.set'
+ * - Substring match: '.set' matches 'resin-nodes-base.set'
  *
  * All matching is case-insensitive.
  */

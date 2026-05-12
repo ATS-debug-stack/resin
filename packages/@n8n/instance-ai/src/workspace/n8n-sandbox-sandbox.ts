@@ -5,7 +5,7 @@ import type {
 	ProviderStatus,
 	SandboxInfo,
 } from '@mastra/core/workspace';
-import { SandboxClient } from '@n8n/sandbox-client';
+import { SandboxClient } from '@resin/sandbox-client';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
 
@@ -29,7 +29,7 @@ function toShellCommand(command: string, args: string[] = []): string {
 export class N8nSandboxServiceSandbox extends MastraSandbox {
 	readonly name = 'N8nSandboxServiceSandbox';
 
-	readonly provider = 'n8n-sandbox';
+	readonly provider = 'resin-sandbox';
 
 	status: ProviderStatus = 'pending';
 

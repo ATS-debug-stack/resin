@@ -10,9 +10,9 @@ import {
 	type ISupplyDataFunctions,
 	NodeApiError,
 	ApplicationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { metadataFilterField, createVectorStoreNode } from '@n8n/ai-utilities';
+import { metadataFilterField, createVectorStoreNode } from '@resin/ai-utilities';
 
 import { chromaCollectionRLC } from '../shared/descriptions';
 

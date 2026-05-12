@@ -2,8 +2,8 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import WorkflowDiffView from '@/features/workflows/workflowDiff/WorkflowDiffView.vue';
 import type { IWorkflowDb } from '@/Interface';
-import { useRootStore } from '@n8n/stores/useRootStore';
-import { useI18n } from '@n8n/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
+import { useI18n } from '@resin/i18n';
 
 const rootStore = useRootStore();
 const i18n = useI18n();

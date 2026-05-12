@@ -8,9 +8,9 @@ import {
 	ROLE,
 	TransferWorkflowBodyDto,
 	UpdateWorkflowDto,
-} from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig, SsrfProtectionConfig } from '@n8n/config';
+} from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig, SsrfProtectionConfig } from '@resin/config';
 import {
 	SharedWorkflow,
 	WorkflowEntity,
@@ -18,7 +18,7 @@ import {
 	ProjectRepository,
 	WorkflowRepository,
 	AuthenticatedRequest,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	Body,
 	Delete,
@@ -31,13 +31,13 @@ import {
 	Put,
 	Query,
 	RestController,
-} from '@n8n/decorators';
-import { PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
+} from '@resin/decorators';
+import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, type FindOptionsRelations } from '@n8n/typeorm';
+import { In, type FindOptionsRelations } from '@resin/typeorm';
 import axios, { type AxiosRequestConfig } from 'axios';
 import express from 'express';
-import { calculateWorkflowChecksum, ensureError } from 'n8n-workflow';
+import { calculateWorkflowChecksum, ensureError } from 'resin-workflow';
 import { CollaborationService } from '../collaboration/collaboration.service';
 
 import { WorkflowCreationService } from './workflow-creation.service';
@@ -183,7 +183,7 @@ export class WorkflowsController {
 
 		const workflowData = await this.fetchWorkflowFromUrl(query.url);
 
-		// Do a very basic check if it is really a n8n-workflow-json
+		// Do a very basic check if it is really a resin-workflow-json
 		if (
 			workflowData?.nodes === undefined ||
 			!Array.isArray(workflowData.nodes) ||

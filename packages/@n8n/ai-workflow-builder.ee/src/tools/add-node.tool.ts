@@ -1,5 +1,5 @@
 import { tool } from '@langchain/core/tools';
-import type { INode, INodeParameters, INodeTypeDescription } from 'n8n-workflow';
+import type { INode, INodeParameters, INodeTypeDescription } from 'resin-workflow';
 import { z } from 'zod';
 
 import type { BuilderTool, BuilderToolBase } from '@/utils/stream-processor';
@@ -278,14 +278,14 @@ Reasoning examples:
 - "Set node has standard main connections only, using empty parameters"
 
 INITIAL PARAMETERS (set explicitly when needed):
-- AI Agent (@n8n/n8n-nodes-langchain.agent):
+- AI Agent (@resin/n8n-nodes-langchain.agent):
   - For output parser support: { hasOutputParser: true }
   - Without output parser: { hasOutputParser: false }
-- Vector Store (@n8n/n8n-nodes-langchain.vectorStoreInMemory):
+- Vector Store (@resin/n8n-nodes-langchain.vectorStoreInMemory):
   - For document input: { mode: "insert" }
   - For querying: { mode: "retrieve" }
   - For AI Agent and tool use: { mode: "retrieve-as-tool" }
-- Document Loader (@n8n/n8n-nodes-langchain.documentDefaultDataLoader):
+- Document Loader (@resin/n8n-nodes-langchain.documentDefaultDataLoader):
   - For text splitter input: { textSplittingMode: "custom" }
   - For built-in splitting: { textSplittingMode: "simple" }
 - Nodes with resource/operation (Gmail, Notion, Google Sheets, etc.):

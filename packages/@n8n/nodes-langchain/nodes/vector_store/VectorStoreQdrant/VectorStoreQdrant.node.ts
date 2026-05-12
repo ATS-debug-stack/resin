@@ -3,10 +3,10 @@ import type { Embeddings } from '@langchain/core/embeddings';
 import type { QdrantLibArgs } from '@langchain/qdrant';
 import { QdrantVectorStore } from '@langchain/qdrant';
 import { type Schemas as QdrantSchemas } from '@qdrant/js-client-rest';
-import { assertParamIsString, type IDataObject, type INodeProperties } from 'n8n-workflow';
+import { assertParamIsString, type IDataObject, type INodeProperties } from 'resin-workflow';
 
 import { createQdrantClient, type QdrantCredential } from './Qdrant.utils';
-import { createVectorStoreNode } from '@n8n/ai-utilities';
+import { createVectorStoreNode } from '@resin/ai-utilities';
 import { qdrantCollectionsSearch } from '../shared/methods/listSearch';
 import { qdrantCollectionRLC } from '../shared/descriptions';
 

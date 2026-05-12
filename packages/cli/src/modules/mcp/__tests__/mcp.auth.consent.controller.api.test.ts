@@ -1,6 +1,6 @@
-import { testDb } from '@n8n/backend-test-utils';
-import type { User } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb } from '@resin/backend-test-utils';
+import type { User } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { JwtService } from '@/services/jwt.service';
 import { createOwner, createMember } from '@test-integration/db/users';
@@ -77,7 +77,7 @@ describe('GET /rest/consent/details', () => {
 		const response = await testServer
 			.authAgentFor(owner)
 			.get('/consent/details')
-			.set('Cookie', 'n8n-oauth-session=invalid-token');
+			.set('Cookie', 'resin-oauth-session=invalid-token');
 
 		expect(response.statusCode).toBeGreaterThanOrEqual(400);
 		expect(response.body).toEqual({
@@ -112,12 +112,12 @@ describe('GET /rest/consent/details', () => {
 		const response = await testServer
 			.authAgentFor(owner)
 			.get('/consent/details')
-			.set('Cookie', 'n8n-oauth-session=invalid-token');
+			.set('Cookie', 'resin-oauth-session=invalid-token');
 
 		expect(response.statusCode).toBeGreaterThanOrEqual(400);
 		const setCookieHeader = response.headers['set-cookie'];
 		expect(setCookieHeader).toBeDefined();
-		expect(setCookieHeader[0]).toContain('n8n-oauth-session=');
+		expect(setCookieHeader[0]).toContain('resin-oauth-session=');
 		expect(setCookieHeader[0]).toMatch(/Max-Age=0|Expires=Thu, 01 Jan 1970/);
 	});
 
@@ -235,7 +235,7 @@ describe('POST /rest/consent/approve', () => {
 
 		const setCookieHeader = response.headers['set-cookie'];
 		expect(setCookieHeader).toBeDefined();
-		expect(setCookieHeader[0]).toContain('n8n-oauth-session=');
+		expect(setCookieHeader[0]).toContain('resin-oauth-session=');
 		expect(setCookieHeader[0]).toMatch(/Max-Age=0|Expires=Thu, 01 Jan 1970/);
 	});
 
@@ -287,7 +287,7 @@ describe('POST /rest/consent/approve', () => {
 		const response = await testServer
 			.authAgentFor(owner)
 			.post('/consent/approve')
-			.set('Cookie', 'n8n-oauth-session=invalid-token')
+			.set('Cookie', 'resin-oauth-session=invalid-token')
 			.send({ approved: true });
 
 		expect(response.statusCode).toBeGreaterThanOrEqual(400);
@@ -298,12 +298,12 @@ describe('POST /rest/consent/approve', () => {
 		const response = await testServer
 			.authAgentFor(owner)
 			.post('/consent/approve')
-			.set('Cookie', 'n8n-oauth-session=invalid-token')
+			.set('Cookie', 'resin-oauth-session=invalid-token')
 			.send({ approved: true });
 
 		const setCookieHeader = response.headers['set-cookie'];
 		expect(setCookieHeader).toBeDefined();
-		expect(setCookieHeader[0]).toContain('n8n-oauth-session=');
+		expect(setCookieHeader[0]).toContain('resin-oauth-session=');
 		expect(setCookieHeader[0]).toMatch(/Max-Age=0|Expires=Thu, 01 Jan 1970/);
 	});
 
@@ -427,7 +427,7 @@ describe('Consent Flow - End-to-End', () => {
 
 		const setCookieHeader = approvalResponse.headers['set-cookie'];
 		expect(setCookieHeader).toBeDefined();
-		expect(setCookieHeader[0]).toContain('n8n-oauth-session=');
+		expect(setCookieHeader[0]).toContain('resin-oauth-session=');
 		expect(setCookieHeader[0]).toMatch(/Max-Age=0|Expires=Thu, 01 Jan 1970/);
 	});
 });

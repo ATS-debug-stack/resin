@@ -8,8 +8,8 @@ import type {
 	NodeParameterValue,
 	IRequestOptions,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 
 interface CustomProperty {
 	name: string;

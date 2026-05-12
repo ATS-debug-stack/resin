@@ -7,9 +7,9 @@ import {
 import type { NodeFilterType } from '@/Interface';
 
 import NoResultsIcon from './NoResultsIcon.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 
-import { N8nIcon, N8nLink } from '@n8n/design-system';
+import { N8nIcon, N8nLink } from '@resin/design-system';
 export interface Props {
 	showIcon?: boolean;
 	showRequest?: boolean;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TimeAgo from '@/app/components/TimeAgo.vue';
-import type { CredentialResolver } from '@n8n/api-types';
+import type { CredentialResolver } from '@resin/api-types';
 import {
 	N8nActionBox,
 	N8nActionToggle,
@@ -11,8 +11,8 @@ import {
 	N8nLink,
 	N8nLoading2,
 	N8nText,
-} from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+} from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import dateformat from 'dateformat';
 import { computed, onMounted } from 'vue';
 import { useCredentialResolvers } from './composables/useCredentialResolvers';

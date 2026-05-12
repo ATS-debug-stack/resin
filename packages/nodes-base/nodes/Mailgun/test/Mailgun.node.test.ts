@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, IBinaryData } from 'n8n-workflow';
+import type { IExecuteFunctions, IBinaryData } from 'resin-workflow';
 
 import { Mailgun } from '../Mailgun.node';
 import { prepareBinariesDataList } from '../../../utils/binary';
@@ -48,7 +48,7 @@ describe('Test Mailgun node', () => {
 			];
 
 			mockExecuteFunctions.getInputData.mockReturnValue(items);
-			mockExecuteFunctions.getNode.mockReturnValue({ type: 'n8n-nodes-base.mailgun' } as any);
+			mockExecuteFunctions.getNode.mockReturnValue({ type: 'resin-nodes-base.mailgun' } as any);
 			mockExecuteFunctions.getCredentials.mockResolvedValue({
 				apiDomain: 'api.mailgun.net',
 				emailDomain: 'example.com',
@@ -108,7 +108,7 @@ describe('Test Mailgun node', () => {
 			];
 
 			mockExecuteFunctions.getInputData.mockReturnValue(items);
-			mockExecuteFunctions.getNode.mockReturnValue({ type: 'n8n-nodes-base.mailgun' } as any);
+			mockExecuteFunctions.getNode.mockReturnValue({ type: 'resin-nodes-base.mailgun' } as any);
 			mockExecuteFunctions.getCredentials.mockResolvedValue({
 				apiDomain: 'api.mailgun.net',
 				emailDomain: 'example.com',
@@ -167,7 +167,7 @@ describe('Test Mailgun node', () => {
 			];
 
 			mockExecuteFunctions.getInputData.mockReturnValue(items);
-			mockExecuteFunctions.getNode.mockReturnValue({ type: 'n8n-nodes-base.mailgun' } as any);
+			mockExecuteFunctions.getNode.mockReturnValue({ type: 'resin-nodes-base.mailgun' } as any);
 			mockExecuteFunctions.getCredentials.mockResolvedValue({
 				apiDomain: 'api.mailgun.net',
 				emailDomain: 'example.com',
@@ -229,7 +229,7 @@ describe('Test Mailgun node', () => {
 			];
 
 			mockExecuteFunctions.getInputData.mockReturnValue(items);
-			mockExecuteFunctions.getNode.mockReturnValue({ type: 'n8n-nodes-base.mailgun' } as any);
+			mockExecuteFunctions.getNode.mockReturnValue({ type: 'resin-nodes-base.mailgun' } as any);
 			mockExecuteFunctions.getCredentials.mockResolvedValue({
 				apiDomain: 'api.mailgun.net',
 				emailDomain: 'example.com',
@@ -313,7 +313,7 @@ describe('Test Mailgun node', () => {
 			];
 
 			mockExecuteFunctions.getInputData.mockReturnValue(items);
-			mockExecuteFunctions.getNode.mockReturnValue({ type: 'n8n-nodes-base.mailgun' } as any);
+			mockExecuteFunctions.getNode.mockReturnValue({ type: 'resin-nodes-base.mailgun' } as any);
 			mockExecuteFunctions.getCredentials.mockResolvedValue({
 				apiDomain: 'api.mailgun.net',
 				emailDomain: 'example.com',
@@ -380,7 +380,7 @@ describe('Test Mailgun node', () => {
 			];
 
 			mockExecuteFunctions.getInputData.mockReturnValue(items);
-			mockExecuteFunctions.getNode.mockReturnValue({ type: 'n8n-nodes-base.mailgun' } as any);
+			mockExecuteFunctions.getNode.mockReturnValue({ type: 'resin-nodes-base.mailgun' } as any);
 			mockExecuteFunctions.getCredentials.mockResolvedValue({
 				apiDomain: 'api.mailgun.net',
 				emailDomain: 'example.com',
@@ -444,7 +444,7 @@ describe('Test Mailgun node', () => {
 			const items = [{ json: { data: 'test' } }];
 
 			mockExecuteFunctions.getInputData.mockReturnValue(items);
-			mockExecuteFunctions.getNode.mockReturnValue({ type: 'n8n-nodes-base.mailgun' } as any);
+			mockExecuteFunctions.getNode.mockReturnValue({ type: 'resin-nodes-base.mailgun' } as any);
 			mockExecuteFunctions.getCredentials.mockResolvedValue({
 				apiDomain: 'api.mailgun.net',
 				emailDomain: 'example.com',
@@ -480,7 +480,7 @@ describe('Test Mailgun node', () => {
 			const items = [{ json: { data: 'test' }, binary: {} }];
 
 			mockExecuteFunctions.getInputData.mockReturnValue(items);
-			mockExecuteFunctions.getNode.mockReturnValue({ type: 'n8n-nodes-base.mailgun' } as any);
+			mockExecuteFunctions.getNode.mockReturnValue({ type: 'resin-nodes-base.mailgun' } as any);
 			mockExecuteFunctions.getCredentials.mockResolvedValue({
 				apiDomain: 'api.mailgun.net',
 				emailDomain: 'example.com',

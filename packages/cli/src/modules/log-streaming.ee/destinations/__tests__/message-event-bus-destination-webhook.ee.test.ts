@@ -1,5 +1,5 @@
-import { MessageEventBusDestinationTypeNames } from 'n8n-workflow';
-import type { MessageEventBusDestinationWebhookOptions } from 'n8n-workflow';
+import { MessageEventBusDestinationTypeNames } from 'resin-workflow';
+import type { MessageEventBusDestinationWebhookOptions } from 'resin-workflow';
 
 import type { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';
 

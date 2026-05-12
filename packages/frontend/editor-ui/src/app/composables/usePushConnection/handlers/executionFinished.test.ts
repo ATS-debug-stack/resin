@@ -8,8 +8,8 @@ import {
 	handleExecutionFinishedWithErrorOrCanceled,
 	type SimplifiedExecution,
 } from './executionFinished';
-import type { IRunExecutionData, ITaskData, INodeTypeDescription } from 'n8n-workflow';
-import { EVALUATION_TRIGGER_NODE_TYPE } from 'n8n-workflow';
+import type { IRunExecutionData, ITaskData, INodeTypeDescription } from 'resin-workflow';
+import { EVALUATION_TRIGGER_NODE_TYPE } from 'resin-workflow';
 import type { IExecutionResponse } from '@/features/execution/executions/executions.types';
 import type { INodeUi, IWorkflowDb } from '@/Interface';
 import type { Router } from 'vue-router';
@@ -716,7 +716,7 @@ describe('manual execution stats tracking', () => {
 
 			const workflowDocumentStore = useWorkflowDocumentStore(createWorkflowDocumentId(''));
 			workflowDocumentStore.setNodes([
-				mock<INodeUi>({ name: nodeName, type: 'n8n-nodes-base.telegram', typeVersion: 1 }),
+				mock<INodeUi>({ name: nodeName, type: 'resin-nodes-base.telegram', typeVersion: 1 }),
 			]);
 
 			nodeTypesStore.getNodeType = () =>
@@ -746,7 +746,7 @@ describe('manual execution stats tracking', () => {
 
 			const workflowDocumentStore = useWorkflowDocumentStore(createWorkflowDocumentId(''));
 			workflowDocumentStore.setNodes([
-				mock<INodeUi>({ name: nodeName, type: 'n8n-nodes-base.vonage', typeVersion: 1 }),
+				mock<INodeUi>({ name: nodeName, type: 'resin-nodes-base.vonage', typeVersion: 1 }),
 			]);
 
 			nodeTypesStore.getNodeType = () =>
@@ -776,7 +776,7 @@ describe('manual execution stats tracking', () => {
 
 			const docStore2 = useWorkflowDocumentStore(createWorkflowDocumentId(''));
 			docStore2.setNodes([
-				mock<INodeUi>({ name: nodeName, type: 'n8n-nodes-base.vonage', typeVersion: 1 }),
+				mock<INodeUi>({ name: nodeName, type: 'resin-nodes-base.vonage', typeVersion: 1 }),
 			]);
 
 			nodeTypesStore.getNodeType = () =>

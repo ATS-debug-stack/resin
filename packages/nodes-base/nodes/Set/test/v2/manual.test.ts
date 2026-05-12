@@ -1,12 +1,12 @@
 import get from 'lodash/get';
-import { constructExecutionMetaData } from 'n8n-core';
+import { constructExecutionMetaData } from 'resin-core';
 import {
 	NodeOperationError,
 	type IDataObject,
 	type IExecuteFunctions,
 	type IGetNodeParameterOptions,
 	type INode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { type SetNodeOptions } from '../../v2/helpers/interfaces';
 import { execute } from '../../v2/manual.mode';
@@ -14,7 +14,7 @@ import { execute } from '../../v2/manual.mode';
 const node: INode = {
 	id: '11',
 	name: 'Set Node',
-	type: 'n8n-nodes-base.set',
+	type: 'resin-nodes-base.set',
 	typeVersion: 3.4,
 	position: [42, 42],
 	parameters: {

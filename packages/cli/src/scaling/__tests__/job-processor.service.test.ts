@@ -1,11 +1,11 @@
-import type { Logger } from '@n8n/backend-common';
-import type { ExecutionsConfig } from '@n8n/config';
-import type { IExecutionResponse, ExecutionRepository, Project } from '@n8n/db';
-import { WorkflowPublishHistoryRepository } from '@n8n/db';
+import type { Logger } from '@resin/backend-common';
+import type { ExecutionsConfig } from '@resin/config';
+import type { IExecutionResponse, ExecutionRepository, Project } from '@resin/db';
+import { WorkflowPublishHistoryRepository } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { WorkflowExecute as ActualWorkflowExecute, InstanceSettings } from 'n8n-core';
-import { ExternalSecretsProxy } from 'n8n-core';
-import { mockInstance } from 'n8n-core/test/utils';
+import type { WorkflowExecute as ActualWorkflowExecute, InstanceSettings } from 'resin-core';
+import { ExternalSecretsProxy } from 'resin-core';
+import { mockInstance } from 'resin-core/test/utils';
 import {
 	type IPinData,
 	type IRun,
@@ -16,7 +16,7 @@ import {
 	type IRunExecutionData,
 	type WorkflowExecuteMode,
 	type ExecutionError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { JobProcessor } from '../job-processor';
 import type { Job } from '../scaling.types';
@@ -47,8 +47,8 @@ mockInstance(OwnershipService, {
 });
 
 const processRunExecutionDataMock = jest.fn();
-jest.mock('n8n-core', () => {
-	const original = jest.requireActual('n8n-core');
+jest.mock('resin-core', () => {
+	const original = jest.requireActual('resin-core');
 
 	// Mock class constructor and prototype methods
 	return {
@@ -272,7 +272,7 @@ describe('JobProcessor', () => {
 	it.each(['manual', 'evaluation', 'trigger'] satisfies WorkflowExecuteMode[])(
 		'should use workflowExecute to process a job with mode %p with execution data',
 		async (mode) => {
-			const { WorkflowExecute } = await import('n8n-core');
+			const { WorkflowExecute } = await import('resin-core');
 			// Type it correctly so we can use mock methods later
 			const MockedWorkflowExecute = WorkflowExecute as jest.MockedClass<
 				typeof ActualWorkflowExecute
@@ -562,7 +562,7 @@ describe('JobProcessor', () => {
 
 		it('should execute tool node and send result for MCP Trigger with tool call', async () => {
 			const executionRepository = mock<ExecutionRepository>();
-			const toolNode = { name: 'tool-node', type: 'n8n-nodes-base.tool' };
+			const toolNode = { name: 'tool-node', type: 'resin-nodes-base.tool' };
 			executionRepository.findSingleExecution.mockResolvedValueOnce(
 				mock<IExecutionResponse>({
 					mode: 'trigger',
@@ -734,7 +734,7 @@ describe('JobProcessor', () => {
 			const executionRepository = mock<ExecutionRepository>();
 			const toolNode = {
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequestTool',
+				type: 'resin-nodes-base.httpRequestTool',
 				typeVersion: 4.4,
 				parameters: {},
 				position: [0, 0] as [number, number],
@@ -833,7 +833,7 @@ describe('JobProcessor', () => {
 			const executionRepository = mock<ExecutionRepository>();
 			const toolNode = {
 				name: 'Tool HTTP Request',
-				type: '@n8n/n8n-nodes-langchain.toolHttpRequest',
+				type: '@resin/n8n-nodes-langchain.toolHttpRequest',
 				typeVersion: 1,
 				parameters: {},
 				position: [0, 0] as [number, number],

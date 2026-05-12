@@ -1,1 +1,1 @@
-export { vitestConfig as default } from '@n8n/vitest-config/node';
+export { vitestConfig as default } from '@resin/vitest-config/node';

@@ -77,7 +77,7 @@ describe('nodes tool', () => {
 			const result = await tool.execute!(
 				{
 					action: 'explore-resources',
-					nodeType: 'n8n-nodes-base.googleSheets',
+					nodeType: 'resin-nodes-base.googleSheets',
 					version: 4.7,
 					methodName: 'spreadSheetsSearch',
 					methodType: 'listSearch',
@@ -109,7 +109,7 @@ describe('nodes tool', () => {
 		it('should call nodeService.listAvailable with query', async () => {
 			const nodes = [
 				{
-					name: 'n8n-nodes-base.httpRequest',
+					name: 'resin-nodes-base.httpRequest',
 					displayName: 'HTTP Request',
 					description: 'Make HTTP requests',
 					group: ['transform'],
@@ -136,7 +136,7 @@ describe('nodes tool', () => {
 			const result = await tool.execute!(
 				{
 					action: 'explore-resources',
-					nodeType: 'n8n-nodes-base.googleSheets',
+					nodeType: 'resin-nodes-base.googleSheets',
 					version: 4.7,
 					methodName: 'spreadSheetsSearch',
 					methodType: 'listSearch' as const,
@@ -162,7 +162,7 @@ describe('nodes tool', () => {
 			const result = await tool.execute!(
 				{
 					action: 'explore-resources',
-					nodeType: 'n8n-nodes-base.googleSheets',
+					nodeType: 'resin-nodes-base.googleSheets',
 					version: 4.7,
 					methodName: 'spreadSheetsSearch',
 					methodType: 'listSearch' as const,
@@ -228,14 +228,14 @@ describe('nodes tool', () => {
 
 			const tool = createNodesTool(context, 'full');
 			const result = await tool.execute!(
-				{ action: 'type-definition', nodeTypes: ['n8n-nodes-base.if'] } as never,
+				{ action: 'type-definition', nodeTypes: ['resin-nodes-base.if'] } as never,
 				{} as never,
 			);
 
 			expect(result).toEqual({
 				definitions: [
 					{
-						nodeType: 'n8n-nodes-base.if',
+						nodeType: 'resin-nodes-base.if',
 						version: 'v23',
 						content: 'export type IfNode = unknown;',
 						builderHint: 'Always include options, conditions, and combinator.',

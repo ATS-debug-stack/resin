@@ -12,7 +12,7 @@ import type { INodeUi } from '@/Interface';
 import type { IExecutionResponse } from '../executions.types';
 import { useToast } from '@/app/composables/useToast';
 import type { useWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
-import { TRIMMED_TASK_DATA_CONNECTIONS_KEY } from 'n8n-workflow';
+import { TRIMMED_TASK_DATA_CONNECTIONS_KEY } from 'resin-workflow';
 
 vi.mock('@/app/composables/useToast', () => {
 	const showToast = vi.fn();

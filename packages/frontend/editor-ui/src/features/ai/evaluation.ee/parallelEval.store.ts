@@ -1,4 +1,4 @@
-import { EVAL_PARALLEL_EXECUTION_FLAG } from '@n8n/api-types';
+import { EVAL_PARALLEL_EXECUTION_FLAG } from '@resin/api-types';
 import { useLocalStorage } from '@vueuse/core';
 import { defineStore } from 'pinia';
 import { computed } from 'vue';

@@ -1,4 +1,4 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 
 export interface IExternalSecretsManager {
 	hasSecret(provider: string, name: string): boolean;

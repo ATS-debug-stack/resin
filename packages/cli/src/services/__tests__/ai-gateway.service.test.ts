@@ -1,14 +1,14 @@
-import type { GlobalConfig } from '@n8n/config';
-import type { LicenseState } from '@n8n/backend-common';
+import type { GlobalConfig } from '@resin/config';
+import type { LicenseState } from '@resin/backend-common';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
-import { UserError } from 'n8n-workflow';
+import type { InstanceSettings } from 'resin-core';
+import { UserError } from 'resin-workflow';
 
 import { N8N_VERSION, AI_ASSISTANT_SDK_VERSION } from '@/constants';
 import { FeatureNotLicensedError } from '@/errors/feature-not-licensed.error';
 import type { License } from '@/license';
 import { AiGatewayService } from '@/services/ai-gateway.service';
-import type { Project, User, UserRepository } from '@n8n/db';
+import type { Project, User, UserRepository } from '@resin/db';
 import type { OwnershipService } from '@/services/ownership.service';
 import type { UrlService } from '@/services/url.service';
 
@@ -22,9 +22,9 @@ const CONSUMER_ID = 'consumer-test-uuid';
 
 const MOCK_GATEWAY_CONFIG = {
 	nodes: [
-		'@n8n/n8n-nodes-langchain.lmChatGoogleGemini',
-		'@n8n/n8n-nodes-langchain.embeddingsGoogleGemini',
-		'@n8n/n8n-nodes-langchain.googleGemini',
+		'@resin/n8n-nodes-langchain.lmChatGoogleGemini',
+		'@resin/n8n-nodes-langchain.embeddingsGoogleGemini',
+		'@resin/n8n-nodes-langchain.googleGemini',
 	],
 	credentialTypes: ['googlePalmApi'],
 	providerConfig: {

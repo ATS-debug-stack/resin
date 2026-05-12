@@ -6,7 +6,7 @@ import type {
 	RouteLocationNormalized,
 } from 'vue-router';
 import { createRouter, createWebHistory, isNavigationFailure, RouterView } from 'vue-router';
-import { generateNanoId } from '@n8n/utils';
+import { generateNanoId } from '@resin/utils';
 import { useExternalHooks } from '@/app/composables/useExternalHooks';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useTemplatesStore } from '@/features/workflows/templates/templates.store';
@@ -19,7 +19,7 @@ import type { RouterMiddleware } from '@/app/types/router';
 import { initializeAuthenticatedFeatures, initializeCore } from '@/app/init';
 import { tryToParseNumber } from '@/app/utils/typesUtils';
 import { projectsRoutes } from '@/features/collaboration/projects/projects.routes';
-import { MfaRequiredError } from '@n8n/rest-api-client';
+import { MfaRequiredError } from '@resin/rest-api-client';
 import { useRecentResources } from '@/features/shared/commandBar/composables/useRecentResources';
 import { usePostHog } from '@/app/stores/posthog.store';
 import { RESOURCE_CENTER_EXPERIMENT, TEMPLATE_SETUP_EXPERIENCE } from '@/app/constants/experiments';
@@ -113,7 +113,7 @@ const ResourceCenterView = async () =>
 const SecuritySettingsView = async () =>
 	await import('@/features/settings/security/SecuritySettings.vue');
 
-import { MIGRATION_REPORT_TARGET_VERSION } from '@n8n/api-types';
+import { MIGRATION_REPORT_TARGET_VERSION } from '@resin/api-types';
 
 const MigrationReportView = async () =>
 	await import('@/features/settings/migrationReport/MigrationRules.vue');
@@ -745,7 +745,7 @@ export const routes: RouteRecordRaw[] = [
 				},
 			},
 			{
-				path: 'n8n-connect',
+				path: 'resin-connect',
 				name: VIEWS.AI_GATEWAY_SETTINGS,
 				component: SettingsAiGatewayView,
 				meta: {
@@ -760,7 +760,7 @@ export const routes: RouteRecordRaw[] = [
 						pageCategory: 'settings',
 						getProperties() {
 							return {
-								feature: 'n8n-connect',
+								feature: 'resin-connect',
 							};
 						},
 					},

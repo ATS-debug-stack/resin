@@ -1,14 +1,14 @@
-import { GlobalConfig } from '@n8n/config';
-import type { SharedWorkflow, User } from '@n8n/db';
+import { GlobalConfig } from '@resin/config';
+import type { SharedWorkflow, User } from '@resin/db';
 import {
 	WorkflowEntity,
 	WorkflowTagMapping,
 	TagRepository,
 	SharedWorkflowRepository,
 	WorkflowRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
-import { PROJECT_OWNER_ROLE_SLUG, type Scope } from '@n8n/permissions';
+} from '@resin/db';
+import { Container } from '@resin/di';
+import { PROJECT_OWNER_ROLE_SLUG, type Scope } from '@resin/permissions';
 
 import { License } from '@/license';
 import { WorkflowCreationService } from '@/workflows/workflow-creation.service';

@@ -18,7 +18,7 @@ const { mockWorkflowDocumentStore } = vi.hoisted(() => ({
 	},
 }));
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({ restApiContext: {} }),
 }));
 

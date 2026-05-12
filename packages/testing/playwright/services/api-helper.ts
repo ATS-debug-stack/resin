@@ -1,5 +1,5 @@
 // services/api-helper.ts
-import type { ClusterInfoResponse, InstanceAiPermissions } from '@n8n/api-types';
+import type { ClusterInfoResponse, InstanceAiPermissions } from '@resin/api-types';
 import { request, type APIRequestContext } from '@playwright/test';
 import { setTimeout as wait } from 'node:timers/promises';
 

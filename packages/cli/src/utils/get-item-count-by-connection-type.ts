@@ -1,5 +1,5 @@
-import type { NodeConnectionType, ITaskData } from 'n8n-workflow';
-import { isNodeConnectionType } from 'n8n-workflow';
+import type { NodeConnectionType, ITaskData } from 'resin-workflow';
+import { isNodeConnectionType } from 'resin-workflow';
 
 export function getItemCountByConnectionType(
 	data: ITaskData['data'],

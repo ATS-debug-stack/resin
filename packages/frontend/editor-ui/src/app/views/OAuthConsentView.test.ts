@@ -5,7 +5,7 @@ import OAuthConsentView from '@/app/views/OAuthConsentView.vue';
 import { createTestingPinia } from '@pinia/testing';
 import userEvent from '@testing-library/user-event';
 
-vi.mock('@n8n/rest-api-client/api/consent');
+vi.mock('@resin/rest-api-client/api/consent');
 
 const renderComponent = createComponentRenderer(OAuthConsentView);
 

@@ -1,6 +1,6 @@
 import { randomBytes } from 'crypto';
 
-import type { IHookFunctions, IDataObject, IWebhookFunctions } from 'n8n-workflow';
+import type { IHookFunctions, IDataObject, IWebhookFunctions } from 'resin-workflow';
 
 import { CalendlyTrigger } from '../CalendlyTrigger.node';
 import { verifySignature } from '../CalendlyTriggerHelpers';

@@ -8,7 +8,7 @@ vi.mock('@langchain/community/vectorstores/zep_cloud', () => {
 	return { ZepCloudVectorStore };
 });
 
-vi.mock('@n8n/ai-utilities', () => ({
+vi.mock('@resin/ai-utilities', () => ({
 	metadataFilterField: {},
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	createVectorStoreNode: (config: any) =>
@@ -23,7 +23,7 @@ vi.mock('@n8n/ai-utilities', () => ({
 
 import { ZepVectorStore } from '@langchain/community/vectorstores/zep';
 import { ZepCloudVectorStore } from '@langchain/community/vectorstores/zep_cloud';
-import type { ISupplyDataFunctions } from 'n8n-workflow';
+import type { ISupplyDataFunctions } from 'resin-workflow';
 import { mock } from 'vitest-mock-extended';
 
 import { VectorStoreZep } from './VectorStoreZep.node';

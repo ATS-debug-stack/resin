@@ -1,7 +1,7 @@
-import type { UpsertEvaluationConfigDto } from '@n8n/api-types';
-import type { CredentialsEntity, User } from '@n8n/db';
+import type { UpsertEvaluationConfigDto } from '@resin/api-types';
+import type { CredentialsEntity, User } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { IConnections, INode, IWorkflowBase } from 'n8n-workflow';
+import type { IConnections, INode, IWorkflowBase } from 'resin-workflow';
 
 import type { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import type { DataTable as DataTableEntity } from '@/modules/data-table/data-table.entity';
@@ -16,7 +16,7 @@ import type { LlmJudgeProviderRegistry } from '../llm-judge-provider-registry';
 function makeNode(over: Partial<INode> & Pick<INode, 'name'>): INode {
 	return {
 		id: over.name,
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -25,7 +25,7 @@ function makeNode(over: Partial<INode> & Pick<INode, 'name'>): INode {
 }
 
 function makeWorkflow(over: Partial<IWorkflowBase> = {}): IWorkflowBase {
-	const trigger = makeNode({ name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' });
+	const trigger = makeNode({ name: 'Trigger', type: 'resin-nodes-base.manualTrigger' });
 	const start = makeNode({ name: 'Start' });
 	const end = makeNode({ name: 'End' });
 	const connections: IConnections = {
@@ -52,7 +52,7 @@ const validLlmJudgeMetric = {
 	config: {
 		preset: 'correctness' as const,
 		prompt: 'Judge this',
-		provider: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+		provider: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 		credentialId: 'cred-1',
 		model: 'gpt-4o',
 		outputType: 'numeric' as const,
@@ -85,9 +85,9 @@ function makeConfig(over: Partial<UpsertEvaluationConfigDto> = {}): UpsertEvalua
 function makeRegistry(): jest.Mocked<LlmJudgeProviderRegistry> {
 	const registry = mock<LlmJudgeProviderRegistry>();
 	registry.get.mockImplementation((nodeType) =>
-		nodeType === '@n8n/n8n-nodes-langchain.lmChatOpenAi'
+		nodeType === '@resin/n8n-nodes-langchain.lmChatOpenAi'
 			? {
-					nodeType: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					displayName: 'OpenAI Chat Model',
 					credentialTypes: [{ name: 'openAiApi', displayName: 'OpenAI' }],
 				}
@@ -188,7 +188,7 @@ describe('EvaluationConfigValidator', () => {
 		it('emits one error per offending node', async () => {
 			const wf = makeWorkflow({
 				nodes: [
-					makeNode({ name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' }),
+					makeNode({ name: 'Trigger', type: 'resin-nodes-base.manualTrigger' }),
 					makeNode({ name: '__eval_metric_old' }),
 					makeNode({ name: 'Start' }),
 					makeNode({ name: '__eval_trigger' }),
@@ -222,8 +222,8 @@ describe('EvaluationConfigValidator', () => {
 			const wf: IWorkflowBase = {
 				...makeWorkflow(),
 				nodes: [
-					makeNode({ name: 'TriggerA', type: 'n8n-nodes-base.manualTrigger' }),
-					makeNode({ name: 'TriggerB', type: 'n8n-nodes-base.cron' }),
+					makeNode({ name: 'TriggerA', type: 'resin-nodes-base.manualTrigger' }),
+					makeNode({ name: 'TriggerB', type: 'resin-nodes-base.cron' }),
 					makeNode({ name: 'Start' }),
 					makeNode({ name: 'End' }),
 				],
@@ -259,7 +259,7 @@ describe('EvaluationConfigValidator', () => {
 			const wf: IWorkflowBase = {
 				...makeWorkflow(),
 				nodes: [
-					makeNode({ name: 'Start', type: 'n8n-nodes-base.manualTrigger' }),
+					makeNode({ name: 'Start', type: 'resin-nodes-base.manualTrigger' }),
 					makeNode({ name: 'End' }),
 				],
 				connections: { Start: { main: [[{ node: 'End', type: 'main', index: 0 }]] } },
@@ -278,7 +278,7 @@ describe('EvaluationConfigValidator', () => {
 			const wf: IWorkflowBase = {
 				...makeWorkflow(),
 				nodes: [
-					makeNode({ name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' }),
+					makeNode({ name: 'Trigger', type: 'resin-nodes-base.manualTrigger' }),
 					makeNode({ name: 'Start' }),
 					makeNode({ name: 'OrphanEnd' }),
 				],
@@ -303,7 +303,7 @@ describe('EvaluationConfigValidator', () => {
 			const wf: IWorkflowBase = {
 				...makeWorkflow(),
 				nodes: [
-					makeNode({ name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' }),
+					makeNode({ name: 'Trigger', type: 'resin-nodes-base.manualTrigger' }),
 					makeNode({ name: 'Agent' }),
 				],
 				connections: { Trigger: { main: [[{ node: 'Agent', type: 'main', index: 0 }]] } },
@@ -320,7 +320,7 @@ describe('EvaluationConfigValidator', () => {
 			const wf: IWorkflowBase = {
 				...makeWorkflow(),
 				nodes: [
-					makeNode({ name: 'Trigger', type: 'n8n-nodes-base.manualTrigger' }),
+					makeNode({ name: 'Trigger', type: 'resin-nodes-base.manualTrigger' }),
 					makeNode({ name: 'Start' }),
 					makeNode({ name: 'Mid' }),
 					makeNode({ name: 'End' }),
@@ -422,7 +422,7 @@ describe('EvaluationConfigValidator', () => {
 							...validLlmJudgeMetric,
 							config: {
 								...validLlmJudgeMetric.config,
-								provider: '@n8n/n8n-nodes-langchain.lmChatNotARealNode',
+								provider: '@resin/n8n-nodes-langchain.lmChatNotARealNode',
 							},
 						},
 					],
@@ -433,7 +433,7 @@ describe('EvaluationConfigValidator', () => {
 				expect.objectContaining({
 					code: 'LLM_PROVIDER_UNSUPPORTED',
 					details: expect.objectContaining({
-						nodeType: '@n8n/n8n-nodes-langchain.lmChatNotARealNode',
+						nodeType: '@resin/n8n-nodes-langchain.lmChatNotARealNode',
 						metricId: 'm-llm',
 					}),
 				}),
@@ -507,7 +507,7 @@ describe('EvaluationConfigValidator', () => {
 							...validLlmJudgeMetric,
 							config: {
 								...validLlmJudgeMetric.config,
-								provider: '@n8n/n8n-nodes-langchain.unknown',
+								provider: '@resin/n8n-nodes-langchain.unknown',
 							},
 						},
 					],

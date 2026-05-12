@@ -1,5 +1,5 @@
-import { BinaryDataQueryDto, BinaryDataSignedQueryDto, ViewableMimeTypes } from '@n8n/api-types';
-import { Get, Query, RestController } from '@n8n/decorators';
+import { BinaryDataQueryDto, BinaryDataSignedQueryDto, ViewableMimeTypes } from '@resin/api-types';
+import { Get, Query, RestController } from '@resin/decorators';
 import { Request, Response } from 'express';
 import { JsonWebTokenError } from 'jsonwebtoken';
 import {
@@ -7,7 +7,7 @@ import {
 	FileNotFoundError,
 	getHtmlSandboxCSP,
 	isValidNonDefaultMode,
-} from 'n8n-core';
+} from 'resin-core';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 

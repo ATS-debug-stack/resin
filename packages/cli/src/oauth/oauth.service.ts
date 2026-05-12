@@ -1,13 +1,16 @@
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { AuthenticatedRequest, CredentialsEntity, ICredentialsDb } from '@n8n/db';
-import { CredentialsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { AuthenticatedRequest, CredentialsEntity, ICredentialsDb } from '@resin/db';
+import { CredentialsRepository } from '@resin/db';
+import { Service } from '@resin/di';
 import Csrf from 'csrf';
 import type { Response } from 'express';
-import { Credentials, Cipher } from 'n8n-core';
-import type { ICredentialDataDecryptedObject, IWorkflowExecuteAdditionalData } from 'n8n-workflow';
-import { jsonParse, UnexpectedError } from 'n8n-workflow';
+import { Credentials, Cipher } from 'resin-core';
+import type {
+	ICredentialDataDecryptedObject,
+	IWorkflowExecuteAdditionalData,
+} from 'resin-workflow';
+import { jsonParse, UnexpectedError } from 'resin-workflow';
 
 import {
 	GENERIC_OAUTH2_CREDENTIALS_WITH_EDITABLE_SCOPE,
@@ -28,7 +31,7 @@ import {
 	type OAuth2AuthenticationMethod,
 	type OAuth2CredentialData,
 	type OAuth2GrantType,
-} from '@n8n/client-oauth2';
+} from '@resin/client-oauth2';
 import axios from 'axios';
 import {
 	oAuthAuthorizationServerMetadataSchema,

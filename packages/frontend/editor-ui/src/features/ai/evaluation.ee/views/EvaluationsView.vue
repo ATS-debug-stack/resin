@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { computed, ref, watch } from 'vue';
 
 import ConcurrencySlider from '../components/ConcurrencySlider';
@@ -12,7 +12,7 @@ import { useParallelEvalStore } from '../parallelEval.store';
 import orderBy from 'lodash/orderBy';
 import { useToast } from '@/app/composables/useToast';
 
-import { N8nButton, N8nIcon, N8nTooltip } from '@n8n/design-system';
+import { N8nButton, N8nIcon, N8nTooltip } from '@resin/design-system';
 
 const props = defineProps<{
 	workflowId: string;

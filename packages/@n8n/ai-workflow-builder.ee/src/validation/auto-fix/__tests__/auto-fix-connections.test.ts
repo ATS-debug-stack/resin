@@ -1,5 +1,5 @@
-import type { INodeTypeDescription, INode, IConnections } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeTypeDescription, INode, IConnections } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import type { SimpleWorkflow } from '@/types';
 import type { ProgrammaticViolation } from '@/validation/types';
@@ -10,7 +10,7 @@ describe('autoFixConnections', () => {
 	// Mock node types
 	const mockAgentNodeType: INodeTypeDescription = {
 		displayName: 'AI Agent',
-		name: '@n8n/n8n-nodes-langchain.agent',
+		name: '@resin/n8n-nodes-langchain.agent',
 		group: ['transform'],
 		version: 1,
 		inputs: [
@@ -27,7 +27,7 @@ describe('autoFixConnections', () => {
 
 	const mockChatModelNodeType: INodeTypeDescription = {
 		displayName: 'OpenAI Chat Model',
-		name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+		name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 		group: ['output'],
 		version: 1,
 		inputs: [],
@@ -39,7 +39,7 @@ describe('autoFixConnections', () => {
 
 	const mockVectorStoreNodeType: INodeTypeDescription = {
 		displayName: 'Vector Store',
-		name: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+		name: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 		group: ['transform'],
 		version: 1,
 		inputs: [
@@ -55,7 +55,7 @@ describe('autoFixConnections', () => {
 
 	const mockEmbeddingsNodeType: INodeTypeDescription = {
 		displayName: 'OpenAI Embeddings',
-		name: '@n8n/n8n-nodes-langchain.embeddingsOpenAi',
+		name: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
 		group: ['output'],
 		version: 1,
 		inputs: [],
@@ -67,7 +67,7 @@ describe('autoFixConnections', () => {
 
 	const mockTriggerNodeType: INodeTypeDescription = {
 		displayName: 'Manual Trigger',
-		name: 'n8n-nodes-base.manualTrigger',
+		name: 'resin-nodes-base.manualTrigger',
 		group: ['trigger'],
 		version: 1,
 		inputs: [],
@@ -111,9 +111,9 @@ describe('autoFixConnections', () => {
 		it('should auto-fix when exactly one sub-node can provide the missing input', () => {
 			const workflow = createWorkflow(
 				[
-					createNode({ name: 'Manual Trigger', type: 'n8n-nodes-base.manualTrigger' }),
-					createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-					createNode({ name: 'OpenAI Model', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
+					createNode({ name: 'Manual Trigger', type: 'resin-nodes-base.manualTrigger' }),
+					createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+					createNode({ name: 'OpenAI Model', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
 				],
 				{
 					'Manual Trigger': {
@@ -127,11 +127,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent (@n8n/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
+						'Node AI Agent (@resin/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'ai_languageModel',
 					},
 				},
@@ -139,11 +139,11 @@ describe('autoFixConnections', () => {
 					name: 'sub-node-not-connected',
 					type: 'critical',
 					description:
-						'Sub-node OpenAI Model (@n8n/n8n-nodes-langchain.lmChatOpenAi) provides ai_languageModel but is not connected to a root node.',
+						'Sub-node OpenAI Model (@resin/n8n-nodes-langchain.lmChatOpenAi) provides ai_languageModel but is not connected to a root node.',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'OpenAI Model',
-						nodeType: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						outputType: 'ai_languageModel',
 					},
 				},
@@ -163,9 +163,9 @@ describe('autoFixConnections', () => {
 
 		it('should report unfixable when multiple sub-nodes can provide the same input', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-				createNode({ name: 'OpenAI Model 1', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
-				createNode({ name: 'OpenAI Model 2', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
+				createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+				createNode({ name: 'OpenAI Model 1', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
+				createNode({ name: 'OpenAI Model 2', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
 			]);
 
 			const violations: ProgrammaticViolation[] = [
@@ -173,11 +173,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent (@n8n/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
+						'Node AI Agent (@resin/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'ai_languageModel',
 					},
 				},
@@ -193,7 +193,7 @@ describe('autoFixConnections', () => {
 
 		it('should report unfixable when no sub-node can provide the input', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
+				createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
 			]);
 
 			const violations: ProgrammaticViolation[] = [
@@ -201,11 +201,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent (@n8n/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
+						'Node AI Agent (@resin/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'ai_languageModel',
 					},
 				},
@@ -221,10 +221,10 @@ describe('autoFixConnections', () => {
 
 		it('should skip disabled nodes when searching for candidates', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
+				createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
 				createNode({
 					name: 'OpenAI Model',
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					disabled: true,
 				}),
 			]);
@@ -234,11 +234,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent (@n8n/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
+						'Node AI Agent (@resin/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'ai_languageModel',
 					},
 				},
@@ -254,9 +254,9 @@ describe('autoFixConnections', () => {
 		it('should allow a sub-node to connect to multiple root nodes', () => {
 			const workflow = createWorkflow(
 				[
-					createNode({ name: 'AI Agent 1', type: '@n8n/n8n-nodes-langchain.agent' }),
-					createNode({ name: 'AI Agent 2', type: '@n8n/n8n-nodes-langchain.agent' }),
-					createNode({ name: 'OpenAI Model', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
+					createNode({ name: 'AI Agent 1', type: '@resin/n8n-nodes-langchain.agent' }),
+					createNode({ name: 'AI Agent 2', type: '@resin/n8n-nodes-langchain.agent' }),
+					createNode({ name: 'OpenAI Model', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
 				],
 				{
 					'OpenAI Model': {
@@ -270,11 +270,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent 2 (@n8n/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
+						'Node AI Agent 2 (@resin/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent 2',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'ai_languageModel',
 					},
 				},
@@ -294,9 +294,12 @@ describe('autoFixConnections', () => {
 
 		it('should fix Vector Store missing embeddings', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'Manual Trigger', type: 'n8n-nodes-base.manualTrigger' }),
-				createNode({ name: 'Vector Store', type: '@n8n/n8n-nodes-langchain.vectorStoreInMemory' }),
-				createNode({ name: 'Embeddings', type: '@n8n/n8n-nodes-langchain.embeddingsOpenAi' }),
+				createNode({ name: 'Manual Trigger', type: 'resin-nodes-base.manualTrigger' }),
+				createNode({
+					name: 'Vector Store',
+					type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
+				}),
+				createNode({ name: 'Embeddings', type: '@resin/n8n-nodes-langchain.embeddingsOpenAi' }),
 			]);
 
 			const violations: ProgrammaticViolation[] = [
@@ -304,11 +307,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node Vector Store (@n8n/n8n-nodes-langchain.vectorStoreInMemory) is missing required input of type ai_embedding',
+						'Node Vector Store (@resin/n8n-nodes-langchain.vectorStoreInMemory) is missing required input of type ai_embedding',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'Vector Store',
-						nodeType: '@n8n/n8n-nodes-langchain.vectorStoreInMemory',
+						nodeType: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
 						missingType: 'ai_embedding',
 					},
 				},
@@ -328,8 +331,8 @@ describe('autoFixConnections', () => {
 	describe('Pass 2: Fix disconnected sub-nodes', () => {
 		it('should connect orphaned sub-node to only available target', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-				createNode({ name: 'OpenAI Model', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
+				createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+				createNode({ name: 'OpenAI Model', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
 			]);
 
 			// Only sub-node-not-connected violation, no node-missing-required-input
@@ -338,11 +341,11 @@ describe('autoFixConnections', () => {
 					name: 'sub-node-not-connected',
 					type: 'critical',
 					description:
-						'Sub-node OpenAI Model (@n8n/n8n-nodes-langchain.lmChatOpenAi) provides ai_languageModel but is not connected to a root node.',
+						'Sub-node OpenAI Model (@resin/n8n-nodes-langchain.lmChatOpenAi) provides ai_languageModel but is not connected to a root node.',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'OpenAI Model',
-						nodeType: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						outputType: 'ai_languageModel',
 					},
 				},
@@ -360,9 +363,9 @@ describe('autoFixConnections', () => {
 
 		it('should report unfixable when multiple targets accept the same input', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'AI Agent 1', type: '@n8n/n8n-nodes-langchain.agent' }),
-				createNode({ name: 'AI Agent 2', type: '@n8n/n8n-nodes-langchain.agent' }),
-				createNode({ name: 'OpenAI Model', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
+				createNode({ name: 'AI Agent 1', type: '@resin/n8n-nodes-langchain.agent' }),
+				createNode({ name: 'AI Agent 2', type: '@resin/n8n-nodes-langchain.agent' }),
+				createNode({ name: 'OpenAI Model', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
 			]);
 
 			const violations: ProgrammaticViolation[] = [
@@ -370,11 +373,11 @@ describe('autoFixConnections', () => {
 					name: 'sub-node-not-connected',
 					type: 'critical',
 					description:
-						'Sub-node OpenAI Model (@n8n/n8n-nodes-langchain.lmChatOpenAi) provides ai_languageModel but is not connected to a root node.',
+						'Sub-node OpenAI Model (@resin/n8n-nodes-langchain.lmChatOpenAi) provides ai_languageModel but is not connected to a root node.',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'OpenAI Model',
-						nodeType: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						outputType: 'ai_languageModel',
 					},
 				},
@@ -389,8 +392,8 @@ describe('autoFixConnections', () => {
 
 		it('should skip sub-node already fixed in Pass 1', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-				createNode({ name: 'OpenAI Model', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
+				createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+				createNode({ name: 'OpenAI Model', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
 			]);
 
 			// Both violations - Pass 1 should fix, Pass 2 should skip
@@ -399,11 +402,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent (@n8n/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
+						'Node AI Agent (@resin/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'ai_languageModel',
 					},
 				},
@@ -411,11 +414,11 @@ describe('autoFixConnections', () => {
 					name: 'sub-node-not-connected',
 					type: 'critical',
 					description:
-						'Sub-node OpenAI Model (@n8n/n8n-nodes-langchain.lmChatOpenAi) provides ai_languageModel but is not connected to a root node.',
+						'Sub-node OpenAI Model (@resin/n8n-nodes-langchain.lmChatOpenAi) provides ai_languageModel but is not connected to a root node.',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'OpenAI Model',
-						nodeType: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+						nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 						outputType: 'ai_languageModel',
 					},
 				},
@@ -432,7 +435,7 @@ describe('autoFixConnections', () => {
 	describe('Edge cases', () => {
 		it('should handle empty violations array', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
+				createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
 			]);
 
 			const result = autoFixConnections(workflow, mockNodeTypes, []);
@@ -449,11 +452,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent (@n8n/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
+						'Node AI Agent (@resin/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'ai_languageModel',
 					},
 				},
@@ -467,7 +470,7 @@ describe('autoFixConnections', () => {
 
 		it('should only fix AI connections (skip main)', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
+				createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
 			]);
 
 			const violations: ProgrammaticViolation[] = [
@@ -475,11 +478,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent (@n8n/n8n-nodes-langchain.agent) is missing required input of type main',
+						'Node AI Agent (@resin/n8n-nodes-langchain.agent) is missing required input of type main',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'main',
 					},
 				},
@@ -495,8 +498,8 @@ describe('autoFixConnections', () => {
 		it('should not create duplicate connections', () => {
 			const workflow = createWorkflow(
 				[
-					createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-					createNode({ name: 'OpenAI Model', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
+					createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+					createNode({ name: 'OpenAI Model', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
 				],
 				{
 					'OpenAI Model': {
@@ -511,11 +514,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent (@n8n/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
+						'Node AI Agent (@resin/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'ai_languageModel',
 					},
 				},
@@ -532,8 +535,8 @@ describe('autoFixConnections', () => {
 
 		it('should handle unknown node types gracefully', () => {
 			const workflow = createWorkflow([
-				createNode({ name: 'Unknown Node', type: 'n8n-nodes-base.unknown' }),
-				createNode({ name: 'OpenAI Model', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
+				createNode({ name: 'Unknown Node', type: 'resin-nodes-base.unknown' }),
+				createNode({ name: 'OpenAI Model', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
 			]);
 
 			const violations: ProgrammaticViolation[] = [
@@ -545,7 +548,7 @@ describe('autoFixConnections', () => {
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'Unknown Node',
-						nodeType: 'n8n-nodes-base.unknown',
+						nodeType: 'resin-nodes-base.unknown',
 						missingType: 'ai_languageModel',
 					},
 				},
@@ -569,9 +572,9 @@ describe('autoFixConnections', () => {
 
 			const workflow = createWorkflow(
 				[
-					createNode({ name: 'Manual Trigger', type: 'n8n-nodes-base.manualTrigger' }),
-					createNode({ name: 'AI Agent', type: '@n8n/n8n-nodes-langchain.agent' }),
-					createNode({ name: 'OpenAI Model', type: '@n8n/n8n-nodes-langchain.lmChatOpenAi' }),
+					createNode({ name: 'Manual Trigger', type: 'resin-nodes-base.manualTrigger' }),
+					createNode({ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+					createNode({ name: 'OpenAI Model', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
 				],
 				existingConnections,
 			);
@@ -581,11 +584,11 @@ describe('autoFixConnections', () => {
 					name: 'node-missing-required-input',
 					type: 'critical',
 					description:
-						'Node AI Agent (@n8n/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
+						'Node AI Agent (@resin/n8n-nodes-langchain.agent) is missing required input of type ai_languageModel',
 					pointsDeducted: 50,
 					metadata: {
 						nodeName: 'AI Agent',
-						nodeType: '@n8n/n8n-nodes-langchain.agent',
+						nodeType: '@resin/n8n-nodes-langchain.agent',
 						missingType: 'ai_languageModel',
 					},
 				},

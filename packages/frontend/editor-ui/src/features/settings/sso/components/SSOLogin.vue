@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { useSSOStore } from '../sso.store';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useToast } from '@/app/composables/useToast';
 import { useRoute } from 'vue-router';
 
-import { N8nButton } from '@n8n/design-system';
+import { N8nButton } from '@resin/design-system';
 const i18n = useI18n();
 const ssoStore = useSSOStore();
 const toast = useToast();

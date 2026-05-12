@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import { Time } from '@n8n/constants';
-import { Get, RestController } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Time } from '@resin/constants';
+import { Get, RestController } from '@resin/decorators';
+import { Container } from '@resin/di';
 import type { Response } from 'express';
 
 import { AuthlessRequest } from '@/requests';

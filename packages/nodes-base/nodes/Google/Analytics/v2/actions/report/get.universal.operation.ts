@@ -3,7 +3,7 @@ import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { IData, IDimension, IMetric } from '../../helpers/Interfaces';
 import {

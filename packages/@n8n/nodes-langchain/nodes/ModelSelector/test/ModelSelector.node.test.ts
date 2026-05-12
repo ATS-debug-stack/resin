@@ -1,13 +1,13 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
-import type { ISupplyDataFunctions, INode, ILoadOptionsFunctions } from 'n8n-workflow';
-import { NodeOperationError, NodeConnectionTypes } from 'n8n-workflow';
+import type { ISupplyDataFunctions, INode, ILoadOptionsFunctions } from 'resin-workflow';
+import { NodeOperationError, NodeConnectionTypes } from 'resin-workflow';
 import type { Mocked } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 
 import { ModelSelector } from '../ModelSelector.node';
 
 // Mock the N8nLlmTracing module completely to avoid module resolution issues
-vi.mock('@n8n/ai-utilities', () => ({
+vi.mock('@resin/ai-utilities', () => ({
 	N8nLlmTracing: vi.fn().mockImplementation(() => ({
 		handleLLMStart: vi.fn(),
 		handleLLMEnd: vi.fn(),

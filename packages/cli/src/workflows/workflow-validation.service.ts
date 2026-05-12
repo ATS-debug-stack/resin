@@ -1,7 +1,7 @@
-import { CredentialsRepository, WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { CredentialsRepository, WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@n8n/typeorm';
+import { In } from '@resin/typeorm';
 import {
 	validateWorkflowHasTriggerLikeNode,
 	NodeHelpers,
@@ -12,8 +12,8 @@ import {
 	isTriggerLikeNode,
 	toExecutionContextEstablishmentHookParameter,
 	CHAT_TRIGGER_NODE_TYPE,
-} from 'n8n-workflow';
-import type { INode, INodes, IConnections, INodeType, IWorkflowSettings } from 'n8n-workflow';
+} from 'resin-workflow';
+import type { INode, INodes, IConnections, INodeType, IWorkflowSettings } from 'resin-workflow';
 
 import { STARTING_NODES } from '@/constants';
 import type { NodeTypes } from '@/node-types';
@@ -284,7 +284,7 @@ export class WorkflowValidationService {
 		nodes: INode[],
 	): Promise<SubWorkflowValidationResult> {
 		const executeWorkflowNodes = nodes.filter(
-			(node) => node.type === 'n8n-nodes-base.executeWorkflow' && !node.disabled,
+			(node) => node.type === 'resin-nodes-base.executeWorkflow' && !node.disabled,
 		);
 
 		if (executeWorkflowNodes.length === 0) {

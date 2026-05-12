@@ -1,16 +1,16 @@
-import { GetNodeTypesByIdentifierRequestDto } from '@n8n/api-types';
-import { GlobalConfig } from '@n8n/config';
-import { Body, Post, RestController } from '@n8n/decorators';
+import { GetNodeTypesByIdentifierRequestDto } from '@resin/api-types';
+import { GlobalConfig } from '@resin/config';
+import { Body, Post, RestController } from '@resin/decorators';
 import { Request } from 'express';
 import get from 'lodash/get';
-import type { INodeTypeDescription, INodeTypeNameVersion } from 'n8n-workflow';
+import type { INodeTypeDescription, INodeTypeNameVersion } from 'resin-workflow';
 import { coerce } from 'semver';
 
 import { NodeTypes } from '@/node-types';
 
 /**
  * Parse a node type identifier string (name@version) into name and version
- * @param identifier - e.g., "n8n-nodes-base.httpRequest@4.2"
+ * @param identifier - e.g., "resin-nodes-base.httpRequest@4.2"
  * @returns { name, version } or null if invalid
  */
 function parseNodeTypeIdentifier(identifier: string): { name: string; version: number } | null {

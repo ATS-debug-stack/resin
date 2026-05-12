@@ -1,11 +1,11 @@
-import { mockLogger, createWorkflow, testDb, mockInstance } from '@n8n/backend-test-utils';
-import { ExecutionsConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import type { ExecutionEntity } from '@n8n/db';
-import { ExecutionRepository, DbConnection } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
-import type { ExecutionStatus, IWorkflowBase } from 'n8n-workflow';
+import { mockLogger, createWorkflow, testDb, mockInstance } from '@resin/backend-test-utils';
+import { ExecutionsConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import type { ExecutionEntity } from '@resin/db';
+import { ExecutionRepository, DbConnection } from '@resin/db';
+import { Container } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
+import type { ExecutionStatus, IWorkflowBase } from 'resin-workflow';
 
 import { ExecutionPersistence } from '@/executions/execution-persistence';
 import { ExecutionsPruningService } from '@/services/pruning/executions-pruning.service';

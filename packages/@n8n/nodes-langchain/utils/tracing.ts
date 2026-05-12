@@ -1,6 +1,6 @@
 import type { BaseCallbackConfig } from '@langchain/core/callbacks/manager';
-import type { FieldType, IExecuteFunctions, ISupplyDataFunctions, Logger } from 'n8n-workflow';
-import { jsonParse, validateFieldType } from 'n8n-workflow';
+import type { FieldType, IExecuteFunctions, ISupplyDataFunctions, Logger } from 'resin-workflow';
+import { jsonParse, validateFieldType } from 'resin-workflow';
 
 interface TracingConfig {
 	additionalMetadata?: Record<string, unknown>;

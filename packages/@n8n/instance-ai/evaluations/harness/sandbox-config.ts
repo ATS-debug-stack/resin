@@ -15,11 +15,11 @@ import type { SandboxConfig, SandboxProvider } from '../../src/workspace/create-
 const DEFAULT_TIMEOUT_MS = 300_000;
 /**
  * Default cold-build window for Daytona's first sandbox provisioning. The
- * image runs `npm install @n8n/workflow-sdk` which routinely takes longer
+ * image runs `npm install @resin/workflow-sdk` which routinely takes longer
  * than the SDK's 300s default; 900s avoids spurious eval-run failures.
  */
 const DEFAULT_DAYTONA_CREATE_TIMEOUT_SECONDS = 900;
-const VALID_PROVIDERS: SandboxProvider[] = ['daytona', 'local', 'n8n-sandbox'];
+const VALID_PROVIDERS: SandboxProvider[] = ['daytona', 'local', 'resin-sandbox'];
 
 export function resolveSandboxConfig(env: NodeJS.ProcessEnv): SandboxConfig {
 	const providerRaw = env.N8N_INSTANCE_AI_SANDBOX_PROVIDER ?? 'daytona';
@@ -61,17 +61,17 @@ export function resolveSandboxConfig(env: NodeJS.ProcessEnv): SandboxConfig {
 		};
 	}
 
-	if (provider === 'n8n-sandbox') {
+	if (provider === 'resin-sandbox') {
 		const serviceUrl = env.N8N_SANDBOX_SERVICE_URL;
 		if (!serviceUrl) {
 			throw new Error(
-				'N8N_SANDBOX_SERVICE_URL is required for sandbox provider "n8n-sandbox". Set it to the service URL, or pick a different provider via N8N_INSTANCE_AI_SANDBOX_PROVIDER.',
+				'N8N_SANDBOX_SERVICE_URL is required for sandbox provider "resin-sandbox". Set it to the service URL, or pick a different provider via N8N_INSTANCE_AI_SANDBOX_PROVIDER.',
 			);
 		}
 		const apiKey = env.N8N_SANDBOX_SERVICE_API_KEY;
 		return {
 			enabled: true,
-			provider: 'n8n-sandbox',
+			provider: 'resin-sandbox',
 			serviceUrl,
 			...(apiKey ? { apiKey } : {}),
 			timeout,

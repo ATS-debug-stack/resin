@@ -1,4 +1,4 @@
-import type { IPollFunctions } from 'n8n-workflow';
+import type { IPollFunctions } from 'resin-workflow';
 import * as XLSX from 'xlsx';
 
 import {

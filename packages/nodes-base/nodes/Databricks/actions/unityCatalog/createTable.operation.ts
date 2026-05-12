@@ -1,4 +1,4 @@
-import { jsonParse, type IExecuteFunctions, type INodeExecutionData } from 'n8n-workflow';
+import { jsonParse, type IExecuteFunctions, type INodeExecutionData } from 'resin-workflow';
 
 import { extractResourceLocatorValue, getActiveCredentialType, getHost } from '../helpers';
 

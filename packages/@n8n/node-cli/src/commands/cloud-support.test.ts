@@ -11,14 +11,14 @@ describe('cloud-support command', () => {
 	describe('enable', () => {
 		tmpdirTest('writes correct eslint config and updates package.json', async ({ tmpdir }) => {
 			await setupTestPackage(tmpdir, {
-				eslintConfig: "import { config } from '@n8n/node-cli/eslint'; export default config;",
+				eslintConfig: "import { config } from '@resin/node-cli/eslint'; export default config;",
 			});
 
 			await CommandTester.run('cloud-support enable');
 
 			await expect(tmpdir).toHaveFileEqual(
 				'eslint.config.mjs',
-				"import { config } from '@n8n/node-cli/eslint';\n\nexport default config;\n",
+				"import { config } from '@resin/node-cli/eslint';\n\nexport default config;\n",
 			);
 			await expect(tmpdir).toHaveFileContaining('package.json', '"strict": true');
 		});
@@ -66,7 +66,7 @@ describe('cloud-support command', () => {
 
 			await expect(tmpdir).toHaveFileEqual(
 				'eslint.config.mjs',
-				"import { configWithoutCloudSupport } from '@n8n/node-cli/eslint';\n\nexport default configWithoutCloudSupport;\n",
+				"import { configWithoutCloudSupport } from '@resin/node-cli/eslint';\n\nexport default configWithoutCloudSupport;\n",
 			);
 
 			await expect(tmpdir).toHaveFileContaining('package.json', '"strict": false');
@@ -94,7 +94,7 @@ describe('cloud-support command', () => {
 
 			await expect(tmpdir).toHaveFileEqual(
 				'eslint.config.mjs',
-				"import { config } from '@n8n/node-cli/eslint';\n\nexport default config;\n",
+				"import { config } from '@resin/node-cli/eslint';\n\nexport default config;\n",
 			);
 			await expect(tmpdir).toHaveFileContaining('package.json', '"strict": true');
 		});
@@ -116,7 +116,7 @@ describe('cloud-support command', () => {
 
 			await expect(tmpdir).toHaveFileEqual(
 				'eslint.config.mjs',
-				"import { config } from '@n8n/node-cli/eslint';\n\nexport default config;\n",
+				"import { config } from '@resin/node-cli/eslint';\n\nexport default config;\n",
 			);
 			await expect(tmpdir).toHaveFileContaining('package.json', '"strict": true');
 		});

@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-import { TOOL_EXECUTOR_NODE_NAME } from '@n8n/constants';
-import { Container } from '@n8n/di';
+import { TOOL_EXECUTOR_NODE_NAME } from '@resin/constants';
+import { Container } from '@resin/di';
 import * as assert from 'assert/strict';
 import { setMaxListeners } from 'events';
 import get from 'lodash/get';
@@ -41,7 +41,7 @@ import type {
 	EngineRequest,
 	EngineResponse,
 	IDestinationNode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	LoggerProxy as Logger,
 	NodeHelpers,
@@ -55,7 +55,7 @@ import {
 	TimeoutExecutionCancelledError,
 	ManualExecutionCancelledError,
 	createRunExecutionData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import PCancelable from 'p-cancelable';
 
 import { ErrorReporter } from '@/errors/error-reporter';
@@ -1750,7 +1750,7 @@ export class WorkflowExecute {
 								}
 
 								if (runNodeData.closeFunction) {
-									// Explanation why we do this can be found in n8n-workflow/Workflow.ts -> runNode
+									// Explanation why we do this can be found in resin-workflow/Workflow.ts -> runNode
 
 									closeFunction = runNodeData.closeFunction();
 								}

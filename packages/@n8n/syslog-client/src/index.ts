@@ -1,5 +1,5 @@
 /**
- * @n8n/syslog-client
+ * @resin/syslog-client
  *
  * A syslog client for Node.js supporting UDP, TCP, TLS, and Unix socket transports.
  * Supports both RFC 3164 and RFC 5424 syslog message formats.

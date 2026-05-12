@@ -3,12 +3,12 @@ import type {
 	InsightsByWorkflow,
 	InsightsSummary,
 	RestrictedInsightsByTime,
-} from '@n8n/api-types';
-import { InsightsDateFilterDto, ListInsightsWorkflowQueryDto } from '@n8n/api-types';
-import { AuthenticatedRequest } from '@n8n/db';
-import { Get, GlobalScope, Licensed, Query, RestController } from '@n8n/decorators';
+} from '@resin/api-types';
+import { InsightsDateFilterDto, ListInsightsWorkflowQueryDto } from '@resin/api-types';
+import { AuthenticatedRequest } from '@resin/db';
+import { Get, GlobalScope, Licensed, Query, RestController } from '@resin/decorators';
 import { DateTime } from 'luxon';
-import { UserError } from 'n8n-workflow';
+import { UserError } from 'resin-workflow';
 import { z } from 'zod';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

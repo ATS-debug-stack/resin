@@ -1,6 +1,6 @@
 import type { BaseLanguageModel } from '@langchain/core/language_models/base';
 import { OutputFixingParser, StructuredOutputParser } from '@langchain/classic/output_parsers';
-import { NodeOperationError, NodeConnectionTypes, sleep } from 'n8n-workflow';
+import { NodeOperationError, NodeConnectionTypes, sleep } from 'resin-workflow';
 import type {
 	IDataObject,
 	IExecuteFunctions,
@@ -8,10 +8,10 @@ import type {
 	INodeParameters,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { z } from 'zod';
 
-import { getBatchingOptionFields } from '@n8n/ai-utilities';
+import { getBatchingOptionFields } from '@resin/ai-utilities';
 
 import { processItem } from './processItem';
 

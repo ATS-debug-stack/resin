@@ -3,7 +3,7 @@ import type {
 	InstanceAiMessage,
 	InstanceAiAgentNode,
 	InstanceAiToolCallState,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export interface ResourceEntry {
 	type: 'workflow' | 'credential' | 'data-table';

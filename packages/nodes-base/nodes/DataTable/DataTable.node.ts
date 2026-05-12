@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, INodeType, INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeType, INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { router } from './actions/router';
 import * as row from './actions/row/Row.resource';
@@ -34,7 +34,7 @@ export class DataTable implements INodeType {
 					content: `<patterns>
 <pattern title="Insert with explicit schema">
 const storeData = node({
-  type: 'n8n-nodes-base.dataTable',
+  type: 'resin-nodes-base.dataTable',
   version: 1.1,
   config: {
     name: 'Store Data',

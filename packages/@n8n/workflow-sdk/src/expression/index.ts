@@ -1,4 +1,4 @@
-import { FROM_AI_AUTO_GENERATED_MARKER } from 'n8n-workflow';
+import { FROM_AI_AUTO_GENERATED_MARKER } from 'resin-workflow';
 
 import type { FromAIArgumentType, NodeInstance } from '../types/base';
 

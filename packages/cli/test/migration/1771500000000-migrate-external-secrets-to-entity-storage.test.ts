@@ -3,11 +3,11 @@ import {
 	initDbUpToMigration,
 	runSingleMigration,
 	type TestMigrationContext,
-} from '@n8n/backend-test-utils';
-import { DbConnection } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { DataSource } from '@n8n/typeorm';
-import { Cipher } from 'n8n-core';
+} from '@resin/backend-test-utils';
+import { DbConnection } from '@resin/db';
+import { Container } from '@resin/di';
+import { DataSource } from '@resin/typeorm';
+import { Cipher } from 'resin-core';
 
 const MIGRATION_NAME = 'MigrateExternalSecretsToEntityStorage1771500000000';
 const EXTERNAL_SECRETS_DB_KEY = 'feature.externalSecrets';

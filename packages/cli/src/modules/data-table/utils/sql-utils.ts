@@ -2,19 +2,19 @@ import {
 	dataTableColumnNameSchema,
 	DATA_TABLE_COLUMN_ERROR_MESSAGE,
 	type DataTableCreateColumnSchema,
-} from '@n8n/api-types';
-import { GlobalConfig } from '@n8n/config';
-import { DslColumn } from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { DataSourceOptions } from '@n8n/typeorm';
+} from '@resin/api-types';
+import { GlobalConfig } from '@resin/config';
+import { DslColumn } from '@resin/db';
+import { Container } from '@resin/di';
+import type { DataSourceOptions } from '@resin/typeorm';
 import type {
 	DataTableColumnJsType,
 	DataTableColumnType,
 	DataTableRawRowsReturn,
 	DataTableRowReturn,
 	DataTableRowsReturn,
-} from 'n8n-workflow';
-import { DATA_TABLE_SYSTEM_COLUMN_TYPE_MAP, UnexpectedError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { DATA_TABLE_SYSTEM_COLUMN_TYPE_MAP, UnexpectedError } from 'resin-workflow';
 
 import type { DataTableColumn } from '../data-table-column.entity';
 import type { DataTableUserTableName } from '../data-table.types';

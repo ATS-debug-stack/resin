@@ -4,12 +4,12 @@ import {
 	randomValidPassword,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { User } from '@n8n/db';
-import { GLOBAL_OWNER_ROLE, ProjectRepository, UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { IPersonalizationSurveyAnswersV4 } from 'n8n-workflow';
+} from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { User } from '@resin/db';
+import { GLOBAL_OWNER_ROLE, ProjectRepository, UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import type { IPersonalizationSurveyAnswersV4 } from 'resin-workflow';
 import validator from 'validator';
 
 import { SUCCESS_RESPONSE_BODY } from './shared/constants';

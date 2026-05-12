@@ -1,4 +1,4 @@
-import { createTeamProject, mockInstance, testDb } from '@n8n/backend-test-utils';
+import { createTeamProject, mockInstance, testDb } from '@resin/backend-test-utils';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
@@ -17,7 +17,7 @@ let testOutputDir: string;
 
 beforeEach(async () => {
 	await testDb.truncate(['CredentialsEntity', 'SharedCredentials']);
-	testOutputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'n8n-export-credentials-test-'));
+	testOutputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'resin-export-credentials-test-'));
 });
 
 afterEach(() => {

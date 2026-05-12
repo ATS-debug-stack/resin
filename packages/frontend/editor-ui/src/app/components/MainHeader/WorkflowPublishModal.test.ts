@@ -7,10 +7,10 @@ import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { WORKFLOW_PUBLISH_MODAL_KEY } from '@/app/constants';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import { waitFor } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
-import { WEBHOOK_NODE_TYPE, NodeConnectionTypes, type INodeTypeDescription } from 'n8n-workflow';
+import { WEBHOOK_NODE_TYPE, NodeConnectionTypes, type INodeTypeDescription } from 'resin-workflow';
 import {
 	useWorkflowDocumentStore,
 	createWorkflowDocumentId,
@@ -92,7 +92,7 @@ const WEBHOOK_NODE_TYPE_DESCRIPTION: INodeTypeDescription = {
 const AI_GATEWAY_NODE = {
 	id: 'ai-node-1',
 	name: 'Message a model',
-	type: '@n8n/n8n-nodes-langchain.lmOpenAi',
+	type: '@resin/n8n-nodes-langchain.lmOpenAi',
 	typeVersion: 1,
 	position: [100, 100] as [number, number],
 	parameters: {},
@@ -241,7 +241,7 @@ describe('WorkflowPublishModal', () => {
 				{
 					id: 'regular-node',
 					name: 'Regular Node',
-					type: 'n8n-nodes-base.set',
+					type: 'resin-nodes-base.set',
 					typeVersion: 1,
 					position: [100, 100],
 					parameters: {},

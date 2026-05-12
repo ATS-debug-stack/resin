@@ -1,5 +1,5 @@
-import { testDb, mockInstance, createActiveWorkflow } from '@n8n/backend-test-utils';
-import type { IWorkflowDb, User } from '@n8n/db';
+import { testDb, mockInstance, createActiveWorkflow } from '@resin/backend-test-utils';
+import type { IWorkflowDb, User } from '@resin/db';
 import { readFileSync } from 'fs';
 import {
 	type INode,
@@ -7,7 +7,7 @@ import {
 	type INodeType,
 	type INodeTypeDescription,
 	type IWebhookFunctions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { agent as testAgent } from 'supertest';
 
 import { NodeTypes } from '@/node-types';

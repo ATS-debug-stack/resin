@@ -2,14 +2,14 @@
  * Types for the parameter-updater prompt registry system.
  */
 
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 /**
  * Pattern for matching node types. Supports:
- * - Exact match: 'n8n-nodes-base.set'
+ * - Exact match: 'resin-nodes-base.set'
  * - Suffix wildcard: '*Tool' matches 'gmailTool', 'slackTool'
- * - Prefix wildcard: 'n8n-nodes-base.*' matches any n8n-nodes-base node
- * - Substring match: '.set' matches 'n8n-nodes-base.set'
+ * - Prefix wildcard: 'resin-nodes-base.*' matches any n8n-nodes-base node
+ * - Substring match: '.set' matches 'resin-nodes-base.set'
  */
 export type NodeTypePattern = string;
 

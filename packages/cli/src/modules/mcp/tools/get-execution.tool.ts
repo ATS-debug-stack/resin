@@ -1,6 +1,6 @@
-import type { ExecutionRepository, User } from '@n8n/db';
-import type { IRunExecutionData, IRunData, ITaskDataConnections, IPinData } from 'n8n-workflow';
-import { ensureError, jsonStringify, replaceCircularReferences } from 'n8n-workflow';
+import type { ExecutionRepository, User } from '@resin/db';
+import type { IRunExecutionData, IRunData, ITaskDataConnections, IPinData } from 'resin-workflow';
+import { ensureError, jsonStringify, replaceCircularReferences } from 'resin-workflow';
 import z from 'zod';
 
 import { USER_CALLED_MCP_TOOL_EVENT } from '../mcp.constants';

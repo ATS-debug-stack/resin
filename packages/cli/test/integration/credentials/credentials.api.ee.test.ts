@@ -7,13 +7,13 @@ import {
 	randomCredentialPayloadWithOauthTokenData,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
-import type { Project, User, ListQueryDb } from '@n8n/db';
-import { GLOBAL_MEMBER_ROLE, ProjectRepository, SharedCredentialsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { ProjectRole } from '@n8n/permissions';
-import { PERSONAL_SPACE_SHARING_SETTING } from '@n8n/permissions';
-import { In } from '@n8n/typeorm';
+} from '@resin/backend-test-utils';
+import type { Project, User, ListQueryDb } from '@resin/db';
+import { GLOBAL_MEMBER_ROLE, ProjectRepository, SharedCredentialsRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import type { ProjectRole } from '@resin/permissions';
+import { PERSONAL_SPACE_SHARING_SETTING } from '@resin/permissions';
+import { In } from '@resin/typeorm';
 
 import config from '@/config';
 import { CredentialsService } from '@/credentials/credentials.service';

@@ -1,15 +1,15 @@
 import { readFileSync } from 'node:fs';
 
-import { GlobalConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { LicenseMetricsRepository, WorkflowRepository } from '@n8n/db';
-import { OnLeaderStepdown, OnLeaderTakeover } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { LicenseMetricsRepository, WorkflowRepository } from '@resin/db';
+import { OnLeaderStepdown, OnLeaderTakeover } from '@resin/decorators';
+import { Service } from '@resin/di';
 import type express from 'express';
 import promBundle from 'express-prom-bundle';
 import { DateTime } from 'luxon';
-import { InstanceSettings } from 'n8n-core';
-import { EventMessageTypeNames, jsonParse } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import { EventMessageTypeNames, jsonParse } from 'resin-workflow';
 import promClient, { type Counter, type Gauge, type Histogram } from 'prom-client';
 import semverParse from 'semver/functions/parse';
 
@@ -447,7 +447,7 @@ export class PrometheusMetricsService {
 
 				if (this.includes.labels.nodeType) {
 					nodeLabels.node_type = String(
-						(payload.nodeType ?? 'unknown').replace('n8n-nodes-', '').replace(/\./g, '_'),
+						(payload.nodeType ?? 'unknown').replace('resin-nodes-', '').replace(/\./g, '_'),
 					);
 				}
 

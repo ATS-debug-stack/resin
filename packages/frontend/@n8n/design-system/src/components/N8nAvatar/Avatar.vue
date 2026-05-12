@@ -44,7 +44,7 @@ const getSize = (size: string): number => sizes[size];
 </script>
 
 <template>
-	<span :class="['n8n-avatar', $style.container]" v-bind="$attrs">
+	<span :class="['resin-avatar', $style.container]" v-bind="$attrs">
 		<Avatar
 			v-if="name"
 			:size="getSize(size)"

@@ -1,4 +1,4 @@
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 export function createMultiNodeWorkflowFixture() {
@@ -6,7 +6,7 @@ export function createMultiNodeWorkflowFixture() {
 		nodes: [
 			{
 				parameters: {},
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				id: uuid(),
@@ -14,7 +14,7 @@ export function createMultiNodeWorkflowFixture() {
 			},
 			{
 				parameters: { category: 'doNothing' },
-				type: 'n8n-nodes-base.debugHelper',
+				type: 'resin-nodes-base.debugHelper',
 				typeVersion: 1,
 				position: [200, 0] as [number, number],
 				id: uuid(),
@@ -43,7 +43,7 @@ export function createFailingWorkflowFixture() {
 		nodes: [
 			{
 				parameters: {},
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				id: uuid(),
@@ -54,7 +54,7 @@ export function createFailingWorkflowFixture() {
 					throwErrorType: 'Error',
 					throwErrorMessage: 'Test error',
 				},
-				type: 'n8n-nodes-base.debugHelper',
+				type: 'resin-nodes-base.debugHelper',
 				typeVersion: 1,
 				position: [208, 0] as [number, number],
 				id: uuid(),
@@ -83,7 +83,7 @@ export function createTracingMetadataWorkflowFixture() {
 		nodes: [
 			{
 				parameters: {},
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				id: uuid(),
@@ -91,7 +91,7 @@ export function createTracingMetadataWorkflowFixture() {
 			},
 			{
 				parameters: {},
-				type: 'n8n-nodes-base.tracingTestNode',
+				type: 'resin-nodes-base.tracingTestNode',
 				typeVersion: 1,
 				position: [200, 0] as [number, number],
 				id: uuid(),
@@ -120,7 +120,7 @@ export function createSubWorkflowTriggerFixture() {
 		nodes: [
 			{
 				parameters: {},
-				type: 'n8n-nodes-base.executeWorkflowTrigger',
+				type: 'resin-nodes-base.executeWorkflowTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				id: uuid(),
@@ -137,7 +137,7 @@ export function createParentWithSubWorkflowFixture(childWorkflowId: string) {
 		nodes: [
 			{
 				parameters: {},
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				id: uuid(),
@@ -148,7 +148,7 @@ export function createParentWithSubWorkflowFixture(childWorkflowId: string) {
 					source: 'database',
 					workflowId: childWorkflowId,
 				},
-				type: 'n8n-nodes-base.executeWorkflow',
+				type: 'resin-nodes-base.executeWorkflow',
 				typeVersion: 1,
 				position: [200, 0] as [number, number],
 				id: uuid(),
@@ -177,7 +177,7 @@ export function createSimpleWorkflowFixture() {
 		nodes: [
 			{
 				parameters: {},
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				id: uuid(),

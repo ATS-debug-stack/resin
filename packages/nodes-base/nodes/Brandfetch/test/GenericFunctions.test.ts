@@ -4,14 +4,14 @@ import type {
 	ILoadOptionsFunctions,
 	IHttpRequestMethods,
 	INode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { brandfetchApiRequest } from '../GenericFunctions';
 
 export const node: INode = {
 	id: 'c4a5ca75-18c7-4cc8-bf7d-5d57bb7d84da',
 	name: 'Brandfetch',
-	type: 'n8n-nodes-base.Brandfetch',
+	type: 'resin-nodes-base.Brandfetch',
 	typeVersion: 1,
 	position: [0, 0],
 	parameters: {

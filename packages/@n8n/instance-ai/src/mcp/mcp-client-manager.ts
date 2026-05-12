@@ -1,7 +1,7 @@
 import type { ToolsInput } from '@mastra/core/agent';
 import { MCPClient } from '@mastra/mcp';
-import type { Result } from 'n8n-workflow';
-import { UserError } from 'n8n-workflow';
+import type { Result } from 'resin-workflow';
+import { UserError } from 'resin-workflow';
 import { nanoid } from 'nanoid';
 
 import { isSafeMcpIdentifierName } from '../agent/mcp-tool-name-validation';

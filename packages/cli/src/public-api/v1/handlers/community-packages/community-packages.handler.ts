@@ -1,5 +1,5 @@
-import type { AuthenticatedRequest } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { AuthenticatedRequest } from '@resin/db';
+import { Container } from '@resin/di';
 
 import { CommunityPackagesLifecycleService } from '@/modules/community-packages/community-packages.lifecycle.service';
 

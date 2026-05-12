@@ -14,14 +14,14 @@ import type {
 	IDataObject,
 	IWorkflowBase,
 	IDestinationNode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	createRunExecutionData,
 	NodeConnectionTypes,
 	TelemetryHelpers,
 	BINARY_MODE_COMBINED,
-} from 'n8n-workflow';
-import { retry } from '@n8n/utils/retry';
+} from 'resin-workflow';
+import { retry } from '@resin/utils/retry';
 
 import { useToast } from '@/app/composables/useToast';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
@@ -35,7 +35,7 @@ import {
 	RESPOND_TO_WEBHOOK_NODE_TYPE,
 } from '@/app/constants';
 
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { injectWorkflowDocumentStore } from '@/app/stores/workflowDocument.store';
 import { displayForm } from '@/features/execution/executions/executions.utils';
@@ -43,7 +43,7 @@ import { useExternalHooks } from '@/app/composables/useExternalHooks';
 import { useWorkflowHelpers } from '@/app/composables/useWorkflowHelpers';
 import type { useRouter } from 'vue-router';
 import { isEmpty } from '@/app/utils/typesUtils';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import get from 'lodash/get';
 import { useExecutionsStore } from '@/features/execution/executions/executions.store';
 import { useTelemetry } from './useTelemetry';
@@ -52,12 +52,12 @@ import { useUIStore } from '@/app/stores/ui.store';
 import { usePushConnectionStore } from '@/app/stores/pushConnection.store';
 import { useNodeDirtiness } from '@/app/composables/useNodeDirtiness';
 import { useCanvasOperations } from './useCanvasOperations';
-import { chatEventBus } from '@n8n/chat/event-buses';
-import { useAgentRequestStore } from '@n8n/stores/useAgentRequestStore';
+import { chatEventBus } from '@resin/chat/event-buses';
+import { useAgentRequestStore } from '@resin/stores/useAgentRequestStore';
 import { useWorkflowSaving } from './useWorkflowSaving';
 import { injectWorkflowState } from '@/app/composables/useWorkflowState';
 import { useDocumentTitle } from './useDocumentTitle';
-import { useChat } from '@n8n/chat/composables';
+import { useChat } from '@resin/chat/composables';
 import type { WorkflowObjectAccessors } from '../types';
 
 export function useRunWorkflow(useRunWorkflowOpts: {

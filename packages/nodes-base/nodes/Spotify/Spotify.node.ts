@@ -6,7 +6,7 @@ import {
 	type INodeTypeDescription,
 	type IHttpRequestMethods,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { isoCountryCodes } from '@utils/ISOCountryCodes';
 

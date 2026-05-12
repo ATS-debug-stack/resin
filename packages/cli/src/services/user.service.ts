@@ -1,7 +1,7 @@
-import type { RoleChangeRequestDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import type { AuthIdentity, PublicUser } from '@n8n/db';
+import type { RoleChangeRequestDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import type { AuthIdentity, PublicUser } from '@resin/db';
 import {
 	ProjectRelation,
 	User,
@@ -10,17 +10,17 @@ import {
 	Not,
 	In,
 	GLOBAL_OWNER_ROLE,
-} from '@n8n/db';
-import { Service } from '@n8n/di';
+} from '@resin/db';
+import { Service } from '@resin/di';
 import {
 	getGlobalScopes,
 	PROJECT_ADMIN_ROLE_SLUG,
 	PROJECT_OWNER_ROLE_SLUG,
 	PROJECT_VIEWER_ROLE_SLUG,
 	type AssignableGlobalRole,
-} from '@n8n/permissions';
-import type { IUserSettings } from 'n8n-workflow';
-import { UserError } from 'n8n-workflow';
+} from '@resin/permissions';
+import type { IUserSettings } from 'resin-workflow';
+import { UserError } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { InternalServerError } from '@/errors/response-errors/internal-server.error';

@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { configure, render } from '@testing-library/vue';
 
-import type { IMenuItem } from '@n8n/design-system/types';
+import type { IMenuItem } from '@resin/design-system/types';
 
 import N8nMenuItem from './MenuItem.vue';
 

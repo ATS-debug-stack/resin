@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { AllRolesMap, PermissionsRecord } from '@n8n/permissions';
+import type { AllRolesMap, PermissionsRecord } from '@resin/permissions';
 import ProjectSharing from '@/features/collaboration/projects/components/ProjectSharing.vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { usePageRedirectionHelper } from '@/app/composables/usePageRedirectionHelper';
 import { EnterpriseEditionFeature } from '@/app/constants';
 import type { ICredentialsDecryptedResponse, ICredentialsResponse } from '../../credentials.types';
@@ -19,12 +19,12 @@ import {
 	splitName,
 	useRemoteProjectSearch,
 } from '@/features/collaboration/projects/projects.utils';
-import type { EventBus } from '@n8n/utils/event-bus';
-import type { ICredentialDataDecryptedObject } from 'n8n-workflow';
+import type { EventBus } from '@resin/utils/event-bus';
+import type { ICredentialDataDecryptedObject } from 'resin-workflow';
 import { computed, ref, watch } from 'vue';
-import { getResourcePermissions } from '@n8n/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 
-import { N8nActionBox, N8nInfoTip } from '@n8n/design-system';
+import { N8nActionBox, N8nInfoTip } from '@resin/design-system';
 type Props = {
 	credentialId: string;
 	credentialData: ICredentialDataDecryptedObject;

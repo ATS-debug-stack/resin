@@ -9,12 +9,12 @@ ruleTester.run('package-name-convention', PackageNameConventionRule, {
 		{
 			name: 'valid unscoped package name',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-example", "version": "1.0.0" }',
+			code: '{ "name": "resin-nodes-example", "version": "1.0.0" }',
 		},
 		{
 			name: 'valid unscoped package name with dashes',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-my-service", "version": "1.0.0" }',
+			code: '{ "name": "resin-nodes-my-service", "version": "1.0.0" }',
 		},
 		{
 			name: 'valid scoped package name',
@@ -40,7 +40,7 @@ ruleTester.run('package-name-convention', PackageNameConventionRule, {
 			name: 'nested name fields should be ignored - only top-level name matters',
 			filename: 'package.json',
 			code: `{
-				"name": "n8n-nodes-example",
+				"name": "resin-nodes-example",
 				"version": "1.0.0",
 				"dependencies": {
 					"name": "invalid-nested-name"
@@ -88,8 +88,8 @@ ruleTester.run('package-name-convention', PackageNameConventionRule, {
 					suggestions: [
 						{
 							messageId: 'renameTo',
-							data: { suggestedName: 'n8n-nodes-my-package' },
-							output: '{ "name": "n8n-nodes-my-package", "version": "1.0.0" }',
+							data: { suggestedName: 'resin-nodes-my-package' },
+							output: '{ "name": "resin-nodes-my-package", "version": "1.0.0" }',
 						},
 					],
 				},
@@ -98,16 +98,16 @@ ruleTester.run('package-name-convention', PackageNameConventionRule, {
 		{
 			name: 'invalid package name - missing nodes',
 			filename: 'package.json',
-			code: '{ "name": "n8n-example", "version": "1.0.0" }',
+			code: '{ "name": "resin-example", "version": "1.0.0" }',
 			errors: [
 				{
 					messageId: 'invalidPackageName',
-					data: { packageName: 'n8n-example' },
+					data: { packageName: 'resin-example' },
 					suggestions: [
 						{
 							messageId: 'renameTo',
-							data: { suggestedName: 'n8n-nodes-example' },
-							output: '{ "name": "n8n-nodes-example", "version": "1.0.0" }',
+							data: { suggestedName: 'resin-nodes-example' },
+							output: '{ "name": "resin-nodes-example", "version": "1.0.0" }',
 						},
 					],
 				},
@@ -142,8 +142,8 @@ ruleTester.run('package-name-convention', PackageNameConventionRule, {
 					suggestions: [
 						{
 							messageId: 'renameTo',
-							data: { suggestedName: 'n8n-nodes-example' },
-							output: '{ "name": "n8n-nodes-example", "version": "1.0.0" }',
+							data: { suggestedName: 'resin-nodes-example' },
+							output: '{ "name": "resin-nodes-example", "version": "1.0.0" }',
 						},
 					],
 				},
@@ -164,11 +164,11 @@ ruleTester.run('package-name-convention', PackageNameConventionRule, {
 		{
 			name: 'incomplete package name with missing suffix',
 			filename: 'package.json',
-			code: '{ "name": "n8n-nodes-", "version": "1.0.0" }',
+			code: '{ "name": "resin-nodes-", "version": "1.0.0" }',
 			errors: [
 				{
 					messageId: 'invalidPackageName',
-					data: { packageName: 'n8n-nodes-' },
+					data: { packageName: 'resin-nodes-' },
 					suggestions: [],
 				},
 			],

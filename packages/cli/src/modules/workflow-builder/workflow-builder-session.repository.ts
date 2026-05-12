@@ -8,9 +8,9 @@ import {
 	type ISessionStorage,
 	type LangchainMessage,
 	type StoredSession,
-} from '@n8n/ai-workflow-builder';
-import { Service } from '@n8n/di';
-import { DataSource, Repository } from '@n8n/typeorm';
+} from '@resin/ai-workflow-builder';
+import { Service } from '@resin/di';
+import { DataSource, Repository } from '@resin/typeorm';
 
 import { WorkflowBuilderSession } from './workflow-builder-session.entity';
 

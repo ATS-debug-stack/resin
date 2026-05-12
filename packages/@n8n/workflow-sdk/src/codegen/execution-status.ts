@@ -1,4 +1,4 @@
-import type { IRunExecutionData } from 'n8n-workflow';
+import type { IRunExecutionData } from 'resin-workflow';
 
 type ExecutionResultData = IRunExecutionData['resultData'];
 

@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from 'resin-workflow';
 import * as path from 'path';
 
 import {

@@ -1,10 +1,10 @@
-import { mockLogger } from '@n8n/backend-test-utils';
+import { mockLogger } from '@resin/backend-test-utils';
 import { mock } from 'jest-mock-extended';
 
 import { DummyProvider, FailedProvider, MockProviders } from '@test/external-secrets/utils';
 
-import type { SecretsProviderConnectionRepository } from '@n8n/db';
-import type { Cipher } from 'n8n-core';
+import type { SecretsProviderConnectionRepository } from '@resin/db';
+import type { Cipher } from 'resin-core';
 
 import { ExternalSecretsManager } from '../external-secrets-manager.ee';
 import type { ExternalSecretsConfig } from '../external-secrets.config';

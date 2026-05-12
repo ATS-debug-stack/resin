@@ -58,7 +58,7 @@ const mockNodes: INodeUi[] = [
 	{
 		id: 'node-1',
 		name: 'HTTP Request',
-		type: 'n8n-nodes-base.httpRequest',
+		type: 'resin-nodes-base.httpRequest',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -66,7 +66,7 @@ const mockNodes: INodeUi[] = [
 	{
 		id: 'node-2',
 		name: 'Set',
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		typeVersion: 1,
 		position: [200, 0],
 		parameters: {},

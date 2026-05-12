@@ -8,7 +8,7 @@ import type {
 	INodeTypes,
 	IWorkflowExecuteAdditionalData,
 	WorkflowExpression,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { getWebhookDescription, getNodeWebhookUrl } from '../webhook-helper-functions';
 

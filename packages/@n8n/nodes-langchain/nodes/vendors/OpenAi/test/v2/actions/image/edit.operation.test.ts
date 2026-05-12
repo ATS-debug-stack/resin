@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 import type { Mock, Mocked } from 'vitest';
 import { mock, mockDeep } from 'vitest-mock-extended';
 
@@ -38,7 +38,7 @@ describe('Image Edit Operation', () => {
 		mockNode = mock<INode>({
 			id: 'test-node',
 			name: 'OpenAI Image Edit',
-			type: 'n8n-nodes-base.openAi',
+			type: 'resin-nodes-base.openAi',
 			typeVersion: 2,
 			position: [0, 0],
 			parameters: {},
@@ -453,7 +453,7 @@ describe('Image Edit Operation', () => {
 			mockNode = mock<INode>({
 				id: 'test-node',
 				name: 'OpenAI Image Edit',
-				type: 'n8n-nodes-base.openAi',
+				type: 'resin-nodes-base.openAi',
 				typeVersion: 2.3,
 				position: [0, 0],
 				parameters: {},

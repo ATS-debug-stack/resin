@@ -9,8 +9,8 @@ import type {
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { ApplicationError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 
 import { capitalize } from '@utils/utilities';
 

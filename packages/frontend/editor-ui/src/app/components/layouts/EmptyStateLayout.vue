@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { N8nButton, N8nCard, N8nHeading, N8nIcon, N8nText } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nButton, N8nCard, N8nHeading, N8nIcon, N8nText } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useBannersStore } from '@/features/shared/banners/banners.store';
 import { useProjectsStore } from '@/features/collaboration/projects/projects.store';
 import { useProjectPages } from '@/features/collaboration/projects/composables/useProjectPages';

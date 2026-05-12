@@ -5,9 +5,9 @@ import {
 	type CredentialsRepository,
 	type CredentialsEntity,
 	GLOBAL_OWNER_ROLE,
-} from '@n8n/db';
+} from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import type { INode } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
 
 import type { NodeTypes } from '@/node-types';
 import type { OwnershipService } from '@/services/ownership.service';
@@ -186,7 +186,7 @@ describe('CredentialsPermissionChecker', () => {
 		const httpRequestNode: INode = {
 			id: 'node-1',
 			name: 'HTTP Request',
-			type: 'n8n-nodes-base.httpRequest',
+			type: 'resin-nodes-base.httpRequest',
 			typeVersion: 4.3,
 			position: [0, 0],
 			parameters: {
@@ -245,7 +245,7 @@ describe('CredentialsPermissionChecker', () => {
 			const httpRequestNodeWithGenericAuth: INode = {
 				id: 'node-2',
 				name: 'HTTP Request',
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				typeVersion: 4.2,
 				position: [0, 0],
 				parameters: {

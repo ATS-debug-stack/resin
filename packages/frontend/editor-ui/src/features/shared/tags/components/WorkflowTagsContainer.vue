@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import TagsContainer from './TagsContainer.vue';
 import { useTagsStore } from '../tags.store';
-import type { ITag } from '@n8n/rest-api-client/api/tags';
+import type { ITag } from '@resin/rest-api-client/api/tags';
 
 interface Props {
 	tagIds: readonly string[];

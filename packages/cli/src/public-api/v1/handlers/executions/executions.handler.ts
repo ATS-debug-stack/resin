@@ -1,10 +1,10 @@
-import { ExecutionRedactionQueryDtoSchema } from '@n8n/api-types';
-import type { IExecutionBase } from '@n8n/db';
-import { ExecutionRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { ExecutionRedactionQueryDtoSchema } from '@resin/api-types';
+import type { IExecutionBase } from '@resin/db';
+import { ExecutionRepository } from '@resin/db';
+import { Container } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { QueryFailedError } from '@n8n/typeorm';
-import { type ExecutionStatus, replaceCircularReferences } from 'n8n-workflow';
+import { QueryFailedError } from '@resin/typeorm';
+import { type ExecutionStatus, replaceCircularReferences } from 'resin-workflow';
 
 import { ActiveExecutions } from '@/active-executions';
 import { ConcurrencyControlService } from '@/concurrency/concurrency-control.service';

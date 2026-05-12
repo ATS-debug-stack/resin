@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties, Icon } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties, Icon } from 'resin-workflow';
 
 export class HttpBasicAuth implements ICredentialType {
 	name = 'httpBasicAuth';

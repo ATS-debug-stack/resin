@@ -1,4 +1,4 @@
-import type { NodeConnectionType } from 'n8n-workflow';
+import type { NodeConnectionType } from 'resin-workflow';
 
 export const RecommendationCategory = {
 	TEXT_MANIPULATION: 'text_manipulation',

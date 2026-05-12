@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, IBinaryData, INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, IBinaryData, INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import { mockDeep } from 'vitest-mock-extended';
 
 import * as helpers from '@utils/helpers';

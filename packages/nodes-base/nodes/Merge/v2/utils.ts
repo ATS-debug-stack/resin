@@ -9,8 +9,8 @@ import type {
 	IDataObject,
 	INodeExecutionData,
 	IPairedItemData,
-} from 'n8n-workflow';
-import { ApplicationError } from '@n8n/errors';
+} from 'resin-workflow';
+import { ApplicationError } from '@resin/errors';
 
 import { fuzzyCompare, preparePairedItemDataArray } from '@utils/utilities';
 

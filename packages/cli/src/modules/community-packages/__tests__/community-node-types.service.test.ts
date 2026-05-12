@@ -1,10 +1,10 @@
-import { inProduction } from '@n8n/backend-common';
+import { inProduction } from '@resin/backend-common';
 
 import { getCommunityNodeTypes } from '../community-node-types-utils';
 import { CommunityNodeTypesService } from '../community-node-types.service';
 
-jest.mock('@n8n/backend-common', () => ({
-	...jest.requireActual('@n8n/backend-common'),
+jest.mock('@resin/backend-common', () => ({
+	...jest.requireActual('@resin/backend-common'),
 	inProduction: jest.fn().mockReturnValue(false),
 }));
 
@@ -288,25 +288,25 @@ describe('CommunityNodeTypesService', () => {
 		beforeEach(() => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-air.air',
-					packageName: 'n8n-nodes-air',
+					name: 'resin-nodes-air.air',
+					packageName: 'resin-nodes-air',
 					checksum: 'checksum-air',
 					npmVersion: '1.0.0',
-					nodeDescription: { name: 'n8n-nodes-air.air', usableAsTool: false },
+					nodeDescription: { name: 'resin-nodes-air.air', usableAsTool: false },
 				},
 				{
-					name: 'n8n-nodes-airparser.airparser',
-					packageName: 'n8n-nodes-airparser',
+					name: 'resin-nodes-airparser.airparser',
+					packageName: 'resin-nodes-airparser',
 					checksum: 'checksum-airparser',
 					npmVersion: '2.0.0',
-					nodeDescription: { name: 'n8n-nodes-airparser.airparser', usableAsTool: false },
+					nodeDescription: { name: 'resin-nodes-airparser.airparser', usableAsTool: false },
 				},
 				{
-					name: 'n8n-nodes-example.example',
-					packageName: 'n8n-nodes-example',
+					name: 'resin-nodes-example.example',
+					packageName: 'resin-nodes-example',
 					checksum: 'checksum-example',
 					npmVersion: '3.0.0',
-					nodeDescription: { name: 'n8n-nodes-example.example', usableAsTool: false },
+					nodeDescription: { name: 'resin-nodes-example.example', usableAsTool: false },
 				},
 			];
 
@@ -314,44 +314,44 @@ describe('CommunityNodeTypesService', () => {
 		});
 
 		it('should return the correct package when exact packageName match is found', async () => {
-			const result = await service.findVetted('n8n-nodes-air');
+			const result = await service.findVetted('resin-nodes-air');
 
 			expect(result).toBeDefined();
-			expect(result?.packageName).toBe('n8n-nodes-air');
+			expect(result?.packageName).toBe('resin-nodes-air');
 			expect(result?.checksum).toBe('checksum-air');
 			expect(result?.npmVersion).toBe('1.0.0');
 		});
 
 		it('should return undefined when package is not found', async () => {
-			const result = await service.findVetted('n8n-nodes-nonexistent');
+			const result = await service.findVetted('resin-nodes-nonexistent');
 
 			expect(result).toBeUndefined();
 		});
 
 		it('should not match similar package names with substring matching', async () => {
-			const result = await service.findVetted('n8n-nodes-air');
+			const result = await service.findVetted('resin-nodes-air');
 
 			expect(result).toBeDefined();
-			expect(result?.packageName).toBe('n8n-nodes-air');
-			// Should NOT match 'n8n-nodes-airparser' even though it contains 'n8n-nodes-air'
-			expect(result?.packageName).not.toBe('n8n-nodes-airparser');
+			expect(result?.packageName).toBe('resin-nodes-air');
+			// Should NOT match 'resin-nodes-airparser' even though it contains 'resin-nodes-air'
+			expect(result?.packageName).not.toBe('resin-nodes-airparser');
 		});
 
 		it('should return the correct package from multiple similar names', async () => {
-			const airResult = await service.findVetted('n8n-nodes-air');
-			const airparserResult = await service.findVetted('n8n-nodes-airparser');
+			const airResult = await service.findVetted('resin-nodes-air');
+			const airparserResult = await service.findVetted('resin-nodes-airparser');
 
-			expect(airResult?.packageName).toBe('n8n-nodes-air');
+			expect(airResult?.packageName).toBe('resin-nodes-air');
 			expect(airResult?.checksum).toBe('checksum-air');
 
-			expect(airparserResult?.packageName).toBe('n8n-nodes-airparser');
+			expect(airparserResult?.packageName).toBe('resin-nodes-airparser');
 			expect(airparserResult?.checksum).toBe('checksum-airparser');
 		});
 
 		it('should return undefined when communityNodeTypes is empty', async () => {
 			(service as any).communityNodeTypes.clear();
 
-			const result = await service.findVetted('n8n-nodes-air');
+			const result = await service.findVetted('resin-nodes-air');
 
 			expect(result).toBeUndefined();
 		});
@@ -359,34 +359,34 @@ describe('CommunityNodeTypesService', () => {
 		it('should handle packages with similar prefixes correctly', async () => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-test.test',
-					packageName: 'n8n-nodes-test',
+					name: 'resin-nodes-test.test',
+					packageName: 'resin-nodes-test',
 					checksum: 'checksum-test',
-					nodeDescription: { name: 'n8n-nodes-test.test', usableAsTool: false },
+					nodeDescription: { name: 'resin-nodes-test.test', usableAsTool: false },
 				},
 				{
-					name: 'n8n-nodes-testing.testing',
-					packageName: 'n8n-nodes-testing',
+					name: 'resin-nodes-testing.testing',
+					packageName: 'resin-nodes-testing',
 					checksum: 'checksum-testing',
-					nodeDescription: { name: 'n8n-nodes-testing.testing', usableAsTool: false },
+					nodeDescription: { name: 'resin-nodes-testing.testing', usableAsTool: false },
 				},
 				{
-					name: 'n8n-nodes-tester.tester',
-					packageName: 'n8n-nodes-tester',
+					name: 'resin-nodes-tester.tester',
+					packageName: 'resin-nodes-tester',
 					checksum: 'checksum-tester',
-					nodeDescription: { name: 'n8n-nodes-tester.tester', usableAsTool: false },
+					nodeDescription: { name: 'resin-nodes-tester.tester', usableAsTool: false },
 				},
 			];
 
 			(service as any).updateCommunityNodeTypes(mockNodeTypes);
 
-			const testResult = await service.findVetted('n8n-nodes-test');
-			const testingResult = await service.findVetted('n8n-nodes-testing');
-			const testerResult = await service.findVetted('n8n-nodes-tester');
+			const testResult = await service.findVetted('resin-nodes-test');
+			const testingResult = await service.findVetted('resin-nodes-testing');
+			const testerResult = await service.findVetted('resin-nodes-tester');
 
-			expect(testResult?.packageName).toBe('n8n-nodes-test');
-			expect(testingResult?.packageName).toBe('n8n-nodes-testing');
-			expect(testerResult?.packageName).toBe('n8n-nodes-tester');
+			expect(testResult?.packageName).toBe('resin-nodes-test');
+			expect(testingResult?.packageName).toBe('resin-nodes-testing');
+			expect(testerResult?.packageName).toBe('resin-nodes-tester');
 		});
 	});
 
@@ -398,8 +398,8 @@ describe('CommunityNodeTypesService', () => {
 		it('should create AI tool versions for nodes with usableAsTool flag', async () => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-test.test',
-					packageName: 'n8n-nodes-test',
+					name: 'resin-nodes-test.test',
+					packageName: 'resin-nodes-test',
 					nodeDescription: {
 						name: 'test-node-preview',
 						displayName: 'Test Node',
@@ -422,12 +422,12 @@ describe('CommunityNodeTypesService', () => {
 
 			expect(result.length).toBe(2); // original + tool version
 
-			const originalNode = result.find((n) => n.name === 'n8n-nodes-test.test');
-			const toolNode = result.find((n) => n.name === 'n8n-nodes-test.testTool');
+			const originalNode = result.find((n) => n.name === 'resin-nodes-test.test');
+			const toolNode = result.find((n) => n.name === 'resin-nodes-test.testTool');
 
 			expect(originalNode).toBeDefined();
 			expect(toolNode).toBeDefined();
-			expect(toolNode?.name).toBe('n8n-nodes-test.testTool');
+			expect(toolNode?.name).toBe('resin-nodes-test.testTool');
 			expect(toolNode?.nodeDescription.name).toBe('test-node-previewTool');
 			expect(toolNode?.nodeDescription.displayName).toBe('Test Node Tool');
 			expect(toolNode?.nodeDescription.inputs).toEqual([]);
@@ -442,8 +442,8 @@ describe('CommunityNodeTypesService', () => {
 		it('should not create AI tool versions for nodes without usableAsTool flag', async () => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-test.test',
-					packageName: 'n8n-nodes-test',
+					name: 'resin-nodes-test.test',
+					packageName: 'resin-nodes-test',
 					nodeDescription: {
 						name: 'test-node-preview',
 						displayName: 'Test Node',
@@ -460,15 +460,15 @@ describe('CommunityNodeTypesService', () => {
 
 			expect(result.length).toBe(1); // only original
 
-			const toolNode = result.find((n) => n.name === 'n8n-nodes-test.testTool');
+			const toolNode = result.find((n) => n.name === 'resin-nodes-test.testTool');
 			expect(toolNode).toBeUndefined();
 		});
 
 		it('should not create AI tool version for node with tool in type', async () => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-test.testTool',
-					packageName: 'n8n-nodes-test',
+					name: 'resin-nodes-test.testTool',
+					packageName: 'resin-nodes-test',
 					nodeDescription: {
 						name: 'test-node-previewTool',
 						displayName: 'Test Node',
@@ -485,15 +485,15 @@ describe('CommunityNodeTypesService', () => {
 
 			expect(result.length).toBe(1); // only original
 
-			const toolNode = result.find((n) => n.name === 'n8n-nodes-test.testToolTool');
+			const toolNode = result.find((n) => n.name === 'resin-nodes-test.testToolTool');
 			expect(toolNode).toBeUndefined();
 		});
 
 		it('should use default "Other Tools" when codex subcategories are not defined', async () => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-test.test',
-					packageName: 'n8n-nodes-test',
+					name: 'resin-nodes-test.test',
+					packageName: 'resin-nodes-test',
 					nodeDescription: {
 						name: 'test-node-preview',
 						displayName: 'Test Node',
@@ -507,7 +507,7 @@ describe('CommunityNodeTypesService', () => {
 			(getCommunityNodeTypes as jest.Mock).mockResolvedValueOnce(mockNodeTypes);
 
 			const result = await service.getCommunityNodeTypes();
-			const toolNode = result.find((n) => n.name === 'n8n-nodes-test.testTool');
+			const toolNode = result.find((n) => n.name === 'resin-nodes-test.testTool');
 
 			expect(toolNode).toBeDefined();
 			expect(toolNode?.nodeDescription.codex?.subcategories?.Tools).toEqual(['Other Tools']);
@@ -520,8 +520,8 @@ describe('CommunityNodeTypesService', () => {
 
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-test.test',
-					packageName: 'n8n-nodes-test',
+					name: 'resin-nodes-test.test',
+					packageName: 'resin-nodes-test',
 					nodeDescription: {
 						name: 'test-node-preview',
 						displayName: 'Test Node',
@@ -538,7 +538,7 @@ describe('CommunityNodeTypesService', () => {
 			(getCommunityNodeTypes as jest.Mock).mockResolvedValueOnce(mockNodeTypes);
 
 			const result = await service.getCommunityNodeTypes();
-			const toolNode = result.find((n) => n.name === 'n8n-nodes-test.testTool');
+			const toolNode = result.find((n) => n.name === 'resin-nodes-test.testTool');
 
 			expect(toolNode?.nodeDescription.codex?.resources).toEqual(mockResources);
 		});
@@ -546,8 +546,8 @@ describe('CommunityNodeTypesService', () => {
 		it('should not include Recommended Tools subcategory in tool version', async () => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-test.test',
-					packageName: 'n8n-nodes-test',
+					name: 'resin-nodes-test.test',
+					packageName: 'resin-nodes-test',
 					nodeDescription: {
 						name: 'test-node-preview',
 						displayName: 'Test Node',
@@ -570,7 +570,7 @@ describe('CommunityNodeTypesService', () => {
 			(getCommunityNodeTypes as jest.Mock).mockResolvedValueOnce(mockNodeTypes);
 
 			const result = await service.getCommunityNodeTypes();
-			const toolNode = result.find((n) => n.name === 'n8n-nodes-test.testTool');
+			const toolNode = result.find((n) => n.name === 'resin-nodes-test.testTool');
 
 			expect(toolNode?.nodeDescription.codex?.subcategories?.Tools).not.toContain(
 				'Recommended Tools',
@@ -580,8 +580,8 @@ describe('CommunityNodeTypesService', () => {
 		it('should handle multiple nodes with usableAsTool flag', async () => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-test1.test1',
-					packageName: 'n8n-nodes-test1',
+					name: 'resin-nodes-test1.test1',
+					packageName: 'resin-nodes-test1',
 					nodeDescription: {
 						name: 'test-node-1-preview',
 						displayName: 'Test Node 1',
@@ -591,8 +591,8 @@ describe('CommunityNodeTypesService', () => {
 					},
 				},
 				{
-					name: 'n8n-nodes-test2.test2',
-					packageName: 'n8n-nodes-test2',
+					name: 'resin-nodes-test2.test2',
+					packageName: 'resin-nodes-test2',
 					nodeDescription: {
 						name: 'test-node-2-preview',
 						displayName: 'Test Node 2',
@@ -602,8 +602,8 @@ describe('CommunityNodeTypesService', () => {
 					},
 				},
 				{
-					name: 'n8n-nodes-test3.test3',
-					packageName: 'n8n-nodes-test3',
+					name: 'resin-nodes-test3.test3',
+					packageName: 'resin-nodes-test3',
 					nodeDescription: {
 						name: 'test-node-3-preview',
 						displayName: 'Test Node 3',
@@ -620,18 +620,18 @@ describe('CommunityNodeTypesService', () => {
 
 			expect(result.length).toBe(5); // 3 original + 2 tool versions
 
-			expect(result.find((n) => n.name === 'n8n-nodes-test1.test1Tool')).toBeDefined();
-			expect(result.find((n) => n.name === 'n8n-nodes-test2.test2Tool')).toBeDefined();
-			expect(result.find((n) => n.name === 'n8n-nodes-test3.test3Tool')).toBeUndefined();
+			expect(result.find((n) => n.name === 'resin-nodes-test1.test1Tool')).toBeDefined();
+			expect(result.find((n) => n.name === 'resin-nodes-test2.test2Tool')).toBeDefined();
+			expect(result.find((n) => n.name === 'resin-nodes-test3.test3Tool')).toBeUndefined();
 		});
 
 		it('should not create AI tool version for nodes with trigger group', async () => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-wcrm.wCRMTrigger',
-					packageName: 'n8n-nodes-wcrm',
+					name: 'resin-nodes-wcrm.wCRMTrigger',
+					packageName: 'resin-nodes-wcrm',
 					nodeDescription: {
-						name: 'n8n-nodes-wcrm.wCRMTrigger',
+						name: 'resin-nodes-wcrm.wCRMTrigger',
 						displayName: 'wCRM Trigger',
 						group: ['trigger'],
 						inputs: [],
@@ -646,17 +646,17 @@ describe('CommunityNodeTypesService', () => {
 			const result = await service.getCommunityNodeTypes();
 
 			expect(result.length).toBe(1); // only original, no tool version
-			expect(result.find((n) => n.name === 'n8n-nodes-wcrm.wCRMTriggerTool')).toBeUndefined();
+			expect(result.find((n) => n.name === 'resin-nodes-wcrm.wCRMTriggerTool')).toBeUndefined();
 		});
 
 		it('should create AI tool version for nodes with "trigger" in the name but not in the group', async () => {
 			// e.g. a node for the trigger.dev service — name contains "trigger" but it's not a trigger node
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-triggerdev.triggerDevAction',
-					packageName: 'n8n-nodes-triggerdev',
+					name: 'resin-nodes-triggerdev.triggerDevAction',
+					packageName: 'resin-nodes-triggerdev',
 					nodeDescription: {
-						name: 'n8n-nodes-triggerdev.triggerDevAction',
+						name: 'resin-nodes-triggerdev.triggerDevAction',
 						displayName: 'Trigger.dev Action',
 						group: [],
 						inputs: ['main'],
@@ -672,15 +672,15 @@ describe('CommunityNodeTypesService', () => {
 
 			expect(result.length).toBe(2); // original + tool version
 			expect(
-				result.find((n) => n.name === 'n8n-nodes-triggerdev.triggerDevActionTool'),
+				result.find((n) => n.name === 'resin-nodes-triggerdev.triggerDevActionTool'),
 			).toBeDefined();
 		});
 
 		it('should not mutate original node type when creating tool version', async () => {
 			const mockNodeTypes = [
 				{
-					name: 'n8n-nodes-test.test',
-					packageName: 'n8n-nodes-test',
+					name: 'resin-nodes-test.test',
+					packageName: 'resin-nodes-test',
 					nodeDescription: {
 						name: 'test-node-preview',
 						displayName: 'Test Node',
@@ -695,18 +695,18 @@ describe('CommunityNodeTypesService', () => {
 
 			const result = await service.getCommunityNodeTypes();
 
-			const originalNode = result.find((n) => n.name === 'n8n-nodes-test.test');
-			const toolNode = result.find((n) => n.name === 'n8n-nodes-test.testTool');
+			const originalNode = result.find((n) => n.name === 'resin-nodes-test.test');
+			const toolNode = result.find((n) => n.name === 'resin-nodes-test.testTool');
 
 			// Ensure original node is not modified
-			expect(originalNode?.name).toBe('n8n-nodes-test.test');
+			expect(originalNode?.name).toBe('resin-nodes-test.test');
 			expect(originalNode?.nodeDescription.name).toBe('test-node-preview');
 			expect(originalNode?.nodeDescription.displayName).toBe('Test Node');
 			expect(originalNode?.nodeDescription.inputs).toEqual(['main']);
 			expect(originalNode?.nodeDescription.outputs).toEqual(['main']);
 
 			// Ensure tool node has correct modifications
-			expect(toolNode?.name).toBe('n8n-nodes-test.testTool');
+			expect(toolNode?.name).toBe('resin-nodes-test.testTool');
 			expect(toolNode?.nodeDescription.name).toBe('test-node-previewTool');
 			expect(toolNode?.nodeDescription.displayName).toBe('Test Node Tool');
 		});

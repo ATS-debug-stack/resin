@@ -10,7 +10,7 @@
 // https://github.com/n8n-io/n8n-demo-webcomponent
 // ---------------------------------------------------------------------------
 
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from 'resin-workflow';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
@@ -621,7 +621,7 @@ export function renderDocument(runs: Run[]): string {
   function mountWorkflows(scope) {
     scope.querySelectorAll('.workflow-mount[data-workflow]').forEach((mount) => {
       const json = mount.getAttribute('data-workflow');
-      const demo = document.createElement('n8n-demo');
+      const demo = document.createElement('resin-demo');
       demo.setAttribute('workflow', json);
       demo.setAttribute('frame', 'true');
       demo.setAttribute('clicktointeract', 'true');

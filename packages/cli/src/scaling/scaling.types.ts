@@ -1,4 +1,4 @@
-import type { RunningJobSummary } from '@n8n/api-types';
+import type { RunningJobSummary } from '@resin/api-types';
 import type Bull from 'bull';
 import type {
 	ExecutionError,
@@ -6,7 +6,7 @@ import type {
 	IExecuteResponsePromiseData,
 	IRun,
 	StructuredChunk,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type PCancelable from 'p-cancelable';
 
 export type JobQueue = Bull.Queue<JobData>;

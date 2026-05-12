@@ -41,7 +41,7 @@ Best practices:
 - Implement error handling for unexpected outputs
 
 #### Text Classifier Node
-Use the Text Classifier node (@n8n/n8n-nodes-langchain.textClassifier) for straightforward text classification tasks. Configure with predefined category labels and descriptions for accurate results.
+Use the Text Classifier node (@resin/n8n-nodes-langchain.textClassifier) for straightforward text classification tasks. Configure with predefined category labels and descriptions for accurate results.
 
 Example workflow pattern:
 \`\`\`mermaid
@@ -108,12 +108,12 @@ Avoid parallel IF nodes that could match multiple conditions - use Switch node.
 - Purpose: Consolidate branches for unified logging
 - Use after: Category-specific actions before final logging step
 
-**Text Classifier** (@n8n/n8n-nodes-langchain.textClassifier):
+**Text Classifier** (@resin/n8n-nodes-langchain.textClassifier):
 - Purpose: AI-powered text classification with predefined labels
 - Use when: Need to assign categories to unstructured text
 - Configure "When No Clear Match" option to output items to "Other" branch
 
-**AI Agent** (@n8n/n8n-nodes-langchain.agent):
+**AI Agent** (@resin/n8n-nodes-langchain.agent):
 - Purpose: Complex classification or scoring requiring multiple steps or tool use
 - Use when: Classification needs context lookup, multi-step reasoning with tools, numerical scoring or other complex outputs
 - Use structured output format (JSON schema)

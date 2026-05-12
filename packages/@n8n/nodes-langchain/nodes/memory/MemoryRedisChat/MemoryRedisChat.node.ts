@@ -8,12 +8,12 @@ import {
 	type ISupplyDataFunctions,
 	type SupplyData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { RedisClientOptions } from 'redis';
 import { createClient } from 'redis';
 
 import { getSessionId } from '@utils/helpers';
-import { logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 import {
 	sessionIdOption,

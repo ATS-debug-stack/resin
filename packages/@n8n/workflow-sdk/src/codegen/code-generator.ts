@@ -4,7 +4,7 @@
  * Generates LLM-friendly SDK code from a composite tree.
  */
 
-import type { Schema } from 'n8n-workflow';
+import type { Schema } from 'resin-workflow';
 
 import type {
 	CompositeTree,

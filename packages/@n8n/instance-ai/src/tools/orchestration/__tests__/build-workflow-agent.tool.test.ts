@@ -13,7 +13,7 @@ import {
 	applyBranchReadOnlyOverrides,
 	DEFAULT_INSTANCE_AI_PERMISSIONS,
 	type InstanceAiPermissions,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 import type { OrchestrationContext, InstanceAiContext } from '../../../types';
 import { createRemediation } from '../../../workflow-loop';
@@ -186,7 +186,7 @@ describe('determineVerificationReadiness', () => {
 			determineVerificationReadiness({
 				submitted: true,
 				workflowId: 'workflow-1',
-				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'n8n-nodes-base.webhook' }],
+				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'resin-nodes-base.webhook' }],
 				mockedCredentialTypes: ['slackApi'],
 				mockedCredentialsByNode: { Slack: ['slackApi'] },
 				verificationPinData: { Slack: [{ _mockedCredential: 'slackApi' }] },
@@ -199,7 +199,7 @@ describe('determineVerificationReadiness', () => {
 			determineVerificationReadiness({
 				submitted: true,
 				workflowId: 'workflow-1',
-				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'n8n-nodes-base.webhook' }],
+				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'resin-nodes-base.webhook' }],
 				mockedCredentialTypes: ['slackApi'],
 				mockedCredentialsByNode: { Slack: ['slackApi'] },
 				usesWorkflowPinDataForVerification: true,
@@ -212,7 +212,7 @@ describe('determineVerificationReadiness', () => {
 			determineVerificationReadiness({
 				submitted: true,
 				workflowId: 'workflow-1',
-				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'n8n-nodes-base.webhook' }],
+				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'resin-nodes-base.webhook' }],
 				hasUnresolvedPlaceholders: true,
 			}),
 		).toMatchObject({
@@ -224,7 +224,7 @@ describe('determineVerificationReadiness', () => {
 			determineVerificationReadiness({
 				submitted: true,
 				workflowId: 'workflow-1',
-				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'n8n-nodes-base.webhook' }],
+				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'resin-nodes-base.webhook' }],
 				mockedCredentialTypes: ['slackApi'],
 			}),
 		).toMatchObject({
@@ -238,7 +238,7 @@ describe('determineVerificationReadiness', () => {
 			determineVerificationReadiness({
 				submitted: true,
 				workflowId: 'workflow-1',
-				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'n8n-nodes-base.webhook' }],
+				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'resin-nodes-base.webhook' }],
 				verification: {
 					attempted: true,
 					success: true,
@@ -254,7 +254,7 @@ describe('determineVerificationReadiness', () => {
 			determineVerificationReadiness({
 				submitted: true,
 				workflowId: 'workflow-1',
-				triggerNodes: [{ nodeName: 'Github Trigger', nodeType: 'n8n-nodes-base.githubTrigger' }],
+				triggerNodes: [{ nodeName: 'Github Trigger', nodeType: 'resin-nodes-base.githubTrigger' }],
 			}),
 		).toMatchObject({
 			status: 'not_verifiable',
@@ -269,7 +269,7 @@ describe('determineSetupRequirement', () => {
 			determineSetupRequirement({
 				submitted: true,
 				workflowId: 'workflow-1',
-				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'n8n-nodes-base.webhook' }],
+				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'resin-nodes-base.webhook' }],
 				mockedCredentialTypes: ['slackApi'],
 				mockedCredentialsByNode: { Slack: ['slackApi'] },
 				verificationPinData: { Slack: [{ _mockedCredential: 'slackApi' }] },
@@ -285,7 +285,7 @@ describe('determineSetupRequirement', () => {
 			determineSetupRequirement({
 				submitted: true,
 				workflowId: 'workflow-1',
-				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'n8n-nodes-base.webhook' }],
+				triggerNodes: [{ nodeName: 'Webhook', nodeType: 'resin-nodes-base.webhook' }],
 			}),
 		).toEqual({ status: 'not_required' });
 	});

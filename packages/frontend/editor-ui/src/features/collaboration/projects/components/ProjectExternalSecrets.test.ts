@@ -3,12 +3,12 @@ import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
-import type { SecretProviderConnection } from '@n8n/api-types';
+import type { SecretProviderConnection } from '@resin/api-types';
 import ProjectExternalSecrets from './ProjectExternalSecrets.vue';
 import { createComponentRenderer } from '@/__tests__/render';
 import { useProjectsStore } from '../projects.store';
 import { useUIStore } from '@/app/stores/ui.store';
-import { ROLE } from '@n8n/api-types';
+import { ROLE } from '@resin/api-types';
 import { SECRETS_PROVIDER_CONNECTION_MODAL_KEY } from '@/app/constants';
 import { useRBACStore } from '@/app/stores/rbac.store';
 
@@ -29,7 +29,7 @@ vi.mock('vue-router', async () => {
 });
 
 // Mock design system components
-vi.mock('@n8n/design-system', async (importOriginal) => {
+vi.mock('@resin/design-system', async (importOriginal) => {
 	const original = await importOriginal<object>();
 	return {
 		...original,

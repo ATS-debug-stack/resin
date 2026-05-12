@@ -1,12 +1,12 @@
-import { createActiveWorkflow } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { WorkflowRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { createActiveWorkflow } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { WorkflowRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { DateTime } from 'luxon';
 import { parse as semverParse } from 'semver';
 import request, { type Response } from 'supertest';
 
-import type { IRun, IWorkflowBase } from 'n8n-workflow';
+import type { IRun, IWorkflowBase } from 'resin-workflow';
 
 import { N8N_VERSION } from '@/constants';
 import { EventService } from '@/events/event.service';

@@ -1,4 +1,4 @@
-import { configure, logger } from '@n8n/computer-use/logger';
+import { configure, logger } from '@resin/computer-use/logger';
 import { app } from 'electron';
 import * as path from 'node:path';
 

@@ -1,9 +1,9 @@
 import { useUsersStore } from '@/features/settings/users/users.store';
-import { useI18n } from '@n8n/i18n';
-import { STORES } from '@n8n/stores';
+import { useI18n } from '@resin/i18n';
+import { STORES } from '@resin/stores';
 import { useLocalStorage } from '@vueuse/core';
-import { OPEN_AI_API_CREDENTIAL_TYPE, deepCopy } from 'n8n-workflow';
-import type { WorkflowDataCreate } from '@n8n/rest-api-client';
+import { OPEN_AI_API_CREDENTIAL_TYPE, deepCopy } from 'resin-workflow';
+import type { WorkflowDataCreate } from '@resin/rest-api-client';
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 import { useRouter, type RouteLocationNormalized } from 'vue-router';

@@ -3,11 +3,11 @@ import {
 	testDb,
 	mockInstance,
 	createActiveWorkflow,
-} from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { WorkflowHistoryRepository, WorkflowRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import { In } from '@n8n/typeorm';
+} from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { WorkflowHistoryRepository, WorkflowRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import { In } from '@resin/typeorm';
 import { DateTime } from 'luxon';
 
 import { License } from '@/license';

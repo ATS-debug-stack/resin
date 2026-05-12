@@ -1,4 +1,4 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import { mock } from 'jest-mock-extended';
 
 import type {

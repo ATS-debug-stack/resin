@@ -6,8 +6,8 @@ import type {
 	Message,
 	MessagePart,
 	SearchCriteria,
-} from '@n8n/imap';
-import { connect as imapConnect } from '@n8n/imap';
+} from '@resin/imap';
+import { connect as imapConnect } from '@resin/imap';
 import isEmpty from 'lodash/isEmpty';
 import { DateTime } from 'luxon';
 import type {
@@ -23,8 +23,8 @@ import type {
 	ITriggerResponse,
 	JsonObject,
 	INodeExecutionData,
-} from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError, TriggerCloseError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeConnectionTypes, NodeOperationError, TriggerCloseError } from 'resin-workflow';
 import rfc2047 from 'rfc2047';
 
 import { getNewEmails } from './utils';

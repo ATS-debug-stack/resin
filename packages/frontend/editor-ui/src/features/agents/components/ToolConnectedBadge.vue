@@ -4,8 +4,8 @@
  * Shared between AgentToolItem (node tools) and the workflow-row markup in
  * AgentToolsModal so the two stay visually in lockstep.
  */
-import { N8nIcon } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nIcon } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 
 const i18n = useI18n();
 </script>

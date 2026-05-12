@@ -1,11 +1,11 @@
-import { UpdateSecuritySettingsDto } from '@n8n/api-types';
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import { type AuthenticatedRequest } from '@n8n/db';
-import { Body, Get, GlobalScope, Licensed, Post, RestController } from '@n8n/decorators';
+import { UpdateSecuritySettingsDto } from '@resin/api-types';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import { type AuthenticatedRequest } from '@resin/db';
+import { Body, Get, GlobalScope, Licensed, Post, RestController } from '@resin/decorators';
 import {
 	PERSONAL_SPACE_PUBLISHING_SETTING,
 	PERSONAL_SPACE_SHARING_SETTING,
-} from '@n8n/permissions';
+} from '@resin/permissions';
 import type { Response } from 'express';
 
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';

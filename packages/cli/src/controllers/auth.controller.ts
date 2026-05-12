@@ -1,8 +1,8 @@
-import { LoginRequestDto, ResolveSignupTokenQueryDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { Time } from '@n8n/constants';
-import type { User, PublicUser, AuthProviderType } from '@n8n/db';
-import { UserRepository, AuthenticatedRequest, GLOBAL_OWNER_ROLE } from '@n8n/db';
+import { LoginRequestDto, ResolveSignupTokenQueryDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { Time } from '@resin/constants';
+import type { User, PublicUser, AuthProviderType } from '@resin/db';
+import { UserRepository, AuthenticatedRequest, GLOBAL_OWNER_ROLE } from '@resin/db';
 import {
 	Body,
 	createBodyKeyedRateLimiter,
@@ -10,7 +10,7 @@ import {
 	Post,
 	Query,
 	RestController,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import { isEmail } from 'class-validator';
 import { Response } from 'express';
 

@@ -1,6 +1,6 @@
-import type { User } from '@n8n/db';
-import type { INode, INodeTypeDescription, IWorkflowBase } from 'n8n-workflow';
-import { NodeHelpers } from 'n8n-workflow';
+import type { User } from '@resin/db';
+import type { INode, INodeTypeDescription, IWorkflowBase } from 'resin-workflow';
+import { NodeHelpers } from 'resin-workflow';
 
 import type { CredentialsService } from '@/credentials/credentials.service';
 import type { NodeTypes } from '@/node-types';
@@ -17,9 +17,9 @@ export interface AutoAssignResult {
 }
 
 const HTTP_NODE_TYPES = new Set([
-	'n8n-nodes-base.httpRequest',
-	'@n8n/n8n-nodes-langchain.toolHttpRequest',
-	'n8n-nodes-base.httpRequestTool',
+	'resin-nodes-base.httpRequest',
+	'@resin/n8n-nodes-langchain.toolHttpRequest',
+	'resin-nodes-base.httpRequestTool',
 ]);
 
 /**

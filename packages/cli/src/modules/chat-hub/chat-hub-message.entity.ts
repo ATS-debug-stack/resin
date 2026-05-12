@@ -1,5 +1,5 @@
-import type { ChatHubProvider, ChatHubMessageType, ChatHubMessageStatus } from '@n8n/api-types';
-import { ExecutionEntity, WithTimestamps, WorkflowEntity } from '@n8n/db';
+import type { ChatHubProvider, ChatHubMessageType, ChatHubMessageStatus } from '@resin/api-types';
+import { ExecutionEntity, WithTimestamps, WorkflowEntity } from '@resin/db';
 import {
 	Column,
 	Entity,
@@ -7,10 +7,10 @@ import {
 	JoinColumn,
 	type Relation,
 	PrimaryGeneratedColumn,
-} from '@n8n/typeorm';
+} from '@resin/typeorm';
 
 import type { ChatHubSession } from './chat-hub-session.entity';
-import type { IBinaryData } from 'n8n-workflow';
+import type { IBinaryData } from 'resin-workflow';
 
 @Entity({ name: 'chat_hub_messages' })
 export class ChatHubMessage extends WithTimestamps {

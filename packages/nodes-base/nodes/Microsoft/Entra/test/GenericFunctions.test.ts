@@ -1,5 +1,5 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode } from 'n8n-workflow';
+import type { IExecuteFunctions, INode } from 'resin-workflow';
 
 import { microsoftApiRequest, microsoftApiPaginateRequest } from '../GenericFunctions';
 
@@ -20,7 +20,7 @@ describe('Microsoft Entra GenericFunctions', () => {
 		mockNode = {
 			id: 'test-node',
 			name: 'Test Entra Node',
-			type: 'n8n-nodes-base.microsoftEntra',
+			type: 'resin-nodes-base.microsoftEntra',
 			typeVersion: 1,
 			position: [0, 0],
 			parameters: {},

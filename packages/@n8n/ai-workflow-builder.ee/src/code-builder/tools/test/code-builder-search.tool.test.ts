@@ -1,11 +1,11 @@
-import { NodeConnectionTypes, type INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes, type INodeTypeDescription } from 'resin-workflow';
 
 import { NodeTypeParser } from '../../utils/node-type-parser';
 import { createCodeBuilderSearchTool, searchCodeBuilderNodes } from '../code-builder-search.tool';
 
 // Mock node type with resource/operation pattern (like Freshservice)
 const mockFreshserviceNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.freshservice',
+	name: 'resin-nodes-base.freshservice',
 	displayName: 'Freshservice',
 	description: 'Consume Freshservice API',
 	group: ['output'],
@@ -56,7 +56,7 @@ const mockFreshserviceNode: INodeTypeDescription = {
 
 // Mock node with mode discriminator (like Code node)
 const mockCodeNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.code',
+	name: 'resin-nodes-base.code',
 	displayName: 'Code',
 	description: 'Run custom JavaScript code',
 	group: ['transform'],
@@ -81,7 +81,7 @@ const mockCodeNode: INodeTypeDescription = {
 
 // Mock node without discriminators (like HTTP Request)
 const mockHttpRequestNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.httpRequest',
+	name: 'resin-nodes-base.httpRequest',
 	displayName: 'HTTP Request',
 	description: 'Makes HTTP requests and returns the response data',
 	group: ['transform'],
@@ -105,7 +105,7 @@ const mockHttpRequestNode: INodeTypeDescription = {
 
 // Mock vector store node with mode discriminator that includes outputConnectionType
 const mockVectorStoreNode: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.vectorStorePinecone',
+	name: '@resin/n8n-nodes-langchain.vectorStorePinecone',
 	displayName: 'Pinecone Vector Store',
 	description: 'Work with your data in Pinecone Vector Store',
 	group: ['transform'],
@@ -156,7 +156,7 @@ const mockVectorStoreNode: INodeTypeDescription = {
 
 // Mock nodes for builder hint tests
 const mockFormTriggerNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.formTrigger',
+	name: 'resin-nodes-base.formTrigger',
 	displayName: 'n8n Form Trigger',
 	description: 'Trigger workflows with an n8n Form submission',
 	group: ['trigger'],
@@ -168,12 +168,14 @@ const mockFormTriggerNode: INodeTypeDescription = {
 	builderHint: {
 		searchHint:
 			'Use with n8n-nodes-base.form to build a full form experience, with pages and final page',
-		relatedNodes: [{ nodeType: 'n8n-nodes-base.form', relationHint: 'Build full form experience' }],
+		relatedNodes: [
+			{ nodeType: 'resin-nodes-base.form', relationHint: 'Build full form experience' },
+		],
 	},
 };
 
 const mockFormNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.form',
+	name: 'resin-nodes-base.form',
 	displayName: 'n8n Form',
 	description: 'Create a multi-page form for the Form Trigger',
 	group: ['input'],
@@ -186,13 +188,13 @@ const mockFormNode: INodeTypeDescription = {
 		searchHint:
 			'Use with n8n-nodes-base.formTrigger to build a full form experience. Form node creates additional pages/steps after the trigger',
 		relatedNodes: [
-			{ nodeType: 'n8n-nodes-base.formTrigger', relationHint: 'Creates additional form pages' },
+			{ nodeType: 'resin-nodes-base.formTrigger', relationHint: 'Creates additional form pages' },
 		],
 	},
 };
 
 const mockRespondToWebhookNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.respondToWebhook',
+	name: 'resin-nodes-base.respondToWebhook',
 	displayName: 'Respond to Webhook',
 	description: 'Send custom response to a Webhook or Form Trigger',
 	group: ['transform'],
@@ -205,13 +207,13 @@ const mockRespondToWebhookNode: INodeTypeDescription = {
 		searchHint:
 			'Only works with webhook node (n8n-nodes-base.webhook) with responseMode set to "responseNode"',
 		relatedNodes: [
-			{ nodeType: 'n8n-nodes-base.webhook', relationHint: 'Required webhook trigger' },
+			{ nodeType: 'resin-nodes-base.webhook', relationHint: 'Required webhook trigger' },
 		],
 	},
 };
 
 const mockWebhookNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.webhook',
+	name: 'resin-nodes-base.webhook',
 	displayName: 'Webhook',
 	description: 'Starts the workflow on a webhook call',
 	group: ['trigger'],
@@ -224,7 +226,7 @@ const mockWebhookNode: INodeTypeDescription = {
 
 // Mock AI Agent node with builderHint for structured output
 const mockAgentNode: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.agent',
+	name: '@resin/n8n-nodes-langchain.agent',
 	displayName: 'AI Agent',
 	description: 'Generates an action plan and executes it. Can use external tools.',
 	group: ['transform'],
@@ -235,10 +237,10 @@ const mockAgentNode: INodeTypeDescription = {
 	properties: [],
 	builderHint: {
 		searchHint:
-			'Use with @n8n/n8n-nodes-langchain.outputParserStructured to get structured JSON output from the agent',
+			'Use with @resin/n8n-nodes-langchain.outputParserStructured to get structured JSON output from the agent',
 		relatedNodes: [
 			{
-				nodeType: '@n8n/n8n-nodes-langchain.outputParserStructured',
+				nodeType: '@resin/n8n-nodes-langchain.outputParserStructured',
 				relationHint: 'Structured JSON output',
 			},
 		],
@@ -247,7 +249,7 @@ const mockAgentNode: INodeTypeDescription = {
 
 // Mock node with NEW relatedNodes format (with relationHint)
 const mockAgentNodeWithRelationHints: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.agentV2',
+	name: '@resin/n8n-nodes-langchain.agentV2',
 	displayName: 'AI Agent V2',
 	description: 'Generates an action plan and executes it. Can use external tools.',
 	group: ['transform'],
@@ -260,11 +262,11 @@ const mockAgentNodeWithRelationHints: INodeTypeDescription = {
 		searchHint: 'Always connect memory for conversation context',
 		relatedNodes: [
 			{
-				nodeType: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+				nodeType: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 				relationHint: 'Maintains conversation history for context',
 			},
 			{
-				nodeType: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				relationHint: 'Connect a chat model for responses',
 			},
 		],
@@ -273,7 +275,7 @@ const mockAgentNodeWithRelationHints: INodeTypeDescription = {
 
 // Mock memory node for relation hint tests
 const mockMemoryNode: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.memoryBufferWindow',
+	name: '@resin/n8n-nodes-langchain.memoryBufferWindow',
 	displayName: 'Simple Memory',
 	description: 'Stores conversation history in memory',
 	group: ['transform'],
@@ -286,7 +288,7 @@ const mockMemoryNode: INodeTypeDescription = {
 
 // Mock chat model node for relation hint tests
 const mockChatModelNode: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+	name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 	displayName: 'OpenAI Chat Model',
 	description: 'Access OpenAI chat models',
 	group: ['transform'],
@@ -299,7 +301,7 @@ const mockChatModelNode: INodeTypeDescription = {
 
 // Mock Output Parser Structured node
 const mockOutputParserStructuredNode: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.outputParserStructured',
+	name: '@resin/n8n-nodes-langchain.outputParserStructured',
 	displayName: 'Structured Output Parser',
 	description: 'Parse the output of a language model into a structured format using a JSON schema',
 	group: ['transform'],
@@ -312,7 +314,7 @@ const mockOutputParserStructuredNode: INodeTypeDescription = {
 
 // Mock operation-only node (like Remove Duplicates V2 — has operation but no resource)
 const mockRemoveDuplicatesNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.removeDuplicates',
+	name: 'resin-nodes-base.removeDuplicates',
 	displayName: 'Remove Duplicates',
 	description: 'Delete items with matching field values',
 	group: ['transform'],
@@ -368,7 +370,7 @@ const mockRemoveDuplicatesNode: INodeTypeDescription = {
 
 // Mock node that references Code node as related (for testing discriminators in related nodes)
 const mockCodeRunnerNode: INodeTypeDescription = {
-	name: 'n8n-nodes-base.codeRunner',
+	name: 'resin-nodes-base.codeRunner',
 	displayName: 'Code Runner',
 	description: 'A wrapper that runs code using the Code node',
 	group: ['transform'],
@@ -379,7 +381,9 @@ const mockCodeRunnerNode: INodeTypeDescription = {
 	properties: [],
 	builderHint: {
 		searchHint: 'Use with n8n-nodes-base.code for executing custom JavaScript',
-		relatedNodes: [{ nodeType: 'n8n-nodes-base.code', relationHint: 'Execute custom JavaScript' }],
+		relatedNodes: [
+			{ nodeType: 'resin-nodes-base.code', relationHint: 'Execute custom JavaScript' },
+		],
 	},
 };
 
@@ -391,9 +395,9 @@ describe('CodeBuilderSearchTool', () => {
 
 			const result = await tool.invoke({ queries: ['form trigger'] });
 
-			expect(result).toContain('n8n-nodes-base.formTrigger');
+			expect(result).toContain('resin-nodes-base.formTrigger');
 			expect(result).toContain('@builderHint');
-			expect(result).toContain('n8n-nodes-base.form');
+			expect(result).toContain('resin-nodes-base.form');
 			expect(result).toContain('full form experience');
 		});
 
@@ -406,7 +410,7 @@ describe('CodeBuilderSearchTool', () => {
 
 			// Should include Webhook node via @relatedNodes section
 			expect(result).toContain('@relatedNodes');
-			expect(result).toContain('n8n-nodes-base.webhook');
+			expect(result).toContain('resin-nodes-base.webhook');
 		});
 
 		it('should include builder hint for Respond to Webhook node', async () => {
@@ -415,7 +419,7 @@ describe('CodeBuilderSearchTool', () => {
 
 			const result = await tool.invoke({ queries: ['respond webhook'] });
 
-			expect(result).toContain('n8n-nodes-base.respondToWebhook');
+			expect(result).toContain('resin-nodes-base.respondToWebhook');
 			expect(result).toContain('@builderHint');
 			expect(result).toContain('responseMode');
 			expect(result).toContain('responseNode');
@@ -427,7 +431,7 @@ describe('CodeBuilderSearchTool', () => {
 
 			const result = await tool.invoke({ queries: ['form'] });
 
-			expect(result).toContain('n8n-nodes-base.form');
+			expect(result).toContain('resin-nodes-base.form');
 			expect(result).toContain('@builderHint');
 			expect(result).toContain('formTrigger');
 		});
@@ -438,7 +442,7 @@ describe('CodeBuilderSearchTool', () => {
 
 			const result = await tool.invoke({ queries: ['agent'] });
 
-			expect(result).toContain('@n8n/n8n-nodes-langchain.agent');
+			expect(result).toContain('@resin/n8n-nodes-langchain.agent');
 			expect(result).toContain('@builderHint');
 			expect(result).toContain('outputParserStructured');
 			expect(result).toContain('structured JSON output');
@@ -452,7 +456,7 @@ describe('CodeBuilderSearchTool', () => {
 			const result = await tool.invoke({ queries: ['AI Agent'] });
 
 			// Agent should be found
-			expect(result).toContain('@n8n/n8n-nodes-langchain.agent');
+			expect(result).toContain('@resin/n8n-nodes-langchain.agent');
 			expect(result).toContain('@builderHint');
 			// outputParserStructured is in relatedNodes but not in the nodeTypeParser,
 			// so it won't appear as [RELATED] (can't find node info for it)
@@ -468,12 +472,12 @@ describe('CodeBuilderSearchTool', () => {
 			const result = await tool.invoke({ queries: ['AI Agent'] });
 
 			// Agent should be found directly
-			expect(result).toContain('@n8n/n8n-nodes-langchain.agent');
+			expect(result).toContain('@resin/n8n-nodes-langchain.agent');
 			expect(result).toContain('@builderHint');
 
 			// outputParserStructured should appear in @relatedNodes section
 			expect(result).toContain('@relatedNodes');
-			expect(result).toContain('@n8n/n8n-nodes-langchain.outputParserStructured');
+			expect(result).toContain('@resin/n8n-nodes-langchain.outputParserStructured');
 			expect(result).toContain('Structured JSON output');
 		});
 
@@ -605,7 +609,7 @@ describe('CodeBuilderSearchTool', () => {
 
 			const result = await tool.invoke({ queries: ['http'] });
 
-			expect(result).toContain('n8n-nodes-base.httpRequest');
+			expect(result).toContain('resin-nodes-base.httpRequest');
 			expect(result).not.toContain('@builderHint');
 		});
 	});
@@ -622,15 +626,15 @@ describe('CodeBuilderSearchTool', () => {
 			const result = await tool.invoke({ queries: ['AI Agent V2'] });
 
 			// Should find the agent node
-			expect(result).toContain('@n8n/n8n-nodes-langchain.agentV2');
+			expect(result).toContain('@resin/n8n-nodes-langchain.agentV2');
 
 			// Should have @relatedNodes section
 			expect(result).toContain('@relatedNodes');
 
 			// Should show related nodes with their hints
-			expect(result).toContain('@n8n/n8n-nodes-langchain.memoryBufferWindow');
+			expect(result).toContain('@resin/n8n-nodes-langchain.memoryBufferWindow');
 			expect(result).toContain('Maintains conversation history for context');
-			expect(result).toContain('@n8n/n8n-nodes-langchain.lmChatOpenAi');
+			expect(result).toContain('@resin/n8n-nodes-langchain.lmChatOpenAi');
 			expect(result).toContain('Connect a chat model for responses');
 		});
 
@@ -736,7 +740,7 @@ describe('CodeBuilderSearchTool', () => {
 			const result = await tool.invoke({ queries: ['http request'] });
 
 			// HTTP Request node has no discriminators, so it should show "none"
-			expect(result).toContain('n8n-nodes-base.httpRequest');
+			expect(result).toContain('resin-nodes-base.httpRequest');
 			expect(result).toContain('HTTP Request');
 
 			// Should show "Discriminators: none" for HTTP Request
@@ -788,11 +792,11 @@ describe('CodeBuilderSearchTool', () => {
 			const result = await tool.invoke({ queries: ['Code Runner'] });
 
 			// Code Runner should be found directly
-			expect(result).toContain('n8n-nodes-base.codeRunner');
+			expect(result).toContain('resin-nodes-base.codeRunner');
 
 			// Code node should appear in @relatedNodes section
 			expect(result).toContain('@relatedNodes');
-			expect(result).toContain('n8n-nodes-base.code');
+			expect(result).toContain('resin-nodes-base.code');
 		});
 	});
 

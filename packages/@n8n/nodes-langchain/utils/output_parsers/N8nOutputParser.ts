@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, ISupplyDataFunctions, IWebhookFunctions } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { IExecuteFunctions, ISupplyDataFunctions, IWebhookFunctions } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 import { N8nItemListOutputParser } from './N8nItemListOutputParser';
 import { N8nOutputFixingParser } from './N8nOutputFixingParser';

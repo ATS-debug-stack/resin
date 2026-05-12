@@ -1,8 +1,8 @@
 import { SupabaseVectorStore } from '@langchain/community/vectorstores/supabase';
 import { createClient } from '@supabase/supabase-js';
-import { NodeOperationError, type INodeProperties } from 'n8n-workflow';
+import { NodeOperationError, type INodeProperties } from 'resin-workflow';
 
-import { metadataFilterField, createVectorStoreNode } from '@n8n/ai-utilities';
+import { metadataFilterField, createVectorStoreNode } from '@resin/ai-utilities';
 
 import { supabaseTableNameSearch } from '../shared/methods/listSearch';
 import { supabaseTableNameRLC } from '../shared/descriptions';

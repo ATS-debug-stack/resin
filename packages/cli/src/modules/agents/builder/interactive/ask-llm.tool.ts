@@ -1,12 +1,12 @@
-import { Tool } from '@n8n/agents';
-import type { BuiltTool, InterruptibleToolContext } from '@n8n/agents';
+import { Tool } from '@resin/agents';
+import type { BuiltTool, InterruptibleToolContext } from '@resin/agents';
 import {
 	ASK_LLM_TOOL_NAME,
 	askLlmInputSchema,
 	askLlmResumeSchema,
 	type AskLlmInput,
 	type AskLlmResume,
-} from '@n8n/api-types';
+} from '@resin/api-types';
 
 export function buildAskLlmTool(): BuiltTool {
 	return new Tool(ASK_LLM_TOOL_NAME)

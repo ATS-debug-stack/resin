@@ -8,7 +8,7 @@ import type {
 	INodeTypeDescription,
 	IParameterBuilderHint,
 	NodeConnectionType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 /**
  * Represents a single mode option with its metadata

@@ -6,7 +6,7 @@ import type {
 	IHttpRequestMethods,
 	IDataObject,
 	IHttpRequestOptions,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export async function githubApiRequest(
 	this: IHookFunctions | IExecuteFunctions | IExecuteSingleFunctions | ILoadOptionsFunctions,

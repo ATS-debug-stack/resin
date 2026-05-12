@@ -5,7 +5,7 @@ import {
 	type IExecuteFunctions,
 	type INodeExecutionData,
 	type INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { ROWS_LIMIT_DEFAULT } from '../../common/constants';
 import { executeSelectMany, getSelectFields } from '../../common/selectMany';

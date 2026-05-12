@@ -1,10 +1,10 @@
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'resin-workflow';
 
 import { NodeTypeParser } from '../node-type-parser';
 
 // Mock node with array version (like OpenAI V2)
 const mockOpenAiNode: INodeTypeDescription = {
-	name: '@n8n/n8n-nodes-langchain.openAi',
+	name: '@resin/n8n-nodes-langchain.openAi',
 	displayName: 'OpenAI',
 	description: 'Message an assistant or GPT, analyze images, generate audio, etc.',
 	group: ['transform'],
@@ -54,10 +54,10 @@ describe('NodeTypeParser', () => {
 			const parser = new NodeTypeParser([mockOpenAiNode]);
 
 			// Node has version: [2, 2.1], should find it when searching for 2.1
-			const result = parser.getNodeType('@n8n/n8n-nodes-langchain.openAi', 2.1);
+			const result = parser.getNodeType('@resin/n8n-nodes-langchain.openAi', 2.1);
 
 			expect(result).not.toBeNull();
-			expect(result?.name).toBe('@n8n/n8n-nodes-langchain.openAi');
+			expect(result?.name).toBe('@resin/n8n-nodes-langchain.openAi');
 			expect(result?.displayName).toBe('OpenAI');
 		});
 
@@ -65,11 +65,11 @@ describe('NodeTypeParser', () => {
 			const parser = new NodeTypeParser([mockOpenAiNode]);
 
 			// Should find for version 2 (first in array)
-			const result2 = parser.getNodeType('@n8n/n8n-nodes-langchain.openAi', 2);
+			const result2 = parser.getNodeType('@resin/n8n-nodes-langchain.openAi', 2);
 			expect(result2).not.toBeNull();
 
 			// Should find for version 2.1 (second in array)
-			const result21 = parser.getNodeType('@n8n/n8n-nodes-langchain.openAi', 2.1);
+			const result21 = parser.getNodeType('@resin/n8n-nodes-langchain.openAi', 2.1);
 			expect(result21).not.toBeNull();
 		});
 
@@ -77,7 +77,7 @@ describe('NodeTypeParser', () => {
 			const parser = new NodeTypeParser([mockOpenAiNode]);
 
 			// Node has version: [2, 2.1], should NOT find version 1
-			const result = parser.getNodeType('@n8n/n8n-nodes-langchain.openAi', 1);
+			const result = parser.getNodeType('@resin/n8n-nodes-langchain.openAi', 1);
 
 			expect(result).toBeNull();
 		});
@@ -88,7 +88,7 @@ describe('NodeTypeParser', () => {
 			// Simulate versioned node: SetV1 (versions 1,2) and SetV2 (versions 3, 3.4)
 			// Inserted in order that puts the older description LAST
 			const setV1: INodeTypeDescription = {
-				name: 'n8n-nodes-base.set',
+				name: 'resin-nodes-base.set',
 				displayName: 'Set',
 				description: 'Old description',
 				group: ['input'],
@@ -99,7 +99,7 @@ describe('NodeTypeParser', () => {
 				properties: [],
 			};
 			const setV2: INodeTypeDescription = {
-				name: 'n8n-nodes-base.set',
+				name: 'resin-nodes-base.set',
 				displayName: 'Edit Fields (Set)',
 				description: 'New description',
 				group: ['input'],
@@ -123,7 +123,7 @@ describe('NodeTypeParser', () => {
 			};
 			// Insert V2 first, V1 last — previously would return V1
 			const parser = new NodeTypeParser([setV2, setV1]);
-			const result = parser.getNodeType('n8n-nodes-base.set');
+			const result = parser.getNodeType('resin-nodes-base.set');
 			expect(result?.displayName).toBe('Edit Fields (Set)');
 			// Verify it's the v3.4 description, not v2
 			expect(Array.isArray(result?.version) && result.version.includes(3.4)).toBe(true);

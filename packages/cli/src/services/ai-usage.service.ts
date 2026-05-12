@@ -1,5 +1,5 @@
-import { SettingsRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { SettingsRepository } from '@resin/db';
+import { Service } from '@resin/di';
 
 import config from '@/config';
 import { CacheService } from '@/services/cache/cache.service';

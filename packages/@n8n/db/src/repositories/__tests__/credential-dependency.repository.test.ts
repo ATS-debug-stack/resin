@@ -1,5 +1,5 @@
-import { Container } from '@n8n/di';
-import { In } from '@n8n/typeorm';
+import { Container } from '@resin/di';
+import { In } from '@resin/typeorm';
 
 import { CredentialDependency } from '../../entities';
 import { mockEntityManager } from '../../utils/test-utils/mock-entity-manager';

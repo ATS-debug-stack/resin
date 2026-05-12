@@ -10,11 +10,11 @@ import {
 	N8nNotice,
 	N8nText,
 	N8nTooltip,
-} from '@n8n/design-system';
-import { useI18n, type BaseTextKey } from '@n8n/i18n';
-import { useRootStore } from '@n8n/stores/useRootStore';
+} from '@resin/design-system';
+import { useI18n, type BaseTextKey } from '@resin/i18n';
+import { useRootStore } from '@resin/stores/useRootStore';
 import { useToast } from '@/app/composables/useToast';
-import * as securitySettingsApi from '@n8n/rest-api-client/api/security-settings';
+import * as securitySettingsApi from '@resin/rest-api-client/api/security-settings';
 import { EnterpriseEditionFeature } from '@/app/constants';
 import EnterpriseEdition from '@/app/components/EnterpriseEdition.ee.vue';
 import { useSettingsStore } from '@/app/stores/settings.store';

@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, INodeExecutionData, INodeProperties } from 'n8n-workflow';
-import { updateDisplayOptions } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeExecutionData, INodeProperties } from 'resin-workflow';
+import { updateDisplayOptions } from 'resin-workflow';
 
 import type { ChatCompletionResponse, ContentBlock } from '../../helpers/interfaces';
 import { prepareBinaryPropertyList } from '../../helpers/utils';

@@ -1,11 +1,11 @@
-import { getRenderHint } from '@n8n/api-types';
+import { getRenderHint } from '@resin/api-types';
 import type {
 	InstanceAiMessage,
 	InstanceAiAgentNode,
 	InstanceAiToolCallState,
 	InstanceAiTimelineEntry,
-} from '@n8n/api-types';
-import type { AgentTreeSnapshot } from '@n8n/instance-ai';
+} from '@resin/api-types';
+import type { AgentTreeSnapshot } from '@resin/instance-ai';
 
 import { cleanStoredUserMessage } from './internal-messages';
 

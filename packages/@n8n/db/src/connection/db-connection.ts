@@ -1,11 +1,11 @@
-import { inTest, Logger } from '@n8n/backend-common';
-import { DatabaseConfig } from '@n8n/config';
-import { Time } from '@n8n/constants';
-import { Memoized } from '@n8n/decorators';
-import { Container, Service } from '@n8n/di';
-import { DataSource } from '@n8n/typeorm';
-import { ErrorReporter } from 'n8n-core';
-import { DbConnectionTimeoutError, ensureError, OperationalError } from 'n8n-workflow';
+import { inTest, Logger } from '@resin/backend-common';
+import { DatabaseConfig } from '@resin/config';
+import { Time } from '@resin/constants';
+import { Memoized } from '@resin/decorators';
+import { Container, Service } from '@resin/di';
+import { DataSource } from '@resin/typeorm';
+import { ErrorReporter } from 'resin-core';
+import { DbConnectionTimeoutError, ensureError, OperationalError } from 'resin-workflow';
 import { setTimeout as setTimeoutP } from 'timers/promises';
 
 import { DbConnectionOptions } from './db-connection-options';

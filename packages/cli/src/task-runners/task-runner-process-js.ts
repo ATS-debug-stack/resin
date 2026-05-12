@@ -1,6 +1,6 @@
-import { Logger } from '@n8n/backend-common';
-import { TaskRunnersConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { TaskRunnersConfig } from '@resin/config';
+import { Service } from '@resin/di';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import * as process from 'node:process';
@@ -34,7 +34,7 @@ export class JsTaskRunnerProcess extends TaskRunnerProcessBase {
 	}
 
 	async startProcess(grantToken: string, taskBrokerUri: string): Promise<ChildProcess> {
-		const startScript = require.resolve('@n8n/task-runner/start');
+		const startScript = require.resolve('@resin/task-runner/start');
 		const flags = this.runnerConfig.insecureMode
 			? []
 			: ['--disallow-code-generation-from-strings', '--disable-proto=delete'];

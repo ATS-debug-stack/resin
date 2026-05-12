@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions } from 'n8n-workflow';
+import type { ILoadOptionsFunctions } from 'resin-workflow';
 import type { Mock, Mocked } from 'vitest';
 
 import * as transport from '../../transport';

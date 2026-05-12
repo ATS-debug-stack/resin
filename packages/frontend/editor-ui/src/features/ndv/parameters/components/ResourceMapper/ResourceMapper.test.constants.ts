@@ -3,7 +3,7 @@ import {
 	type INode,
 	type INodeProperties,
 	type INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export const WORKFLOW_INPUTS_TEST_PARAMETER_PATH = 'parameters.workflowInputs';
 
@@ -75,7 +75,7 @@ export const WORKFLOW_INPUTS_TEST_NODE: INode = {
 		mode: 'once',
 		options: {},
 	},
-	type: 'n8n-nodes-base.executeWorkflow',
+	type: 'resin-nodes-base.executeWorkflow',
 	typeVersion: 1.2,
 	position: [220, 0],
 	id: 'test-123',
@@ -287,5 +287,5 @@ export const EXECUTE_WORKFLOW_NODE_TYPE_TEST: INodeTypeDescription = {
 			],
 		},
 	},
-	name: 'n8n-nodes-base.executeWorkflow',
+	name: 'resin-nodes-base.executeWorkflow',
 };

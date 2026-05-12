@@ -1,6 +1,6 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 import { Command, Flags } from '@oclif/core';
-import { InstanceSettings } from 'n8n-core';
+import { InstanceSettings } from 'resin-core';
 
 import type { IBuildOptions } from '../src';
 import { buildFiles } from '../src';

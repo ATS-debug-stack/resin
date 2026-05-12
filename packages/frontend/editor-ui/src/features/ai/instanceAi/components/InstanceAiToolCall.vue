@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { InstanceAiToolCallState } from '@n8n/api-types';
-import { N8nIcon } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import type { InstanceAiToolCallState } from '@resin/api-types';
+import { N8nIcon } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { CollapsibleRoot, CollapsibleTrigger } from 'reka-ui';
 import AnimatedCollapsibleContent from './AnimatedCollapsibleContent.vue';
 import { computed, ref } from 'vue';

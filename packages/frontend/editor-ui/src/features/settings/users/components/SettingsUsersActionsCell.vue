@@ -1,9 +1,9 @@
 <script lang="ts" setup="">
-import type { UsersList } from '@n8n/api-types';
-import type { UserAction } from '@n8n/design-system';
-import type { IUser } from '@n8n/rest-api-client/api/users';
+import type { UsersList } from '@resin/api-types';
+import type { UserAction } from '@resin/design-system';
+import type { IUser } from '@resin/rest-api-client/api/users';
 
-import { N8nActionToggle } from '@n8n/design-system';
+import { N8nActionToggle } from '@resin/design-system';
 const props = defineProps<{
 	data: UsersList['items'][number];
 	actions: Array<UserAction<IUser>>;

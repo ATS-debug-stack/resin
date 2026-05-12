@@ -1,13 +1,13 @@
 import { readFileSync } from 'node:fs';
 
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import type { WorkflowRepository, LicenseMetricsRepository } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import type { WorkflowRepository, LicenseMetricsRepository } from '@resin/db';
 import type express from 'express';
 import promBundle from 'express-prom-bundle';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
-import { EventMessageTypeNames } from 'n8n-workflow';
+import type { InstanceSettings } from 'resin-core';
+import { EventMessageTypeNames } from 'resin-workflow';
 import promClient from 'prom-client';
 
 import type { MessageEventBus } from '@/eventbus/message-event-bus/message-event-bus';
@@ -309,7 +309,7 @@ describe('PrometheusMetricsService', () => {
 			const mockEvent = {
 				__type: EventMessageTypeNames.audit,
 				eventName: 'n8n.audit.user.credentials.created',
-				payload: { credentialType: 'n8n-nodes-base.googleApi' },
+				payload: { credentialType: 'resin-nodes-base.googleApi' },
 			};
 
 			eventHandler(mockEvent);
@@ -321,7 +321,7 @@ describe('PrometheusMetricsService', () => {
 			});
 
 			expect(promClient.Counter.prototype.inc).toHaveBeenCalledWith(
-				{ credential_type: 'n8n-nodes-base_googleApi' },
+				{ credential_type: 'resin-nodes-base_googleApi' },
 				1,
 			);
 		});
@@ -384,7 +384,7 @@ describe('PrometheusMetricsService', () => {
 			const mockEvent = {
 				__type: EventMessageTypeNames.node,
 				eventName: 'n8n.node.execution.started',
-				payload: { nodeType: 'n8n-nodes-base.if' },
+				payload: { nodeType: 'resin-nodes-base.if' },
 			};
 
 			eventHandler(mockEvent);
@@ -459,7 +459,7 @@ describe('PrometheusMetricsService', () => {
 				payload: {
 					workflowId: 'wf_123',
 					workflowName: 'Fake Workflow Name',
-					nodeType: 'n8n-nodes-base.if',
+					nodeType: 'resin-nodes-base.if',
 				},
 			};
 

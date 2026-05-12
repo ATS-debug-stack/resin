@@ -8,7 +8,7 @@ import {
 	type INodeTypeDescription,
 	type NodeParameterValue,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { awsApiRequest, awsApiRequestAllItems } from './GenericFunctions';
 import { itemFields, itemOperations } from './ItemDescription';

@@ -44,12 +44,12 @@ import {
 
 import type { NodeViewItem, NodeViewItemSection } from '../views/viewsData';
 import { AINodesView } from '../views/viewsData';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useKeyboardNavigation } from './useKeyboardNavigation';
 
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
-import { AI_TRANSFORM_NODE_TYPE, NodeConnectionTypes } from 'n8n-workflow';
-import type { NodeConnectionType, INodeFilter } from 'n8n-workflow';
+import { AI_TRANSFORM_NODE_TYPE, NodeConnectionTypes } from 'resin-workflow';
+import type { NodeConnectionType, INodeFilter } from 'resin-workflow';
 import { useSettingsStore } from '@/app/stores/settings.store';
 
 export type CommunityNodeDetails = {

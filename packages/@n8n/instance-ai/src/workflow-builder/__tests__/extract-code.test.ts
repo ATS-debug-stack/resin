@@ -2,7 +2,7 @@ import { resolveLocalImports, stripImportStatements, stripSdkImports } from '../
 
 describe('stripImportStatements', () => {
 	it('should strip all import statements', () => {
-		const code = `import { workflow } from '@n8n/workflow-sdk';
+		const code = `import { workflow } from '@resin/workflow-sdk';
 import { foo } from './local';
 
 const x = 1;`;
@@ -12,13 +12,13 @@ const x = 1;`;
 
 describe('stripSdkImports', () => {
 	it('should strip only SDK imports and preserve local imports', () => {
-		const code = `import { workflow, node } from '@n8n/workflow-sdk';
+		const code = `import { workflow, node } from '@resin/workflow-sdk';
 import { weatherNode } from '../chunks/weather';
 
 const x = workflow('test', 'Test');`;
 		const result = stripSdkImports(code);
 		expect(result).toContain("import { weatherNode } from '../chunks/weather'");
-		expect(result).not.toContain('@n8n/workflow-sdk');
+		expect(result).not.toContain('@resin/workflow-sdk');
 		expect(result).toContain("const x = workflow('test', 'Test');");
 	});
 });
@@ -32,22 +32,22 @@ describe('resolveLocalImports', () => {
 	}
 
 	it('should return code unchanged when there are no local imports', async () => {
-		const code = `import { workflow } from '@n8n/workflow-sdk';
+		const code = `import { workflow } from '@resin/workflow-sdk';
 const w = workflow('test', 'Test');`;
 		const result = await resolveLocalImports(code, '/workspace/src', makeReadFile({}));
 		expect(result).toContain("const w = workflow('test', 'Test');");
 	});
 
 	it('should resolve a single local import', async () => {
-		const mainCode = `import { workflow } from '@n8n/workflow-sdk';
+		const mainCode = `import { workflow } from '@resin/workflow-sdk';
 import { weatherNode } from '../chunks/weather';
 
 export default workflow('test', 'Test').add(weatherNode);`;
 
-		const chunkCode = `import { node, newCredential } from '@n8n/workflow-sdk';
+		const chunkCode = `import { node, newCredential } from '@resin/workflow-sdk';
 
 export const weatherNode = node({
-  type: 'n8n-nodes-base.openWeatherMap',
+  type: 'resin-nodes-base.openWeatherMap',
   version: 1,
   config: { name: 'Weather' }
 });`;
@@ -68,16 +68,16 @@ export const weatherNode = node({
 	});
 
 	it('should resolve multiple imports from different files', async () => {
-		const mainCode = `import { workflow } from '@n8n/workflow-sdk';
+		const mainCode = `import { workflow } from '@resin/workflow-sdk';
 import { weatherNode } from '../chunks/weather';
 import { emailNode } from '../chunks/email';
 
 export default workflow('test', 'Test').add(weatherNode).to(emailNode);`;
 
 		const readFile = makeReadFile({
-			'/workspace/chunks/weather.ts': `import { node } from '@n8n/workflow-sdk';
+			'/workspace/chunks/weather.ts': `import { node } from '@resin/workflow-sdk';
 export const weatherNode = node({ type: 'weather', version: 1, config: {} });`,
-			'/workspace/chunks/email.ts': `import { node } from '@n8n/workflow-sdk';
+			'/workspace/chunks/email.ts': `import { node } from '@resin/workflow-sdk';
 export const emailNode = node({ type: 'email', version: 1, config: {} });`,
 		});
 
@@ -90,17 +90,17 @@ export const emailNode = node({ type: 'email', version: 1, config: {} });`,
 	});
 
 	it('should resolve nested imports (chunk importing another chunk)', async () => {
-		const mainCode = `import { workflow } from '@n8n/workflow-sdk';
+		const mainCode = `import { workflow } from '@resin/workflow-sdk';
 import { compositeNode } from '../chunks/composite';
 
 export default workflow('test', 'Test').add(compositeNode);`;
 
 		const readFile = makeReadFile({
-			'/workspace/chunks/composite.ts': `import { node } from '@n8n/workflow-sdk';
+			'/workspace/chunks/composite.ts': `import { node } from '@resin/workflow-sdk';
 import { helperNode } from './helper';
 
 export const compositeNode = node({ type: 'composite', version: 1, config: {} });`,
-			'/workspace/chunks/helper.ts': `import { node } from '@n8n/workflow-sdk';
+			'/workspace/chunks/helper.ts': `import { node } from '@resin/workflow-sdk';
 
 export const helperNode = node({ type: 'helper', version: 1, config: {} });`,
 		});
@@ -112,7 +112,7 @@ export const helperNode = node({ type: 'helper', version: 1, config: {} });`,
 	});
 
 	it('should handle missing files gracefully', async () => {
-		const mainCode = `import { workflow } from '@n8n/workflow-sdk';
+		const mainCode = `import { workflow } from '@resin/workflow-sdk';
 import { missing } from '../chunks/nonexistent';
 
 export default workflow('test', 'Test');`;
@@ -126,20 +126,20 @@ export default workflow('test', 'Test');`;
 	});
 
 	it('should deduplicate imports referenced from multiple files', async () => {
-		const mainCode = `import { workflow } from '@n8n/workflow-sdk';
+		const mainCode = `import { workflow } from '@resin/workflow-sdk';
 import { a } from '../chunks/a';
 import { b } from '../chunks/b';
 
 export default workflow('test', 'Test');`;
 
 		const readFile = makeReadFile({
-			'/workspace/chunks/a.ts': `import { node } from '@n8n/workflow-sdk';
+			'/workspace/chunks/a.ts': `import { node } from '@resin/workflow-sdk';
 import { shared } from './shared';
 export const a = node({ type: 'a', version: 1, config: {} });`,
-			'/workspace/chunks/b.ts': `import { node } from '@n8n/workflow-sdk';
+			'/workspace/chunks/b.ts': `import { node } from '@resin/workflow-sdk';
 import { shared } from './shared';
 export const b = node({ type: 'b', version: 1, config: {} });`,
-			'/workspace/chunks/shared.ts': `import { node } from '@n8n/workflow-sdk';
+			'/workspace/chunks/shared.ts': `import { node } from '@resin/workflow-sdk';
 export const shared = node({ type: 'shared', version: 1, config: {} });`,
 		});
 

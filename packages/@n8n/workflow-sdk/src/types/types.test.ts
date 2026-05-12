@@ -203,7 +203,7 @@ describe('Base Types', () => {
 			};
 
 			foldLegacyErrorConnections(connections, [
-				{ name: 'IF', type: 'n8n-nodes-base.if', parameters: {} },
+				{ name: 'IF', type: 'resin-nodes-base.if', parameters: {} },
 			]);
 
 			expect(connections.IF.main).toHaveLength(3);
@@ -251,7 +251,7 @@ describe('Base Types', () => {
 			};
 
 			foldLegacyErrorConnections(connections, [
-				{ name: 'IF', type: 'n8n-nodes-base.if', parameters: {} },
+				{ name: 'IF', type: 'resin-nodes-base.if', parameters: {} },
 			]);
 
 			expect(connections.IF.main).toHaveLength(3);
@@ -271,7 +271,7 @@ describe('Base Types', () => {
 			foldLegacyErrorConnections(connections, [
 				{
 					name: 'Switch',
-					type: 'n8n-nodes-base.switch',
+					type: 'resin-nodes-base.switch',
 					parameters: { rules: { values: [{}, {}, {}] } },
 				},
 			]);
@@ -317,7 +317,7 @@ describe('Base Types', () => {
 	describe('isNodeInstance', () => {
 		it('returns true for object with type, version, config, and to function', () => {
 			const node = {
-				type: 'n8n-nodes-base.set',
+				type: 'resin-nodes-base.set',
 				version: '1',
 				config: {},
 				to: () => {},

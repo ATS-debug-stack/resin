@@ -1,4 +1,4 @@
-import type { ChatHubLLMProvider } from '@n8n/api-types';
+import type { ChatHubLLMProvider } from '@resin/api-types';
 
 /**
  * Maps ChatHub provider IDs (camelCase, e.g. 'xAiGrok') to Agent SDK catalog
@@ -35,7 +35,7 @@ for (const [chatHub, catalog] of Object.entries(CHATHUB_TO_CATALOG)) {
 }
 
 /**
- * ChatHub provider IDs that the @n8n/agents runtime does not support.
+ * ChatHub provider IDs that the @resin/agents runtime does not support.
  * These are filtered out in the Agents UI so users cannot select them.
  */
 export const AGENT_UNSUPPORTED_PROVIDERS = new Set<string>(['ollama']);

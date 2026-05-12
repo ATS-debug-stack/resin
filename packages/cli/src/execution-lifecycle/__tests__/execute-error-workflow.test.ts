@@ -1,11 +1,11 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { ErrorReporter } from 'n8n-core';
-import type { INode, IRun, IWorkflowBase } from 'n8n-workflow';
-import { createRunExecutionData, NodeOperationError } from 'n8n-workflow';
+import { ErrorReporter } from 'resin-core';
+import type { INode, IRun, IWorkflowBase } from 'resin-workflow';
+import { createRunExecutionData, NodeOperationError } from 'resin-workflow';
 
 import { OwnershipService } from '@/services/ownership.service';
 import { UrlService } from '@/services/url.service';
@@ -28,7 +28,7 @@ describe('executeErrorWorkflow', () => {
 
 	const mockNode = mock<INode>({
 		name: 'TestNode',
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -37,7 +37,7 @@ describe('executeErrorWorkflow', () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
 		globalConfig.nodes = mock<GlobalConfig['nodes']>({
-			errorTriggerType: 'n8n-nodes-base.errorTrigger',
+			errorTriggerType: 'resin-nodes-base.errorTrigger',
 		});
 	});
 

@@ -1,11 +1,11 @@
 import { ChatAnthropic } from '@langchain/anthropic';
 import type { BaseMessage } from '@langchain/core/messages';
 import { MemorySaver } from '@langchain/langgraph';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import type { AiAssistantClient } from '@n8n_io/ai-assistant-sdk';
 import { mock } from 'jest-mock-extended';
 import { Client as TracingClient } from 'langsmith';
-import type { IUser, INodeTypeDescription } from 'n8n-workflow';
+import type { IUser, INodeTypeDescription } from 'resin-workflow';
 
 import { AiWorkflowBuilderService } from '@/ai-workflow-builder-agent.service';
 import { LLMServiceError } from '@/errors';
@@ -73,7 +73,7 @@ describe('AiWorkflowBuilderService', () => {
 
 	const mockNodeTypeDescriptions: INodeTypeDescription[] = [
 		{
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			description: 'A test node',
 			version: 1,
@@ -91,7 +91,7 @@ describe('AiWorkflowBuilderService', () => {
 			group: ['transform'],
 		},
 		{
-			name: 'n8n-nodes-base.hiddenNode',
+			name: 'resin-nodes-base.hiddenNode',
 			displayName: 'Hidden Node',
 			description: 'A hidden node',
 			version: 1,
@@ -103,7 +103,7 @@ describe('AiWorkflowBuilderService', () => {
 			hidden: true,
 		},
 		{
-			name: 'n8n-nodes-base.dataTable',
+			name: 'resin-nodes-base.dataTable',
 			displayName: 'Data Table',
 			description: 'Data table node',
 			version: 1,
@@ -115,7 +115,7 @@ describe('AiWorkflowBuilderService', () => {
 			hidden: true,
 		},
 		{
-			name: '@n8n/n8n-nodes-langchain.toolVectorStore',
+			name: '@resin/n8n-nodes-langchain.toolVectorStore',
 			displayName: 'Tool Vector Store',
 			description: 'An ignored tool node',
 			version: 1,
@@ -126,7 +126,7 @@ describe('AiWorkflowBuilderService', () => {
 			group: ['transform'],
 		},
 		{
-			name: 'n8n-nodes-base.testNodeTool',
+			name: 'resin-nodes-base.testNodeTool',
 			displayName: 'Test Tool Node',
 			description: 'Test tool node description',
 			version: 1,
@@ -248,7 +248,7 @@ describe('AiWorkflowBuilderService', () => {
 
 			expect(testService).toBeInstanceOf(AiWorkflowBuilderService);
 			expect(MockedSessionManagerService).toHaveBeenCalledWith(
-				expect.arrayContaining([expect.objectContaining({ name: 'n8n-nodes-base.testNode' })]),
+				expect.arrayContaining([expect.objectContaining({ name: 'resin-nodes-base.testNode' })]),
 				undefined, // sessionStorage
 				mockLogger,
 			);
@@ -283,17 +283,19 @@ describe('AiWorkflowBuilderService', () => {
 			const filteredNodeTypes = MockedSessionManagerService.mock.calls[0][0];
 
 			expect(
-				filteredNodeTypes.find((node) => node.name === 'n8n-nodes-base.hiddenNode'),
+				filteredNodeTypes.find((node) => node.name === 'resin-nodes-base.hiddenNode'),
 			).toBeUndefined();
 			expect(
-				filteredNodeTypes.find((node) => node.name === '@n8n/n8n-nodes-langchain.toolVectorStore'),
+				filteredNodeTypes.find(
+					(node) => node.name === '@resin/n8n-nodes-langchain.toolVectorStore',
+				),
 			).toBeUndefined();
 			expect(
 				filteredNodeTypes.find((node) => node.name === 'community-nodes-test.someNode'),
 			).toBeUndefined();
 			expect(
-				filteredNodeTypes.find((node) => node.name === 'n8n-nodes-base.dataTable'),
-			).toMatchObject({ name: 'n8n-nodes-base.dataTable' });
+				filteredNodeTypes.find((node) => node.name === 'resin-nodes-base.dataTable'),
+			).toMatchObject({ name: 'resin-nodes-base.dataTable' });
 		});
 
 		it('should merge tool node descriptions with their base node types', () => {
@@ -314,7 +316,7 @@ describe('AiWorkflowBuilderService', () => {
 			const filteredNodeTypes = MockedSessionManagerService.mock.calls[0][0];
 
 			const testToolNode = filteredNodeTypes.find(
-				(node) => node.name === 'n8n-nodes-base.testNodeTool',
+				(node) => node.name === 'resin-nodes-base.testNodeTool',
 			);
 			expect(testToolNode).toBeDefined();
 			expect(testToolNode?.description).toBe('Test tool node description');

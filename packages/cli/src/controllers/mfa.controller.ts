@@ -1,12 +1,12 @@
-import { InstanceSettingsLoaderConfig } from '@n8n/config';
-import { AuthenticatedRequest, UserRepository } from '@n8n/db';
+import { InstanceSettingsLoaderConfig } from '@resin/config';
+import { AuthenticatedRequest, UserRepository } from '@resin/db';
 import {
 	createUserKeyedRateLimiter,
 	Get,
 	GlobalScope,
 	Post,
 	RestController,
-} from '@n8n/decorators';
+} from '@resin/decorators';
 import { Response } from 'express';
 
 import { AuthService } from '@/auth/auth.service';

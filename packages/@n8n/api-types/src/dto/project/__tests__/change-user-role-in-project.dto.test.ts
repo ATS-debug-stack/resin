@@ -1,4 +1,4 @@
-import { PROJECT_OWNER_ROLE_SLUG } from '@n8n/permissions';
+import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
 
 import { ChangeUserRoleInProject } from '../change-user-role-in-project.dto';
 

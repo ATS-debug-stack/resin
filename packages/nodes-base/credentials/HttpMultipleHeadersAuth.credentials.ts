@@ -1,6 +1,6 @@
 /* eslint-disable n8n-nodes-base/cred-class-name-unsuffixed */
 /* eslint-disable n8n-nodes-base/cred-class-field-name-unsuffixed */
-import type { IAuthenticate, ICredentialType, INodeProperties, Icon } from 'n8n-workflow';
+import type { IAuthenticate, ICredentialType, INodeProperties, Icon } from 'resin-workflow';
 
 export class HttpMultipleHeadersAuth implements ICredentialType {
 	name = 'httpMultipleHeadersAuth';

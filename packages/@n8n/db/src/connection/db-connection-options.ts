@@ -1,10 +1,10 @@
-import { ModuleRegistry } from '@n8n/backend-common';
-import { DatabaseConfig, InstanceSettingsConfig } from '@n8n/config';
-import { Service } from '@n8n/di';
-import type { DataSourceOptions, LoggerOptions } from '@n8n/typeorm';
-import type { PostgresConnectionOptions } from '@n8n/typeorm/driver/postgres/PostgresConnectionOptions';
-import type { SqlitePooledConnectionOptions } from '@n8n/typeorm/driver/sqlite-pooled/SqlitePooledConnectionOptions';
-import { UserError } from 'n8n-workflow';
+import { ModuleRegistry } from '@resin/backend-common';
+import { DatabaseConfig, InstanceSettingsConfig } from '@resin/config';
+import { Service } from '@resin/di';
+import type { DataSourceOptions, LoggerOptions } from '@resin/typeorm';
+import type { PostgresConnectionOptions } from '@resin/typeorm/driver/postgres/PostgresConnectionOptions';
+import type { SqlitePooledConnectionOptions } from '@resin/typeorm/driver/sqlite-pooled/SqlitePooledConnectionOptions';
+import { UserError } from 'resin-workflow';
 import type { TlsOptions } from 'node:tls';
 import path from 'path';
 

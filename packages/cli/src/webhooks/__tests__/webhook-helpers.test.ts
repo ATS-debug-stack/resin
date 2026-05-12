@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { mockInstance } from '@n8n/backend-test-utils';
+import { Logger } from '@resin/backend-common';
+import { mockInstance } from '@resin/backend-test-utils';
 import type express from 'express';
 import { mock, type MockProxy } from 'jest-mock-extended';
-import { BinaryDataService, ErrorReporter } from 'n8n-core';
+import { BinaryDataService, ErrorReporter } from 'resin-core';
 import type {
 	Workflow,
 	INode,
@@ -13,7 +13,7 @@ import type {
 	IWorkflowBase,
 	IRunExecutionData,
 	IExecuteData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	createDeferredPromise,
 	FORM_NODE_TYPE,
@@ -22,7 +22,7 @@ import {
 	WorkflowConfigurationError,
 	NodeOperationError,
 	MICROSOFT_AGENT365_TRIGGER_NODE_TYPE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
@@ -607,7 +607,7 @@ describe('prepareExecutionData', () => {
 		test('should not merge when node type is not MICROSOFT_AGENT365_TRIGGER_NODE_TYPE', () => {
 			const regularNode = mock<INode>({
 				name: 'Regular Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 			});
 
 			const existingNodeExecutionStack: IExecuteData[] = [

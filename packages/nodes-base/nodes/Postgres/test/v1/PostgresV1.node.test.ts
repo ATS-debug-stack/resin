@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import { constructExecutionMetaData } from 'n8n-core';
-import type { IExecuteFunctions } from 'n8n-workflow';
+import { constructExecutionMetaData } from 'resin-core';
+import type { IExecuteFunctions } from 'resin-workflow';
 import pgPromise from 'pg-promise';
 
 import { PostgresV1 } from '../../v1/PostgresV1.node';

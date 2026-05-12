@@ -1,5 +1,5 @@
-import type { INode } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { INode } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import {
 	validateEmbedQueryInput,
@@ -10,7 +10,7 @@ describe('validateEmbedQueryInput', () => {
 	const mockNode: INode = {
 		id: 'test-node',
 		name: 'Test Node',
-		type: 'n8n-nodes-base.testNode',
+		type: 'resin-nodes-base.testNode',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -40,7 +40,7 @@ describe('validateEmbedDocumentsInput', () => {
 	const mockNode: INode = {
 		id: 'test-node',
 		name: 'Test Node',
-		type: 'n8n-nodes-base.testNode',
+		type: 'resin-nodes-base.testNode',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},

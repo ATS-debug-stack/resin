@@ -1,5 +1,5 @@
-import type { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import type { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';
@@ -12,14 +12,14 @@ const mockSearchCodeBuilderNodes = jest.fn();
 const mockGetNodeTypes = jest.fn().mockReturnValue('get-result');
 const mockSuggestInvoke = jest.fn().mockResolvedValue('suggest-result');
 
-jest.mock('@n8n/ai-workflow-builder', () => ({
+jest.mock('@resin/ai-workflow-builder', () => ({
 	NodeTypeParser: MockNodeTypeParser,
 	searchCodeBuilderNodes: (...args: unknown[]) => mockSearchCodeBuilderNodes(...args),
 	getNodeTypes: (...args: unknown[]) => mockGetNodeTypes(...args),
 	createGetSuggestedNodesTool: jest.fn(() => ({ invoke: mockSuggestInvoke })),
 }));
 
-jest.mock('@n8n/workflow-sdk', () => ({
+jest.mock('@resin/workflow-sdk', () => ({
 	setSchemaBaseDirs: (...args: unknown[]) => mockSetSchemaBaseDirs(...(args as [string[]])),
 }));
 
@@ -49,7 +49,7 @@ describe('NodeCatalogService', () => {
 			}),
 			postProcessLoaders: jest.fn(),
 			collectTypes: jest.fn().mockResolvedValue({
-				nodes: [{ name: 'n8n-nodes-base.webhook' }, { name: 'n8n-nodes-base.set' }],
+				nodes: [{ name: 'resin-nodes-base.webhook' }, { name: 'resin-nodes-base.set' }],
 			}),
 		});
 		Container.set(LoadNodesAndCredentials, loadNodesAndCredentials);
@@ -70,8 +70,8 @@ describe('NodeCatalogService', () => {
 			const parser = service.getNodeTypeParser();
 			expect(parser).toBeDefined();
 			expect(MockNodeTypeParser).toHaveBeenCalledWith([
-				{ name: 'n8n-nodes-base.webhook' },
-				{ name: 'n8n-nodes-base.set' },
+				{ name: 'resin-nodes-base.webhook' },
+				{ name: 'resin-nodes-base.set' },
 			]);
 		});
 	});
@@ -118,9 +118,9 @@ describe('NodeCatalogService', () => {
 
 			loadNodesAndCredentials.collectTypes.mockResolvedValue({
 				nodes: [
-					{ name: 'n8n-nodes-base.webhook' },
-					{ name: 'n8n-nodes-base.set' },
-					{ name: 'n8n-nodes-base.httpRequest' },
+					{ name: 'resin-nodes-base.webhook' },
+					{ name: 'resin-nodes-base.set' },
+					{ name: 'resin-nodes-base.httpRequest' },
 				],
 			} as never);
 
@@ -129,9 +129,9 @@ describe('NodeCatalogService', () => {
 
 			expect(MockNodeTypeParser).toHaveBeenCalledTimes(2);
 			expect(MockNodeTypeParser).toHaveBeenLastCalledWith([
-				{ name: 'n8n-nodes-base.webhook' },
-				{ name: 'n8n-nodes-base.set' },
-				{ name: 'n8n-nodes-base.httpRequest' },
+				{ name: 'resin-nodes-base.webhook' },
+				{ name: 'resin-nodes-base.set' },
+				{ name: 'resin-nodes-base.httpRequest' },
 			]);
 		});
 
@@ -236,8 +236,8 @@ describe('NodeCatalogService', () => {
 		test('returns cached result on repeated calls with same nodeIds', async () => {
 			await service.initialize();
 
-			const result1 = await service.getNodeTypes(['n8n-nodes-base.set']);
-			const result2 = await service.getNodeTypes(['n8n-nodes-base.set']);
+			const result1 = await service.getNodeTypes(['resin-nodes-base.set']);
+			const result2 = await service.getNodeTypes(['resin-nodes-base.set']);
 
 			expect(result1).toBe('get-result');
 			expect(result2).toBe('get-result');
@@ -246,7 +246,7 @@ describe('NodeCatalogService', () => {
 
 		test('handles object nodeIds in cache key', async () => {
 			await service.initialize();
-			const nodeId = { nodeId: 'n8n-nodes-base.gmail', resource: 'message', operation: 'send' };
+			const nodeId = { nodeId: 'resin-nodes-base.gmail', resource: 'message', operation: 'send' };
 
 			await service.getNodeTypes([nodeId]);
 			await service.getNodeTypes([nodeId]);
@@ -257,8 +257,8 @@ describe('NodeCatalogService', () => {
 		test('is order-independent across nodeIds', async () => {
 			await service.initialize();
 
-			await service.getNodeTypes(['n8n-nodes-base.gmail', 'n8n-nodes-base.slack']);
-			await service.getNodeTypes(['n8n-nodes-base.slack', 'n8n-nodes-base.gmail']);
+			await service.getNodeTypes(['resin-nodes-base.gmail', 'resin-nodes-base.slack']);
+			await service.getNodeTypes(['resin-nodes-base.slack', 'resin-nodes-base.gmail']);
 
 			expect(mockGetNodeTypes).toHaveBeenCalledTimes(1);
 		});
@@ -283,7 +283,7 @@ describe('NodeCatalogService', () => {
 
 			await service.searchNodes(['gmail']);
 			await service.searchNodes(['gmail'], { nodeFilter: () => true });
-			await service.getNodeTypes(['n8n-nodes-base.set']);
+			await service.getNodeTypes(['resin-nodes-base.set']);
 			await service.getSuggestedNodes(['chatbot']);
 
 			expect(mockSearchCodeBuilderNodes).toHaveBeenCalledTimes(2);
@@ -295,7 +295,7 @@ describe('NodeCatalogService', () => {
 
 			await service.searchNodes(['gmail']);
 			await service.searchNodes(['gmail'], { nodeFilter: () => true });
-			await service.getNodeTypes(['n8n-nodes-base.set']);
+			await service.getNodeTypes(['resin-nodes-base.set']);
 			await service.getSuggestedNodes(['chatbot']);
 
 			expect(mockSearchCodeBuilderNodes).toHaveBeenCalledTimes(4);

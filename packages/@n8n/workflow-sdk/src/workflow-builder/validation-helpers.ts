@@ -84,12 +84,12 @@ export function isToolNode(type: string): boolean {
  * Tools that don't require parameters
  */
 export const TOOLS_WITHOUT_PARAMETERS = new Set([
-	'@n8n/n8n-nodes-langchain.toolCalculator',
-	'@n8n/n8n-nodes-langchain.toolVectorStore',
-	'@n8n/n8n-nodes-langchain.vectorStoreInMemory',
-	'@n8n/n8n-nodes-langchain.mcpClientTool',
-	'@n8n/n8n-nodes-langchain.toolWikipedia',
-	'@n8n/n8n-nodes-langchain.toolSerpApi',
+	'@resin/n8n-nodes-langchain.toolCalculator',
+	'@resin/n8n-nodes-langchain.toolVectorStore',
+	'@resin/n8n-nodes-langchain.vectorStoreInMemory',
+	'@resin/n8n-nodes-langchain.mcpClientTool',
+	'@resin/n8n-nodes-langchain.toolWikipedia',
+	'@resin/n8n-nodes-langchain.toolSerpApi',
 ]);
 
 /**

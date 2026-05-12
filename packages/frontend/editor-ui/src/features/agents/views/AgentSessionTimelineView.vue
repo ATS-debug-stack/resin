@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { truncate } from '@n8n/utils';
+import { truncate } from '@resin/utils';
 import { useToast } from '@/app/composables/useToast';
 import { VIEWS } from '@/app/constants';
 import { convertToDisplayDate } from '@/app/utils/formatters/dateFormatter';
@@ -29,10 +29,16 @@ import {
 } from '@/features/agents/session-timeline.utils';
 import { shouldIgnoreCanvasShortcut } from '@/features/workflows/canvas/canvas.utils';
 import type { FilterOption, TimelineItem } from '@/features/agents/session-timeline.types';
-import { useI18n } from '@n8n/i18n';
-import { N8nBreadcrumbs, N8nButton, N8nDropdownMenu, N8nIcon, N8nInput } from '@n8n/design-system';
-import type { PathItem } from '@n8n/design-system/components/N8nBreadcrumbs/Breadcrumbs.vue';
-import type { DropdownMenuItemProps } from '@n8n/design-system';
+import { useI18n } from '@resin/i18n';
+import {
+	N8nBreadcrumbs,
+	N8nButton,
+	N8nDropdownMenu,
+	N8nIcon,
+	N8nInput,
+} from '@resin/design-system';
+import type { PathItem } from '@resin/design-system/components/N8nBreadcrumbs/Breadcrumbs.vue';
+import type { DropdownMenuItemProps } from '@resin/design-system';
 import { computed, ref, watch } from 'vue';
 import { useActiveElement, useEventListener } from '@vueuse/core';
 import { useRoute, useRouter, type RouteLocationRaw } from 'vue-router';

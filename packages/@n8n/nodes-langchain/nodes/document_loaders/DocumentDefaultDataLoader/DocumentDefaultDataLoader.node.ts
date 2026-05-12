@@ -7,9 +7,14 @@ import {
 	type SupplyData,
 	type IDataObject,
 	type INodeInputConfiguration,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper, N8nBinaryLoader, N8nJsonLoader, metadataFilterField } from '@n8n/ai-utilities';
+import {
+	logWrapper,
+	N8nBinaryLoader,
+	N8nJsonLoader,
+	metadataFilterField,
+} from '@resin/ai-utilities';
 
 // Dependencies needed underneath the hood for the loaders. We add them
 // here only to track where what dependency is sued

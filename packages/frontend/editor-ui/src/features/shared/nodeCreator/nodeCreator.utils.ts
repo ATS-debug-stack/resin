@@ -28,9 +28,9 @@ import {
 } from '@/app/constants';
 import { v4 as uuidv4 } from 'uuid';
 
-import { i18n } from '@n8n/i18n';
-import { reRankSearchResults } from '@n8n/utils/search/reRankSearchResults';
-import { sublimeSearch } from '@n8n/utils/search/sublimeSearch';
+import { i18n } from '@resin/i18n';
+import { reRankSearchResults } from '@resin/utils/search/reRankSearchResults';
+import { sublimeSearch } from '@resin/utils/search/sublimeSearch';
 import * as changeCase from 'change-case';
 import sortBy from 'lodash/sortBy';
 import type { NodeViewItemSection } from './views/viewsData';
@@ -40,9 +40,9 @@ import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import type { NodeIconSource } from '@/app/utils/nodeIcon';
 import { SampleTemplates } from '@/features/workflows/templates/utils/workflowSamples';
-import type { IconName } from '@n8n/design-system/components/N8nIcon/icons';
-import type { INodeOutputConfiguration, NodeConnectionType } from 'n8n-workflow';
-import { SEND_AND_WAIT_OPERATION } from 'n8n-workflow';
+import type { IconName } from '@resin/design-system/components/N8nIcon/icons';
+import type { INodeOutputConfiguration, NodeConnectionType } from 'resin-workflow';
+import { SEND_AND_WAIT_OPERATION } from 'resin-workflow';
 import type { CommunityNodeDetails, ViewStack } from './composables/useViewStacks';
 
 const COMMUNITY_NODE_TYPE_PREVIEW_TOKEN = '-preview';

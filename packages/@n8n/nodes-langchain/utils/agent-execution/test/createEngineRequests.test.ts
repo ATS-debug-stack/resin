@@ -1,5 +1,5 @@
 import { DynamicStructuredTool } from '@langchain/classic/tools';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { z } from 'zod';
 
 import { createEngineRequests } from '../createEngineRequests';

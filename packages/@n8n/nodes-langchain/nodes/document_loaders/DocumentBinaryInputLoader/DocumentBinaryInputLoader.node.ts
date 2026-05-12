@@ -5,14 +5,14 @@ import {
 	type INodeTypeDescription,
 	type ISupplyDataFunctions,
 	type SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import {
 	logWrapper,
 	N8nBinaryLoader,
 	getConnectionHintNoticeField,
 	metadataFilterField,
-} from '@n8n/ai-utilities';
+} from '@resin/ai-utilities';
 
 // Dependencies needed underneath the hood for the loaders. We add them
 // here only to track where what dependency is sued

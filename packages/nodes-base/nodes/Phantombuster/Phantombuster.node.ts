@@ -7,7 +7,7 @@ import {
 	type INodeType,
 	type INodeTypeDescription,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { agentFields, agentOperations } from './AgentDescription';
 import { phantombusterApiRequest, validateJSON } from './GenericFunctions';

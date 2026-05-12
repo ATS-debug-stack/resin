@@ -12,7 +12,7 @@ import { useTemplatesStore } from '@/features/workflows/templates/templates.stor
 import { usePersonalizedTemplatesV2Store } from '@/experiments/templateRecoV2/stores/templateRecoV2.store';
 import { usePersonalizedTemplatesV3Store } from '@/experiments/personalizedTemplatesV3/stores/personalizedTemplatesV3.store';
 import { useRecommendedTemplatesStore } from '@/features/workflows/templates/recommendations/recommendedTemplates.store';
-import type { Version } from '@n8n/rest-api-client/api/versions';
+import type { Version } from '@resin/rest-api-client/api/versions';
 import { ABOUT_MODAL_KEY, WHATS_NEW_MODAL_KEY } from '@/app/constants';
 
 vi.mock('vue-router', () => ({

@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
-import type { IExecuteFunctions, INode, IBinaryData } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, INode, IBinaryData } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import * as fflate from 'fflate';
 
@@ -25,7 +25,7 @@ describe('Compression Node - Decompress Operation', () => {
 	const mockNode: INode = {
 		id: 'test-node',
 		name: 'Compression',
-		type: 'n8n-nodes-base.compression',
+		type: 'resin-nodes-base.compression',
 		typeVersion: 1.1,
 		position: [0, 0],
 		parameters: {},

@@ -4,7 +4,7 @@ import {
 	MANUAL_TRIGGER_NODE_TYPE,
 	SCHEDULE_TRIGGER_NODE_TYPE,
 	WEBHOOK_NODE_TYPE,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 export const USER_CONNECTED_TO_MCP_EVENT = 'User connected to MCP server';
 export const USER_CALLED_MCP_TOOL_EVENT = 'User called mcp tool';

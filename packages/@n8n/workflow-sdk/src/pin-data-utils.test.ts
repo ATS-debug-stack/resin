@@ -1,5 +1,5 @@
-import type { INode, INodeExecutionData, IPinData } from 'n8n-workflow';
-import { HTTP_REQUEST_NODE_TYPE } from 'n8n-workflow';
+import type { INode, INodeExecutionData, IPinData } from 'resin-workflow';
+import { HTTP_REQUEST_NODE_TYPE } from 'resin-workflow';
 
 import {
 	needsPinData,
@@ -24,7 +24,7 @@ function createNode(overrides: Partial<INode> = {}): INode {
 	return {
 		id: 'node-1',
 		name: 'Test Node',
-		type: 'n8n-nodes-base.set',
+		type: 'resin-nodes-base.set',
 		typeVersion: 1,
 		position: [0, 0] as [number, number],
 		parameters: {},
@@ -34,23 +34,23 @@ function createNode(overrides: Partial<INode> = {}): INode {
 
 describe('needsPinData', () => {
 	it('returns false for a plain logic node without trigger check', () => {
-		const node = createNode({ type: 'n8n-nodes-base.set' });
+		const node = createNode({ type: 'resin-nodes-base.set' });
 		expect(needsPinData(node)).toBe(false);
 	});
 
 	it('returns true when isTriggerNode callback returns true', () => {
-		const node = createNode({ type: 'n8n-nodes-base.webhook' });
+		const node = createNode({ type: 'resin-nodes-base.webhook' });
 		expect(needsPinData(node, () => true)).toBe(true);
 	});
 
 	it('returns false when isTriggerNode callback returns false and no other criteria match', () => {
-		const node = createNode({ type: 'n8n-nodes-base.set' });
+		const node = createNode({ type: 'resin-nodes-base.set' });
 		expect(needsPinData(node, () => false)).toBe(false);
 	});
 
 	it('returns true for nodes with credentials', () => {
 		const node = createNode({
-			type: 'n8n-nodes-base.slack',
+			type: 'resin-nodes-base.slack',
 			credentials: { slackApi: { id: 'cred-1', name: 'My Slack' } },
 		});
 		expect(needsPinData(node)).toBe(true);
@@ -58,7 +58,7 @@ describe('needsPinData', () => {
 
 	it('returns false for nodes with empty credentials object', () => {
 		const node = createNode({
-			type: 'n8n-nodes-base.slack',
+			type: 'resin-nodes-base.slack',
 			credentials: {},
 		});
 		expect(needsPinData(node)).toBe(false);
@@ -93,7 +93,7 @@ describe('discoverOutputSchemaForNode', () => {
 
 	it('returns undefined when no schemas are discovered', () => {
 		mockDiscoverSchemasForNode.mockReturnValue([]);
-		expect(discoverOutputSchemaForNode('n8n-nodes-base.slack', 1)).toBeUndefined();
+		expect(discoverOutputSchemaForNode('resin-nodes-base.slack', 1)).toBeUndefined();
 	});
 
 	it('uses findSchemaForOperation when resource/operation are provided', () => {
@@ -103,7 +103,7 @@ describe('discoverOutputSchemaForNode', () => {
 		]);
 		mockFindSchemaForOperation.mockReturnValue({ schema });
 
-		const result = discoverOutputSchemaForNode('n8n-nodes-base.slack', 1, {
+		const result = discoverOutputSchemaForNode('resin-nodes-base.slack', 1, {
 			resource: 'message',
 			operation: 'post',
 		});
@@ -116,7 +116,7 @@ describe('discoverOutputSchemaForNode', () => {
 		const schema = { type: 'object', properties: { val: { type: 'number' } } };
 		mockDiscoverSchemasForNode.mockReturnValue([{ schema }]);
 
-		const result = discoverOutputSchemaForNode('n8n-nodes-base.httpRequest', 4);
+		const result = discoverOutputSchemaForNode('resin-nodes-base.httpRequest', 4);
 
 		expect(result).toEqual(schema);
 		expect(mockFindSchemaForOperation).not.toHaveBeenCalled();
@@ -128,7 +128,7 @@ describe('discoverOutputSchemaForNode', () => {
 			{ schema: { type: 'object' } },
 		]);
 
-		const result = discoverOutputSchemaForNode('n8n-nodes-base.slack', 1);
+		const result = discoverOutputSchemaForNode('resin-nodes-base.slack', 1);
 		expect(result).toBeUndefined();
 	});
 
@@ -138,7 +138,7 @@ describe('discoverOutputSchemaForNode', () => {
 		]);
 		mockFindSchemaForOperation.mockReturnValue(undefined);
 
-		const result = discoverOutputSchemaForNode('n8n-nodes-base.slack', 1, {
+		const result = discoverOutputSchemaForNode('resin-nodes-base.slack', 1, {
 			resource: 'message',
 			operation: 'post',
 		});

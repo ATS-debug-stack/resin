@@ -1,18 +1,18 @@
-import { DeploymentConfig, SecurityConfig } from '@n8n/config';
-import { Container } from '@n8n/di';
+import { DeploymentConfig, SecurityConfig } from '@resin/config';
+import { Container } from '@resin/di';
 import { access, mkdir } from 'fs/promises';
 import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	NodeConnectionTypes,
 	NodeOperationError,
 	assertParamIsBoolean,
 	assertParamIsString,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { LogOptions, SimpleGit, SimpleGitOptions } from 'simple-git';
 import simpleGit from 'simple-git';
 import { URL } from 'url';

@@ -1,8 +1,8 @@
 import { PGVectorStore, type PGVectorStoreArgs } from '@langchain/community/vectorstores/pgvector';
-import { createVectorStoreNode, metadataFilterField } from '@n8n/ai-utilities';
-import { configurePostgres } from 'n8n-nodes-base/dist/nodes/Postgres/transport/index';
-import type { PostgresNodeCredentials } from 'n8n-nodes-base/dist/nodes/Postgres/v2/helpers/interfaces';
-import { postgresConnectionTest } from 'n8n-nodes-base/dist/nodes/Postgres/v2/methods/credentialTest';
+import { createVectorStoreNode, metadataFilterField } from '@resin/ai-utilities';
+import { configurePostgres } from 'resin-nodes-base/dist/nodes/Postgres/transport/index';
+import type { PostgresNodeCredentials } from 'resin-nodes-base/dist/nodes/Postgres/v2/helpers/interfaces';
+import { postgresConnectionTest } from 'resin-nodes-base/dist/nodes/Postgres/v2/methods/credentialTest';
 import type {
 	ICredentialsDecrypted,
 	ICredentialTestFunctions,
@@ -11,8 +11,8 @@ import type {
 	INodeCredentialTestResult,
 	INodeProperties,
 	NodeParameterValueType,
-} from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+} from 'resin-workflow';
+import { jsonParse } from 'resin-workflow';
 import type pg from 'pg';
 import { getUserScopedSlot } from '../shared/userScoped';
 import { ExtendedPGVectorStore } from '../VectorStorePGVector/VectorStorePGVector.node';

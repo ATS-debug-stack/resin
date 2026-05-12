@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { N8nSelect2 } from '@n8n/design-system';
+import { N8nSelect2 } from '@resin/design-system';
 import type {
 	SelectItemProps,
 	SelectValue,
-} from '@n8n/design-system/v2/components/Select/Select.types';
-import { useI18n, type BaseTextKey } from '@n8n/i18n';
+} from '@resin/design-system/v2/components/Select/Select.types';
+import { useI18n, type BaseTextKey } from '@resin/i18n';
 
 type BuilderMode = 'build' | 'plan';
 

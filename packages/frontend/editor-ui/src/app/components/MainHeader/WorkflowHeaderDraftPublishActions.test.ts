@@ -11,7 +11,7 @@ import { useProjectsStore } from '@/features/collaboration/projects/projects.sto
 import { useWorkflowHistoryStore } from '@/features/workflows/workflowHistory/workflowHistory.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { WORKFLOW_PUBLISH_MODAL_KEY, EnterpriseEditionFeature } from '@/app/constants';
-import { STORES } from '@n8n/stores';
+import { STORES } from '@resin/stores';
 import type { INodeUi } from '@/Interface';
 import { ProjectTypes } from '@/features/collaboration/projects/projects.types';
 import { createTestProject } from '@/features/collaboration/projects/__tests__/utils';
@@ -117,7 +117,7 @@ const createMockActiveVersion = (versionId: string) => ({
 const triggerNode: INodeUi = {
 	id: 'trigger-1',
 	name: 'Webhook Trigger',
-	type: 'n8n-nodes-base.webhook',
+	type: 'resin-nodes-base.webhook',
 	typeVersion: 1,
 	position: [0, 0],
 	parameters: {},
@@ -144,7 +144,7 @@ describe('WorkflowHeaderDraftPublishActions', () => {
 		const nodeTypesStore = useNodeTypesStore();
 		nodeTypesStore.setNodeTypes([
 			mockNodeTypeDescription({
-				name: 'n8n-nodes-base.webhook',
+				name: 'resin-nodes-base.webhook',
 				group: ['trigger'],
 			}),
 		]);

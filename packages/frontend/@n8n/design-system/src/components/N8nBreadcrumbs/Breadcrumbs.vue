@@ -177,7 +177,7 @@ const handleTooltipClose = () => {
 			[$style.container]: true,
 			[$style.border]: props.showBorder,
 			[$style[props.theme]]: true,
-			['n8n-breadcrumbs']: true,
+			['resin-breadcrumbs']: true,
 		}"
 	>
 		<slot name="prepend"></slot>

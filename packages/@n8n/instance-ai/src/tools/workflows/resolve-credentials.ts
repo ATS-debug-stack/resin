@@ -5,7 +5,7 @@
  * Produces sidecar verification pin data instead of mutating the workflow's pinData.
  */
 
-import type { WorkflowJSON } from '@n8n/workflow-sdk';
+import type { WorkflowJSON } from '@resin/workflow-sdk';
 
 import type { InstanceAiContext } from '../../types';
 

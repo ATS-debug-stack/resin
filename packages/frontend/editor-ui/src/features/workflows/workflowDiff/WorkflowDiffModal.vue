@@ -4,19 +4,19 @@ import WorkflowDiffView from '@/features/workflows/workflowDiff/WorkflowDiffView
 import { useToast } from '@/app/composables/useToast';
 import { WORKFLOW_DIFF_MODAL_KEY } from '@/app/constants';
 import type { IWorkflowDb } from '@/Interface';
-import type { SourceControlledFileStatus } from '@n8n/api-types';
+import type { SourceControlledFileStatus } from '@resin/api-types';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useSourceControlStore } from '@/features/integrations/sourceControl.ee/sourceControl.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
-import { useI18n } from '@n8n/i18n';
-import type { EventBus } from '@n8n/utils/event-bus';
+import { useI18n } from '@resin/i18n';
+import type { EventBus } from '@resin/utils/event-bus';
 import { useAsyncState } from '@vueuse/core';
 import { computed, onMounted, onUnmounted, ref, useCssModule } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { telemetry } from '@/app/plugins/telemetry';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 
-import { N8nIcon, N8nText } from '@n8n/design-system';
+import { N8nIcon, N8nText } from '@resin/design-system';
 
 const props = defineProps<{
 	data: {

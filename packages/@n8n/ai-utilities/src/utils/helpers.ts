@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, ISupplyDataFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions, ISupplyDataFunctions } from 'resin-workflow';
 
 export function getMetadataFiltersValues(
 	ctx: IExecuteFunctions | ISupplyDataFunctions,

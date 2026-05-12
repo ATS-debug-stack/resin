@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { InstanceAiAttachment } from '@n8n/api-types';
-import ChatFile from '@n8n/chat/components/ChatFile.vue';
-import { N8nIcon } from '@n8n/design-system';
+import type { InstanceAiAttachment } from '@resin/api-types';
+import ChatFile from '@resin/chat/components/ChatFile.vue';
+import { N8nIcon } from '@resin/design-system';
 import { computed, onBeforeUnmount, ref } from 'vue';
 
 const props = defineProps<{

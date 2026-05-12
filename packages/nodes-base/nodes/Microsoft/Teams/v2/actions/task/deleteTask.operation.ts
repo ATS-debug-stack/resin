@@ -1,4 +1,4 @@
-import type { INodeProperties, IExecuteFunctions } from 'n8n-workflow';
+import type { INodeProperties, IExecuteFunctions } from 'resin-workflow';
 
 import { updateDisplayOptions } from '@utils/utilities';
 

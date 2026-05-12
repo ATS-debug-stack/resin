@@ -1,9 +1,9 @@
-import { testDb } from '@n8n/backend-test-utils';
-import type { AuthenticatedRequest } from '@n8n/db';
-import { UserRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { testDb } from '@resin/backend-test-utils';
+import type { AuthenticatedRequest } from '@resin/db';
+import { UserRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings } from 'n8n-core';
+import type { InstanceSettings } from 'resin-core';
 
 import { JwtService } from '@/services/jwt.service';
 import { createMember, createOwner } from '@test-integration/db/users';

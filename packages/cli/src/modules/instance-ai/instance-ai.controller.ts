@@ -14,11 +14,11 @@ import {
 	InstanceAiUserPreferencesUpdateRequest,
 	InstanceAiEvalExecutionRequest,
 	InstanceAiEvalSubAgentRequest,
-} from '@n8n/api-types';
-import type { InstanceAiAgentNode } from '@n8n/api-types';
-import { ModuleRegistry } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { AuthenticatedRequest } from '@n8n/db';
+} from '@resin/api-types';
+import type { InstanceAiAgentNode } from '@resin/api-types';
+import { ModuleRegistry } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { AuthenticatedRequest } from '@resin/db';
 import {
 	RestController,
 	GlobalScope,
@@ -31,10 +31,13 @@ import {
 	Param,
 	Body,
 	Query,
-} from '@n8n/decorators';
-import type { StoredEvent } from '@n8n/instance-ai';
-import { buildAgentTreeFromEvents } from '@n8n/instance-ai';
-import { UnsupportedAttachmentError, validateAttachmentMimeTypes } from '@n8n/instance-ai/parsers';
+} from '@resin/decorators';
+import type { StoredEvent } from '@resin/instance-ai';
+import { buildAgentTreeFromEvents } from '@resin/instance-ai';
+import {
+	UnsupportedAttachmentError,
+	validateAttachmentMimeTypes,
+} from '@resin/instance-ai/parsers';
 import type { NextFunction, Request, Response } from 'express';
 import { randomUUID, timingSafeEqual } from 'node:crypto';
 import { EvalExecutionService } from './eval/execution.service';
@@ -652,7 +655,7 @@ export class InstanceAiController {
 			? Math.max(0, Math.ceil((expiresAt.getTime() - Date.now()) / 1000))
 			: null;
 		const baseUrl = this.urlService.getInstanceBaseUrl();
-		const command = `npx @n8n/computer-use ${baseUrl} ${token}`;
+		const command = `npx @resin/computer-use ${baseUrl} ${token}`;
 		return { token, command, expiresAt: expiresAt?.toISOString() ?? null, ttlSeconds };
 	}
 

@@ -170,7 +170,7 @@ describe('tool-executor', () => {
 				{
 					id: 'call-1',
 					name: 'add_nodes',
-					args: { nodeType: 'n8n-nodes-base.code' },
+					args: { nodeType: 'resin-nodes-base.code' },
 					type: 'tool_call',
 				},
 			];

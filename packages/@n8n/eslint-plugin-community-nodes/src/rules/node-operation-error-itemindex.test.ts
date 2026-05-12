@@ -10,8 +10,8 @@ function createNodeWithExecute(executeBody: string): { filename: string; code: s
 	return {
 		filename: NODE_FILENAME,
 		code: `
-import type { INodeType, INodeTypeDescription, IExecuteFunctions, INodeExecutionData } from 'n8n-workflow';
-import { NodeOperationError, NodeApiError } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription, IExecuteFunctions, INodeExecutionData } from 'resin-workflow';
+import { NodeOperationError, NodeApiError } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {
@@ -131,8 +131,8 @@ export class RegularClass {
 			name: 'NodeOperationError outside execute() method is not flagged',
 			filename: NODE_FILENAME,
 			code: `
-import type { INodeType, INodeTypeDescription, IWebhookFunctions, IWebhookResponseData } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription, IWebhookFunctions, IWebhookResponseData } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {

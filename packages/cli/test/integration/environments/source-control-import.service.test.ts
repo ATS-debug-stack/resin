@@ -1,4 +1,4 @@
-import type { SourceControlledFile } from '@n8n/api-types';
+import type { SourceControlledFile } from '@resin/api-types';
 import {
 	createTeamProject,
 	getPersonalProject,
@@ -7,7 +7,7 @@ import {
 	randomCredentialPayload,
 	testDb,
 	mockInstance,
-} from '@n8n/backend-test-utils';
+} from '@resin/backend-test-utils';
 import {
 	type CredentialsEntity,
 	CredentialsRepository,
@@ -20,20 +20,20 @@ import {
 	WorkflowRepository,
 	WorkflowTagMappingRepository,
 	WorkflowHistoryRepository,
-} from '@n8n/db';
+} from '@resin/db';
 import {
 	FolderRepository,
 	ProjectRepository,
 	SharedCredentialsRepository,
 	SharedWorkflowRepository,
 	UserRepository,
-} from '@n8n/db';
-import { Container } from '@n8n/di';
+} from '@resin/db';
+import { Container } from '@resin/di';
 import * as fastGlob from 'fast-glob';
 import { mock } from 'jest-mock-extended';
-import { Cipher } from 'n8n-core';
-import type { InstanceSettings } from 'n8n-core';
-import * as utils from 'n8n-workflow';
+import { Cipher } from 'resin-core';
+import type { InstanceSettings } from 'resin-core';
+import * as utils from 'resin-workflow';
 import { nanoid } from 'nanoid';
 import fsp from 'node:fs/promises';
 
@@ -1713,7 +1713,7 @@ describe('SourceControlImportService', () => {
 					{
 						id: 'node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [250, 300] as [number, number],
 						parameters: {},
@@ -1774,7 +1774,7 @@ describe('SourceControlImportService', () => {
 					{
 						id: 'node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [250, 300] as [number, number],
 						parameters: {},
@@ -1798,7 +1798,7 @@ describe('SourceControlImportService', () => {
 					{
 						id: 'node-2',
 						name: 'Set',
-						type: 'n8n-nodes-base.set',
+						type: 'resin-nodes-base.set',
 						typeVersion: 1,
 						position: [450, 300] as [number, number],
 						parameters: {},
@@ -1834,7 +1834,7 @@ describe('SourceControlImportService', () => {
 					{
 						id: 'node-1',
 						name: 'Start',
-						type: 'n8n-nodes-base.manualTrigger',
+						type: 'resin-nodes-base.manualTrigger',
 						typeVersion: 1,
 						position: [250, 300] as [number, number],
 						parameters: {},

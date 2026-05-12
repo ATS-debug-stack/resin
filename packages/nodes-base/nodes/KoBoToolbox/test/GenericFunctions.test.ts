@@ -1,5 +1,5 @@
-import type { IExecuteFunctions, IDataObject } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, IDataObject } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 import { validateAttachmentUrl, downloadAttachments } from '../GenericFunctions';
 
 describe('KoBoToolbox GenericFunctions', () => {

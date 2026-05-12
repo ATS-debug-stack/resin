@@ -7,8 +7,8 @@ import type {
 	IHttpRequestOptions,
 	INodeExecutionData,
 	IHttpRequestMethods,
-} from 'n8n-workflow';
-import { ApplicationError, deepCopy } from 'n8n-workflow';
+} from 'resin-workflow';
+import { ApplicationError, deepCopy } from 'resin-workflow';
 
 import type { IRequestBody } from './types';
 import { getAwsCredentials } from '../GenericFunctions';

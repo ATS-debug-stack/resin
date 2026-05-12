@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-jest.mock('@n8n/instance-ai', () => ({
+jest.mock('@resin/instance-ai', () => ({
 	createMemory: jest.fn(),
 	workflowLoopStateSchema: z.string(),
 	attemptRecordSchema: z.object({}),
@@ -12,7 +12,7 @@ jest.mock('../eval/execution.service', () => ({
 	EvalExecutionService: jest.fn(),
 }));
 
-import type { UserRepository, WorkflowRepository } from '@n8n/db';
+import type { UserRepository, WorkflowRepository } from '@resin/db';
 import type { Request, Response } from 'express';
 import { mock } from 'jest-mock-extended';
 

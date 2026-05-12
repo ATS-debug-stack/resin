@@ -1,9 +1,9 @@
-import { EVAL_PARALLEL_EXECUTION_FLAG } from '@n8n/api-types';
-import { GlobalConfig } from '@n8n/config';
-import type { PublicUser } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { InstanceSettings } from 'n8n-core';
-import type { FeatureFlags, ITelemetryTrackProperties } from 'n8n-workflow';
+import { EVAL_PARALLEL_EXECUTION_FLAG } from '@resin/api-types';
+import { GlobalConfig } from '@resin/config';
+import type { PublicUser } from '@resin/db';
+import { Service } from '@resin/di';
+import { InstanceSettings } from 'resin-core';
+import type { FeatureFlags, ITelemetryTrackProperties } from 'resin-workflow';
 import type { PostHog } from 'posthog-node';
 
 /**

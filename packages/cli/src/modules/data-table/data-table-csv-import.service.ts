@@ -1,8 +1,8 @@
-import type { CreateDataTableDto } from '@n8n/api-types';
-import { Logger } from '@n8n/backend-common';
-import { Service } from '@n8n/di';
-import type { DataTableRow } from 'n8n-workflow';
-import { DATA_TABLE_SYSTEM_COLUMNS } from 'n8n-workflow';
+import type { CreateDataTableDto } from '@resin/api-types';
+import { Logger } from '@resin/backend-common';
+import { Service } from '@resin/di';
+import type { DataTableRow } from 'resin-workflow';
+import { DATA_TABLE_SYSTEM_COLUMNS } from 'resin-workflow';
 
 import type { CsvColumnMetadata } from './csv-parser.service';
 import { CsvParserService } from './csv-parser.service';

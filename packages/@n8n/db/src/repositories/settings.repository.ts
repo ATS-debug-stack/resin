@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
-import type { EntityManager } from '@n8n/typeorm';
-import { DataSource, In, Like, Repository } from '@n8n/typeorm';
+import { Service } from '@resin/di';
+import type { EntityManager } from '@resin/typeorm';
+import { DataSource, In, Like, Repository } from '@resin/typeorm';
 
 import { Settings } from '../entities';
 

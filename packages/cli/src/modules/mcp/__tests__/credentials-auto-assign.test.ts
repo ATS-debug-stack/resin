@@ -1,11 +1,11 @@
-import type { User } from '@n8n/db';
+import type { User } from '@resin/db';
 import type {
 	INode,
 	INodeTypeDescription,
 	INodeCredentialDescription,
 	IWorkflowBase,
-} from 'n8n-workflow';
-import { NodeHelpers } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeHelpers } from 'resin-workflow';
 
 import { autoPopulateNodeCredentials } from '../tools/workflow-builder/credentials-auto-assign';
 
@@ -19,7 +19,7 @@ function makeNode(overrides: Partial<INode> = {}): INode {
 	return {
 		id: 'node-1',
 		name: 'Test Node',
-		type: 'n8n-nodes-base.slack',
+		type: 'resin-nodes-base.slack',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {},
@@ -42,7 +42,7 @@ function makeNodeTypeDescription(
 ): INodeTypeDescription {
 	return {
 		displayName: 'Slack',
-		name: 'n8n-nodes-base.slack',
+		name: 'resin-nodes-base.slack',
 		group: ['transform'],
 		version: 1,
 		description: '',
@@ -86,7 +86,7 @@ describe('autoPopulateNodeCredentials', () => {
 		const desc = makeNodeTypeDescription();
 		const { credentialsService, nodeTypes } = createMocks({
 			usableCredentials: [{ id: 'cred-1', name: 'My Slack Token', type: 'slackApi' }],
-			nodeTypeDescriptions: new Map([['n8n-nodes-base.slack', desc]]),
+			nodeTypeDescriptions: new Map([['resin-nodes-base.slack', desc]]),
 		});
 
 		jest.spyOn(NodeHelpers, 'displayParameter').mockReturnValue(true);
@@ -112,7 +112,7 @@ describe('autoPopulateNodeCredentials', () => {
 		const desc = makeNodeTypeDescription();
 		const { credentialsService, nodeTypes } = createMocks({
 			usableCredentials: [],
-			nodeTypeDescriptions: new Map([['n8n-nodes-base.slack', desc]]),
+			nodeTypeDescriptions: new Map([['resin-nodes-base.slack', desc]]),
 		});
 
 		jest.spyOn(NodeHelpers, 'displayParameter').mockReturnValue(true);
@@ -150,9 +150,9 @@ describe('autoPopulateNodeCredentials', () => {
 
 	test('skips HTTP Request nodes and reports them', async () => {
 		const httpNodes = [
-			makeNode({ id: '1', name: 'HTTP 1', type: 'n8n-nodes-base.httpRequest' }),
-			makeNode({ id: '2', name: 'HTTP 2', type: '@n8n/n8n-nodes-langchain.toolHttpRequest' }),
-			makeNode({ id: '3', name: 'HTTP 3', type: 'n8n-nodes-base.httpRequestTool' }),
+			makeNode({ id: '1', name: 'HTTP 1', type: 'resin-nodes-base.httpRequest' }),
+			makeNode({ id: '2', name: 'HTTP 2', type: '@resin/n8n-nodes-langchain.toolHttpRequest' }),
+			makeNode({ id: '3', name: 'HTTP 3', type: 'resin-nodes-base.httpRequestTool' }),
 		];
 		const workflow = makeWorkflow(httpNodes);
 		const { credentialsService, nodeTypes } = createMocks({
@@ -179,7 +179,7 @@ describe('autoPopulateNodeCredentials', () => {
 		const desc = makeNodeTypeDescription();
 		const { credentialsService, nodeTypes } = createMocks({
 			usableCredentials: [{ id: 'cred-1', name: 'Another Slack Token', type: 'slackApi' }],
-			nodeTypeDescriptions: new Map([['n8n-nodes-base.slack', desc]]),
+			nodeTypeDescriptions: new Map([['resin-nodes-base.slack', desc]]),
 		});
 
 		jest.spyOn(NodeHelpers, 'displayParameter').mockReturnValue(true);
@@ -197,7 +197,7 @@ describe('autoPopulateNodeCredentials', () => {
 	});
 
 	test('skips node when nodeType is unknown', async () => {
-		const node = makeNode({ type: 'n8n-nodes-base.unknown' });
+		const node = makeNode({ type: 'resin-nodes-base.unknown' });
 		const workflow = makeWorkflow([node]);
 		const { credentialsService, nodeTypes } = createMocks({
 			usableCredentials: [{ id: 'cred-1', name: 'Cred', type: 'someApi' }],
@@ -216,15 +216,15 @@ describe('autoPopulateNodeCredentials', () => {
 	});
 
 	test('skips node when nodeType has no credential descriptions', async () => {
-		const node = makeNode({ type: 'n8n-nodes-base.set' });
+		const node = makeNode({ type: 'resin-nodes-base.set' });
 		const workflow = makeWorkflow([node]);
 		const desc = makeNodeTypeDescription({
-			name: 'n8n-nodes-base.set',
+			name: 'resin-nodes-base.set',
 			credentials: undefined,
 		});
 		const { credentialsService, nodeTypes } = createMocks({
 			usableCredentials: [{ id: 'cred-1', name: 'Cred', type: 'someApi' }],
-			nodeTypeDescriptions: new Map([['n8n-nodes-base.set', desc]]),
+			nodeTypeDescriptions: new Map([['resin-nodes-base.set', desc]]),
 		});
 
 		const result = await autoPopulateNodeCredentials(
@@ -244,7 +244,7 @@ describe('autoPopulateNodeCredentials', () => {
 		const desc = makeNodeTypeDescription();
 		const { credentialsService, nodeTypes } = createMocks({
 			usableCredentials: [{ id: 'cred-1', name: 'My Slack Token', type: 'slackApi' }],
-			nodeTypeDescriptions: new Map([['n8n-nodes-base.slack', desc]]),
+			nodeTypeDescriptions: new Map([['resin-nodes-base.slack', desc]]),
 		});
 
 		jest.spyOn(NodeHelpers, 'displayParameter').mockReturnValue(false);
@@ -269,7 +269,7 @@ describe('autoPopulateNodeCredentials', () => {
 				{ id: 'cred-1', name: 'Slack Token A', type: 'slackApi' },
 				{ id: 'cred-2', name: 'Slack Token B', type: 'slackApi' },
 			],
-			nodeTypeDescriptions: new Map([['n8n-nodes-base.slack', desc]]),
+			nodeTypeDescriptions: new Map([['resin-nodes-base.slack', desc]]),
 		});
 
 		jest.spyOn(NodeHelpers, 'displayParameter').mockReturnValue(true);
@@ -288,16 +288,16 @@ describe('autoPopulateNodeCredentials', () => {
 	});
 
 	test('handles multiple nodes with different credential types', async () => {
-		const slackNode = makeNode({ id: '1', name: 'Slack', type: 'n8n-nodes-base.slack' });
-		const gmailNode = makeNode({ id: '2', name: 'Gmail', type: 'n8n-nodes-base.gmail' });
+		const slackNode = makeNode({ id: '1', name: 'Slack', type: 'resin-nodes-base.slack' });
+		const gmailNode = makeNode({ id: '2', name: 'Gmail', type: 'resin-nodes-base.gmail' });
 		const workflow = makeWorkflow([slackNode, gmailNode]);
 
 		const slackDesc = makeNodeTypeDescription({
-			name: 'n8n-nodes-base.slack',
+			name: 'resin-nodes-base.slack',
 			credentials: [makeCredentialDescription({ name: 'slackApi' })],
 		});
 		const gmailDesc = makeNodeTypeDescription({
-			name: 'n8n-nodes-base.gmail',
+			name: 'resin-nodes-base.gmail',
 			credentials: [makeCredentialDescription({ name: 'gmailOAuth2' })],
 		});
 
@@ -307,8 +307,8 @@ describe('autoPopulateNodeCredentials', () => {
 				{ id: 'cred-2', name: 'My Gmail', type: 'gmailOAuth2' },
 			],
 			nodeTypeDescriptions: new Map([
-				['n8n-nodes-base.slack', slackDesc],
-				['n8n-nodes-base.gmail', gmailDesc],
+				['resin-nodes-base.slack', slackDesc],
+				['resin-nodes-base.gmail', gmailDesc],
 			]),
 		});
 

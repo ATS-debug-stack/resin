@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from 'resin-workflow';
 
 export class WordpressOAuth2Api implements ICredentialType {
 	name = 'wordpressOAuth2Api';

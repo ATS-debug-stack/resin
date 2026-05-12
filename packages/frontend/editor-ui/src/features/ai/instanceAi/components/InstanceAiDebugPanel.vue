@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { N8nIcon, N8nIconButton } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nIcon, N8nIconButton } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { computed, nextTick, onMounted, ref, useTemplateRef, watch } from 'vue';
 import { useInstanceAiStore, useThread } from '../instanceAi.store';
 import { useInstanceAiDebugStore } from '../instanceAiDebug.store';

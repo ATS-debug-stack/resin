@@ -1,7 +1,7 @@
-import { Logger } from '@n8n/backend-common';
-import type { ModuleInterface } from '@n8n/decorators';
-import { BackendModule, OnShutdown } from '@n8n/decorators';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import type { ModuleInterface } from '@resin/decorators';
+import { BackendModule, OnShutdown } from '@resin/decorators';
+import { Container } from '@resin/di';
 
 const YELLOW = '\x1b[33m';
 const CLEAR = '\x1b[0m';
@@ -38,7 +38,7 @@ export class InstanceAiModule implements ModuleInterface {
 	}
 
 	async settings() {
-		const { GlobalConfig } = await import('@n8n/config');
+		const { GlobalConfig } = await import('@resin/config');
 		const { InstanceAiService } = await import('./instance-ai.service');
 		const { InstanceAiSettingsService } = await import('./instance-ai-settings.service');
 		const globalConfig = Container.get(GlobalConfig);

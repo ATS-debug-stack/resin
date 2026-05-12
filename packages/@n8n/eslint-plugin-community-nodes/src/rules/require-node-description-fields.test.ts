@@ -9,7 +9,7 @@ const nonNodeFilePath = '/tmp/SomeHelper.ts';
 
 function createFullNode(): string {
 	return `
-import type { INodeType } from 'n8n-workflow';
+import type { INodeType } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description = {
@@ -29,7 +29,7 @@ export class TestNode implements INodeType {
 
 function createNodeMissingSubtitle(): string {
 	return `
-import type { INodeType } from 'n8n-workflow';
+import type { INodeType } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description = {
@@ -48,7 +48,7 @@ export class TestNode implements INodeType {
 
 function createNodeMissingIconAndSubtitle(): string {
 	return `
-import type { INodeType } from 'n8n-workflow';
+import type { INodeType } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description = {
@@ -101,7 +101,7 @@ export class TestNode extends Node {
 
 function createNodeWithOnlyIconAndSubtitle(): string {
 	return `
-import type { INodeType } from 'n8n-workflow';
+import type { INodeType } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description = {

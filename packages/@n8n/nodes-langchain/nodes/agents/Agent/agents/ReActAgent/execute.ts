@@ -7,9 +7,9 @@ import {
 	type INodeExecutionData,
 	NodeConnectionTypes,
 	NodeOperationError,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { isChatInstance } from '@n8n/ai-utilities';
+import { isChatInstance } from '@resin/ai-utilities';
 import { getConnectedTools, getPromptInputByType } from '@utils/helpers';
 import { getOptionalOutputParser } from '@utils/output_parsers/N8nOutputParser';
 import { throwIfToolSchema } from '@utils/schemaParsing';

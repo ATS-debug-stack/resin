@@ -2,7 +2,7 @@ import type { Response } from 'express';
 import { rm } from 'fs/promises';
 import isbot from 'isbot';
 import { DateTime } from 'luxon';
-import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'n8n-core';
+import { getHtmlSandboxCSP, isFormHtmlSandboxingDisabled } from 'resin-core';
 import type {
 	INodeExecutionData,
 	MultiPartFormData,
@@ -10,7 +10,7 @@ import type {
 	IWebhookFunctions,
 	FormFieldsParameter,
 	NodeTypeAndVersion,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	FORM_NODE_TYPE,
 	FORM_TRIGGER_NODE_TYPE,
@@ -21,7 +21,7 @@ import {
 	tryToParseUrl,
 	BINARY_MODE_COMBINED,
 	tryToParseJsonToFormFields,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import * as a from 'node:assert';
 import sanitize from 'sanitize-html';
 
@@ -308,7 +308,7 @@ export const validateResponseModeConfiguration = (context: IWebhookFunctions) =>
 	const nodeVersion = context.getNode().typeVersion;
 
 	const isRespondToWebhookConnected = connectedNodes.some(
-		(node) => node.type === 'n8n-nodes-base.respondToWebhook',
+		(node) => node.type === 'resin-nodes-base.respondToWebhook',
 	);
 
 	if (!isRespondToWebhookConnected && responseMode === 'responseNode') {

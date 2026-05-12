@@ -1,7 +1,7 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import type { AIMessageChunk, BaseMessage } from '@langchain/core/messages';
 import { AIMessage, HumanMessage, SystemMessage, ToolMessage } from '@langchain/core/messages';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 
 import type { AssistantHandler } from '@/assistant/assistant-handler';
 import type { StreamWriter } from '@/assistant/types';

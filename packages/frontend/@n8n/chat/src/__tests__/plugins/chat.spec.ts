@@ -1,16 +1,16 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { createApp } from 'vue';
 
-import * as api from '@n8n/chat/api';
-import type { StreamingEventHandlers } from '@n8n/chat/api/message';
-import { localStorageSessionIdKey } from '@n8n/chat/constants';
-import { chatEventBus } from '@n8n/chat/event-buses';
-import { ChatPlugin } from '@n8n/chat/plugins/chat';
-import type { Chat, ChatOptions, LoadPreviousSessionResponse } from '@n8n/chat/types';
+import * as api from '@resin/chat/api';
+import type { StreamingEventHandlers } from '@resin/chat/api/message';
+import { localStorageSessionIdKey } from '@resin/chat/constants';
+import { chatEventBus } from '@resin/chat/event-buses';
+import { ChatPlugin } from '@resin/chat/plugins/chat';
+import type { Chat, ChatOptions, LoadPreviousSessionResponse } from '@resin/chat/types';
 
 // Mock dependencies
-vi.mock('@n8n/chat/api');
-vi.mock('@n8n/chat/event-buses', () => ({
+vi.mock('@resin/chat/api');
+vi.mock('@resin/chat/event-buses', () => ({
 	chatEventBus: {
 		emit: vi.fn(),
 	},

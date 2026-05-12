@@ -4,10 +4,10 @@ import type {
 	ProjectRepository,
 	SharedWorkflowRepository,
 	User,
-} from '@n8n/db';
-import type { EntityManager } from '@n8n/typeorm';
+} from '@resin/db';
+import type { EntityManager } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import type { INodeCredentials } from 'n8n-workflow';
+import type { INodeCredentials } from 'resin-workflow';
 
 import type { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import type { CredentialsService } from '@/credentials/credentials.service';

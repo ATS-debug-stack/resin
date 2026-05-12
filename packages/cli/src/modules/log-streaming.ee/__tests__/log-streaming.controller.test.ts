@@ -1,8 +1,8 @@
-import type { InstanceSettingsLoaderConfig } from '@n8n/config';
-import type { AuthenticatedRequest } from '@n8n/db';
+import type { InstanceSettingsLoaderConfig } from '@resin/config';
+import type { AuthenticatedRequest } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import { MessageEventBusDestinationTypeNames } from 'n8n-workflow';
-import type { MessageEventBusDestinationWebhookOptions } from 'n8n-workflow';
+import { MessageEventBusDestinationTypeNames } from 'resin-workflow';
+import type { MessageEventBusDestinationWebhookOptions } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { ForbiddenError } from '@/errors/response-errors/forbidden.error';

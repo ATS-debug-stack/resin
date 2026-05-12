@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { N8nCommandBar } from '@n8n/design-system';
+import { N8nCommandBar } from '@resin/design-system';
 import { computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { VIEWS } from '@/app/constants';

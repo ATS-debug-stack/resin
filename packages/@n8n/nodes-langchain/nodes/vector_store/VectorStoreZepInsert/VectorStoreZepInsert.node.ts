@@ -7,9 +7,9 @@ import {
 	type INodeTypeDescription,
 	type INodeExecutionData,
 	NodeConnectionTypes,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { processDocuments, type N8nJsonLoader } from '@n8n/ai-utilities';
+import { processDocuments, type N8nJsonLoader } from '@resin/ai-utilities';
 
 // This node is deprecated. Use VectorStoreZep instead.
 export class VectorStoreZepInsert implements INodeType {

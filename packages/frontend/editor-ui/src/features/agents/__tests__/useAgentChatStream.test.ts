@@ -1,13 +1,13 @@
 /* eslint-disable import-x/no-extraneous-dependencies -- test-only */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { ref, nextTick } from 'vue';
-import { ASK_CREDENTIAL_TOOL_NAME, ASK_LLM_TOOL_NAME, type AgentSseEvent } from '@n8n/api-types';
+import { ASK_CREDENTIAL_TOOL_NAME, ASK_LLM_TOOL_NAME, type AgentSseEvent } from '@resin/api-types';
 
-vi.mock('@n8n/stores/useRootStore', () => ({
+vi.mock('@resin/stores/useRootStore', () => ({
 	useRootStore: () => ({ restApiContext: { baseUrl: 'http://localhost:5678' } }),
 }));
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({ baseText: (k: string) => k }),
 }));
 

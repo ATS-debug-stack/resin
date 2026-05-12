@@ -6,8 +6,8 @@ import type {
 	IHttpRequestOptions,
 	INodeProperties,
 	IRequestOptions,
-} from 'n8n-workflow';
-import { OperationalError } from 'n8n-workflow';
+} from 'resin-workflow';
+import { OperationalError } from 'resin-workflow';
 
 import {
 	CURRENT_VERSION,

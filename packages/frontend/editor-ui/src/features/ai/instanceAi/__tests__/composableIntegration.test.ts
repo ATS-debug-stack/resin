@@ -1,5 +1,5 @@
 import { describe, test, expect, vi, beforeEach } from 'vitest';
-import type { InstanceAiMessage } from '@n8n/api-types';
+import type { InstanceAiMessage } from '@resin/api-types';
 import {
 	mockPushConnectionStore,
 	createInstanceAiHarness,

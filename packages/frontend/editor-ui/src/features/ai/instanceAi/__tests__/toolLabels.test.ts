@@ -1,8 +1,8 @@
 import { describe, test, expect, vi } from 'vitest';
 import { getToolIcon, useToolLabel } from '../toolLabels';
-import type { InstanceAiToolCallState } from '@n8n/api-types';
+import type { InstanceAiToolCallState } from '@resin/api-types';
 
-vi.mock('@n8n/i18n', () => ({
+vi.mock('@resin/i18n', () => ({
 	useI18n: () => ({
 		baseText: (key: string) => {
 			const translations: Record<string, string> = {

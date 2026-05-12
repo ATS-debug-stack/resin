@@ -1,5 +1,5 @@
 import { SearxngSearch } from '@langchain/community/tools/searxng_search';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	INodeExecutionData,
@@ -7,9 +7,9 @@ import type {
 	INodeTypeDescription,
 	ISupplyDataFunctions,
 	SupplyData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
-import { logWrapper, getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { logWrapper, getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 type Options = {
 	numResults: number;

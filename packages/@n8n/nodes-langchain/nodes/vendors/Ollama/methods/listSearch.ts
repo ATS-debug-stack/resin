@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions, INodeListSearchResult } from 'n8n-workflow';
+import type { ILoadOptionsFunctions, INodeListSearchResult } from 'resin-workflow';
 
 import type { OllamaTagsResponse } from '../helpers/interfaces';
 import { apiRequest } from '../transport';

@@ -79,14 +79,14 @@ describe('resolveSandboxConfig', () => {
 
 	it('returns an n8n-sandbox config when provider=n8n-sandbox with serviceUrl', () => {
 		const env = baseEnv({
-			N8N_INSTANCE_AI_SANDBOX_PROVIDER: 'n8n-sandbox',
+			N8N_INSTANCE_AI_SANDBOX_PROVIDER: 'resin-sandbox',
 			N8N_SANDBOX_SERVICE_URL: 'https://sandbox.example.com',
 			N8N_SANDBOX_SERVICE_API_KEY: 'sb_key',
 		});
 		const config = resolveSandboxConfig(env);
 		expect(config).toEqual({
 			enabled: true,
-			provider: 'n8n-sandbox',
+			provider: 'resin-sandbox',
 			serviceUrl: 'https://sandbox.example.com',
 			apiKey: 'sb_key',
 			timeout: 300_000,
@@ -94,7 +94,7 @@ describe('resolveSandboxConfig', () => {
 	});
 
 	it('throws a clear error when provider=n8n-sandbox without serviceUrl', () => {
-		const env = baseEnv({ N8N_INSTANCE_AI_SANDBOX_PROVIDER: 'n8n-sandbox' });
+		const env = baseEnv({ N8N_INSTANCE_AI_SANDBOX_PROVIDER: 'resin-sandbox' });
 		expect(() => resolveSandboxConfig(env)).toThrow(/N8N_SANDBOX_SERVICE_URL/);
 	});
 

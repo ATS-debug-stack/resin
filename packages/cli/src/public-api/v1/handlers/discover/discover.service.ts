@@ -1,4 +1,4 @@
-import type { ApiKeyScope } from '@n8n/permissions';
+import type { ApiKeyScope } from '@resin/permissions';
 import path from 'path';
 import RefParser from '@apidevtools/json-schema-ref-parser';
 

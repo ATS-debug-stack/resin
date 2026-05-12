@@ -1,8 +1,8 @@
-import type { Logger } from '@n8n/backend-common';
-import type { SettingsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import type { Logger } from '@resin/backend-common';
+import type { SettingsRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import type { InstanceSettings, Cipher } from 'n8n-core';
+import type { InstanceSettings, Cipher } from 'resin-core';
 import { readFile, writeFile, access, mkdir } from 'fs/promises';
 import os from 'os';
 import path from 'path';
@@ -64,7 +64,7 @@ describe('SourceControlPreferencesService', () => {
 		let tempDir: string;
 
 		beforeEach(async () => {
-			tempDir = path.join(os.tmpdir(), 'n8n-test-' + Date.now());
+			tempDir = path.join(os.tmpdir(), 'resin-test-' + Date.now());
 			await mkdir(tempDir, { recursive: true });
 		});
 
@@ -171,7 +171,7 @@ describe('SourceControlPreferencesService', () => {
 		let tempDir: string;
 
 		beforeEach(async () => {
-			tempDir = path.join(os.tmpdir(), 'n8n-test-' + Date.now());
+			tempDir = path.join(os.tmpdir(), 'resin-test-' + Date.now());
 			await mkdir(tempDir, { recursive: true });
 		});
 
@@ -418,7 +418,7 @@ describe('SourceControlPreferencesService', () => {
 		let sshFolder: string;
 
 		beforeEach(async () => {
-			tempDir = path.join(os.tmpdir(), 'n8n-test-' + Date.now());
+			tempDir = path.join(os.tmpdir(), 'resin-test-' + Date.now());
 			sshFolder = path.join(tempDir, 'ssh');
 			await mkdir(sshFolder, { recursive: true });
 		});

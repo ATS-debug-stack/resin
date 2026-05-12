@@ -1,7 +1,7 @@
-import { createTeamProject, linkUserToProject, testDb } from '@n8n/backend-test-utils';
-import { VariablesRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
-import type { AssignableProjectRole } from '@n8n/permissions';
+import { createTeamProject, linkUserToProject, testDb } from '@resin/backend-test-utils';
+import { VariablesRepository } from '@resin/db';
+import { Container } from '@resin/di';
+import type { AssignableProjectRole } from '@resin/permissions';
 import { mock } from 'jest-mock-extended';
 
 import type { EventService } from '@/events/event.service';

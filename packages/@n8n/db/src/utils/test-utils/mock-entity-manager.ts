@@ -1,6 +1,6 @@
-import { DataSource, EntityManager, type EntityMetadata } from '@n8n/typeorm';
+import { DataSource, EntityManager, type EntityMetadata } from '@resin/typeorm';
 import { mock } from 'jest-mock-extended';
-import type { Class } from 'n8n-core';
+import type { Class } from 'resin-core';
 
 import { mockInstance } from './mock-instance';
 

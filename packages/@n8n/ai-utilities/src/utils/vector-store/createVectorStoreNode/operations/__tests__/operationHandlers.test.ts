@@ -3,8 +3,8 @@ import type { Embeddings } from '@langchain/core/embeddings';
 import type { VectorStore } from '@langchain/core/vectorstores';
 import type { MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
-import type { IExecuteFunctions, ISupplyDataFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions, ISupplyDataFunctions } from 'resin-workflow';
+import { NodeOperationError } from 'resin-workflow';
 
 import type { VectorStoreNodeConstructorArgs } from '../../types';
 import { handleLoadOperation } from '../loadOperation';

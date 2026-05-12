@@ -1,4 +1,4 @@
-import type { AuthPrincipal } from '@n8n/permissions';
+import type { AuthPrincipal } from '@resin/permissions';
 import {
 	AfterLoad,
 	AfterUpdate,
@@ -11,8 +11,8 @@ import {
 	BeforeInsert,
 	JoinColumn,
 	ManyToOne,
-} from '@n8n/typeorm';
-import type { IUser, IUserSettings } from 'n8n-workflow';
+} from '@resin/typeorm';
+import type { IUser, IUserSettings } from 'resin-workflow';
 
 import { JsonColumn, WithTimestamps } from './abstract-entity';
 import type { ApiKey } from './api-key';

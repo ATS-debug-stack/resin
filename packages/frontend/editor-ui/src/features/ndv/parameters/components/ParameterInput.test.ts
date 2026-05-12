@@ -11,7 +11,7 @@ import userEvent from '@testing-library/user-event';
 import type { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { useSettingsStore } from '@/app/stores/settings.store';
 import { mockedStore } from '@/__tests__/utils';
-import { createEventBus } from '@n8n/utils/event-bus';
+import { createEventBus } from '@resin/utils/event-bus';
 import {
 	createTestExpressionLocalResolveContext,
 	createMockEnterpriseSettings,
@@ -20,7 +20,7 @@ import {
 	createTestNodeProperties,
 } from '@/__tests__/mocks';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
-import { NodeConnectionTypes, type INodeParameterResourceLocator } from 'n8n-workflow';
+import { NodeConnectionTypes, type INodeParameterResourceLocator } from 'resin-workflow';
 import type { IWorkflowDb, WorkflowListResource } from '@/Interface';
 import { mock } from 'vitest-mock-extended';
 import { ExpressionLocalResolveContextSymbol } from '@/app/constants';
@@ -614,7 +614,7 @@ describe('ParameterInput.vue', () => {
 					aStr: 'test',
 				},
 				position: [0, 0],
-				type: 'n8n-nodes-base.httpRequest',
+				type: 'resin-nodes-base.httpRequest',
 				typeVersion: 1,
 			},
 		};
@@ -828,7 +828,7 @@ describe('ParameterInput.vue', () => {
 					name: 'Test Node',
 					parameters: {},
 					position: [0, 0],
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 				},
 			};
@@ -851,7 +851,7 @@ describe('ParameterInput.vue', () => {
 			await waitFor(() => {
 				expect(mockBuilderState.trackWorkflowBuilderJourney).toHaveBeenCalledWith(
 					'field_focus_placeholder_in_ndv',
-					{ node_type: 'n8n-nodes-base.httpRequest' },
+					{ node_type: 'resin-nodes-base.httpRequest' },
 				);
 			});
 		});
@@ -865,7 +865,7 @@ describe('ParameterInput.vue', () => {
 					name: 'Test Node',
 					parameters: {},
 					position: [0, 0],
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 				},
 			};
@@ -897,7 +897,7 @@ describe('ParameterInput.vue', () => {
 					name: 'Test Node',
 					parameters: {},
 					position: [0, 0],
-					type: 'n8n-nodes-base.httpRequest',
+					type: 'resin-nodes-base.httpRequest',
 					typeVersion: 1,
 				},
 			};
@@ -932,7 +932,7 @@ describe('ParameterInput.vue', () => {
 				name: 'Test Node',
 				parameters: { model: 'gpt-3.5-turbo' },
 				position: [0, 0] as [number, number],
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				credentials: {
 					openAiApi: { id: '1', name: 'OpenAI Account 1' },
@@ -981,7 +981,7 @@ describe('ParameterInput.vue', () => {
 				name: 'Test Node',
 				parameters: { temperature: 0.9 },
 				position: [0, 0] as [number, number],
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				credentials: {
 					openAiApi: { id: '1', name: 'OpenAI Account 1' },
@@ -1038,7 +1038,7 @@ describe('ParameterInput.vue', () => {
 					name: 'Test Node',
 					parameters: { model: 'gpt-4' },
 					position: [0, 0] as [number, number],
-					type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					credentials: {
 						openAiApi: { id: '1', name: 'OpenAI Account 1' },
@@ -1078,7 +1078,7 @@ describe('ParameterInput.vue', () => {
 				name: 'Test Node',
 				parameters: { model: 'gpt-3.5-turbo' },
 				position: [0, 0] as [number, number],
-				type: '@n8n/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				credentials: {} as Record<string, { id: string; name: string }>,
 			});

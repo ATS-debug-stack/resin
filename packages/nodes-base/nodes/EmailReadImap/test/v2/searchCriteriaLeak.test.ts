@@ -1,6 +1,11 @@
 import { EventEmitter } from 'events';
 import { mock } from 'jest-mock-extended';
-import type { INode, INodeTypeBaseDescription, ITriggerFunctions, IDataObject } from 'n8n-workflow';
+import type {
+	INode,
+	INodeTypeBaseDescription,
+	ITriggerFunctions,
+	IDataObject,
+} from 'resin-workflow';
 
 import { type ICredentialsDataImap } from '@credentials/Imap.credentials';
 
@@ -18,7 +23,7 @@ const mockConnection = Object.assign(new EventEmitter(), {
 	addFlags: jest.fn().mockResolvedValue(undefined),
 });
 
-jest.mock('@n8n/imap', () => ({
+jest.mock('@resin/imap', () => ({
 	connect: jest
 		.fn()
 		.mockImplementation(async (config: { onMail?: (n: number) => Promise<void> }) => {

@@ -1,4 +1,4 @@
-import type { EngineResponse } from 'n8n-workflow';
+import type { EngineResponse } from 'resin-workflow';
 
 import { buildResponseMetadata } from '../buildResponseMetadata';
 import * as agentExecution from '../buildSteps';

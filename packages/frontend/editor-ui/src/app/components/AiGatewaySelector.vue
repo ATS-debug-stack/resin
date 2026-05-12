@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watch, computed } from 'vue';
-import { N8nActionPill } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nActionPill } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useAiGateway } from '@/app/composables/useAiGateway';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useUIStore } from '@/app/stores/ui.store';

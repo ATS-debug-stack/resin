@@ -1,6 +1,6 @@
-import { Service } from '@n8n/di';
+import { Service } from '@resin/di';
 import type { ErrorEvent, Exception } from '@sentry/core';
-import { ErrorReporter } from 'n8n-core';
+import { ErrorReporter } from 'resin-core';
 
 import { SentryConfig } from './config/sentry-config';
 

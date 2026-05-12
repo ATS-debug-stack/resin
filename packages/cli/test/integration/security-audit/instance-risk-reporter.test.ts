@@ -1,9 +1,9 @@
-import { createActiveWorkflow, testDb } from '@n8n/backend-test-utils';
-import { GlobalConfig } from '@n8n/config';
-import { WorkflowRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { createActiveWorkflow, testDb } from '@resin/backend-test-utils';
+import { GlobalConfig } from '@resin/config';
+import { WorkflowRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 import { v4 as uuid } from 'uuid';
 
 import { INSTANCE_REPORT, WEBHOOK_VALIDATOR_NODE_TYPES } from '@/security-audit/constants';
@@ -50,7 +50,7 @@ test('should report webhook lacking authentication', async () => {
 				},
 				id: targetNodeId,
 				name: 'Webhook',
-				type: 'n8n-nodes-base.webhook',
+				type: 'resin-nodes-base.webhook',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				webhookId: uuid(),
@@ -89,7 +89,7 @@ test('should not report webhooks having basic or header auth', async () => {
 					},
 					id: uuid(),
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					webhookId: uuid(),
@@ -127,7 +127,7 @@ test('should not report webhooks validated by direct children', async () => {
 					},
 					id: uuid(),
 					name: 'Webhook',
-					type: 'n8n-nodes-base.webhook',
+					type: 'resin-nodes-base.webhook',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					webhookId: uuid(),
@@ -242,7 +242,7 @@ test('should report security settings', async () => {
 			publicApiEnabled: false,
 		},
 		nodes: {
-			nodesExclude: 'n8n-nodes-base.executeCommand, n8n-nodes-base.localFileTrigger',
+			nodesExclude: 'resin-nodes-base.executeCommand, n8n-nodes-base.localFileTrigger',
 			nodesInclude: 'none',
 		},
 		telemetry: { diagnosticsEnabled: true },

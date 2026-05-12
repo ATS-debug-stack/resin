@@ -4,7 +4,7 @@
  * in timeline components (ToolCallStep, AgentSection). Renders an icon slot
  * and truncated text label.
  */
-import { N8nButton } from '@n8n/design-system';
+import { N8nButton } from '@resin/design-system';
 
 withDefaults(
 	defineProps<{
@@ -32,7 +32,7 @@ defineSlots<{
 </template>
 
 <style lang="scss" module>
-@use '@n8n/design-system/css/mixins/motion';
+@use '@resin/design-system/css/mixins/motion';
 
 .block {
 	max-width: 90%;

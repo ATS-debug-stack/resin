@@ -1,4 +1,4 @@
-import { mockInstance } from '@n8n/backend-test-utils';
+import { mockInstance } from '@resin/backend-test-utils';
 
 import { ActiveWorkflowManager } from '@/active-workflow-manager';
 

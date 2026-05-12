@@ -1,21 +1,21 @@
 import { AgentExecutor } from '@langchain/classic/agents';
 import type { OpenAIToolType } from '@langchain/classic/dist/experimental/openai_assistant/schema';
 import { OpenAIAssistantRunnable } from '@langchain/classic/experimental/openai_assistant';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'resin-workflow';
 import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { OpenAI as OpenAIClient } from 'openai';
 
 import { getConnectedTools, mergeCustomHeaders } from '@utils/helpers';
 import { getTracingConfig } from '@utils/tracing';
 
 import { formatToOpenAIAssistantTool } from './utils';
-import { Container } from '@n8n/di';
-import { AiConfig } from '@n8n/config';
+import { Container } from '@resin/di';
+import { AiConfig } from '@resin/config';
 import { checkDomainRestrictions } from '@utils/checkDomainRestrictions';
 
 export class OpenAiAssistant implements INodeType {

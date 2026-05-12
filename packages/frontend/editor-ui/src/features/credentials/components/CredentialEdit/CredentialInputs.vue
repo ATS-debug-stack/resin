@@ -3,14 +3,14 @@ import type {
 	ICredentialDataDecryptedObject,
 	INodeProperties,
 	NodeParameterValueType,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import type { IUpdateInformation } from '@/Interface';
 import CopyInput from '@/app/components/CopyInput.vue';
 import ParameterInputExpanded from '@/features/ndv/parameters/components/ParameterInputExpanded.vue';
 import { useEnvFeatureFlag } from '@/features/shared/envFeatureFlag/useEnvFeatureFlag';
 import { computed } from 'vue';
 
-import { N8nNotice } from '@n8n/design-system';
+import { N8nNotice } from '@resin/design-system';
 type Props = {
 	credentialProperties: INodeProperties[];
 	credentialData: ICredentialDataDecryptedObject;

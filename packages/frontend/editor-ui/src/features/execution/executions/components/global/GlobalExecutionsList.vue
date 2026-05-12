@@ -9,11 +9,11 @@ import { useSettingsStore } from '@/app/stores/settings.store';
 import { useWorkflowsStore } from '@/app/stores/workflows.store';
 import { useWorkflowsListStore } from '@/app/stores/workflowsList.store';
 import type { IWorkflowDb } from '@/Interface';
-import { useI18n } from '@n8n/i18n';
-import type { PermissionsRecord } from '@n8n/permissions';
-import { getResourcePermissions } from '@n8n/permissions';
+import { useI18n } from '@resin/i18n';
+import type { PermissionsRecord } from '@resin/permissions';
+import { getResourcePermissions } from '@resin/permissions';
 import { useIntersectionObserver } from '@vueuse/core';
-import type { ExecutionSummary } from 'n8n-workflow';
+import type { ExecutionSummary } from 'resin-workflow';
 import { computed, ref, useTemplateRef, watch, type ComponentPublicInstance } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useExecutionsStore } from '../../executions.store';
@@ -26,7 +26,7 @@ import { useAgentSessionsStore } from '@/features/agents/agentSessions.store';
 import AgentSessionsList from './AgentSessionsList.vue';
 import GlobalExecutionsListItem from './GlobalExecutionsListItem.vue';
 
-import { N8nButton, N8nCheckbox, N8nRadioButtons, N8nTableBase } from '@n8n/design-system';
+import { N8nButton, N8nCheckbox, N8nRadioButtons, N8nTableBase } from '@resin/design-system';
 import { ElSkeletonItem } from 'element-plus';
 
 const props = withDefaults(

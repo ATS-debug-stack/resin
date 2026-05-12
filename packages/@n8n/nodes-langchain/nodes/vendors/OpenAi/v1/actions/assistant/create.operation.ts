@@ -3,8 +3,8 @@ import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	IDataObject,
-} from 'n8n-workflow';
-import { NodeOperationError, updateDisplayOptions } from 'n8n-workflow';
+} from 'resin-workflow';
+import { NodeOperationError, updateDisplayOptions } from 'resin-workflow';
 
 import { apiRequest } from '../../../transport';
 import { modelRLC } from '../descriptions';

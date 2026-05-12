@@ -2,7 +2,7 @@ import type { BaseChatModel } from '@langchain/core/language_models/chat_models'
 import type { BaseMessage } from '@langchain/core/messages';
 import { HumanMessage, RemoveMessage } from '@langchain/core/messages';
 import type { RunnableConfig } from '@langchain/core/runnables';
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 
 import { cleanupDanglingToolCallMessages } from './cleanup-dangling-tool-call-messages';
 import { estimateTokenCountFromMessages } from './token-usage';

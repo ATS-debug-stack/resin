@@ -1,7 +1,7 @@
 import { ref, type Ref } from 'vue';
-import type { AgentIntegrationStatusEntry } from '@n8n/api-types';
-import { ResponseError } from '@n8n/rest-api-client';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import type { AgentIntegrationStatusEntry } from '@resin/api-types';
+import { ResponseError } from '@resin/rest-api-client';
+import { useRootStore } from '@resin/stores/useRootStore';
 
 import { connectIntegration, disconnectIntegration, getIntegrationStatus } from './useAgentApi';
 

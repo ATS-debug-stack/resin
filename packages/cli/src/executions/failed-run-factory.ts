@@ -1,12 +1,12 @@
-import { Service } from '@n8n/di';
-import { StorageConfig } from 'n8n-core';
+import { Service } from '@resin/di';
+import { StorageConfig } from 'resin-core';
 import {
 	createRunExecutionData,
 	type ExecutionError,
 	type INode,
 	type IRun,
 	type WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 @Service()
 export class FailedRunFactory {

@@ -1,7 +1,7 @@
-import type { INodeProperties } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeProperties } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
-import { getConnectionHintNoticeField } from '@n8n/ai-utilities';
+import { getConnectionHintNoticeField } from '@resin/ai-utilities';
 
 import { AuthenticationType } from './types';
 

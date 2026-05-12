@@ -54,7 +54,7 @@ describe('toolNodeValidator', () => {
 
 	describe('validateNode', () => {
 		it('returns TOOL_NO_PARAMETERS warning for tool node with no parameters', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.toolHttpRequest', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.toolHttpRequest', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -70,7 +70,7 @@ describe('toolNodeValidator', () => {
 		});
 
 		it('returns TOOL_NO_PARAMETERS warning for tool node with undefined parameters', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.toolHttpRequest', {});
+			const node = createMockNode('@resin/n8n-nodes-langchain.toolHttpRequest', {});
 			const ctx = createMockPluginContext();
 
 			const issues = toolNodeValidator.validateNode(node, createGraphNode(node), ctx);
@@ -84,7 +84,7 @@ describe('toolNodeValidator', () => {
 		});
 
 		it('returns no warning for tool node with parameters', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.toolHttpRequest', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.toolHttpRequest', {
 				parameters: { url: 'https://api.example.com' },
 			});
 			const ctx = createMockPluginContext();
@@ -95,7 +95,7 @@ describe('toolNodeValidator', () => {
 		});
 
 		it('returns no warning for non-tool nodes', () => {
-			const node = createMockNode('n8n-nodes-base.set', {
+			const node = createMockNode('resin-nodes-base.set', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -106,7 +106,7 @@ describe('toolNodeValidator', () => {
 		});
 
 		it('returns no warning for toolCalculator (does not require parameters)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.toolCalculator', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.toolCalculator', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -117,7 +117,7 @@ describe('toolNodeValidator', () => {
 		});
 
 		it('returns no warning for toolVectorStore (does not require parameters)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.toolVectorStore', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.toolVectorStore', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -128,7 +128,7 @@ describe('toolNodeValidator', () => {
 		});
 
 		it('returns no warning for mcpClientTool (does not require parameters)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.mcpClientTool', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.mcpClientTool', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -139,7 +139,7 @@ describe('toolNodeValidator', () => {
 		});
 
 		it('returns no warning for toolWikipedia (does not require parameters)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.toolWikipedia', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.toolWikipedia', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -150,7 +150,7 @@ describe('toolNodeValidator', () => {
 		});
 
 		it('returns no warning for toolSerpApi (does not require parameters)', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.toolSerpApi', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.toolSerpApi', {
 				parameters: {},
 			});
 			const ctx = createMockPluginContext();
@@ -177,7 +177,7 @@ describe('toolNodeValidator', () => {
 		});
 
 		it('includes nodeName in issues', () => {
-			const node = createMockNode('@n8n/n8n-nodes-langchain.toolHttpRequest', {
+			const node = createMockNode('@resin/n8n-nodes-langchain.toolHttpRequest', {
 				parameters: {},
 			});
 			Object.assign(node, { name: 'My HTTP Tool' });
@@ -191,7 +191,7 @@ describe('toolNodeValidator', () => {
 		describe('nodeTypesProvider integration', () => {
 			it('returns no warning when nodeTypesProvider indicates node has no properties', () => {
 				// A tool node that is NOT in TOOLS_WITHOUT_PARAMETERS
-				const node = createMockNode('@n8n/n8n-nodes-langchain.toolCustom', {
+				const node = createMockNode('@resin/n8n-nodes-langchain.toolCustom', {
 					parameters: {},
 				});
 				// Provider says this node has no properties (empty array)
@@ -211,7 +211,7 @@ describe('toolNodeValidator', () => {
 			});
 
 			it('returns warning when nodeTypesProvider indicates node has properties', () => {
-				const node = createMockNode('@n8n/n8n-nodes-langchain.toolCustom', {
+				const node = createMockNode('@resin/n8n-nodes-langchain.toolCustom', {
 					parameters: {},
 				});
 				// Provider says this node has properties that require configuration
@@ -237,7 +237,7 @@ describe('toolNodeValidator', () => {
 
 			it('falls back to static list when nodeTypesProvider returns undefined', () => {
 				// A node in TOOLS_WITHOUT_PARAMETERS should still be allowed
-				const node = createMockNode('@n8n/n8n-nodes-langchain.toolCalculator', {
+				const node = createMockNode('@resin/n8n-nodes-langchain.toolCalculator', {
 					parameters: {},
 				});
 				const ctx = createMockPluginContext({
@@ -253,7 +253,7 @@ describe('toolNodeValidator', () => {
 
 			it('falls back to static list when no nodeTypesProvider is provided', () => {
 				// A node in TOOLS_WITHOUT_PARAMETERS should still be allowed
-				const node = createMockNode('@n8n/n8n-nodes-langchain.toolVectorStore', {
+				const node = createMockNode('@resin/n8n-nodes-langchain.toolVectorStore', {
 					parameters: {},
 				});
 				const ctx = createMockPluginContext(); // No provider

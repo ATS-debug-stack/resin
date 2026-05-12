@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions } from 'n8n-workflow';
+import type { ILoadOptionsFunctions } from 'resin-workflow';
 
 import { getEntityProperties } from '../HubspotTrigger.node';
 import { hubspotApiRequest } from '../V1/GenericFunctions';

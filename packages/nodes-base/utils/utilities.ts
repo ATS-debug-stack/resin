@@ -12,14 +12,14 @@ import type {
 	INodeExecutionData,
 	INodeProperties,
 	IPairedItemData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ApplicationError,
 	jsonParse,
 	MYSQL_NODE_TYPE,
 	POSTGRES_NODE_TYPE,
 	randomInt,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 /**
  * Creates an array of elements split into groups the length of `size`.

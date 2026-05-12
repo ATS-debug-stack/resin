@@ -2,13 +2,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import { LicenseState } from '@n8n/backend-common';
-import type { CredentialsEntity, ICredentialsDb } from '@n8n/db';
-import { CredentialsRepository, SecretsProviderConnectionRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
+import { LicenseState } from '@resin/backend-common';
+import type { CredentialsEntity, ICredentialsDb } from '@resin/db';
+import { CredentialsRepository, SecretsProviderConnectionRepository } from '@resin/db';
+import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { EntityNotFoundError } from '@n8n/typeorm';
-import { Credentials, getAdditionalKeys } from 'n8n-core';
+import { EntityNotFoundError } from '@resin/typeorm';
+import { Credentials, getAdditionalKeys } from 'resin-core';
 import type {
 	ICredentialDataDecryptedObject,
 	ICredentialsExpressionResolveValues,
@@ -28,14 +28,14 @@ import type {
 	IWorkflowExecuteAdditionalData,
 	IExecuteData,
 	IDataObject,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import {
 	ICredentialsHelper,
 	NodeHelpers,
 	Workflow,
 	UnexpectedError,
 	isExpression,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { RESPONSE_ERROR_MESSAGES } from './constants';
 import { DynamicCredentialsProxy } from './credentials/dynamic-credentials-proxy';
@@ -176,7 +176,7 @@ export class CredentialsHelper extends ICredentialsHelper {
 		// check if the node is the mockup node used for testing
 		// if so, it means this is a credential test and not normal node execution
 		const isTestingCredentials =
-			node?.parameters?.temp === '' && node?.type === 'n8n-nodes-base.noOp';
+			node?.parameters?.temp === '' && node?.type === 'resin-nodes-base.noOp';
 
 		if (credentialType.preAuthentication) {
 			if (typeof credentialType.preAuthentication === 'function') {

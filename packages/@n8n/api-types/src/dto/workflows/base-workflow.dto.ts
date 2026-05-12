@@ -1,4 +1,4 @@
-import type { IPinData, IConnections, IDataObject, INode, IWorkflowSettings } from 'n8n-workflow';
+import type { IPinData, IConnections, IDataObject, INode, IWorkflowSettings } from 'resin-workflow';
 import { z } from 'zod';
 
 export const WORKFLOW_NAME_MAX_LENGTH = 128;

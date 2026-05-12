@@ -1,10 +1,10 @@
-import { inDevelopment, Logger } from '@n8n/backend-common';
-import { GlobalConfig } from '@n8n/config';
-import { separate } from '@n8n/db';
-import { Container, Service } from '@n8n/di';
+import { inDevelopment, Logger } from '@resin/backend-common';
+import { GlobalConfig } from '@resin/config';
+import { separate } from '@resin/db';
+import { Container, Service } from '@resin/di';
 import axios from 'axios';
-import { InstanceSettings } from 'n8n-core';
-import type { IWorkflowBase } from 'n8n-workflow';
+import { InstanceSettings } from 'resin-core';
+import type { IWorkflowBase } from 'resin-workflow';
 
 import { N8N_VERSION } from '@/constants';
 import { CommunityPackagesConfig } from '@/modules/community-packages/community-packages.config';
@@ -151,7 +151,7 @@ export class InstanceRiskReporter implements RiskReporter {
 		const { instanceId } = this.instanceSettings;
 
 		const response = await axios.get<n8n.Version[]>(BASE_URL + currentVersionName, {
-			headers: { 'n8n-instance-id': instanceId },
+			headers: { 'resin-instance-id': instanceId },
 		});
 
 		return response.data;

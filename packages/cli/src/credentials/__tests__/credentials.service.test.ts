@@ -1,4 +1,4 @@
-import type { Logger } from '@n8n/backend-common';
+import type { Logger } from '@resin/backend-common';
 import type {
 	CredentialsEntity,
 	CredentialsRepository,
@@ -6,10 +6,15 @@ import type {
 	ProjectRepository,
 	UserRepository,
 	User,
-} from '@n8n/db';
-import { GLOBAL_OWNER_ROLE, GLOBAL_MEMBER_ROLE } from '@n8n/db';
+} from '@resin/db';
+import { GLOBAL_OWNER_ROLE, GLOBAL_MEMBER_ROLE } from '@resin/db';
 import { mock } from 'jest-mock-extended';
-import { CREDENTIAL_ERRORS, CredentialDataError, Credentials, type ErrorReporter } from 'n8n-core';
+import {
+	CREDENTIAL_ERRORS,
+	CredentialDataError,
+	Credentials,
+	type ErrorReporter,
+} from 'resin-core';
 import {
 	CREDENTIAL_BLANKING_VALUE,
 	CREDENTIAL_EMPTY_VALUE,
@@ -17,7 +22,7 @@ import {
 	type ICredentialDataDecryptedObject,
 	type ICredentialType,
 	type INodeProperties,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import { mockExistingCredential } from './credentials.test-data';
 

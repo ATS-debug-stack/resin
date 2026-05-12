@@ -1,4 +1,4 @@
-import { Container } from '@n8n/di';
+import { Container } from '@resin/di';
 
 import { QuickConnectConfig } from '../quick-connect.config';
 
@@ -20,7 +20,7 @@ describe('QuickConnectConfig', () => {
 	it('returns configured options given valid format', () => {
 		const testConfig = [
 			{
-				packageName: '@n8n/superagent',
+				packageName: '@resin/superagent',
 				credentialType: 'agentApi',
 				text: 'Superagent for everyone',
 				quickConnectType: 'oauth',
@@ -36,7 +36,7 @@ describe('QuickConnectConfig', () => {
 	it('parses valid config with backendFlowConfig', () => {
 		const testConfig = [
 			{
-				packageName: '@n8n/superagent',
+				packageName: '@resin/superagent',
 				credentialType: 'agentApi',
 				text: 'Superagent for everyone',
 				quickConnectType: 'firecrawl',
@@ -58,7 +58,7 @@ describe('QuickConnectConfig', () => {
 	it('parses valid config with disclaimer', () => {
 		const testConfig = [
 			{
-				packageName: '@n8n/superagent',
+				packageName: '@resin/superagent',
 				credentialType: 'agentApi',
 				text: 'Superagent for everyone',
 				quickConnectType: 'oauth',
@@ -80,7 +80,7 @@ describe('QuickConnectConfig', () => {
 	it('parses disclaimer without optional linkLabel', () => {
 		const testConfig = [
 			{
-				packageName: '@n8n/superagent',
+				packageName: '@resin/superagent',
 				credentialType: 'agentApi',
 				text: 'Superagent for everyone',
 				quickConnectType: 'oauth',
@@ -108,13 +108,13 @@ describe('QuickConnectConfig', () => {
 	it('handles multiple options', () => {
 		const testConfig = [
 			{
-				packageName: '@n8n/superagent',
+				packageName: '@resin/superagent',
 				credentialType: 'agentApi',
 				text: 'Superagent for everyone',
 				quickConnectType: 'oauth',
 			},
 			{
-				packageName: '@n8n/another-service',
+				packageName: '@resin/another-service',
 				credentialType: 'anotherApi',
 				text: 'Another service integration',
 				quickConnectType: 'firecrawl',
@@ -148,7 +148,7 @@ describe('QuickConnectConfig', () => {
 			'missing credentialType',
 			JSON.stringify([
 				{
-					packageName: '@n8n/superagent',
+					packageName: '@resin/superagent',
 					text: 'Superagent for everyone',
 					quickConnectType: 'oauth',
 				},
@@ -158,7 +158,7 @@ describe('QuickConnectConfig', () => {
 			'missing text',
 			JSON.stringify([
 				{
-					packageName: '@n8n/superagent',
+					packageName: '@resin/superagent',
 					credentialType: 'agentApi',
 					quickConnectType: 'oauth',
 				},
@@ -168,7 +168,7 @@ describe('QuickConnectConfig', () => {
 			'missing quickConnectType',
 			JSON.stringify([
 				{
-					packageName: '@n8n/superagent',
+					packageName: '@resin/superagent',
 					credentialType: 'agentApi',
 					text: 'Superagent for everyone',
 				},
@@ -178,7 +178,7 @@ describe('QuickConnectConfig', () => {
 			'backendFlowConfig missing required secret',
 			JSON.stringify([
 				{
-					packageName: '@n8n/superagent',
+					packageName: '@resin/superagent',
 					credentialType: 'agentApi',
 					text: 'Superagent for everyone',
 					quickConnectType: 'backend',
@@ -191,7 +191,7 @@ describe('QuickConnectConfig', () => {
 			'backendFlowConfig missing consent text',
 			JSON.stringify([
 				{
-					packageName: '@n8n/superagent',
+					packageName: '@resin/superagent',
 					credentialType: 'agentApi',
 					text: 'Superagent for everyone',
 					quickConnectType: 'backend',
@@ -205,7 +205,7 @@ describe('QuickConnectConfig', () => {
 			'disclaimer text missing {link} placeholder',
 			JSON.stringify([
 				{
-					packageName: '@n8n/superagent',
+					packageName: '@resin/superagent',
 					credentialType: 'agentApi',
 					text: 'Superagent for everyone',
 					quickConnectType: 'oauth',
@@ -220,7 +220,7 @@ describe('QuickConnectConfig', () => {
 			'disclaimer linkUrl is not a valid URL',
 			JSON.stringify([
 				{
-					packageName: '@n8n/superagent',
+					packageName: '@resin/superagent',
 					credentialType: 'agentApi',
 					text: 'Superagent for everyone',
 					quickConnectType: 'oauth',
@@ -235,7 +235,7 @@ describe('QuickConnectConfig', () => {
 			'disclaimer missing linkUrl',
 			JSON.stringify([
 				{
-					packageName: '@n8n/superagent',
+					packageName: '@resin/superagent',
 					credentialType: 'agentApi',
 					text: 'Superagent for everyone',
 					quickConnectType: 'oauth',

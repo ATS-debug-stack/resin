@@ -1,4 +1,4 @@
-jest.mock('@n8n/workflow-sdk', () => ({
+jest.mock('@resin/workflow-sdk', () => ({
 	parseWorkflowCodeToBuilder: jest.fn(),
 	validateWorkflow: jest.fn(),
 }));
@@ -7,9 +7,9 @@ jest.mock('../extract-code', () => ({
 	stripImportStatements: jest.fn((code: string) => code),
 }));
 
-import { parseWorkflowCodeToBuilder, validateWorkflow } from '@n8n/workflow-sdk';
+import { parseWorkflowCodeToBuilder, validateWorkflow } from '@resin/workflow-sdk';
 import { mock } from 'jest-mock-extended';
-import type { INodeTypes } from 'n8n-workflow';
+import type { INodeTypes } from 'resin-workflow';
 
 import { stripImportStatements } from '../extract-code';
 import { parseAndValidate, partitionWarnings } from '../parse-validate';

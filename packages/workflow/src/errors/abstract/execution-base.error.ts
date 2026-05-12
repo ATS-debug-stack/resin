@@ -1,4 +1,4 @@
-import { ApplicationError, type ReportingOptions } from '@n8n/errors';
+import { ApplicationError, type ReportingOptions } from '@resin/errors';
 
 import type { Functionality, IDataObject, JsonObject } from '../../interfaces';
 

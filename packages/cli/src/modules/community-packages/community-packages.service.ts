@@ -1,17 +1,17 @@
-import { Logger } from '@n8n/backend-common';
-import { LICENSE_FEATURES } from '@n8n/constants';
-import { OnPubSubEvent } from '@n8n/decorators';
-import { Service } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { LICENSE_FEATURES } from '@resin/constants';
+import { OnPubSubEvent } from '@resin/decorators';
+import { Service } from '@resin/di';
 import axios from 'axios';
-import type { PackageDirectoryLoader } from 'n8n-core';
-import { InstanceSettings } from 'n8n-core';
+import type { PackageDirectoryLoader } from 'resin-core';
+import { InstanceSettings } from 'resin-core';
 import {
 	ensureError,
 	jsonParse,
 	UnexpectedError,
 	UserError,
 	type PublicInstalledPackage,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { execFile } from 'node:child_process';
 import { access, constants, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';

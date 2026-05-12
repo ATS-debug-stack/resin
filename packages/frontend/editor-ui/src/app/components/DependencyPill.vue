@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { useRouter } from 'vue-router';
-import type { BaseTextKey } from '@n8n/i18n';
-import { N8nBadge, N8nIcon, N8nTooltip } from '@n8n/design-system';
-import { N8nDropdownMenu, type DropdownMenuItemProps } from '@n8n/design-system';
-import type { IconName } from '@n8n/design-system/components/N8nIcon/icons';
+import type { BaseTextKey } from '@resin/i18n';
+import { N8nBadge, N8nIcon, N8nTooltip } from '@resin/design-system';
+import { N8nDropdownMenu, type DropdownMenuItemProps } from '@resin/design-system';
+import type { IconName } from '@resin/design-system/components/N8nIcon/icons';
 import { VIEWS } from '@/app/constants';
 import { useUIStore } from '@/app/stores/ui.store';
 import { useTelemetry } from '@/app/composables/useTelemetry';
-import type { DependencyType, ResolvedDependency } from '@n8n/api-types';
+import type { DependencyType, ResolvedDependency } from '@resin/api-types';
 import { useDependencies } from '@/app/composables/useDependencies';
 import { DATA_TABLE_DETAILS } from '@/features/core/dataTable/constants';
 

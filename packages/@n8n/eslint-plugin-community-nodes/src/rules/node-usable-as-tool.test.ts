@@ -17,7 +17,7 @@ function createNodeCode(
 
 	if (!hasDescription) {
 		return `
-import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	displayName = 'Test Node';
@@ -25,7 +25,7 @@ export class TestNode implements INodeType {
 	}
 
 	return `
-import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {
@@ -58,8 +58,8 @@ function createNodeCodeWithOutputsInputs(
 ): string {
 	const usableAsToolLine = includeUsableAsTool ? '\n\t\tusableAsTool: true,' : '';
 	return `
-import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from 'resin-workflow';
+import { NodeConnectionTypes } from 'resin-workflow';
 
 export class TestNode implements INodeType {
 	description: INodeTypeDescription = {

@@ -1,4 +1,4 @@
-import type { INode, INodeParameters } from 'n8n-workflow';
+import type { INode, INodeParameters } from 'resin-workflow';
 
 /**
  * Extract current parameters from a node

@@ -1,8 +1,8 @@
-import { WorkflowRepository } from '@n8n/db';
-import { Command } from '@n8n/decorators';
-import { Container } from '@n8n/di';
-import type { IWorkflowBase, IWorkflowExecutionDataProcess } from 'n8n-workflow';
-import { ExecutionBaseError, UnexpectedError, UserError } from 'n8n-workflow';
+import { WorkflowRepository } from '@resin/db';
+import { Command } from '@resin/decorators';
+import { Container } from '@resin/di';
+import type { IWorkflowBase, IWorkflowExecutionDataProcess } from 'resin-workflow';
+import { ExecutionBaseError, UnexpectedError, UserError } from 'resin-workflow';
 import { z } from 'zod';
 
 import { ActiveExecutions } from '@/active-executions';

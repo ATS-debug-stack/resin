@@ -1,5 +1,5 @@
-import type { Scope } from '@n8n/permissions';
-import type { FindOperator } from '@n8n/typeorm';
+import type { Scope } from '@resin/permissions';
+import type { FindOperator } from '@resin/typeorm';
 import type express from 'express';
 import type {
 	ICredentialsEncrypted,
@@ -15,7 +15,7 @@ import type {
 	IDataObject,
 	IBinaryKeyData,
 	IPairedItemData,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 import { z } from 'zod';
 
 import type { CredentialsEntity } from './credentials-entity';
@@ -128,10 +128,10 @@ export interface PublicUser {
 	globalScopes?: Scope[];
 	signInType: AuthProviderType;
 	disabled: boolean;
-	settings?: IUserSettings | null; // External type from n8n-workflow
+	settings?: IUserSettings | null; // External type from resin-workflow
 	inviteAcceptUrl?: string;
 	isOwner?: boolean;
-	featureFlags?: FeatureFlags; // External type from n8n-workflow
+	featureFlags?: FeatureFlags; // External type from resin-workflow
 	lastActiveAt?: Date | null;
 	mfaAuthenticated?: boolean;
 	isManagedByEnv?: boolean;

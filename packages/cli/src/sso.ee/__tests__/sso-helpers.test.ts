@@ -1,5 +1,5 @@
-import { SettingsRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { SettingsRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import { mock } from 'jest-mock-extended';
 
 import config from '@/config';

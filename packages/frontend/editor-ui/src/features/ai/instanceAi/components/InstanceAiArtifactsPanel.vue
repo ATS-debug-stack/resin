@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { computed, inject } from 'vue';
-import { N8nHeading, N8nIcon } from '@n8n/design-system';
-import { useI18n } from '@n8n/i18n';
+import { N8nHeading, N8nIcon } from '@resin/design-system';
+import { useI18n } from '@resin/i18n';
 import { useThread } from '../instanceAi.store';
-import type { TaskItem } from '@n8n/api-types';
-import type { IconName } from '@n8n/design-system';
+import type { TaskItem } from '@resin/api-types';
+import type { IconName } from '@resin/design-system';
 import type { ResourceEntry } from '../useResourceRegistry';
 import ConnectionsCard from './ConnectionsCard.vue';
 

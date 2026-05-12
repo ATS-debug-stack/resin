@@ -9,17 +9,17 @@ import type {
 	INodePropertyCollection,
 	INodePropertyOptions,
 	NodeParameterValueType,
-} from 'n8n-workflow';
-import { deepCopy, isINodeProperties, isINodePropertyCollection } from 'n8n-workflow';
+} from 'resin-workflow';
+import { deepCopy, isINodeProperties, isINodePropertyCollection } from 'resin-workflow';
 
 import get from 'lodash/get';
 
 import { injectNDVStore } from '@/features/ndv/shared/ndv.store';
 import { useNodeHelpers } from '@/app/composables/useNodeHelpers';
-import { useI18n } from '@n8n/i18n';
+import { useI18n } from '@resin/i18n';
 import { storeToRefs } from 'pinia';
 
-import { N8nButton, N8nOption, N8nSelect, N8nText } from '@n8n/design-system';
+import { N8nButton, N8nOption, N8nSelect, N8nText } from '@resin/design-system';
 import { isPresent } from '@/app/utils/typesUtils';
 
 const selectedOption = ref<string | undefined>(undefined);

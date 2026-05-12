@@ -1,8 +1,8 @@
-import { Logger } from '@n8n/backend-common';
-import { WorkflowRepository } from '@n8n/db';
-import { Service } from '@n8n/di';
-import { ErrorReporter } from 'n8n-core';
-import type { IDataObject, Workflow } from 'n8n-workflow';
+import { Logger } from '@resin/backend-common';
+import { WorkflowRepository } from '@resin/db';
+import { Service } from '@resin/di';
+import { ErrorReporter } from 'resin-core';
+import type { IDataObject, Workflow } from 'resin-workflow';
 
 import { isWorkflowIdValid } from '@/utils';
 

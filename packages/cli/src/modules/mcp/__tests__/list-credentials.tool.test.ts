@@ -1,6 +1,6 @@
-import { mockInstance } from '@n8n/backend-test-utils';
-import { User } from '@n8n/db';
-import type { CredentialsEntity } from '@n8n/db';
+import { mockInstance } from '@resin/backend-test-utils';
+import { User } from '@resin/db';
+import type { CredentialsEntity } from '@resin/db';
 
 import { CredentialsService } from '@/credentials/credentials.service';
 import { Telemetry } from '@/telemetry';

@@ -1,5 +1,5 @@
-import { Logger } from '@n8n/backend-common';
-import { Container } from '@n8n/di';
+import { Logger } from '@resin/backend-common';
+import { Container } from '@resin/di';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import axios from 'axios';
 import crypto from 'crypto';
@@ -10,7 +10,7 @@ import {
 	isDomainAllowed,
 	type IHttpRequestOptions,
 	type IgnoreStatusErrorConfig,
-} from 'n8n-workflow';
+} from 'resin-workflow';
 
 import type { SsrfBridge } from '@/execution-engine';
 import { createHttpProxyAgent, createHttpsProxyAgent } from '@/http-proxy';

@@ -1,5 +1,5 @@
 import type { Project } from '@playwright/test';
-import type { N8NConfig } from 'n8n-containers/stack';
+import type { N8NConfig } from 'resin-containers/stack';
 
 import {
 	CONTAINER_ONLY_CAPABILITIES,

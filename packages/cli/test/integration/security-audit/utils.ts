@@ -1,6 +1,6 @@
-import { GlobalConfig } from '@n8n/config';
-import { WorkflowRepository } from '@n8n/db';
-import { Container } from '@n8n/di';
+import { GlobalConfig } from '@resin/config';
+import { WorkflowRepository } from '@resin/db';
+import { Container } from '@resin/di';
 import nock from 'nock';
 import { v4 as uuid } from 'uuid';
 
@@ -48,7 +48,7 @@ export async function saveManualTriggerWorkflow() {
 			{
 				id: uuid(),
 				name: 'My Node',
-				type: 'n8n-nodes-base.manualTrigger',
+				type: 'resin-nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 			},
@@ -62,7 +62,7 @@ export const MOCK_09990_N8N_VERSION = {
 	name: '0.999.0',
 	nodes: [
 		{
-			name: 'n8n-nodes-base.testNode',
+			name: 'resin-nodes-base.testNode',
 			displayName: 'Test Node',
 			icon: 'file:testNode.svg',
 			defaults: {
@@ -97,7 +97,7 @@ export const MOCK_PACKAGE: InstalledPackages[] = [
 	{
 		createdAt: new Date(),
 		updatedAt: new Date(),
-		packageName: 'n8n-nodes-test',
+		packageName: 'resin-nodes-test',
 		installedVersion: '1.1.2',
 		authorName: 'test',
 		authorEmail: 'test@test.com',

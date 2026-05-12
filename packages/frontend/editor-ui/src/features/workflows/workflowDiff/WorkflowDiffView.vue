@@ -11,12 +11,12 @@ import { useWorkflowDiffUI } from '@/features/workflows/workflowDiff/useWorkflow
 import type { IWorkflowDb, INodeUi } from '@/Interface';
 import { useNodeTypesStore } from '@/app/stores/nodeTypes.store';
 import { removeWorkflowExecutionData } from '@/app/utils/workflowUtils';
-import type { BaseTextKey } from '@n8n/i18n';
-import { useI18n } from '@n8n/i18n';
-import { NodeDiffStatus } from 'n8n-workflow';
+import type { BaseTextKey } from '@resin/i18n';
+import { useI18n } from '@resin/i18n';
+import { NodeDiffStatus } from 'resin-workflow';
 import { computed, useCssModule, onMounted } from 'vue';
 import { telemetry } from '@/app/plugins/telemetry';
-import { useRootStore } from '@n8n/stores/useRootStore';
+import { useRootStore } from '@resin/stores/useRootStore';
 
 import { ElDropdown, ElDropdownMenu } from 'element-plus';
 import {
@@ -26,7 +26,7 @@ import {
 	N8nIconButton,
 	N8nRadioButtons,
 	N8nText,
-} from '@n8n/design-system';
+} from '@resin/design-system';
 
 const props = withDefaults(
 	defineProps<{
