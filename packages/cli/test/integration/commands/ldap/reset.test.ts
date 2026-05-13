@@ -13,7 +13,7 @@ import {
 	WorkflowRepository,
 } from '@resin/db';
 import { Container } from '@resin/di';
-import { EntityNotFoundError } from '@resin/typeorm';
+import { EntityNotFoundError } from '@n8n/typeorm';
 import { v4 as uuid } from 'uuid';
 
 import { Reset } from '@/commands/ldap/reset';

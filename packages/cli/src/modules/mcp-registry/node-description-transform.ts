@@ -10,7 +10,7 @@ import type {
 import type { McpRegistryIcon, McpRegistryServer } from './registry/mcp-registry.types';
 
 export const MCP_REGISTRY_PACKAGE_NAME = '@resin/mcp-registry';
-export const LANGCHAIN_PACKAGE_NAME = '@resin/n8n-nodes-langchain';
+export const LANGCHAIN_PACKAGE_NAME = '@resin/nodes-langchain';
 export const MCP_REGISTRY_BASE_NODE_NAME = 'mcpRegistryClientTool';
 export const MCP_BASE_OAUTH2_CREDENTIAL_NAME = 'mcpOAuth2Api';
 

@@ -395,7 +395,7 @@ export function resolveNodeTypeDefinition(
  */
 export function resolveBuiltinNodeDefinitionDirs(): string[] {
 	const dirs: string[] = [];
-	for (const packageId of ['resin-nodes-base', '@resin/n8n-nodes-langchain']) {
+	for (const packageId of ['resin-nodes-base', '@resin/nodes-langchain']) {
 		try {
 			const packageJsonPath = require.resolve(`${packageId}/package.json`);
 			const distDir = dirname(packageJsonPath);

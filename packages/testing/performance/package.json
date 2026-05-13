@@ -1,5 +1,5 @@
 {
-	"name": "@n8n/performance",
+	"name": "@resin/performance",
 	"version": "1.0.0",
 	"private": true,
 	"type": "module",
@@ -12,8 +12,8 @@
 	},
 	"devDependencies": {
 		"@codspeed/vitest-plugin": "^5.2.0",
-    "@n8n/expression-runtime": "workspace:*",
+    "@resin/expression-runtime": "workspace:*",
     "vitest": "catalog:",
-		"n8n-workflow": "workspace:*"
+		"resin-workflow": "workspace:*"
 	}
 }

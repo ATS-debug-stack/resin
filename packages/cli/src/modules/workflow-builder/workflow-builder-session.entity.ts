@@ -9,8 +9,8 @@ import {
 	ManyToOne,
 	PrimaryColumn,
 	Unique,
-} from '@resin/typeorm';
-import type { Relation } from '@resin/typeorm';
+} from '@n8n/typeorm';
+import type { Relation } from '@n8n/typeorm';
 
 export interface IWorkflowBuilderSession {
 	id: string;

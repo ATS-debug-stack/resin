@@ -1,5 +1,5 @@
 {
-  "name": "n8n-workflow",
+  "name": "resin-workflow",
   "version": "2.21.0",
   "description": "Workflow base code of n8n",
   "types": "dist/esm/index.d.ts",
@@ -38,9 +38,9 @@
   ],
   "devDependencies": {
     "@langchain/core": "catalog:",
-    "@n8n/config": "workspace:*",
-    "@n8n/typescript-config": "workspace:*",
-    "@n8n/vitest-config": "workspace:*",
+    "@resin/config": "workspace:*",
+    "@resin/typescript-config": "workspace:*",
+    "@resin/vitest-config": "workspace:*",
     "@types/express": "catalog:",
     "@types/jmespath": "^0.15.0",
     "@types/lodash": "catalog:",
@@ -52,9 +52,9 @@
     "zod": "catalog:"
   },
   "dependencies": {
-    "@n8n/errors": "workspace:*",
-    "@n8n/expression-runtime": "workspace:*",
-    "@n8n/tournament": "workspace:*",
+    "@resin/errors": "workspace:*",
+    "@resin/expression-runtime": "workspace:*",
+    "@resin/tournament": "workspace:*",
     "ast-types": "0.16.1",
     "callsites": "catalog:",
     "esprima-next": "5.8.4",

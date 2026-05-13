@@ -2,7 +2,7 @@ import { Logger } from '@resin/backend-common';
 import { SharedWorkflowRepository } from '@resin/db';
 import { OnLifecycleEvent, type WorkflowExecuteAfterContext } from '@resin/decorators';
 import { Service } from '@resin/di';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { DateTime } from 'luxon';
 import {
 	IRun,

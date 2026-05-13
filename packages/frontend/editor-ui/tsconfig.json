@@ -1,5 +1,5 @@
 {
-	"extends": "@n8n/typescript-config/tsconfig.frontend.json",
+	"extends": "@resin/typescript-config/tsconfig.frontend.json",
 	"compilerOptions": {
 		"moduleResolution": "bundler",
 		"rootDirs": [
@@ -17,17 +17,17 @@
 		],
 		"paths": {
 			"@/*": ["./src/*"],
-			"@n8n/rest-api-client*": ["../@n8n/rest-api-client/src*"],
-			"@n8n/composables*": ["../@n8n/composables/src*"],
-			"@n8n/constants*": ["../../@n8n/constants/src*"],
-			"@n8n/chat*": ["../@n8n/chat/src*"],
-			"@n8n/chat-hub*": ["../../@n8n/chat-hub/src*"],
-			"@n8n/design-system*": ["../@n8n/design-system/src*"],
-			"@n8n/i18n*": ["../@n8n/i18n/src*"],
-			"@n8n/stores*": ["../@n8n/stores/src*"],
-			"@n8n/api-types*": ["../../@n8n/api-types/src*"],
-			"@n8n/utils*": ["../../@n8n/utils/src*"],
-			"@n8n/expression-runtime": ["./vite/expression-runtime-stub.ts"]
+			"@resin/rest-api-client*": ["../@n8n/rest-api-client/src*"],
+			"@resin/composables*": ["../@n8n/composables/src*"],
+			"@resin/constants*": ["../../@n8n/constants/src*"],
+			"@resin/chat*": ["../@n8n/chat/src*"],
+			"@resin/chat-hub*": ["../../@n8n/chat-hub/src*"],
+			"@resin/design-system*": ["../@n8n/design-system/src*"],
+			"@resin/i18n*": ["../@n8n/i18n/src*"],
+			"@resin/stores*": ["../@n8n/stores/src*"],
+			"@resin/api-types*": ["../../@n8n/api-types/src*"],
+			"@resin/utils*": ["../../@n8n/utils/src*"],
+			"@resin/expression-runtime": ["./vite/expression-runtime-stub.ts"]
 		},
 		// TODO: remove all options below this line
 		"useUnknownInCatchVariables": false

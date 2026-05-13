@@ -30,7 +30,7 @@ export class PackageDirectoryLoader extends DirectoryLoader {
 
 		const { nodes, credentials } = n8n;
 
-		const packageVersion = !['resin-nodes-base', '@resin/n8n-nodes-langchain'].includes(name)
+		const packageVersion = !['resin-nodes-base', '@resin/nodes-langchain'].includes(name)
 			? version
 			: undefined;
 

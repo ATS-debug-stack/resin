@@ -22,9 +22,9 @@ const CONSUMER_ID = 'consumer-test-uuid';
 
 const MOCK_GATEWAY_CONFIG = {
 	nodes: [
-		'@resin/n8n-nodes-langchain.lmChatGoogleGemini',
-		'@resin/n8n-nodes-langchain.embeddingsGoogleGemini',
-		'@resin/n8n-nodes-langchain.googleGemini',
+		'@resin/nodes-langchain.lmChatGoogleGemini',
+		'@resin/nodes-langchain.embeddingsGoogleGemini',
+		'@resin/nodes-langchain.googleGemini',
 	],
 	credentialTypes: ['googlePalmApi'],
 	providerConfig: {

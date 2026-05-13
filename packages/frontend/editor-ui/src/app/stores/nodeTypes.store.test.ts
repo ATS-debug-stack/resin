@@ -30,7 +30,7 @@ describe('useNodeTypesStore', () => {
 	describe('isModelNode', () => {
 		it('should return true for a node that outputs AiLanguageModel', () => {
 			const nodeType = makeNodeType({
-				name: '@resin/n8n-nodes-langchain.lmChatOpenRouter',
+				name: '@resin/nodes-langchain.lmChatOpenRouter',
 				outputs: [NodeConnectionTypes.AiLanguageModel],
 			});
 
@@ -43,7 +43,7 @@ describe('useNodeTypesStore', () => {
 
 		it('should return true when outputs contain object format with AiLanguageModel type', () => {
 			const nodeType = makeNodeType({
-				name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+				name: '@resin/nodes-langchain.lmChatOpenAi',
 				outputs: [{ type: NodeConnectionTypes.AiLanguageModel, displayName: 'Model' }],
 			});
 
@@ -69,7 +69,7 @@ describe('useNodeTypesStore', () => {
 
 		it('should return false for a tool node', () => {
 			const nodeType = makeNodeType({
-				name: '@resin/n8n-nodes-langchain.toolCalculator',
+				name: '@resin/nodes-langchain.toolCalculator',
 				outputs: [NodeConnectionTypes.AiTool],
 			});
 
@@ -88,7 +88,7 @@ describe('useNodeTypesStore', () => {
 	describe('isToolNode', () => {
 		it('should return true for a node that outputs AiTool', () => {
 			const nodeType = makeNodeType({
-				name: '@resin/n8n-nodes-langchain.toolCalculator',
+				name: '@resin/nodes-langchain.toolCalculator',
 				outputs: [NodeConnectionTypes.AiTool],
 			});
 
@@ -101,7 +101,7 @@ describe('useNodeTypesStore', () => {
 
 		it('should return false for a model node', () => {
 			const nodeType = makeNodeType({
-				name: '@resin/n8n-nodes-langchain.lmChatOpenRouter',
+				name: '@resin/nodes-langchain.lmChatOpenRouter',
 				outputs: [NodeConnectionTypes.AiLanguageModel],
 			});
 

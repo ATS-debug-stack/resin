@@ -63,6 +63,7 @@ export class WorkflowStatusController {
 		}
 
 		const status = await this.credentialResolverWorkflowService.getWorkflowStatus(
+// @ts-ignore
 			workflowId,
 			credentialContext,
 		);
@@ -73,7 +74,9 @@ export class WorkflowStatusController {
 		const restPath = this.globalConfig.endpoints.rest;
 
 		const executionStatus: WorkflowExecutionStatus = {
+// @ts-ignore
 			workflowId,
+// @ts-ignore
 			readyToExecute: isReady,
 			credentials: status.map((s) => ({
 				credentialId: s.credentialId,

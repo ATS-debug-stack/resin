@@ -5,7 +5,7 @@ import type {
 	WorkflowPublishHistoryRepository,
 	WorkflowRepository,
 } from '@resin/db';
-import { type DataSource, type EntityManager } from '@resin/typeorm';
+import { type DataSource, type EntityManager } from '@n8n/typeorm';
 import { readdir, readFile } from 'fs/promises';
 import { mock } from 'jest-mock-extended';
 import type { Cipher } from 'resin-core';

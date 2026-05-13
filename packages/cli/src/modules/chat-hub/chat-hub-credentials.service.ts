@@ -5,7 +5,7 @@ import {
 } from '@resin/api-types';
 import { ProjectRepository, SharedWorkflowRepository, User } from '@resin/db';
 import { Service } from '@resin/di';
-import { EntityManager } from '@resin/typeorm';
+import { EntityManager } from '@n8n/typeorm';
 import type { INodeCredentials } from 'resin-workflow';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';

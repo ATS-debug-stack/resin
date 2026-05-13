@@ -14,7 +14,7 @@ const chatTriggerNodes = [
 		parameters: { options: {} },
 		id: 'chat-trigger-1',
 		name: 'When chat message received',
-		type: '@resin/n8n-nodes-langchain.chatTrigger',
+		type: '@resin/nodes-langchain.chatTrigger',
 		typeVersion: 1.1,
 		position: [0, 0] as [number, number],
 	},

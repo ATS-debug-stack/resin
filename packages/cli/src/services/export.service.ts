@@ -4,7 +4,7 @@ import { mkdir, rm, readdir, appendFile, readFile } from 'fs/promises';
 import { Service } from '@resin/di';
 
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { DataSource } from '@resin/typeorm';
+import { DataSource } from '@n8n/typeorm';
 import { validateDbTypeForExportEntities } from '@/utils/validate-database-type';
 import { Cipher } from 'resin-core';
 import { compressFolder } from '@/utils/compression.util';

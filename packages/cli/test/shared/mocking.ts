@@ -1,5 +1,5 @@
 import { mockInstance } from '@resin/backend-test-utils';
-import { DataSource, EntityManager, type EntityMetadata } from '@resin/typeorm';
+import { DataSource, EntityManager, type EntityMetadata } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import type { Cipher, Class } from 'resin-core';
 

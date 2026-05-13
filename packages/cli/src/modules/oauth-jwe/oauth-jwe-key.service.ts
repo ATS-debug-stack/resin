@@ -1,7 +1,7 @@
 import { Logger } from '@resin/backend-common';
 import { DeploymentKeyRepository } from '@resin/db';
 import { Service } from '@resin/di';
-import { QueryFailedError } from '@resin/typeorm';
+import { QueryFailedError } from '@n8n/typeorm';
 import { generateNanoId } from '@resin/utils';
 import type { CryptoKey, JWK } from 'jose';
 import { exportJWK, generateKeyPair, importJWK } from 'jose';

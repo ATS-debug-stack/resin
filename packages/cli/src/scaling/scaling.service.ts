@@ -80,7 +80,7 @@ export class ScalingService {
 		this.scheduleQueueMetrics();
 
 		const { McpServer, QueuedExecutionStrategy, RedisSessionStore } = await import(
-			'@resin/n8n-nodes-langchain/mcp/core'
+			'@resin/nodes-langchain/mcp/core'
 		);
 		const { Publisher } = await import('@/scaling/pubsub/publisher.service');
 
@@ -476,7 +476,7 @@ export class ScalingService {
 				const mcpService = Container.get(McpService);
 				mcpService.handleWorkerResponse(executionId, runData);
 			} else {
-				const { McpServer } = await import('@resin/n8n-nodes-langchain/mcp/core');
+				const { McpServer } = await import('@resin/nodes-langchain/mcp/core');
 				const mcpServer = McpServer.instance(this.logger);
 				mcpServer.handleWorkerResponse(sessionId, messageId, response);
 			}

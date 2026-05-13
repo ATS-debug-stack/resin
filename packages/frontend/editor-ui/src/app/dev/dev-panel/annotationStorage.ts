@@ -1,7 +1,7 @@
 import type { ElementContext } from './collectElementContext';
 import type { Annotation } from './formatPrompt';
 
-const STORAGE_KEY = 'n8n.devPanel.annotations';
+const STORAGE_KEY = 'resin.devPanel.annotations';
 const TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 type StoredEntry = { updatedAt: number; annotations: Annotation[] };

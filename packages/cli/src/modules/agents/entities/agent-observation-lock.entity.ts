@@ -1,5 +1,5 @@
 import { DateTimeColumn, WithTimestamps } from '@resin/db';
-import { Column, Entity, PrimaryColumn } from '@resin/typeorm';
+import { Column, Entity, PrimaryColumn } from '@n8n/typeorm';
 
 import type { ObservationScopeKind } from './agent-observation.entity';
 

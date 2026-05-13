@@ -190,6 +190,7 @@ class WebhookRequestHandler {
 
 		if (this.webhookManager.getWebhookMethods) {
 			try {
+// @ts-ignore
 				const allowedMethods = await this.webhookManager.getWebhookMethods(path);
 				res.header('Access-Control-Allow-Methods', ['OPTIONS', ...allowedMethods].join(', '));
 			} catch (error) {
@@ -202,7 +203,9 @@ class WebhookRequestHandler {
 				? (req.headers['access-control-request-method'] as IHttpRequestMethods)
 				: method;
 		if (this.webhookManager.findAccessControlOptions && requestedMethod) {
+// @ts-ignore
 			const options = await this.webhookManager.findAccessControlOptions(path, requestedMethod);
+// @ts-ignore
 			const { allowedOrigins } = options ?? {};
 
 			if (allowedOrigins && allowedOrigins !== '*' && allowedOrigins !== req.headers.origin) {

@@ -336,6 +336,7 @@ export class E2EController {
 		const fs = require('node:fs') as typeof nodeFs;
 		const path = require('node:path') as typeof nodePath;
 
+// @ts-ignore
 		const filename = path.basename(req.params.filename);
 		if (!filename.endsWith('.heapsnapshot')) {
 			throw new Error('Invalid file type');

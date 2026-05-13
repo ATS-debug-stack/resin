@@ -1,5 +1,5 @@
 import { JsonColumn, WithTimestampsAndStringId } from '@resin/db';
-import { Column, Entity, JoinColumn, ManyToOne } from '@resin/typeorm';
+import { Column, Entity, JoinColumn, ManyToOne } from '@n8n/typeorm';
 
 import { AgentThreadEntity } from './agent-thread.entity';
 

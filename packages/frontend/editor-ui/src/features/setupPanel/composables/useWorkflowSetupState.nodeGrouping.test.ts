@@ -145,18 +145,18 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should create a node group for an agent with an LLM sub-node', () => {
 		const agentNode = createNode({
 			name: 'AI Agent',
-			type: '@resin/n8n-nodes-langchain.agent',
+			type: '@resin/nodes-langchain.agent',
 		});
 		const llmNode = createNode({
 			name: 'OpenAI Chat Model',
-			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/nodes-langchain.lmChatOpenAi',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [agentNode, llmNode];
 
 		// LLM node needs openAiApi credential
 		mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
-			if ((node as INodeUi).type === '@resin/n8n-nodes-langchain.lmChatOpenAi')
+			if ((node as INodeUi).type === '@resin/nodes-langchain.lmChatOpenAi')
 				return [{ name: 'openAiApi' }];
 			return [];
 		});
@@ -190,18 +190,18 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should create a node group for a chain with an LLM sub-node', () => {
 		const chainNode = createNode({
 			name: 'Basic LLM Chain',
-			type: '@resin/n8n-nodes-langchain.chainLlm',
+			type: '@resin/nodes-langchain.chainLlm',
 		});
 		const llmNode = createNode({
 			name: 'OpenAI Chat Model',
-			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/nodes-langchain.lmChatOpenAi',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [chainNode, llmNode];
 
 		// LLM node needs openAiApi credential
 		mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
-			if ((node as INodeUi).type === '@resin/n8n-nodes-langchain.lmChatOpenAi')
+			if ((node as INodeUi).type === '@resin/nodes-langchain.lmChatOpenAi')
 				return [{ name: 'openAiApi' }];
 			return [];
 		});
@@ -235,26 +235,26 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should recursively collect transitive sub-nodes into one group', () => {
 		const chainNode = createNode({
 			name: 'Basic LLM Chain',
-			type: '@resin/n8n-nodes-langchain.chainLlm',
+			type: '@resin/nodes-langchain.chainLlm',
 		});
 		const retrieverNode = createNode({
 			name: 'Retriever',
-			type: '@resin/n8n-nodes-langchain.retrieverVectorStore',
+			type: '@resin/nodes-langchain.retrieverVectorStore',
 		});
 		const vectorStoreNode = createNode({
 			name: 'Vector Store',
-			type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
+			type: '@resin/nodes-langchain.vectorStoreInMemory',
 		});
 		const embeddingNode = createNode({
 			name: 'Embedding',
-			type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
+			type: '@resin/nodes-langchain.embeddingsOpenAi',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [chainNode, retrieverNode, vectorStoreNode, embeddingNode];
 
 		// Only Embedding needs credential
 		mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
-			if ((node as INodeUi).type === '@resin/n8n-nodes-langchain.embeddingsOpenAi')
+			if ((node as INodeUi).type === '@resin/nodes-langchain.embeddingsOpenAi')
 				return [{ name: 'openAiApi' }];
 			return [];
 		});
@@ -299,26 +299,26 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should not create a separate group for a node that is both parent and sub-node', () => {
 		const agentNode = createNode({
 			name: 'AI Agent',
-			type: '@resin/n8n-nodes-langchain.agent',
+			type: '@resin/nodes-langchain.agent',
 		});
 		const toolCodeNode = createNode({
 			name: 'Tool Code',
-			type: '@resin/n8n-nodes-langchain.toolCode',
+			type: '@resin/nodes-langchain.toolCode',
 		});
 		const vectorStoreNode = createNode({
 			name: 'Vector Store',
-			type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
+			type: '@resin/nodes-langchain.vectorStoreInMemory',
 		});
 		const embeddingNode = createNode({
 			name: 'Embedding',
-			type: '@resin/n8n-nodes-langchain.embeddingsOpenAi',
+			type: '@resin/nodes-langchain.embeddingsOpenAi',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [agentNode, toolCodeNode, vectorStoreNode, embeddingNode];
 
 		// Only Embedding needs credential
 		mockGetNodeTypeDisplayableCredentials.mockImplementation((_store, node) => {
-			if ((node as INodeUi).type === '@resin/n8n-nodes-langchain.embeddingsOpenAi')
+			if ((node as INodeUi).type === '@resin/nodes-langchain.embeddingsOpenAi')
 				return [{ name: 'openAiApi' }];
 			return [];
 		});
@@ -406,11 +406,11 @@ describe('useWorkflowSetupState – node grouping', () => {
 	it('should keep parent node as regular card if no sub-nodes need setup', () => {
 		const agentNode = createNode({
 			name: 'AI Agent',
-			type: '@resin/n8n-nodes-langchain.agent',
+			type: '@resin/nodes-langchain.agent',
 		});
 		const toolCodeNode = createNode({
 			name: 'Tool Code',
-			type: '@resin/n8n-nodes-langchain.toolCode',
+			type: '@resin/nodes-langchain.toolCode',
 		});
 
 		mockWorkflowDocumentStore.allNodes = [agentNode, toolCodeNode];

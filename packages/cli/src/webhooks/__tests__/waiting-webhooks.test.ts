@@ -468,7 +468,7 @@ describe('WaitingWebhooks', () => {
 							{
 								node: {
 									name: lastNodeExecuted,
-									type: '@resin/n8n-nodes-langchain.someHitlTool',
+									type: '@resin/nodes-langchain.someHitlTool',
 									typeVersion: 1,
 									parameters: {},
 									id: 'node-id',
@@ -500,7 +500,7 @@ describe('WaitingWebhooks', () => {
 					nodes: [
 						{
 							name: lastNodeExecuted,
-							type: '@resin/n8n-nodes-langchain.someHitlTool',
+							type: '@resin/nodes-langchain.someHitlTool',
 							typeVersion: 1,
 							parameters: {},
 							id: 'node-id',
@@ -734,7 +734,7 @@ describe('WaitingWebhooks', () => {
 							{
 								node: {
 									name: lastNodeExecuted,
-									type: '@resin/n8n-nodes-langchain.someHitlTool',
+									type: '@resin/nodes-langchain.someHitlTool',
 									typeVersion: 1,
 									parameters: {},
 									id: 'node-id',
@@ -767,7 +767,7 @@ describe('WaitingWebhooks', () => {
 					nodes: [
 						{
 							name: lastNodeExecuted,
-							type: '@resin/n8n-nodes-langchain.someHitlTool',
+							type: '@resin/nodes-langchain.someHitlTool',
 							typeVersion: 1,
 							parameters: {},
 							id: 'node-id',

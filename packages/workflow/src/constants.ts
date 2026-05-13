@@ -49,7 +49,7 @@ export const MAILGUN_NODE_TYPE = 'resin-nodes-base.mailgun';
 export const POSTGRES_NODE_TYPE = 'resin-nodes-base.postgres';
 export const MYSQL_NODE_TYPE = 'resin-nodes-base.mySql';
 export const MICROSOFT_AGENT365_TRIGGER_NODE_TYPE =
-	'@resin/n8n-nodes-langchain.microsoftAgent365Trigger';
+	'@resin/nodes-langchain.microsoftAgent365Trigger';
 export const SCHEDULE_TRIGGER_NODE_TYPE = 'resin-nodes-base.scheduleTrigger';
 export const DATA_TABLE_NODE_TYPE = 'resin-nodes-base.dataTable';
 export const DATA_TABLE_TOOL_NODE_TYPE = 'resin-nodes-base.dataTableTool';
@@ -94,33 +94,33 @@ export const NODES_WITH_RENAMEABLE_TOPLEVEL_HTML_CONTENT = new Set([
 	HTML_NODE_TYPE,
 ]);
 
-//@resin/n8n-nodes-langchain
+//@resin/nodes-langchain
 export const MANUAL_CHAT_TRIGGER_LANGCHAIN_NODE_TYPE =
-	'@resin/n8n-nodes-langchain.manualChatTrigger';
-export const AGENT_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.agent';
-export const CHAIN_LLM_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.chainLlm';
-export const OPENAI_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.openAi';
-export const OPENAI_CHAT_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.lmChatOpenAi';
+	'@resin/nodes-langchain.manualChatTrigger';
+export const AGENT_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.agent';
+export const CHAIN_LLM_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.chainLlm';
+export const OPENAI_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.openAi';
+export const OPENAI_CHAT_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.lmChatOpenAi';
 export const CHAIN_SUMMARIZATION_LANGCHAIN_NODE_TYPE =
-	'@resin/n8n-nodes-langchain.chainSummarization';
-export const AGENT_TOOL_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.agentTool';
-export const CODE_TOOL_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.toolCode';
-export const WORKFLOW_TOOL_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.toolWorkflow';
-export const HTTP_REQUEST_TOOL_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.toolHttpRequest';
-export const CHAT_TRIGGER_NODE_TYPE = '@resin/n8n-nodes-langchain.chatTrigger';
-export const CHAT_NODE_TYPE = '@resin/n8n-nodes-langchain.chat';
-export const CHAT_TOOL_NODE_TYPE = '@resin/n8n-nodes-langchain.chatTool';
-export const MEMORY_MANAGER_NODE_TYPE = '@resin/n8n-nodes-langchain.memoryManager';
-export const MEMORY_BUFFER_WINDOW_NODE_TYPE = '@resin/n8n-nodes-langchain.memoryBufferWindow';
-export const GUARDRAILS_NODE_TYPE = '@resin/n8n-nodes-langchain.guardrails';
-export const MCP_CLIENT_TOOL_NODE_TYPE = '@resin/n8n-nodes-langchain.mcpClientTool';
-export const MCP_CLIENT_NODE_TYPE = '@resin/n8n-nodes-langchain.mcpClient';
-export const ANTHROPIC_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.anthropic';
-export const OLLAMA_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.ollama';
-export const GOOGLE_GEMINI_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.googleGemini';
-export const ALIBABA_CLOUD_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.alibabaCloud';
-export const MOONSHOT_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.moonshot';
-export const MINIMAX_LANGCHAIN_NODE_TYPE = '@resin/n8n-nodes-langchain.minimax';
+	'@resin/nodes-langchain.chainSummarization';
+export const AGENT_TOOL_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.agentTool';
+export const CODE_TOOL_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.toolCode';
+export const WORKFLOW_TOOL_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.toolWorkflow';
+export const HTTP_REQUEST_TOOL_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.toolHttpRequest';
+export const CHAT_TRIGGER_NODE_TYPE = '@resin/nodes-langchain.chatTrigger';
+export const CHAT_NODE_TYPE = '@resin/nodes-langchain.chat';
+export const CHAT_TOOL_NODE_TYPE = '@resin/nodes-langchain.chatTool';
+export const MEMORY_MANAGER_NODE_TYPE = '@resin/nodes-langchain.memoryManager';
+export const MEMORY_BUFFER_WINDOW_NODE_TYPE = '@resin/nodes-langchain.memoryBufferWindow';
+export const GUARDRAILS_NODE_TYPE = '@resin/nodes-langchain.guardrails';
+export const MCP_CLIENT_TOOL_NODE_TYPE = '@resin/nodes-langchain.mcpClientTool';
+export const MCP_CLIENT_NODE_TYPE = '@resin/nodes-langchain.mcpClient';
+export const ANTHROPIC_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.anthropic';
+export const OLLAMA_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.ollama';
+export const GOOGLE_GEMINI_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.googleGemini';
+export const ALIBABA_CLOUD_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.alibabaCloud';
+export const MOONSHOT_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.moonshot';
+export const MINIMAX_LANGCHAIN_NODE_TYPE = '@resin/nodes-langchain.minimax';
 
 export const AI_VENDOR_NODE_TYPES = [
 	OPENAI_LANGCHAIN_NODE_TYPE,
@@ -132,16 +132,16 @@ export const AI_VENDOR_NODE_TYPES = [
 	MINIMAX_LANGCHAIN_NODE_TYPE,
 ];
 
-export const LANGCHAIN_LM_NODE_TYPE_PREFIX = '@resin/n8n-nodes-langchain.lm';
+export const LANGCHAIN_LM_NODE_TYPE_PREFIX = '@resin/nodes-langchain.lm';
 
 export const CHAT_HUB_VECTOR_STORE_PG_VECTOR_NODE_TYPE =
-	'@resin/n8n-nodes-langchain.chatHubVectorStorePGVector';
+	'@resin/nodes-langchain.chatHubVectorStorePGVector';
 export const CHAT_HUB_VECTOR_STORE_QDRANT_NODE_TYPE =
-	'@resin/n8n-nodes-langchain.chatHubVectorStoreQdrant';
+	'@resin/nodes-langchain.chatHubVectorStoreQdrant';
 export const CHAT_HUB_VECTOR_STORE_PINECONE_NODE_TYPE =
-	'@resin/n8n-nodes-langchain.chatHubVectorStorePinecone';
+	'@resin/nodes-langchain.chatHubVectorStorePinecone';
 export const DOCUMENT_DEFAULT_DATA_LOADER_NODE_TYPE =
-	'@resin/n8n-nodes-langchain.documentDefaultDataLoader';
+	'@resin/nodes-langchain.documentDefaultDataLoader';
 
 export const LANGCHAIN_CUSTOM_TOOLS = [
 	CODE_TOOL_LANGCHAIN_NODE_TYPE,

@@ -2,9 +2,9 @@ import { GlobalConfig } from '@resin/config';
 import { WorkflowEntity, TagRepository, WorkflowRepository } from '@resin/db';
 import { Container } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, IsNull, Like, Not, QueryFailedError } from '@resin/typeorm';
+import { In, IsNull, Like, Not, QueryFailedError } from '@n8n/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { FindOptionsWhere } from '@resin/typeorm';
+import type { FindOptionsWhere } from '@n8n/typeorm';
 import { z } from 'zod';
 
 import { ResponseError } from '@/errors/response-errors/abstract/response.error';

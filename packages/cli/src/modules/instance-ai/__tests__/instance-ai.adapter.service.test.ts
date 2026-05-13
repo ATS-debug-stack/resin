@@ -649,7 +649,7 @@ describe('extractExecutionDebugInfo', () => {
 		};
 		const execution = makeExecution({
 			status: 'error',
-			workflowNodes: [{ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }],
+			workflowNodes: [{ name: 'AI Agent', type: '@resin/nodes-langchain.agent' }],
 			runData: {
 				'AI Agent': [
 					makeTaskData([{ chatInput: 'Hello' }], {
@@ -685,7 +685,7 @@ describe('extractExecutionDebugInfo', () => {
 		};
 		const execution = makeExecution({
 			status: 'error',
-			workflowNodes: [{ name: 'AI Agent', type: '@resin/n8n-nodes-langchain.agent' }],
+			workflowNodes: [{ name: 'AI Agent', type: '@resin/nodes-langchain.agent' }],
 			runData: {
 				'AI Agent': [makeTaskData([{ chatInput: 'Hello' }], { error: deserialized })],
 			},

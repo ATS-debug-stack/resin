@@ -10,7 +10,7 @@ import {
 	JoinColumn,
 	type Relation,
 	PrimaryGeneratedColumn,
-} from '@resin/typeorm';
+} from '@n8n/typeorm';
 
 import type { ChatHubMessage } from './chat-hub-message.entity';
 import type { ChatHubAgent } from './chat-hub-agent.entity';

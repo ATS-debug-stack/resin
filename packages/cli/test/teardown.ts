@@ -2,7 +2,7 @@ import 'tsconfig-paths/register';
 import { testDb } from '@resin/backend-test-utils';
 import { GlobalConfig } from '@resin/config';
 import { Container } from '@resin/di';
-import { DataSource as Connection } from '@resin/typeorm';
+import { DataSource as Connection } from '@n8n/typeorm';
 
 export default async () => {
 	const { type: dbType } = Container.get(GlobalConfig).database;

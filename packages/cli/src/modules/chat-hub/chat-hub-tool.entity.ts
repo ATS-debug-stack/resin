@@ -1,5 +1,5 @@
 import { User, JsonColumn, WithTimestamps } from '@resin/db';
-import { Column, Entity, ManyToOne, JoinColumn, PrimaryColumn } from '@resin/typeorm';
+import { Column, Entity, ManyToOne, JoinColumn, PrimaryColumn } from '@n8n/typeorm';
 import type { INode } from 'resin-workflow';
 
 export interface IChatHubTool {

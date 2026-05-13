@@ -249,7 +249,7 @@ export class WorkflowApiHelper {
 				// Handle MCP Trigger nodes - make their paths unique
 				// Note: webhookId is required for isFullPath: true webhooks to work correctly.
 				// Without it, the webhook path becomes workflowId/nodeName/path instead of just path.
-				if (node.type === '@resin/n8n-nodes-langchain.mcpTrigger') {
+				if (node.type === '@resin/nodes-langchain.mcpTrigger') {
 					const mcpId = nanoid(idLength);
 					const currentPath = (node.parameters.path as string) ?? 'mcp';
 					node.parameters.path = `${currentPath}-${mcpId}`;

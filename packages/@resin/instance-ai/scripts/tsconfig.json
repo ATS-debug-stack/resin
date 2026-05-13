@@ -1,0 +1,14 @@
+{
+	"extends": [
+		"@resin/typescript-config/tsconfig.common.json",
+		"@resin/typescript-config/tsconfig.backend.json"
+	],
+	"compilerOptions": {
+		"target": "es2023",
+		"lib": ["es2023"],
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"types": ["node"]
+	},
+	"include": ["**/*.ts"]
+}

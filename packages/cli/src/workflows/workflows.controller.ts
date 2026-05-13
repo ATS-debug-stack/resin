@@ -34,7 +34,7 @@ import {
 } from '@resin/decorators';
 import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, type FindOptionsRelations } from '@resin/typeorm';
+import { In, type FindOptionsRelations } from '@n8n/typeorm';
 import axios, { type AxiosRequestConfig } from 'axios';
 import express from 'express';
 import { calculateWorkflowChecksum, ensureError } from 'resin-workflow';
@@ -192,7 +192,7 @@ export class WorkflowsController {
 			Array.isArray(workflowData.connections)
 		) {
 			throw new BadRequestError(
-				'The data in the file does not seem to be a n8n workflow JSON file!',
+				'The data in the file does not seem to be a Resin workflow JSON file!',
 			);
 		}
 

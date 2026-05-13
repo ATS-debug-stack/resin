@@ -18,8 +18,8 @@ import { OwnerSetupRequestDto } from '@resin/api-types';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { EventService } from '@/events/event.service';
 import { PasswordUtility } from './password.utility';
-import { IsNull } from '@resin/typeorm/find-options/operator/IsNull';
-import { Not } from '@resin/typeorm/find-options/operator/Not';
+import { IsNull } from '@n8n/typeorm/find-options/operator/IsNull';
+import { Not } from '@n8n/typeorm/find-options/operator/Not';
 import config from '@/config';
 
 @Service()

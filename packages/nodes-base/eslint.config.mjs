@@ -1,20 +1,20 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import { nodeConfig } from '@n8n/eslint-config/node';
+import { nodeConfig } from '@resin/eslint-config/node';
 import nodesBasePlugin from 'eslint-plugin-n8n-nodes-base';
-import { n8nCommunityNodesPlugin } from '@n8n/eslint-plugin-community-nodes';
+import { n8nCommunityNodesPlugin } from '@resin/eslint-plugin-community-nodes';
 
 export default defineConfig(
 	nodeConfig,
 	globalIgnores(['scenarios/**', 'scripts/**']),
 	{
 		plugins: {
-			'@n8n/community-nodes': n8nCommunityNodesPlugin,
+			'@resin/community-nodes': n8nCommunityNodesPlugin,
 		},
 
 		rules: {
-			'@n8n/community-nodes/credential-documentation-url': ['error', { allowSlugs: true }],
-			'@n8n/community-nodes/node-class-description-icon-missing': 'warn',
-			'@n8n/community-nodes/cred-class-field-icon-missing': 'warn',
+			'@resin/community-nodes/credential-documentation-url': ['error', { allowSlugs: true }],
+			'@resin/community-nodes/node-class-description-icon-missing': 'warn',
+			'@resin/community-nodes/cred-class-field-icon-missing': 'warn',
 
 			// TODO: remove all the following rules
 			eqeqeq: 'warn',
@@ -39,7 +39,7 @@ export default defineConfig(
 			'import-x/no-extraneous-dependencies': 'warn',
 
 			'n8n-local-rules/no-argument-spread': 'warn', // TODO: mark error
-			'@n8n/community-nodes/no-builder-hint-leakage': 'error',
+			'@resin/community-nodes/no-builder-hint-leakage': 'error',
 
 			'@typescript-eslint/ban-ts-comment': ['warn', { 'ts-ignore': true }],
 			'@typescript-eslint/naming-convention': ['warn'],

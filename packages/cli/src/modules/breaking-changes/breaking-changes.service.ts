@@ -10,7 +10,7 @@ import { Time } from '@resin/constants';
 import { WorkflowRepository, WorkflowStatisticsRepository } from '@resin/db';
 import { BreakingChangeRuleMetadata } from '@resin/decorators';
 import { Container, Service } from '@resin/di';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { ErrorReporter } from 'resin-core';
 import type { INode } from 'resin-workflow';
 

@@ -1,7 +1,7 @@
 import { DataTableCreateColumnSchema } from '@resin/api-types';
 import { withTransaction } from '@resin/db';
 import { Service } from '@resin/di';
-import { DataSource, EntityManager, Repository } from '@resin/typeorm';
+import { DataSource, EntityManager, Repository } from '@n8n/typeorm';
 import {
 	DATA_TABLE_SYSTEM_COLUMNS,
 	DATA_TABLE_SYSTEM_TESTING_COLUMN,

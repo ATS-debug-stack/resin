@@ -9,7 +9,7 @@ import {
 	OneToOne,
 	PrimaryColumn,
 	type Relation,
-} from '@resin/typeorm';
+} from '@n8n/typeorm';
 
 import type { Agent } from './agent.entity';
 import type { AgentJsonConfig } from '../json-config/agent-json-config';

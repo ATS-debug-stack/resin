@@ -1,6 +1,6 @@
 import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { DataSource, Repository } from '@resin/typeorm';
+import { DataSource, Repository } from '@n8n/typeorm';
 
 import { InstalledPackages } from '@/modules/community-packages/installed-packages.entity';
 

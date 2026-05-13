@@ -8,7 +8,7 @@ import istanbul from 'vite-plugin-istanbul';
 import { sentryVitePlugin } from '@sentry/vite-plugin';
 import { codecovVitePlugin } from '@codecov/vite-plugin';
 
-import { vitestConfig } from '@n8n/vitest-config/frontend';
+import { vitestConfig } from '@resin/vitest-config/frontend';
 import icons from 'unplugin-icons/vite';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import legacy from '@vitejs/plugin-legacy';
@@ -27,50 +27,50 @@ const packagesDir = resolve(__dirname, '..', '..');
 const alias = [
 	{ find: '@', replacement: resolve(__dirname, 'src') },
 	{ find: 'stream', replacement: 'stream-browserify' },
-	// Stub out @n8n/expression-runtime for browser build (it pulls in isolated-vm, a Node.js-only native module)
+	// Stub out @resin/expression-runtime for browser build (it pulls in isolated-vm, a Node.js-only native module)
 	{
-		find: '@n8n/expression-runtime',
+		find: '@resin/expression-runtime',
 		replacement: resolve(__dirname, 'vite/expression-runtime-stub.ts'),
 	},
 	// Ensure bare imports resolve to sources (not dist)
-	{ find: '@n8n/i18n', replacement: resolve(packagesDir, 'frontend', '@n8n', 'i18n', 'src') },
-	{ find: '@n8n/chat-hub', replacement: resolve(packagesDir, '@n8n', 'chat-hub', 'src') },
-	{ find: '@n8n/tournament', replacement: resolve(packagesDir, '@n8n', 'tournament', 'src') },
+	{ find: '@resin/i18n', replacement: resolve(packagesDir, 'frontend', '@resin', 'i18n', 'src') },
+	{ find: '@resin/chat-hub', replacement: resolve(packagesDir, '@resin', 'chat-hub', 'src') },
+	{ find: '@resin/tournament', replacement: resolve(packagesDir, '@resin', 'tournament', 'src') },
 	{
-		find: /^@n8n\/chat(.+)$/,
-		replacement: resolve(packagesDir, 'frontend', '@n8n', 'chat', 'src$1'),
+		find: /^@resin\/chat(.+)$/,
+		replacement: resolve(packagesDir, 'frontend', '@resin', 'chat', 'src$1'),
 	},
 	{
-		find: /^@n8n\/chat-hub(.+)$/,
-		replacement: resolve(packagesDir, '@n8n', 'chat-hub', 'src$1'),
+		find: /^@resin\/chat-hub(.+)$/,
+		replacement: resolve(packagesDir, '@resin', 'chat-hub', 'src$1'),
 	},
 	{
-		find: /^@n8n\/api-requests(.+)$/,
-		replacement: resolve(packagesDir, 'frontend', '@n8n', 'api-requests', 'src$1'),
+		find: /^@resin\/api-requests(.+)$/,
+		replacement: resolve(packagesDir, 'frontend', '@resin', 'api-requests', 'src$1'),
 	},
 	{
-		find: /^@n8n\/composables(.+)$/,
-		replacement: resolve(packagesDir, 'frontend', '@n8n', 'composables', 'src$1'),
+		find: /^@resin\/composables(.+)$/,
+		replacement: resolve(packagesDir, 'frontend', '@resin', 'composables', 'src$1'),
 	},
 	{
-		find: /^@n8n\/constants(.+)$/,
-		replacement: resolve(packagesDir, '@n8n', 'constants', 'src$1'),
+		find: /^@resin\/constants(.+)$/,
+		replacement: resolve(packagesDir, '@resin', 'constants', 'src$1'),
 	},
 	{
-		find: /^@n8n\/design-system(.+)$/,
-		replacement: resolve(packagesDir, 'frontend', '@n8n', 'design-system', 'src$1'),
+		find: /^@resin\/design-system(.+)$/,
+		replacement: resolve(packagesDir, 'frontend', '@resin', 'design-system', 'src$1'),
 	},
 	{
-		find: /^@n8n\/i18n(.+)$/,
-		replacement: resolve(packagesDir, 'frontend', '@n8n', 'i18n', 'src$1'),
+		find: /^@resin\/i18n(.+)$/,
+		replacement: resolve(packagesDir, 'frontend', '@resin', 'i18n', 'src$1'),
 	},
 	{
-		find: /^@n8n\/stores(.+)$/,
-		replacement: resolve(packagesDir, 'frontend', '@n8n', 'stores', 'src$1'),
+		find: /^@resin\/stores(.+)$/,
+		replacement: resolve(packagesDir, 'frontend', '@resin', 'stores', 'src$1'),
 	},
 	{
-		find: /^@n8n\/utils(.+)$/,
-		replacement: resolve(packagesDir, '@n8n', 'utils', 'src$1'),
+		find: /^@resin\/utils(.+)$/,
+		replacement: resolve(packagesDir, '@resin', 'utils', 'src$1'),
 	},
 	...['orderBy', 'camelCase', 'cloneDeep', 'startCase'].map((name) => ({
 		find: new RegExp(`^lodash.${name}$`, 'i'),
@@ -175,7 +175,7 @@ const plugins: UserConfig['plugins'] = [
 	{
 		name: 'i18n-locales-hmr',
 		configureServer(server) {
-			const localesDir = resolve(packagesDir, 'frontend', '@n8n', 'i18n', 'src', 'locales');
+			const localesDir = resolve(packagesDir, 'frontend', '@resin', 'i18n', 'src', 'locales');
 			server.watcher.add(localesDir);
 
 			// Only emit for add/unlink; change events are handled in handleHotUpdate
@@ -240,7 +240,7 @@ export default mergeConfig(
 					additionalData: [
 						'',
 						'@use "@/app/css/_variables.scss" as *;',
-						'@use "@n8n/design-system/css/mixins" as mixins;',
+						'@use "@resin/design-system/css/mixins" as mixins;',
 					].join('\n'),
 				},
 			},

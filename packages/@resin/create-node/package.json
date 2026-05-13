@@ -1,0 +1,25 @@
+{
+  "name": "@resin/create-node",
+  "version": "0.30.0",
+  "description": "Official CLI to create new community nodes for n8n",
+  "bin": {
+    "create-node": "bin/create-node.cjs"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "start": "node bin/create-node.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n8n-io/n8n.git"
+  },
+  "dependencies": {
+    "@resin/node-cli": "workspace:*"
+  },
+  "devDependencies": {
+    "@resin/typescript-config": "workspace:*"
+  }
+}

@@ -11,7 +11,7 @@ import {
 } from '@resin/db';
 import { Service } from '@resin/di';
 
-import { type EntityManager, type FindOptionsOrder, In } from '@resin/typeorm';
+import { type EntityManager, type FindOptionsOrder, In } from '@n8n/typeorm';
 import type { z } from 'zod';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

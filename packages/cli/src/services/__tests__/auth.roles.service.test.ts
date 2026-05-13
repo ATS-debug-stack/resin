@@ -13,7 +13,7 @@ import {
 	PERSONAL_SPACE_SHARING_SETTING,
 	EXTERNAL_SECRETS_SYSTEM_ROLES_ENABLED_SETTING,
 } from '@resin/permissions';
-import type { EntityManager, FindManyOptions, Repository } from '@resin/typeorm';
+import type { EntityManager, FindManyOptions, Repository } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 
 const SHARING_SCOPES = PERSONAL_SPACE_SHARING_SETTING.scopes;

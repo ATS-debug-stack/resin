@@ -1,5 +1,5 @@
 import { WithTimestamps, JsonColumn } from '@resin/db';
-import { Column, Entity, Index, PrimaryColumn } from '@resin/typeorm';
+import { Column, Entity, Index, PrimaryColumn } from '@n8n/typeorm';
 
 @Entity({ name: 'instance_ai_threads' })
 export class InstanceAiThread extends WithTimestamps {

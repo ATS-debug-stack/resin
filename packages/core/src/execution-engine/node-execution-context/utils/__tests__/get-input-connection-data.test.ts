@@ -1285,14 +1285,14 @@ describe('HITL Tool handling', () => {
 
 		it('should identify HITL tools by type suffix ending in HitlTool', () => {
 			const hitlTypes = [
-				'@resin/n8n-nodes-langchain.toolWorkflowHitlTool',
+				'@resin/nodes-langchain.toolWorkflowHitlTool',
 				'test.HitlTool',
 				'myPackage.customHitlTool',
 			];
 
 			const nonHitlTypes = [
 				'resin-nodes-base.httpRequest',
-				'@resin/n8n-nodes-langchain.toolWorkflow',
+				'@resin/nodes-langchain.toolWorkflow',
 				'test.regularTool',
 			];
 

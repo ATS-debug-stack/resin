@@ -1,5 +1,5 @@
 import { defineConfig } from 'eslint/config';
-import { frontendConfig } from '@n8n/eslint-config/frontend';
+import { frontendConfig } from '@resin/eslint-config/frontend';
 import oxlint from 'eslint-plugin-oxlint';
 
 export default defineConfig(

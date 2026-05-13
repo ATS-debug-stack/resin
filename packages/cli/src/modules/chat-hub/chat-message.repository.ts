@@ -6,8 +6,8 @@ import type {
 } from '@resin/api-types';
 import { User, withTransaction } from '@resin/db';
 import { Service } from '@resin/di';
-import { DataSource, EntityManager, Repository } from '@resin/typeorm';
-import { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
+import { DataSource, EntityManager, Repository } from '@n8n/typeorm';
+import { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
 import { UnexpectedError, type IBinaryData } from 'resin-workflow';
 
 import { ChatHubMessage } from './chat-hub-message.entity';

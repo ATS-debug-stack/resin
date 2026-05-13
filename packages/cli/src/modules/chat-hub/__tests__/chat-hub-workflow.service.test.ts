@@ -1,6 +1,6 @@
 import type { Logger } from '@resin/backend-common';
 import type { WorkflowRepository, SharedWorkflowRepository, User } from '@resin/db';
-import type { EntityManager } from '@resin/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import type { Cipher, BinaryDataService } from 'resin-core';
 import { type IBinaryData, type INode, CHAT_TRIGGER_NODE_TYPE } from 'resin-workflow';
@@ -281,7 +281,7 @@ describe('ChatHubWorkflowService', () => {
 					(node) => node.name === NODE_NAMES.EMBEDDINGS_MODEL,
 				);
 				expect(embeddingsNode).toBeDefined();
-				expect(embeddingsNode?.type).toBe('@resin/n8n-nodes-langchain.embeddingsOpenAi');
+				expect(embeddingsNode?.type).toBe('@resin/nodes-langchain.embeddingsOpenAi');
 			});
 
 			it('should wire vector store to agent and embeddings to vector store', async () => {
@@ -1203,7 +1203,7 @@ describe('ChatHubWorkflowService', () => {
 				(node) => node.name === NODE_NAMES.EMBEDDINGS_MODEL,
 			);
 			expect(embeddingsNode).toBeDefined();
-			expect(embeddingsNode?.type).toBe('@resin/n8n-nodes-langchain.embeddingsOpenAi');
+			expect(embeddingsNode?.type).toBe('@resin/nodes-langchain.embeddingsOpenAi');
 		});
 	});
 

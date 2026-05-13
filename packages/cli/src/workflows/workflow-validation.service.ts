@@ -1,7 +1,7 @@
 import { CredentialsRepository, WorkflowRepository } from '@resin/db';
 import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import {
 	validateWorkflowHasTriggerLikeNode,
 	NodeHelpers,

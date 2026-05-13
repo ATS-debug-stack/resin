@@ -833,7 +833,7 @@ describe('JobProcessor', () => {
 			const executionRepository = mock<ExecutionRepository>();
 			const toolNode = {
 				name: 'Tool HTTP Request',
-				type: '@resin/n8n-nodes-langchain.toolHttpRequest',
+				type: '@resin/nodes-langchain.toolHttpRequest',
 				typeVersion: 1,
 				parameters: {},
 				position: [0, 0] as [number, number],

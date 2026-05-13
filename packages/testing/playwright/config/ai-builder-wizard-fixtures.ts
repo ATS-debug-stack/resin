@@ -41,7 +41,7 @@ const scheduleTriggerNode = {
 const agentNode = {
 	id: 'agent-1',
 	name: 'AI Agent',
-	type: '@resin/n8n-nodes-langchain.agent',
+	type: '@resin/nodes-langchain.agent',
 	typeVersion: 2,
 	position: [220, 0] as [number, number],
 	parameters: {
@@ -56,7 +56,7 @@ const agentNode = {
 const openAiModelNode = {
 	id: 'openai-model-1',
 	name: 'OpenAI Chat Model',
-	type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+	type: '@resin/nodes-langchain.lmChatOpenAi',
 	typeVersion: 1.2,
 	position: [220, 200] as [number, number],
 	parameters: {

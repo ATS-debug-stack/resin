@@ -36,7 +36,7 @@ export class WaitNodeSubworkflowRule implements IBreakingChangeBatchWorkflowRule
 			nodeTypes: [
 				'resin-nodes-base.wait',
 				'resin-nodes-base.form',
-				'@resin/n8n-nodes-langchain.chat',
+				'@resin/nodes-langchain.chat',
 				'resin-nodes-base.respondToWebhook',
 			],
 		},

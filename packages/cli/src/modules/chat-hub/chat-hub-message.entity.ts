@@ -7,7 +7,7 @@ import {
 	JoinColumn,
 	type Relation,
 	PrimaryGeneratedColumn,
-} from '@resin/typeorm';
+} from '@n8n/typeorm';
 
 import type { ChatHubSession } from './chat-hub-session.entity';
 import type { IBinaryData } from 'resin-workflow';

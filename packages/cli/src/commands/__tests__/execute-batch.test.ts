@@ -9,7 +9,7 @@ import {
 	BinaryDataRepository,
 } from '@resin/db';
 import { Container } from '@resin/di';
-import { type SelectQueryBuilder } from '@resin/typeorm';
+import { type SelectQueryBuilder } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import type { IRun } from 'resin-workflow';
 

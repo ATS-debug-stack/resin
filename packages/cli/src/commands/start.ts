@@ -9,7 +9,7 @@ import {
 } from '@resin/db';
 import { Command } from '@resin/decorators';
 import { Container } from '@resin/di';
-import { McpServer } from '@resin/n8n-nodes-langchain/mcp/core';
+import { McpServer } from '@resin/nodes-langchain/mcp/core';
 import glob from 'fast-glob';
 import { createReadStream, createWriteStream, existsSync } from 'fs';
 import { mkdir } from 'fs/promises';
@@ -142,8 +142,8 @@ export class Start extends BaseCommand<z.infer<typeof flagsSchema>> {
 		const sentryConfigEncoded = b64Encode(frontendSentryConfig);
 
 		const configMetaTags = [
-			`<meta name="n8n:config:rest-endpoint" content="${restEndpointEncoded}">`,
-			`<meta name="n8n:config:sentry" content="${sentryConfigEncoded}">`,
+			`<meta name="resin:config:rest-endpoint" content="${restEndpointEncoded}">`,
+			`<meta name="resin:config:sentry" content="${sentryConfigEncoded}">`,
 		].join('');
 
 		return configMetaTags;

@@ -7,7 +7,7 @@ import {
 import { GlobalConfig } from '@resin/config';
 import { WorkflowHistoryRepository, WorkflowRepository } from '@resin/db';
 import { Container } from '@resin/di';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { DateTime } from 'luxon';
 
 import { License } from '@/license';

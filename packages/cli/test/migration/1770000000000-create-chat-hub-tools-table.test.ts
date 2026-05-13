@@ -6,7 +6,7 @@ import {
 } from '@resin/backend-test-utils';
 import { DbConnection } from '@resin/db';
 import { Container } from '@resin/di';
-import { DataSource } from '@resin/typeorm';
+import { DataSource } from '@n8n/typeorm';
 import { randomUUID } from 'node:crypto';
 
 const MIGRATION_NAME = 'CreateChatHubToolsTable1770000000000';
@@ -17,7 +17,7 @@ function makeTool(
 	return {
 		id: overrides.id ?? randomUUID(),
 		name: overrides.name ?? 'Google Search',
-		type: overrides.type ?? '@resin/n8n-nodes-langchain.toolSerpApi',
+		type: overrides.type ?? '@resin/nodes-langchain.toolSerpApi',
 		typeVersion: overrides.typeVersion ?? 1,
 		parameters: { query: 'test' },
 		position: [0, 0],
@@ -292,7 +292,7 @@ describe('CreateChatHubToolsTable Migration', () => {
 			const definition = JSON.parse(rows[0].definition);
 			// Should contain extra fields from the original INode definition
 			expect(definition.parameters).toEqual({ query: 'test' });
-			expect(definition.type).toBe('@resin/n8n-nodes-langchain.toolSerpApi');
+			expect(definition.type).toBe('@resin/nodes-langchain.toolSerpApi');
 
 			await context.queryRunner.release();
 		});

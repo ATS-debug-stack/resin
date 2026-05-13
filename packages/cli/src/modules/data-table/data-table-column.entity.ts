@@ -1,5 +1,5 @@
 import { WithTimestampsAndStringId } from '@resin/db';
-import { Column, Entity, Index, JoinColumn, ManyToOne } from '@resin/typeorm';
+import { Column, Entity, Index, JoinColumn, ManyToOne } from '@n8n/typeorm';
 
 import { type DataTable } from './data-table.entity';
 

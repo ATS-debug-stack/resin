@@ -131,7 +131,7 @@ const EXCLUDED_NODE_NAMES = [
 // Exclude all LangChain nodes (AI tools)
 const isLangChainNode = (nodeName: string): boolean => {
 	// cspell:disable-next-line
-	return nodeName.startsWith('@resin/n8n-nodes-langchain.');
+	return nodeName.startsWith('@resin/nodes-langchain.');
 };
 
 const isExcludedNode = (nodeName: string): boolean => {

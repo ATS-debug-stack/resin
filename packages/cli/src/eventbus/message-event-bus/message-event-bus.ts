@@ -3,7 +3,7 @@ import { GlobalConfig } from '@resin/config';
 import { ExecutionRepository, WorkflowRepository } from '@resin/db';
 import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, IsNull, Not } from '@resin/typeorm';
+import { In, IsNull, Not } from '@n8n/typeorm';
 import EventEmitter from 'events';
 import uniqby from 'lodash/uniqBy';
 import { InstanceSettings } from 'resin-core';

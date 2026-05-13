@@ -1,5 +1,5 @@
 {
-  "name": "@n8n/playwright-janitor",
+  "name": "@resin/playwright-janitor",
   "private": true,
 	"version": "0.1.0",
 	"description": "Static analysis and architecture enforcement for Playwright test suites",
@@ -29,7 +29,7 @@
 	],
 	"license": "MIT",
 	"dependencies": {
-		"@n8n/rules-engine": "workspace:*",
+		"@resin/rules-engine": "workspace:*",
 		"glob": "^10.0.0"
 	},
 	"peerDependencies": {

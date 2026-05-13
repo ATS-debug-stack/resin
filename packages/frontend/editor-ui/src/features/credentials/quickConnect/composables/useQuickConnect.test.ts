@@ -336,7 +336,7 @@ describe('useQuickConnect()', () => {
 				);
 			});
 
-			describe.each(['@resin/n8n-nodes-langchain', '@resin/n8n-nodes-langchain.pinecone'])(
+			describe.each(['@resin/nodes-langchain', '@resin/nodes-langchain.pinecone'])(
 				'pinecone quick connect with packageName configured as "%s"',
 				(packageName) => {
 					const pineconeOption: QuickConnectOption = {
@@ -388,7 +388,7 @@ describe('useQuickConnect()', () => {
 						const { connect } = useQuickConnect();
 						const result = await connect({
 							credentialTypeName: 'pineconeApi',
-							nodeType: '@resin/n8n-nodes-langchain.pinecone',
+							nodeType: '@resin/nodes-langchain.pinecone',
 							source: 'node_type',
 							serviceName: 'Pinecone',
 						});
@@ -428,7 +428,7 @@ describe('useQuickConnect()', () => {
 						const { connect } = useQuickConnect();
 						await connect({
 							credentialTypeName: 'pineconeApi',
-							nodeType: '@resin/n8n-nodes-langchain.pinecone',
+							nodeType: '@resin/nodes-langchain.pinecone',
 							source: 'node_type',
 							serviceName: 'Pinecone',
 						});
@@ -451,7 +451,7 @@ describe('useQuickConnect()', () => {
 						const { connect } = useQuickConnect();
 						await connect({
 							credentialTypeName: 'pineconeApi',
-							nodeType: '@resin/n8n-nodes-langchain.pinecone',
+							nodeType: '@resin/nodes-langchain.pinecone',
 							source: 'node_type',
 							serviceName: 'Pinecone',
 						});
@@ -466,7 +466,7 @@ describe('useQuickConnect()', () => {
 						const { connect } = useQuickConnect();
 						const result = await connect({
 							credentialTypeName: 'pineconeApi',
-							nodeType: '@resin/n8n-nodes-langchain.pinecone',
+							nodeType: '@resin/nodes-langchain.pinecone',
 							source: 'node_type',
 							serviceName: 'Pinecone',
 						});
@@ -488,7 +488,7 @@ describe('useQuickConnect()', () => {
 						const { connect } = useQuickConnect();
 						const result = await connect({
 							credentialTypeName: 'pineconeApi',
-							nodeType: '@resin/n8n-nodes-langchain.pinecone',
+							nodeType: '@resin/nodes-langchain.pinecone',
 							source: 'node_type',
 							serviceName: 'Pinecone',
 						});
@@ -512,7 +512,7 @@ describe('useQuickConnect()', () => {
 						const { connect } = useQuickConnect();
 						const result = await connect({
 							credentialTypeName: 'pineconeApi',
-							nodeType: '@resin/n8n-nodes-langchain.pinecone',
+							nodeType: '@resin/nodes-langchain.pinecone',
 							source: 'node_type',
 							serviceName: 'Pinecone',
 						});

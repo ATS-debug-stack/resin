@@ -1,5 +1,5 @@
 import { testModules } from '@resin/backend-test-utils';
-import type { DataSource, EntityManager } from '@resin/typeorm';
+import type { DataSource, EntityManager } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import { DataTableColumn } from '../data-table-column.entity';

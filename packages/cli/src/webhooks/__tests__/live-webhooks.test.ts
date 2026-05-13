@@ -376,7 +376,7 @@ describe('LiveWebhooks', () => {
 		});
 
 		it('executes an mcp trigger on the mcp route family', async () => {
-			setupMocks('mcp', '@resin/n8n-nodes-langchain.mcpTrigger');
+			setupMocks('mcp', '@resin/nodes-langchain.mcpTrigger');
 
 			await expect(
 				liveWebhooks.executeWebhook(buildRequest(), mock<Response>(), 'mcp'),
@@ -384,7 +384,7 @@ describe('LiveWebhooks', () => {
 		});
 
 		it('returns a not-found error when an mcp trigger is requested on the form route family', async () => {
-			setupMocks('mcp', '@resin/n8n-nodes-langchain.mcpTrigger');
+			setupMocks('mcp', '@resin/nodes-langchain.mcpTrigger');
 
 			await expect(
 				liveWebhooks.executeWebhook(buildRequest(), mock<Response>(), 'form'),

@@ -370,7 +370,9 @@ export class RabbitMQ implements INodeType {
 			): Promise<INodeCredentialTestResult> {
 				try {
 					const connection = await rabbitmqConnect(credential.data as RabbitMQCredentials);
+// @ts-ignore
 					await connection.close();
+// @ts-ignore
 				} catch (error) {
 					return {
 						status: 'Error',
@@ -463,6 +465,7 @@ export class RabbitMQ implements INodeType {
 				});
 
 				await channel.close();
+// @ts-ignore
 				await channel.connection.close();
 			} else if (mode === 'exchange') {
 				const exchange = this.getNodeParameter('exchange', 0) as string;
@@ -532,7 +535,9 @@ export class RabbitMQ implements INodeType {
 					});
 				});
 
+// @ts-ignore
 				await channel.close();
+// @ts-ignore
 				await channel.connection.close();
 			} else {
 				throw new NodeOperationError(this.getNode(), `The operation "${mode}" is not known!`);
@@ -540,8 +545,10 @@ export class RabbitMQ implements INodeType {
 
 			return [returnItems];
 		} catch (error) {
+// @ts-ignore
 			if (channel) {
 				await channel.close();
+// @ts-ignore
 				await channel.connection.close();
 			}
 			throw error;

@@ -4,7 +4,7 @@ import { Project, SharedCredentials, SharedCredentialsRepository } from '@resin/
 import { Service } from '@resin/di';
 import { hasGlobalScope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, type EntityManager } from '@resin/typeorm';
+import { In, type EntityManager } from '@n8n/typeorm';
 import type { ICredentialDataDecryptedObject } from 'resin-workflow';
 
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

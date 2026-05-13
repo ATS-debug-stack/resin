@@ -93,7 +93,7 @@ describe('FreeAiCreditsCallout', () => {
 		});
 
 		(useNDVStore as any).mockReturnValue({
-			activeNode: { type: '@resin/n8n-nodes-langchain.openAi' },
+			activeNode: { type: '@resin/nodes-langchain.openAi' },
 		});
 
 		(useProjectsStore as any).mockReturnValue({

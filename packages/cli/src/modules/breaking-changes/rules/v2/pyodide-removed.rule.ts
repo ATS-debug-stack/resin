@@ -58,7 +58,7 @@ export class PyodideRemovedRule implements IBreakingChangeWorkflowRule {
 	): Promise<WorkflowDetectionReport> {
 		// Get all Code nodes (the Code node supports both JavaScript and Python)
 		const codeNodes = nodesGroupedByType.get('resin-nodes-base.code') ?? [];
-		const codeToolNodes = nodesGroupedByType.get('@resin/n8n-nodes-langchain.toolCode') ?? [];
+		const codeToolNodes = nodesGroupedByType.get('@resin/nodes-langchain.toolCode') ?? [];
 
 		// Filter for Code nodes using the Pyodide-based Python implementation
 		// The 'language' parameter determines which language/implementation is used:

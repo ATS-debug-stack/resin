@@ -13,7 +13,7 @@ import {
 import type { User } from '@resin/db';
 import { Service } from '@resin/di';
 import { hasGlobalScope } from '@resin/permissions';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { DataTableRepository } from '@/modules/data-table/data-table.repository';

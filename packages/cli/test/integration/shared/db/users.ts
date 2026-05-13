@@ -18,7 +18,7 @@ import { hash } from 'bcryptjs';
 import { MfaService } from '@/mfa/mfa.service';
 import { TOTPService } from '@/mfa/totp.service';
 import { PublicApiKeyService } from '@/services/public-api-key.service';
-import type { DeepPartial } from '@resin/typeorm';
+import type { DeepPartial } from '@n8n/typeorm';
 
 type ApiKeyOptions = {
 	expiresAt?: number | null;

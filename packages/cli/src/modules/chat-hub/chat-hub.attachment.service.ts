@@ -1,7 +1,7 @@
 import type { ChatMessageId, ChatSessionId, ChatAttachment } from '@resin/api-types';
 import { Service } from '@resin/di';
-import { Not, IsNull } from '@resin/typeorm';
-import type { EntityManager } from '@resin/typeorm';
+import { Not, IsNull } from '@n8n/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 import { sanitizeFilename } from '@resin/utils';
 import { BinaryDataService, FileLocation } from 'resin-core';
 import { BINARY_ENCODING, type IBinaryData } from 'resin-workflow';

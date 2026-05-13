@@ -20,7 +20,7 @@ import {
 	WorkflowEntity,
 	type WorkflowRepository,
 } from '@resin/db';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import * as fastGlob from 'fast-glob';
 import { mock } from 'jest-mock-extended';
 import { type InstanceSettings } from 'resin-core';

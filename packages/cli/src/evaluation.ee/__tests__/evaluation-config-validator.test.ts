@@ -52,7 +52,7 @@ const validLlmJudgeMetric = {
 	config: {
 		preset: 'correctness' as const,
 		prompt: 'Judge this',
-		provider: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+		provider: '@resin/nodes-langchain.lmChatOpenAi',
 		credentialId: 'cred-1',
 		model: 'gpt-4o',
 		outputType: 'numeric' as const,
@@ -85,9 +85,9 @@ function makeConfig(over: Partial<UpsertEvaluationConfigDto> = {}): UpsertEvalua
 function makeRegistry(): jest.Mocked<LlmJudgeProviderRegistry> {
 	const registry = mock<LlmJudgeProviderRegistry>();
 	registry.get.mockImplementation((nodeType) =>
-		nodeType === '@resin/n8n-nodes-langchain.lmChatOpenAi'
+		nodeType === '@resin/nodes-langchain.lmChatOpenAi'
 			? {
-					nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					nodeType: '@resin/nodes-langchain.lmChatOpenAi',
 					displayName: 'OpenAI Chat Model',
 					credentialTypes: [{ name: 'openAiApi', displayName: 'OpenAI' }],
 				}
@@ -422,7 +422,7 @@ describe('EvaluationConfigValidator', () => {
 							...validLlmJudgeMetric,
 							config: {
 								...validLlmJudgeMetric.config,
-								provider: '@resin/n8n-nodes-langchain.lmChatNotARealNode',
+								provider: '@resin/nodes-langchain.lmChatNotARealNode',
 							},
 						},
 					],
@@ -433,7 +433,7 @@ describe('EvaluationConfigValidator', () => {
 				expect.objectContaining({
 					code: 'LLM_PROVIDER_UNSUPPORTED',
 					details: expect.objectContaining({
-						nodeType: '@resin/n8n-nodes-langchain.lmChatNotARealNode',
+						nodeType: '@resin/nodes-langchain.lmChatNotARealNode',
 						metricId: 'm-llm',
 					}),
 				}),
@@ -507,7 +507,7 @@ describe('EvaluationConfigValidator', () => {
 							...validLlmJudgeMetric,
 							config: {
 								...validLlmJudgeMetric.config,
-								provider: '@resin/n8n-nodes-langchain.unknown',
+								provider: '@resin/nodes-langchain.unknown',
 							},
 						},
 					],

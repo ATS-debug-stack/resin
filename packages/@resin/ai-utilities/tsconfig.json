@@ -1,0 +1,16 @@
+{
+	"extends": [
+		"@resin/typescript-config/tsconfig.common.json",
+		"@resin/typescript-config/tsconfig.backend.json"
+	],
+	"compilerOptions": {
+		"paths": {
+			"src/*": ["./src/*"],
+			"src": ["./src"]
+		},
+		"tsBuildInfoFile": "dist/typecheck.tsbuildinfo",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true
+	},
+	"include": ["src/**/*.ts", "test/**/*.ts", "integration-tests/**/*.ts"]
+}

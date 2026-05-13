@@ -22,7 +22,7 @@ import {
 	WorkflowRepository,
 } from '@resin/db';
 import { Service } from '@resin/di';
-import { EntityManager } from '@resin/typeorm';
+import { EntityManager } from '@n8n/typeorm';
 import { DateTime } from 'luxon';
 import { Cipher } from 'resin-core';
 import {

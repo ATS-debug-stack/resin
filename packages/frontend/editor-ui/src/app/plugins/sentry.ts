@@ -7,7 +7,7 @@ import { getAndParseConfigFromMetaTag } from '@resin/stores/metaTagConfig';
 const ignoredErrors = [
 	{ instanceof: AxiosError },
 	{ instanceof: ResponseError, message: /ECONNREFUSED/ },
-	{ instanceof: ResponseError, message: "Can't connect to n8n." },
+	{ instanceof: ResponseError, message: "Can't connect to Resin." },
 	{ instanceof: ResponseError, message: 'Unauthorized' },
 	{ instanceof: ResponseError, message: /Your most recent changes may be lost/ },
 	{ instanceof: RangeError, message: /Position \d+ is out of range for changeset of length \d+/ },

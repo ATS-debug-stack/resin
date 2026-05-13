@@ -161,7 +161,7 @@ describe('TestWebhooks', () => {
 				id: workflowEntity.id,
 				nodes: {
 					chatTriggerNode: {
-						type: '@resin/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/nodes-langchain.chatTrigger',
 						name: 'chatTriggerNode',
 					},
 				},
@@ -201,7 +201,7 @@ describe('TestWebhooks', () => {
 				id: workflowEntity.id,
 				nodes: {
 					chatTriggerNode: {
-						type: '@resin/n8n-nodes-langchain.chatTrigger',
+						type: '@resin/nodes-langchain.chatTrigger',
 						name: 'chatTriggerNode',
 					},
 				},

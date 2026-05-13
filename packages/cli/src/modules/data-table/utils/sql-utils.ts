@@ -6,7 +6,7 @@ import {
 import { GlobalConfig } from '@resin/config';
 import { DslColumn } from '@resin/db';
 import { Container } from '@resin/di';
-import type { DataSourceOptions } from '@resin/typeorm';
+import type { DataSourceOptions } from '@n8n/typeorm';
 import type {
 	DataTableColumnJsType,
 	DataTableColumnType,

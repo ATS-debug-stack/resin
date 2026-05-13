@@ -9,7 +9,7 @@ import {
 	PROJECT_ADMIN_ROLE,
 } from '@resin/db';
 import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
-import type { EntityManager } from '@resin/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import { ProjectService } from '../project.service.ee';

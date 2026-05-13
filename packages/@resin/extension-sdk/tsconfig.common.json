@@ -1,0 +1,9 @@
+{
+	"extends": "@resin/typescript-config/tsconfig.common.json",
+	"compilerOptions": {
+		"composite": true,
+		"declaration": true,
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.backend.tsbuildinfo"
+	},
+	"include": ["src/*.ts"]
+}

@@ -1,5 +1,5 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import { baseConfig } from '@n8n/eslint-config/base';
+import { baseConfig } from '@resin/eslint-config/base';
 
 export default defineConfig(
 	baseConfig,

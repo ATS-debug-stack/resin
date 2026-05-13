@@ -384,7 +384,7 @@ export class TestWebhooks implements IWebhookManager {
 				if (
 					chatSessionId &&
 					webhook.node &&
-					workflow.nodes[webhook.node]?.type === '@resin/n8n-nodes-langchain.chatTrigger'
+					workflow.nodes[webhook.node]?.type === '@resin/nodes-langchain.chatTrigger'
 				) {
 					// Generate predictable path using workflowId and sessionId (without leading slash to match lookup format)
 					webhook.path = `${workflow.id}/${chatSessionId}`;

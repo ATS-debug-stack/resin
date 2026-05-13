@@ -1,5 +1,5 @@
 import { CredentialsEntity, User, WithTimestamps } from '@resin/db';
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from '@resin/typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from '@n8n/typeorm';
 
 import { DynamicCredentialResolver } from './credential-resolver';
 

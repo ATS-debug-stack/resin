@@ -79,7 +79,7 @@ describe('useChatState', () => {
 	// - Multiple 'responseMode' parameters with different defaults based on /availableInChat
 	const mockNodeType = {
 		group: [],
-		name: '@resin/n8n-nodes-langchain.chatTrigger',
+		name: '@resin/nodes-langchain.chatTrigger',
 		properties: [
 			{ name: 'public', type: 'boolean', default: false },
 			{ name: 'availableInChat', type: 'boolean', default: false },
@@ -133,7 +133,7 @@ describe('useChatState', () => {
 	const mockChatTriggerNode: INode = {
 		id: 'chat-trigger-id',
 		name: 'ChatTrigger',
-		type: '@resin/n8n-nodes-langchain.chatTrigger',
+		type: '@resin/nodes-langchain.chatTrigger',
 		typeVersion: 1,
 		position: [0, 0],
 		parameters: {

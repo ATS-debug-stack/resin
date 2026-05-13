@@ -13,7 +13,7 @@ import { GLOBAL_MEMBER_ROLE, ProjectRepository, SharedCredentialsRepository } fr
 import { Container } from '@resin/di';
 import type { ProjectRole } from '@resin/permissions';
 import { PERSONAL_SPACE_SHARING_SETTING } from '@resin/permissions';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 
 import config from '@/config';
 import { CredentialsService } from '@/credentials/credentials.service';

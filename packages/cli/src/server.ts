@@ -342,6 +342,7 @@ export class Server extends AbstractServer {
 					// eslint-disable-next-line prefer-const
 					let { scope, packageName } = req.params;
 					if (scope) packageName = `@${scope}/${packageName}`;
+// @ts-ignore
 					const filePath = this.loadNodesAndCredentials.resolveIcon(packageName, req.originalUrl);
 					if (filePath) {
 						try {
@@ -356,10 +357,15 @@ export class Server extends AbstractServer {
 			const serveSchemas: express.RequestHandler = async (req, res) => {
 				const { node, version, resource, operation } = req.params;
 				const filePath = this.loadNodesAndCredentials.resolveSchema({
+// @ts-ignore
 					node,
+// @ts-ignore
 					resource,
+// @ts-ignore
 					operation,
+// @ts-ignore
 					version,
+// @ts-ignore
 				});
 
 				if (filePath) {

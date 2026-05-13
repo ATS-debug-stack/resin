@@ -1,5 +1,5 @@
 import { DateTimeColumn, JsonColumn, WithTimestampsAndStringId } from '@resin/db';
-import { Column, Entity, Index, JoinColumn, ManyToOne } from '@resin/typeorm';
+import { Column, Entity, Index, JoinColumn, ManyToOne } from '@n8n/typeorm';
 
 import { AgentExecutionThread } from './agent-execution-thread.entity';
 import type { RecordedToolCall, TimelineEvent } from '../execution-recorder';

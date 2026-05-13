@@ -4,9 +4,9 @@ import { Service } from '@resin/di';
 import { hasGlobalScope } from '@resin/permissions';
 import type { CredentialSharingRole, ProjectRole, Scope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager, FindOptionsWhere } from '@resin/typeorm';
+import type { EntityManager, FindOptionsWhere } from '@n8n/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 
 import { RoleService } from '@/services/role.service';
 

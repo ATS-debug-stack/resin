@@ -492,7 +492,7 @@ describe('WorkflowExecutionService', () => {
 				position: [1, 2],
 				parameters: {},
 				name: 'Chat Trigger',
-				type: '@resin/n8n-nodes-langchain.chatTrigger',
+				type: '@resin/nodes-langchain.chatTrigger',
 			};
 			const workflowData: IWorkflowBase = {
 				id: 'workflow-id',

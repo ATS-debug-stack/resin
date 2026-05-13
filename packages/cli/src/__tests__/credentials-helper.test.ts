@@ -5,7 +5,7 @@ import {
 	type CredentialsRepository,
 } from '@resin/db';
 import { Container } from '@resin/di';
-import { EntityNotFoundError } from '@resin/typeorm';
+import { EntityNotFoundError } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import {
 	type InstanceSettings,

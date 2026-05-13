@@ -1,5 +1,5 @@
 import { DateTimeColumn } from '@resin/db';
-import { Entity, PrimaryColumn } from '@resin/typeorm';
+import { Entity, PrimaryColumn } from '@n8n/typeorm';
 
 @Entity('token_exchange_jti')
 export class TokenExchangeJti {

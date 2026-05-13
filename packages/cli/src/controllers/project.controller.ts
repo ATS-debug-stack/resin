@@ -23,7 +23,7 @@ import {
 import { combineScopes, getAuthPrincipalScopes, hasGlobalScope } from '@resin/permissions';
 import type { Scope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, Not } from '@resin/typeorm';
+import { In, Not } from '@n8n/typeorm';
 import { Response } from 'express';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

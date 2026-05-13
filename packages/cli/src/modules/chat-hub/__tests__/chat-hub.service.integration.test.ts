@@ -1420,7 +1420,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@resin/n8n-nodes-langchain.agent',
+									type: '@resin/nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},
@@ -1556,7 +1556,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@resin/n8n-nodes-langchain.agent',
+									type: '@resin/nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},
@@ -2571,7 +2571,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@resin/n8n-nodes-langchain.agent',
+									type: '@resin/nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},
@@ -2705,7 +2705,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@resin/n8n-nodes-langchain.agent',
+									type: '@resin/nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},
@@ -2820,7 +2820,7 @@ describe('chatHub', () => {
 								{
 									id: 'agent-1',
 									name: 'AI Agent',
-									type: '@resin/n8n-nodes-langchain.agent',
+									type: '@resin/nodes-langchain.agent',
 									typeVersion: 2.2,
 									position: [200, 0],
 									parameters: {},

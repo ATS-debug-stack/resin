@@ -5,7 +5,7 @@
  */
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { defineConfig } from '@n8n/playwright-janitor';
+import { defineConfig } from '@resin/playwright-janitor';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

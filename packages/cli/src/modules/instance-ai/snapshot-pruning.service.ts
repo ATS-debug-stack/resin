@@ -2,7 +2,7 @@ import { Logger } from '@resin/backend-common';
 import { InstanceAiConfig } from '@resin/config';
 import { OnLeaderStepdown, OnLeaderTakeover, OnShutdown } from '@resin/decorators';
 import { Service } from '@resin/di';
-import { LessThan } from '@resin/typeorm';
+import { LessThan } from '@n8n/typeorm';
 import { InstanceSettings } from 'resin-core';
 
 import { InstanceAiWorkflowSnapshotRepository } from './repositories/instance-ai-workflow-snapshot.repository';

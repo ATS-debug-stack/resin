@@ -1,5 +1,5 @@
 import { WithTimestamps } from '@resin/db';
-import { Column, Entity, JoinColumn, OneToMany, PrimaryColumn } from '@resin/typeorm';
+import { Column, Entity, JoinColumn, OneToMany, PrimaryColumn } from '@n8n/typeorm';
 
 import type { InstalledNodes } from './installed-nodes.entity';
 

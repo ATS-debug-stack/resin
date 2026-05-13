@@ -1,5 +1,5 @@
 import type { Logger } from '@resin/backend-common';
-import { QueryFailedError } from '@resin/typeorm';
+import { QueryFailedError } from '@n8n/typeorm';
 import type { ErrorEvent } from '@sentry/core';
 import { AxiosError } from 'axios';
 import { mock } from 'jest-mock-extended';

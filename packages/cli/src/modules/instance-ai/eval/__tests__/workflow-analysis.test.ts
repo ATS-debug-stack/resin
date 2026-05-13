@@ -46,8 +46,8 @@ function makeWorkflow(nodes: INode[], connections: IConnections = {}): IWorkflow
 describe('identifyNodesForPinData', () => {
 	it('should identify AI root nodes as needing pin data', () => {
 		const nodes = [
-			makeNode({ name: 'ChatOpenAI', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
-			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+			makeNode({ name: 'ChatOpenAI', type: '@resin/nodes-langchain.lmChatOpenAi' }),
+			makeNode({ name: 'Agent', type: '@resin/nodes-langchain.agent' }),
 			makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),
 		];
 		const connections: IConnections = {
@@ -84,7 +84,7 @@ describe('identifyNodesForPinData', () => {
 	it('should exclude disabled nodes', () => {
 		const nodes = [
 			makeNode({ name: 'My Redis', type: 'resin-nodes-base.redis', disabled: true }),
-			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent', disabled: true }),
+			makeNode({ name: 'Agent', type: '@resin/nodes-langchain.agent', disabled: true }),
 		];
 		const connections: IConnections = {
 			ChatOpenAI: { ai_languageModel: [[{ node: 'Agent', type: 'ai_languageModel', index: 0 }]] },
@@ -109,10 +109,10 @@ describe('identifyNodesForPinData', () => {
 
 	it('should handle Agent with multiple sub-nodes', () => {
 		const nodes = [
-			makeNode({ name: 'OpenAI', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
-			makeNode({ name: 'Memory', type: '@resin/n8n-nodes-langchain.memoryBufferWindow' }),
-			makeNode({ name: 'Calculator', type: '@resin/n8n-nodes-langchain.toolCalculator' }),
-			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+			makeNode({ name: 'OpenAI', type: '@resin/nodes-langchain.lmChatOpenAi' }),
+			makeNode({ name: 'Memory', type: '@resin/nodes-langchain.memoryBufferWindow' }),
+			makeNode({ name: 'Calculator', type: '@resin/nodes-langchain.toolCalculator' }),
+			makeNode({ name: 'Agent', type: '@resin/nodes-langchain.agent' }),
 		];
 		const connections: IConnections = {
 			OpenAI: { ai_languageModel: [[{ node: 'Agent', type: 'ai_languageModel', index: 0 }]] },
@@ -156,8 +156,8 @@ describe('identifyNodesForPinData', () => {
 describe('identifyNodesForHints', () => {
 	it('should exclude AI sub-nodes from hints', () => {
 		const nodes = [
-			makeNode({ name: 'OpenAI', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
-			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+			makeNode({ name: 'OpenAI', type: '@resin/nodes-langchain.lmChatOpenAi' }),
+			makeNode({ name: 'Agent', type: '@resin/nodes-langchain.agent' }),
 			makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' }),
 		];
 		const connections: IConnections = {
@@ -205,8 +205,8 @@ describe('identifyNodesForHints', () => {
 	it('should return only HTTP-interceptible nodes for a mixed workflow', () => {
 		const nodes = [
 			makeNode({ name: 'Webhook', type: 'resin-nodes-base.webhook' }),
-			makeNode({ name: 'OpenAI', type: '@resin/n8n-nodes-langchain.lmChatOpenAi' }),
-			makeNode({ name: 'Agent', type: '@resin/n8n-nodes-langchain.agent' }),
+			makeNode({ name: 'OpenAI', type: '@resin/nodes-langchain.lmChatOpenAi' }),
+			makeNode({ name: 'Agent', type: '@resin/nodes-langchain.agent' }),
 			makeNode({ name: 'Postgres', type: 'resin-nodes-base.postgres' }),
 			makeNode({ name: 'Slack', type: 'resin-nodes-base.slack' }),
 			makeNode({ name: 'Set', type: 'resin-nodes-base.set' }),

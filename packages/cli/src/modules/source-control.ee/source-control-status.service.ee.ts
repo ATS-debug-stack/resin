@@ -3,7 +3,7 @@ import { Logger } from '@resin/backend-common';
 import { FolderRepository, TagRepository, type User, WorkflowRepository } from '@resin/db';
 import { Service } from '@resin/di';
 import { hasGlobalScope } from '@resin/permissions';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import pick from 'lodash/pick';
 import { UserError } from 'resin-workflow';
 

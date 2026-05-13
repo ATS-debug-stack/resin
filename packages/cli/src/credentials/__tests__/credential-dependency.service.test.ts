@@ -2,8 +2,8 @@ import type {
 	CredentialDependencyRepository,
 	SecretsProviderConnectionRepository,
 } from '@resin/db';
-import { In } from '@resin/typeorm';
-import type { EntityManager } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import {

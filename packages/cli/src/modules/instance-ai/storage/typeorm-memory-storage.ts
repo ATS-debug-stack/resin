@@ -25,7 +25,7 @@ import type {
 import { MemoryStorage } from '@mastra/core/storage';
 import { Service } from '@resin/di';
 import { withCurrentTraceSpan } from '@resin/instance-ai';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { generateNanoId } from '@resin/utils';
 import { jsonParse } from 'resin-workflow';
 

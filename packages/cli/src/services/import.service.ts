@@ -13,7 +13,7 @@ import {
 	WorkflowRepository,
 } from '@resin/db';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { DataSource, EntityManager, In, type EntityMetadata } from '@resin/typeorm';
+import { DataSource, EntityManager, In, type EntityMetadata } from '@n8n/typeorm';
 import { Service } from '@resin/di';
 import {
 	ensureError,

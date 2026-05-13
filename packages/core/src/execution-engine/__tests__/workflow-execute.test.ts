@@ -954,7 +954,7 @@ describe('WorkflowExecute', () => {
 			const expectedToolExecutor: INode = {
 				name: 'PartialExecutionToolExecutor',
 				disabled: false,
-				type: '@resin/n8n-nodes-langchain.toolExecutor',
+				type: '@resin/nodes-langchain.toolExecutor',
 				parameters: {
 					query: {},
 					toolName: '',

@@ -526,7 +526,7 @@ describe('redirectIfToolExecutor', () => {
 		return {
 			node: {
 				name: TOOL_EXECUTOR_NODE_NAME,
-				type: '@resin/n8n-nodes-langchain.toolExecutor',
+				type: '@resin/nodes-langchain.toolExecutor',
 				parameters: { node: toolNodeName },
 				typeVersion: 1,
 				position: [0, 0],
@@ -750,7 +750,7 @@ describe('getLastNodeExecuted (TOOL_EXECUTOR_NODE_NAME path)', () => {
 
 		expect(result).toEqual({
 			name: TOOL_EXECUTOR_NODE_NAME,
-			type: '@resin/n8n-nodes-langchain.toolExecutor',
+			type: '@resin/nodes-langchain.toolExecutor',
 			parameters: {},
 			id: '',
 			typeVersion: 1,

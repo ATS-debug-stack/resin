@@ -3,7 +3,7 @@ import { GlobalConfig } from '@resin/config';
 import type { User } from '@resin/db';
 import { SettingsRepository, WorkflowEntity, WorkflowRepository } from '@resin/db';
 import { Service } from '@resin/di';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import {
 	calculateWorkflowChecksum,
 	WORKFLOW_CHECKSUM_FIELDS,

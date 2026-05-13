@@ -7,7 +7,7 @@ import {
 } from '@resin/backend-test-utils';
 import { DbConnection } from '@resin/db';
 import { Container } from '@resin/di';
-import { DataSource } from '@resin/typeorm';
+import { DataSource } from '@n8n/typeorm';
 
 const MIGRATION_NAME = 'AddWorkflowPublishScopeToProjectRoles1766064542000';
 

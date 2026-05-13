@@ -1,14 +1,14 @@
 {
-  "name": "n8n-core",
+  "name": "resin-core",
   "version": "2.21.0",
   "description": "Core functionality of n8n",
   "main": "dist/index",
   "types": "dist/index.d.ts",
   "bin": {
-    "n8n-copy-static-files": "./bin/copy-static-files",
-    "n8n-generate-translations": "./bin/generate-translations",
-    "n8n-generate-metadata": "./bin/generate-metadata",
-    "n8n-generate-node-defs": "./bin/generate-node-defs"
+    "resin-copy-static-files": "./bin/copy-static-files",
+    "resin-generate-translations": "./bin/generate-translations",
+    "resin-generate-metadata": "./bin/generate-metadata",
+    "resin-generate-node-defs": "./bin/generate-node-defs"
   },
   "scripts": {
     "clean": "rimraf dist .turbo",
@@ -29,8 +29,8 @@
     "bin"
   ],
   "devDependencies": {
-    "@n8n/errors": "workspace:*",
-    "@n8n/typescript-config": "workspace:*",
+    "@resin/errors": "workspace:*",
+    "@resin/typescript-config": "workspace:*",
     "@types/express": "catalog:",
     "@types/jsonwebtoken": "catalog:",
     "@types/lodash": "catalog:",
@@ -46,12 +46,12 @@
   "dependencies": {
     "@aws-sdk/client-s3": "3.808.0",
     "@langchain/core": "catalog:",
-    "@n8n/backend-common": "workspace:*",
-    "@n8n/client-oauth2": "workspace:*",
-    "@n8n/config": "workspace:*",
-    "@n8n/constants": "workspace:*",
-    "@n8n/decorators": "workspace:*",
-    "@n8n/di": "workspace:*",
+    "@resin/backend-common": "workspace:*",
+    "@resin/client-oauth2": "workspace:*",
+    "@resin/config": "workspace:*",
+    "@resin/constants": "workspace:*",
+    "@resin/decorators": "workspace:*",
+    "@resin/di": "workspace:*",
     "@sentry/node": "catalog:sentry",
     "@sentry/node-native": "catalog:sentry",
     "@sentry/profiling-node": "catalog:sentry",
@@ -70,8 +70,8 @@
     "lodash": "catalog:",
     "luxon": "catalog:",
     "mime-types": "catalog:",
-    "@n8n/workflow-sdk": "workspace:*",
-    "n8n-workflow": "workspace:*",
+    "@resin/workflow-sdk": "workspace:*",
+    "resin-workflow": "workspace:*",
     "nanoid": "catalog:",
     "oauth-1.0a": "2.2.6",
     "p-cancelable": "2.1.1",

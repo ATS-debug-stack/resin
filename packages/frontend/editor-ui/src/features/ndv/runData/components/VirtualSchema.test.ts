@@ -72,7 +72,7 @@ const ifNode = createTestNode({
 
 const aiTool = createTestNode({
 	name: 'AI Tool',
-	type: '@resin/n8n-nodes-langchain.memoryBufferWindow',
+	type: '@resin/nodes-langchain.memoryBufferWindow',
 	typeVersion: 1,
 	disabled: false,
 });

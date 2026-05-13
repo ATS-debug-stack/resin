@@ -1,6 +1,6 @@
 import type { FavoriteResourceType } from '@resin/api-types';
 import { Service } from '@resin/di';
-import { DataSource, In, Repository } from '@resin/typeorm';
+import { DataSource, In, Repository } from '@n8n/typeorm';
 
 import { UserFavorite } from '../entities/user-favorite.entity';
 

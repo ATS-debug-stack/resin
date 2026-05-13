@@ -1,4 +1,4 @@
-export const DOCS_DOMAIN = 'docs.n8n.io';
+export const DOCS_DOMAIN = 'docs.ats-resin.io';
 export const BUILTIN_NODES_DOCS_URL = `https://${DOCS_DOMAIN}/integrations/builtin/`;
 export const BUILTIN_CREDENTIALS_DOCS_URL = `https://${DOCS_DOMAIN}/integrations/builtin/credentials/`;
 export const DATA_PINNING_DOCS_URL = `https://${DOCS_DOMAIN}/data/data-pinning/`;
@@ -13,10 +13,10 @@ export const EXPRESSIONS_DOCS_URL = `https://${DOCS_DOMAIN}/code-examples/expres
 export const EVALUATIONS_DOCS_URL = `https://${DOCS_DOMAIN}/advanced-ai/evaluations/overview/`;
 export const ERROR_WORKFLOW_DOCS_URL = `https://${DOCS_DOMAIN}/flow-logic/error-handling/#create-and-set-an-error-workflow`;
 export const TIME_SAVED_DOCS_URL = `https://${DOCS_DOMAIN}/insights/#setting-the-time-saved-by-a-workflow`;
-export const N8N_PRICING_PAGE_URL = 'https://n8n.io/pricing';
-export const N8N_MAIN_GITHUB_REPO_URL = 'https://github.com/n8n-io/n8n';
+export const N8N_PRICING_PAGE_URL = 'https://ats-resin.io/pricing';
+export const N8N_MAIN_GITHUB_REPO_URL = 'https://github.com/ATS-debug-stack/resin';
 export const BASE_NODE_SURVEY_URL = 'https://n8n-community.typeform.com/to/BvmzxqYv#nodename=';
-export const RELEASE_NOTES_URL = 'https://docs.n8n.io/release-notes/';
+export const RELEASE_NOTES_URL = 'https://docs.ats-resin.io/release-notes/';
 export const CREATOR_HUB_URL = 'https://creators.n8n.io/hub';
 
 export const CLOUD_CHANGE_PLAN_PAGE = window.location.host.includes('stage-app.n8n.cloud')
@@ -28,9 +28,9 @@ export const CLOUD_CHANGE_PLAN_PAGE = window.location.host.includes('stage-app.n
  */
 export const TEMPLATES_URLS = {
 	DEFAULT_API_HOST: 'https://api.n8n.io/api/',
-	BASE_WEBSITE_URL: 'https://n8n.io/workflows/',
+	BASE_WEBSITE_URL: 'https://ats-resin.io/workflows/',
 	UTM_QUERY: {
-		utm_source: 'n8n_app',
+		utm_source: 'resin_app',
 		utm_medium: 'template_library',
 	},
 };

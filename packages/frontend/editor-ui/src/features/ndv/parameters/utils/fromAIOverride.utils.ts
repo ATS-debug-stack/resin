@@ -47,14 +47,14 @@ function sanitizeFromAiParameterName(s: string) {
 
 // nodeName | [nodeName, highestUnsupportedVersion]
 const NODE_DENYLIST = [
-	'@resin/n8n-nodes-langchain.toolCode',
-	'@resin/n8n-nodes-langchain.toolHttpRequest',
-	'@resin/n8n-nodes-langchain.mcpClientTool',
+	'@resin/nodes-langchain.toolCode',
+	'@resin/nodes-langchain.toolHttpRequest',
+	'@resin/nodes-langchain.mcpClientTool',
 	// Legacy versions read `parameters.name` at runtime as the tool's identity;
 	// newer versions derive it from the node name, so $fromAI on that field would
 	// produce an invalid tool name. Keep these ranges in sync when bumping versions.
-	['@resin/n8n-nodes-langchain.toolWorkflow', 2.1],
-	['@resin/n8n-nodes-langchain.toolVectorStore', 1],
+	['@resin/nodes-langchain.toolWorkflow', 2.1],
+	['@resin/nodes-langchain.toolVectorStore', 1],
 ] as const;
 
 const PATH_DENYLIST = [

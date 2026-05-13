@@ -1,6 +1,6 @@
 import { CreateTable, DslColumn, withTransaction } from '@resin/db';
 import { Service } from '@resin/di';
-import { DataSource, DataSourceOptions, EntityManager } from '@resin/typeorm';
+import { DataSource, DataSourceOptions, EntityManager } from '@n8n/typeorm';
 import { UnexpectedError } from 'resin-workflow';
 
 import { DataTableColumn } from './data-table-column.entity';

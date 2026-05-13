@@ -15,7 +15,7 @@ import {
 
 const nodeType: INodeTypeDescription = {
 	displayName: 'OpenAI',
-	name: '@resin/n8n-nodes-langchain.openAi',
+	name: '@resin/nodes-langchain.openAi',
 	version: [1],
 	inputs: [
 		{ type: NodeConnectionTypes.Main },
@@ -46,7 +46,7 @@ const node: INodeUi = {
 	},
 	id: 'f30c2cbc-c1b1-4014-87f7-22e6ae7afcc8',
 	name: 'OpenAI',
-	type: '@resin/n8n-nodes-langchain.openAi',
+	type: '@resin/nodes-langchain.openAi',
 	typeVersion: 1.6,
 	position: [1300, 540],
 };
@@ -155,12 +155,12 @@ describe('NDVSubConnections', () => {
 		const openAI1Node: INodeUi = {
 			...node,
 			name: 'OpenAI1',
-			type: '@resin/n8n-nodes-langchain.openAi',
+			type: '@resin/nodes-langchain.openAi',
 		};
 		const claudeNode: INodeUi = {
 			...node,
 			name: 'Claude',
-			type: '@resin/n8n-nodes-langchain.claude',
+			type: '@resin/nodes-langchain.claude',
 		};
 
 		getNodeType.mockReturnValue(multiConnectionNodeType);

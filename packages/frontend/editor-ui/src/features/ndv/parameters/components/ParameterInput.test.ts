@@ -932,7 +932,7 @@ describe('ParameterInput.vue', () => {
 				name: 'Test Node',
 				parameters: { model: 'gpt-3.5-turbo' },
 				position: [0, 0] as [number, number],
-				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				credentials: {
 					openAiApi: { id: '1', name: 'OpenAI Account 1' },
@@ -981,7 +981,7 @@ describe('ParameterInput.vue', () => {
 				name: 'Test Node',
 				parameters: { temperature: 0.9 },
 				position: [0, 0] as [number, number],
-				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				credentials: {
 					openAiApi: { id: '1', name: 'OpenAI Account 1' },
@@ -1038,7 +1038,7 @@ describe('ParameterInput.vue', () => {
 					name: 'Test Node',
 					parameters: { model: 'gpt-4' },
 					position: [0, 0] as [number, number],
-					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					credentials: {
 						openAiApi: { id: '1', name: 'OpenAI Account 1' },
@@ -1078,7 +1078,7 @@ describe('ParameterInput.vue', () => {
 				name: 'Test Node',
 				parameters: { model: 'gpt-3.5-turbo' },
 				position: [0, 0] as [number, number],
-				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/nodes-langchain.lmChatOpenAi',
 				typeVersion: 1,
 				credentials: {} as Record<string, { id: string; name: string }>,
 			});

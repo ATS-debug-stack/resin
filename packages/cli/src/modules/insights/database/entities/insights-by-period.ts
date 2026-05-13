@@ -6,7 +6,7 @@ import {
 	JoinColumn,
 	ManyToOne,
 	PrimaryGeneratedColumn,
-} from '@resin/typeorm';
+} from '@n8n/typeorm';
 import { UnexpectedError } from 'resin-workflow';
 
 import { InsightsMetadata } from './insights-metadata';

@@ -4,9 +4,9 @@ import { wrapMigration, DbConnectionOptions } from '@resin/db';
 import { Command } from '@resin/decorators';
 import { Container } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { DataSourceOptions as ConnectionOptions } from '@resin/typeorm';
+import type { DataSourceOptions as ConnectionOptions } from '@n8n/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { MigrationExecutor, DataSource as Connection } from '@resin/typeorm';
+import { MigrationExecutor, DataSource as Connection } from '@n8n/typeorm';
 
 // This function is extracted to make it easier to unit test it.
 // Mocking turned into a mess due to this command using typeorm and the db

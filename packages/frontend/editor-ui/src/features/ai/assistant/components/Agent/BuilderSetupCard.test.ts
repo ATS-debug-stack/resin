@@ -244,7 +244,7 @@ describe('BuilderSetupCard', () => {
 			nodeTypesStore.isToolNode = () => true;
 
 			const { queryByTestId } = render(
-				{ node: createNode({ type: '@resin/n8n-nodes-langchain.chatTool' }) },
+				{ node: createNode({ type: '@resin/nodes-langchain.chatTool' }) },
 				{ totalCards: 2, stepIndex: 0 },
 			);
 			expect(queryByTestId('trigger-execute-button')).not.toBeInTheDocument();

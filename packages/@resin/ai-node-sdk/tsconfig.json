@@ -1,0 +1,10 @@
+{
+	"extends": [
+		"@resin/typescript-config/tsconfig.common.json",
+		"@resin/typescript-config/tsconfig.backend.json"
+	],
+	"compilerOptions": {
+		"tsBuildInfoFile": "dist/typecheck.tsbuildinfo"
+	},
+	"include": ["src/**/*.ts"]
+}

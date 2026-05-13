@@ -809,7 +809,7 @@ describe('WorkflowValidationService', () => {
 
 		it('should return valid when Chat Trigger with availableInChat is the trigger', async () => {
 			const nodes: INode[] = [
-				createNode('Chat Trigger', '@resin/n8n-nodes-langchain.chatTrigger', {
+				createNode('Chat Trigger', '@resin/nodes-langchain.chatTrigger', {
 					parameters: { availableInChat: true },
 				}),
 				createNode('Google Calendar', 'resin-nodes-base.googleCalendar', {
@@ -822,7 +822,7 @@ describe('WorkflowValidationService', () => {
 			]);
 
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === '@resin/n8n-nodes-langchain.chatTrigger') return createTriggerNodeType();
+				if (type === '@resin/nodes-langchain.chatTrigger') return createTriggerNodeType();
 				return {} as INodeType;
 			}) as any);
 
@@ -833,7 +833,7 @@ describe('WorkflowValidationService', () => {
 
 		it('should return invalid when Chat Trigger does not have availableInChat set', async () => {
 			const nodes: INode[] = [
-				createNode('Chat Trigger', '@resin/n8n-nodes-langchain.chatTrigger'),
+				createNode('Chat Trigger', '@resin/nodes-langchain.chatTrigger'),
 				createNode('Google Calendar', 'resin-nodes-base.googleCalendar', {
 					credentials: { googleCalendarOAuth2Api: { id: 'cred-1' } },
 				}),
@@ -844,7 +844,7 @@ describe('WorkflowValidationService', () => {
 			]);
 
 			mockNodeTypes.getByNameAndVersion.mockImplementation(((type: string) => {
-				if (type === '@resin/n8n-nodes-langchain.chatTrigger') return createTriggerNodeType();
+				if (type === '@resin/nodes-langchain.chatTrigger') return createTriggerNodeType();
 				return {} as INodeType;
 			}) as any);
 

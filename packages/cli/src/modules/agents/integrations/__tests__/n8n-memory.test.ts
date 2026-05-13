@@ -1,5 +1,5 @@
 import { OBSERVATION_SCHEMA_VERSION, type NewObservation } from '@resin/agents';
-import { Equal, In, LessThan, LessThanOrEqual, Like, MoreThan } from '@resin/typeorm';
+import { Equal, In, LessThan, LessThanOrEqual, Like, MoreThan } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import type { AgentMessageEntity } from '../../entities/agent-message.entity';

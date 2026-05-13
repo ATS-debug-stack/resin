@@ -24,13 +24,13 @@ export const quickStartWorkflows: QuickStartWorkflow[] = [
 		name: 'AI Agent: Chat with the news',
 		description: 'Chat with an AI agent about the latest news',
 		workflow: READY_TO_RUN_WORKFLOW_V5,
-		nodeTypes: ['@resin/n8n-nodes-langchain.chatTrigger', '@resin/n8n-nodes-langchain.agent'],
+		nodeTypes: ['@resin/nodes-langchain.chatTrigger', '@resin/nodes-langchain.agent'],
 	},
 	{
 		id: 'summarize-the-news',
 		name: 'AI Workflow: Summarize the news',
 		description: 'Get AI-powered news summaries from top sources',
 		workflow: READY_TO_RUN_AI_WORKFLOW,
-		nodeTypes: ['resin-nodes-base.rssFeedReadTool', '@resin/n8n-nodes-langchain.agent'],
+		nodeTypes: ['resin-nodes-base.rssFeedReadTool', '@resin/nodes-langchain.agent'],
 	},
 ];

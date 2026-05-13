@@ -211,7 +211,7 @@ describe('useWorkflowUpdate', () => {
 				const existingNode = createTestNode({
 					id: 'old-uuid-123',
 					name: 'Chat Trigger',
-					type: '@resin/n8n-nodes-langchain.chatTrigger',
+					type: '@resin/nodes-langchain.chatTrigger',
 					position: [100, 200],
 				}) as INodeUi;
 
@@ -233,7 +233,7 @@ describe('useWorkflowUpdate', () => {
 						{
 							id: 'new-uuid-456', // Different ID!
 							name: 'Chat Trigger', // Same name
-							type: '@resin/n8n-nodes-langchain.chatTrigger', // Same type
+							type: '@resin/nodes-langchain.chatTrigger', // Same type
 							typeVersion: 1,
 							position: [300, 400], // New position should be ignored
 							parameters: { greeting: 'Hello' },

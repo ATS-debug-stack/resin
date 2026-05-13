@@ -1,7 +1,7 @@
 import { Logger } from '@resin/backend-common';
 import { ProjectRepository } from '@resin/db';
 import { Service } from '@resin/di';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { Expression, type IDataObject } from 'resin-workflow';
 
 import { withProjectContext } from './claims-context.builder';

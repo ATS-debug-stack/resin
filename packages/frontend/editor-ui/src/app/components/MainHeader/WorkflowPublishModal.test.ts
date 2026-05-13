@@ -92,7 +92,7 @@ const WEBHOOK_NODE_TYPE_DESCRIPTION: INodeTypeDescription = {
 const AI_GATEWAY_NODE = {
 	id: 'ai-node-1',
 	name: 'Message a model',
-	type: '@resin/n8n-nodes-langchain.lmOpenAi',
+	type: '@resin/nodes-langchain.lmOpenAi',
 	typeVersion: 1,
 	position: [100, 100] as [number, number],
 	parameters: {},

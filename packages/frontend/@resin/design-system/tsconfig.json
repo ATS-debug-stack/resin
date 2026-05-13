@@ -1,0 +1,21 @@
+{
+	"extends": "@resin/typescript-config/tsconfig.frontend.json",
+	"compilerOptions": {
+		"rootDirs": [".", "../composables/src"],
+		"noEmit": true,
+		"moduleResolution": "bundler",
+		"types": ["vite/client", "unplugin-icons/types/vue", "vitest/globals"],
+		"typeRoots": [
+			"./node_modules/@testing-library",
+			"./node_modules/@types",
+			"../../../../node_modules",
+			"../../../../node_modules/@types"
+		],
+		"paths": {
+			"@resin/design-system*": ["./src*"],
+			"@resin/composables*": ["../composables/src*"],
+			"@resin/utils*": ["../../../@n8n/utils/src*"]
+		}
+	},
+	"include": ["src/**/*.ts", "src/**/*.vue"]
+}

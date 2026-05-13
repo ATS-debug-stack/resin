@@ -1,5 +1,5 @@
 import { WithTimestampsAndStringId } from '@resin/db';
-import { Column, Entity } from '@resin/typeorm';
+import { Column, Entity } from '@n8n/typeorm';
 
 @Entity({ name: 'agents_threads' })
 export class AgentThreadEntity extends WithTimestampsAndStringId {

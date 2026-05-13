@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { DataSource, DeleteResult, EntityManager } from '@resin/typeorm';
+import type { DataSource, DeleteResult, EntityManager } from '@n8n/typeorm';
 
 import type { UserFavorite } from '../database/entities/user-favorite.entity';
 import { UserFavoriteRepository } from '../database/repositories/user-favorite.repository';

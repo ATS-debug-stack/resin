@@ -151,7 +151,7 @@ describe('autoPopulateNodeCredentials', () => {
 	test('skips HTTP Request nodes and reports them', async () => {
 		const httpNodes = [
 			makeNode({ id: '1', name: 'HTTP 1', type: 'resin-nodes-base.httpRequest' }),
-			makeNode({ id: '2', name: 'HTTP 2', type: '@resin/n8n-nodes-langchain.toolHttpRequest' }),
+			makeNode({ id: '2', name: 'HTTP 2', type: '@resin/nodes-langchain.toolHttpRequest' }),
 			makeNode({ id: '3', name: 'HTTP 3', type: 'resin-nodes-base.httpRequestTool' }),
 		];
 		const workflow = makeWorkflow(httpNodes);

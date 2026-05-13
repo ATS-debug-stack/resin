@@ -7,7 +7,7 @@ import {
 import { GlobalConfig } from '@resin/config';
 import { DbConnection } from '@resin/db';
 import { Container } from '@resin/di';
-import { DataSource } from '@resin/typeorm';
+import { DataSource } from '@n8n/typeorm';
 import { randomUUID } from 'node:crypto';
 
 const MIGRATION_NAME = 'ActivateExecuteWorkflowTriggerWorkflows1763048000000';

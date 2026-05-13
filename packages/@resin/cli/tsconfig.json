@@ -1,0 +1,10 @@
+{
+	"extends": ["@resin/typescript-config/tsconfig.common.json"],
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "dist",
+		"types": ["node", "vitest/globals"],
+		"isolatedModules": true
+	},
+	"include": ["src/**/*.ts"]
+}

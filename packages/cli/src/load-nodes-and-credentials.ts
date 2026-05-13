@@ -101,7 +101,7 @@ export class LoadNodesAndCredentials {
 
 		for (const nodeModulesDir of basePathsToScan) {
 			await this.loadNodesFromNodeModules(nodeModulesDir, 'resin-nodes-base');
-			await this.loadNodesFromNodeModules(nodeModulesDir, '@resin/n8n-nodes-langchain');
+			await this.loadNodesFromNodeModules(nodeModulesDir, '@resin/nodes-langchain');
 		}
 
 		await this.loadNodesFromCustomDirectories();

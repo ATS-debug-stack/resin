@@ -2,7 +2,7 @@ import type { Logger } from '@resin/backend-common';
 import type { GlobalConfig } from '@resin/config';
 import type { Settings, SettingsRepository, User, WorkflowRepository } from '@resin/db';
 import { WorkflowEntity } from '@resin/db';
-import type { EntityManager, FindOperator } from '@resin/typeorm';
+import type { EntityManager, FindOperator } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import { calculateWorkflowChecksum } from 'resin-workflow';
 

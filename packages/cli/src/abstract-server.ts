@@ -309,6 +309,7 @@ export abstract class AbstractServer {
 			// TODO UM: check if this needs validation with user management.
 			this.app.delete(
 				`/${this.restEndpoint}/test-webhook/:id`,
+// @ts-ignore
 				send(async (req) => await testWebhooks.cancelWebhook(req.params.id)),
 			);
 		}

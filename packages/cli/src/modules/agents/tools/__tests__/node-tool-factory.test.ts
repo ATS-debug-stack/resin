@@ -143,7 +143,7 @@ describe('resolveNodeTool → tool name sanitization', () => {
 			{
 				...baseToolSchema,
 				node: {
-					nodeType: '@resin/n8n-nodes-langchain.toolWikipedia',
+					nodeType: '@resin/nodes-langchain.toolWikipedia',
 					nodeTypeVersion: 1,
 					nodeParameters: {},
 				},

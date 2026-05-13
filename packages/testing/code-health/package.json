@@ -1,5 +1,5 @@
 {
-	"name": "@n8n/code-health",
+	"name": "@resin/code-health",
 	"private": true,
 	"version": "0.1.0",
 	"description": "Static analysis and code quality enforcement for the n8n monorepo",
@@ -26,8 +26,8 @@
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"@n8n/rules-engine": "workspace:*",
-		"@n8n/vitest-config": "workspace:*",
+		"@resin/rules-engine": "workspace:*",
+		"@resin/vitest-config": "workspace:*",
 		"@vitest/coverage-v8": "catalog:",
 		"fast-glob": "catalog:",
 		"tsx": "catalog:",

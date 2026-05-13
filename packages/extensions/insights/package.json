@@ -1,5 +1,5 @@
 {
-  "name": "@n8n/n8n-extension-insights",
+  "name": "@resin/extension-insights",
   "version": "0.12.0",
   "type": "module",
   "files": [
@@ -45,11 +45,11 @@
     "vue-router": "catalog:frontend"
   },
   "dependencies": {
-    "@n8n/extension-sdk": "workspace:*"
+    "@resin/extension-sdk": "workspace:*"
   },
   "devDependencies": {
-    "@n8n/stylelint-config": "workspace:*",
-    "@n8n/typescript-config": "workspace:*",
+    "@resin/stylelint-config": "workspace:*",
+    "@resin/typescript-config": "workspace:*",
     "@vitejs/plugin-vue": "catalog:frontend",
     "@vue/tsconfig": "catalog:frontend",
     "tsdown": "catalog:",

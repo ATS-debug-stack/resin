@@ -1,6 +1,6 @@
 import { DateTimeColumn } from '@resin/db';
-import type { Relation } from '@resin/typeorm';
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from '@resin/typeorm';
+import type { Relation } from '@n8n/typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from '@n8n/typeorm';
 
 import { TrustedKeySourceEntity } from './trusted-key-source.entity';
 

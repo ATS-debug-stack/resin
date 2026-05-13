@@ -1,6 +1,6 @@
 import { mockInstance } from '@resin/backend-test-utils';
 import { generateNanoId, AuthIdentity, User, UserRepository } from '@resin/db';
-import type { EntityManager } from '@resin/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import * as helpers from '../helpers.ee';

@@ -507,7 +507,7 @@ describe('AgentToolsModal', () => {
 				projectId: 'p-42',
 				triggerNodeTypes: expect.arrayContaining([
 					'resin-nodes-base.executeWorkflowTrigger',
-					'@resin/n8n-nodes-langchain.chatTrigger',
+					'@resin/nodes-langchain.chatTrigger',
 					'resin-nodes-base.manualTrigger',
 					'resin-nodes-base.scheduleTrigger',
 					'resin-nodes-base.formTrigger',

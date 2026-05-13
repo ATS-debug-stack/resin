@@ -1,5 +1,5 @@
 import { Project, WithTimestampsAndStringId } from '@resin/db';
-import { Column, Entity, Index, JoinColumn, ManyToOne, OneToMany } from '@resin/typeorm';
+import { Column, Entity, Index, JoinColumn, ManyToOne, OneToMany } from '@n8n/typeorm';
 
 import { DataTableColumn } from './data-table-column.entity';
 

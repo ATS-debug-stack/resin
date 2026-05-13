@@ -1,5 +1,5 @@
 import { JsonColumn, WithTimestamps } from '@resin/db';
-import { Entity, PrimaryColumn } from '@resin/typeorm';
+import { Entity, PrimaryColumn } from '@n8n/typeorm';
 import { MessageEventBusDestinationOptions } from 'resin-workflow';
 
 @Entity({ name: 'event_destinations' })

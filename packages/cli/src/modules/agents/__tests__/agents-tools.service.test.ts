@@ -166,11 +166,11 @@ describe('AgentsToolsService', () => {
 		});
 
 		it('admits whitelisted AI provider nodes (full vendor APIs)', () => {
-			expect(isAgentToolNodeType('@resin/n8n-nodes-langchain.openAi')).toBe(true);
-			expect(isAgentToolNodeType('@resin/n8n-nodes-langchain.anthropic')).toBe(true);
+			expect(isAgentToolNodeType('@resin/nodes-langchain.openAi')).toBe(true);
+			expect(isAgentToolNodeType('@resin/nodes-langchain.anthropic')).toBe(true);
 			// Non-provider langchain nodes stay excluded.
-			expect(isAgentToolNodeType('@resin/n8n-nodes-langchain.lmChatOpenAi')).toBe(false);
-			expect(isAgentToolNodeType('@resin/n8n-nodes-langchain.agent')).toBe(false);
+			expect(isAgentToolNodeType('@resin/nodes-langchain.lmChatOpenAi')).toBe(false);
+			expect(isAgentToolNodeType('@resin/nodes-langchain.agent')).toBe(false);
 		});
 	});
 

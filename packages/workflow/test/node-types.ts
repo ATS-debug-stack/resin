@@ -1156,7 +1156,7 @@ const aiAgentNode: LoadedClass<INodeType> = {
 	type: {
 		description: {
 			displayName: 'AI Agent',
-			name: '@resin/n8n-nodes-langchain.agent',
+			name: '@resin/nodes-langchain.agent',
 			icon: 'fa:robot',
 			iconColor: 'black',
 			group: ['transform'],
@@ -1183,7 +1183,7 @@ const wikipediaTool: LoadedClass<INodeType> = {
 	type: {
 		description: {
 			displayName: 'Wikipedia',
-			name: '@resin/n8n-nodes-langchain.toolWikipedia',
+			name: '@resin/nodes-langchain.toolWikipedia',
 			icon: 'file:wikipedia.svg',
 			group: ['transform'],
 			version: 1,
@@ -1203,7 +1203,7 @@ const calculatorTool: LoadedClass<INodeType> = {
 	type: {
 		description: {
 			displayName: 'Calculator',
-			name: '@resin/n8n-nodes-langchain.toolCalculator',
+			name: '@resin/nodes-langchain.toolCalculator',
 			icon: 'fa:calculator',
 			iconColor: 'black',
 			group: ['transform'],
@@ -1386,10 +1386,10 @@ export class NodeTypes implements INodeTypes {
 			},
 		},
 		'resin-nodes-base.manualTrigger': manualTriggerNode,
-		'@resin/n8n-nodes-langchain.agent': aiAgentNode,
+		'@resin/nodes-langchain.agent': aiAgentNode,
 		'resin-nodes-base.googleCalendarTool': googleCalendarTool,
-		'@resin/n8n-nodes-langchain.toolCalculator': calculatorTool,
-		'@resin/n8n-nodes-langchain.toolWikipedia': wikipediaTool,
+		'@resin/nodes-langchain.toolCalculator': calculatorTool,
+		'@resin/nodes-langchain.toolWikipedia': wikipediaTool,
 	};
 
 	getByName(nodeType: string): INodeType | IVersionedNodeType {

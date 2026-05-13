@@ -134,7 +134,7 @@ describe('SetupWorkflowCredentialsButton', () => {
 				{
 					id: '1',
 					name: 'OpenAI Model',
-					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					parameters: {},
@@ -158,7 +158,7 @@ describe('SetupWorkflowCredentialsButton', () => {
 				{
 					id: '1',
 					name: 'OpenAI Model',
-					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					parameters: {},
@@ -182,7 +182,7 @@ describe('SetupWorkflowCredentialsButton', () => {
 				{
 					id: '1',
 					name: 'OpenAI Model',
-					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					parameters: {},
@@ -208,7 +208,7 @@ describe('SetupWorkflowCredentialsButton', () => {
 				{
 					id: '1',
 					name: 'OpenAI Model',
-					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					parameters: {},
@@ -256,7 +256,7 @@ describe('SetupWorkflowCredentialsButton', () => {
 				{
 					id: '1',
 					name: 'OpenAI Model',
-					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
 					parameters: {},

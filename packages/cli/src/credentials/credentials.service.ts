@@ -18,7 +18,7 @@ import {
 	type EntityManager,
 	type FindOptionsRelations,
 	type FindOptionsWhere,
-} from '@resin/typeorm';
+} from '@n8n/typeorm';
 import { CredentialDataError, Credentials, ErrorReporter } from 'resin-core';
 import type {
 	ICredentialDataDecryptedObject,

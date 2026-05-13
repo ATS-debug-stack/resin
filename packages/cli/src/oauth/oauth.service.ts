@@ -530,7 +530,7 @@ export class OauthService {
 				token_endpoint_auth_method,
 				grant_types,
 				response_types: ['code'],
-				client_name: 'n8n',
+				client_name: 'Resin',
 				client_uri: 'https://n8n.io/',
 				scope,
 			};

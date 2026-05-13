@@ -6,7 +6,7 @@ import type {
 	WorkflowRepository,
 	UserRepository,
 } from '@resin/db';
-import { IsNull, Not } from '@resin/typeorm';
+import { IsNull, Not } from '@n8n/typeorm';
 import RudderStack from '@rudderstack/rudder-sdk-node';
 import type { Response } from 'express';
 import { mock } from 'jest-mock-extended';

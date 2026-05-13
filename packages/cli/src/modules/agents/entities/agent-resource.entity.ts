@@ -1,5 +1,5 @@
 import { WithTimestamps } from '@resin/db';
-import { Column, Entity, PrimaryColumn } from '@resin/typeorm';
+import { Column, Entity, PrimaryColumn } from '@n8n/typeorm';
 
 @Entity({ name: 'agents_resources' })
 export class AgentResourceEntity extends WithTimestamps {

@@ -143,7 +143,7 @@ export function getLastNodeExecuted(execution: IExecutionResponse) {
 	if (lastNodeExecuted === TOOL_EXECUTOR_NODE_NAME) {
 		return {
 			name: TOOL_EXECUTOR_NODE_NAME,
-			type: '@resin/n8n-nodes-langchain.toolExecutor',
+			type: '@resin/nodes-langchain.toolExecutor',
 			parameters: {},
 			id: '',
 			typeVersion: 1,

@@ -1,0 +1,12 @@
+{
+	"extends": [
+		"@resin/typescript-config/tsconfig.common.json",
+		"@resin/typescript-config/tsconfig.backend.json"
+	],
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": ["src/**/*.ts"]
+}

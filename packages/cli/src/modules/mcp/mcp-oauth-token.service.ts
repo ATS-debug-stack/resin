@@ -4,7 +4,7 @@ import { Logger } from '@resin/backend-common';
 import { Time } from '@resin/constants';
 import { UserRepository, withTransaction } from '@resin/db';
 import { Service } from '@resin/di';
-import { MoreThanOrEqual } from '@resin/typeorm';
+import { MoreThanOrEqual } from '@n8n/typeorm';
 import { ensureError } from 'resin-workflow';
 import { randomBytes, randomUUID } from 'node:crypto';
 

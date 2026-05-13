@@ -27,7 +27,7 @@ function baseWorkflow(): IWorkflowBase {
 			{
 				id: 'n-agent',
 				name: 'Agent',
-				type: '@resin/n8n-nodes-langchain.agent',
+				type: '@resin/nodes-langchain.agent',
 				typeVersion: 1,
 				position: [200, 0],
 				parameters: {},
@@ -149,7 +149,7 @@ describe('WorkflowCompilerService', () => {
 				config: {
 					preset: 'correctness',
 					prompt: 'You are a judge',
-					provider: '@resin/n8n-nodes-langchain.lmChatAnthropic',
+					provider: '@resin/nodes-langchain.lmChatAnthropic',
 					credentialId: 'cred-anth',
 					model: 'claude-sonnet-4-6',
 					outputType: 'numeric',
@@ -171,7 +171,7 @@ describe('WorkflowCompilerService', () => {
 		expect(metric.parameters.options).toEqual({ metricName: 'Answer correctness' });
 
 		const model = compiled.nodes.find((n) => n.name === '__eval_model_m-judge')!;
-		expect(model.type).toBe('@resin/n8n-nodes-langchain.lmChatAnthropic');
+		expect(model.type).toBe('@resin/nodes-langchain.lmChatAnthropic');
 		expect(model.parameters.model).toBe('claude-sonnet-4-6');
 		expect(model.credentials).toEqual({ anthropicApi: { id: 'cred-anth', name: '' } });
 
@@ -228,7 +228,7 @@ describe('WorkflowCompilerService', () => {
 				config: {
 					preset: 'correctness',
 					prompt: 'p',
-					provider: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					provider: '@resin/nodes-langchain.lmChatOpenAi',
 					credentialId: 'c',
 					model: 'gpt-4o',
 					outputType: 'numeric',
@@ -347,7 +347,7 @@ describe('WorkflowCompilerService', () => {
 					config: {
 						preset: 'correctness',
 						prompt: 'Judge it',
-						provider: '@resin/n8n-nodes-langchain.lmChatGroq',
+						provider: '@resin/nodes-langchain.lmChatGroq',
 						credentialId: 'cred-grok',
 						model: 'llama3-8b-8192',
 						outputType: 'numeric',
@@ -373,7 +373,7 @@ describe('WorkflowCompilerService', () => {
 					config: {
 						preset: 'correctness',
 						prompt: 'Judge it',
-						provider: '@resin/n8n-nodes-langchain.lmChatNotReal',
+						provider: '@resin/nodes-langchain.lmChatNotReal',
 						credentialId: 'cred',
 						model: 'm',
 						outputType: 'numeric',

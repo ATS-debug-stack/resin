@@ -14,7 +14,7 @@ import {
 	UserRepository,
 } from '@resin/db';
 import { Container } from '@resin/di';
-import { Not } from '@resin/typeorm';
+import { Not } from '@n8n/typeorm';
 import type { Entry as LdapUser } from 'ldapts';
 import { Cipher } from 'resin-core';
 

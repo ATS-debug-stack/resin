@@ -1,6 +1,6 @@
 import { ApiKey, ApiKeyRepository, User, UserRepository } from '@resin/db';
 import { Service } from '@resin/di';
-import { EntityManager } from '@resin/typeorm';
+import { EntityManager } from '@n8n/typeorm';
 import { randomUUID } from 'crypto';
 import { ApiKeyAudience, ensureError } from 'resin-workflow';
 

@@ -7,7 +7,7 @@ import {
 } from '@resin/backend-test-utils';
 import { DbConnection } from '@resin/db';
 import { Container } from '@resin/di';
-import { DataSource } from '@resin/typeorm';
+import { DataSource } from '@n8n/typeorm';
 import { nanoid } from 'nanoid';
 
 const MIGRATION_NAME = 'AddScalingFieldsToTestRun1771417407753';

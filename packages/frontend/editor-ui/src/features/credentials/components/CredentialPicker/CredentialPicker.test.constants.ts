@@ -197,9 +197,9 @@ export const TEST_CREDENTIAL_TYPES: ICredentialTypeMap = {
 		},
 		supportedNodes: [
 			'resin-nodes-base.openAi',
-			'@resin/n8n-nodes-langchain.embeddingsOpenAi',
-			'@resin/n8n-nodes-langchain.lmChatOpenAi',
-			'@resin/n8n-nodes-langchain.lmOpenAi',
+			'@resin/nodes-langchain.embeddingsOpenAi',
+			'@resin/nodes-langchain.lmChatOpenAi',
+			'@resin/nodes-langchain.lmOpenAi',
 		],
 	},
 	supabaseApi: {

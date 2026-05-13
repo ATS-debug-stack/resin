@@ -9,7 +9,7 @@ import {
 	type EntityManager,
 	type ExecutionRepository,
 } from '@resin/db';
-import { QueryFailedError } from '@resin/typeorm';
+import { QueryFailedError } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import type { BinaryDataService, StorageConfig } from 'resin-core';
 import type { IWorkflowBase } from 'resin-workflow';

@@ -7,7 +7,7 @@ import type { CredentialsEntity, ICredentialsDb } from '@resin/db';
 import { CredentialsRepository, SecretsProviderConnectionRepository } from '@resin/db';
 import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { EntityNotFoundError } from '@resin/typeorm';
+import { EntityNotFoundError } from '@n8n/typeorm';
 import { Credentials, getAdditionalKeys } from 'resin-core';
 import type {
 	ICredentialDataDecryptedObject,

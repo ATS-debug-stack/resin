@@ -5,7 +5,7 @@ import type {
 	SecretsProviderConnection,
 	SecretsProviderConnectionRepository,
 } from '@resin/db';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import { CREDENTIAL_BLANKING_VALUE, type IDataObject, type INodeProperties } from 'resin-workflow';
 

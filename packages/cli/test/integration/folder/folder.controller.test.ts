@@ -402,7 +402,7 @@ describe('GET /projects/:projectId/folders/:folderId/credentials', () => {
 					nodes: [
 						{
 							parameters: {},
-							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/nodes-langchain.lmChatOpenAi',
 							typeVersion: 1.2,
 							position: [0, 0],
 							id: faker.string.uuid(),
@@ -493,7 +493,7 @@ describe('GET /projects/:projectId/folders/:folderId/credentials', () => {
 					nodes: [
 						{
 							parameters: {},
-							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/nodes-langchain.lmChatOpenAi',
 							typeVersion: 1.2,
 							position: [0, 0],
 							id: faker.string.uuid(),

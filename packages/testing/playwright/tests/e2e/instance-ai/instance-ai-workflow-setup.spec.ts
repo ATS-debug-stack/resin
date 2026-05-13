@@ -351,7 +351,7 @@ function createAgentWithSubnodesWorkflow(name: string): Partial<IWorkflowBase> {
 			{
 				id: 'agent',
 				name: 'AI Agent',
-				type: '@resin/n8n-nodes-langchain.agent',
+				type: '@resin/nodes-langchain.agent',
 				typeVersion: 3.1,
 				position: [220, 0],
 				parameters: { options: {} },
@@ -359,7 +359,7 @@ function createAgentWithSubnodesWorkflow(name: string): Partial<IWorkflowBase> {
 			{
 				id: 'openai',
 				name: 'OpenAI Chat Model',
-				type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+				type: '@resin/nodes-langchain.lmChatOpenAi',
 				typeVersion: 1.3,
 				position: [120, 220],
 				parameters: {

@@ -879,7 +879,7 @@ describe('setupPanel.utils', () => {
 			mockNodeTypeProvider.getNodeType.mockReturnValue(nodeType);
 
 			const node = createTestNode({
-				type: '@resin/n8n-nodes-langchain.openAi',
+				type: '@resin/nodes-langchain.openAi',
 				parameters: {
 					modelId: { __rl: true, value: '', mode: 'id' },
 				},

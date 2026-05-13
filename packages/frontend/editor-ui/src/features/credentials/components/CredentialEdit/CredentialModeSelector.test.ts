@@ -419,7 +419,7 @@ describe('CredentialModeSelector', () => {
 
 		const singleCredMcpNodeType = {
 			displayName: 'Notion MCP',
-			name: '@resin/n8n-nodes-langchain.mcpClientTool',
+			name: '@resin/nodes-langchain.mcpClientTool',
 			group: ['transform'],
 			version: 1,
 			description: 'MCP tool node',
@@ -500,7 +500,7 @@ describe('CredentialModeSelector', () => {
 		it('should not show selector when there are no configurable credential fields', () => {
 			const pinia = setupStores({
 				nodeType: singleCredMcpNodeType,
-				node: makeNode('@resin/n8n-nodes-langchain.mcpClientTool', ''),
+				node: makeNode('@resin/nodes-langchain.mcpClientTool', ''),
 				credentialTypes: {
 					mcpOAuth2Api: nonConfigurableOAuthType,
 				},

@@ -77,7 +77,7 @@ const openAiNode: INodeUi = {
 		jsonOutput: false,
 		options: {},
 	},
-	type: '@resin/n8n-nodes-langchain.openAi',
+	type: '@resin/nodes-langchain.openAi',
 	typeVersion: 1.8,
 	position: [440, 0],
 	id: '17241295-a277-4cdf-8c46-6c3f85b335e9',
@@ -736,7 +736,7 @@ describe('NodeCredentials', () => {
 
 			const mcpNode: INodeUi = {
 				parameters: {},
-				type: '@resin/n8n-nodes-langchain.mcpClientTool',
+				type: '@resin/nodes-langchain.mcpClientTool',
 				typeVersion: 1,
 				position: [0, 0],
 				id: 'mcp-node-id',

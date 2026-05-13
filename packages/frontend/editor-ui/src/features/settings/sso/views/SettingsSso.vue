@@ -110,7 +110,11 @@ onMounted(() => {
 		</div>
 		<p :class="$style.description">
 			{{ i18n.baseText('settings.sso.info') }}
-			<a :class="$style.docLink" href="https://docs.n8n.io/user-management/saml/" target="_blank">
+			<a
+				:class="$style.docLink"
+				href="https://docs.ats-resin.io/user-management/saml/"
+				target="_blank"
+			>
 				{{ i18n.baseText('settings.sso.info.link') }}
 			</a>
 		</p>

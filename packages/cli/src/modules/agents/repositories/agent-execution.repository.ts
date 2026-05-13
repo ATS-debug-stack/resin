@@ -1,5 +1,5 @@
 import { Service } from '@resin/di';
-import { DataSource, IsNull, Repository } from '@resin/typeorm';
+import { DataSource, IsNull, Repository } from '@n8n/typeorm';
 
 import { AgentExecution } from '../entities/agent-execution.entity';
 

@@ -18,7 +18,7 @@ export interface AutoAssignResult {
 
 const HTTP_NODE_TYPES = new Set([
 	'resin-nodes-base.httpRequest',
-	'@resin/n8n-nodes-langchain.toolHttpRequest',
+	'@resin/nodes-langchain.toolHttpRequest',
 	'resin-nodes-base.httpRequestTool',
 ]);
 

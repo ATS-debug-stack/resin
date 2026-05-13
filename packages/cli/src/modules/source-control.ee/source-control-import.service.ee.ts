@@ -24,8 +24,8 @@ import {
 } from '@resin/db';
 import { Service } from '@resin/di';
 import { PROJECT_ADMIN_ROLE_SLUG, PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
-import { In } from '@resin/typeorm';
-import { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
+import { In } from '@n8n/typeorm';
+import { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
 import glob from 'fast-glob';
 import isEqual from 'lodash/isEqual';
 import { Credentials, ErrorReporter, InstanceSettings } from 'resin-core';

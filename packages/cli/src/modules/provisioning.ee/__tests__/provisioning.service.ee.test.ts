@@ -18,7 +18,7 @@ import { PROVISIONING_PREFERENCES_DB_KEY } from '../constants';
 import { type ProvisioningConfigDto } from '@resin/api-types';
 import { type Publisher } from '@/scaling/pubsub/publisher.service';
 import { type ProjectService } from '@/services/project.service.ee';
-import type { EntityManager } from '@resin/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 import { type InstanceSettings } from 'resin-core';
 import { type EventService } from '@/events/event.service';
 import { type UserService } from '@/services/user.service';

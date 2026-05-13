@@ -3,7 +3,7 @@ import type { Project, User, WorkflowEntity } from '@resin/db';
 import { Service } from '@resin/di';
 import { hasGlobalScope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In, type FindOptionsWhere } from '@resin/typeorm';
+import { In, type FindOptionsWhere } from '@n8n/typeorm';
 
 import { SourceControlContext } from './types/source-control-context';
 

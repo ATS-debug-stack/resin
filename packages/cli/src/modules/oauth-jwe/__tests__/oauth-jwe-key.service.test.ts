@@ -2,7 +2,7 @@ import { mockInstance } from '@resin/backend-test-utils';
 import type { DeploymentKey } from '@resin/db';
 import { DeploymentKeyRepository } from '@resin/db';
 import { Container } from '@resin/di';
-import { QueryFailedError } from '@resin/typeorm';
+import { QueryFailedError } from '@n8n/typeorm';
 import { exportJWK, generateKeyPair } from 'jose';
 import type { JWK } from 'jose';
 import { Cipher } from 'resin-core';

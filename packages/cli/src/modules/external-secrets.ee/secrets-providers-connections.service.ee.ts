@@ -16,7 +16,7 @@ import {
 	SecretsProviderConnectionRepository,
 } from '@resin/db';
 import { Service } from '@resin/di';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { Cipher } from 'resin-core';
 import type { IDataObject } from 'resin-workflow';
 import { jsonParse } from 'resin-workflow';

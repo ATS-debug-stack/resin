@@ -28,7 +28,7 @@ import {
 } from '@resin/db';
 import { OnPubSubEvent } from '@resin/decorators';
 import { Container, Service } from '@resin/di';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import {
 	deepCopy,
 	OperationalError,

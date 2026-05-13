@@ -172,7 +172,7 @@ describe('PyodideRemovedRule', () => {
 
 		it('should return no issues when Code Tool nodes use native Python (pythonNative)', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Code Tool', '@resin/n8n-nodes-langchain.toolCode', {
+				createNode('Code Tool', '@resin/nodes-langchain.toolCode', {
 					language: 'pythonNative',
 					pythonCode: 'print("hello")',
 				}),
@@ -187,7 +187,7 @@ describe('PyodideRemovedRule', () => {
 
 		it('should detect Code Tool node with Pyodide Python (language="python")', async () => {
 			const { workflow, nodesGroupedByType } = createWorkflow('wf-1', 'Test Workflow', [
-				createNode('Code Tool', '@resin/n8n-nodes-langchain.toolCode', {
+				createNode('Code Tool', '@resin/nodes-langchain.toolCode', {
 					language: 'python',
 					pythonCode: 'print("hello")',
 				}),
@@ -213,7 +213,7 @@ describe('PyodideRemovedRule', () => {
 					language: 'python',
 					pythonCode: 'print("hello")',
 				}),
-				createNode('Python Tool', '@resin/n8n-nodes-langchain.toolCode', {
+				createNode('Python Tool', '@resin/nodes-langchain.toolCode', {
 					language: 'python',
 					pythonCode: 'print("world")',
 				}),

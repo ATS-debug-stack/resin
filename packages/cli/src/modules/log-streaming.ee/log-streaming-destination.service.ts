@@ -1,7 +1,7 @@
 import { Logger } from '@resin/backend-common';
 import { OnPubSubEvent } from '@resin/decorators';
 import { Service } from '@resin/di';
-import type { DeleteResult } from '@resin/typeorm';
+import type { DeleteResult } from '@n8n/typeorm';
 import type { MessageEventBusDestinationOptions } from 'resin-workflow';
 
 import type { EventMessageTypes } from '@/eventbus';

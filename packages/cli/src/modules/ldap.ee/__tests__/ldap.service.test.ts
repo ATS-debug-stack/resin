@@ -5,7 +5,7 @@ import { LDAP_FEATURE_NAME, type LdapConfig } from '@resin/constants';
 import type { Settings, User } from '@resin/db';
 import { AuthIdentityRepository, SettingsRepository } from '@resin/db';
 import { Container } from '@resin/di';
-import { QueryFailedError } from '@resin/typeorm';
+import { QueryFailedError } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import { Client } from 'ldapts';
 import type { Cipher } from 'resin-core';

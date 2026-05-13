@@ -408,7 +408,7 @@ describe('ChatHubExecutionWatcherService', () => {
 					executionStore.get.mockResolvedValue(context);
 					chatHubExecutionService.extractMessage.mockReturnValue(undefined);
 
-					const execution = createExecution('@resin/n8n-nodes-langchain.chat', {
+					const execution = createExecution('@resin/nodes-langchain.chat', {
 						waitUserReply: false,
 					});
 					executionRepository.findSingleExecution.mockResolvedValue(execution);
@@ -425,7 +425,7 @@ describe('ChatHubExecutionWatcherService', () => {
 					executionStore.get.mockResolvedValue(context);
 					chatHubExecutionService.extractMessage.mockReturnValue(undefined);
 
-					const execution = createExecution('@resin/n8n-nodes-langchain.chat', {
+					const execution = createExecution('@resin/nodes-langchain.chat', {
 						operation: 'sendAndWait',
 					});
 					executionRepository.findSingleExecution.mockResolvedValue(execution);

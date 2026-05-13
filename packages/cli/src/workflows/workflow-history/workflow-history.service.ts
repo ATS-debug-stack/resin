@@ -4,9 +4,9 @@ import type { User } from '@resin/db';
 import { WorkflowHistory, WorkflowHistoryRepository } from '@resin/db';
 import { Service } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager } from '@resin/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import type { IWorkflowBase } from 'resin-workflow';
 import { ensureError, UnexpectedError } from 'resin-workflow';
 

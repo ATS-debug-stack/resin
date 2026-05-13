@@ -191,7 +191,7 @@ export class NodeCatalogService {
 
 	private async resolveBuiltinNodeDefinitionDirs(): Promise<string[]> {
 		const dirs: string[] = [];
-		for (const packageId of ['resin-nodes-base', '@resin/n8n-nodes-langchain']) {
+		for (const packageId of ['resin-nodes-base', '@resin/nodes-langchain']) {
 			try {
 				const packageJsonPath = require.resolve(`${packageId}/package.json`);
 				const distDir = path.dirname(packageJsonPath);

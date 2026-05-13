@@ -38,7 +38,7 @@ export const WORKFLOW_SDK_VERSION = workflowSdkPackageJson.version;
 export const N8N_RELEASE_DATE = statSync(packageJsonPath).mtime;
 
 export const STARTING_NODES = [
-	'@resin/n8n-nodes-langchain.manualChatTrigger',
+	'@resin/nodes-langchain.manualChatTrigger',
 	'resin-nodes-base.manualTrigger',
 ];
 
@@ -47,7 +47,7 @@ export const TRIGGER_COUNT_EXCLUDED_NODES = [
 	ERROR_TRIGGER_NODE_TYPE,
 ];
 
-export const MCP_TRIGGER_NODE_TYPE = '@resin/n8n-nodes-langchain.mcpTrigger';
+export const MCP_TRIGGER_NODE_TYPE = '@resin/nodes-langchain.mcpTrigger';
 
 export const NODE_PACKAGE_PREFIX = 'resin-nodes-';
 

@@ -80,7 +80,9 @@ const copyDebugInfoToClipboard = async () => {
 						<N8nText>{{ i18n.baseText('about.sourceCode') }}</N8nText>
 					</ElCol>
 					<ElCol :span="16">
-						<N8nLink to="https://github.com/n8n-io/n8n">https://github.com/n8n-io/n8n</N8nLink>
+						<N8nLink to="https://github.com/ATS-debug-stack/resin"
+							>https://github.com/ATS-debug-stack/resin</N8nLink
+						>
 					</ElCol>
 				</ElRow>
 				<ElRow>
@@ -88,7 +90,7 @@ const copyDebugInfoToClipboard = async () => {
 						<N8nText>{{ i18n.baseText('about.license') }}</N8nText>
 					</ElCol>
 					<ElCol :span="16">
-						<N8nLink to="https://github.com/n8n-io/n8n/blob/master/LICENSE.md">
+						<N8nLink to="https://github.com/ATS-debug-stack/resin/blob/master/LICENSE.md">
 							{{ i18n.baseText('about.n8nLicense') }}
 						</N8nLink>
 					</ElCol>

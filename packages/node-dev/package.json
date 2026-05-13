@@ -1,5 +1,5 @@
 {
-  "name": "n8n-node-dev",
+  "name": "resin-node-dev",
   "version": "2.9.0",
   "description": "CLI to simplify n8n credentials/node development",
   "private": true,
@@ -7,7 +7,7 @@
   "types": "dist/src/index.d.ts",
   "oclif": {
     "commands": "./dist/commands",
-    "bin": "n8n-node-dev"
+    "bin": "resin-node-dev"
   },
   "scripts": {
     "clean": "rimraf dist .turbo",
@@ -23,7 +23,7 @@
     "test": "jest"
   },
   "bin": {
-    "n8n-node-dev": "./bin/n8n-node-dev"
+    "resin-node-dev": "./bin/n8n-node-dev"
   },
   "keywords": [
     "development",
@@ -38,17 +38,17 @@
     "src/tsconfig-build.json"
   ],
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*",
+    "@resin/typescript-config": "workspace:*",
     "@types/inquirer": "^6.5.0"
   },
   "dependencies": {
-    "@n8n/di": "workspace:*",
+    "@resin/di": "workspace:*",
     "@oclif/core": "4.0.7",
     "change-case": "^4.1.1",
     "fast-glob": "catalog:",
     "inquirer": "^7.0.1",
-    "n8n-core": "workspace:*",
-    "n8n-workflow": "workspace:*",
+    "resin-core": "workspace:*",
+    "resin-workflow": "workspace:*",
     "replace-in-file": "^6.0.0",
     "tmp-promise": "^3.0.3"
   }

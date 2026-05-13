@@ -1,7 +1,7 @@
 import { GlobalConfig } from '@resin/config';
 import { DateTimeColumn } from '@resin/db';
 import { Container } from '@resin/di';
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from '@resin/typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from '@n8n/typeorm';
 import { UnexpectedError } from 'resin-workflow';
 
 import { isValidTypeNumber, NumberToType, TypeToNumber } from './insights-shared';

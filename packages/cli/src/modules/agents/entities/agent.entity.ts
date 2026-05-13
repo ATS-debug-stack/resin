@@ -1,7 +1,7 @@
 import type { AgentIntegration, AgentSkill } from '@resin/api-types';
 import type { ToolDescriptor } from '@resin/agents';
 import { JsonColumn, Project, WithTimestampsAndStringId } from '@resin/db';
-import { Column, Entity, ManyToOne, JoinColumn, OneToOne, type Relation } from '@resin/typeorm';
+import { Column, Entity, ManyToOne, JoinColumn, OneToOne, type Relation } from '@n8n/typeorm';
 
 import type { AgentPublishedVersion } from './agent-published-version.entity';
 import type { AgentJsonConfig } from '../json-config/agent-json-config';

@@ -1,6 +1,6 @@
 import { isAgentCredentialIntegration } from '@resin/api-types';
 import { Service } from '@resin/di';
-import { DataSource, Repository } from '@resin/typeorm';
+import { DataSource, Repository } from '@n8n/typeorm';
 
 import { Agent } from '../entities/agent.entity';
 

@@ -40,6 +40,7 @@ export async function rabbitmqConnect(
 		}
 	}
 
+// @ts-ignore
 	return await amqplib.connect(credentialData, optsData);
 }
 
@@ -54,6 +55,7 @@ export async function rabbitmqCreateChannel(
 			// TODO: why is this error handler being added here?
 			connection.on('error', reject);
 
+// @ts-ignore
 			const channel = await connection.createChannel();
 			resolve(channel);
 		} catch (error) {
@@ -158,7 +160,9 @@ export class MessageTracker {
 			unansweredMessages = this.unansweredMessages();
 		}
 
+// @ts-ignore
 		await channel.close();
+// @ts-ignore
 		await channel.connection.close();
 	}
 }

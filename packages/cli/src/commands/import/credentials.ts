@@ -10,7 +10,7 @@ import { Command } from '@resin/decorators';
 import { Container } from '@resin/di';
 import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager } from '@resin/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 import glob from 'fast-glob';
 import fs from 'fs';
 import omit from 'lodash/omit';

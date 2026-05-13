@@ -28,7 +28,7 @@ export function rewireGraph(
 	const toolExecutor: INode = {
 		name: TOOL_EXECUTOR_NODE_NAME,
 		disabled: false,
-		type: '@resin/n8n-nodes-langchain.toolExecutor',
+		type: '@resin/nodes-langchain.toolExecutor',
 		parameters: {
 			query: JSON.stringify(agentRequest?.query ?? {}),
 			toolName: agentRequest?.tool?.name ?? '',

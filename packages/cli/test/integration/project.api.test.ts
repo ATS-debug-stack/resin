@@ -26,7 +26,7 @@ import {
 	type ProjectRole,
 	type Scope,
 } from '@resin/permissions';
-import { EntityNotFoundError } from '@resin/typeorm';
+import { EntityNotFoundError } from '@n8n/typeorm';
 import { createFolder } from '@test-integration/db/folders';
 
 import {

@@ -26,7 +26,7 @@ export const useNodeDocsUrl = ({
 		}
 
 		const utmParams = new URLSearchParams({
-			utm_source: 'n8n_app',
+			utm_source: 'resin_app',
 			utm_medium: 'node_settings_modal-credential_link',
 			utm_campaign: nodeType.name,
 		});

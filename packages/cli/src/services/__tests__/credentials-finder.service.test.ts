@@ -14,7 +14,7 @@ import {
 	PROJECT_OWNER_ROLE_SLUG,
 	PROJECT_VIEWER_ROLE_SLUG,
 } from '@resin/permissions';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import { mockInstance } from '@resin/backend-test-utils';
 

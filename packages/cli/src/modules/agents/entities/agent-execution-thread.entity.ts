@@ -1,5 +1,5 @@
 import { Project, WithTimestampsAndStringId } from '@resin/db';
-import { Column, Entity, Index, JoinColumn, ManyToOne } from '@resin/typeorm';
+import { Column, Entity, Index, JoinColumn, ManyToOne } from '@n8n/typeorm';
 
 import { Agent } from './agent.entity';
 

@@ -79,7 +79,7 @@ const {
 						<I18nT keypath="readOnlyEnv.tooltip" scope="global">
 							<template #link>
 								<N8nLink
-									to="https://docs.n8n.io/source-control-environments/setup/#step-4-connect-n8n-and-configure-your-instance"
+									to="https://docs.ats-resin.io/source-control-environments/setup/"
 									size="small"
 								>
 									{{ i18n.baseText('readOnlyEnv.tooltip.link') }}

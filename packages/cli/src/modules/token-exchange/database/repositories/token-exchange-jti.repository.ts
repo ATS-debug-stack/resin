@@ -1,6 +1,6 @@
 import { GlobalConfig } from '@resin/config';
 import { Service } from '@resin/di';
-import { DataSource, Repository } from '@resin/typeorm';
+import { DataSource, Repository } from '@n8n/typeorm';
 import assert from 'node:assert';
 
 import { TokenExchangeJti } from '../entities/token-exchange-jti.entity';

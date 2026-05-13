@@ -8,7 +8,7 @@ import {
 import type { Project, WorkflowEntity, IWorkflowDb, SharedWorkflowRepository } from '@resin/db';
 import type { WorkflowExecuteAfterContext } from '@resin/decorators';
 import { Container } from '@resin/di';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 import { DateTime } from 'luxon';
 import {

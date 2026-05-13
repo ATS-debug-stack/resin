@@ -1,5 +1,5 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import { nodeConfig } from '@n8n/eslint-config/node';
+import { nodeConfig } from '@resin/eslint-config/node';
 
 export default defineConfig(
 	globalIgnores(['scripts/**/*.mjs', 'jest.config*.js', 'test/*-testcontainers.js', 'coverage/**']),

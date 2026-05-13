@@ -38,59 +38,59 @@ export const CHAT_TRIGGER_NODE_MIN_VERSION = 1.2;
 
 export const PROVIDER_NODE_TYPE_MAP: Record<ChatHubLLMProvider, INodeTypeNameVersion> = {
 	openai: {
-		name: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+		name: '@resin/nodes-langchain.lmChatOpenAi',
 		version: 1.3,
 	},
 	anthropic: {
-		name: '@resin/n8n-nodes-langchain.lmChatAnthropic',
+		name: '@resin/nodes-langchain.lmChatAnthropic',
 		version: 1.3,
 	},
 	google: {
-		name: '@resin/n8n-nodes-langchain.lmChatGoogleGemini',
+		name: '@resin/nodes-langchain.lmChatGoogleGemini',
 		version: 1.2,
 	},
 	ollama: {
-		name: '@resin/n8n-nodes-langchain.lmChatOllama',
+		name: '@resin/nodes-langchain.lmChatOllama',
 		version: 1,
 	},
 	azureOpenAi: {
-		name: '@resin/n8n-nodes-langchain.lmChatAzureOpenAi',
+		name: '@resin/nodes-langchain.lmChatAzureOpenAi',
 		version: 1,
 	},
 	azureEntraId: {
-		name: '@resin/n8n-nodes-langchain.lmChatAzureOpenAi',
+		name: '@resin/nodes-langchain.lmChatAzureOpenAi',
 		version: 1,
 	},
 	awsBedrock: {
-		name: '@resin/n8n-nodes-langchain.lmChatAwsBedrock',
+		name: '@resin/nodes-langchain.lmChatAwsBedrock',
 		version: 1.1,
 	},
 	vercelAiGateway: {
-		name: '@resin/n8n-nodes-langchain.lmChatVercelAiGateway',
+		name: '@resin/nodes-langchain.lmChatVercelAiGateway',
 		version: 1,
 	},
 	xAiGrok: {
-		name: '@resin/n8n-nodes-langchain.lmChatXAiGrok',
+		name: '@resin/nodes-langchain.lmChatXAiGrok',
 		version: 1,
 	},
 	groq: {
-		name: '@resin/n8n-nodes-langchain.lmChatGroq',
+		name: '@resin/nodes-langchain.lmChatGroq',
 		version: 1,
 	},
 	openRouter: {
-		name: '@resin/n8n-nodes-langchain.lmChatOpenRouter',
+		name: '@resin/nodes-langchain.lmChatOpenRouter',
 		version: 1,
 	},
 	deepSeek: {
-		name: '@resin/n8n-nodes-langchain.lmChatDeepSeek',
+		name: '@resin/nodes-langchain.lmChatDeepSeek',
 		version: 1,
 	},
 	cohere: {
-		name: '@resin/n8n-nodes-langchain.lmChatCohere',
+		name: '@resin/nodes-langchain.lmChatCohere',
 		version: 1,
 	},
 	mistralCloud: {
-		name: '@resin/n8n-nodes-langchain.lmChatMistralCloud',
+		name: '@resin/nodes-langchain.lmChatMistralCloud',
 		version: 1,
 	},
 };

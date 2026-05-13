@@ -1,6 +1,6 @@
 import type { FavoriteResourceType } from '@resin/api-types';
 import { User } from '@resin/db';
-import { Column, Entity, Index, ManyToOne, PrimaryGeneratedColumn, Unique } from '@resin/typeorm';
+import { Column, Entity, Index, ManyToOne, PrimaryGeneratedColumn, Unique } from '@n8n/typeorm';
 
 @Entity('user_favorites')
 @Unique(['userId', 'resourceId', 'resourceType'])

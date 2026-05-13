@@ -157,7 +157,7 @@ describe('useAppCredentials', () => {
 
 			nodeTypesStore.visibleNodeTypes = [
 				createMockNodeType({
-					name: '@resin/n8n-nodes-langchain.openAi',
+					name: '@resin/nodes-langchain.openAi',
 					displayName: 'OpenAI',
 					credentials: [{ name: 'openAiApi' }],
 				}),

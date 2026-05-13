@@ -3,7 +3,7 @@ import type { IExecutionBase } from '@resin/db';
 import { ExecutionRepository } from '@resin/db';
 import { Container } from '@resin/di';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { QueryFailedError } from '@resin/typeorm';
+import { QueryFailedError } from '@n8n/typeorm';
 import { type ExecutionStatus, replaceCircularReferences } from 'resin-workflow';
 
 import { ActiveExecutions } from '@/active-executions';

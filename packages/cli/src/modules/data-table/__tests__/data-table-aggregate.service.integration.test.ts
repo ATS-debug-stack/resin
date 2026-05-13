@@ -11,7 +11,7 @@ import {
 	PROJECT_CHAT_USER_ROLE,
 } from '@resin/db';
 import { Container } from '@resin/di';
-import type { EntityManager } from '@resin/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 import { mock } from 'jest-mock-extended';
 
 import { createUser } from '@test-integration/db/users';

@@ -382,7 +382,7 @@ describe('useToolParameters', () => {
 			const hitlNode: INode = {
 				id: '1',
 				name: 'HITL Node',
-				type: '@resin/n8n-nodes-langchain.toolHitlTool',
+				type: '@resin/nodes-langchain.toolHitlTool',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {
@@ -433,7 +433,7 @@ describe('useToolParameters', () => {
 			const hitlNode: INode = {
 				id: '1',
 				name: 'HITL Node',
-				type: '@resin/n8n-nodes-langchain.toolHitlTool',
+				type: '@resin/nodes-langchain.toolHitlTool',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {},
@@ -467,7 +467,7 @@ describe('useToolParameters', () => {
 			const vectorStoreNode: INode = {
 				id: '1',
 				name: 'Vector Store',
-				type: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
+				type: '@resin/nodes-langchain.vectorStoreInMemory',
 				typeVersion: 1,
 				position: [0, 0],
 				parameters: {
@@ -476,7 +476,7 @@ describe('useToolParameters', () => {
 			};
 
 			const nodeType: INodeTypeDescription = {
-				name: '@resin/n8n-nodes-langchain.vectorStoreInMemory',
+				name: '@resin/nodes-langchain.vectorStoreInMemory',
 				displayName: 'Vector Store',
 				description: 'Test',
 				version: 1,

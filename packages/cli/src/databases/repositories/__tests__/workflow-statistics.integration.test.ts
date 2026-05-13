@@ -1,7 +1,7 @@
 import { createWorkflow, testDb } from '@resin/backend-test-utils';
 import { StatisticsNames, WorkflowStatistics, WorkflowStatisticsRepository } from '@resin/db';
 import { Container } from '@resin/di';
-import { type InsertResult, QueryFailedError } from '@resin/typeorm';
+import { type InsertResult, QueryFailedError } from '@n8n/typeorm';
 import { mock, mockClear } from 'jest-mock-extended';
 
 import { mockEntityManager } from '@test/mocking';

@@ -420,7 +420,7 @@ describe('generateNodesGraph', () => {
 					},
 					id: 'agent-node-id',
 					name: 'Agent Node',
-					type: '@resin/n8n-nodes-langchain.agent',
+					type: '@resin/nodes-langchain.agent',
 					typeVersion: 1,
 					position: [100, 100],
 				},
@@ -443,12 +443,12 @@ describe('generateNodesGraph', () => {
 
 		expect(generateNodesGraph(workflow, nodeTypes, { isCloudDeployment: true })).toEqual({
 			nodeGraph: {
-				node_types: ['@resin/n8n-nodes-langchain.agent', 'resin-nodes-base.set'],
+				node_types: ['@resin/nodes-langchain.agent', 'resin-nodes-base.set'],
 				node_connections: [{ start: '0', end: '1' }],
 				nodes: {
 					'0': {
 						id: 'agent-node-id',
-						type: '@resin/n8n-nodes-langchain.agent',
+						type: '@resin/nodes-langchain.agent',
 						version: 1,
 						position: [100, 100],
 						agent: 'toolsAgent',
@@ -494,7 +494,7 @@ describe('generateNodesGraph', () => {
 					},
 					id: 'agent-node-id',
 					name: 'Agent Node',
-					type: '@resin/n8n-nodes-langchain.agent',
+					type: '@resin/nodes-langchain.agent',
 					typeVersion: 1,
 					position: [100, 100],
 				},
@@ -517,12 +517,12 @@ describe('generateNodesGraph', () => {
 
 		expect(generateNodesGraph(workflow, nodeTypes, { isCloudDeployment: false })).toEqual({
 			nodeGraph: {
-				node_types: ['@resin/n8n-nodes-langchain.agent', 'resin-nodes-base.set'],
+				node_types: ['@resin/nodes-langchain.agent', 'resin-nodes-base.set'],
 				node_connections: [{ start: '0', end: '1' }],
 				nodes: {
 					'0': {
 						id: 'agent-node-id',
-						type: '@resin/n8n-nodes-langchain.agent',
+						type: '@resin/nodes-langchain.agent',
 						version: 1,
 						position: [100, 100],
 						agent: 'toolsAgent',
@@ -566,7 +566,7 @@ describe('generateNodesGraph', () => {
 					},
 					id: 'agent-tool-node-id',
 					name: 'Agent Tool Node',
-					type: '@resin/n8n-nodes-langchain.agentTool',
+					type: '@resin/nodes-langchain.agentTool',
 					typeVersion: 1,
 					position: [300, 300],
 				},
@@ -577,12 +577,12 @@ describe('generateNodesGraph', () => {
 
 		expect(generateNodesGraph(workflow, nodeTypes, { isCloudDeployment: true })).toEqual({
 			nodeGraph: {
-				node_types: ['@resin/n8n-nodes-langchain.agentTool'],
+				node_types: ['@resin/nodes-langchain.agentTool'],
 				node_connections: [],
 				nodes: {
 					'0': {
 						id: 'agent-tool-node-id',
-						type: '@resin/n8n-nodes-langchain.agentTool',
+						type: '@resin/nodes-langchain.agentTool',
 						version: 1,
 						position: [300, 300],
 						prompts: { text: 'Tool agent prompt', ...optionalPrompts },
@@ -611,7 +611,7 @@ describe('generateNodesGraph', () => {
 					},
 					id: 'openai-node-id',
 					name: 'OpenAI Node',
-					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					position: [400, 400],
 				},
@@ -622,12 +622,12 @@ describe('generateNodesGraph', () => {
 
 		expect(generateNodesGraph(workflow, nodeTypes, { isCloudDeployment: true })).toEqual({
 			nodeGraph: {
-				node_types: ['@resin/n8n-nodes-langchain.lmChatOpenAi'],
+				node_types: ['@resin/nodes-langchain.lmChatOpenAi'],
 				node_connections: [],
 				nodes: {
 					'0': {
 						id: 'openai-node-id',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						use_responses_api: false,
 						version: 1,
 						position: [400, 400],
@@ -655,7 +655,7 @@ describe('generateNodesGraph', () => {
 					},
 					id: 'summarization-node-id',
 					name: 'Summarization Node',
-					type: '@resin/n8n-nodes-langchain.chainSummarization',
+					type: '@resin/nodes-langchain.chainSummarization',
 					typeVersion: 1,
 					position: [500, 500],
 				},
@@ -666,12 +666,12 @@ describe('generateNodesGraph', () => {
 
 		expect(generateNodesGraph(workflow, nodeTypes, { isCloudDeployment: true })).toEqual({
 			nodeGraph: {
-				node_types: ['@resin/n8n-nodes-langchain.chainSummarization'],
+				node_types: ['@resin/nodes-langchain.chainSummarization'],
 				node_connections: [],
 				nodes: {
 					'0': {
 						id: 'summarization-node-id',
-						type: '@resin/n8n-nodes-langchain.chainSummarization',
+						type: '@resin/nodes-langchain.chainSummarization',
 						version: 1,
 						position: [500, 500],
 						prompts: { summaryPrompt: 'Summarize this text.' },
@@ -695,7 +695,7 @@ describe('generateNodesGraph', () => {
 					},
 					id: 'custom-tool-node-id',
 					name: 'Custom Tool Node',
-					type: '@resin/n8n-nodes-langchain.customTool',
+					type: '@resin/nodes-langchain.customTool',
 					typeVersion: 1,
 					position: [600, 600],
 				},
@@ -706,12 +706,12 @@ describe('generateNodesGraph', () => {
 
 		expect(generateNodesGraph(workflow, nodeTypes, { isCloudDeployment: true })).toEqual({
 			nodeGraph: {
-				node_types: ['@resin/n8n-nodes-langchain.customTool'],
+				node_types: ['@resin/nodes-langchain.customTool'],
 				node_connections: [],
 				nodes: {
 					'0': {
 						id: 'custom-tool-node-id',
-						type: '@resin/n8n-nodes-langchain.customTool',
+						type: '@resin/nodes-langchain.customTool',
 						version: 1,
 						position: [600, 600],
 						// prompts: { description: 'Custom tool description' },
@@ -740,7 +740,7 @@ describe('generateNodesGraph', () => {
 					},
 					id: 'chain-llm-node-id',
 					name: 'Chain LLM Node',
-					type: '@resin/n8n-nodes-langchain.chainLlm',
+					type: '@resin/nodes-langchain.chainLlm',
 					typeVersion: 1,
 					position: [700, 700],
 				},
@@ -751,12 +751,12 @@ describe('generateNodesGraph', () => {
 
 		expect(generateNodesGraph(workflow, nodeTypes, { isCloudDeployment: true })).toEqual({
 			nodeGraph: {
-				node_types: ['@resin/n8n-nodes-langchain.chainLlm'],
+				node_types: ['@resin/nodes-langchain.chainLlm'],
 				node_connections: [],
 				nodes: {
 					'0': {
 						id: 'chain-llm-node-id',
-						type: '@resin/n8n-nodes-langchain.chainLlm',
+						type: '@resin/nodes-langchain.chainLlm',
 						version: 1,
 						position: [700, 700],
 						prompts: [
@@ -1260,7 +1260,7 @@ describe('generateNodesGraph', () => {
 					parameters: {},
 					id: 'c5c374f1-6fad-46bb-8eea-ceec126b300a',
 					name: 'Chain',
-					type: '@resin/n8n-nodes-langchain.chainLlm',
+					type: '@resin/nodes-langchain.chainLlm',
 					typeVersion: 1,
 					position: [760, 320],
 				},
@@ -1270,7 +1270,7 @@ describe('generateNodesGraph', () => {
 					},
 					id: '198133b6-95dd-4f7e-90e5-e16c4cdbad12',
 					name: 'Model',
-					type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+					type: '@resin/nodes-langchain.lmChatOpenAi',
 					typeVersion: 1,
 					position: [780, 500],
 				},
@@ -1305,8 +1305,8 @@ describe('generateNodesGraph', () => {
 			nodeGraph: {
 				node_types: [
 					'resin-nodes-base.manualTrigger',
-					'@resin/n8n-nodes-langchain.chainLlm',
-					'@resin/n8n-nodes-langchain.lmChatOpenAi',
+					'@resin/nodes-langchain.chainLlm',
+					'@resin/nodes-langchain.lmChatOpenAi',
 				],
 				node_connections: [
 					{
@@ -1327,13 +1327,13 @@ describe('generateNodesGraph', () => {
 					},
 					'1': {
 						id: 'c5c374f1-6fad-46bb-8eea-ceec126b300a',
-						type: '@resin/n8n-nodes-langchain.chainLlm',
+						type: '@resin/nodes-langchain.chainLlm',
 						version: 1,
 						position: [760, 320],
 					},
 					'2': {
 						id: '198133b6-95dd-4f7e-90e5-e16c4cdbad12',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						use_responses_api: false,
 						version: 1,
 						position: [780, 500],
@@ -1611,7 +1611,7 @@ describe('generateNodesGraph', () => {
 						},
 						id: 'lmchatopenai-node-id',
 						name: 'LMChatOpenAi Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion,
 						position: [100, 100],
 					},
@@ -1622,12 +1622,12 @@ describe('generateNodesGraph', () => {
 
 			expect(generateNodesGraph(workflow, nodeTypes, { isCloudDeployment: true })).toEqual({
 				nodeGraph: {
-					node_types: ['@resin/n8n-nodes-langchain.lmChatOpenAi'],
+					node_types: ['@resin/nodes-langchain.lmChatOpenAi'],
 					node_connections: [],
 					nodes: {
 						'0': {
 							id: 'lmchatopenai-node-id',
-							type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+							type: '@resin/nodes-langchain.lmChatOpenAi',
 							version: typeVersion,
 							position: [100, 100],
 							use_responses_api: expectedValue,
@@ -1794,7 +1794,7 @@ describe('generateNodesGraph', () => {
 						},
 						id: 'guardrails-node-id',
 						name: 'Guardrails Node',
-						type: '@resin/n8n-nodes-langchain.guardrails',
+						type: '@resin/nodes-langchain.guardrails',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -1805,12 +1805,12 @@ describe('generateNodesGraph', () => {
 
 			expect(generateNodesGraph(workflow, nodeTypes)).toEqual({
 				nodeGraph: {
-					node_types: ['@resin/n8n-nodes-langchain.guardrails'],
+					node_types: ['@resin/nodes-langchain.guardrails'],
 					node_connections: [],
 					nodes: {
 						'0': {
 							id: 'guardrails-node-id',
-							type: '@resin/n8n-nodes-langchain.guardrails',
+							type: '@resin/nodes-langchain.guardrails',
 							version: 1,
 							position: [100, 100],
 							operation,
@@ -1837,7 +1837,7 @@ describe('generateNodesGraph', () => {
 					},
 					id: 'guardrails-node-id',
 					name: 'Guardrails Node',
-					type: '@resin/n8n-nodes-langchain.guardrails',
+					type: '@resin/nodes-langchain.guardrails',
 					typeVersion: 1,
 					position: [100, 100],
 				},
@@ -1848,12 +1848,12 @@ describe('generateNodesGraph', () => {
 
 		expect(generateNodesGraph(workflow, nodeTypes)).toEqual({
 			nodeGraph: {
-				node_types: ['@resin/n8n-nodes-langchain.guardrails'],
+				node_types: ['@resin/nodes-langchain.guardrails'],
 				node_connections: [],
 				nodes: {
 					'0': {
 						id: 'guardrails-node-id',
-						type: '@resin/n8n-nodes-langchain.guardrails',
+						type: '@resin/nodes-langchain.guardrails',
 						version: 1,
 						position: [100, 100],
 						operation: 'classify',
@@ -2033,7 +2033,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'test-model' },
 						id: 'lm-node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2053,7 +2053,7 @@ describe('generateNodesGraph', () => {
 						parameters: { modelName: 'test-model' },
 						id: 'lm-node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2075,7 +2075,7 @@ describe('generateNodesGraph', () => {
 						},
 						id: 'lm-node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1.2,
 						position: [100, 100],
 					},
@@ -2090,19 +2090,19 @@ describe('generateNodesGraph', () => {
 
 		test.each([
 			{
-				nodeType: '@resin/n8n-nodes-langchain.openAi',
+				nodeType: '@resin/nodes-langchain.openAi',
 				name: 'OpenAI',
 			},
 			{
-				nodeType: '@resin/n8n-nodes-langchain.anthropic',
+				nodeType: '@resin/nodes-langchain.anthropic',
 				name: 'Anthropic',
 			},
 			{
-				nodeType: '@resin/n8n-nodes-langchain.ollama',
+				nodeType: '@resin/nodes-langchain.ollama',
 				name: 'Ollama',
 			},
 			{
-				nodeType: '@resin/n8n-nodes-langchain.googleGemini',
+				nodeType: '@resin/nodes-langchain.googleGemini',
 				name: 'Google Gemini',
 			},
 		])('should capture ai_model for $name vendor node via modelId', ({ nodeType }) => {
@@ -2156,7 +2156,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'gpt-4o' },
 						id: 'lm-node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2205,7 +2205,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'gpt-4o' },
 						id: 'lm-node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2253,7 +2253,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'gpt-4o' },
 						id: 'lm-node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2301,7 +2301,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'gpt-4o' },
 						id: 'lm-node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2323,7 +2323,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'gpt-4o' },
 						id: 'lm-node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2368,7 +2368,7 @@ describe('generateNodesGraph', () => {
 						parameters: { modelId: { value: 'gpt-4o' } },
 						id: 'openai-node-id',
 						name: 'OpenAI',
-						type: '@resin/n8n-nodes-langchain.openAi',
+						type: '@resin/nodes-langchain.openAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2406,7 +2406,7 @@ describe('generateNodesGraph', () => {
 						parameters: { modelId: { value: 'claude-3-opus' } },
 						id: 'anthropic-node-id',
 						name: 'Anthropic',
-						type: '@resin/n8n-nodes-langchain.anthropic',
+						type: '@resin/nodes-langchain.anthropic',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2443,7 +2443,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'gpt-4o' },
 						id: 'lm-node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -2496,7 +2496,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'gpt-4o' },
 						id: 'node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 						credentials: {
@@ -2519,7 +2519,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'gpt-4o' },
 						id: 'node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 						credentials: {
@@ -2542,7 +2542,7 @@ describe('generateNodesGraph', () => {
 						parameters: { model: 'gpt-4o' },
 						id: 'node-id',
 						name: 'LM Node',
-						type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+						type: '@resin/nodes-langchain.lmChatOpenAi',
 						typeVersion: 1,
 						position: [100, 100],
 					},
@@ -3563,7 +3563,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 	const mockAgentNode = (name = 'Agent', hasOutputParser = true): INode => ({
 		id: 'agent-node-id',
 		name,
-		type: '@resin/n8n-nodes-langchain.agent',
+		type: '@resin/nodes-langchain.agent',
 		typeVersion: 1,
 		position: [100, 100],
 		parameters: {
@@ -3917,7 +3917,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 					},
 					id: 'agent-id-streaming-disabled',
 					name: 'Agent with streaming disabled',
-					type: '@resin/n8n-nodes-langchain.agent',
+					type: '@resin/nodes-langchain.agent',
 					typeVersion: 2.1,
 					position: [100, 100],
 				},
@@ -3930,7 +3930,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 					},
 					id: 'agent-id-streaming-enabled',
 					name: 'Agent with streaming enabled',
-					type: '@resin/n8n-nodes-langchain.agent',
+					type: '@resin/nodes-langchain.agent',
 					typeVersion: 2.1,
 					position: [300, 100],
 				},
@@ -3940,7 +3940,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 					},
 					id: 'agent-id-default-streaming',
 					name: 'Agent with default streaming',
-					type: '@resin/n8n-nodes-langchain.agent',
+					type: '@resin/nodes-langchain.agent',
 					typeVersion: 2.1,
 					position: [500, 100],
 				},
@@ -3952,7 +3952,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 
 		expect(result.nodeGraph.nodes['0']).toEqual({
 			id: 'agent-id-streaming-disabled',
-			type: '@resin/n8n-nodes-langchain.agent',
+			type: '@resin/nodes-langchain.agent',
 			version: 2.1,
 			position: [100, 100],
 			agent: 'toolsAgent',
@@ -3961,7 +3961,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 
 		expect(result.nodeGraph.nodes['1']).toEqual({
 			id: 'agent-id-streaming-enabled',
-			type: '@resin/n8n-nodes-langchain.agent',
+			type: '@resin/nodes-langchain.agent',
 			version: 2.1,
 			position: [300, 100],
 			agent: 'conversationalAgent',
@@ -3970,7 +3970,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 
 		expect(result.nodeGraph.nodes['2']).toEqual({
 			id: 'agent-id-default-streaming',
-			type: '@resin/n8n-nodes-langchain.agent',
+			type: '@resin/nodes-langchain.agent',
 			version: 2.1,
 			position: [500, 100],
 			agent: 'openAiFunctionsAgent',
@@ -3990,7 +3990,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 					},
 					id: 'chat-trigger-id',
 					name: 'Chat Trigger',
-					type: '@resin/n8n-nodes-langchain.chatTrigger',
+					type: '@resin/nodes-langchain.chatTrigger',
 					typeVersion: 1,
 					position: [100, 100],
 				},
@@ -4003,7 +4003,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 					},
 					id: 'chat-trigger-id-2',
 					name: 'Chat Trigger 2',
-					type: '@resin/n8n-nodes-langchain.chatTrigger',
+					type: '@resin/nodes-langchain.chatTrigger',
 					typeVersion: 1,
 					position: [300, 100],
 				},
@@ -4015,7 +4015,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 
 		expect(result.nodeGraph.nodes['0']).toEqual({
 			id: 'chat-trigger-id',
-			type: '@resin/n8n-nodes-langchain.chatTrigger',
+			type: '@resin/nodes-langchain.chatTrigger',
 			version: 1,
 			position: [100, 100],
 			response_mode: 'streaming',
@@ -4024,7 +4024,7 @@ describe('extractLastExecutedNodeStructuredOutputErrorInfo', () => {
 
 		expect(result.nodeGraph.nodes['1']).toEqual({
 			id: 'chat-trigger-id-2',
-			type: '@resin/n8n-nodes-langchain.chatTrigger',
+			type: '@resin/nodes-langchain.chatTrigger',
 			version: 1,
 			position: [300, 100],
 			response_mode: 'lastNode',
@@ -4113,8 +4113,8 @@ describe('getNodeRole', () => {
 
 		it('should return internal for subnode even without main connections', () => {
 			const nodes = [
-				makeNode('Agent', '@resin/n8n-nodes-langchain.agent'),
-				makeNode('Wikipedia', '@resin/n8n-nodes-langchain.toolWikipedia'),
+				makeNode('Agent', '@resin/nodes-langchain.agent'),
+				makeNode('Wikipedia', '@resin/nodes-langchain.toolWikipedia'),
 			];
 
 			const connections: IConnections = {
@@ -4131,8 +4131,8 @@ describe('getNodeRole', () => {
 
 		it('should return internal for calculator tool subnode', () => {
 			const nodes = [
-				makeNode('Agent', '@resin/n8n-nodes-langchain.agent'),
-				makeNode('Calculator', '@resin/n8n-nodes-langchain.toolCalculator'),
+				makeNode('Agent', '@resin/nodes-langchain.agent'),
+				makeNode('Calculator', '@resin/nodes-langchain.toolCalculator'),
 			];
 
 			const connections: IConnections = {

@@ -12,7 +12,7 @@ import {
 } from '@resin/db';
 import { Service } from '@resin/di';
 import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import chunk from 'lodash/chunk';
 import { Credentials, InstanceSettings } from 'resin-core';
 import { UnexpectedError } from 'resin-workflow';

@@ -1,0 +1,7 @@
+{
+	"extends": "@resin/typescript-config/tsconfig.backend.json",
+	"compilerOptions": {
+		"noEmit": true
+	},
+	"include": ["scripts/**/*.ts"]
+}

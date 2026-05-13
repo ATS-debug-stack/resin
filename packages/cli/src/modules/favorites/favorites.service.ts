@@ -8,7 +8,7 @@ import {
 	type User,
 } from '@resin/db';
 import { hasGlobalScope } from '@resin/permissions';
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 
 import { UserFavoriteRepository } from './database/repositories/user-favorite.repository';
 

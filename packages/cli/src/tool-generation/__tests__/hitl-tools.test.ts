@@ -214,7 +214,7 @@ describe('hitl-tools', () => {
 					displayName: 'Human review',
 					type: NodeConnectionTypes.AiTool,
 					filter: {
-						nodes: ['@resin/n8n-nodes-langchain.agent', '@resin/n8n-nodes-langchain.agentTool'],
+						nodes: ['@resin/nodes-langchain.agent', '@resin/nodes-langchain.agentTool'],
 					},
 				},
 			]);
@@ -490,7 +490,7 @@ describe('hitl-tools', () => {
 					displayName: 'Human review',
 					type: NodeConnectionTypes.AiTool,
 					filter: {
-						nodes: ['@resin/n8n-nodes-langchain.agent', '@resin/n8n-nodes-langchain.agentTool'],
+						nodes: ['@resin/nodes-langchain.agent', '@resin/nodes-langchain.agentTool'],
 					},
 				},
 			]);

@@ -38,7 +38,7 @@ export const predefinedNodesTypes: INodeTypeData = {
 		type: new SplitInBatches(),
 		sourcePath: '',
 	},
-	'@resin/n8n-nodes-langchain.toolExecutor': {
+	'@resin/nodes-langchain.toolExecutor': {
 		sourcePath: '',
 		type: {
 			description: {

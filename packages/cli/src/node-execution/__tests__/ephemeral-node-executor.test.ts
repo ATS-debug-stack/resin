@@ -58,15 +58,15 @@ describe('isUsableAsAgentTool', () => {
 
 describe('isAgentProviderNode', () => {
 	it('accepts whitelisted provider nodes (OpenAI, Anthropic, etc.)', () => {
-		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.openAi')).toBe(true);
-		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.anthropic')).toBe(true);
-		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.googleGemini')).toBe(true);
+		expect(isAgentProviderNode('@resin/nodes-langchain.openAi')).toBe(true);
+		expect(isAgentProviderNode('@resin/nodes-langchain.anthropic')).toBe(true);
+		expect(isAgentProviderNode('@resin/nodes-langchain.googleGemini')).toBe(true);
 	});
 
 	it('rejects non-provider langchain nodes (lm chat models, agents, summarization)', () => {
-		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.lmChatOpenAi')).toBe(false);
-		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.agent')).toBe(false);
-		expect(isAgentProviderNode('@resin/n8n-nodes-langchain.chainSummarization')).toBe(false);
+		expect(isAgentProviderNode('@resin/nodes-langchain.lmChatOpenAi')).toBe(false);
+		expect(isAgentProviderNode('@resin/nodes-langchain.agent')).toBe(false);
+		expect(isAgentProviderNode('@resin/nodes-langchain.chainSummarization')).toBe(false);
 	});
 
 	it('rejects unrelated nodes', () => {
@@ -76,7 +76,7 @@ describe('isAgentProviderNode', () => {
 
 	it('exposes the whitelist as a stable Set', () => {
 		expect(AGENT_PROVIDER_NODE_WHITELIST).toBeInstanceOf(Set);
-		expect(AGENT_PROVIDER_NODE_WHITELIST.has('@resin/n8n-nodes-langchain.openAi')).toBe(true);
+		expect(AGENT_PROVIDER_NODE_WHITELIST.has('@resin/nodes-langchain.openAi')).toBe(true);
 	});
 });
 
@@ -164,7 +164,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@resin/n8n-nodes-langchain.openAi',
+				nodeType: '@resin/nodes-langchain.openAi',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -337,7 +337,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@resin/n8n-nodes-langchain.toolWikipedia',
+				nodeType: '@resin/nodes-langchain.toolWikipedia',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [{ json: { query: 'n8n' } }],
@@ -361,7 +361,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@resin/n8n-nodes-langchain.toolWikipedia',
+				nodeType: '@resin/nodes-langchain.toolWikipedia',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [{ json: {} }],
@@ -381,7 +381,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@resin/n8n-nodes-langchain.brokenTool',
+				nodeType: '@resin/nodes-langchain.brokenTool',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [],
@@ -429,7 +429,7 @@ describe('EphemeralNodeExecutor', () => {
 			);
 
 			const result = await executor.executeInline({
-				nodeType: '@resin/n8n-nodes-langchain.mcpClientTool',
+				nodeType: '@resin/nodes-langchain.mcpClientTool',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 				inputData: [{ json: {} }],
@@ -540,7 +540,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			const result = await executor.introspectSupplyDataToolSchema({
 				projectId: 'p-1',
-				nodeType: '@resin/n8n-nodes-langchain.toolWikipedia',
+				nodeType: '@resin/nodes-langchain.toolWikipedia',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 			});
@@ -560,7 +560,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			const result = await executor.introspectSupplyDataToolSchema({
 				projectId: 'p-1',
-				nodeType: '@resin/n8n-nodes-langchain.toolBasic',
+				nodeType: '@resin/nodes-langchain.toolBasic',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 			});
@@ -584,7 +584,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			const result = await executor.introspectSupplyDataToolSchema({
 				projectId: 'p-1',
-				nodeType: '@resin/n8n-nodes-langchain.mcpClientTool',
+				nodeType: '@resin/nodes-langchain.mcpClientTool',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 			});
@@ -602,7 +602,7 @@ describe('EphemeralNodeExecutor', () => {
 
 			const result = await executor.introspectSupplyDataToolSchema({
 				projectId: 'p-1',
-				nodeType: '@resin/n8n-nodes-langchain.mcpClientTool',
+				nodeType: '@resin/nodes-langchain.mcpClientTool',
 				nodeTypeVersion: 1,
 				nodeParameters: {},
 			});

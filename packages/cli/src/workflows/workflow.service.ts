@@ -23,10 +23,10 @@ import { Container, Service } from '@resin/di';
 import type { Scope } from '@resin/permissions';
 import { hasGlobalScope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { EntityManager } from '@resin/typeorm';
+import type { EntityManager } from '@n8n/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@resin/typeorm';
-import type { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
+import { In } from '@n8n/typeorm';
+import type { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
 import isEqual from 'lodash/isEqual';
 import pick from 'lodash/pick';
 import { FileLocation, BinaryDataService } from 'resin-core';

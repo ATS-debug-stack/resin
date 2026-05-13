@@ -1,5 +1,5 @@
 import { Service } from '@resin/di';
-import { DataSource, Repository } from '@resin/typeorm';
+import { DataSource, Repository } from '@n8n/typeorm';
 
 import { RefreshToken } from '../entities/oauth-refresh-token.entity';
 

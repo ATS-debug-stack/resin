@@ -1,0 +1,11 @@
+{
+	"extends": "@resin/typescript-config/tsconfig.common.json",
+	"compilerOptions": {
+		"types": ["node"],
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"tsBuildInfoFile": "dist/typecheck.tsbuildinfo"
+	},
+	"include": ["**/*.ts"],
+	"exclude": ["dist"]
+}

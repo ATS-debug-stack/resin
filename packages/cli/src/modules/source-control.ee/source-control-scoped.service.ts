@@ -11,7 +11,7 @@ import type { DataTable } from '@/modules/data-table/data-table.entity';
 import { Service } from '@resin/di';
 import { hasGlobalScope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { FindOptionsWhere } from '@resin/typeorm';
+import type { FindOptionsWhere } from '@n8n/typeorm';
 
 import { SourceControlContext } from './types/source-control-context';
 import { SourceControlContextFactory } from './source-control-context.factory';

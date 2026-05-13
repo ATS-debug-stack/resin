@@ -7,7 +7,7 @@ import { Logger } from '@resin/backend-common';
 import { GlobalConfig } from '@resin/config';
 import { Project, withTransaction } from '@resin/db';
 import { Service } from '@resin/di';
-import { DataSource, EntityManager, Repository, SelectQueryBuilder } from '@resin/typeorm';
+import { DataSource, EntityManager, Repository, SelectQueryBuilder } from '@n8n/typeorm';
 import { UnexpectedError } from 'resin-workflow';
 import type { DataTableInfo, DataTablesSizeData } from 'resin-workflow';
 

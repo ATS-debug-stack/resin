@@ -3160,7 +3160,7 @@ describe('Workflow', () => {
 					{
 						id: 'aiAgent1',
 						name: 'AI Agent',
-						type: '@resin/n8n-nodes-langchain.agent',
+						type: '@resin/nodes-langchain.agent',
 						typeVersion: 1.8,
 						position: [0, 0],
 						parameters: {},
@@ -3168,7 +3168,7 @@ describe('Workflow', () => {
 					{
 						id: 'tool1',
 						name: 'Tool1',
-						type: '@resin/n8n-nodes-langchain.toolWikipedia',
+						type: '@resin/nodes-langchain.toolWikipedia',
 						typeVersion: 1,
 						position: [100, 0],
 						parameters: {},
@@ -3176,7 +3176,7 @@ describe('Workflow', () => {
 					{
 						id: 'tool2',
 						name: 'Tool2',
-						type: '@resin/n8n-nodes-langchain.toolCalculator',
+						type: '@resin/nodes-langchain.toolCalculator',
 						typeVersion: 1,
 						position: [200, 0],
 						parameters: {},
@@ -3217,7 +3217,7 @@ describe('Workflow', () => {
 						{
 							id: 'aiAgent1',
 							name: 'AI Agent',
-							type: '@resin/n8n-nodes-langchain.agent',
+							type: '@resin/nodes-langchain.agent',
 							typeVersion: 1.8,
 							position: [0, 0],
 							parameters: {},
@@ -3225,7 +3225,7 @@ describe('Workflow', () => {
 						{
 							id: 'tool1',
 							name: 'Tool1',
-							type: '@resin/n8n-nodes-langchain.toolCalculator',
+							type: '@resin/nodes-langchain.toolCalculator',
 							typeVersion: 1,
 							position: [100, 0],
 							parameters: {},
@@ -3233,7 +3233,7 @@ describe('Workflow', () => {
 						{
 							id: 'tool2',
 							name: 'Tool2',
-							type: '@resin/n8n-nodes-langchain.toolWikipedia',
+							type: '@resin/nodes-langchain.toolWikipedia',
 							typeVersion: 1,
 							position: [200, 0],
 							parameters: {},
@@ -3287,7 +3287,7 @@ describe('Workflow', () => {
 					{
 						id: 'aiAgent1',
 						name: 'AI Agent',
-						type: '@resin/n8n-nodes-langchain.agent',
+						type: '@resin/nodes-langchain.agent',
 						typeVersion: 1.8,
 						position: [0, 0],
 						parameters: {},
@@ -3295,7 +3295,7 @@ describe('Workflow', () => {
 					{
 						id: 'tool1',
 						name: 'ZZZ Tool', // Intentionally named to come last alphabetically
-						type: '@resin/n8n-nodes-langchain.toolCalculator',
+						type: '@resin/nodes-langchain.toolCalculator',
 						typeVersion: 1,
 						position: [100, 0],
 						parameters: {},
@@ -3303,7 +3303,7 @@ describe('Workflow', () => {
 					{
 						id: 'tool2',
 						name: 'AAA Tool', // Intentionally named to come first alphabetically
-						type: '@resin/n8n-nodes-langchain.toolWikipedia',
+						type: '@resin/nodes-langchain.toolWikipedia',
 						typeVersion: 1,
 						position: [200, 0],
 						parameters: {},
@@ -3356,7 +3356,7 @@ describe('Workflow', () => {
 					{
 						id: 'aiAgent1',
 						name: 'ChatGPT Agent',
-						type: '@resin/n8n-nodes-langchain.agent',
+						type: '@resin/nodes-langchain.agent',
 						typeVersion: 1.8,
 						position: [0, 0],
 						parameters: {},
@@ -3364,7 +3364,7 @@ describe('Workflow', () => {
 					{
 						id: 'calculatorTool',
 						name: 'Calculator Tool',
-						type: '@resin/n8n-nodes-langchain.toolCalculator',
+						type: '@resin/nodes-langchain.toolCalculator',
 						typeVersion: 1,
 						position: [100, 0],
 						parameters: {},
@@ -3372,7 +3372,7 @@ describe('Workflow', () => {
 					{
 						id: 'wikipediaTool',
 						name: 'Wikipedia Tool',
-						type: '@resin/n8n-nodes-langchain.toolWikipedia',
+						type: '@resin/nodes-langchain.toolWikipedia',
 						typeVersion: 1,
 						position: [100, 100],
 						parameters: {},

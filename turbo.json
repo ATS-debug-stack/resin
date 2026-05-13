@@ -22,10 +22,10 @@
 		},
 		"lint:fix": {},
 		"lint:styles": {
-			"dependsOn": ["@n8n/stylelint-config#build"]
+			"dependsOn": ["@resin/stylelint-config#build"]
 		},
 		"lint:styles:fix": {
-			"dependsOn": ["@n8n/stylelint-config#build"]
+			"dependsOn": ["@resin/stylelint-config#build"]
 		},
 		"test": {
 			"dependsOn": ["^build", "build"],

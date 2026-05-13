@@ -1,5 +1,5 @@
 import { JsonColumn, WithTimestampsAndStringId } from '@resin/db';
-import { Column, Entity, Index } from '@resin/typeorm';
+import { Column, Entity, Index } from '@n8n/typeorm';
 
 export type ObservationScopeKind = 'thread' | 'resource' | 'agent';
 

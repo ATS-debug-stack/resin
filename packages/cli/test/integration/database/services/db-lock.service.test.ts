@@ -2,7 +2,7 @@ import { GlobalConfig } from '@resin/config';
 import { testDb } from '@resin/backend-test-utils';
 import { DbConnectionOptions, DbLock, DbLockService } from '@resin/db';
 import { Container } from '@resin/di';
-import { DataSource } from '@resin/typeorm';
+import { DataSource } from '@n8n/typeorm';
 import { OperationalError, sleep } from 'resin-workflow';
 
 let dbLockService: DbLockService;

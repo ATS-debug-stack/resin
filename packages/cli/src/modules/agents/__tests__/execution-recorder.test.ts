@@ -241,7 +241,7 @@ function nodeTool(
 describe('ExecutionRecorder — node-tool $fromAI resolution', () => {
 	it('substitutes a full-string $fromAI expression with the LLM-provided value', () => {
 		const registry = buildToolRegistry([
-			nodeTool('generate_image', '@resin/n8n-nodes-langchain.openAi', {
+			nodeTool('generate_image', '@resin/nodes-langchain.openAi', {
 				resource: 'image',
 				operation: 'generate',
 				prompt: "={{ $fromAI('prompt', 'Image description', 'string') }}",
@@ -323,7 +323,7 @@ describe('ExecutionRecorder — node-tool $fromAI resolution', () => {
 
 	it('walks nested objects in nodeParameters and resolves each $fromAI', () => {
 		const registry = buildToolRegistry([
-			nodeTool('image', '@resin/n8n-nodes-langchain.openAi', {
+			nodeTool('image', '@resin/nodes-langchain.openAi', {
 				options: {
 					size: "={{ $fromAI('size', 'Image size', 'string', '1024x1024') }}",
 					nested: { nested2: "={{ $fromAI('quality', 'Quality', 'string', 'medium') }}" },

@@ -1,5 +1,5 @@
 import { Service } from '@resin/di';
-import { DataSource, Repository } from '@resin/typeorm';
+import { DataSource, Repository } from '@n8n/typeorm';
 
 import { AgentObservationCursorEntity } from '../entities/agent-observation-cursor.entity';
 

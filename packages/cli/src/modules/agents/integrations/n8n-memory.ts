@@ -12,9 +12,9 @@ import type {
 	Thread,
 } from '@resin/agents';
 import { Service } from '@resin/di';
-import type { FindOptionsWhere } from '@resin/typeorm';
-import { Equal, In, LessThan, LessThanOrEqual, Like, MoreThan } from '@resin/typeorm';
-import type { QueryDeepPartialEntity } from '@resin/typeorm/query-builder/QueryPartialEntity';
+import type { FindOptionsWhere } from '@n8n/typeorm';
+import { Equal, In, LessThan, LessThanOrEqual, Like, MoreThan } from '@n8n/typeorm';
+import type { QueryDeepPartialEntity } from '@n8n/typeorm/query-builder/QueryPartialEntity';
 import { UnexpectedError } from 'resin-workflow';
 
 import type { AgentMessageEntity } from '../entities/agent-message.entity';

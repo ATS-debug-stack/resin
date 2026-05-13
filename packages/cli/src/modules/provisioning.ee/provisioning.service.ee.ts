@@ -14,7 +14,7 @@ import {
 } from '@resin/db';
 import { OnPubSubEvent } from '@resin/decorators';
 import { Service } from '@resin/di';
-import { Not, In } from '@resin/typeorm';
+import { Not, In } from '@n8n/typeorm';
 import { InstanceSettings } from 'resin-core';
 import { jsonParse } from 'resin-workflow';
 import { ZodError } from 'zod';

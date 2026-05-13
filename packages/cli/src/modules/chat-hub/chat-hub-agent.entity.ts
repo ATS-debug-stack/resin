@@ -13,7 +13,7 @@ import {
 	JoinColumn,
 	PrimaryGeneratedColumn,
 	type Relation,
-} from '@resin/typeorm';
+} from '@n8n/typeorm';
 
 import type { ChatHubTool } from './chat-hub-tool.entity';
 

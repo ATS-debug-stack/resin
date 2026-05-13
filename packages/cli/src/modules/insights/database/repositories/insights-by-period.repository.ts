@@ -1,8 +1,8 @@
 import { GlobalConfig } from '@resin/config';
 import { sql } from '@resin/db';
 import { Container, Service } from '@resin/di';
-import type { SelectQueryBuilder } from '@resin/typeorm';
-import { DataSource, LessThanOrEqual, Repository } from '@resin/typeorm';
+import type { SelectQueryBuilder } from '@n8n/typeorm';
+import { DataSource, LessThanOrEqual, Repository } from '@n8n/typeorm';
 import { DateTime } from 'luxon';
 import { z } from 'zod';
 

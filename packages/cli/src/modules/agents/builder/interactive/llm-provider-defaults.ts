@@ -43,7 +43,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'claude-sonnet-4-6',
 		modelLookup: {
 			kind: 'listSearch',
-			nodeType: '@resin/n8n-nodes-langchain.lmChatAnthropic',
+			nodeType: '@resin/nodes-langchain.lmChatAnthropic',
 			version: 1.5,
 			methodName: 'searchModels',
 		},
@@ -53,7 +53,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'gpt-5',
 		modelLookup: {
 			kind: 'listSearch',
-			nodeType: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+			nodeType: '@resin/nodes-langchain.lmChatOpenAi',
 			version: 1.2,
 			methodName: 'searchModels',
 		},
@@ -63,7 +63,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'gemini-2.5-pro',
 		modelLookup: {
 			kind: 'loadOptionsRouting',
-			nodeType: '@resin/n8n-nodes-langchain.lmChatGoogleGemini',
+			nodeType: '@resin/nodes-langchain.lmChatGoogleGemini',
 			version: 1.1,
 			propertyName: 'modelName',
 		},
@@ -75,7 +75,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'mistral-large-latest',
 		modelLookup: {
 			kind: 'loadOptionsRouting',
-			nodeType: '@resin/n8n-nodes-langchain.lmChatMistralCloud',
+			nodeType: '@resin/nodes-langchain.lmChatMistralCloud',
 			version: 1,
 			propertyName: 'model',
 		},
@@ -87,7 +87,7 @@ export const LLM_PROVIDER_DEFAULTS: Record<string, LlmProviderDefault> = {
 		defaultModel: 'anthropic/claude-sonnet-4.6',
 		modelLookup: {
 			kind: 'loadOptionsRouting',
-			nodeType: '@resin/n8n-nodes-langchain.lmChatOpenRouter',
+			nodeType: '@resin/nodes-langchain.lmChatOpenRouter',
 			version: 1,
 			propertyName: 'model',
 		},

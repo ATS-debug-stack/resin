@@ -23,9 +23,9 @@ import {
 	isAssignableProjectRoleSlug,
 } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import type { FindOptionsWhere, EntityManager } from '@resin/typeorm';
+import type { FindOptionsWhere, EntityManager } from '@n8n/typeorm';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { In } from '@resin/typeorm';
+import { In } from '@n8n/typeorm';
 import { UserError } from 'resin-workflow';
 
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';

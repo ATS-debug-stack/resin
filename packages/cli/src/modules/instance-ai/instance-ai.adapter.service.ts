@@ -66,7 +66,7 @@ import { Logger } from '@resin/backend-common';
 import { Service } from '@resin/di';
 import { hasGlobalScope, PROJECT_OWNER_ROLE_SLUG, type Scope } from '@resin/permissions';
 // eslint-disable-next-line n8n-local-rules/misplaced-n8n-typeorm-import
-import { LessThan } from '@resin/typeorm';
+import { LessThan } from '@n8n/typeorm';
 import {
 	type ICredentialsDecrypted,
 	type IDataObject,

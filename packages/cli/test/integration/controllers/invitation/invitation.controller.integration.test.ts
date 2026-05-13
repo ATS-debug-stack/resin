@@ -14,7 +14,7 @@ import {
 } from '@resin/db';
 import { Container } from '@resin/di';
 import { PROJECT_OWNER_ROLE_SLUG } from '@resin/permissions';
-import { Not } from '@resin/typeorm';
+import { Not } from '@n8n/typeorm';
 
 import {
 	assertReturnedUserProps,

@@ -399,7 +399,7 @@ describe('ExecuteMessage', () => {
 		workflowNodes.push({
 			id: '2',
 			name: 'OpenAI Model',
-			type: '@resin/n8n-nodes-langchain.lmChatOpenAi',
+			type: '@resin/nodes-langchain.lmChatOpenAi',
 			position: [100, 0],
 			parameters: {},
 			typeVersion: 1,

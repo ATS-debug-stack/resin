@@ -1,7 +1,7 @@
 import { testDb } from '@resin/backend-test-utils';
 import { SettingsRepository } from '@resin/db';
 import { Container } from '@resin/di';
-import { DataSource } from '@resin/typeorm';
+import { DataSource } from '@n8n/typeorm';
 
 describe('SettingsRepository', () => {
 	let settingsRepository: SettingsRepository;

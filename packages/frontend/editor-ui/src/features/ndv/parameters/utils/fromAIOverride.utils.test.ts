@@ -176,11 +176,11 @@ describe('makeOverrideValue', () => {
 
 	describe('legacy tool-name node denylist', () => {
 		test.each<[string, string, number, boolean]>([
-			['toolWorkflow v2.0 denied', '@resin/n8n-nodes-langchain.toolWorkflow', 2.0, false],
-			['toolWorkflow v2.1 denied', '@resin/n8n-nodes-langchain.toolWorkflow', 2.1, false],
-			['toolWorkflow v2.2 allowed', '@resin/n8n-nodes-langchain.toolWorkflow', 2.2, true],
-			['toolVectorStore v1 denied', '@resin/n8n-nodes-langchain.toolVectorStore', 1, false],
-			['toolVectorStore v1.1 allowed', '@resin/n8n-nodes-langchain.toolVectorStore', 1.1, true],
+			['toolWorkflow v2.0 denied', '@resin/nodes-langchain.toolWorkflow', 2.0, false],
+			['toolWorkflow v2.1 denied', '@resin/nodes-langchain.toolWorkflow', 2.1, false],
+			['toolWorkflow v2.2 allowed', '@resin/nodes-langchain.toolWorkflow', 2.2, true],
+			['toolVectorStore v1 denied', '@resin/nodes-langchain.toolVectorStore', 1, false],
+			['toolVectorStore v1.1 allowed', '@resin/nodes-langchain.toolVectorStore', 1.1, true],
 		])('%s', (_name, typeName, typeVersion, shouldOverride) => {
 			getNodeType.mockReturnValue(AI_TOOL_CODEX);
 			const result = makeOverrideValue(
