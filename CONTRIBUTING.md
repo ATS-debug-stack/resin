@@ -1,10 +1,10 @@
-# Contributing to n8n
+# Contributing to Resin
 
-Great that you are here and you want to contribute to n8n
+Great that you are here and you want to contribute to Resin
 
 ## Contents
 
-- [Contributing to n8n](#contributing-to-n8n)
+- [Contributing to Resin](#contributing-to-Resin)
 	- [Contents](#contents)
 	- [Code of conduct](#code-of-conduct)
 	- [Directory structure](#directory-structure)
@@ -16,7 +16,7 @@ Great that you are here and you want to contribute to n8n
 				- [pnpm workspaces](#pnpm-workspaces)
 			- [corepack](#corepack)
 			- [Build tools](#build-tools)
-		- [Actual n8n setup](#actual-n8n-setup)
+		- [Actual Resin setup](#actual-Resin-setup)
 		- [Start](#start)
 	- [Development cycle](#development-cycle)
 		- [Community PR Guidelines](#community-pr-guidelines)
@@ -39,36 +39,36 @@ Great that you are here and you want to contribute to n8n
 This project and everyone participating in it are governed by the Code of
 Conduct which can be found in the file [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report
-unacceptable behavior to jan@n8n.io.
+unacceptable behavior to support@ats-resin.io.
 
 ## Directory structure
 
-n8n is split up in different modules which are all in a single mono repository.
+Resin is split up in different modules which are all in a single mono repository.
 
 The most important directories:
 
-- [/docker/images](/docker/images) - Dockerfiles to create n8n containers
-- [/packages](/packages) - The different n8n modules
-- [/packages/cli](/packages/cli) - CLI code to run front- & backend; this also contains the code for n8n's APIs
+- [/docker/images](/docker/images) - Dockerfiles to create Resin containers
+- [/packages](/packages) - The different Resin modules
+- [/packages/cli](/packages/cli) - CLI code to run front- & backend; this also contains the code for Resin's APIs
 - [/packages/core](/packages/core) - Core code which handles workflow
   execution, active webhooks and
-  workflows. **Contact n8n before
+  workflows. **Contact Resin before
   starting on any changes here**
-- [/packages/frontend/@n8n/design-system](/packages/frontend/@n8n/design-system) - Vue frontend components
+- [/packages/frontend/@Resin/design-system](/packages/frontend/@Resin/design-system) - Vue frontend components
 - [/packages/frontend/editor-ui](/packages/frontend/editor-ui) - Vue frontend workflow editor
-- [/packages/node-dev](/packages/node-dev) - CLI to create new n8n-nodes
-- [/packages/nodes-base](/packages/nodes-base) - Base n8n nodes
+- [/packages/node-dev](/packages/node-dev) - CLI to create new Resin-nodes
+- [/packages/nodes-base](/packages/nodes-base) - Base Resin nodes
 - [/packages/workflow](/packages/workflow) - Workflow code with interfaces which
   get used by front- & backend
 
 ## Development setup
 
-If you want to change or extend n8n you have to make sure that all the needed
+If you want to change or extend Resin you have to make sure that all the needed
 dependencies are installed and the packages get linked correctly. Here's a short guide on how that can be done:
 
 ### Dev Container
 
-If you already have VS Code and Docker installed, you can click [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/n8n-io/n8n) to get started. Clicking these links will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
+If you already have VS Code and Docker installed, you can click [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/ATS-debug-stack/resin) to get started. Clicking these links will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
 
 ### Requirements
 
@@ -82,7 +82,7 @@ If you already have VS Code and Docker installed, you can click [here](https://v
 
 ##### pnpm workspaces
 
-n8n is split up into different modules which are all in a single mono repository.
+Resin is split up into different modules which are all in a single mono repository.
 To facilitate the module management, [pnpm workspaces](https://pnpm.io/workspaces) are used.
 This automatically sets up file-links between modules which depend on each other.
 
@@ -101,7 +101,7 @@ corepack prepare pnpm@10.22.0 --activate
 
 #### Build tools
 
-The packages which n8n uses depend on a few build tools:
+The packages which Resin uses depend on a few build tools:
 
 Debian/Ubuntu:
 
@@ -135,33 +135,33 @@ brew install actionlint
 ```
 > **Note:** actionlint is only required if you're modifying workflow files. It runs automatically via git hooks when workflow files are changed.
 
-### Actual n8n setup
+### Actual Resin setup
 
 > **IMPORTANT**: All the steps below have to get executed at least once to get the development setup up and running!
 
-Now that everything n8n requires to run is installed, the actual n8n code can be
+Now that everything Resin requires to run is installed, the actual Resin code can be
 checked out and set up:
 
 #### For external contributors
 
-1. [Fork](https://guides.github.com/activities/forking/#fork) the n8n repository.
+1. [Fork](https://guides.github.com/activities/forking/#fork) the Resin repository.
 
 2. Clone your forked repository:
 
    ```
-   git clone https://github.com/<your_github_username>/n8n.git
+   git clone https://github.com/<your_github_username>/Resin.git
    ```
 
 3. Go into repository folder:
 
    ```
-   cd n8n
+   cd Resin
    ```
 
-4. Add the original n8n repository as `upstream` to your forked repository:
+4. Add the original Resin repository as `upstream` to your forked repository:
 
    ```
-   git remote add upstream https://github.com/n8n-io/n8n.git
+   git remote add upstream https://github.com/ATS-debug-stack/resin.git
    ```
 
 #### For everyone
@@ -181,7 +181,7 @@ checked out and set up:
 
 ### Start
 
-To start n8n execute:
+To start Resin execute:
 
 ```bash
 pnpm start
@@ -205,21 +205,21 @@ pnpm exec dotenvx run -f .env.local -- pnpm dev:be
 
 > **Note:** dotenvx supports variable expansion (e.g. `$HOME`) but not shell
 > tilde expansion. Use `$HOME` instead of `~` for paths
-> (e.g. `N8N_USER_FOLDER=$HOME/.n8n-dev`).
+> (e.g. `RESIN_USER_FOLDER=$HOME/.Resin-dev`).
 
 ## Development cycle
 
-While iterating on n8n modules code, you can run `pnpm dev`. It will then
+While iterating on Resin modules code, you can run `pnpm dev`. It will then
 automatically build your code, restart the backend and refresh the frontend
 (editor-ui) on every change you make.
 Given the size of the code base and the number of modules, we recommend only watching the modules you're
 actively working on.
 
-### Basic Development Workflow Example (most used within n8n)
+### Basic Development Workflow Example (most used within Resin)
 
 If you're working on API and FE, a lot of team members run the following steps:
 
-1. Start n8n in development mode:
+1. Start Resin in development mode:
 ```bash
 # Terminal 1: CLI code runs the backend
 cd packages/cli
@@ -281,7 +281,7 @@ pnpm dev
 
 # Terminal 2: Run the CLI with hot reload
 cd packages/cli
-N8N_DEV_RELOAD=true pnpm dev
+RESIN_DEV_RELOAD=true pnpm dev
 ```
 
 **Example 2: Pure frontend development**
@@ -302,27 +302,27 @@ pnpm watch
 
 # Terminal 2: Run CLI with hot reload
 cd packages/cli
-N8N_DEV_RELOAD=true pnpm dev
+RESIN_DEV_RELOAD=true pnpm dev
 ```
 
 #### Running the BE server with a clean database
 
-If you want to flush your existing database, you can delete the `~/.n8n` folder.
-However, there might be times where you want to test a feature in a clean n8n set-up without losing your existing local setup.
-In such use cases, you can specify another `N8N_USER_FOLDER`, e.g.:
+If you want to flush your existing database, you can delete the `~/.Resin` folder.
+However, there might be times where you want to test a feature in a clean Resin set-up without losing your existing local setup.
+In such use cases, you can specify another `RESIN_USER_FOLDER`, e.g.:
 
 ```bash
-packages/cli$ N8N_USER_FOLDER=~/.n8n3/ pnpm run dev
-packages/cli$ N8N_USER_FOLDER=~/.n8n4/ pnpm run dev
+packages/cli$ RESIN_USER_FOLDER=~/.Resin3/ pnpm run dev
+packages/cli$ RESIN_USER_FOLDER=~/.Resin4/ pnpm run dev
 ```
 
 
-### Hot Reload for Nodes (N8N_DEV_RELOAD)
+### Hot Reload for Nodes (RESIN_DEV_RELOAD)
 
 When developing custom nodes or credentials, you can enable hot reload to automatically detect changes without restarting the server by setting
 
 ```bash
-N8N_DEV_RELOAD=true pnpm dev
+RESIN_DEV_RELOAD=true pnpm dev
 ```
 
 **Performance considerations:**
@@ -345,7 +345,7 @@ pnpm build:docker
 or set an environment variable to use a different image:
 
 ```bash
-N8N_DOCKER_IMAGE=n8nio/n8n:latest
+RESIN_DOCKER_IMAGE=ats/resin:latest
 ```
 
 **2. Run a stack**
@@ -353,25 +353,25 @@ N8N_DOCKER_IMAGE=n8nio/n8n:latest
 - **SQLite:**
 
   ```bash
-  pnpm --filter n8n-containers stack:sqlite
+  pnpm --filter Resin-containers stack:sqlite
   ```
 
 - **Postgres:**
 
   ```bash
-  pnpm --filter n8n-containers stack:postgres
+  pnpm --filter Resin-containers stack:postgres
   ```
 
 - **Queue:**
 
   ```bash
-  pnpm --filter n8n-containers stack:queue
+  pnpm --filter Resin-containers stack:queue
   ```
 
 - **Multi-Main:**
 
   ```bash
-  pnpm --filter n8n-containers stack:multi-main
+  pnpm --filter Resin-containers stack:multi-main
   ```
 
 **3. Customize or scale**
@@ -379,13 +379,13 @@ N8N_DOCKER_IMAGE=n8nio/n8n:latest
 Customize with environment variables:
 
 ```bash
-pnpm --filter n8n-containers stack --env N8N_ENABLED_MODULES=insights
+pnpm --filter Resin-containers stack --env RESIN_ENABLED_MODULES=insights
 ```
 
 Or scale up:
 
 ```bash
-pnpm --filter n8n-containers stack --queue --mains 4 --workers 20
+pnpm --filter Resin-containers stack --queue --mains 4 --workers 20
 ```
 
 Each instance gets its own port, and the webhook URL matches the main URL. Multi-main stacks use a load balancer by default.
@@ -398,7 +398,7 @@ Refer to [packages/testing/containers/README.md](packages/testing/containers/REA
 
 ### Work locally with syslog
 
-For manual testing of the event bus with syslog (TCP or UDP), see [packages/cli/test/integration/eventbus/README-manual-test-syslog.md](packages/cli/test/integration/eventbus/README-manual-test-syslog.md). An enterprise license is required to configure syslog in n8n.
+For manual testing of the event bus with syslog (TCP or UDP), see [packages/cli/test/integration/eventbus/README-manual-test-syslog.md](packages/cli/test/integration/eventbus/README-manual-test-syslog.md). An enterprise license is required to configure syslog in Resin.
 
 ### Performance Considerations
 
@@ -434,7 +434,7 @@ Please address the requested changes or provide feedback within 14 days. If ther
 #### **2. General Requirements**
 
 - **Follow the Style Guide:**
-  - Ensure your code adheres to n8n's coding standards and conventions (e.g., formatting, naming, indentation). Use linting tools where applicable.
+  - Ensure your code adheres to Resin's coding standards and conventions (e.g., formatting, naming, indentation). Use linting tools where applicable.
 - **TypeScript Compliance:**
   - Do not use `ts-ignore` .
   - Ensure code adheres to TypeScript rules.
@@ -444,7 +444,7 @@ Please address the requested changes or provide feedback within 14 days. If ther
 - **Testing Requirements:**
   - PRs **must include tests**:
     - Unit tests
-    - Workflow tests for nodes (example [here](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Switch/V3/test))
+    - Workflow tests for nodes (example [here](https://github.com/ATS-debug-stack/resin/tree/master/packages/nodes-base/nodes/Switch/V3/test))
     - UI tests (if applicable)
 - **Typos:**
   - Use a spell-checking tool, such as [**Code Spell Checker**](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker), to avoid typos.
@@ -454,9 +454,9 @@ Please address the requested changes or provide feedback within 14 days. If ther
 - **Small PRs Only:**
   - Focus on a single feature or fix per PR.
 - **Naming Convention:**
-  - Follow [n8n's PR Title Conventions](https://github.com/n8n-io/n8n/blob/master/.github/pull_request_title_conventions.md#L36).
+  - Follow [Resin's PR Title Conventions](https://github.com/ATS-debug-stack/resin/blob/master/.github/pull_request_title_conventions.md#L36).
 - **New Nodes:**
-  - PRs that introduce new nodes will be **auto-closed** unless they are explicitly requested by the n8n team and aligned with an agreed project scope. However, you can still explore [building your own nodes](https://docs.n8n.io/integrations/creating-nodes/overview/), as n8n offers the flexibility to create your own custom nodes.
+  - PRs that introduce new nodes will be **auto-closed** unless they are explicitly requested by the Resin team and aligned with an agreed project scope. However, you can still explore [building your own nodes](https://docs.ats-resin.io/integrations/creating-nodes/overview/), as Resin offers the flexibility to create your own custom nodes.
 - **Typo-Only PRs:**
   - Typos are not sufficient justification for a PR and will be rejected.
 
@@ -479,42 +479,42 @@ pnpm test
 ```
 
 If that gets executed in one of the package folders it will only run the tests
-of this package. If it gets executed in the n8n-root folder it will run all
+of this package. If it gets executed in the Resin-root folder it will run all
 tests of all packages.
 
 If you made a change which requires an update on a `.test.ts.snap` file, pass `-u` to the command to run tests or press `u` in watch mode.
 
 #### Code Coverage
-We track coverage for all our code on [Codecov](https://app.codecov.io/gh/n8n-io/n8n).
+We track coverage for all our code on [Codecov](https://app.codecov.io/gh/ATS-debug-stack/resin).
 But when you are working on tests locally, we recommend running your tests with env variable `COVERAGE_ENABLED` set to `true`. You can then view the code coverage in the `coverage` folder, or you can use [this VSCode extension](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters) to visualize the coverage directly in VSCode.
 
 #### E2E tests
 
-n8n uses [Playwright](https://playwright.dev) for E2E testing.
+Resin uses [Playwright](https://playwright.dev) for E2E testing.
 
 E2E tests can be started via one of the following commands:
 
-- `pnpm --filter=n8n-playwright test:local` - Run tests locally (starts local server on port 5680 and runs UI tests)
-- `pnpm --filter=n8n-playwright test:local --ui` - Run tests in interactive UI mode (useful for debugging)
-- `pnpm --filter=n8n-playwright test:local --grep="test-name"` - Run specific tests matching pattern
+- `pnpm --filter=Resin-playwright test:local` - Run tests locally (starts local server on port 5680 and runs UI tests)
+- `pnpm --filter=Resin-playwright test:local --ui` - Run tests in interactive UI mode (useful for debugging)
+- `pnpm --filter=Resin-playwright test:local --grep="test-name"` - Run specific tests matching pattern
 
 See `packages/testing/playwright/README.md` for more test commands and `packages/testing/playwright/CONTRIBUTING.md` for writing guidelines.
 
 ## Create custom nodes
 
-Learn about [building nodes](https://docs.n8n.io/integrations/creating-nodes/overview/) to create custom nodes for n8n. You can create community nodes and make them available using [npm](https://www.npmjs.com/).
+Learn about [building nodes](https://docs.ats-resin.io/integrations/creating-nodes/overview/) to create custom nodes for Resin. You can create community nodes and make them available using [npm](https://www.npmjs.com/).
 
 ## Extend documentation
 
-The repository for the n8n documentation on [docs.n8n.io](https://docs.n8n.io) can be found [here](https://github.com/n8n-io/n8n-docs).
+The repository for the Resin documentation on [docs.ats-resin.io](https://docs.ats-resin.io) can be found [here](https://github.com/ATS-debug-stack/resin-docs).
 
 ## Contribute workflow templates
 
-You can submit your workflows to n8n's template library.
+You can submit your workflows to Resin's template library.
 
-n8n is working on a creator program, and developing a marketplace of templates. This is an ongoing project, and details are likely to change.
+Resin is working on a creator program, and developing a marketplace of templates. This is an ongoing project, and details are likely to change.
 
-Refer to [n8n Creator hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f) for information on how to submit templates and become a creator.
+Refer to [Resin Creator hub](https://www.notion.so/Resin/Resin-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f) for information on how to submit templates and become a creator.
 
 ## Contributor License Agreement
 
