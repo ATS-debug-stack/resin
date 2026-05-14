@@ -1,3 +1,5 @@
+import './lovable-theme.css';
+
 import { createApp } from 'vue';
 
 import '@vue-flow/core/dist/style.css';

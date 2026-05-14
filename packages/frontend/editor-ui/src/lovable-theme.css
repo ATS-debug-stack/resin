@@ -1,0 +1,53 @@
+:root,
+[data-theme='dark'],
+body,
+.n8n-theme {
+	--color-background-base: #0a0a0b !important;
+	--color-background-xlight: #141416 !important;
+	--color-background-light: #18181b !important;
+	--color-background-dark: #000000 !important;
+	--color-foreground-base: #fafafa !important;
+	--color-foreground-dark: #a1a1aa !important;
+	--color-foreground-light: #ffffff !important;
+	--color-primary: #00d48a !important;
+	--color-primary-tint: #33dd9d !important;
+	--color-primary-shade: #00a86e !important;
+	--color-success: #00d48a !important;
+	--color-warning: #f5a623 !important;
+	--color-danger: #ef4444 !important;
+	--border-color-base: #27272a !important;
+	--border-color-light: #3f3f46 !important;
+	--border-color-dark: #18181b !important;
+	--border-radius-base: 12px !important;
+	--border-radius-large: 16px !important;
+	--spacing-s: 8px !important;
+	--spacing-m: 16px !important;
+	--spacing-l: 24px !important;
+	--box-shadow-base: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+	font-family:
+		'Inter',
+		-apple-system,
+		sans-serif !important;
+}
+
+.n8n-sidebar,
+.n8n-header {
+	background-color: var(--color-background-base) !important;
+	border-color: var(--border-color-base) !important;
+}
+
+.n8n-workflow-card,
+.el-card {
+	background-color: var(--color-background-xlight) !important;
+	border: 1px solid var(--border-color-base) !important;
+	border-radius: var(--border-radius-large) !important;
+	box-shadow: none !important;
+}
+
+.el-button--primary,
+.n8n-button--primary {
+	background-color: var(--color-primary) !important;
+	border-color: var(--color-primary) !important;
+	color: #0a0a0b !important;
+	font-weight: 600 !important;
+}
