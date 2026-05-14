@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_POSTGRESDB_USER:-resin}
+      POSTGRES_PASSWORD: ${DB_POSTGRESDB_PASSWORD:-resinpassword}
+      POSTGRES_DB: ${DB_POSTGRESDB_DATABASE:-resin}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_POSTGRESDB_USER:-resin}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  resin:
+    build:
+      context: .
+      dockerfile: docker/images/resin/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - DATABASE_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=${DB_POSTGRESDB_DATABASE:-resin}
+      - DB_POSTGRESDB_USER=${DB_POSTGRESDB_USER:-resin}
+      - DB_POSTGRESDB_PASSWORD=${DB_POSTGRESDB_PASSWORD:-resinpassword}
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
+      - N8N_USER_MANAGEMENT_JWT_SECRET=${N8N_USER_MANAGEMENT_JWT_SECRET}
+      - N8N_HOST=${N8N_HOST:-localhost}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=${N8N_PROTOCOL:-http}
+      - WEBHOOK_URL=${WEBHOOK_URL:-http://localhost:5678/}
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE:-Africa/Lagos}
+    volumes:
+      - resin_data:/home/node/.n8n
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  resin_data:
