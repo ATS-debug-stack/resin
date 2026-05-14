@@ -38,7 +38,7 @@ Output:
 
 ```
 Initializing n8n process
-n8n ready on 0.0.0.0, port 5678
+Resin ready on 0.0.0.0, port 5678
 Version: 0.156.0
 Locale: de
 

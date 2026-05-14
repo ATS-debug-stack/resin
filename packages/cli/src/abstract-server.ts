@@ -223,7 +223,7 @@ export abstract class AbstractServer {
 
 		this.setupHealthCheck();
 
-		this.logger.info(`n8n ready on ${address}, port ${port}`);
+		this.logger.info(`Resin ready on ${address}, port ${port}`);
 	}
 
 	async start(): Promise<void> {
@@ -309,7 +309,7 @@ export abstract class AbstractServer {
 			// TODO UM: check if this needs validation with user management.
 			this.app.delete(
 				`/${this.restEndpoint}/test-webhook/:id`,
-// @ts-ignore
+				// @ts-ignore
 				send(async (req) => await testWebhooks.cancelWebhook(req.params.id)),
 			);
 		}
